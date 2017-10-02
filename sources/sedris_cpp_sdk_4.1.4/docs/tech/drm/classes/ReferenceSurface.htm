@@ -1,0 +1,608 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Reference Surface</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Reference Surface
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Reference Surface</h2>
+<h3>Superclass - <a href="SEDRISAbstractBase.htm">&lt;SEDRIS Abstract Base&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies a constructed, geometric
+ surface that is part of the environment. The <A href="ReferenceSurface.htm">&lt;Reference Surface&gt;</A>
+ instance is used to determine the elevation of conforming points in the
+ component tree rooted at each hierarchy instance of which it is a
+ component. Conforming points are either <A href="Location2D.htm">&lt;Location 2D&gt;</A> instances
+ or <A href="LocationSurface.htm">&lt;Location Surface&gt;</A> instances. A <A href="ReferenceSurface.htm">&lt;Reference Surface&gt;</A>
+ instance also specifies how the surface is used in determining the
+ elevation value.
+</P><P>
+ An instance of <A href="FeatureHierarchy.htm">&lt;Feature Hierarchy&gt;</A> or
+ <A href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> requires a
+ <A href="ReferenceSurface.htm">&lt;Reference Surface&gt;</A> component if
+ the following conditions apply:
+<OL type='a'>
+<LI>
+ There are conforming points below the hierarchy.
+</LI>
+<LI>
+ The conforming points are in the scope of a 3D SRF.
+</LI>
+<LI>
+ The data provider wants the locations to lie on a
+ surface other than the last default surface. The initial
+ default is the designated spatial surface specified in the corresponding
+ <span class="Code">srf_context_info</span> field. If no designated spatial surface
+ is specified, the surface of the ORM specified for the SRF is used.
+</LI>
+</OL>
+<P>
+ The field values of the <A href="ReferenceSurface.htm">&lt;Reference Surface&gt;</A> instance in
+ conjunction with its associated <A href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> instance
+ define a surface for determining the elevation values
+ for conforming points. There are several cases:
+</P>
+<OL type='a'>
+<LI><P>
+ The <A href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> instance is a
+ <A href="PropertyGridHookPoint.htm">&lt;Property Grid Hook Point&gt;</A> instance that has at least one
+ <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> component <span class="ConstructName">G</span> with these
+ qualifications:
+</P>
+<OL type='1'>
+<LI>
+ the <A href="ClassificationData.htm">&lt;Classification Data&gt;</A> component of <span class="ConstructName">G</span>
+ matches the <A href="#classification">classification</A> field
+ of the <A href="ReferenceSurface.htm">&lt;Reference Surface&gt;</A> instance,
+</LI>
+<LI>
+ <span class="ConstructName">G</span> has two spatial axes corresponding to the
+ horizontal coordinates of the SRF, and
+</LI>
+<LI>
+ <span class="ConstructName">G</span> has a <A href="TablePropertyDescription.htm">&lt;Table Property Description&gt;</A>
+ component for height, elevation, or bathymetry.
+</LI>
+</OL>
+<P>
+ If the <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance meets
+ the above criteria, it defines a reference surface.
+</P></LI>
+<LI><P>
+ The <A href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> instance is a
+ <A href="UnionOfPrimitiveGeometry.htm">&lt;Union Of Primitive Geometry&gt;</A> instance that
+ aggregates <A href="SurfaceGeometry.htm">&lt;Surface Geometry&gt;</A> components with
+ <A href="ClassificationData.htm">&lt;Classification Data&gt;</A> instances matching
+ the <A href="#classification">classification</A> field
+ of the <A href="ReferenceSurface.htm">&lt;Reference Surface&gt;</A> instance.
+ In this case, all such <A href="SurfaceGeometry.htm">&lt;Surface Geometry&gt;</A>
+ components combine to form the reference surface.
+</P></LI>
+<LI><P>
+ The <A href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> instance is a
+ <A href="LODRelatedGeometry.htm">&lt;LOD Related Geometry&gt;</A> instance
+ that aggregates (directly or indirectly)
+ <A href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> instance
+ cases a and/or b above under an LOD branch selected by the
+ <A href="#lod_rule">lod_rule</A> field of the
+ <A href="ReferenceSurface.htm">&lt;Reference Surface&gt;</A> instance.
+ The <A href="LODRelatedGeometry.htm">&lt;LOD Related Geometry&gt;</A> instance
+ may be of type distance, index, map scale, or spatial resolution.
+ The branch selected by the <A href="#lod_rule">lod_rule</A> field
+ forms the reference surface.
+</P></LI>
+<LI><P>
+ The <A href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> instance
+ aggregates some combination of cases a, b, or c. For each such case,
+ the combination of the individual reference surfaces forms the
+ composite reference surface.
+</P></LI>
+</OL>
+<P>
+ The third coordinate-component of a conforming point is determined
+ as specified in <i>4.7.3 Location</i> of ISO/IEC 18023-1.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet09.pdf"><strong>9</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet03.pdf"><strong>3</strong></A>
+</LI>
+<LI><A href="sheet08.pdf"><strong>8</strong></A>
+</LI>
+</UL>
+
+<h3>Example</h3>
+<OL>
+<LI><P>
+ Consider an <A href="EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instance <span class="ConstructName">ER</span>,
+ having both a <A href="UnionOfGeometryHierarchy.htm">&lt;Union Of Geometry Hierarchy&gt;</A> component
+ <span class="ConstructName">UGH</span> and a <A href="UnionOfFeatures.htm">&lt;Union Of Features&gt;</A> component
+ <span class="ConstructName">UF</span>.
+</P><P>
+ <span class="ConstructName">UGH</span> contains a <A href="UnionOfPrimitiveGeometry.htm">&lt;Union Of Primitive Geometry&gt;</A>
+ instance <span class="ConstructName">UPG_1</span> classified as <A href="../../../../src/lib/edcs/docs/dictionary/ECC_T.htm#ECC_TERRAIN_ELEVATION">ECC_TERRAIN_ELEVATION</A>
+ and containing <A href="Polygon.htm">&lt;Polygon&gt;</A> components that inherit the
+ <A href="ClassificationData.htm">&lt;Classification Data&gt;</A> instance. <span class="ConstructName">UPG_1</span> is a
+ polygonal representation of terrain, forming part of the
+ larger environmental representation <span class="ConstructName">ER</span>.
+</P><P>
+ <span class="ConstructName">UF</span>, the feature representation of
+ <span class="ConstructName">ER</span>, has a <A href="ReferenceSurface.htm">&lt;Reference Surface&gt;</A>
+ component that associates to <span class="ConstructName">UPG_1</span> as
+ depicted in <a href="#Figure53">Figure 53</a>:
+</P>
+<DIV align="center">
+<p>
+<A name="Figure53"></A>
+<IMG SRC="../Images/RSrf_Ex1.png"
+     ALT="Reference Surface, Example 1">
+</p>
+<p class=FigureCaption>Figure 53 &#8212; &lt;DRM Reference Surface&gt; ECC_TERRAIN_ELEVATION example</p>
+</DIV>
+<P>
+ Consequently, conforming points found in the component tree of
+ <span class="ConstructName">UF</span> use the terrain polygons of
+ <span class="ConstructName">UPG_1</span> to resolve elevation.
+</P></LI>
+<LI><P>
+ Continuing the previous example, the
+ <A href="UnionOfGeometryHierarchy.htm">&lt;Union Of Geometry Hierarchy&gt;</A> instance <span class="ConstructName">UGH</span>
+ under <span class="ConstructName">ER</span> contains another
+ <A href="UnionOfPrimitiveGeometry.htm">&lt;Union Of Primitive Geometry&gt;</A> instance
+ <span class="ConstructName">UPG_2</span> with <A href="Polygon.htm">&lt;Polygon&gt;</A> components
+ classified as <A href="../../../../src/lib/edcs/docs/dictionary/ECC_I.htm#ECC_INLAND_WATER_ELEVATION">ECC_INLAND_WATER_ELEVATION</A> as depicted in
+ <a href="#Figure54">Figure 54</a>.
+</P>
+<DIV align="center">
+<p>
+<A name="Figure54"></A>
+<IMG SRC="../Images/RSrf_Ex2.png"
+     ALT="Reference Surface, Example 2">
+</p>
+<p class=FigureCaption>Figure 54 &#8212; &lt;DRM Reference Surface&gt; ECC_INLAND_WATER_ELEVATION example</p>
+</DIV>
+<P>
+ <span class="ConstructName">UF</span>, in turn, has a <A href="UnionOfFeatures.htm">&lt;Union Of Features&gt;</A>
+ component <span class="ConstructName">UF_2</span> that is classified as
+ <A href="../../../../src/lib/edcs/docs/dictionary/ECC_E.htm#ECC_ENGINEERING_BRIDGE">ECC_ENGINEERING_BRIDGE</A> and contains
+ <A href="LinearFeature.htm">&lt;Linear Feature&gt;</A> instances using
+ <A href="Location2D.htm">&lt;Location 2D&gt;</A> instances. <span class="ConstructName">UF_2</span> also has
+ a <A href="ReferenceSurface.htm">&lt;Reference Surface&gt;</A> component with
+ <A href="#classification">classification</A> =
+ <A href="../../../../src/lib/edcs/docs/dictionary/ECC_I.htm#ECC_INLAND_WATER_ELEVATION">ECC_INLAND_WATER_ELEVATION</A> and associated to
+ <span class="ConstructName">UPG_2</span>.
+</P><P>
+ Consequently, the conforming points of <span class="ConstructName">UF_2</span> have
+ elevation values derived for them by being evaluated against
+ <span class="ConstructName">UPG_2</span>.
+</P></LI>
+<LI><P>
+ Consider a <A href="ReferenceSurface.htm">&lt;Reference Surface&gt;</A> instance
+ <span class="ConstructName">R</span> for which the geometry is a
+ <A href="SpatialIndexRelatedGeometry.htm">&lt;Spatial Index Related Geometry&gt;</A> instance
+ <span class="ConstructName">S</span>. Each branch of <span class="ConstructName">S</span>
+ is a polygonal representation, part of which represents
+ terrain surface, part roads, and part forest canopy.
+ <span class="ConstructName">R</span> associates to <span class="ConstructName">S</span>,
+ and its <A href="#classification">classification</A> field =
+ <A href="../../../../src/lib/edcs/docs/dictionary/ECC_T.htm#ECC_TERRAIN_ELEVATION">ECC_TERRAIN_ELEVATION</A>. The resolution process then ignores
+ the road and canopy polygons, but sees all the terrain polygons
+ regardless of which union they are in.
+</P><P>
+ Consider a <A href="LinearFeature.htm">&lt;Linear Feature&gt;</A> instance <span class="ConstructName">L</span>
+ representing a road that mostly stays on the road geometry but
+ sometimes strays off. <span class="ConstructName">L</span> is placed in a
+ <A href="UnionOfFeatures.htm">&lt;Union Of Features&gt;</A> instance aggregating a different
+ <A href="ReferenceSurface.htm">&lt;Reference Surface&gt;</A> instance <span class="ConstructName">R2</span>
+ with associates to the same
+ <A href="SpatialIndexRelatedGeometry.htm">&lt;Spatial Index Related Geometry&gt;</A> instance but has
+ <A href="#classification">classification</A> = <A href="../../../../src/lib/edcs/docs/dictionary/ECC_R.htm#ECC_ROAD">ECC_ROAD</A>.
+ Like <span class="ConstructName">R</span>, <span class="ConstructName">R2</span> associates
+ to <span class="ConstructName">S</span>. The resolution process for
+ <span class="ConstructName">R2</span> sees the road <A href="Polygon.htm">&lt;Polygon&gt;</A>
+ instances and ignores the others. For <A href="FeatureNode.htm">&lt;Feature Node&gt;</A>
+ instances that stray off the road, the corresponding
+ conforming points' rays fail to intersect any road polygon, so the
+ resolution process (as per case 3) applies, and the
+ resolution process falls back on the previous override,
+ which was the terrain surface.
+</P></LI>
+<LI><P>
+ Consider a terrain representation organized in three-minute regions that
+ are grouped into one-degree cells. The cells are all collected under one
+ <A href="UnionOfGeometryHierarchy.htm">&lt;Union Of Geometry Hierarchy&gt;</A> instance. In the same transmittal,
+ <A href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> instances and non-terrain
+ <A href="GeometryRepresentation.htm">&lt;Geometry Representation&gt;</A> instances are organized under a
+ corresponding spatial organization.  Each three-minute hierarchy has a
+ <A href="ReferenceSurface.htm">&lt;Reference Surface&gt;</A> instance associated to the
+ corresponding three-minute terrain region. Each one-degree hierarchy has a
+ <A href="ReferenceSurface.htm">&lt;Reference Surface&gt;</A> instance associated to the
+ corresponding one-degree terrain cell. Each of the highest level feature
+ and non-terrain geometry hierarchies has a
+ <A href="ReferenceSurface.htm">&lt;Reference Surface&gt;</A> instance associated to the
+ terrain <A href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> instance.
+</P><P>
+ In this scheme, a <A href="Location2D.htm">&lt;Location 2D&gt;</A> instance in a
+ three-minute region finds its resolution surface in the corresponding
+ three-minute terrain region. If a <A href="Location2D.htm">&lt;Location 2D&gt;</A> instance
+ is outside its region (<I>i.e.</I>,
+ <A href="SpatialIndexRelatedFeatures.htm#strict_organizing_principle">strict_organizing_principle</A>
+ = <A href="../types/SE_Boolean.htm#SE_FALSE">SE_FALSE</A>),
+ the containing one-degree terrain cell resolves the conforming point.
+ If the location ray fails to intersect the one-degree terrain cell,
+ the full terrain <A href="UnionOfGeometryHierarchy.htm">&lt;Union Of Geometry Hierarchy&gt;</A> instance
+ is used.  If ray / surface intersection still fails, the elevation
+ is resolved by the designated spatial surface.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ <EM>Why</EM> does a hierarchy need a <A href="ReferenceSurface.htm">&lt;Reference Surface&gt;</A>
+ instance? What is meant by &quot;elevations&quot; for
+ conforming points? They don't have elevation.
+</B></DT>
+<DD><P>
+ In a 3D SRF, conforming points are thought of as lying on a surface.
+ Which surface is intended seems to be subjective at best. A
+ cartographer may prefer the designated spatial surface as the
+ conforming point surface, while others prefer the
+ &quot;terrain surface&quot;. Terrain surface is also a subjective term,
+ and terrain surfaces have been mapped to the DRM in a variety of ways.
+ Even if one notion of surface for conforming points were mandated,
+ it would not meet everyone's requirements.
+</P><P>
+ The solution is to mandate a clearly defined surface (the initial
+ default) <EM>and</EM> provide a flexible mechanism to override the
+ default for all or for selected parts of the transmittal.
+</P></DD>
+<DT><B>
+ How does a <A href="FeatureHierarchy.htm">&lt;Feature Hierarchy&gt;</A> instance or
+ <A href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> instance use a
+ <A href="ReferenceSurface.htm">&lt;Reference Surface&gt;</A> instance to resolve elevations for
+ conforming points within their component trees?
+</B></DT>
+<DD><P>
+ Consider a <A href="ReferenceSurface.htm">&lt;Reference Surface&gt;</A> instance that is associated to a
+ <A href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> instance that contains a surface. A
+ conforming point corresponds to the (unique) ray which is:
+</P>
+<OL>
+<LI><P>
+ normal to the surface of the SRF's ORM <A href="#FAQ_enote">(*)</A>,
+</P></LI>
+<LI><P>
+ intersects the ORM at the same horizontal coordinates as the
+ conforming point, and
+</P></LI>
+<LI><P>
+ extends below the surface of the ORM to a depth
+ equal to the minor radius of the ORM, if the ORM is an ellipsoid.
+</P></LI>
+</OL>
+<P>
+ <A NAME="FAQ_enote">(*)</A> <STRONG>NOTE</STRONG>:
+ For augmented Projected SRFs, this is the projection ellipsoid. For LSR,
+ use the z=0 plane, where z is the coordinate axis specified by the
+ <A href="../../srm/types/SRM_LSR_3D_Parameters.htm">SRM_LSR_3D_Parameters</A>
+ <A href="../../srm/types/SRM_LSR_3D_Parameters.htm#up_direction">up_direction</A> value.
+</P><P>
+ The intersection of this ray with the resolution surface defines the
+ candidate set for the corresponding 3D location. One 3D location is
+ selected from the ray/surface intersection set according to the
+ following three cases.
+</P>
+<OL>
+<LI><P>
+ If the set contains one and only one element, the spatial position
+ of that point resolves the conforming point instance.
+</P></LI>
+<LI><P>
+ If the set contains more than one element, the
+ <A href="#multiplicity_rule">multiplicity_rule</A>
+ value is used to select exactly one element.
+<BR>
+ (For example, if several overlapping <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instances
+ with <A href="GridOverlap.htm">&lt;Grid Overlap&gt;</A> components are part of the
+ <A href="ReferenceSurface.htm">&lt;Reference Surface&gt;</A> instance, use
+ <A href="GridOverlap.htm">&lt;Grid Overlap&gt;</A> component's rules to define the
+ <A href="ReferenceSurface.htm">&lt;Reference Surface&gt;</A> instance in the
+ overlap region of two or more of the surface grids. If the
+ intersection set still has more than one point, use
+ <A href="#multiplicity_rule">multiplicity_rule</A>.)
+</P></LI>
+<LI><P>
+ If the intersection is empty, look for other
+ <A href="ReferenceSurface.htm">&lt;Reference Surface&gt;</A> instances higher up the component tree
+ and repeat this resolution process with that surface instead. If
+ there are no other <A href="ReferenceSurface.htm">&lt;Reference Surface&gt;</A> instances higher up
+ the component tree, use the designated spatial surface
+ (which is guaranteed to be a case 1 surface).
+ (See also example 5).
+</P></LI>
+</OL>
+</DD>
+<DT><B>
+ What if there is no single <A href="UnionOfPrimitiveGeometry.htm">&lt;Union Of Primitive Geometry&gt;</A>
+ instance that defines the <A href="ReferenceSurface.htm">&lt;Reference Surface&gt;</A> instance?
+</B></DT>
+<DD><P>
+ There is no requirement that the aggregate be free of non-reference
+ surface geometry (See example 3).  In this case, find the higher level
+ <A href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> instance that aggregates the desired
+ <A href="UnionOfPrimitiveGeometry.htm">&lt;Union Of Primitive Geometry&gt;</A>
+ sub-hierarchies, and use that for the
+ <A href="ReferenceSurface.htm">&lt;Reference Surface&gt;</A> association.
+</P></DD>
+<DT><B>
+ What happens to <A href="LSR2DLocation.htm">&lt;LSR 2D Location&gt;</A> instances
+ in an LSR <A href="Model.htm">&lt;Model&gt;</A> instance <span class="ConstructName">M</span> when
+ <span class="ConstructName">M</span> is instanced by a model instance object in
+ a non-LSR 3D SRF?
+</B></DT>
+<DD><P>
+ That depends on whether or not the scoping SRF supports
+ conforming points.
+<UL>
+<LI><P>
+ If conforming points are supported in the scoping SRF, (for example,
+ if the scoping SRF is 3D geodetic, for which 2D geodetic exists),
+ these conforming points are converted to conforming points in the
+ instancing 3D SRF using a 3 step process.
+</P>
+<TABLE border=1>
+<TR><TH align=left valign=top>Step 1</TH>
+<TD>
+ An <A href="LSR2DLocation.htm">&lt;LSR 2D Location&gt;</A> instance is converted
+ to an <A href="LSR3DLocation.htm">&lt;LSR 3D Location&gt;</A> instance by
+ resolving to the LSR designated spatial surface (z=0 plane, where z is the
+ coordinate axis specified by the
+ <A href="../../srm/types/SRM_LSR_3D_Parameters.htm">SRM_LSR_3D_Parameters</A>
+ <A href="../../srm/types/SRM_LSR_3D_Parameters.htm#up_direction">up_direction</A>).
+</TD></TR>
+<TR><TH align=left valign=top>Step 2</TH>
+<TD>
+ The resulting <A href="LSR3DLocation.htm">&lt;LSR 3D Location&gt;</A> instance is
+ converted to a <A href="Location3D.htm">&lt;Location 3D&gt;</A> instance in the
+ scoping 3D SRF in the usual (model instance) way.
+</TD></TR>
+<TR><TH align=left valign=top>Step 3</TH>
+<TD>
+ If the SRF supports <A href="Location2D.htm">&lt;Location 2D&gt;</A> instances
+ (<I>e.g.</I>, geodetic), the <A href="Location3D.htm">&lt;Location 3D&gt;</A>
+ instance is collapsed to a <A href="Location2D.htm">&lt;Location 2D&gt;</A>
+ instance with the same horizontal coordinates.
+</TD></TR>
+</TABLE>
+</LI>
+<LI>
+ Otherwise, if the scoping SRF does not support conforming points,
+ the <A href="LSR2DLocation.htm">&lt;LSR 2D Location&gt;</A> instance is
+ converted to 3D by setting the tertiary axis value to zero.
+</LI>
+</UL>
+<P>
+ (Note 1): LSR models are not permitted to contain
+ <A href="ReferenceSurface.htm">&lt;Reference Surface&gt;</A> instances;
+ see constraints.
+<BR>
+ (Note 2): Conformal behaviour may also be modelled with
+ <A href="LSR3DLocationControlLink.htm">&lt;LSR 3D Location Control Link&gt;</A>
+ instances.
+</P></DD>
+<DT><B>
+ Can a <A href="GeometryModelInstance.htm">&lt;Geometry Model Instance&gt;</A> instance be used for a
+ <A href="ReferenceSurface.htm">&lt;Reference Surface&gt;</A> instance's association?
+</B></DT>
+<DD><P>
+ Yes, if the <A href="Model.htm">&lt;Model&gt;</A> instance's SRF
+ matches the currently scoped SRF.
+</P></DD>
+<DT><B>
+ How are conforming points converted consuming data in a different SRF?
+</B></DT>
+<DD><P>
+ There are two cases.
+</P><P>
+ Case 1 - both SRFs have the same ORM.
+<BR>
+ Case 2 - The two SRFs have different ORMs.
+</P><P>
+ In case 1 (Same ORM), the ray determined by the conforming point
+ is invariant, so the horizontal coordinates are converted in the
+ usual way.
+</P><P>
+ In case 2 (Different ORMs), the ray may change, so three
+ steps are needed:
+</P>
+<TABLE border=1>
+<TR><TH align=left valign=top>Step 1</TH>
+<TD>
+ Resolve elevation in the originating SRF and convert the
+ conforming point to a <A href="Location3D.htm">&lt;Location 3D&gt;</A> instance.
+</TD></TR>
+<TR><TH align=left valign=top>Step 2</TH>
+<TD>
+ Convert the <A href="Location3D.htm">&lt;Location 3D&gt;</A> instance to the
+ second SRF (conversion not currently supported).
+</TD></TR>
+<TR><TH align=left valign=top>Step 3</TH>
+<TD>
+ Collapse the <A href="Location3D.htm">&lt;Location 3D&gt;</A> instance to a conforming point.
+</TD></TR>
+</TABLE>
+</DD>
+<DT><B>
+ If a transmittal is consumed in an SRF other than its native
+ SRF, should elevations be resolved in the originating or the
+ consuming SRF?
+</B></DT>
+<DD><P>
+ It should not make a difference if the two SRFs are both
+ &quot;real world&quot; or
+ both Augmented Projected Coordinate Systems (APCS).  In the case in which
+ one is &quot;real&quot; world and the other is APCS, there are
+ two ways to deal with the &quot;conversion distortion&quot; that
+ tends to bend flat surfaces.
+</P><P>
+ Consider a conforming point whose ray intersects the resolution surface
+ near the centre of exactly one triangular <A href="Polygon.htm">&lt;Polygon&gt;</A> instance.
+ The intersection point determines the elevation, and therefore a
+ corresponding <A href="Location3D.htm">&lt;Location 3D&gt;</A> instance.  If elevations are
+ resolved in the first SRF, and the <A href="Location3D.htm">&lt;Location 3D&gt;</A> instance
+ is then converted, the location will match the transmittal point,
+ but it may no longer lie on the triangle's surface. On the other hand,
+ if the conforming point is converted and then elevations are resolved
+ in the second SRF, the corresponding <A href="Location3D.htm">&lt;Location 3D&gt;</A> instance
+ will lie on the triangle's surface, but may differ a little in
+ elevation from the originating point.  Therefore if absolute location
+ is more important than conformality, resolve in the originating SRF.
+ If conformality is more important, resolve in the consuming SRF.
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ModelSRF.htm">&lt;&lt;Model SRF&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/PropertyConstraints.htm">&lt;&lt;Property Constraints&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ReferenceSurfaceConstraints.htm">&lt;&lt;Reference Surface Constraints&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Associated to (one-way)</h3>
+<UL>
+<li>one <a href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</a> instance<sup><A href="#Notes_asn_toGeometry_Hierarchy" name="asn_toGeometry_Hierarchy">1</A></sup></li>
+</UL>
+
+<h3>Composed of (two-way)</h3>
+<UL>
+<li>zero or more <a href="PropertyValue.htm">&lt;Property Value&gt;</a> instances<sup><A href="#Notes_cmp_Property_Value" name="cmp_Property_Value">2</A></sup></li>
+</UL>
+
+<h3>Component of (two-way)</h3>
+<UL>
+<li>zero or more <a href="FeatureHierarchy.htm">&lt;Feature Hierarchy&gt;</a> instances</li>
+<li>zero or more <a href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</a> instances</li>
+</UL>
+
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../../../../src/lib/edcs/docs/types/EDCS_Classification_Code.htm">EDCS_Classification_Code</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="classification">classification</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_classification">3</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Reference_Surface_Elevation_Select.htm">SE_Reference_Surface_Elevation_Select</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="multiplicity_rule">multiplicity_rule</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_multiplicity_rule">4</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Reference_Surface_LOD_Select.htm">SE_Reference_Surface_LOD_Select</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="lod_rule">lod_rule</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_lod_rule">5</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Associated to Notes</h3>
+<br>
+<h4><a href="#asn_toGeometry_Hierarchy" name="Notes_asn_toGeometry_Hierarchy">Geometry_Hierarchy</a></h4>
+ This specifies the <A href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> instance
+ containing the <A href="SurfaceGeometry.htm">&lt;Surface Geometry&gt;</A> instances
+ and/or <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instances to be
+ used as the reference surface.
+</P>
+<h3>Composed of Notes</h3>
+<br>
+<h4><a href="#cmp_Property_Value" name="Notes_cmp_Property_Value">Property_Value</a></h4>
+ A <A href="ReferenceSurface.htm">&lt;Reference Surface&gt;</A> instance has
+ <A href="PropertyValue.htm">&lt;Property Value&gt;</A> components only when
+ the <A href="#classification">classification</A>
+ of the <A href="ReferenceSurface.htm">&lt;Reference Surface&gt;</A> requires
+ elaboration by <A href="PropertyValue.htm">&lt;Property Value&gt;</A> components.
+</P>
+<h3>Fields Notes</h3>
+<h4><a href="#classification" name="Notes_classification">classification</a></h4>
+<P>
+ Within the reference surface, only geometry matching
+ the (possibly elaborated) classification specified by the
+ <A href="#classification">classification</A>
+ field is used.
+</P>
+<h4><a href="#multiplicity_rule" name="Notes_multiplicity_rule">multiplicity_rule</a></h4>
+<P>
+ The
+ <A href="#multiplicity_rule">multiplicity_rule</A>
+ field specifies a rule to select a single point from multiple
+ intersections of a ray with the reference surface defined by
+ the instance of <A href="ReferenceSurface.htm">&lt;Reference Surface&gt;</A>.
+</P>
+<h4><a href="#lod_rule" name="Notes_lod_rule">lod_rule</a></h4>
+<P>
+ The <A href="#lod_rule">lod_rule</A> field
+ specifies a rule to select one LOD branch.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="ReferenceOrigin.htm">Reference Origin</A>.
+<strong>Next:</strong> <A href="ReferenceVector.htm">Reference Vector</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Predefined Function</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Predefined Function
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Predefined Function</h2>
+<h3>Superclass - <a href="Function.htm">&lt;Function&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class is a <A href="Function.htm">&lt;Function&gt;</A> instance
+ for which the function being used to determine the value of the
+ expression is one of those specified by the
+ <A href="../types/SE_Predefined_Function.htm">SE_Predefined_Function</A> data type.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet16.pdf"><strong>16</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+This class appears on only one page of the DRM class diagram.
+<h3>Example</h3>
+<OL>
+<LI><P>
+ See the <A href="PropertyTableReferenceControlLink.htm">&lt;Property Table Reference Control Link&gt;</A> class,
+ second example.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ Why isn't &lt;my favorite function&gt; included in the
+ <A href="../types/SE_Predefined_Function.htm">SE_Predefined_Function</A>?
+</B></DT>
+<DD><P>
+ Simple!  We didn't think of it.  If you'd like to see it, we'd be
+ happy to consider any change request you might offer.
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/NonCyclicAggregations.htm">&lt;&lt;Non Cyclic Aggregations&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Composed of (two-way) (inherited)</h3>
+<UL>
+<li>zero or more {ordered} <a href="Expression.htm">&lt;Expression&gt;</a> instances<sup><A href="#Notes_cmp_Expression" name="cmp_Expression">1</A></sup></li>
+</UL>
+<h3>Composed of (two-way)</h3>
+<UL>
+<li>zero or one <a href="PropertyTableReference.htm">&lt;Property Table Reference&gt;</a> instance</li>
+</UL>
+
+<h3>Component of (two-way) (inherited)</h3>
+<UL>
+<li>zero or more <a href="ControlLink.htm">&lt;Control Link&gt;</a> instances</li>
+<li>zero or more <a href="FeatureModelInstance.htm">&lt;Feature Model Instance&gt;</a> instances, each through the use of a <a href="ModelInstanceTemplateIndex.htm">&lt;Model Instance Template Index&gt;</a> link object</li>
+<li>zero or more <a href="Function.htm">&lt;Function&gt;</a> instances</li>
+<li>zero or more <a href="GeometryModelInstance.htm">&lt;Geometry Model Instance&gt;</a> instances, each through the use of a <a href="ModelInstanceTemplateIndex.htm">&lt;Model Instance Template Index&gt;</a> link object</li>
+</UL>
+<h2><a name="inherited_field">Inherited Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../../../../src/lib/edcs/docs/types/EDCS_Attribute_Value_Type.htm">EDCS_Attribute_Value_Type</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="value_type">value_type</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_value_type">2</A></sup></p></td>
+</tr>
+</table>
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Predefined_Function.htm">SE_Predefined_Function</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="function">function</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_function">3</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Composed of Notes</h3>
+<br>
+<h4><a href="#cmp_Expression" name="Notes_cmp_Expression">Expression</a></h4>
+ The <A href="Expression.htm">&lt;Expression&gt;</A> components of a
+ <A href="Function.htm">&lt;Function&gt;</A> instance, if any, represent
+ the arguments of the function being represented, so a
+ <A href="Function.htm">&lt;Function&gt;</A> instance has
+ <A href="Expression.htm">&lt;Expression&gt;</A> components if that
+ <A href="Function.htm">&lt;Function&gt;</A> instance takes arguments. The
+ <A href="Expression.htm">&lt;Expression&gt;</A> components
+ are ordered so as to unambiguously specify which
+ <A href="Expression.htm">&lt;Expression&gt;</A> component
+ is being supplied for each argument of the
+ <A href="Function.htm">&lt;Function&gt;</A> instance.
+ The exact interpretation of each argument is defined by
+ the specific function.
+</P>
+<h3>Fields Notes</h3>
+<h4><a href="#value_type" name="Notes_value_type">value_type</a></h4>
+<P>
+ The <A href="#value_type">value_type</A> of a
+ <A href="Function.htm">&lt;Function&gt;</A> instance specifies the
+ type of value returned.
+</P>
+<h4><a href="#function" name="Notes_function">function</a></h4>
+<P>
+ The <A href="#function">function</A> field specifies the
+ function to be used to determine the value of the expression
+ when it is evaluated.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="PositionalLight.htm">Positional Light</A>.
+<strong>Next:</strong> <A href="PresentationDomain.htm">Presentation Domain</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,457 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Property Grid</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Property Grid
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Property Grid</h2>
+<h3>Superclass - <a href="DataTable.htm">&lt;Data Table&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class is a <A href="DataTable.htm">&lt;Data Table&gt;</A> instance
+ that has at least one but not more than three spatial axes.
+ Spatial axes shall always appear before any other
+ <A href="Axis.htm">&lt;Axis&gt;</A> components in the ordered list of
+ <A href="Axis.htm">&lt;Axis&gt;</A> components for the <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A>
+ instance.
+</P><P>
+ A spatial axis is an <A href="Axis.htm">&lt;Axis&gt;</A> component that describes
+ sampling along one of the components of the SRF of
+ the <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance. Hence, it is directly
+ useful for locating the sample values in space. To qualify as spatial,
+ the <A href="Axis.htm">&lt;Axis&gt;</A> component shall match the SRF
+ exactly, using a consistent specification (<I>e.g.</I>, the same ORM,
+ direction vector and units). Spatial axes have the following
+ characteristics.
+</P>
+<OL type='a'>
+<LI>
+ The spatial <A href="Axis.htm">&lt;Axis&gt;</A> components of a
+ <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance shall always be the
+ first members of the ordered set of <A href="Axis.htm">&lt;Axis&gt;</A> components.
+ The <A href="#spatial_axes_count">spatial_axes_count</A>
+ field indicates how many of the <A href="Axis.htm">&lt;Axis&gt;</A> components are
+ spatial. Because the <A href="Axis.htm">&lt;Axis&gt;</A> component ordering also determines
+ the scanning order when data is retrieved from a
+ <A href="DataTable.htm">&lt;Data Table&gt;</A> instance, placing
+ the spatial axes first imposes some limitations
+ on the way data can be scanned.
+</LI>
+<LI>
+ There are no other ordering rules for
+ spatial <A href="Axis.htm">&lt;Axis&gt;</A> components. If a producer has a choice,
+ it is recommended that spatial <A href="Axis.htm">&lt;Axis&gt;</A> components
+ be ordered in the same way as the SRF components. As mentioned in
+ the previous item, this is not always possible. Thus, no assumptions
+ can be made about the ordering apart from those
+ stated above.
+</LI>
+</OL>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet06.pdf"><strong>6</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet08.pdf"><strong>8</strong></A>
+</LI>
+</UL>
+
+<h3>Example</h3>
+<OL>
+<LI><P>
+ A DTED <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance is associated to
+ <A href="ArealFeature.htm">&lt;Areal Feature&gt;</A> instances representing
+ DTED accuracy areas supplemental to the grid.
+</P></LI>
+<LI><P>
+ Consider a <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance classified
+ as <A href="../../../../src/lib/edcs/docs/dictionary/ECC_W.htm#ECC_WATERBODY_TEMPERATURE_PROPERTY_SET">ECC_WATERBODY_TEMPERATURE_PROPERTY_SET</A>
+ for an ocean volume. Ocean
+ temperature features, such as warm/cold currents, fronts,
+ and eddies, are associated to specific cells of the
+ <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance.
+</P></LI>
+<LI><P>
+ Consider a transmittal provided by a data producer whose format uses
+ polygons rather than grids to represent terrain, where the polygons
+ define a default post spacing. To provide this
+ default post spacing
+ in the transmittal, the data provider provides an empty
+ <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance, attaching it to the
+ hierarchy with a
+ <A href="PropertyGridHookPoint.htm">&lt;Property Grid Hook Point&gt;</A>
+ instance, as usual, with the structure depicted in <a href="#Figure43">Figure 43</a>.
+</P>
+<DIV align="center">
+<p>
+<A name="Figure43"></A>
+<IMG SRC="../Images/PGrid_Ex3.png"
+     ALT="Property Grid, Example 3">
+</p>
+<p class=FigureCaption>Figure 43 &#8212; &lt;DRM Property Grid&gt; example</p>
+</DIV>
+<P>
+ The spatial <A href="Axis.htm">&lt;Axis&gt;</A> instances define the extents and the
+ spacing of the <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance. The
+ data provider has the option of providing
+ <A href="PropertyCharacteristic.htm">&lt;Property Characteristic&gt;</A>
+ components for the
+ <A href="TablePropertyDescription.htm">&lt;Table Property Description&gt;</A>
+ instance to supply the minimum and maximum elevation values.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ Since <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> is a subclass
+ of <A href="DataTable.htm">&lt;Data Table&gt;</A>, and a
+ <A href="DataTableLibrary.htm">&lt;Data Table Library&gt;</A> instance is composed of
+ <A href="DataTable.htm">&lt;Data Table&gt;</A> instances, doesn't that mean
+ that a <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance can be a
+ component of a
+ <A href="DataTableLibrary.htm">&lt;Data Table Library&gt;</A> instance?
+</B></DT>
+<DD><P>
+ Yes.
+</P></DD>
+<DT><B>
+ What are examples of non-spatial axes?
+</B></DT>
+<DD><P>
+ Any <A href="Axis.htm">&lt;Axis&gt;</A> instance for which the
+ <A href="Axis.htm#axis_type">axis_type</A> is not spatial is a
+ non-spatial <A href="Axis.htm">&lt;Axis&gt;</A> instance. Examples of such
+ <A href="Axis.htm#axis_type">axis_type</A> values are
+ <A href="../../../../src/lib/edcs/docs/dictionary/EAC_M.htm#EAC_MONTH">EAC_MONTH</A>,
+ material index,
+ <A href="../../../../src/lib/edcs/docs/dictionary/EAC_D.htm#EAC_DENSITY">EAC_DENSITY</A>.
+ There are also <A href="Axis.htm">&lt;Axis&gt;</A> instances that
+ seem to have spatial meaning but are not &quot;spatial&quot; to the DRM,
+ for example, atmospheric pressure height, height above or below terrain
+ surface, azimuth.  These are non-spatial to SEDRIS because they require
+ either additional information (such as the location of the terrain surface)
+ or a parametric formula (such as the standard atmosphere model) to convert
+ their values into a <A href="Location.htm">&lt;Location&gt;</A> instance in the
+ SRF of the
+ <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance.
+</P></DD>
+<DT><B>
+ Why is a <A href="PropertyTable.htm">&lt;Property Table&gt;</A> instance permitted
+ to have other <A href="DataTable.htm">&lt;Data Table&gt;</A> instances as components?
+</B></DT>
+<DD><P>
+ This mechanism allows a <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A>
+ instance's cell data element to specify an index into the set of ordered
+ <A href="DataTable.htm">&lt;Data Table&gt;</A> components, so that any
+ <A href="DataTable.htm">&lt;Data Table&gt;</A> component can be referenced by many
+ data cells. See <a href="../constraints/IndexCodeswithinTables.htm">&lt;&lt;Index Codes within Tables&gt;&gt;</a> for further details.
+</P></DD>
+<DT><B>
+ Why is a <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance allowed to
+ associate directly with a
+ <A href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> instance?
+ Couldn't the same functionality be achieved by associating the
+ <A href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> instance
+ with a
+ <A href="PropertyGridHookPoint.htm">&lt;Property Grid Hook Point&gt;</A>
+ instance?
+</B></DT>
+<DD><P>
+ No. A <A href="PropertyGridHookPoint.htm">&lt;Property Grid Hook Point&gt;</A>
+ instance may have several
+ <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> components,
+ making the main connection between a
+ <A href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> instance
+ and a <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance ambiguous.
+</P></DD>
+<DT><B>
+ What if a cell in a <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance
+ is related to several
+ <A href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> instances
+ simultaneously?
+</B></DT>
+<DD><P>
+ This is easily handled by having the cell index to a (nested)
+ <A href="DataTable.htm">&lt;Data Table&gt;</A> component of related
+ <A href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> instance IDs
+ (<A href="../../../../src/lib/edcs/docs/dictionary/EAC_N.htm#EAC_NUMERIC_OBJECT_IDENTIFIER">EAC_NUMERIC_OBJECT_IDENTIFIER</A>).
+ Such <A href="DataTable.htm">&lt;Data Table&gt;</A> components of related
+ <A href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> instances
+ shall be classified as
+ <A href="../../../../src/lib/edcs/docs/dictionary/ECC_R.htm#ECC_RELATED_OBJECT_SET">ECC_RELATED_OBJECT_SET</A>.
+</P></DD>
+<DT><B>
+ What is the point of having an &quot;empty&quot;
+ <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance, that is, with
+ <A href="#data_present">data_present</A> =
+ <A href="../types/SE_Boolean.htm#SE_FALSE">SE_FALSE</A>?
+</B></DT>
+<DD><P>
+ Because it provides an outline or template of the
+ <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance's information by
+ providing the size, orientation, spacing, and so on of the
+ <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance without any
+ cell values.
+</P><P>
+ This makes it possible, for instance, for a consumer who requires
+ <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instances rather than
+ <A href="Polygon.htm">&lt;Polygon&gt;</A> instances for terrain to derive the
+ <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> representation from the
+ <A href="Polygon.htm">&lt;Polygon&gt;</A> representation (see example 3).
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/IndexCodeswithinTables.htm">&lt;&lt;Index Codes within Tables&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/PresentationDomainConstraints.htm">&lt;&lt;Presentation Domain Constraints&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/SpatialAxisConstraints.htm">&lt;&lt;Spatial Axis Constraints&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ConstraintsOnAssociates.htm">&lt;&lt;Constraints On Associates&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/PropertyGridConstraints.htm">&lt;&lt;Property Grid Constraints&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Associated to (one-way)</h3>
+<UL>
+<li>zero or more <a href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</a> instances, each through the use of a <a href="BaseAssociationData.htm">&lt;Base Association Data&gt;</a> link object<sup><A href="#Notes_asn_toFeature_Representation" name="asn_toFeature_Representation">1</A></sup></li>
+</UL>
+
+<h3>Associated by (one-way)</h3>
+<UL>
+<li>zero or more <a href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</a> instances, each through the use of a <a href="BaseAssociationData.htm">&lt;Base Association Data&gt;</a> link object<sup><A href="#Notes_asn_fromFeature_Representation" name="asn_fromFeature_Representation">2</A></sup></li>
+</UL>
+
+<h3>Composed of (two-way) (inherited)</h3>
+<UL>
+<li>one or more {ordered} <a href="Axis.htm">&lt;Axis&gt;</a> instances</li>
+<li>one <a href="ClassificationData.htm">&lt;Classification Data&gt;</a> instance<sup><A href="#Notes_cmp_Classification_Data" name="cmp_Classification_Data">3</A></sup></li>
+<li>zero or more {ordered} <a href="ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</a> instances</li>
+<li>one or more {ordered} <a href="TablePropertyDescription.htm">&lt;Table Property Description&gt;</a> instances</li>
+</UL>
+<h3>Composed of (two-way)</h3>
+<UL>
+<li>zero or more {ordered} <a href="DataTable.htm">&lt;Data Table&gt;</a> instances</li>
+<li>zero or more <a href="GridOverlap.htm">&lt;Grid Overlap&gt;</a> instances</li>
+</UL>
+
+<h3>Composed of (two-way metadata) (inherited)</h3>
+<UL>
+<li>zero or one <a href="DataQuality.htm">&lt;Data Quality&gt;</a> instance</li>
+<li>zero or one <a href="Identification.htm">&lt;Identification&gt;</a> instance</li>
+<li>zero or one <a href="TimeConstraintsData.htm">&lt;Time Constraints Data&gt;</a> instance</li>
+</UL>
+<h3>Component of (two-way) (inherited)</h3>
+<UL>
+<li>zero or one <a href="DataTableLibrary.htm">&lt;Data Table Library&gt;</a> instance</li>
+<li>zero or more <a href="PropertyGrid.htm">&lt;Property Grid&gt;</a> instances</li>
+</UL>
+<h3>Component of (two-way)</h3>
+<UL>
+<li>zero or more <a href="PropertyGridHookPoint.htm">&lt;Property Grid Hook Point&gt;</a> instances</li>
+</UL>
+
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Short_Integer_Positive.htm">SE_Short_Integer_Positive</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="spatial_axes_count">spatial_axes_count</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_spatial_axes_count">4</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Short_Integer.htm">SE_Short_Integer</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="location_index">location_index</a>[];</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_location_index">5</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_SRF_Context_Info.htm">SE_SRF_Context_Info</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="srf_context_info">srf_context_info</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_srf_context_info">6</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Boolean.htm">SE_Boolean</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="data_present">data_present</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_data_present">7</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Boolean.htm">SE_Boolean</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="relative_to_hook_point">relative_to_hook_point</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_relative_to_hook_point">8</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Associated to Notes</h3>
+<br>
+<h4><a href="#asn_toFeature_Representation" name="Notes_asn_toFeature_Representation">Feature_Representation</a></h4>
+ An association between a
+ <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance and a
+ <A href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> instance
+ indicates that the environmental object(s) represented by the
+ <A href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> instance
+ and the <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance
+ (or some specific cell data within that
+ <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance) have the
+ semantic relationship indicated by the
+ <A href="BaseAssociationData.htm">&lt;Base Association Data&gt;</A> link object
+ on the association relationship. Each associated
+ <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance indicates
+ whether the entire <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A>
+ instance or only some specific cell data within it is participating
+ in the relationship in question.
+</P>
+<h3>Associated from Notes</h3>
+<br>
+<h4><a href="#asn_fromFeature_Representation" name="Notes_asn_fromFeature_Representation">Feature_Representation</a></h4>
+ An association between a
+ <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance and a
+ <A href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> instance
+ indicates that the environmental object(s) represented by the
+ <A href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> instance
+ and the <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance
+ (or some specific cell data within that
+ <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance) have the
+ semantic relationship indicated by the
+ <A href="BaseAssociationData.htm">&lt;Base Association Data&gt;</A> link object
+ on the association relationship. Each associated
+ <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance indicates
+ whether the entire <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A>
+ instance or only some specific cell data within it is participating
+ in the relationship in question.
+</P>
+<h3>Composed of Notes</h3>
+<br>
+<h4><a href="#cmp_Classification_Data" name="Notes_cmp_Classification_Data">Classification_Data</a></h4>
+ The <A href="ClassificationData.htm">&lt;Classification Data&gt;</A>
+ component indicates the kind of information represented by the
+ <A href="DataTable.htm">&lt;Data Table&gt;</A> instance, such as terrain elevation or
+ water characteristics.
+</P>
+<h3>Fields Notes</h3>
+<h4><a href="#spatial_axes_count" name="Notes_spatial_axes_count">spatial_axes_count</a></h4>
+<P>
+ The <A href="#spatial_axes_count">spatial_axes_count</A>
+ field specifies how many axes of the
+ <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance
+ are spatial axes.
+</P>
+<h4><a href="#location_index" name="Notes_location_index">location_index</a></h4>
+<P>
+ The <A href="#location_index">location_index</A> field specifies
+ up to three grid indexes that identify the grid cell
+ that contains the location corresponding to that specified by the
+ <A href="Location3D.htm">&lt;Location 3D&gt;</A> component of the
+ <A href="PropertyGridHookPoint.htm">&lt;Property Grid Hook Point&gt;</A>
+ aggregate of the
+ <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance.
+ The identified cell is where the <A href="Location3D.htm">&lt;Location 3D&gt;</A>
+ instance is attached to the
+ <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance.
+ The <A href="#location_index">location_index</A>
+ shall specify a valid cell within the
+ <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance;
+ that is, the indexes shall be within the appropriate bounds of
+ the <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance.  Only
+ the first
+ <A href="#spatial_axes_count">spatial_axes_count</A>
+ entries of <A href="#location_index">location_index</A>
+ are significant.
+</P>
+<h4><a href="#srf_context_info" name="Notes_srf_context_info">srf_context_info</a></h4>
+<P>
+ The <A href="#srf_context_info">srf_context_info</A> field specifies
+ the SRF within which the <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance is defined.
+ The griddedness of spatial positions is dependent on the properties of
+ the SRF. Coordinate conversions and transformations are not, in general,
+ linear, so that a set of points that form a regular array of positions
+ in one SRF may not be regular in another SRF.  Therefore,
+ in order to preserve griddedness, a
+ <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance
+ specifies an SRF in which the data positions form a grid.
+</P>
+<h4><a href="#data_present" name="Notes_data_present">data_present</a></h4>
+<P>
+ If <A href="#data_present">data_present</A> =
+ <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A> (the default), the
+ <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A>
+ instance contains cell values that can be extracted by invoking the
+ appropriate API functions.
+ Otherwise, if <A href="#data_present">data_present</A>
+ = <A href="../types/SE_Boolean.htm#SE_FALSE">SE_FALSE</A>, the
+ <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A>
+ instance does not contain any cell values although it may provide
+ everything else that a populated
+ <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance can provide.
+</P>
+<h4><a href="#relative_to_hook_point" name="Notes_relative_to_hook_point">relative_to_hook_point</a></h4>
+<P>
+ The <A href="#relative_to_hook_point">relative_to_hook_point</A>
+ field specifies whether the cell data of the
+ <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance is specified relative to the
+ context of a <A href="PropertyGridHookPoint.htm">&lt;Property Grid Hook Point&gt;</A> instance that
+ references it.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="PropertyDescription.htm">Property Description</A>.
+<strong>Next:</strong> <A href="PropertyGridHookPoint.htm">Property Grid Hook Point</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

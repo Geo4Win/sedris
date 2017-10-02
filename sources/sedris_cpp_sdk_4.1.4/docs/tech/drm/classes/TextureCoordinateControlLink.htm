@@ -1,0 +1,194 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Texture Coordinate Control Link</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Texture Coordinate Control Link
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Texture Coordinate Control Link</h2>
+<h3>Superclass - <a href="ControlLink.htm">&lt;Control Link&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class is a specialized
+ <A href="ControlLink.htm">&lt;Control Link&gt;</A> instance
+ used to provide the connection between an ordered aggregation of
+ <A href="Expression.htm">&lt;Expression&gt;</A> instances and the
+ target fields of one or more
+ <A href="TextureCoordinate.htm">&lt;Texture Coordinate&gt;</A> instances.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet17.pdf"><strong>17</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet18.pdf"><strong>18</strong></A>
+</LI>
+</UL>
+
+<h3>Example</h3>
+<OL>
+<LI><P>
+ Consider a <A href="Polygon.htm">&lt;Polygon&gt;</A> instance <span class="ConstructName">P</span>
+ representing an exterior wall of a building, such that
+ <span class="ConstructName">P</span> has an <A href="ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</A>
+ component that applies a texture to <span class="ConstructName">P</span>.
+ Each <A href="Vertex.htm">&lt;Vertex&gt;</A> component <span class="ConstructName">V<sub>i</sub></span>
+ of <span class="ConstructName">P</span> has a <A href="TextureCoordinate.htm">&lt;Texture Coordinate&gt;</A>
+ component <span class="ConstructName">TC<sub>i</sub></span>.
+</P><P>
+ Consider an explosion simulated near the building representation
+ of which <span class="ConstructName">P</span> is a part, such that there is
+ a state change to the wall from undamged to showing damage from
+ resulting from smoke. The data provider chooses to model this
+ state change by changing the <A href="TextureCoordinate.htm#s">s</A>,
+ <A href="TextureCoordinate.htm#t">t</A> values for each
+ <span class="ConstructName">TC<sub>i</sub></span> so that the texture applied
+ to <span class="ConstructName">P</span> changes from a portion of the
+ referenced <A href="Image.htm">&lt;Image&gt;</A> instance representing an undamaged wall
+ to another portion of the same <A href="Image.htm">&lt;Image&gt;</A> instance
+ showing damage resulting from smoke.
+</P><P>
+ This is accomplished by supplying each
+ <span class="ConstructName">TC<sub>i</sub></span> with a
+ <A href="TextureCoordinateControlLink.htm">&lt;Texture Coordinate Control Link&gt;</A> component
+ <span class="ConstructName">K<sub>i</sub></span>. Each <span class="ConstructName">K<sub>i</sub></span>
+ has two <A href="Expression.htm">&lt;Expression&gt;</A> components, one of which
+ determines the value for the
+ <A href="TextureCoordinate.htm#s">s</A> field value of
+ <span class="ConstructName">TC<sub>i</sub></span> while the other
+ determines the value for the
+ <A href="TextureCoordinate.htm#t">t</A> field value of
+ <span class="ConstructName">TC<sub>i</sub></span>.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<p>
+No FAQs supplied.
+</p>
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ControlLinkConstraints.htm">&lt;&lt;Control Link Constraints&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Composed of (two-way) (inherited)</h3>
+<UL>
+<li>one or more {ordered} <a href="Expression.htm">&lt;Expression&gt;</a> instances</li>
+</UL>
+<h3>Component of (two-way)</h3>
+<UL>
+<li>one or more <a href="TextureCoordinate.htm">&lt;Texture Coordinate&gt;</a> instances</li>
+</UL>
+
+<h2><a name="inherited_field">Inherited Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_String.htm">SE_String</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="description">description</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_description">1</A></sup></p></td>
+</tr>
+</table>
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="s_expression_index">s_expression_index</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_s_expression_index">2</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="t_expression_index">t_expression_index</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_t_expression_index">3</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Fields Notes</h3>
+<h4><a href="#description" name="Notes_description">description</a></h4>
+<P>
+ The <A href="#description">description</A> field
+ specifies a text description of the purpose of the
+ <A href="ControlLink.htm">&lt;Control Link&gt;</A> instance.
+</P>
+<h4><a href="#s_expression_index" name="Notes_s_expression_index">s_expression_index</a></h4>
+<P>
+ The <A href="#s_expression_index">s_expression_index</A> field
+ specifies which <A href="Expression.htm">&lt;Expression&gt;</A>
+ component controls the
+ <A href="TextureCoordinate.htm#s">s</A>
+ field value of the affected
+ <A href="TextureCoordinate.htm">&lt;Texture Coordinate&gt;</A> instance(s).
+ If this value is zero, the
+ <A href="TextureCoordinate.htm#s">s</A> field values of those instances
+ are not controlled; otherwise, the value is a one-based
+ index into the ordered aggregation of
+ <A href="Expression.htm">&lt;Expression&gt;</A> instances.
+</P>
+<h4><a href="#t_expression_index" name="Notes_t_expression_index">t_expression_index</a></h4>
+<P>
+ The <A href="#t_expression_index">t_expression_index</A> field
+ specifies which <A href="Expression.htm">&lt;Expression&gt;</A>
+ component controls the
+ <A href="TextureCoordinate.htm#t">t</A>
+ field value of the affected
+ <A href="TextureCoordinate.htm">&lt;Texture Coordinate&gt;</A> instance(s).
+ If this value is zero, the
+ <A href="TextureCoordinate.htm#t">t</A> field values of those instances
+ are not controlled; otherwise, the value is a one-based
+ index into the ordered aggregation of
+ <A href="Expression.htm">&lt;Expression&gt;</A> instances.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="TextureCoordinate.htm">Texture Coordinate</A>.
+<strong>Next:</strong> <A href="TimeConstraintsData.htm">Time Constraints Data</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

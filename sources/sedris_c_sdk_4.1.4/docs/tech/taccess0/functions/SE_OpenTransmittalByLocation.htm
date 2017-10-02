@@ -1,0 +1,181 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE OpenTransmittalByLocation</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+SE OpenTransmittalByLocation
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../types/SE_Return_Code.htm">SE_Return_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SE_OpenTransmittalByLocation</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1"><td class="CFunction">const&nbsp;</td><td class="CFunction"><a href="../../drm/types/SE_URL.htm">SE_URL</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="file_location"></a>file_location,</td><td class="CFunction"><sup><A href="#Notes_file_location">1</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../types/SE_Encoding.htm">SE_Encoding</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="encoding"></a>encoding,</td><td class="CFunction"><sup><A href="#Notes_encoding">2</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../types/SE_Access_Mode.htm">SE_Access_Mode</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="access_mode"></a>access_mode,</td><td class="CFunction"><sup><A href="#Notes_access_mode">3</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../types/SE_Transmittal.htm">SE_Transmittal</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="transmittal_out_ptr"></a>transmittal_out_ptr</td><td class="CFunction"><sup><A href="#Notes_transmittal_out_ptr">4</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+  This function opens a transmittal for access, based on the mode
+  specified by <A href="#access_mode">access_mode</A>. This function
+  specifies the transmittal
+  to be opened using the location of the file containing the transmittal
+  and its DRM objects. If this function is successful,
+<A href="#transmittal_out_ptr">transmittal_out_ptr</A>
+  returns a handle to the newly opened transmittal.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A>
+</td><td class="Status">
+ and the opened tranmittal is returned.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A>
+</td><td class="Status">
+ and the status code is set appropriately if the call failed.
+</td></tr>
+</table>
+
+<h3>Status Codes</h3>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A> is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_SUCCESS">SE_STATCODE_SUCCESS</A>
+</td><td class="Status">
+ set if valid parameters were passed in and the name was the name of
+ a valid file that this API was able to open as a transmittal.
+</td></tr>
+</table>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A> is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_TRANSMITTAL_INACCESSIBLE">SE_STATCODE_TRANSMITTAL_INACCESSIBLE</A>
+</td><td class="Status">
+ set if the file_location was not accessible by the API. This
+ could occur if
+<OL>
+<LI>the file was opened for read-only or update and the file did not
+    exist, or
+</LI>
+<LI> the file location specified a non-local file and the API had no
+     transport mechanism for accessing the remote file.
+</LI>
+</OL>
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_INVALID_ACCESS_MODE">SE_STATCODE_INVALID_ACCESS_MODE</A>
+</td><td class="Status">
+ set if the <A href="#file_location">file_location</A> was found, but
+ the security permissions of the underlying system (OS / filesystem)
+ prohibited access to the file in the mode specified.  This could occur if
+ the access mode specified was <A href="../types/SE_Access_Mode.htm#SE_AM_CREATE">SE_AM_CREATE</A> or
+ <A href="../types/SE_Access_Mode.htm#SE_AM_UPDATE">SE_AM_UPDATE</A> and the file was marked read-only,
+ or if no access was permitted for the account running the application.
+ This condition could also occur if <A href="../types/SE_Access_Mode.htm#SE_AM_CREATE">SE_AM_CREATE</A>
+ or <A href="../types/SE_Access_Mode.htm#SE_AM_UPDATE">SE_AM_UPDATE</A> mode was requested
+ and the API implementation encoding did not support the write capability.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_UNSUPPORTED_ENCODING">SE_STATCODE_UNSUPPORTED_ENCODING</A>
+</td><td class="Status">
+ set if the encoding parameter or the default file extension specified
+ a format that is not supported by the implementation(s) encoding of
+ the SEDRIS API linked to the application.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_INACTIONABLE_FAILURE">SE_STATCODE_INACTIONABLE_FAILURE</A>
+</td><td class="Status">
+ set if the call fails for any other reason.
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#file_location" name="Notes_file_location">1</a></sup>
+ the file location of the transmittal to be opened.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#encoding" name="Notes_encoding">2</a></sup>
+ the API implementation encoding
+    to use when opening this file.  If the specified API can't open the
+    given file location then the API will return a status code indicating
+    why it could not be opened.  If encoding is NULL, then
+    the API will try to open the given transmittal based on the
+    extension of the file location.
+
+    See also SE_GetEncoding().
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#access_mode" name="Notes_access_mode">3</a></sup>
+  the mode (read-only, create, update, etc.) that the
+  transmittal should be opened in.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#transmittal_out_ptr" name="Notes_transmittal_out_ptr">4</a></sup>
+  a pointer to the SE_Transmittal from the user.
+  The *transmittal_out_ptr value will be initialized by this function.
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SE_ObjectsAreSame.htm">SE_ObjectsAreSame</a>.
+<strong>Next:</strong> <a href="SE_OpenTransmittalByName.htm">SE_OpenTransmittalByName</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

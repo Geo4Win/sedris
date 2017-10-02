@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE GeneralPredefinedFunctionDefinition</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX D - Functions
+</font>
+<br>
+<font color="#ffffff">
+SE GeneralPredefinedFunctionDefinition
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../types/SE_DRM_Status_Code.htm">SE_DRM_Status_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SE_GeneralPredefinedFunctionDefinition</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../types/SE_Short_Integer_Positive.htm">SE_Short_Integer_Positive</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"> </td><td class="CFunction"><a name="major_drm_version"></a>major_drm_version,</td><td class="CFunction"><sup><A href="#Notes_major_drm_version">1</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../types/SE_Byte_Unsigned.htm">SE_Byte_Unsigned</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"> </td><td class="CFunction"><a name="minor_drm_version"></a>minor_drm_version,</td><td class="CFunction"><sup><A href="#Notes_minor_drm_version">2</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../types/SE_Short_Integer_Unsigned.htm">SE_Short_Integer_Unsigned</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"> </td><td class="CFunction"><a name="func"></a>func,</td><td class="CFunction"><sup><A href="#Notes_func">3</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">const&nbsp;</td><td class="CFunction">void&nbsp;               </td> <td class="CFunction">*</td><td class="CFunction">*</td><td class="CFunction"><a name="type_out_ptr"></a>type_out_ptr</td><td class="CFunction"><sup><A href="#Notes_type_out_ptr">4</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+   Retrieves the definition of the given
+   <A href="../classes/PredefinedFunction.htm">&lt;Predefined Function&gt;</A>.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_DRM_Status_Code.htm#SE_DRM_STAT_CODE_SUCCESS">SE_DRM_STAT_CODE_SUCCESS</A>
+</td><td class="Status"> and *type_out_ptr is set to the appropriate
+     result, if valid parameters were passed in.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_DRM_Status_Code.htm#SE_DRM_STAT_CODE_NULL_REQUIRED_PARAMETER">SE_DRM_STAT_CODE_NULL_REQUIRED_PARAMETER</A>
+</td><td class="Status"> and *type_out_ptr is left
+     unchanged, if type_out_ptr is NULL.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_DRM_Status_Code.htm#SE_DRM_STAT_CODE_INVALID_VERSION">SE_DRM_STAT_CODE_INVALID_VERSION</A>
+</td><td class="Status"> and *type_out_ptr is set to NULL, if
+     the specified version of the DRM is not supported.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_DRM_Status_Code.htm#SE_DRM_STAT_CODE_INVALID_CLASS">SE_DRM_STAT_CODE_INVALID_CLASS</A>
+</td><td class="Status"> and *type_out_ptr is set to NULL, if
+     func is invalid.
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#major_drm_version" name="Notes_major_drm_version">1</a></sup>
+ major DRM version number of the DRM version for which this
+ function is being called
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#minor_drm_version" name="Notes_minor_drm_version">2</a></sup>
+ minor DRM version number of the DRM version for which this
+ function is being called
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#func" name="Notes_func">3</a></sup>
+ the &lt;Predefined Function&gt;.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#type_out_ptr" name="Notes_type_out_ptr">4</a></sup>
+ pointer to a variable in the user's memory space where the
+ answer, a pointer, will be stored.
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SE_GeneralLegalComponentsList.htm">SE_GeneralLegalComponentsList</a>.
+<strong>Next:</strong> <a href="SE_GeneralTypeBasicType.htm">SE_GeneralTypeBasicType</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

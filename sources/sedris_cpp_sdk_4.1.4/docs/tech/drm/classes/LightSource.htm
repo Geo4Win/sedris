@@ -1,0 +1,250 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Light Source</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Light Source
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Abstract Class Name: Light Source</h2>
+<h3>Superclass - <a href="SEDRISAbstractBase.htm">&lt;SEDRIS Abstract Base&gt;</a></h3>
+<h3>Subclasses</h3>
+<UL>
+<LI>
+<a href="BasePositionalLight.htm">&lt;Base Positional Light&gt;</a> 
+</LI>
+<LI>
+<a href="InfiniteLight.htm">&lt;Infinite Light&gt;</a> 
+</LI>
+</UL>
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies a source of light emission.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet21.pdf"><strong>21</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet04.pdf"><strong>4</strong></A>
+</LI>
+<LI><A href="sheet14.pdf"><strong>14</strong></A>
+</LI>
+<LI><A href="sheet23.pdf"><strong>23</strong></A>
+</LI>
+</UL>
+
+<h3>Example</h3>
+<p>
+ See individual subclasses for examples.
+
+</p>
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ What about linear or area light sources?
+</B></DT>
+<DD><P>
+ This definition does not attempt to address linear or area
+ light sources; it is fashioned after the OpenGL abstraction
+ of light.
+</P></DD>
+<DT><B>
+ Why isn't my favorite light source addressed?
+</B></DT>
+<DD><P>
+ Only light sources specific to CIG lighting have been addressed.
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Composed of (two-way)</h3>
+<UL>
+<li>one <a href="AmbientColour.htm">&lt;Ambient Colour&gt;</a> instance</li>
+<li>zero or one <a href="ClassificationData.htm">&lt;Classification Data&gt;</a> instance<sup><A href="#Notes_cmp_Classification_Data" name="cmp_Classification_Data">1</A></sup></li>
+<li>one <a href="DiffuseColour.htm">&lt;Diffuse Colour&gt;</a> instance</li>
+<li>zero or one <a href="LightSourceControlLink.htm">&lt;Light Source Control Link&gt;</a> instance<sup><A href="#Notes_cmp_Light_Source_Control_Link" name="cmp_Light_Source_Control_Link">2</A></sup></li>
+<li>one <a href="SpecularColour.htm">&lt;Specular Colour&gt;</a> instance</li>
+</UL>
+
+<h3>Component of (two-way)</h3>
+<UL>
+<li>one or more <a href="AggregateGeometry.htm">&lt;Aggregate Geometry&gt;</a> instances</li>
+</UL>
+
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Boolean.htm">SE_Boolean</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="apply_to_children">apply_to_children</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_apply_to_children">3</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Boolean.htm">SE_Boolean</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="override_positional_lights">override_positional_lights</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_override_positional_lights">4</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Boolean.htm">SE_Boolean</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="override_infinite_lights">override_infinite_lights</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_override_infinite_lights">5</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Boolean.htm">SE_Boolean</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="active_light_value">active_light_value</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_active_light_value">6</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Composed of Notes</h3>
+<br>
+<h4><a href="#cmp_Classification_Data" name="Notes_cmp_Classification_Data">Classification_Data</a></h4>
+ A <A href="ClassificationData.htm">&lt;Classification Data&gt;</A> component, if present, allows a
+ data provider to specify whether the <A href="LightSource.htm">&lt;Light Source&gt;</A>
+ instance represents an environmental object, such as the sun.
+</P>
+<br>
+<h4><a href="#cmp_Light_Source_Control_Link" name="Notes_cmp_Light_Source_Control_Link">Light_Source_Control_Link</a></h4>
+ If a <A href="LightSource.htm">&lt;Light Source&gt;</A> instance is
+ to be turned on and off dynamically, it has a
+ <A href="LightSourceControlLink.htm">&lt;Light Source Control Link&gt;</A>
+ component to express that control mechanism.
+</P>
+<h3>Fields Notes</h3>
+<h4><a href="#apply_to_children" name="Notes_apply_to_children">apply_to_children</a></h4>
+<P>
+ For a <A href="LightSource.htm">&lt;Light Source&gt;</A> instance that is
+ a component of some
+ <A href="AggregateGeometry.htm">&lt;Aggregate Geometry&gt;</A> instance(s),
+ <A href="#apply_to_children">apply_to_children</A>
+ provides a mechanism for limiting the scope of the
+ <A href="LightSource.htm">&lt;Light Source&gt;</A> instance. If
+ <A href="#apply_to_children">apply_to_children</A> is
+ <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A>, only
+ <A href="PrimitiveGeometry.htm">&lt;Primitive Geometry&gt;</A>
+ instances in the component tree of those
+ <A href="AggregateGeometry.htm">&lt;Aggregate Geometry&gt;</A>
+ instances are affected by the <A href="LightSource.htm">&lt;Light Source&gt;</A> instance. If
+ <A href="#apply_to_children">apply_to_children</A> is
+ <A href="../types/SE_Boolean.htm#SE_FALSE">SE_FALSE</A>, the
+ <A href="LightSource.htm">&lt;Light Source&gt;</A> instance
+ is not limited to the scope of those
+ <A href="AggregateGeometry.htm">&lt;Aggregate Geometry&gt;</A>
+ instances and thus applies globally.
+</P>
+<h4><a href="#override_positional_lights" name="Notes_override_positional_lights">override_positional_lights</a></h4>
+<P>
+ For a <A href="LightSource.htm">&lt;Light Source&gt;</A> instance that is
+ a component of some
+ <A href="AggregateGeometry.htm">&lt;Aggregate Geometry&gt;</A> instance,
+ <A href="#override_positional_lights">override_positional_lights</A>
+ provides a mechanism to indicate with a value of
+ <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A> that the effect of the
+ <A href="LightSource.htm">&lt;Light Source&gt;</A> instance
+ overrides that of any
+ <A href="BasePositionalLight.htm">&lt;Base Positional Light&gt;</A>
+ instances that would have otherwise applied to that
+ <A href="AggregateGeometry.htm">&lt;Aggregate Geometry&gt;</A> instance.
+</P><P class=DataItemNoteExample>
+EXAMPLE&nbsp; 
+ This might be appropriate if the
+ <A href="LightSource.htm">&lt;Light Source&gt;</A> instance is
+ so close to the affected
+ <A href="GeometryRepresentation.htm">&lt;Geometry Representation&gt;</A>
+ instance(s) that the effects of the
+ <A href="BasePositionalLight.htm">&lt;Base Positional Light&gt;</A> instances
+ would be negligible.
+</p><P>
+ If <A href="#override_positional_lights">override_positional_lights</A> =
+ <A href="../types/SE_Boolean.htm#SE_FALSE">SE_FALSE</A>, the effect of
+ the <A href="LightSource.htm">&lt;Light Source&gt;</A> instance is
+ combined with that of any
+ <A href="BasePositionalLight.htm">&lt;Base Positional Light&gt;</A>
+ instances that are already in effect.
+</P>
+<h4><a href="#override_infinite_lights" name="Notes_override_infinite_lights">override_infinite_lights</a></h4>
+<P>
+ For a <A href="LightSource.htm">&lt;Light Source&gt;</A> instance that is
+ a component of some
+ <A href="AggregateGeometry.htm">&lt;Aggregate Geometry&gt;</A> instance,
+ <A href="#override_infinite_lights">override_infinite_lights</A>
+ provides a mechanism to indicate with a value of
+ <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A> that the effect of the
+ <A href="LightSource.htm">&lt;Light Source&gt;</A> instance
+ overrides that of any <A href="InfiniteLight.htm">&lt;Infinite Light&gt;</A>
+ instances that would have otherwise applied to that
+ <A href="AggregateGeometry.htm">&lt;Aggregate Geometry&gt;</A> instance.
+ If <A href="#override_infinite_lights">override_infinite_lights</A> =
+ <A href="../types/SE_Boolean.htm#SE_FALSE">SE_FALSE</A>,
+ the effect of the
+ <A href="LightSource.htm">&lt;Light Source&gt;</A> instance is combined with that
+ of any <A href="InfiniteLight.htm">&lt;Infinite Light&gt;</A>
+ instances that are already in effect.
+</P>
+<h4><a href="#active_light_value" name="Notes_active_light_value">active_light_value</a></h4>
+<P>
+ A value of <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A> for the
+ <A href="#active_light_value">active_light_value</A>
+ field indicates that the light is on, while a value of
+ <A href="../types/SE_Boolean.htm#SE_FALSE">SE_FALSE</A>
+ indicates that the light is off. For a
+ <A href="LightSource.htm">&lt;Light Source&gt;</A> instance with a
+ <A href="LightSourceControlLink.htm">&lt;Light Source Control Link&gt;</A> component <span class="ConstructName">X</span>,
+ the value of the <A href="#active_light_value">active_light_value</A>
+ field is obtained from <span class="ConstructName">X</span>.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="LightRenderingPropertiesControlLink.htm">Light Rendering Properties Control Link</A>.
+<strong>Next:</strong> <A href="LightSourceControlLink.htm">Light Source Control Link</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

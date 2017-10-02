@@ -1,0 +1,207 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Stamp Behaviour</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Stamp Behaviour
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Stamp Behaviour</h2>
+<h3>Superclass - <a href="SEDRISAbstractBase.htm">&lt;SEDRIS Abstract Base&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies that the
+ <A href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> instance
+ of which the <A href="StampBehaviour.htm">&lt;Stamp Behaviour&gt;</A>
+ instance is a component rotates automatically with
+ the viewpoint of a a 3D graphics application at the
+ time that the environmental object
+ assigned the <A href="StampBehaviour.htm">&lt;Stamp Behaviour&gt;</A> instance
+ is rendered, attempting to continually face the viewer.
+</P><P>
+ The <A href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> instance
+ rotates about the u, v and/or w axes, within the
+ specified angular limits. The centre of rotation is specified by the
+ <A href="Location3D.htm">&lt;Location 3D&gt;</A> component. The axes are
+ positioned at the centre of rotation,
+ aligned with the equivalent SRF axes. Geometry with
+ a <A href="StampBehaviour.htm">&lt;Stamp Behaviour&gt;</A> instance is
+ normally planar in nature and is considered to face
+ along the normal of that plane.
+</P><P>
+ If the <A href="../types/SE_Rotation_Data.htm#clockwise_limit">clockwise_limit</A> of
+ the rotation data for an axis is set to
+ <a href="../constants/SE_POSITIVE_INFINITY.htm">SE_POSITIVE_INFINITY</a>
+ and its
+ <A href="../types/SE_Rotation_Data.htm#counterclockwise_limit">counterclockwise_limit</A>
+ is set to
+ <a href="../constants/SE_NEGATIVE_INFINITY.htm">SE_NEGATIVE_INFINITY</a>, the
+ aggregating <A href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> instance
+ can rotate freely about that axis. If all axis limits are set in this way,
+ the <A href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> instance
+ rotates freely in any direction about the centre of rotation.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet07.pdf"><strong>7</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet03.pdf"><strong>3</strong></A>
+</LI>
+<LI><A href="sheet04.pdf"><strong>4</strong></A>
+</LI>
+</UL>
+
+<h3>Example</h3>
+<OL>
+<LI><P>
+ Consider a <A href="UnionOfPrimitiveGeometry.htm">&lt;Union Of Primitive Geometry&gt;</A> instance containing
+ a single textured <A href="Polygon.htm">&lt;Polygon&gt;</A> instance that is rotating freely
+ about the w axis to represent a tree. The
+ <A href="UnionOfPrimitiveGeometry.htm">&lt;Union Of Primitive Geometry&gt;</A> instance in this example has a
+ <A href="StampBehaviour.htm">&lt;Stamp Behaviour&gt;</A> component, with
+ <A href="#u_axis_limits">u_axis_limits</A> and
+ <A href="#v_axis_limits">v_axis_limits</A> set to
+ 0.0 for both the
+ <A href="../types/SE_Rotation_Data.htm#clockwise_limit">clockwise_limit</A> and
+ <A href="../types/SE_Rotation_Data.htm#counterclockwise_limit">counterclockwise_limit</A>,
+ and <A href="#w_axis_limits">w_axis_limits</A> set to
+ <a href="../constants/SE_POSITIVE_INFINITY.htm">SE_POSITIVE_INFINITY</a> for
+ <A href="../types/SE_Rotation_Data.htm#clockwise_limit">clockwise_limit</A> and
+ <a href="../constants/SE_NEGATIVE_INFINITY.htm">SE_NEGATIVE_INFINITY</a> for
+ <A href="../types/SE_Rotation_Data.htm#counterclockwise_limit">counterclockwise_limit</A>.
+ The <A href="StampBehaviour.htm">&lt;Stamp Behaviour&gt;</A> instance has
+ an <A href="LSR3DLocation.htm">&lt;LSR 3D Location&gt;</A> component specifying a location
+ at the base of the tree, so that the w axis runs up the centre
+ of the tree.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ Since <A href="StampBehaviour.htm">&lt;Stamp Behaviour&gt;</A> instances
+ shall be specified in a 3D LSR SRF, why is the
+ centre of rotation a <A href="Location3D.htm">&lt;Location 3D&gt;</A> rather
+ than an <A href="LSR3DLocation.htm">&lt;LSR 3D Location&gt;</A>?
+</B></DT>
+<DD><P>
+ Because if and when a <A href="StampBehaviour.htm">&lt;Stamp Behaviour&gt;</A> instance's
+ native LSR SRF is instanced into a non-LSR SRF,
+ the <A href="Location3D.htm">&lt;Location 3D&gt;</A> shall be specified so that
+ it can be transformed into the target SRF.
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/StampBehaviourconstraints.htm">&lt;&lt;Stamp Behaviour constraints&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Composed of (two-way)</h3>
+<UL>
+<li>one <a href="Location3D.htm">&lt;Location 3D&gt;</a> instance<sup><A href="#Notes_cmp_Location_3D" name="cmp_Location_3D">1</A></sup></li>
+</UL>
+
+<h3>Component of (two-way)</h3>
+<UL>
+<li>zero or more <a href="AggregateGeometry.htm">&lt;Aggregate Geometry&gt;</a> instances</li>
+<li>zero or more <a href="GeometryModelInstance.htm">&lt;Geometry Model Instance&gt;</a> instances</li>
+</UL>
+
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Rotation_Data.htm">SE_Rotation_Data</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="u_axis_limits">u_axis_limits</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_u_axis_limits">2</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Rotation_Data.htm">SE_Rotation_Data</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="v_axis_limits">v_axis_limits</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_v_axis_limits">3</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Rotation_Data.htm">SE_Rotation_Data</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="w_axis_limits">w_axis_limits</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_w_axis_limits">4</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Composed of Notes</h3>
+<br>
+<h4><a href="#cmp_Location_3D" name="Notes_cmp_Location_3D">Location_3D</a></h4>
+ The <A href="Location3D.htm">&lt;Location 3D&gt;</A> component specifies the centre of rotation.
+</P>
+<h3>Fields Notes</h3>
+<h4><a href="#u_axis_limits" name="Notes_u_axis_limits">u_axis_limits</a></h4>
+<P>
+ The <A href="#u_axis_limits">u_axis_limits</A> field
+ specifies the angular limits around the u axis.
+</P>
+<h4><a href="#v_axis_limits" name="Notes_v_axis_limits">v_axis_limits</a></h4>
+<P>
+ The <A href="#v_axis_limits">v_axis_limits</A> field
+ specifies the angular limits around the v axis.
+</P>
+<h4><a href="#w_axis_limits" name="Notes_w_axis_limits">w_axis_limits</a></h4>
+<P>
+ The <A href="#w_axis_limits">w_axis_limits</A> field
+ specifies the angular limits around the w axis.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="SRFSummary.htm">SRF Summary</A>.
+<strong>Next:</strong> <A href="StateControlLink.htm">State Control Link</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

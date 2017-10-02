@@ -1,0 +1,324 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Hierarchy Summary Item</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Hierarchy Summary Item
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Hierarchy Summary Item</h2>
+<h3>Superclass - <a href="BaseSummaryItem.htm">&lt;Base Summary Item&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class represents an instance, or a number of
+ identical instances, of a <A href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> instance or
+ <A href="FeatureHierarchy.htm">&lt;Feature Hierarchy&gt;</A> instance that exists within the
+ given <A href="Model.htm">&lt;Model&gt;</A> instance or <A href="EnvironmentRoot.htm">&lt;Environment Root&gt;</A>
+ instance. <A href="HierarchySummaryItem.htm">&lt;Hierarchy Summary Item&gt;</A> instances are combined
+ together to form hierarchies that mirror those that they summarize.
+ This summary is a compressed form of the actual hierarchy, as each
+ <A href="HierarchySummaryItem.htm">&lt;Hierarchy Summary Item&gt;</A> instance may represent a number of
+ instances of the class indicated by its
+ <A href="#drm_class">drm_class</A> field.
+</P><P>
+ The <A href="#multiplicity">multiplicity</A> field records how many
+ instances of the given class a <A href="HierarchySummaryItem.htm">&lt;Hierarchy Summary Item&gt;</A> instance
+ actually represents. All instances represented by one
+ <A href="HierarchySummaryItem.htm">&lt;Hierarchy Summary Item&gt;</A> instance shall have exactly the same
+ hierarchical pattern beneath them, right down to where the
+ hierarchy summary concludes. A <A href="HierarchySummaryItem.htm">&lt;Hierarchy Summary Item&gt;</A> instance
+ represents both the instance(s) that it describes, and the specific
+ hierarchy beneath it. It may have an optional association to the
+ <A href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> instance(s) or
+ <A href="FeatureHierarchy.htm">&lt;Feature Hierarchy&gt;</A> instance(s) that it summarizes.
+</P><P>
+ Each <A href="HierarchySummaryItem.htm">&lt;Hierarchy Summary Item&gt;</A> instance can optionally have a
+ list of <A href="EDCSUseSummaryItem.htm">&lt;EDCS Use Summary Item&gt;</A> components giving the
+ classifications that are attached to those instances in the transmittal
+ being summarized.
+</P><P>
+ The hierarchy summary does not have to be a total representation of the
+ entire transmittal hierarchy and can be limited to a useful high level
+ summary.
+ If the producer of the transmittal being summarized deems it of
+ potential use to consumers, the branches of the hierarchy summary
+ can terminate with a list of
+ <A href="DRMClassSummaryItem.htm">&lt;DRM Class Summary Item&gt;</A> components
+ representing the DRM objects beneath that point in the hierarchy.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet20.pdf"><strong>20</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet01.pdf"><strong>1</strong></A>
+</LI>
+<LI><A href="sheet02.pdf"><strong>2</strong></A>
+</LI>
+<LI><A href="sheet03.pdf"><strong>3</strong></A>
+</LI>
+<LI><A href="sheet08.pdf"><strong>8</strong></A>
+</LI>
+</UL>
+
+<h3>Example</h3>
+<OL>
+<LI><P>
+ Consider an <A href="EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instance for which the
+ geometry is to be summarized.
+</P>
+<DIV align="center">
+<p>
+<A name="Figure21"></A>
+<IMG SRC="../Images/HSumI_Ex1_2.png"
+     ALT="Hierarchy Summary Item, Example 1, Diagram 1">
+</p>
+<p class=FigureCaption>Figure 21 &#8212; &lt;DRM Hierarchy Summary Item&gt; example associated &lt;DRM Environment Root&gt;</p>
+</DIV>
+<P>
+ The geometry portion of the above <A href="EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instance
+ can therefore be summarized as follows. Note that this is the same
+ <A href="EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instance
+ as shown above, but for readability only the
+ <A href="HierarchySummaryItem.htm">&lt;Hierarchy Summary Item&gt;</A> component tree portion
+ of its instance diagram is shown here.
+</P>
+<DIV align="center">
+<p>
+<A name="Figure22"></A>
+<IMG SRC="../Images/HSumI_Ex1_1.png"
+     ALT="Hierarchy Summary Item, Example 1, Diagram 2">
+</p>
+<p class=FigureCaption>Figure 22 &#8212; &lt;DRM Hierarchy Summary Item&gt; example</p>
+</DIV>
+<P>
+ The <A href="HierarchySummaryItem.htm">&lt;Hierarchy Summary Item&gt;</A> component tree depicted in
+ <a href="#Figure22">Figure 22</a>, rooted at the <A href="EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instance
+ depicted in <a href="#Figure21">Figure 21</a>,
+ parallels the structure of the corresponding geometry. In this instance,
+ the data provider has elected not to provide a detailed summary of the
+ structure of the <A href="UnionOfGeometryHierarchy.htm">&lt;Union Of Geometry Hierarchy&gt;</A> instance.
+ The list of <A href="DRMClassSummaryItem.htm">&lt;DRM Class Summary Item&gt;</A> components
+ merely identify classes that are somewhere below the
+ <A href="UnionOfGeometryHierarchy.htm">&lt;Union Of Geometry Hierarchy&gt;</A> instance, rather than the
+ patterns in which they appear.
+</P><P>
+ The <A href="EDCSUseSummaryItem.htm">&lt;EDCS Use Summary Item&gt;</A> components summarize patterns of
+ ECCs, possibly used together with EACs, in the context being summarized.
+</P><P>
+ If the data provider wished to summarize the hierarchy of the
+ <A href="UnionOfGeometryHierarchy.htm">&lt;Union Of Geometry Hierarchy&gt;</A> instance in detail, its
+ <A href="HierarchySummaryItem.htm">&lt;Hierarchy Summary Item&gt;</A> instance could be provided with
+ appropriate <A href="HierarchySummaryItem.htm">&lt;Hierarchy Summary Item&gt;</A> components as desired,
+ until the summary reached the level of <A href="PrimitiveGeometry.htm">&lt;Primitive Geometry&gt;</A>
+ instances and the hierarchy summary came to an end.
+</P><P>
+ For examples of summaries of <A href="PrimitiveGeometry.htm">&lt;Primitive Geometry&gt;</A> patterns,
+ see <A href="PrimitiveSummaryItem.htm">&lt;Primitive Summary Item&gt;</A>.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ If the intent is for a useful high level summary, why not just have
+ the consumer perform a shallow breadth-first search?
+</B></DT>
+<DD><P>
+ The consumer could indeed compute the information, since all that
+ this provides is a summary of what is in the transmittal. The reason
+ for providing the information is to indicate that users do not have
+ to be exhaustive if they do not think it is appropriate / required /
+ necessary, or a good use of processing time, etc. Even just providing
+ a top level summary, allows producers to summarize. They do not have
+ to be complete in a legalistic way, and can therefore use this mechanism
+ to summarize the major hierarchical structuring, perhaps leaving out
+ less significant deviations from that predominant pattern. These
+ would turn up in a search and actually confuse the issue. If you
+ like, this mechanism allows a producer to sketch out the forest
+ without missing it for the trees.
+</P></DD>
+<DT><B>
+ Why can <A href="EnvironmentRoot.htm">&lt;Environment Root&gt;</A> and
+ <A href="Model.htm">&lt;Model&gt;</A> only have 0 - 2
+ <A href="HierarchySummaryItem.htm">&lt;Hierarchy Summary Item&gt;</A>
+ components?
+</B></DT>
+<DD><P>
+ See
+ <a href="../constraints/HierarchySummaryConstraints.htm">&lt;&lt;Hierarchy Summary Constraints&gt;&gt;</a>.
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ConstraintsOnAssociates.htm">&lt;&lt;Constraints On Associates&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/HierarchySummaryConstraints.htm">&lt;&lt;Hierarchy Summary Constraints&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/NonOverlappingDRMClassSummaryItemInstances.htm">&lt;&lt;Non Overlapping DRM Class Summary Item Instances&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Associated to (one-way)</h3>
+<UL>
+<li>zero or more <a href="FeatureHierarchy.htm">&lt;Feature Hierarchy&gt;</a> instances<sup><A href="#Notes_asn_toFeature_Hierarchy" name="asn_toFeature_Hierarchy">1</A></sup></li>
+<li>zero or more <a href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</a> instances<sup><A href="#Notes_asn_toGeometry_Hierarchy" name="asn_toGeometry_Hierarchy">2</A></sup></li>
+</UL>
+
+<h3>Composed of (two-way)</h3>
+<UL>
+<li>zero or more <a href="DRMClassSummaryItem.htm">&lt;DRM Class Summary Item&gt;</a> instances<sup><A href="#Notes_cmp_DRM_Class_Summary_Item" name="cmp_DRM_Class_Summary_Item">3</A></sup></li>
+<li>zero or more <a href="HierarchySummaryItem.htm">&lt;Hierarchy Summary Item&gt;</a> instances<sup><A href="#Notes_cmp_Hierarchy_Summary_Item" name="cmp_Hierarchy_Summary_Item">4</A></sup></li>
+</UL>
+
+<h3>Composed of (two-way metadata) (inherited)</h3>
+<UL>
+<li>zero or more <a href="EDCSUseSummaryItem.htm">&lt;EDCS Use Summary Item&gt;</a> instances<sup><A href="#Notes_cmp_EDCS_Use_Summary_Item" name="cmp_EDCS_Use_Summary_Item">5</A></sup></li>
+</UL>
+<h3>Component of (two-way)</h3>
+<UL>
+<li>zero or one <a href="EnvironmentRoot.htm">&lt;Environment Root&gt;</a> instance</li>
+<li>zero or more <a href="HierarchySummaryItem.htm">&lt;Hierarchy Summary Item&gt;</a> instances</li>
+<li>zero or one <a href="Model.htm">&lt;Model&gt;</a> instance</li>
+</UL>
+
+<h2><a name="inherited_field">Inherited Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_DRM_Class.htm">SE_DRM_Class</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="drm_class">drm_class</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_drm_class">6</A></sup></p></td>
+</tr>
+</table>
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_HS_Multiplicity_Code.htm">SE_HS_Multiplicity_Code</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="multiplicity_meaning">multiplicity_meaning</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_multiplicity_meaning">7</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="multiplicity">multiplicity</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_multiplicity">8</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Associated to Notes</h3>
+<br>
+<h4><a href="#asn_toFeature_Hierarchy" name="Notes_asn_toFeature_Hierarchy">Feature_Hierarchy</a></h4>
+ If present, the association(s) to <A href="FeatureHierarchy.htm">&lt;Feature Hierarchy&gt;</A>
+ instances indicate that the <A href="HierarchySummaryItem.htm">&lt;Hierarchy Summary Item&gt;</A>
+ instance summarizes the specific <A href="FeatureHierarchy.htm">&lt;Feature Hierarchy&gt;</A>
+ object tree(s) thus indicated.
+</P>
+<br>
+<h4><a href="#asn_toGeometry_Hierarchy" name="Notes_asn_toGeometry_Hierarchy">Geometry_Hierarchy</a></h4>
+ If present, the association(s) to <A href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A>
+ instances indicate that the <A href="HierarchySummaryItem.htm">&lt;Hierarchy Summary Item&gt;</A>
+ instance summarizes the specific <A href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A>
+ object tree(s) thus indicated.
+</P>
+<h3>Composed of Notes</h3>
+<br>
+<h4><a href="#cmp_EDCS_Use_Summary_Item" name="Notes_cmp_EDCS_Use_Summary_Item">EDCS_Use_Summary_Item</a></h4>
+ If present, the list of
+ <A href="EDCSUseSummaryItem.htm">&lt;EDCS Use Summary Item&gt;</A> components
+ of a <A href="BaseSummaryItem.htm">&lt;Base Summary Item&gt;</A> instance
+ summarize EDCS usage by instances
+ of the class specified by
+ <A href="#drm_class">drm_class</A> that occur
+ somewhere in the scope being summarized.
+</P>
+<br>
+<h4><a href="#cmp_DRM_Class_Summary_Item" name="Notes_cmp_DRM_Class_Summary_Item">DRM_Class_Summary_Item</a></h4>
+ If present, the <A href="DRMClassSummaryItem.htm">&lt;DRM Class Summary Item&gt;</A> components of a
+ <A href="HierarchySummaryItem.htm">&lt;Hierarchy Summary Item&gt;</A> instance list classes for which
+ instances occur beneath this point in the hierarchy being summarized.
+</P>
+<br>
+<h4><a href="#cmp_Hierarchy_Summary_Item" name="Notes_cmp_Hierarchy_Summary_Item">Hierarchy_Summary_Item</a></h4>
+ If present, the <A href="HierarchySummaryItem.htm">&lt;Hierarchy Summary Item&gt;</A> components of a
+ <A href="HierarchySummaryItem.htm">&lt;Hierarchy Summary Item&gt;</A> instance summarize the next
+ level down in the component tree of the hierarchy being summarized.
+</P>
+<h3>Fields Notes</h3>
+<h4><a href="#drm_class" name="Notes_drm_class">drm_class</a></h4>
+<P>
+ The <A href="#drm_class">drm_class</A>
+ field indicates the DRM class of the DRM object(s)
+ represented by the
+ <A href="BaseSummaryItem.htm">&lt;Base Summary Item&gt;</A> instance.
+</P>
+<h4><a href="#multiplicity_meaning" name="Notes_multiplicity_meaning">multiplicity_meaning</a></h4>
+<P>
+ The <A href="#multiplicity_meaning">multiplicity_meaning</A> field
+ specifies the meaning of the
+ <A href="#multiplicity">multiplicity</A> field value for the
+ <A href="HierarchySummaryItem.htm">&lt;Hierarchy Summary Item&gt;</A> instance.
+</P>
+<h4><a href="#multiplicity" name="Notes_multiplicity">multiplicity</a></h4>
+<P>
+ The <A href="#multiplicity">multiplicity</A>
+ field specifies the number of identical instances represented,
+ or the order of magnitude of that number, for the
+ <A href="HierarchySummaryItem.htm">&lt;Hierarchy Summary Item&gt;</A>
+ instance. If the multiplicity is unknown, the value of this
+ field shall be set to zero.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="HierarchyData.htm">Hierarchy Data</A>.
+<strong>Next:</strong> <A href="HSVColour.htm">HSV Colour</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

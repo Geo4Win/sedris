@@ -1,0 +1,167 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE CreateStore</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+SE CreateStore
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../types/SE_Return_Code.htm">SE_Return_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SE_CreateStore</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/SE_Encoding.htm">SE_Encoding</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="encoding"></a>encoding,</td><td class="CFunction"><sup><A href="#Notes_encoding">1</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/SE_Store.htm">SE_Store</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="store_out_ptr"></a>store_out_ptr</td><td class="CFunction"><sup><A href="#Notes_store_out_ptr">2</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+  Creates a store to be used by the API in returning data to the
+  application.
+</P><P>
+  A store is an opaque data type, created by this API call, that is used to
+  provide the memory context within which the API returns data.  The
+  behavior of stores, and the data returned within them, exhibits the
+  following:
+</P>
+<OL>
+<LI>A store must be created before it is used
+</LI>
+<LI>Data returned in a store is valid until the next time the store is used
+    as a parameter to a function, or until the application frees the store
+    by calling <A href="SE_FreeStore.htm">SE_FreeStore()</A>.
+</LI>
+<LI>Memory managed by a store is not guaranteed to be released (freed)
+    until the store is freed by <A href="SE_FreeStore.htm">SE_FreeStore()</A>.
+</LI>
+</OL>
+<P>
+  The implementation of the API is at liberty to decide the exact allocation
+  scheme.  However, applications should safely expect the following
+  performance characteristics:
+</P>
+<OL>
+<LI>Reusing an existing store should always be more efficient (both in
+    speed and memory requirements) than freeing a store and creating a
+    new one.
+</LI>
+<LI>Reusing a store to return similarly sized data (e.g. object fields, or
+    portions of a <A href="../../drm/classes/DataTable.htm">&lt;Data Table&gt;</A>), will result in
+    the most efficient use of memory space.
+</LI>
+</OL>
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A>
+</td><td class="Status">
+ and the <A href="../types/SE_Store.htm">SE_Store</A> is created.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A>
+</td><td class="Status">
+ and the status code is set appropriately if the call failed.
+</td></tr>
+</table>
+
+<h3>Status Codes</h3>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A> is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_SUCCESS">SE_STATCODE_SUCCESS</A>
+</td><td class="Status">
+ set if valid parameters were passed in and memory allocation
+ for the store's management structure succeeded.
+</td></tr>
+</table>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A> is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_C_STORE_INVALID">SE_STATCODE_C_STORE_INVALID</A>
+</td><td class="Status">
+ and no changes are made if <A href="#store_out_ptr">store_out_ptr</A>
+ is not a handle to a valid <A href="../types/SE_Store.htm">SE_Store</A>.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_INACTIONABLE_FAILURE">SE_STATCODE_INACTIONABLE_FAILURE</A>
+</td><td class="Status">
+ set if the call failed for any other reason.
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#encoding" name="Notes_encoding">1</a></sup>
+ identifies the API implementation encoding
+    to use when creating this store.  If the specified API can't create the
+    store, then the API will return a status code indicating why it could
+    not be created.  If encoding is NULL, then the API
+    implementation encoding to be used must be statically bound at
+    compile time.
+
+    See also SE_GetEncoding().
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#store_out_ptr" name="Notes_store_out_ptr">2</a></sup>
+ a pointer to SE_Store from the user.  The store will be
+    created and associated with this handle.
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SE_CreateSpatialSearchBoundary.htm">SE_CreateSpatialSearchBoundary</a>.
+<strong>Next:</strong> <a href="SE_DetermineSpatialInclusion.htm">SE_DetermineSpatialInclusion</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

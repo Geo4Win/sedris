@@ -1,0 +1,8 @@
+NR == 1 {
+split($0, word);
+j=NF;
+for(i=1; i<=j; i++) 	
+{
+	print substr(word[i],1,3);
+}
+} 

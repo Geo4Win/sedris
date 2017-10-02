@@ -1,0 +1,3873 @@
+<!DOCTYPE HTML PUBLIC="-//W3C/DTD HTML 4.01 Transitional//EN">
+<html>
+<!-- EDCS spec. 4.4 -->
+<!-- July 1, 2011 -->
+<head>
+<title>EDCS Reference Manual</title>
+</head>
+<body text="#000000" bgcolor="#ffffff" link="#0000ee" vlink="#800080" alink="#ff0000">
+<div align="center">
+<table border="2" width="100%" bgcolor="#0000ff">
+<tr>
+<th><font color="#00ffff"><big><big>
+EDCS Reference Manual
+</big></big></font><br>
+<font color="#ffffff">
+EDCS Attribute Dictionary - Concepts whose labels begin with the letter G
+</font>
+</th>
+</tr>
+</table>
+</div>
+<a name="Top" id="Top"></a>
+<br>
+<b>EDCS Attribute Label</b>: <a name="EAC_GATE_TYPE" id="EAC_GATE_TYPE">GATE_TYPE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_GATE_TYPE
+</p><p>
+<b>EDCS Attribute Code</b>: 415
+</p><p>
+<b>Definition</b>:
+<br>
+The type of a &lt;<a href="ECC_G.htm#ECC_GATE">GATE</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_GATETY_CROSSING" id="EEC_GATETY_CROSSING">1</a></td>
+<td>CROSSING</td>
+<td>EEC_GATETY_CROSSING</td>
+<td>Controls access to a &lt;<a href="ECC_C.htm#ECC_CROSSING">CROSSING</a>&gt;.</td>
+<td>IR</td>
+<td>[FACC, Annex B, GTC:2]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GATETY_RESTRICTED_ACCESS" id="EEC_GATETY_RESTRICTED_ACCESS">2</a></td>
+<td>RESTRICTED_ACCESS</td>
+<td>EEC_GATETY_RESTRICTED_ACCESS</td>
+<td>Controls access to a restricted &lt;<a href="ECC_S.htm#ECC_SITE">SITE</a>&gt; or &lt;<a href="ECC_R.htm#ECC_REGION">REGION</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GATETY_TOLL" id="EEC_GATETY_TOLL">3</a></td>
+<td>TOLL</td>
+<td>EEC_GATETY_TOLL</td>
+<td>Controls access to a use-for-fee &lt;<a href="ECC_R.htm#ECC_ROAD">ROAD</a>&gt;; toll.</td>
+<td>IR</td>
+<td>[FACC, Annex B, GTC:2]</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_LAND_TRNSP">LAND_TRNSP</a>, <a href="groups.htm#EGC_GEN_TRNSP">TRNSP</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: GTC]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_GENERAL_DAMAGE_FRACTION" id="EAC_GENERAL_DAMAGE_FRACTION">GENERAL_DAMAGE_FRACTION</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_GENERAL_DAMAGE_FRACTION
+</p><p>
+<b>EDCS Attribute Code</b>: 416
+</p><p>
+<b>Definition</b>:
+<br>
+A number between 0 and 1 inclusive representing the linearly-scaled fraction of the extent of physical injury/damage to an &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt;. Zero means healthy or undamaged, and one means death or complete destruction.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_PURE_NUMBER">PURE_NUMBER</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ABSTRACT_OBJECT">ABSTRACT_OBJECT</a>, <a href="groups.htm#EGC_GEN_RATE_OR_RATIO">RATE_OR_RATIO</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [EBEV, 4.3.1.1, Bits: 3-4 (Damage)]
+</p><p>
+<b>Supplemental References</b>: [EBEV, 4.3.3, Bits: 3-4 (Health)]
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_GEODETIC_AZIMUTH" id="EAC_GEODETIC_AZIMUTH">GEODETIC_AZIMUTH</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_GEODETIC_AZIMUTH
+</p><p>
+<b>EDCS Attribute Code</b>: 417
+</p><p>
+<b>Definition</b>:
+<br>
+The &lt;&lt;<a href="EAC_V.htm#EAC_VECTOR_AZIMUTH_GEODETIC">VECTOR_AZIMUTH_GEODETIC</a>&gt;&gt; in the horizontal plane at the observer's &lt;<a href="ECC_L.htm#ECC_LOCATION">LOCATION</a>&gt;, to either a &lt;<a href="ECC_L.htm#ECC_LINE">LINE</a>&gt; passing through the observer, or a vector relative to the observer, or the &lt;<a href="ECC_D.htm#ECC_DIRECTION">DIRECTION</a>&gt; from the observer to an &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt; or &lt;<a href="ECC_L.htm#ECC_LOCATION">LOCATION</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_PLANE_ANGLE">PLANE_ANGLE</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ABSTRACT_OBJECT">ABSTRACT_OBJECT</a>, <a href="groups.htm#EGC_GEN_ANGULAR_MEASURE">ANGULAR_MEASURE</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_GEODETIC_DATUM_IDENTIFIER" id="EAC_GEODETIC_DATUM_IDENTIFIER">GEODETIC_DATUM_IDENTIFIER</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_GEODETIC_DATUM_IDENTIFIER
+</p><p>
+<b>EDCS Attribute Code</b>: 418
+</p><p>
+<b>Definition</b>:
+<br>
+The designation of a &lt;<a href="ECC_G.htm#ECC_GEODETIC_DATUM">GEODETIC_DATUM</a>&gt;; geodetic datum identifier.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_ADINDAN" id="EEC_GDDTMID_ADINDAN">1</a></td>
+<td>ADINDAN</td>
+<td>EEC_GDDTMID_ADINDAN</td>
+<td>Adindan.</td>
+<td>IR</td>
+<td>[83502T, App. B.2, "ADI"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_ADINDAN_BURKINA_FASO" id="EEC_GDDTMID_ADINDAN_BURKINA_FASO">2</a></td>
+<td>ADINDAN_BURKINA_FASO</td>
+<td>EEC_GDDTMID_ADINDAN_BURKINA_FASO</td>
+<td>Adindan (Burkina Faso).</td>
+<td>IR</td>
+<td>[83502T, App. B.2, "ADI-E"]</td>
+<td>[HELM, "ADI-E"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_ADINDAN_CAMEROON" id="EEC_GDDTMID_ADINDAN_CAMEROON">3</a></td>
+<td>ADINDAN_CAMEROON</td>
+<td>EEC_GDDTMID_ADINDAN_CAMEROON</td>
+<td>Adindan (Cameroon).</td>
+<td>IR</td>
+<td>[83502T, App. B.2, "ADI-F"]</td>
+<td>[HELM, "ADI-F"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_ADINDAN_ETHIOPIA" id="EEC_GDDTMID_ADINDAN_ETHIOPIA">4</a></td>
+<td>ADINDAN_ETHIOPIA</td>
+<td>EEC_GDDTMID_ADINDAN_ETHIOPIA</td>
+<td>Adindan (Ethiopia).</td>
+<td>IR</td>
+<td>[83502T, App. B.2, "ADI-A"]</td>
+<td>[HELM, "ADI-A"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_ADINDAN_MALI" id="EEC_GDDTMID_ADINDAN_MALI">5</a></td>
+<td>ADINDAN_MALI</td>
+<td>EEC_GDDTMID_ADINDAN_MALI</td>
+<td>Adindan (Mali).</td>
+<td>IR</td>
+<td>[83502T, App. B.2, "ADI-C"]</td>
+<td>[HELM, "ADI-C"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_ADINDAN_MEAN_SOLUTION" id="EEC_GDDTMID_ADINDAN_MEAN_SOLUTION">6</a></td>
+<td>ADINDAN_MEAN_SOLUTION</td>
+<td>EEC_GDDTMID_ADINDAN_MEAN_SOLUTION</td>
+<td>Adindan (mean solution: Ethiopia and Sudan).</td>
+<td>IR</td>
+<td>[83502T, App. B.2, "ADI-M"]</td>
+<td>[HELM "ADI-M"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_ADINDAN_SENEGAL" id="EEC_GDDTMID_ADINDAN_SENEGAL">7</a></td>
+<td>ADINDAN_SENEGAL</td>
+<td>EEC_GDDTMID_ADINDAN_SENEGAL</td>
+<td>Adindan (Senegal).</td>
+<td>IR</td>
+<td>[83502T, App. B.2, "ADI-D"]</td>
+<td>[HELM, "ADI-D"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_ADINDAN_SUDAN" id="EEC_GDDTMID_ADINDAN_SUDAN">8</a></td>
+<td>ADINDAN_SUDAN</td>
+<td>EEC_GDDTMID_ADINDAN_SUDAN</td>
+<td>Adindan (Sudan).</td>
+<td>IR</td>
+<td>[83502T, App. B.2, "ADI-B"]</td>
+<td>[HELM, "ADI-B"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_AFGOOYE_SOMALIA" id="EEC_GDDTMID_AFGOOYE_SOMALIA">9</a></td>
+<td>AFGOOYE_SOMALIA</td>
+<td>EEC_GDDTMID_AFGOOYE_SOMALIA</td>
+<td>Afgooye (Somalia).</td>
+<td>IR</td>
+<td>[83502T, App. B.2, "AFG"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_AIN_EL_ABD_1970" id="EEC_GDDTMID_AIN_EL_ABD_1970">10</a></td>
+<td>AIN_EL_ABD_1970</td>
+<td>EEC_GDDTMID_AIN_EL_ABD_1970</td>
+<td>Ain el Abd 1970.</td>
+<td>IR</td>
+<td>[83502T, App. B.3, "AIN"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_AIN_EL_ABD_1970_BAHRAIN" id="EEC_GDDTMID_AIN_EL_ABD_1970_BAHRAIN">11</a></td>
+<td>AIN_EL_ABD_1970_BAHRAIN</td>
+<td>EEC_GDDTMID_AIN_EL_ABD_1970_BAHRAIN</td>
+<td>Ain el Abd 1970 (Bahrain Island).</td>
+<td>IR</td>
+<td>[83502T, App. B.3, "AIN-A"]</td>
+<td>[HELM, "AIN-A"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_AIN_EL_ABD_1970_SAUDI" id="EEC_GDDTMID_AIN_EL_ABD_1970_SAUDI">12</a></td>
+<td>AIN_EL_ABD_1970_SAUDI</td>
+<td>EEC_GDDTMID_AIN_EL_ABD_1970_SAUDI</td>
+<td>Ain el Abd 1970 (Saudi Arabia).</td>
+<td>IR</td>
+<td>[83502T, App. B.3, "AIN-B"]</td>
+<td>[HELM, "AIN-B"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_AMERICAN_SAMOA_1962" id="EEC_GDDTMID_AMERICAN_SAMOA_1962">13</a></td>
+<td>AMERICAN_SAMOA_1962</td>
+<td>EEC_GDDTMID_AMERICAN_SAMOA_1962</td>
+<td>American Samoa Datum 1962.</td>
+<td>IR</td>
+<td>[83502T, App. B.10, "AMA"]</td>
+<td>[HELM, "AMA"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_AMERSFOORT_1885_1903" id="EEC_GDDTMID_AMERSFOORT_1885_1903">14</a></td>
+<td>AMERSFOORT_1885_1903</td>
+<td>EEC_GDDTMID_AMERSFOORT_1885_1903</td>
+<td>Amersfoort 1885/1903 (Netherlands).</td>
+<td>IR</td>
+<td>[HELM, "AME-7"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_ANNA_1_ASTRO_1965" id="EEC_GDDTMID_ANNA_1_ASTRO_1965">15</a></td>
+<td>ANNA_1_ASTRO_1965</td>
+<td>EEC_GDDTMID_ANNA_1_ASTRO_1965</td>
+<td>Anna 1 Astro 1965 (Cocos Islands).</td>
+<td>IR</td>
+<td>[83502T, App. B.9, "ANO"]</td>
+<td>[HELM, "ANO"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_ANTIGUA_ISLAND_ASTRO_1943" id="EEC_GDDTMID_ANTIGUA_ISLAND_ASTRO_1943">16</a></td>
+<td>ANTIGUA_ISLAND_ASTRO_1943</td>
+<td>EEC_GDDTMID_ANTIGUA_ISLAND_ASTRO_1943</td>
+<td>Antigua Island Astro 1943.</td>
+<td>IR</td>
+<td>[83502T, App. B.8, "AIA"]</td>
+<td>[HELM, "AIA"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_ARC_1935_AFRICA" id="EEC_GDDTMID_ARC_1935_AFRICA">17</a></td>
+<td>ARC_1935_AFRICA</td>
+<td>EEC_GDDTMID_ARC_1935_AFRICA</td>
+<td>Arc 1935 (Africa).</td>
+<td>IR</td>
+<td>[DGST, "ART"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_ARC_1950" id="EEC_GDDTMID_ARC_1950">18</a></td>
+<td>ARC_1950</td>
+<td>EEC_GDDTMID_ARC_1950</td>
+<td>Arc 1950.</td>
+<td>IR</td>
+<td>[83502T, App. B.2, "ARF"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_ARC_1950_BOTSWANA" id="EEC_GDDTMID_ARC_1950_BOTSWANA">19</a></td>
+<td>ARC_1950_BOTSWANA</td>
+<td>EEC_GDDTMID_ARC_1950_BOTSWANA</td>
+<td>Arc 1950 (Botswana).</td>
+<td>IR</td>
+<td>[83502T, App. B.2, "ARF-A"]</td>
+<td>[HELM, "ARF-A"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_ARC_1950_BURUNDI" id="EEC_GDDTMID_ARC_1950_BURUNDI">20</a></td>
+<td>ARC_1950_BURUNDI</td>
+<td>EEC_GDDTMID_ARC_1950_BURUNDI</td>
+<td>Arc 1950 (Burundi).</td>
+<td>IR</td>
+<td>[83502T, App. B.2, "ARF-H"]</td>
+<td>[HELM, "ARF-H"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_ARC_1950_LESOTHO" id="EEC_GDDTMID_ARC_1950_LESOTHO">21</a></td>
+<td>ARC_1950_LESOTHO</td>
+<td>EEC_GDDTMID_ARC_1950_LESOTHO</td>
+<td>Arc 1950 (Lesotho).</td>
+<td>IR</td>
+<td>[83502T, App. B.2, "ARF-B"]</td>
+<td>[HELM, "ARF-B"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_ARC_1950_MALAWI" id="EEC_GDDTMID_ARC_1950_MALAWI">22</a></td>
+<td>ARC_1950_MALAWI</td>
+<td>EEC_GDDTMID_ARC_1950_MALAWI</td>
+<td>Arc 1950 (Malawi).</td>
+<td>IR</td>
+<td>[83502T, App. B.2, "ARF-C"]</td>
+<td>[HELM, "ARF-C"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_ARC_1950_MEAN_SOLUTION" id="EEC_GDDTMID_ARC_1950_MEAN_SOLUTION">23</a></td>
+<td>ARC_1950_MEAN_SOLUTION</td>
+<td>EEC_GDDTMID_ARC_1950_MEAN_SOLUTION</td>
+<td>Arc 1950 (mean solution: Botswana, Lesotho, Malawi, Swaziland, Zaire, Zambia, and Zimbabwe).</td>
+<td>IR</td>
+<td>[83502T, App. B.2, "ARF-M"]</td>
+<td>[HELM, "ARF-M"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_ARC_1950_SWAZILAND" id="EEC_GDDTMID_ARC_1950_SWAZILAND">24</a></td>
+<td>ARC_1950_SWAZILAND</td>
+<td>EEC_GDDTMID_ARC_1950_SWAZILAND</td>
+<td>Arc 1950 (Swaziland).</td>
+<td>IR</td>
+<td>[83502T, App. B.2, "ARF-D"]</td>
+<td>[HELM, "ARF-D"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_ARC_1950_ZAIRE" id="EEC_GDDTMID_ARC_1950_ZAIRE">25</a></td>
+<td>ARC_1950_ZAIRE</td>
+<td>EEC_GDDTMID_ARC_1950_ZAIRE</td>
+<td>Arc 1950 (Zaire).</td>
+<td>IR</td>
+<td>[83502T, App. B.2, "ARF-E"]</td>
+<td>[HELM, "ARF-E"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_ARC_1950_ZAMBIA" id="EEC_GDDTMID_ARC_1950_ZAMBIA">26</a></td>
+<td>ARC_1950_ZAMBIA</td>
+<td>EEC_GDDTMID_ARC_1950_ZAMBIA</td>
+<td>Arc 1950 (Zambia).</td>
+<td>IR</td>
+<td>[83502T, App. B.2, "ARF-F"]</td>
+<td>[HELM, "ARF-F"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_ARC_1950_ZIMBABWE" id="EEC_GDDTMID_ARC_1950_ZIMBABWE">27</a></td>
+<td>ARC_1950_ZIMBABWE</td>
+<td>EEC_GDDTMID_ARC_1950_ZIMBABWE</td>
+<td>Arc 1950 (Zimbabwe).</td>
+<td>IR</td>
+<td>[83502T, App. B.2, "ARF-G"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_ARC_1960" id="EEC_GDDTMID_ARC_1960">28</a></td>
+<td>ARC_1960</td>
+<td>EEC_GDDTMID_ARC_1960</td>
+<td>Arc 1960.</td>
+<td>IR</td>
+<td>[83502T, App. B.2, "ARS"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_ARC_1960_KENYA" id="EEC_GDDTMID_ARC_1960_KENYA">29</a></td>
+<td>ARC_1960_KENYA</td>
+<td>EEC_GDDTMID_ARC_1960_KENYA</td>
+<td>Arc 1960 (Kenya).</td>
+<td>IR</td>
+<td>[83502T, App. B.2, "ARS-A"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_ARC_1960_MEAN_SOLUTION" id="EEC_GDDTMID_ARC_1960_MEAN_SOLUTION">30</a></td>
+<td>ARC_1960_MEAN_SOLUTION</td>
+<td>EEC_GDDTMID_ARC_1960_MEAN_SOLUTION</td>
+<td>Arc 1960 (mean solution: Kenya, and Tanzania).</td>
+<td>IR</td>
+<td>[83502T, App. B.2, "ARS-M"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_ARC_1960_TANZANIA" id="EEC_GDDTMID_ARC_1960_TANZANIA">31</a></td>
+<td>ARC_1960_TANZANIA</td>
+<td>EEC_GDDTMID_ARC_1960_TANZANIA</td>
+<td>Arc 1960 (Tanzania).</td>
+<td>IR</td>
+<td>[83502T, App. B.2, "ARS-B"]</td>
+<td>[HELM, "ARS-B"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_ASCENSION_ISLAND_1958" id="EEC_GDDTMID_ASCENSION_ISLAND_1958">32</a></td>
+<td>ASCENSION_ISLAND_1958</td>
+<td>EEC_GDDTMID_ASCENSION_ISLAND_1958</td>
+<td>Ascension Island 1958 (Ascension Island).</td>
+<td>IR</td>
+<td>[83502T, App. B.8, "ASC"]</td>
+<td>[HELM, "ASC"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_ASTRO_BEACON_E_1945" id="EEC_GDDTMID_ASTRO_BEACON_E_1945">33</a></td>
+<td>ASTRO_BEACON_E_1945</td>
+<td>EEC_GDDTMID_ASTRO_BEACON_E_1945</td>
+<td>Astro Beacon E 1945 (Iwo Jima Island).</td>
+<td>IR</td>
+<td>[83502T, App. B.10, "ATF"]</td>
+<td>[HELM, "ATF"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_ASTRO_DOS_71_4" id="EEC_GDDTMID_ASTRO_DOS_71_4">34</a></td>
+<td>ASTRO_DOS_71_4</td>
+<td>EEC_GDDTMID_ASTRO_DOS_71_4</td>
+<td>Astro Dos 71/4 (St. Helena Island).</td>
+<td>IR</td>
+<td>[83502T, App. B.8, "SHB"]</td>
+<td>[HELM, "SHB"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_ASTRO_STATION_1952" id="EEC_GDDTMID_ASTRO_STATION_1952">35</a></td>
+<td>ASTRO_STATION_1952</td>
+<td>EEC_GDDTMID_ASTRO_STATION_1952</td>
+<td>Astronomical Station 1952 (Marcus Island).</td>
+<td>IR</td>
+<td>[83502T, App. B.10, "ASQ"]</td>
+<td>[HELM, "ASQ"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_ASTRO_TERN_IS_1961" id="EEC_GDDTMID_ASTRO_TERN_IS_1961">36</a></td>
+<td>ASTRO_TERN_IS_1961</td>
+<td>EEC_GDDTMID_ASTRO_TERN_IS_1961</td>
+<td>Astro Tern Island 1961 (Tern Island, Hawaii).</td>
+<td>IR</td>
+<td>[83502T, App. B.10, "TRN"]</td>
+<td>[HELM, "TRN"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_AUSTRALIAN_GEOD_1966" id="EEC_GDDTMID_AUSTRALIAN_GEOD_1966">37</a></td>
+<td>AUSTRALIAN_GEOD_1966</td>
+<td>EEC_GDDTMID_AUSTRALIAN_GEOD_1966</td>
+<td>Australian Geodetic 1966 (Australia and Tasmania Island).</td>
+<td>IR</td>
+<td>[83502T, App. B.4, "AUA"]</td>
+<td>[HELM, "AUA"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_AUSTRALIAN_GEOD_1984" id="EEC_GDDTMID_AUSTRALIAN_GEOD_1984">38</a></td>
+<td>AUSTRALIAN_GEOD_1984</td>
+<td>EEC_GDDTMID_AUSTRALIAN_GEOD_1984</td>
+<td>Australian Geodetic 1984 (Australia and Tasmania Island).</td>
+<td>IR</td>
+<td>[83502T, App. B.4, "AUG"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_AV_TERRESTRIAL_SYSTEM_1977" id="EEC_GDDTMID_AV_TERRESTRIAL_SYSTEM_1977">39</a></td>
+<td>AV_TERRESTRIAL_SYSTEM_1977</td>
+<td>EEC_GDDTMID_AV_TERRESTRIAL_SYSTEM_1977</td>
+<td>Average Terrestrial System 1977, New Brunswick.</td>
+<td>IR</td>
+<td>[DGST, "ATX"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_AYABELLE_LIGHTHOUSE" id="EEC_GDDTMID_AYABELLE_LIGHTHOUSE">40</a></td>
+<td>AYABELLE_LIGHTHOUSE</td>
+<td>EEC_GDDTMID_AYABELLE_LIGHTHOUSE</td>
+<td>Ayabelle Lighthouse (Djibouti).</td>
+<td>IR</td>
+<td>[83502T, App. B.2, "PHA"]</td>
+<td>[HELM, "PHA"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_BEKAA_BASE_SOUTH_END" id="EEC_GDDTMID_BEKAA_BASE_SOUTH_END">41</a></td>
+<td>BEKAA_BASE_SOUTH_END</td>
+<td>EEC_GDDTMID_BEKAA_BASE_SOUTH_END</td>
+<td>Bekaa Base South End (Lebanon).</td>
+<td>IR</td>
+<td>[HELM, "BEK-7"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_BELGIUM_1950" id="EEC_GDDTMID_BELGIUM_1950">42</a></td>
+<td>BELGIUM_1950</td>
+<td>EEC_GDDTMID_BELGIUM_1950</td>
+<td>Belgium 1950 System (Lommel Signal, Belgium).</td>
+<td>IR</td>
+<td>[DGST, "BEL"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_BELGIUM_1972" id="EEC_GDDTMID_BELGIUM_1972">43</a></td>
+<td>BELGIUM_1972</td>
+<td>EEC_GDDTMID_BELGIUM_1972</td>
+<td>Belgium 1972 (Observatoire d'Uccle).</td>
+<td>IR</td>
+<td>[HELM, "ODU-7"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_BELLEVUE_IGN" id="EEC_GDDTMID_BELLEVUE_IGN">44</a></td>
+<td>BELLEVUE_IGN</td>
+<td>EEC_GDDTMID_BELLEVUE_IGN</td>
+<td>Bellevue IGN (Efate and Erromango Islands).</td>
+<td>IR</td>
+<td>[83502T, App. B.10, "IBE"]</td>
+<td>[HELM, "IBE"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_BERMUDA_1957" id="EEC_GDDTMID_BERMUDA_1957">45</a></td>
+<td>BERMUDA_1957</td>
+<td>EEC_GDDTMID_BERMUDA_1957</td>
+<td>Bermuda 1957 (Bermuda Islands).</td>
+<td>IR</td>
+<td>[83502T, App. B.8, "BER"]</td>
+<td>[HELM, "BER"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_BERN_1898" id="EEC_GDDTMID_BERN_1898">46</a></td>
+<td>BERN_1898</td>
+<td>EEC_GDDTMID_BERN_1898</td>
+<td>Bern 1898 (Switzerland).</td>
+<td>IR</td>
+<td>[HELM, "BRE"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_BERN_1898_ZERO" id="EEC_GDDTMID_BERN_1898_ZERO">47</a></td>
+<td>BERN_1898_ZERO</td>
+<td>EEC_GDDTMID_BERN_1898_ZERO</td>
+<td>Bern 1898 (Switzerland) with Zero Meridian Bern.</td>
+<td>IR</td>
+<td>[HELM, "BRE"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_BISSAU" id="EEC_GDDTMID_BISSAU">48</a></td>
+<td>BISSAU</td>
+<td>EEC_GDDTMID_BISSAU</td>
+<td>Bissau (Guinea-Bissau).</td>
+<td>IR</td>
+<td>[83502T, App. B.2, "BID"]</td>
+<td>[HELM, "BID"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_BJZ54" id="EEC_GDDTMID_BJZ54">49</a></td>
+<td>BJZ54</td>
+<td>EEC_GDDTMID_BJZ54</td>
+<td>BJZ54 (A954 Beijing Coordinates) (China).</td>
+<td>IR</td>
+<td>[DGST, "BJZ"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_BJZ54_MODIFIED" id="EEC_GDDTMID_BJZ54_MODIFIED">50</a></td>
+<td>BJZ54_MODIFIED</td>
+<td>EEC_GDDTMID_BJZ54_MODIFIED</td>
+<td>Modified BJZ54 (China).</td>
+<td>IR</td>
+<td>[DGST, "BJM"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_BOGOTA_OBS" id="EEC_GDDTMID_BOGOTA_OBS">51</a></td>
+<td>BOGOTA_OBS</td>
+<td>EEC_GDDTMID_BOGOTA_OBS</td>
+<td>Bogota Observatory (Colombia).</td>
+<td>IR</td>
+<td>[83502T, App. B.7, "BOO"]</td>
+<td>[HELM, "BOO"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_BOGOTA_OBS_ZERO" id="EEC_GDDTMID_BOGOTA_OBS_ZERO">52</a></td>
+<td>BOGOTA_OBS_ZERO</td>
+<td>EEC_GDDTMID_BOGOTA_OBS_ZERO</td>
+<td>Bogota Observatory (Colombia), with the zero meridian set at Bogota.</td>
+<td>IR</td>
+<td>[83502T, App. B.7, "BOO"]</td>
+<td>[HELM, "BOO"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_BUKIT_RIMPAH" id="EEC_GDDTMID_BUKIT_RIMPAH">53</a></td>
+<td>BUKIT_RIMPAH</td>
+<td>EEC_GDDTMID_BUKIT_RIMPAH</td>
+<td>Bukit Rimpah (Bangka and Belitung Islands, Indonesia).</td>
+<td>IR</td>
+<td>[83502T, App. C.2, "BUR"]</td>
+<td>[HELM, "BUR"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_CAMACUPA_BASE_SW_END" id="EEC_GDDTMID_CAMACUPA_BASE_SW_END">54</a></td>
+<td>CAMACUPA_BASE_SW_END</td>
+<td>EEC_GDDTMID_CAMACUPA_BASE_SW_END</td>
+<td>Camacupa Base SW end (Campo De Aviacao, Angola).</td>
+<td>IR</td>
+<td>[DGST, "CAM"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_CAMP_AREA_ASTRO" id="EEC_GDDTMID_CAMP_AREA_ASTRO">55</a></td>
+<td>CAMP_AREA_ASTRO</td>
+<td>EEC_GDDTMID_CAMP_AREA_ASTRO</td>
+<td>Camp Area Astro (Camp McMurdo, Antarctica).</td>
+<td>IR</td>
+<td>[83502T, App. C.2, "CAZ"]</td>
+<td>[HELM, "CAZ"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_CAMPO_INCHAUSPE" id="EEC_GDDTMID_CAMPO_INCHAUSPE">56</a></td>
+<td>CAMPO_INCHAUSPE</td>
+<td>EEC_GDDTMID_CAMPO_INCHAUSPE</td>
+<td>Campo Inchauspe (Argentina).</td>
+<td>IR</td>
+<td>[83502T, App. B.7, "CAI"]</td>
+<td>[HELM, "CAI"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_CANTON_ASTRO_1966" id="EEC_GDDTMID_CANTON_ASTRO_1966">57</a></td>
+<td>CANTON_ASTRO_1966</td>
+<td>EEC_GDDTMID_CANTON_ASTRO_1966</td>
+<td>Canton Astro 1966 (Phoenix Islands).</td>
+<td>IR</td>
+<td>[83502T, App. B.10, "CAO"]</td>
+<td>[HELM, "CAO"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_CAPE_CANAVERAL" id="EEC_GDDTMID_CAPE_CANAVERAL">58</a></td>
+<td>CAPE_CANAVERAL</td>
+<td>EEC_GDDTMID_CAPE_CANAVERAL</td>
+<td>Cape Canaveral (mean solution: Florida and Bahama Islands).</td>
+<td>IR</td>
+<td>[83502T, App. B.6, "CAC"]</td>
+<td>[HELM, "CAC"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_CAPE_SOUTH_AFRICA" id="EEC_GDDTMID_CAPE_SOUTH_AFRICA">59</a></td>
+<td>CAPE_SOUTH_AFRICA</td>
+<td>EEC_GDDTMID_CAPE_SOUTH_AFRICA</td>
+<td>Cape (South Africa).</td>
+<td>IR</td>
+<td>[83502T, App. B.2, "CAP"]</td>
+<td>[HELM, "CAP"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_CARTHAGE" id="EEC_GDDTMID_CARTHAGE">60</a></td>
+<td>CARTHAGE</td>
+<td>EEC_GDDTMID_CARTHAGE</td>
+<td>Carthage (Tunisia).</td>
+<td>IR</td>
+<td>[83502T, App. B.2, "CGE"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_CHATHAM_ASTRO_1971" id="EEC_GDDTMID_CHATHAM_ASTRO_1971">61</a></td>
+<td>CHATHAM_ASTRO_1971</td>
+<td>EEC_GDDTMID_CHATHAM_ASTRO_1971</td>
+<td>Chatham Island Astro 1971 (Chatham Island, New Zealand).</td>
+<td>IR</td>
+<td>[83502T, App. B.7, "CHI"]</td>
+<td>[83502T, App. B.10, "CHI"], [HELM, "CHI"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_CHUA_ASTRO" id="EEC_GDDTMID_CHUA_ASTRO">62</a></td>
+<td>CHUA_ASTRO</td>
+<td>EEC_GDDTMID_CHUA_ASTRO</td>
+<td>Chua Astro (Paraguay).</td>
+<td>IR</td>
+<td>[83502T, App. B.7, "CHU"]</td>
+<td>[HELM, "CHU"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_COMP_GEOD_DU_QUEBEC_1977" id="EEC_GDDTMID_COMP_GEOD_DU_QUEBEC_1977">63</a></td>
+<td>COMP_GEOD_DU_QUEBEC_1977</td>
+<td>EEC_GDDTMID_COMP_GEOD_DU_QUEBEC_1977</td>
+<td>Compensation Geodetique du Quebec 1977.</td>
+<td>IR</td>
+<td>[DGST, "CGX"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_CONAKRY_PYRAMID" id="EEC_GDDTMID_CONAKRY_PYRAMID">64</a></td>
+<td>CONAKRY_PYRAMID</td>
+<td>EEC_GDDTMID_CONAKRY_PYRAMID</td>
+<td>Conakry Pyramid of the Service Geographique (Guinea).</td>
+<td>IR</td>
+<td>[DGST, "COV"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_CORREGO_ALEGRE" id="EEC_GDDTMID_CORREGO_ALEGRE">65</a></td>
+<td>CORREGO_ALEGRE</td>
+<td>EEC_GDDTMID_CORREGO_ALEGRE</td>
+<td>Corrego Alegre (Brazil).</td>
+<td>IR</td>
+<td>[83502T, App. B.7, "COA"]</td>
+<td>[HELM, "COA"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_CSG67_GUYANA" id="EEC_GDDTMID_CSG67_GUYANA">66</a></td>
+<td>CSG67_GUYANA</td>
+<td>EEC_GDDTMID_CSG67_GUYANA</td>
+<td>Guyana CSG67.</td>
+<td>IR</td>
+<td>[DGST, "CSG"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_DABOLA" id="EEC_GDDTMID_DABOLA">67</a></td>
+<td>DABOLA</td>
+<td>EEC_GDDTMID_DABOLA</td>
+<td>Dabola (Guinea).</td>
+<td>IR</td>
+<td>[83502T, App. B.2, "DAL"]</td>
+<td>[HELM, "DAL"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_DCS3_LIGHTHOUSE" id="EEC_GDDTMID_DCS3_LIGHTHOUSE">68</a></td>
+<td>DCS3_LIGHTHOUSE</td>
+<td>EEC_GDDTMID_DCS3_LIGHTHOUSE</td>
+<td>DCS-3 Lighthouse, Saint Lucia, Lesser Antilles.</td>
+<td>IR</td>
+<td>[DGST, "DCS"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_DECEPTION_ISLAND" id="EEC_GDDTMID_DECEPTION_ISLAND">69</a></td>
+<td>DECEPTION_ISLAND</td>
+<td>EEC_GDDTMID_DECEPTION_ISLAND</td>
+<td>Deception Island, Antarctica.</td>
+<td>IR</td>
+<td>[83502T, App. B.8, "DID"]</td>
+<td>[HELM, "DID"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_DJAKARTA" id="EEC_GDDTMID_DJAKARTA">70</a></td>
+<td>DJAKARTA</td>
+<td>EEC_GDDTMID_DJAKARTA</td>
+<td>Djakarta (Batavia) (Sumatra Island, Indonesia).</td>
+<td>IR</td>
+<td>[83502T, App. B.3, "BAT"]</td>
+<td>[HELM, "BAT"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_DJAKARTA_ZERO" id="EEC_GDDTMID_DJAKARTA_ZERO">71</a></td>
+<td>DJAKARTA_ZERO</td>
+<td>EEC_GDDTMID_DJAKARTA_ZERO</td>
+<td>Djakarta (Batavia) (Sumatra Island, Indonesia), with the zero meridian set at Djakarta.</td>
+<td>IR</td>
+<td>[83502T, App. B.3, "BAT"]</td>
+<td>[HELM, "BAT"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_DOMINICA_ASTRO_M12" id="EEC_GDDTMID_DOMINICA_ASTRO_M12">72</a></td>
+<td>DOMINICA_ASTRO_M12</td>
+<td>EEC_GDDTMID_DOMINICA_ASTRO_M12</td>
+<td>Dominica Astro M-12, Dominica, Lesser Antilles.</td>
+<td>IR</td>
+<td>[DGST, "DOM"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_DOS_1968" id="EEC_GDDTMID_DOS_1968">73</a></td>
+<td>DOS_1968</td>
+<td>EEC_GDDTMID_DOS_1968</td>
+<td>DOS 1968 (Gizo Island, New Georgia Islands).</td>
+<td>IR</td>
+<td>[83502T, App. B.10, "GIZ"]</td>
+<td>[HELM, "GIZ"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_EASTER_ISLAND_1967" id="EEC_GDDTMID_EASTER_ISLAND_1967">74</a></td>
+<td>EASTER_ISLAND_1967</td>
+<td>EEC_GDDTMID_EASTER_ISLAND_1967</td>
+<td>Easter Island 1967 (Easter Island).</td>
+<td>IR</td>
+<td>[83502T, App. B.10, "EAS"]</td>
+<td>[HELM, "EAS"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_ETRS_1989" id="EEC_GDDTMID_ETRS_1989">75</a></td>
+<td>ETRS_1989</td>
+<td>EEC_GDDTMID_ETRS_1989</td>
+<td>European Terrestrial Reference System 1989 (ETRS 89).</td>
+<td>IR</td>
+<td>[HELM, "EUT"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_EUR_1950" id="EEC_GDDTMID_EUR_1950">76</a></td>
+<td>EUR_1950</td>
+<td>EEC_GDDTMID_EUR_1950</td>
+<td>European 1950.</td>
+<td>IR</td>
+<td>[83502T, App. B.5, "EUR"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_EUR_1950_CYPRUS" id="EEC_GDDTMID_EUR_1950_CYPRUS">77</a></td>
+<td>EUR_1950_CYPRUS</td>
+<td>EEC_GDDTMID_EUR_1950_CYPRUS</td>
+<td>European 1950 (Cyprus).</td>
+<td>IR</td>
+<td>[83502T, App. B.5, "EUR-E"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_EUR_1950_EGYPT" id="EEC_GDDTMID_EUR_1950_EGYPT">78</a></td>
+<td>EUR_1950_EGYPT</td>
+<td>EEC_GDDTMID_EUR_1950_EGYPT</td>
+<td>European 1950 (Egypt).</td>
+<td>IR</td>
+<td>[83502T, App. B.5, "EUR-F"]</td>
+<td>[HELM, "EUR-F"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_EUR_1950_ENGLAND" id="EEC_GDDTMID_EUR_1950_ENGLAND">79</a></td>
+<td>EUR_1950_ENGLAND</td>
+<td>EEC_GDDTMID_EUR_1950_ENGLAND</td>
+<td>European 1950 (England, Channel Islands, Ireland, Northern Ireland, Scotland, Shetland Islands, and Wales).</td>
+<td>IR</td>
+<td>[DGST, "EURK"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_EUR_1950_GREECE" id="EEC_GDDTMID_EUR_1950_GREECE">80</a></td>
+<td>EUR_1950_GREECE</td>
+<td>EEC_GDDTMID_EUR_1950_GREECE</td>
+<td>European 1950 (Greece).</td>
+<td>IR</td>
+<td>[83502T, App. B.5, "EUR-B"]</td>
+<td>[HELM, "EUR-B"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_EUR_1950_IRAN" id="EEC_GDDTMID_EUR_1950_IRAN">81</a></td>
+<td>EUR_1950_IRAN</td>
+<td>EEC_GDDTMID_EUR_1950_IRAN</td>
+<td>European 1950 (Iran).</td>
+<td>IR</td>
+<td>[83502T, App. B.5, "EUR-H"]</td>
+<td>[HELM, "EUR-H"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_EUR_1950_IRAQ" id="EEC_GDDTMID_EUR_1950_IRAQ">82</a></td>
+<td>EUR_1950_IRAQ</td>
+<td>EEC_GDDTMID_EUR_1950_IRAQ</td>
+<td>European 1950 (Iraq, Israel, Jordan, Kuwait, Lebanon, Saudi Arabia, and Syria).</td>
+<td>IR</td>
+<td>[83502T, App. C.2, "EUR-S"]</td>
+<td>[HELM, "EUR-S"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_EUR_1950_MALTA" id="EEC_GDDTMID_EUR_1950_MALTA">83</a></td>
+<td>EUR_1950_MALTA</td>
+<td>EEC_GDDTMID_EUR_1950_MALTA</td>
+<td>European 1950 (Malta).</td>
+<td>IR</td>
+<td>[83502T, App. B.5, "EUR-L"]</td>
+<td>[HELM, "EUR-L"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_EUR_1950_MEAN_SOLUTION" id="EEC_GDDTMID_EUR_1950_MEAN_SOLUTION">84</a></td>
+<td>EUR_1950_MEAN_SOLUTION</td>
+<td>EEC_GDDTMID_EUR_1950_MEAN_SOLUTION</td>
+<td>European 1950 (mean solution: Austria, Belgium, Denmark, Finland, France, Federal Republic of Germany, Gibraltar, Greece, Italy, Luxembourg, Netherlands, Norway, Portugal, Spain, Sweden, and Switzerland).</td>
+<td>IR</td>
+<td>[83502T, App. B.5, "EUR-M"]</td>
+<td>[HELM, "EUR-M"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_EUR_1950_NORWAY" id="EEC_GDDTMID_EUR_1950_NORWAY">85</a></td>
+<td>EUR_1950_NORWAY</td>
+<td>EEC_GDDTMID_EUR_1950_NORWAY</td>
+<td>European 1950 (Norway and Finland).</td>
+<td>IR</td>
+<td>[83502T, App. B.5, "EUR-C"]</td>
+<td>[HELM, "EUR-C"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_EUR_1950_PORTUGAL" id="EEC_GDDTMID_EUR_1950_PORTUGAL">86</a></td>
+<td>EUR_1950_PORTUGAL</td>
+<td>EEC_GDDTMID_EUR_1950_PORTUGAL</td>
+<td>European 1950 (Portugal and Spain).</td>
+<td>IR</td>
+<td>[HELM, "EUR", "Portugal"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_EUR_1950_SARDINIA" id="EEC_GDDTMID_EUR_1950_SARDINIA">87</a></td>
+<td>EUR_1950_SARDINIA</td>
+<td>EEC_GDDTMID_EUR_1950_SARDINIA</td>
+<td>European 1950 (Sardinia).</td>
+<td>IR</td>
+<td>[83502T, App. B.5, "EUR-I"]</td>
+<td>[HELM, "EUR-I"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_EUR_1950_SCOTLAND" id="EEC_GDDTMID_EUR_1950_SCOTLAND">88</a></td>
+<td>EUR_1950_SCOTLAND</td>
+<td>EEC_GDDTMID_EUR_1950_SCOTLAND</td>
+<td>European 1950 (England, Channel Islands, Scotland, and Shetland Islands).</td>
+<td>IR</td>
+<td>[83502T, App. B.5, "EUR-G"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_EUR_1950_SICILY" id="EEC_GDDTMID_EUR_1950_SICILY">89</a></td>
+<td>EUR_1950_SICILY</td>
+<td>EEC_GDDTMID_EUR_1950_SICILY</td>
+<td>European 1950 (Sicily).</td>
+<td>IR</td>
+<td>[83502T, App. B.5, "EUR-J"]</td>
+<td>[HELM, "EUR-J"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_EUR_1950_TUNISIA" id="EEC_GDDTMID_EUR_1950_TUNISIA">90</a></td>
+<td>EUR_1950_TUNISIA</td>
+<td>EEC_GDDTMID_EUR_1950_TUNISIA</td>
+<td>European 1950 (Tunisia).</td>
+<td>IR</td>
+<td>[83502T, App. B.5, "EUR-T"]</td>
+<td>[HELM, "EUR-T"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_EUR_1950_W_EUROPE" id="EEC_GDDTMID_EUR_1950_W_EUROPE">91</a></td>
+<td>EUR_1950_W_EUROPE</td>
+<td>EEC_GDDTMID_EUR_1950_W_EUROPE</td>
+<td>European 1950 (Western Europe: Austria, Denmark, France, Federal Republic of Germany, Netherlands, and Switzerland).</td>
+<td>IR</td>
+<td>[83502T, App. B.5, "EUR-A"]</td>
+<td>[HELM, "EUR-A"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_EUR_1979" id="EEC_GDDTMID_EUR_1979">92</a></td>
+<td>EUR_1979</td>
+<td>EEC_GDDTMID_EUR_1979</td>
+<td>European 1979 (mean solution: Austria, Finland, Netherlands, Norway, Spain, Sweden, and Switzerland).</td>
+<td>IR</td>
+<td>[83502T, App. B.5, "EUS"]</td>
+<td>[HELM, "EUS", "Europe"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_FORT_THOMAS_1955" id="EEC_GDDTMID_FORT_THOMAS_1955">93</a></td>
+<td>FORT_THOMAS_1955</td>
+<td>EEC_GDDTMID_FORT_THOMAS_1955</td>
+<td>Fort Thomas 1955 (Nevis, St Kitts, and Leeward Islands).</td>
+<td>IR</td>
+<td>[83502T, App. B.8, "FOT"]</td>
+<td>[HELM, "FOT"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_GAN_1970" id="EEC_GDDTMID_GAN_1970">94</a></td>
+<td>GAN_1970</td>
+<td>EEC_GDDTMID_GAN_1970</td>
+<td>Gan 1970 (Addu Atoll, Republic of Maldives).</td>
+<td>IR</td>
+<td>[83502T, App. B.9, "GAA"]</td>
+<td>[HELM, "GAA"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_GANDAJIKA_BASE" id="EEC_GDDTMID_GANDAJIKA_BASE">95</a></td>
+<td>GANDAJIKA_BASE</td>
+<td>EEC_GDDTMID_GANDAJIKA_BASE</td>
+<td>Gandajika Base (Zaire).</td>
+<td>IR</td>
+<td>[DGST, "GAN"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_GDZ80" id="EEC_GDDTMID_GDZ80">96</a></td>
+<td>GDZ80</td>
+<td>EEC_GDDTMID_GDZ80</td>
+<td>GDZ80 (China).</td>
+<td>IR</td>
+<td>[DGST, "GDZ"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_GEOCENTRIC_DATUM_AUSTRALIA" id="EEC_GDDTMID_GEOCENTRIC_DATUM_AUSTRALIA">97</a></td>
+<td>GEOCENTRIC_DATUM_AUSTRALIA</td>
+<td>EEC_GDDTMID_GEOCENTRIC_DATUM_AUSTRALIA</td>
+<td>Geocentric Datum of Australia (GDA).</td>
+<td>IR</td>
+<td>[HELM, "GDS"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_GEODETIC_DATUM_1949" id="EEC_GDDTMID_GEODETIC_DATUM_1949">98</a></td>
+<td>GEODETIC_DATUM_1949</td>
+<td>EEC_GDDTMID_GEODETIC_DATUM_1949</td>
+<td>Geodetic Datum 1949 (New Zealand).</td>
+<td>IR</td>
+<td>[83502T, App. B.10, "GEO"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_GRACIOSA_BASE_SW_1948" id="EEC_GDDTMID_GRACIOSA_BASE_SW_1948">99</a></td>
+<td>GRACIOSA_BASE_SW_1948</td>
+<td>EEC_GDDTMID_GRACIOSA_BASE_SW_1948</td>
+<td>Graciosa Base SW 1948 (Faial, Graciosa, Pico, Sao Jorge, and Terceira Island, Azores).</td>
+<td>IR</td>
+<td>[83502T, App. B.8, "GRA"]</td>
+<td>[HELM, "GRA"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_GREEK_DATUM" id="EEC_GDDTMID_GREEK_DATUM">100</a></td>
+<td>GREEK_DATUM</td>
+<td>EEC_GDDTMID_GREEK_DATUM</td>
+<td>Greek Datum, Greece.</td>
+<td>IR</td>
+<td>[DGST, "GRK"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_GREEK_GRS_1987" id="EEC_GDDTMID_GREEK_GRS_1987">101</a></td>
+<td>GREEK_GRS_1987</td>
+<td>EEC_GDDTMID_GREEK_GRS_1987</td>
+<td>Greek Geodetic Reference System 1987 (GGRS 87).</td>
+<td>IR</td>
+<td>[HELM, "GRX"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_GUAM_1963" id="EEC_GDDTMID_GUAM_1963">102</a></td>
+<td>GUAM_1963</td>
+<td>EEC_GDDTMID_GUAM_1963</td>
+<td>Guam 1963.</td>
+<td>IR</td>
+<td>[83502T, App. B.10, "GUA"]</td>
+<td>[HELM, "GUA"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_GUNONG_SEGARA" id="EEC_GDDTMID_GUNONG_SEGARA">103</a></td>
+<td>GUNONG_SEGARA</td>
+<td>EEC_GDDTMID_GUNONG_SEGARA</td>
+<td>Gunong Segara (Kalimantan Island, Indonesia).</td>
+<td>IR</td>
+<td>[83502T, App. C.2, "GSE"]</td>
+<td>[HELM, "GSE"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_GUNONG_SERINDUNG" id="EEC_GDDTMID_GUNONG_SERINDUNG">104</a></td>
+<td>GUNONG_SERINDUNG</td>
+<td>EEC_GDDTMID_GUNONG_SERINDUNG</td>
+<td>Gunong Serindung.</td>
+<td>IR</td>
+<td>[DGST, "GSF"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_GUX_1_ASTRO" id="EEC_GDDTMID_GUX_1_ASTRO">105</a></td>
+<td>GUX_1_ASTRO</td>
+<td>EEC_GDDTMID_GUX_1_ASTRO</td>
+<td>GUX 1 Astro (Guadacanal Island).</td>
+<td>IR</td>
+<td>[83502T, App. B.10, "DOB"]</td>
+<td>[HELM, "DOB"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_HERAT_NORTH" id="EEC_GDDTMID_HERAT_NORTH">106</a></td>
+<td>HERAT_NORTH</td>
+<td>EEC_GDDTMID_HERAT_NORTH</td>
+<td>Herat North (Afghanistan).</td>
+<td>IR</td>
+<td>[83502T, App. C.2, "HEN"]</td>
+<td>[HELM, "HEN"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_HERMANNSKOGEL" id="EEC_GDDTMID_HERMANNSKOGEL">107</a></td>
+<td>HERMANNSKOGEL</td>
+<td>EEC_GDDTMID_HERMANNSKOGEL</td>
+<td>Hermannskogel.</td>
+<td>IR</td>
+<td>[83502T, App. C.2, "HER"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_HJORSEY_1955" id="EEC_GDDTMID_HJORSEY_1955">108</a></td>
+<td>HJORSEY_1955</td>
+<td>EEC_GDDTMID_HJORSEY_1955</td>
+<td>Hjorsey 1955 (Iceland).</td>
+<td>IR</td>
+<td>[83502T, App. B.5, "HJO"]</td>
+<td>[83502T, App. B.8, "HJO"], [HELM, "HJO"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_HONG_KONG_1929" id="EEC_GDDTMID_HONG_KONG_1929">109</a></td>
+<td>HONG_KONG_1929</td>
+<td>EEC_GDDTMID_HONG_KONG_1929</td>
+<td>Hong Kong 1929.</td>
+<td>IR</td>
+<td>[DGST, "HKO"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_HONG_KONG_1963" id="EEC_GDDTMID_HONG_KONG_1963">110</a></td>
+<td>HONG_KONG_1963</td>
+<td>EEC_GDDTMID_HONG_KONG_1963</td>
+<td>Hong Kong 1963 (Hong Kong).</td>
+<td>IR</td>
+<td>[83502T, App. B.3, "HKD"]</td>
+<td>[HELM"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_HU_TZU_SHAN" id="EEC_GDDTMID_HU_TZU_SHAN">111</a></td>
+<td>HU_TZU_SHAN</td>
+<td>EEC_GDDTMID_HU_TZU_SHAN</td>
+<td>Hu-Tzu-Shan.</td>
+<td>IR</td>
+<td>[83502T, App. B.3, "HTN"]</td>
+<td>[HELM"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_HUNGARIAN_1972" id="EEC_GDDTMID_HUNGARIAN_1972">112</a></td>
+<td>HUNGARIAN_1972</td>
+<td>EEC_GDDTMID_HUNGARIAN_1972</td>
+<td>Hungarian 1972.</td>
+<td>IR</td>
+<td>[HELM, "HUY-7"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_INDIAN" id="EEC_GDDTMID_INDIAN">113</a></td>
+<td>INDIAN</td>
+<td>EEC_GDDTMID_INDIAN</td>
+<td>Indian.</td>
+<td>IR</td>
+<td>[DGST, "IND"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_INDIAN_1954" id="EEC_GDDTMID_INDIAN_1954">114</a></td>
+<td>INDIAN_1954</td>
+<td>EEC_GDDTMID_INDIAN_1954</td>
+<td>Indian (1954).</td>
+<td>IR</td>
+<td>[83502T, App. B.3, "INF-A"]</td>
+<td>[HELM, "INF"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_INDIAN_1954_THAILAND" id="EEC_GDDTMID_INDIAN_1954_THAILAND">115</a></td>
+<td>INDIAN_1954_THAILAND</td>
+<td>EEC_GDDTMID_INDIAN_1954_THAILAND</td>
+<td>Indian 1954 (Thailand).</td>
+<td>IR</td>
+<td>[83502T, App. B.3, "INF-A"]</td>
+<td>[HELM, "INF-A"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_INDIAN_1960" id="EEC_GDDTMID_INDIAN_1960">116</a></td>
+<td>INDIAN_1960</td>
+<td>EEC_GDDTMID_INDIAN_1960</td>
+<td>Indian 1960.</td>
+<td>IR</td>
+<td>[83502T, App. B.3, "ING"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_INDIAN_1960_CON_SON_ISLAND" id="EEC_GDDTMID_INDIAN_1960_CON_SON_ISLAND">117</a></td>
+<td>INDIAN_1960_CON_SON_ISLAND</td>
+<td>EEC_GDDTMID_INDIAN_1960_CON_SON_ISLAND</td>
+<td>Indian 1960 (Con Son Island, Vietnam).</td>
+<td>IR</td>
+<td>[83502T, App. B.3, "ING-B"]</td>
+<td>[HELM, "ING-B"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_INDIAN_1960_VIETNAM_16N" id="EEC_GDDTMID_INDIAN_1960_VIETNAM_16N">118</a></td>
+<td>INDIAN_1960_VIETNAM_16N</td>
+<td>EEC_GDDTMID_INDIAN_1960_VIETNAM_16N</td>
+<td>Indian 1960 (Vietnam: near 16&deg;N).</td>
+<td>IR</td>
+<td>[83502T, App. B.3, "ING-A"]</td>
+<td>[HELM, "ING-A"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_INDIAN_1975" id="EEC_GDDTMID_INDIAN_1975">119</a></td>
+<td>INDIAN_1975</td>
+<td>EEC_GDDTMID_INDIAN_1975</td>
+<td>Indian 1975.</td>
+<td>IR</td>
+<td>[83502T, App. B.3, "INH"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_INDIAN_1975_THAILAND_1977" id="EEC_GDDTMID_INDIAN_1975_THAILAND_1977">120</a></td>
+<td>INDIAN_1975_THAILAND_1977</td>
+<td>EEC_GDDTMID_INDIAN_1975_THAILAND_1977</td>
+<td>Indian 1975 (Thailand).</td>
+<td>IR</td>
+<td>[83502T, App. B.3, "INH-A1"]</td>
+<td>[HELM, "INH-A1"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_INDIAN_BANGLADESH" id="EEC_GDDTMID_INDIAN_BANGLADESH">121</a></td>
+<td>INDIAN_BANGLADESH</td>
+<td>EEC_GDDTMID_INDIAN_BANGLADESH</td>
+<td>Indian (Bangladesh).</td>
+<td>IR</td>
+<td>[83502T, App. B.3, "IND-B"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_INDIAN_NEPAL" id="EEC_GDDTMID_INDIAN_NEPAL">122</a></td>
+<td>INDIAN_NEPAL</td>
+<td>EEC_GDDTMID_INDIAN_NEPAL</td>
+<td>Indian (India and Nepal).</td>
+<td>IR</td>
+<td>[83502T, App. B.3, "IND-I"]</td>
+<td>[HELM, "IND-I"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_INDIAN_PAKISTAN" id="EEC_GDDTMID_INDIAN_PAKISTAN">123</a></td>
+<td>INDIAN_PAKISTAN</td>
+<td>EEC_GDDTMID_INDIAN_PAKISTAN</td>
+<td>Indian (Pakistan).</td>
+<td>IR</td>
+<td>[83502T, App. C.2, "IND-P"]</td>
+<td>[HELM, "IND-P"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_INDIAN_THAILAND_VIETNAM" id="EEC_GDDTMID_INDIAN_THAILAND_VIETNAM">124</a></td>
+<td>INDIAN_THAILAND_VIETNAM</td>
+<td>EEC_GDDTMID_INDIAN_THAILAND_VIETNAM</td>
+<td>Indian (Thailand and Vietnam).</td>
+<td>IR</td>
+<td>[DGST, "INDA"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_INDONESIAN_1974" id="EEC_GDDTMID_INDONESIAN_1974">125</a></td>
+<td>INDONESIAN_1974</td>
+<td>EEC_GDDTMID_INDONESIAN_1974</td>
+<td>Indonesian 1974.</td>
+<td>IR</td>
+<td>[83502T, App. B.3, "IDN"]</td>
+<td>[83502T, App. B.10, "IDN"], [HELM, "IDN"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_IRELAND_1965" id="EEC_GDDTMID_IRELAND_1965">126</a></td>
+<td>IRELAND_1965</td>
+<td>EEC_GDDTMID_IRELAND_1965</td>
+<td>Ireland 1965 (Ireland and Northern Ireland).</td>
+<td>IR</td>
+<td>[83502T, App. B.5, "IRL"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_ISTS_061_ASTRO_1968" id="EEC_GDDTMID_ISTS_061_ASTRO_1968">127</a></td>
+<td>ISTS_061_ASTRO_1968</td>
+<td>EEC_GDDTMID_ISTS_061_ASTRO_1968</td>
+<td>ISTS 061 Astro 1968 (South Georgia Islands).</td>
+<td>IR</td>
+<td>[83502T, App. B.8, "ISG"]</td>
+<td>[HELM, "ISG"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_ISTS_073_ASTRO_1969" id="EEC_GDDTMID_ISTS_073_ASTRO_1969">128</a></td>
+<td>ISTS_073_ASTRO_1969</td>
+<td>EEC_GDDTMID_ISTS_073_ASTRO_1969</td>
+<td>ISTS 073 Astro 1969 (Diego Garcia).</td>
+<td>IR</td>
+<td>[83502T, App. B.9, "IST"]</td>
+<td>[HELM, "IST"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_JOHNSTON_ISLAND_1961" id="EEC_GDDTMID_JOHNSTON_ISLAND_1961">129</a></td>
+<td>JOHNSTON_ISLAND_1961</td>
+<td>EEC_GDDTMID_JOHNSTON_ISLAND_1961</td>
+<td>Johnston Island 1961 (Johnston Island).</td>
+<td>IR</td>
+<td>[83502T, App. B.10, "JOH"]</td>
+<td>[HELM, "JOH"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_KALIANPUR" id="EEC_GDDTMID_KALIANPUR">130</a></td>
+<td>KALIANPUR</td>
+<td>EEC_GDDTMID_KALIANPUR</td>
+<td>Kalianpur (India).</td>
+<td>IR</td>
+<td>[DGST, "KAB"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_KANDAWALA" id="EEC_GDDTMID_KANDAWALA">131</a></td>
+<td>KANDAWALA</td>
+<td>EEC_GDDTMID_KANDAWALA</td>
+<td>Kandawala (Sri Lanka).</td>
+<td>IR</td>
+<td>[83502T, App. B.3, "KAN"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_KCS_2_SIERRA_LEONE" id="EEC_GDDTMID_KCS_2_SIERRA_LEONE">132</a></td>
+<td>KCS_2_SIERRA_LEONE</td>
+<td>EEC_GDDTMID_KCS_2_SIERRA_LEONE</td>
+<td>KCS 2, Sierra Leone.</td>
+<td>IR</td>
+<td>[DGST, "KCS"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_KERGUELEN_ISLAND_1949" id="EEC_GDDTMID_KERGUELEN_ISLAND_1949">133</a></td>
+<td>KERGUELEN_ISLAND_1949</td>
+<td>EEC_GDDTMID_KERGUELEN_ISLAND_1949</td>
+<td>Kerguelen Island 1949 (Kerguelen Island).</td>
+<td>IR</td>
+<td>[83502T, App. B.9, "KEG"]</td>
+<td>[HELM, "KEG"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_KERTAU_1948" id="EEC_GDDTMID_KERTAU_1948">134</a></td>
+<td>KERTAU_1948</td>
+<td>EEC_GDDTMID_KERTAU_1948</td>
+<td>Kertau 1948 or Revised Kertau (West Malaysia and Singapore).</td>
+<td>IR</td>
+<td>[83502T, App. B.3, "KEA"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_KKJ_FINLAND" id="EEC_GDDTMID_KKJ_FINLAND">135</a></td>
+<td>KKJ_FINLAND</td>
+<td>EEC_GDDTMID_KKJ_FINLAND</td>
+<td>Kartastokoordinaattijarjestelma (KKJ), Finland.</td>
+<td>IR</td>
+<td>[HELM, "KKX-7"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_KOREAN_GEODETIC_1995" id="EEC_GDDTMID_KOREAN_GEODETIC_1995">136</a></td>
+<td>KOREAN_GEODETIC_1995</td>
+<td>EEC_GDDTMID_KOREAN_GEODETIC_1995</td>
+<td>Korean Geodetic System 1995 (South Korea).</td>
+<td>IR</td>
+<td>[83502T, App. B.3, "KGS"]</td>
+<td>[HELM, "KGS"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_KUSAIE_ASTRO_1951" id="EEC_GDDTMID_KUSAIE_ASTRO_1951">137</a></td>
+<td>KUSAIE_ASTRO_1951</td>
+<td>EEC_GDDTMID_KUSAIE_ASTRO_1951</td>
+<td>Kusaie Astro 1951.</td>
+<td>IR</td>
+<td>[83502T, App. B.10, "KUS"]</td>
+<td>[HELM, "KUS"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_KUWAIT_OIL_COMPANY_K28" id="EEC_GDDTMID_KUWAIT_OIL_COMPANY_K28">138</a></td>
+<td>KUWAIT_OIL_COMPANY_K28</td>
+<td>EEC_GDDTMID_KUWAIT_OIL_COMPANY_K28</td>
+<td>Kuwait Oil Company (K28).</td>
+<td>IR</td>
+<td>[DGST, "KUW"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_LC5_ASTRO_1961" id="EEC_GDDTMID_LC5_ASTRO_1961">139</a></td>
+<td>LC5_ASTRO_1961</td>
+<td>EEC_GDDTMID_LC5_ASTRO_1961</td>
+<td>L.C. 5 Astro 1961 (Cayman Brac Island).</td>
+<td>IR</td>
+<td>[83502T, App. B.8, "LCF"]</td>
+<td>[HELM, "LCF"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_LEIGON" id="EEC_GDDTMID_LEIGON">140</a></td>
+<td>LEIGON</td>
+<td>EEC_GDDTMID_LEIGON</td>
+<td>Leigon (Ghana).</td>
+<td>IR</td>
+<td>[83502T, App. B.2, "LEH"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_LIBERIA_1964" id="EEC_GDDTMID_LIBERIA_1964">141</a></td>
+<td>LIBERIA_1964</td>
+<td>EEC_GDDTMID_LIBERIA_1964</td>
+<td>Liberia 1964 (Liberia).</td>
+<td>IR</td>
+<td>[83502T, App. B.2, "LIB"]</td>
+<td>[HELM, "LIB"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_LISBON_D73" id="EEC_GDDTMID_LISBON_D73">142</a></td>
+<td>LISBON_D73</td>
+<td>EEC_GDDTMID_LISBON_D73</td>
+<td>Lisbon (Castelo di Sao Jorge), Portugal.</td>
+<td>IR</td>
+<td>[HELM, "LIS-7"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_LOCAL_ASTRONOMICAL" id="EEC_GDDTMID_LOCAL_ASTRONOMICAL">143</a></td>
+<td>LOCAL_ASTRONOMICAL</td>
+<td>EEC_GDDTMID_LOCAL_ASTRONOMICAL</td>
+<td>Local astronomical.</td>
+<td>IR</td>
+<td>[DGST, "LOC"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_LOCAL_UNSPECIFIED" id="EEC_GDDTMID_LOCAL_UNSPECIFIED">144</a></td>
+<td>LOCAL_UNSPECIFIED</td>
+<td>EEC_GDDTMID_LOCAL_UNSPECIFIED</td>
+<td>Local and of unspecified extent.</td>
+<td>IR</td>
+<td>[S57A, Attribute, HORDAT:131]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_LOMA_QUINTANA" id="EEC_GDDTMID_LOMA_QUINTANA">145</a></td>
+<td>LOMA_QUINTANA</td>
+<td>EEC_GDDTMID_LOMA_QUINTANA</td>
+<td>Loma Quintana (Venezuela).</td>
+<td>IR</td>
+<td>[DGST, "LOM"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_LUZON" id="EEC_GDDTMID_LUZON">146</a></td>
+<td>LUZON</td>
+<td>EEC_GDDTMID_LUZON</td>
+<td>Luzon.</td>
+<td>IR</td>
+<td>[DGST, "LUZ"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_LUZON_APPROXIMATE" id="EEC_GDDTMID_LUZON_APPROXIMATE">147</a></td>
+<td>LUZON_APPROXIMATE</td>
+<td>EEC_GDDTMID_LUZON_APPROXIMATE</td>
+<td>Approximate Luzon Datum (Philippines).</td>
+<td>IR</td>
+<td>[DGST, "APL"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_LUZON_MINDANAO_ISLAND" id="EEC_GDDTMID_LUZON_MINDANAO_ISLAND">148</a></td>
+<td>LUZON_MINDANAO_ISLAND</td>
+<td>EEC_GDDTMID_LUZON_MINDANAO_ISLAND</td>
+<td>Luzon (Mindanao Island).</td>
+<td>IR</td>
+<td>[83502T, App. B.10, "LUZ-B"]</td>
+<td>[HELM, "LUZ-B"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_LUZON_PHILIPPINES" id="EEC_GDDTMID_LUZON_PHILIPPINES">149</a></td>
+<td>LUZON_PHILIPPINES</td>
+<td>EEC_GDDTMID_LUZON_PHILIPPINES</td>
+<td>Luzon (Philippines except Mindanao Island).</td>
+<td>IR</td>
+<td>[83502T, App. B.10, "LUZ-A"]</td>
+<td>[HELM, "LUZ-A"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_M_PORALOKO" id="EEC_GDDTMID_M_PORALOKO">150</a></td>
+<td>M_PORALOKO</td>
+<td>EEC_GDDTMID_M_PORALOKO</td>
+<td>M'Poraloko (Gabon).</td>
+<td>IR</td>
+<td>[83502T, App. B.2, "MPO"]</td>
+<td>[HELM, "MPO"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_MAHE_1971" id="EEC_GDDTMID_MAHE_1971">151</a></td>
+<td>MAHE_1971</td>
+<td>EEC_GDDTMID_MAHE_1971</td>
+<td>Mahe 1971 (Mahe Island).</td>
+<td>IR</td>
+<td>[83502T, App. B.9, "MIK"]</td>
+<td>[HELM, "MIK"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_MANOKWARI" id="EEC_GDDTMID_MANOKWARI">152</a></td>
+<td>MANOKWARI</td>
+<td>EEC_GDDTMID_MANOKWARI</td>
+<td>Manokwari (West Irian Jaya).</td>
+<td>IR</td>
+<td>[DGST, "MAW"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_MARCO_ASTRO" id="EEC_GDDTMID_MARCO_ASTRO">153</a></td>
+<td>MARCO_ASTRO</td>
+<td>EEC_GDDTMID_MARCO_ASTRO</td>
+<td>Marco Astro (Salvage Islands).</td>
+<td>IR</td>
+<td>[DGST, "MAA"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_MARTINIQUE_FORT_DESAIX" id="EEC_GDDTMID_MARTINIQUE_FORT_DESAIX">154</a></td>
+<td>MARTINIQUE_FORT_DESAIX</td>
+<td>EEC_GDDTMID_MARTINIQUE_FORT_DESAIX</td>
+<td>Martinique Fort-Desaix.</td>
+<td>IR</td>
+<td>[DGST, "MAR"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_MASSAWA" id="EEC_GDDTMID_MASSAWA">155</a></td>
+<td>MASSAWA</td>
+<td>EEC_GDDTMID_MASSAWA</td>
+<td>Massawa (Eritrea, Ethiopia).</td>
+<td>IR</td>
+<td>[83502T, App. B.2, "MAS"]</td>
+<td>[HELM, "MAS"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_MAYOTTE_COMBANI" id="EEC_GDDTMID_MAYOTTE_COMBANI">156</a></td>
+<td>MAYOTTE_COMBANI</td>
+<td>EEC_GDDTMID_MAYOTTE_COMBANI</td>
+<td>Mayotte Combani.</td>
+<td>IR</td>
+<td>[DGST, "MCX"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_MERCHICH" id="EEC_GDDTMID_MERCHICH">157</a></td>
+<td>MERCHICH</td>
+<td>EEC_GDDTMID_MERCHICH</td>
+<td>Merchich (Morocco).</td>
+<td>IR</td>
+<td>[83502T, App. B.2, "MER"]</td>
+<td>[HELM, "MER"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_MIDWAY_ASTRO_1961" id="EEC_GDDTMID_MIDWAY_ASTRO_1961">158</a></td>
+<td>MIDWAY_ASTRO_1961</td>
+<td>EEC_GDDTMID_MIDWAY_ASTRO_1961</td>
+<td>Midway Astro 1961 (Midway Island).</td>
+<td>IR</td>
+<td>[83502T, App. B.10, "MID"]</td>
+<td>[HELM, "MID"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_MINNA" id="EEC_GDDTMID_MINNA">159</a></td>
+<td>MINNA</td>
+<td>EEC_GDDTMID_MINNA</td>
+<td>Minna.</td>
+<td>IR</td>
+<td>[83502T, App. B.2, "MIN"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_MINNA_CAMEROON" id="EEC_GDDTMID_MINNA_CAMEROON">160</a></td>
+<td>MINNA_CAMEROON</td>
+<td>EEC_GDDTMID_MINNA_CAMEROON</td>
+<td>Minna (Cameroon).</td>
+<td>IR</td>
+<td>[83502T, App. B.2, "MIN-A"]</td>
+<td>[HELM, "MIN-A"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_MINNA_NIGERIA" id="EEC_GDDTMID_MINNA_NIGERIA">161</a></td>
+<td>MINNA_NIGERIA</td>
+<td>EEC_GDDTMID_MINNA_NIGERIA</td>
+<td>Minna (Nigeria).</td>
+<td>IR</td>
+<td>[83502T, App. B.2, "MIN-B"]</td>
+<td>[HELM, "MIN-B"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_MONTJONG_LOWE" id="EEC_GDDTMID_MONTJONG_LOWE">162</a></td>
+<td>MONTJONG_LOWE</td>
+<td>EEC_GDDTMID_MONTJONG_LOWE</td>
+<td>Montjong Lowe.</td>
+<td>IR</td>
+<td>[DGST, "MOL"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_MONTSERRAT_ASTRO_1958" id="EEC_GDDTMID_MONTSERRAT_ASTRO_1958">163</a></td>
+<td>MONTSERRAT_ASTRO_1958</td>
+<td>EEC_GDDTMID_MONTSERRAT_ASTRO_1958</td>
+<td>Montserrat Island Astro 1958.</td>
+<td>IR</td>
+<td>[83502T, App. B.8, "ASM"]</td>
+<td>[HELM, "ASM"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_MOUNT_DILLON" id="EEC_GDDTMID_MOUNT_DILLON">164</a></td>
+<td>MOUNT_DILLON</td>
+<td>EEC_GDDTMID_MOUNT_DILLON</td>
+<td>Mount Dillon, Tobago.</td>
+<td>IR</td>
+<td>[DGST, "MDT"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_N_AM_1927" id="EEC_GDDTMID_N_AM_1927">165</a></td>
+<td>N_AM_1927</td>
+<td>EEC_GDDTMID_N_AM_1927</td>
+<td>North American 1927.</td>
+<td>IR</td>
+<td>[83502T, App. B.6, "NAS"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_N_AM_1927_ALASKA" id="EEC_GDDTMID_N_AM_1927_ALASKA">166</a></td>
+<td>N_AM_1927_ALASKA</td>
+<td>EEC_GDDTMID_N_AM_1927_ALASKA</td>
+<td>North American 1927 (Alaska).</td>
+<td>IR</td>
+<td>[83502T, App. B.6, "NAS-D"]</td>
+<td>[HELM, "NAS-D"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_N_AM_1927_ALBERTA" id="EEC_GDDTMID_N_AM_1927_ALBERTA">167</a></td>
+<td>N_AM_1927_ALBERTA</td>
+<td>EEC_GDDTMID_N_AM_1927_ALBERTA</td>
+<td>North American 1927 (Alberta and British Columbia).</td>
+<td>IR</td>
+<td>[83502T, App. B.6, "NAS-F"]</td>
+<td>[HELM, "NAS-F"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_N_AM_1927_BAHAMAS" id="EEC_GDDTMID_N_AM_1927_BAHAMAS">168</a></td>
+<td>N_AM_1927_BAHAMAS</td>
+<td>EEC_GDDTMID_N_AM_1927_BAHAMAS</td>
+<td>North American 1927 (Bahamas, except San Salvador Island).</td>
+<td>IR</td>
+<td>[83502T, App. B.6, "NAS-Q"]</td>
+<td>[HELM, "NAS-Q"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_N_AM_1927_CANADA_MEAN" id="EEC_GDDTMID_N_AM_1927_CANADA_MEAN">169</a></td>
+<td>N_AM_1927_CANADA_MEAN</td>
+<td>EEC_GDDTMID_N_AM_1927_CANADA_MEAN</td>
+<td>North American 1927 (mean solution: Canada).</td>
+<td>IR</td>
+<td>[83502T, App. B.6, "NAS-E"]</td>
+<td>[HELM, "NAS-E"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_N_AM_1927_CANAL_ZONE" id="EEC_GDDTMID_N_AM_1927_CANAL_ZONE">170</a></td>
+<td>N_AM_1927_CANAL_ZONE</td>
+<td>EEC_GDDTMID_N_AM_1927_CANAL_ZONE</td>
+<td>North American 1927 (Canal Zone).</td>
+<td>IR</td>
+<td>[83502T, App. B.6, "NAS-O"]</td>
+<td>[HELM, "NAS-O"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_N_AM_1927_CARIBBEAN" id="EEC_GDDTMID_N_AM_1927_CARIBBEAN">171</a></td>
+<td>N_AM_1927_CARIBBEAN</td>
+<td>EEC_GDDTMID_N_AM_1927_CARIBBEAN</td>
+<td>North American 1927 (Caribbean, Barbados, Caicos Islands, Cuba, Dominican Republic, Grand Cayman, Jamaica, Leeward Islands, and Turks Islands).</td>
+<td>IR</td>
+<td>[83502T, App. B.6, "NAS-P"]</td>
+<td>[HELM, "NAS-P"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_N_AM_1927_CENTRAL_AMERICA" id="EEC_GDDTMID_N_AM_1927_CENTRAL_AMERICA">172</a></td>
+<td>N_AM_1927_CENTRAL_AMERICA</td>
+<td>EEC_GDDTMID_N_AM_1927_CENTRAL_AMERICA</td>
+<td>North American 1927 (Central America - Belize, Costa Rica, El Salvador, Guatemala, Honduras, and Nicaragua).</td>
+<td>IR</td>
+<td>[83502T, App. B.6, "NAS-N"]</td>
+<td>[HELM, "NAS-N"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_N_AM_1927_CONUS_MEAN" id="EEC_GDDTMID_N_AM_1927_CONUS_MEAN">173</a></td>
+<td>N_AM_1927_CONUS_MEAN</td>
+<td>EEC_GDDTMID_N_AM_1927_CONUS_MEAN</td>
+<td>North American 1927 (mean solution: CONUS).</td>
+<td>IR</td>
+<td>[83502T, App. B.6, "NAS-C"]</td>
+<td>[HELM, "NAS-C"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_N_AM_1927_CUBA" id="EEC_GDDTMID_N_AM_1927_CUBA">174</a></td>
+<td>N_AM_1927_CUBA</td>
+<td>EEC_GDDTMID_N_AM_1927_CUBA</td>
+<td>North American 1927 (Cuba).</td>
+<td>IR</td>
+<td>[83502T, App. B.6, "NAS-T"]</td>
+<td>[HELM, "NAS-T"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_N_AM_1927_EAST_ALEUTIAN" id="EEC_GDDTMID_N_AM_1927_EAST_ALEUTIAN">175</a></td>
+<td>N_AM_1927_EAST_ALEUTIAN</td>
+<td>EEC_GDDTMID_N_AM_1927_EAST_ALEUTIAN</td>
+<td>North American 1927 (Aleutian Islands East of 180&deg;W).</td>
+<td>IR</td>
+<td>[83502T, App. B.6, "NAS-V"]</td>
+<td>[HELM, "NAS-V"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_N_AM_1927_EASTERN_US" id="EEC_GDDTMID_N_AM_1927_EASTERN_US">176</a></td>
+<td>N_AM_1927_EASTERN_US</td>
+<td>EEC_GDDTMID_N_AM_1927_EASTERN_US</td>
+<td>North American 1927 (Eastern US).</td>
+<td>IR</td>
+<td>[83502T, App. B.6, "NAS-A"]</td>
+<td>[HELM, "NAS-A"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_N_AM_1927_HAYES_GREENLAND" id="EEC_GDDTMID_N_AM_1927_HAYES_GREENLAND">177</a></td>
+<td>N_AM_1927_HAYES_GREENLAND</td>
+<td>EEC_GDDTMID_N_AM_1927_HAYES_GREENLAND</td>
+<td>North American 1927 (Hayes Peninsula, Greenland).</td>
+<td>IR</td>
+<td>[83502T, App. B.6, "NAS-U"]</td>
+<td>[HELM, "NAS-U"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_N_AM_1927_MANITOBA_ONTARIO" id="EEC_GDDTMID_N_AM_1927_MANITOBA_ONTARIO">178</a></td>
+<td>N_AM_1927_MANITOBA_ONTARIO</td>
+<td>EEC_GDDTMID_N_AM_1927_MANITOBA_ONTARIO</td>
+<td>North American 1927 (Manitoba and Ontario).</td>
+<td>IR</td>
+<td>[83502T, App. B.6, "NAS-H"]</td>
+<td>[HELM, "NAS-H"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_N_AM_1927_MEXICO" id="EEC_GDDTMID_N_AM_1927_MEXICO">179</a></td>
+<td>N_AM_1927_MEXICO</td>
+<td>EEC_GDDTMID_N_AM_1927_MEXICO</td>
+<td>North American 1927 (Mexico).</td>
+<td>IR</td>
+<td>[83502T, App. B.6, "NAS-L"]</td>
+<td>[HELM, "NAS-L"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_N_AM_1927_NEWFOUNDLAND" id="EEC_GDDTMID_N_AM_1927_NEWFOUNDLAND">180</a></td>
+<td>N_AM_1927_NEWFOUNDLAND</td>
+<td>EEC_GDDTMID_N_AM_1927_NEWFOUNDLAND</td>
+<td>North American 1927 (Newfoundland, New Brunswick, Nova Scotia and Quebec).</td>
+<td>IR</td>
+<td>[83502T, App. B.6, "NAS-G"]</td>
+<td>[HELM, "NAS-G"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_N_AM_1927_NORTHWEST_TERR" id="EEC_GDDTMID_N_AM_1927_NORTHWEST_TERR">181</a></td>
+<td>N_AM_1927_NORTHWEST_TERR</td>
+<td>EEC_GDDTMID_N_AM_1927_NORTHWEST_TERR</td>
+<td>North American 1927 (Northwest Territories and Saskatchewan).</td>
+<td>IR</td>
+<td>[83502T, App. B.6, "NAS-I"]</td>
+<td>[HELM, "NAS-I"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_N_AM_1927_SAN_SALVADOR" id="EEC_GDDTMID_N_AM_1927_SAN_SALVADOR">182</a></td>
+<td>N_AM_1927_SAN_SALVADOR</td>
+<td>EEC_GDDTMID_N_AM_1927_SAN_SALVADOR</td>
+<td>North American 1927 (San Salvador Island).</td>
+<td>IR</td>
+<td>[83502T, App. B.6, "NAS-R"]</td>
+<td>[HELM, "NAS-R"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_N_AM_1927_WEST_ALEUTIAN" id="EEC_GDDTMID_N_AM_1927_WEST_ALEUTIAN">183</a></td>
+<td>N_AM_1927_WEST_ALEUTIAN</td>
+<td>EEC_GDDTMID_N_AM_1927_WEST_ALEUTIAN</td>
+<td>North American 1927 (Aleutian Islands West of 180&deg;W).</td>
+<td>IR</td>
+<td>[83502T, App. B.6, "NAS-W"]</td>
+<td>[HELM, "NAS-W"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_N_AM_1927_WESTERN_US" id="EEC_GDDTMID_N_AM_1927_WESTERN_US">184</a></td>
+<td>N_AM_1927_WESTERN_US</td>
+<td>EEC_GDDTMID_N_AM_1927_WESTERN_US</td>
+<td>North American 1927 (Western US).</td>
+<td>IR</td>
+<td>[83502T, App. B.6, "NAS-B"]</td>
+<td>[HELM, "NAS-B"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_N_AM_1927_YUKON" id="EEC_GDDTMID_N_AM_1927_YUKON">185</a></td>
+<td>N_AM_1927_YUKON</td>
+<td>EEC_GDDTMID_N_AM_1927_YUKON</td>
+<td>North American 1927 (Yukon).</td>
+<td>IR</td>
+<td>[83502T, App. B.6, "NAS-J"]</td>
+<td>[HELM, "NAS-J"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_N_AM_1983" id="EEC_GDDTMID_N_AM_1983">186</a></td>
+<td>N_AM_1983</td>
+<td>EEC_GDDTMID_N_AM_1983</td>
+<td>North American 1983.</td>
+<td>IR</td>
+<td>[83502T, App. B.6, "NAR"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_N_AM_1983_ALASKA" id="EEC_GDDTMID_N_AM_1983_ALASKA">187</a></td>
+<td>N_AM_1983_ALASKA</td>
+<td>EEC_GDDTMID_N_AM_1983_ALASKA</td>
+<td>North American 1983 (Alaska, excluding Aleutian Islands).</td>
+<td>IR</td>
+<td>[83502T, App. B.6, "NAR-A"]</td>
+<td>[HELM, "NAR-A"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_N_AM_1983_ALEUTIANS" id="EEC_GDDTMID_N_AM_1983_ALEUTIANS">188</a></td>
+<td>N_AM_1983_ALEUTIANS</td>
+<td>EEC_GDDTMID_N_AM_1983_ALEUTIANS</td>
+<td>North American 1983 (Aleutian Islands).</td>
+<td>IR</td>
+<td>[83502T, App. B.6, "NAR-E"]</td>
+<td>[HELM, "NAR-E"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_N_AM_1983_CANADA" id="EEC_GDDTMID_N_AM_1983_CANADA">189</a></td>
+<td>N_AM_1983_CANADA</td>
+<td>EEC_GDDTMID_N_AM_1983_CANADA</td>
+<td>North American 1983 (Canada).</td>
+<td>IR</td>
+<td>[83502T, App. B.6, "NAR-B"]</td>
+<td>[HELM, "NAR-B"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_N_AM_1983_CONUS" id="EEC_GDDTMID_N_AM_1983_CONUS">190</a></td>
+<td>N_AM_1983_CONUS</td>
+<td>EEC_GDDTMID_N_AM_1983_CONUS</td>
+<td>North American 1983 (CONUS).</td>
+<td>IR</td>
+<td>[83502T, App. B.6, "NAR-C"]</td>
+<td>[HELM, "NAR-C"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_N_AM_1983_HAWAII" id="EEC_GDDTMID_N_AM_1983_HAWAII">191</a></td>
+<td>N_AM_1983_HAWAII</td>
+<td>EEC_GDDTMID_N_AM_1983_HAWAII</td>
+<td>North American 1983 (Hawaii).</td>
+<td>IR</td>
+<td>[83502T, App. B.6, "NAR-H"]</td>
+<td>[HELM, "NAR-H"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_N_AM_1983_MEXICO" id="EEC_GDDTMID_N_AM_1983_MEXICO">192</a></td>
+<td>N_AM_1983_MEXICO</td>
+<td>EEC_GDDTMID_N_AM_1983_MEXICO</td>
+<td>North American 1983 (Mexico and Central America).</td>
+<td>IR</td>
+<td>[83502T, App. B.6, "NAR-D"]</td>
+<td>[HELM, "NAR-D"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_N_SAHARA_1959" id="EEC_GDDTMID_N_SAHARA_1959">193</a></td>
+<td>N_SAHARA_1959</td>
+<td>EEC_GDDTMID_N_SAHARA_1959</td>
+<td>North Sahara 1959.</td>
+<td>IR</td>
+<td>[83502T, App. B.2, "NSD"]</td>
+<td>[HELM, "NSD"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_NAHRWAN" id="EEC_GDDTMID_NAHRWAN">194</a></td>
+<td>NAHRWAN</td>
+<td>EEC_GDDTMID_NAHRWAN</td>
+<td>Nahrwan.</td>
+<td>IR</td>
+<td>[83502T, App. B.3, "NAH"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_NAHRWAN_MASIRAH_OMAN" id="EEC_GDDTMID_NAHRWAN_MASIRAH_OMAN">195</a></td>
+<td>NAHRWAN_MASIRAH_OMAN</td>
+<td>EEC_GDDTMID_NAHRWAN_MASIRAH_OMAN</td>
+<td>Nahrwan (Masirah Island, Oman).</td>
+<td>IR</td>
+<td>[83502T, App. B.3, "NAH-A"]</td>
+<td>[HELM, "NAH-A"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_NAHRWAN_REVISED" id="EEC_GDDTMID_NAHRWAN_REVISED">196</a></td>
+<td>NAHRWAN_REVISED</td>
+<td>EEC_GDDTMID_NAHRWAN_REVISED</td>
+<td>Revised Nahrwan.</td>
+<td>IR</td>
+<td>[DGST, "NAX"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_NAHRWAN_SAUDI_ARABIA" id="EEC_GDDTMID_NAHRWAN_SAUDI_ARABIA">197</a></td>
+<td>NAHRWAN_SAUDI_ARABIA</td>
+<td>EEC_GDDTMID_NAHRWAN_SAUDI_ARABIA</td>
+<td>Nahrwan (Saudi Arabia).</td>
+<td>IR</td>
+<td>[83502T, App. B.3, "NAH-C"]</td>
+<td>[HELM, "NAH-C"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_NAHRWAN_UAE" id="EEC_GDDTMID_NAHRWAN_UAE">198</a></td>
+<td>NAHRWAN_UAE</td>
+<td>EEC_GDDTMID_NAHRWAN_UAE</td>
+<td>Nahrwan (United Arab Emirates).</td>
+<td>IR</td>
+<td>[83502T, App. B.3, "NAH-B"]</td>
+<td>[HELM, "NAH-B"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_NAPARIMA" id="EEC_GDDTMID_NAPARIMA">199</a></td>
+<td>NAPARIMA</td>
+<td>EEC_GDDTMID_NAPARIMA</td>
+<td>Naparima (British West Indies: Trinidad and Tobago).</td>
+<td>IR</td>
+<td>[83502T, App. B.8, "NAP"]</td>
+<td>[HELM, "NAP"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_NEW_FRENCH_ZERO" id="EEC_GDDTMID_NEW_FRENCH_ZERO">200</a></td>
+<td>NEW_FRENCH_ZERO</td>
+<td>EEC_GDDTMID_NEW_FRENCH_ZERO</td>
+<td>New French or Nouvelle Triangulation Francaise with the zero meridian set at Paris.</td>
+<td>IR</td>
+<td>[HELM, "NFR"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_OBSERV_METEORO_1939" id="EEC_GDDTMID_OBSERV_METEORO_1939">201</a></td>
+<td>OBSERV_METEORO_1939</td>
+<td>EEC_GDDTMID_OBSERV_METEORO_1939</td>
+<td>Observatorio Meteorologico 1939 (Corvo and Flores Islands, Azores).</td>
+<td>IR</td>
+<td>[83502T, App. B.8, "FLO"]</td>
+<td>[HELM, "FLO"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_OCOTOPEQUE_GUATEMALA" id="EEC_GDDTMID_OCOTOPEQUE_GUATEMALA">202</a></td>
+<td>OCOTOPEQUE_GUATEMALA</td>
+<td>EEC_GDDTMID_OCOTOPEQUE_GUATEMALA</td>
+<td>Ocotopeque, Guatemala.</td>
+<td>IR</td>
+<td>[DGST, "OCO"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_OLD_EGYPTIAN_1907" id="EEC_GDDTMID_OLD_EGYPTIAN_1907">203</a></td>
+<td>OLD_EGYPTIAN_1907</td>
+<td>EEC_GDDTMID_OLD_EGYPTIAN_1907</td>
+<td>Old Egyptian 1907 (Egypt).</td>
+<td>IR</td>
+<td>[83502T, App. B.2, "OEG"]</td>
+<td>[HELM, "OEG"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_OLD_HAWAIIAN" id="EEC_GDDTMID_OLD_HAWAIIAN">204</a></td>
+<td>OLD_HAWAIIAN</td>
+<td>EEC_GDDTMID_OLD_HAWAIIAN</td>
+<td>Old Hawaiian.</td>
+<td>IR</td>
+<td>[83502T, App. B.10, "OHA"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_OLD_HAWAIIAN_HAWAII" id="EEC_GDDTMID_OLD_HAWAIIAN_HAWAII">205</a></td>
+<td>OLD_HAWAIIAN_HAWAII</td>
+<td>EEC_GDDTMID_OLD_HAWAIIAN_HAWAII</td>
+<td>Old Hawaiian (Hawaii).</td>
+<td>IR</td>
+<td>[83502T, App. B.10, "OHA-A"]</td>
+<td>[HELM, "OHA-A"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_OLD_HAWAIIAN_INT" id="EEC_GDDTMID_OLD_HAWAIIAN_INT">206</a></td>
+<td>OLD_HAWAIIAN_INT</td>
+<td>EEC_GDDTMID_OLD_HAWAIIAN_INT</td>
+<td>Old Hawaiian International.</td>
+<td>IR</td>
+<td>[83502T, App. B.10, "OHI"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_OLD_HAWAIIAN_INT_HAWAII" id="EEC_GDDTMID_OLD_HAWAIIAN_INT_HAWAII">207</a></td>
+<td>OLD_HAWAIIAN_INT_HAWAII</td>
+<td>EEC_GDDTMID_OLD_HAWAIIAN_INT_HAWAII</td>
+<td>Old Hawaiian International (Hawaii).</td>
+<td>IR</td>
+<td>[83502T, App. B.10, "OHI-A"]</td>
+<td>[HELM, "OHI-A"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_OLD_HAWAIIAN_INT_KAUAI" id="EEC_GDDTMID_OLD_HAWAIIAN_INT_KAUAI">208</a></td>
+<td>OLD_HAWAIIAN_INT_KAUAI</td>
+<td>EEC_GDDTMID_OLD_HAWAIIAN_INT_KAUAI</td>
+<td>Old Hawaiian International (Kauai).</td>
+<td>IR</td>
+<td>[83502T, App. B.10, "OHI-B"]</td>
+<td>[HELM, "OHI-B"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_OLD_HAWAIIAN_INT_MAUI" id="EEC_GDDTMID_OLD_HAWAIIAN_INT_MAUI">209</a></td>
+<td>OLD_HAWAIIAN_INT_MAUI</td>
+<td>EEC_GDDTMID_OLD_HAWAIIAN_INT_MAUI</td>
+<td>Old Hawaiian International (Maui).</td>
+<td>IR</td>
+<td>[83502T, App. B.10, "OHI-C"]</td>
+<td>[HELM, "OHI-C"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_OLD_HAWAIIAN_INT_MEAN_SOLUTION" id="EEC_GDDTMID_OLD_HAWAIIAN_INT_MEAN_SOLUTION">210</a></td>
+<td>OLD_HAWAIIAN_INT_MEAN_SOLUTION</td>
+<td>EEC_GDDTMID_OLD_HAWAIIAN_INT_MEAN_SOLUTION</td>
+<td>Old Hawaiian International (mean solution).</td>
+<td>IR</td>
+<td>[83502T, App. B.10, "OHI-M"]</td>
+<td>[HELM, "OHI-M"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_OLD_HAWAIIAN_INT_OAHU" id="EEC_GDDTMID_OLD_HAWAIIAN_INT_OAHU">211</a></td>
+<td>OLD_HAWAIIAN_INT_OAHU</td>
+<td>EEC_GDDTMID_OLD_HAWAIIAN_INT_OAHU</td>
+<td>Old Hawaiian International (Oahu).</td>
+<td>IR</td>
+<td>[83502T, App. B.10, "OHI-D"]</td>
+<td>[HELM, "OHI-D"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_OLD_HAWAIIAN_KAUAI" id="EEC_GDDTMID_OLD_HAWAIIAN_KAUAI">212</a></td>
+<td>OLD_HAWAIIAN_KAUAI</td>
+<td>EEC_GDDTMID_OLD_HAWAIIAN_KAUAI</td>
+<td>Old Hawaiian (Kauai).</td>
+<td>IR</td>
+<td>[83502T, App. B.10, "OHA-B"]</td>
+<td>[HELM, "OHA-B"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_OLD_HAWAIIAN_MAUI" id="EEC_GDDTMID_OLD_HAWAIIAN_MAUI">213</a></td>
+<td>OLD_HAWAIIAN_MAUI</td>
+<td>EEC_GDDTMID_OLD_HAWAIIAN_MAUI</td>
+<td>Old Hawaiian (Maui).</td>
+<td>IR</td>
+<td>[83502T, App. B.10, "OHA-C"]</td>
+<td>[HELM, "OHA-C"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_OLD_HAWAIIAN_MEAN_SOLUTION" id="EEC_GDDTMID_OLD_HAWAIIAN_MEAN_SOLUTION">214</a></td>
+<td>OLD_HAWAIIAN_MEAN_SOLUTION</td>
+<td>EEC_GDDTMID_OLD_HAWAIIAN_MEAN_SOLUTION</td>
+<td>Old Hawaiian (mean solution).</td>
+<td>IR</td>
+<td>[83502T, App. B.10, "OHA-M"]</td>
+<td>[HELM, "OHA-M"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_OLD_HAWAIIAN_OAHU" id="EEC_GDDTMID_OLD_HAWAIIAN_OAHU">215</a></td>
+<td>OLD_HAWAIIAN_OAHU</td>
+<td>EEC_GDDTMID_OLD_HAWAIIAN_OAHU</td>
+<td>Old Hawaiian (Oahu).</td>
+<td>IR</td>
+<td>[83502T, App. B.10, "OHA-D"]</td>
+<td>[HELM, "OHA-D"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_FAHUD" id="EEC_GDDTMID_FAHUD">216</a></td>
+<td>FAHUD</td>
+<td>EEC_GDDTMID_FAHUD</td>
+<td>Fahud (Oman).</td>
+<td>IR</td>
+<td>[83502T, App. B.3, "FAH"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_OSGB_1936" id="EEC_GDDTMID_OSGB_1936">217</a></td>
+<td>OSGB_1936</td>
+<td>EEC_GDDTMID_OSGB_1936</td>
+<td>Ordnance Survey of Great Britain 1936.</td>
+<td>IR</td>
+<td>[83502T, App. B.5, "OGB"]</td>
+<td>[HELM, "OGB-7"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_OSGB_1936_ENG_ISLE_OF_MAN" id="EEC_GDDTMID_OSGB_1936_ENG_ISLE_OF_MAN">218</a></td>
+<td>OSGB_1936_ENG_ISLE_OF_MAN</td>
+<td>EEC_GDDTMID_OSGB_1936_ENG_ISLE_OF_MAN</td>
+<td>Ordnance Survey of Great Britain 1936 (England, Isle of Man, and Wales).</td>
+<td>IR</td>
+<td>[83502T, App. B.5, "OGB-B"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_OSGB_1936_ENGLAND" id="EEC_GDDTMID_OSGB_1936_ENGLAND">219</a></td>
+<td>OSGB_1936_ENGLAND</td>
+<td>EEC_GDDTMID_OSGB_1936_ENGLAND</td>
+<td>Ordnance Survey of Great Britain 1936 (England).</td>
+<td>IR</td>
+<td>[83502T, App. B.5, "OGB-A"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_OSGB_1936_MEAN_SOLUTION" id="EEC_GDDTMID_OSGB_1936_MEAN_SOLUTION">220</a></td>
+<td>OSGB_1936_MEAN_SOLUTION</td>
+<td>EEC_GDDTMID_OSGB_1936_MEAN_SOLUTION</td>
+<td>Ordnance Survey of Great Britain 1936 (mean solution: England, Isle of Man, Scotland, Shetland, and Wales).</td>
+<td>IR</td>
+<td>[83502T, App. B.5, "OGB-M"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_OSGB_1936_SCOTLAND" id="EEC_GDDTMID_OSGB_1936_SCOTLAND">221</a></td>
+<td>OSGB_1936_SCOTLAND</td>
+<td>EEC_GDDTMID_OSGB_1936_SCOTLAND</td>
+<td>Ordnance Survey of Great Britain 1936 (Scotland and Shetland Islands).</td>
+<td>IR</td>
+<td>[83502T, App. B.5, "OGB-C"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_OSGB_1936_WALES" id="EEC_GDDTMID_OSGB_1936_WALES">222</a></td>
+<td>OSGB_1936_WALES</td>
+<td>EEC_GDDTMID_OSGB_1936_WALES</td>
+<td>Ordnance Survey of Great Britain 1936 (Wales).</td>
+<td>IR</td>
+<td>[83502T, App. B.5, "OGB-D"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_OSLO_OBS_OLD" id="EEC_GDDTMID_OSLO_OBS_OLD">223</a></td>
+<td>OSLO_OBS_OLD</td>
+<td>EEC_GDDTMID_OSLO_OBS_OLD</td>
+<td>Oslo Observatory (Old), Norway.</td>
+<td>IR</td>
+<td>[DGST, "OSL"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_PADANG_BASE_WEST" id="EEC_GDDTMID_PADANG_BASE_WEST">224</a></td>
+<td>PADANG_BASE_WEST</td>
+<td>EEC_GDDTMID_PADANG_BASE_WEST</td>
+<td>Padang Base West End (Sumatra, Indonesia).</td>
+<td>IR</td>
+<td>[DGST, "PAD"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_PADANG_BASE_WEST_ZERO" id="EEC_GDDTMID_PADANG_BASE_WEST_ZERO">225</a></td>
+<td>PADANG_BASE_WEST_ZERO</td>
+<td>EEC_GDDTMID_PADANG_BASE_WEST_ZERO</td>
+<td>Padang Base West End (Sumatra, Indonesia) with the zero meridian set at Djakarta.</td>
+<td>IR</td>
+<td>[DGST, "PAD1"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_PALESTINE_1928" id="EEC_GDDTMID_PALESTINE_1928">226</a></td>
+<td>PALESTINE_1928</td>
+<td>EEC_GDDTMID_PALESTINE_1928</td>
+<td>Palestine 1928 (Israel, Jordan).</td>
+<td>IR</td>
+<td>[HELM, "PAL"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_PICO_DE_LAS_NIEVES" id="EEC_GDDTMID_PICO_DE_LAS_NIEVES">227</a></td>
+<td>PICO_DE_LAS_NIEVES</td>
+<td>EEC_GDDTMID_PICO_DE_LAS_NIEVES</td>
+<td>Pico de las Nieves (Canary Islands).</td>
+<td>IR</td>
+<td>[83502T, App. B.8, "PLN"]</td>
+<td>[HELM, "PLN"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_PITCAIRN_ASTRO_1967" id="EEC_GDDTMID_PITCAIRN_ASTRO_1967">228</a></td>
+<td>PITCAIRN_ASTRO_1967</td>
+<td>EEC_GDDTMID_PITCAIRN_ASTRO_1967</td>
+<td>Pitcairn Astro 1967 (Pitcairn Island).</td>
+<td>IR</td>
+<td>[83502T, App. B.10, "PIT"]</td>
+<td>[HELM, "PIT"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_POINT_58_MEAN_SOLUTION" id="EEC_GDDTMID_POINT_58_MEAN_SOLUTION">229</a></td>
+<td>POINT_58_MEAN_SOLUTION</td>
+<td>EEC_GDDTMID_POINT_58_MEAN_SOLUTION</td>
+<td>Point 58 Mean Solution (Burkina Faso and Niger).</td>
+<td>IR</td>
+<td>[83502T, App. B.2, "PTB"]</td>
+<td>[HELM, "PTB"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_POINTE_NOIRE_1948" id="EEC_GDDTMID_POINTE_NOIRE_1948">230</a></td>
+<td>POINTE_NOIRE_1948</td>
+<td>EEC_GDDTMID_POINTE_NOIRE_1948</td>
+<td>Pointe Noire 1948.</td>
+<td>IR</td>
+<td>[83502T, App. B.2, "PTN"]</td>
+<td>[HELM, "PTN"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_PORTO_SANTO_1936" id="EEC_GDDTMID_PORTO_SANTO_1936">231</a></td>
+<td>PORTO_SANTO_1936</td>
+<td>EEC_GDDTMID_PORTO_SANTO_1936</td>
+<td>Porto Santo 1936 (SE Base) (Porto Santo and Madeira Islands).</td>
+<td>IR</td>
+<td>[83502T, App. B.8, "POS"]</td>
+<td>[HELM, "POS"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_POTSDAM" id="EEC_GDDTMID_POTSDAM">232</a></td>
+<td>POTSDAM</td>
+<td>EEC_GDDTMID_POTSDAM</td>
+<td>Potsdam or Helmertturm (Germany).</td>
+<td>IR</td>
+<td>[DGST, "PDM"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_PROV_S_AM_1956" id="EEC_GDDTMID_PROV_S_AM_1956">233</a></td>
+<td>PROV_S_AM_1956</td>
+<td>EEC_GDDTMID_PROV_S_AM_1956</td>
+<td>Provisional South American 1956.</td>
+<td>IR</td>
+<td>[83502T, App. B.7, "PRP"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_PROV_S_AM_1956_BOLIVIA" id="EEC_GDDTMID_PROV_S_AM_1956_BOLIVIA">234</a></td>
+<td>PROV_S_AM_1956_BOLIVIA</td>
+<td>EEC_GDDTMID_PROV_S_AM_1956_BOLIVIA</td>
+<td>Provisional South American 1956 (Bolivia).</td>
+<td>IR</td>
+<td>[83502T, App. B.7, "PRP-A"]</td>
+<td>[HELM, "PRP-A"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_PROV_S_AM_1956_COLOMBIA" id="EEC_GDDTMID_PROV_S_AM_1956_COLOMBIA">235</a></td>
+<td>PROV_S_AM_1956_COLOMBIA</td>
+<td>EEC_GDDTMID_PROV_S_AM_1956_COLOMBIA</td>
+<td>Provisional South American 1956 (Colombia).</td>
+<td>IR</td>
+<td>[83502T, App. B.7, "PRP-D"]</td>
+<td>[HELM, "PRP-D"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_PROV_S_AM_1956_ECUADOR" id="EEC_GDDTMID_PROV_S_AM_1956_ECUADOR">236</a></td>
+<td>PROV_S_AM_1956_ECUADOR</td>
+<td>EEC_GDDTMID_PROV_S_AM_1956_ECUADOR</td>
+<td>Provisional South American 1956 (Ecuador).</td>
+<td>IR</td>
+<td>[83502T, App. B.7, "PRP-E"]</td>
+<td>[HELM, "PRP-E"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_PROV_S_AM_1956_GUYANA" id="EEC_GDDTMID_PROV_S_AM_1956_GUYANA">237</a></td>
+<td>PROV_S_AM_1956_GUYANA</td>
+<td>EEC_GDDTMID_PROV_S_AM_1956_GUYANA</td>
+<td>Provisional South American 1956 (Guyana).</td>
+<td>IR</td>
+<td>[83502T, App. B.7, "PRP-F"]</td>
+<td>[HELM, "PRP-F"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_PROV_S_AM_1956_MEAN_SOLUTION" id="EEC_GDDTMID_PROV_S_AM_1956_MEAN_SOLUTION">238</a></td>
+<td>PROV_S_AM_1956_MEAN_SOLUTION</td>
+<td>EEC_GDDTMID_PROV_S_AM_1956_MEAN_SOLUTION</td>
+<td>Provisional South American 1956 (mean solution: Bolivia, Chile, Colombia, Ecuador, Guyana, Peru, and Venezuela).</td>
+<td>IR</td>
+<td>[83502T, App. B.7, "PRP-M"]</td>
+<td>[HELM, "PRP-M"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_PROV_S_AM_1956_N_CHILE_19S" id="EEC_GDDTMID_PROV_S_AM_1956_N_CHILE_19S">239</a></td>
+<td>PROV_S_AM_1956_N_CHILE_19S</td>
+<td>EEC_GDDTMID_PROV_S_AM_1956_N_CHILE_19S</td>
+<td>Provisional South American 1956 (Northern Chile near 19&deg;S).</td>
+<td>IR</td>
+<td>[83502T, App. B.7, "PRP-B"]</td>
+<td>[HELM, "PRP-B"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_PROV_S_AM_1956_PERU" id="EEC_GDDTMID_PROV_S_AM_1956_PERU">240</a></td>
+<td>PROV_S_AM_1956_PERU</td>
+<td>EEC_GDDTMID_PROV_S_AM_1956_PERU</td>
+<td>Provisional South American 1956 (Peru).</td>
+<td>IR</td>
+<td>[83502T, App. B.7, "PRP-G"]</td>
+<td>[HELM, "PRP-G"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_PROV_S_AM_1956_S_CHILE_43S" id="EEC_GDDTMID_PROV_S_AM_1956_S_CHILE_43S">241</a></td>
+<td>PROV_S_AM_1956_S_CHILE_43S</td>
+<td>EEC_GDDTMID_PROV_S_AM_1956_S_CHILE_43S</td>
+<td>Provisional South American 1956 (Southern Chile near 43&deg;S).</td>
+<td>IR</td>
+<td>[83502T, App. B.7, "PRP-C"]</td>
+<td>[HELM, "PRP-C"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_PROV_S_AM_1956_VENEZUELA" id="EEC_GDDTMID_PROV_S_AM_1956_VENEZUELA">242</a></td>
+<td>PROV_S_AM_1956_VENEZUELA</td>
+<td>EEC_GDDTMID_PROV_S_AM_1956_VENEZUELA</td>
+<td>Provisional South American 1956 (Venezuela).</td>
+<td>IR</td>
+<td>[83502T, App. B.7, "PRP-H"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_PROV_S_CHILEAN_1963" id="EEC_GDDTMID_PROV_S_CHILEAN_1963">243</a></td>
+<td>PROV_S_CHILEAN_1963</td>
+<td>EEC_GDDTMID_PROV_S_CHILEAN_1963</td>
+<td>Provisional South Chilean 1963 also known as Hito XVIII 1963 (South Chile, 53&deg;S).</td>
+<td>IR</td>
+<td>[83502T, App. B.7, "HIT"]</td>
+<td>[HELM, "HIT"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_PUERTO_RICO" id="EEC_GDDTMID_PUERTO_RICO">244</a></td>
+<td>PUERTO_RICO</td>
+<td>EEC_GDDTMID_PUERTO_RICO</td>
+<td>Puerto Rico (Puerto Rico and Virgin Islands).</td>
+<td>IR</td>
+<td>[83502T, App. B.8, "PUR"]</td>
+<td>[HELM, "PUR"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_PULKOVO_1942" id="EEC_GDDTMID_PULKOVO_1942">245</a></td>
+<td>PULKOVO_1942</td>
+<td>EEC_GDDTMID_PULKOVO_1942</td>
+<td>Pulkovo 1942 (Russia).</td>
+<td>IR</td>
+<td>[83502T, App. C.2, "PUK"]</td>
+<td>[HELM, "PUK"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_QATAR_NATIONAL" id="EEC_GDDTMID_QATAR_NATIONAL">246</a></td>
+<td>QATAR_NATIONAL</td>
+<td>EEC_GDDTMID_QATAR_NATIONAL</td>
+<td>Qatar National (Qatar).</td>
+<td>IR</td>
+<td>[83502T, App. B.3, "QAT"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_QORNOQ" id="EEC_GDDTMID_QORNOQ">247</a></td>
+<td>QORNOQ</td>
+<td>EEC_GDDTMID_QORNOQ</td>
+<td>Qornoq (South Greenland).</td>
+<td>IR</td>
+<td>[83502T, App. B.8, "QUO"]</td>
+<td>[HELM, "QUO"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_RAUENBERG" id="EEC_GDDTMID_RAUENBERG">248</a></td>
+<td>RAUENBERG</td>
+<td>EEC_GDDTMID_RAUENBERG</td>
+<td>Rauenberg (Berlin, Germany).</td>
+<td>IR</td>
+<td>[HELM, "RAU-7"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_RECONN_TRIANG_MOROCCO" id="EEC_GDDTMID_RECONN_TRIANG_MOROCCO">249</a></td>
+<td>RECONN_TRIANG_MOROCCO</td>
+<td>EEC_GDDTMID_RECONN_TRIANG_MOROCCO</td>
+<td>Reconnaissance Triangulation, Morocco.</td>
+<td>IR</td>
+<td>[DGST, "REC"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_REUNION_1947" id="EEC_GDDTMID_REUNION_1947">250</a></td>
+<td>REUNION_1947</td>
+<td>EEC_GDDTMID_REUNION_1947</td>
+<td>Reunion 1947.</td>
+<td>IR</td>
+<td>[83502T, App. B.9, "REU"]</td>
+<td>[HELM, "REU"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_RIKETS_1990_ZERO" id="EEC_GDDTMID_RIKETS_1990_ZERO">251</a></td>
+<td>RIKETS_1990_ZERO</td>
+<td>EEC_GDDTMID_RIKETS_1990_ZERO</td>
+<td>Rikets Koordinatsystem 1990, with the zero meridian set at the Old Observatory, Stockholm, Sweden.</td>
+<td>IR</td>
+<td>[HELM, "RTS-7"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_ROME_1940" id="EEC_GDDTMID_ROME_1940">252</a></td>
+<td>ROME_1940</td>
+<td>EEC_GDDTMID_ROME_1940</td>
+<td>Rome 1940 also known as Monte Mario 1940, Italy.</td>
+<td>IR</td>
+<td>[83502T, App. B.5, "MOD"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_ROME_1940_ZERO" id="EEC_GDDTMID_ROME_1940_ZERO">253</a></td>
+<td>ROME_1940_ZERO</td>
+<td>EEC_GDDTMID_ROME_1940_ZERO</td>
+<td>Rome 1940 also known as Monte Mario 1940, Italy, with the zero meridian set at Rome.</td>
+<td>IR</td>
+<td>[83502T, App. B.5, "MOD"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_S_AFRICAN" id="EEC_GDDTMID_S_AFRICAN">254</a></td>
+<td>S_AFRICAN</td>
+<td>EEC_GDDTMID_S_AFRICAN</td>
+<td>South African (South Africa).</td>
+<td>IR</td>
+<td>[DGST, "SAF"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_S_AM_1969" id="EEC_GDDTMID_S_AM_1969">255</a></td>
+<td>S_AM_1969</td>
+<td>EEC_GDDTMID_S_AM_1969</td>
+<td>South American 1969.</td>
+<td>IR</td>
+<td>[83502T, App. B.7, "SAN"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_S_AM_1969_ARGENTINA" id="EEC_GDDTMID_S_AM_1969_ARGENTINA">256</a></td>
+<td>S_AM_1969_ARGENTINA</td>
+<td>EEC_GDDTMID_S_AM_1969_ARGENTINA</td>
+<td>South American 1969 (Argentina).</td>
+<td>IR</td>
+<td>[83502T, App. B.7, "SAN-A"]</td>
+<td>[HELM, "SAN-A"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_S_AM_1969_BALTRA" id="EEC_GDDTMID_S_AM_1969_BALTRA">257</a></td>
+<td>S_AM_1969_BALTRA</td>
+<td>EEC_GDDTMID_S_AM_1969_BALTRA</td>
+<td>South American 1969 (Baltra, Galapagos Islands).</td>
+<td>IR</td>
+<td>[83502T, App. B.7, "SAN-J"]</td>
+<td>[HELM, "SAN-J"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_S_AM_1969_BOLIVIA" id="EEC_GDDTMID_S_AM_1969_BOLIVIA">258</a></td>
+<td>S_AM_1969_BOLIVIA</td>
+<td>EEC_GDDTMID_S_AM_1969_BOLIVIA</td>
+<td>South American 1969 (Bolivia).</td>
+<td>IR</td>
+<td>[83502T, App. B.7, "SAN-B"]</td>
+<td>[HELM, "SAN-B"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_S_AM_1969_BRAZIL" id="EEC_GDDTMID_S_AM_1969_BRAZIL">259</a></td>
+<td>S_AM_1969_BRAZIL</td>
+<td>EEC_GDDTMID_S_AM_1969_BRAZIL</td>
+<td>South American 1969 (Brazil).</td>
+<td>IR</td>
+<td>[83502T, App. B.7, "SAN-C"]</td>
+<td>[HELM, "SAN-C"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_S_AM_1969_CHILE" id="EEC_GDDTMID_S_AM_1969_CHILE">260</a></td>
+<td>S_AM_1969_CHILE</td>
+<td>EEC_GDDTMID_S_AM_1969_CHILE</td>
+<td>South American 1969 (Chile).</td>
+<td>IR</td>
+<td>[83502T, App. B.7, "SAN-D"]</td>
+<td>[HELM, "SAN-D"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_S_AM_1969_COLOMBIA" id="EEC_GDDTMID_S_AM_1969_COLOMBIA">261</a></td>
+<td>S_AM_1969_COLOMBIA</td>
+<td>EEC_GDDTMID_S_AM_1969_COLOMBIA</td>
+<td>South American 1969 (Colombia).</td>
+<td>IR</td>
+<td>[83502T, App. B.7, "SAN-E"]</td>
+<td>[HELM, "SAN-E"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_S_AM_1969_ECUADOR" id="EEC_GDDTMID_S_AM_1969_ECUADOR">262</a></td>
+<td>S_AM_1969_ECUADOR</td>
+<td>EEC_GDDTMID_S_AM_1969_ECUADOR</td>
+<td>South American 1969 (Ecuador).</td>
+<td>IR</td>
+<td>[83502T, App. B.7, "SAN-F"]</td>
+<td>[HELM, "SAN-F"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_S_AM_1969_GUYANA" id="EEC_GDDTMID_S_AM_1969_GUYANA">263</a></td>
+<td>S_AM_1969_GUYANA</td>
+<td>EEC_GDDTMID_S_AM_1969_GUYANA</td>
+<td>South American 1969 (Guyana).</td>
+<td>IR</td>
+<td>[83502T, App. B.7, "SAN-G"]</td>
+<td>[HELM, "SAN-G"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_S_AM_1969_MEAN_SOLUTION" id="EEC_GDDTMID_S_AM_1969_MEAN_SOLUTION">264</a></td>
+<td>S_AM_1969_MEAN_SOLUTION</td>
+<td>EEC_GDDTMID_S_AM_1969_MEAN_SOLUTION</td>
+<td>South American 1969 (mean solution: Argentina, Bolivia, Brazil, Chile, Columbia, Ecuador, Guyana, Paraguay, Peru, Trinidad and Tobago, and Venezuela).</td>
+<td>IR</td>
+<td>[83502T, App. B.7, "SAN-M"]</td>
+<td>[HELM, "SAN-M"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_S_AM_1969_PARAGUAY" id="EEC_GDDTMID_S_AM_1969_PARAGUAY">265</a></td>
+<td>S_AM_1969_PARAGUAY</td>
+<td>EEC_GDDTMID_S_AM_1969_PARAGUAY</td>
+<td>South American 1969 (Paraguay).</td>
+<td>IR</td>
+<td>[83502T, App. B.7, "SAN-H"]</td>
+<td>[HELM, 'SAN-H"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_S_AM_1969_PERU" id="EEC_GDDTMID_S_AM_1969_PERU">266</a></td>
+<td>S_AM_1969_PERU</td>
+<td>EEC_GDDTMID_S_AM_1969_PERU</td>
+<td>South American 1969 (Peru).</td>
+<td>IR</td>
+<td>[83502T, App. B.7, "SAN-I"]</td>
+<td>[HELM, "SAN-I"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_S_AM_1969_TRINIDAD_TOBAGO" id="EEC_GDDTMID_S_AM_1969_TRINIDAD_TOBAGO">267</a></td>
+<td>S_AM_1969_TRINIDAD_TOBAGO</td>
+<td>EEC_GDDTMID_S_AM_1969_TRINIDAD_TOBAGO</td>
+<td>South American 1969 (Trinidad and Tobago).</td>
+<td>IR</td>
+<td>[83502T, App. B.7, "SAN-K"]</td>
+<td>[HELM, "SAN-K"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_S_AM_1969_VENEZUELA" id="EEC_GDDTMID_S_AM_1969_VENEZUELA">268</a></td>
+<td>S_AM_1969_VENEZUELA</td>
+<td>EEC_GDDTMID_S_AM_1969_VENEZUELA</td>
+<td>South American 1969 (Venezuela).</td>
+<td>IR</td>
+<td>[83502T, App. B.7, "SAN-L"]</td>
+<td>[HELM, "SAN-L"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_S_ASIA" id="EEC_GDDTMID_S_ASIA">269</a></td>
+<td>S_ASIA</td>
+<td>EEC_GDDTMID_S_ASIA</td>
+<td>South Asia (South-east Asia, Singapore).</td>
+<td>IR</td>
+<td>[83502T, App. B.3, "SOA"]</td>
+<td>[HELM, "SOA"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_S_JTSK" id="EEC_GDDTMID_S_JTSK">270</a></td>
+<td>S_JTSK</td>
+<td>EEC_GDDTMID_S_JTSK</td>
+<td>S-JTSK, Czechoslovakia (prior to 1 Jan 1993).</td>
+<td>IR</td>
+<td>[83502T, App. B.5, "CCD"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_S42_PULKOVO_1958" id="EEC_GDDTMID_S42_PULKOVO_1958">271</a></td>
+<td>S42_PULKOVO_1958</td>
+<td>EEC_GDDTMID_S42_PULKOVO_1958</td>
+<td>S-42/58 (Pulkovo 1942).</td>
+<td>IR</td>
+<td>[HELM, "SPK-7"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_SAINTE_ANNE_I_1984" id="EEC_GDDTMID_SAINTE_ANNE_I_1984">272</a></td>
+<td>SAINTE_ANNE_I_1984</td>
+<td>EEC_GDDTMID_SAINTE_ANNE_I_1984</td>
+<td>Sainte Anne I 1984 (Guadeloupe).</td>
+<td>IR</td>
+<td>[DGST, "SAG"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_SANTO_DOS_1965" id="EEC_GDDTMID_SANTO_DOS_1965">273</a></td>
+<td>SANTO_DOS_1965</td>
+<td>EEC_GDDTMID_SANTO_DOS_1965</td>
+<td>Santo (DOS) 1965 (Espirito Santo Island).</td>
+<td>IR</td>
+<td>[83502T, App. B.10, "SAE"]</td>
+<td>[HELM, "SAE"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_SAO_BRAZ" id="EEC_GDDTMID_SAO_BRAZ">274</a></td>
+<td>SAO_BRAZ</td>
+<td>EEC_GDDTMID_SAO_BRAZ</td>
+<td>Sao Braz (Sao Miguel, Santa Maria Islands, Azores).</td>
+<td>IR</td>
+<td>[83502T, App. B.8, "SAO"]</td>
+<td>[HELM, "SAO"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_SAPPER_HILL_1943" id="EEC_GDDTMID_SAPPER_HILL_1943">275</a></td>
+<td>SAPPER_HILL_1943</td>
+<td>EEC_GDDTMID_SAPPER_HILL_1943</td>
+<td>Sapper Hill 1943 (East Falkland Islands).</td>
+<td>IR</td>
+<td>[83502T, App. B.8, "SAP"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_SCHWARZECK" id="EEC_GDDTMID_SCHWARZECK">276</a></td>
+<td>SCHWARZECK</td>
+<td>EEC_GDDTMID_SCHWARZECK</td>
+<td>Schwarzeck (Namibia).</td>
+<td>IR</td>
+<td>[83502T, App. B.2, "SCK"]</td>
+<td>[HELM, "SCK"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_SELVAGEM_GRANDE_1938" id="EEC_GDDTMID_SELVAGEM_GRANDE_1938">277</a></td>
+<td>SELVAGEM_GRANDE_1938</td>
+<td>EEC_GDDTMID_SELVAGEM_GRANDE_1938</td>
+<td>Selvagem Grande 1938 (Salvage Islands).</td>
+<td>IR</td>
+<td>[83502T, App. B.8, "SGM"]</td>
+<td>[HELM, "SGM"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_SIERRA_LEONE_1960" id="EEC_GDDTMID_SIERRA_LEONE_1960">278</a></td>
+<td>SIERRA_LEONE_1960</td>
+<td>EEC_GDDTMID_SIERRA_LEONE_1960</td>
+<td>Sierra Leone 1960.</td>
+<td>IR</td>
+<td>[83502T, App. B.2, "SRL"]</td>
+<td>[HELM, "SIB"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_SOVIET_GEODETIC_1985" id="EEC_GDDTMID_SOVIET_GEODETIC_1985">279</a></td>
+<td>SOVIET_GEODETIC_1985</td>
+<td>EEC_GDDTMID_SOVIET_GEODETIC_1985</td>
+<td>Soviet Geodetic System 1985.</td>
+<td>IR</td>
+<td>[HELM, "SGA-7"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_SOVIET_GEODETIC_1990" id="EEC_GDDTMID_SOVIET_GEODETIC_1990">280</a></td>
+<td>SOVIET_GEODETIC_1990</td>
+<td>EEC_GDDTMID_SOVIET_GEODETIC_1990</td>
+<td>Soviet Geodetic System 1990.</td>
+<td>IR</td>
+<td>[HELM, "SGB-7"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_ST_PIERRE_ET_MIQUELON_1950" id="EEC_GDDTMID_ST_PIERRE_ET_MIQUELON_1950">281</a></td>
+<td>ST_PIERRE_ET_MIQUELON_1950</td>
+<td>EEC_GDDTMID_ST_PIERRE_ET_MIQUELON_1950</td>
+<td>St. Pierre et Miquelon 1950.</td>
+<td>IR</td>
+<td>[DGST, "SPX"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_STOCKHOLM_1938" id="EEC_GDDTMID_STOCKHOLM_1938">282</a></td>
+<td>STOCKHOLM_1938</td>
+<td>EEC_GDDTMID_STOCKHOLM_1938</td>
+<td>Stockholm 1938 (Sweden).</td>
+<td>IR</td>
+<td>[DGST, "STO"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_SYDNEY_OBSERVATORY" id="EEC_GDDTMID_SYDNEY_OBSERVATORY">283</a></td>
+<td>SYDNEY_OBSERVATORY</td>
+<td>EEC_GDDTMID_SYDNEY_OBSERVATORY</td>
+<td>Sydney Observatory, New South Wales, Australia.</td>
+<td>IR</td>
+<td>[DGST, "SYO"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_TANANARIVE_OBS_1925" id="EEC_GDDTMID_TANANARIVE_OBS_1925">284</a></td>
+<td>TANANARIVE_OBS_1925</td>
+<td>EEC_GDDTMID_TANANARIVE_OBS_1925</td>
+<td>Tananarive Observatory 1925.</td>
+<td>IR</td>
+<td>[83502T, App. C.2, "TAN"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_TANANARIVE_OBS_ZERO_1925" id="EEC_GDDTMID_TANANARIVE_OBS_ZERO_1925">285</a></td>
+<td>TANANARIVE_OBS_ZERO_1925</td>
+<td>EEC_GDDTMID_TANANARIVE_OBS_ZERO_1925</td>
+<td>Tananarive Observatory 1925, with Zero Meridian Paris.</td>
+<td>IR</td>
+<td>[83502T, App. C.2, "TAN"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_TIMBALAI_1948" id="EEC_GDDTMID_TIMBALAI_1948">286</a></td>
+<td>TIMBALAI_1948</td>
+<td>EEC_GDDTMID_TIMBALAI_1948</td>
+<td>Timbalai 1948 (Brunei and East Malaysia - Sarawak and Sabah).</td>
+<td>IR</td>
+<td>[83502T, App. B.3, "TIL"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_TIMBALAI_1968" id="EEC_GDDTMID_TIMBALAI_1968">287</a></td>
+<td>TIMBALAI_1968</td>
+<td>EEC_GDDTMID_TIMBALAI_1968</td>
+<td>Timbalai 1968.</td>
+<td>IR</td>
+<td>[HELM, "TIM-7"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_TOKYO" id="EEC_GDDTMID_TOKYO">288</a></td>
+<td>TOKYO</td>
+<td>EEC_GDDTMID_TOKYO</td>
+<td>Tokyo.</td>
+<td>IR</td>
+<td>[83502T, App. B.3, "TOY"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_TOKYO_JAPAN" id="EEC_GDDTMID_TOKYO_JAPAN">289</a></td>
+<td>TOKYO_JAPAN</td>
+<td>EEC_GDDTMID_TOKYO_JAPAN</td>
+<td>Tokyo (Japan).</td>
+<td>IR</td>
+<td>[83502T, App. B.3, "TOY-A"]</td>
+<td>[HELM, "TOY-A"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_TOKYO_KOREA_1997" id="EEC_GDDTMID_TOKYO_KOREA_1997">290</a></td>
+<td>TOKYO_KOREA_1997</td>
+<td>EEC_GDDTMID_TOKYO_KOREA_1997</td>
+<td>Tokyo 1997 (Korea).</td>
+<td>IR</td>
+<td>[83502T, App. B.3, "TOY-B1"]</td>
+<td>[HELM, "TOY-B1"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_TOKYO_MEAN_SOLUTION" id="EEC_GDDTMID_TOKYO_MEAN_SOLUTION">291</a></td>
+<td>TOKYO_MEAN_SOLUTION</td>
+<td>EEC_GDDTMID_TOKYO_MEAN_SOLUTION</td>
+<td>Tokyo (mean solution: Japan, Korea, and Okinawa).</td>
+<td>IR</td>
+<td>[83502T, App. B.3, "TOY-M"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_TOKYO_OKINAWA" id="EEC_GDDTMID_TOKYO_OKINAWA">292</a></td>
+<td>TOKYO_OKINAWA</td>
+<td>EEC_GDDTMID_TOKYO_OKINAWA</td>
+<td>Tokyo (Okinawa).</td>
+<td>IR</td>
+<td>[83502T, App. B.3, "TOY-C"]</td>
+<td>[HELM, "TOY-C"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_TRINIDAD_1903" id="EEC_GDDTMID_TRINIDAD_1903">293</a></td>
+<td>TRINIDAD_1903</td>
+<td>EEC_GDDTMID_TRINIDAD_1903</td>
+<td>Trinidad 1903.</td>
+<td>IR</td>
+<td>[DGST, "TRI"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_TRISTAN_ASTRO_1968" id="EEC_GDDTMID_TRISTAN_ASTRO_1968">294</a></td>
+<td>TRISTAN_ASTRO_1968</td>
+<td>EEC_GDDTMID_TRISTAN_ASTRO_1968</td>
+<td>Tristan Astro 1968 (Tristan da Cunha).</td>
+<td>IR</td>
+<td>[83502T, App. B.8, "TDC"]</td>
+<td>[HELM, "TDC"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_VITI_LEVU_1916" id="EEC_GDDTMID_VITI_LEVU_1916">295</a></td>
+<td>VITI_LEVU_1916</td>
+<td>EEC_GDDTMID_VITI_LEVU_1916</td>
+<td>Viti Levu 1916 (Viti Levu Island, Fiji Islands).</td>
+<td>IR</td>
+<td>[83502T, App. B.10, "MVS"]</td>
+<td>[HELM, "MVS"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_VOIROL_1874" id="EEC_GDDTMID_VOIROL_1874">296</a></td>
+<td>VOIROL_1874</td>
+<td>EEC_GDDTMID_VOIROL_1874</td>
+<td>Voirol 1875.</td>
+<td>IR</td>
+<td>[83502T, App. C.2, "VOI"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_VOIROL_1874_ZERO" id="EEC_GDDTMID_VOIROL_1874_ZERO">297</a></td>
+<td>VOIROL_1874_ZERO</td>
+<td>EEC_GDDTMID_VOIROL_1874_ZERO</td>
+<td>Voirol 1875 with Zero Meridian Paris.</td>
+<td>IR</td>
+<td>[83502T, App. C.2, "VOI"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_VOIROL_1960_ALGERIA" id="EEC_GDDTMID_VOIROL_1960_ALGERIA">298</a></td>
+<td>VOIROL_1960_ALGERIA</td>
+<td>EEC_GDDTMID_VOIROL_1960_ALGERIA</td>
+<td>Voirol 1960, Algeria.</td>
+<td>IR</td>
+<td>[83502T, App. B.2, "VOR"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_VOIROL_1960_ZERO_ALGERIA" id="EEC_GDDTMID_VOIROL_1960_ZERO_ALGERIA">299</a></td>
+<td>VOIROL_1960_ZERO_ALGERIA</td>
+<td>EEC_GDDTMID_VOIROL_1960_ZERO_ALGERIA</td>
+<td>Voirol 1960, Algeria, with the zero meridian set at Paris.</td>
+<td>IR</td>
+<td>[83502T, App. B.2, "VOR"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_WAKE_ENIWETOK_1960" id="EEC_GDDTMID_WAKE_ENIWETOK_1960">300</a></td>
+<td>WAKE_ENIWETOK_1960</td>
+<td>EEC_GDDTMID_WAKE_ENIWETOK_1960</td>
+<td>Wake-Eniwetok 1960 (Marshall Islands).</td>
+<td>IR</td>
+<td>[83502T, App. B.10, "ENW"]</td>
+<td>[HELM, "ENW"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_WAKE_ISLAND_ASTRO_1952" id="EEC_GDDTMID_WAKE_ISLAND_ASTRO_1952">301</a></td>
+<td>WAKE_ISLAND_ASTRO_1952</td>
+<td>EEC_GDDTMID_WAKE_ISLAND_ASTRO_1952</td>
+<td>Wake Island Astro 1952.</td>
+<td>IR</td>
+<td>[83502T, App. B.10, "WAK"]</td>
+<td>[HELM, "WAK"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_WGS_1960" id="EEC_GDDTMID_WGS_1960">302</a></td>
+<td>WGS_1960</td>
+<td>EEC_GDDTMID_WGS_1960</td>
+<td>WGS 1960.</td>
+<td>IR</td>
+<td>[DGST, "WGA"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_WGS_1966" id="EEC_GDDTMID_WGS_1966">303</a></td>
+<td>WGS_1966</td>
+<td>EEC_GDDTMID_WGS_1966</td>
+<td>WGS 1966.</td>
+<td>IR</td>
+<td>[DGST, "WGB"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_WGS_1972" id="EEC_GDDTMID_WGS_1972">304</a></td>
+<td>WGS_1972</td>
+<td>EEC_GDDTMID_WGS_1972</td>
+<td>WGS 1972.</td>
+<td>IR</td>
+<td>[83502T, App. E]</td>
+<td>[HELM, "WGC-7"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_WGS_1984" id="EEC_GDDTMID_WGS_1984">305</a></td>
+<td>WGS_1984</td>
+<td>EEC_GDDTMID_WGS_1984</td>
+<td>WGS 1984.</td>
+<td>IR</td>
+<td>[83502T, Sections 2 and 3]</td>
+<td>[HELM, "WGE"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_YACARE_URUGUAY" id="EEC_GDDTMID_YACARE_URUGUAY">306</a></td>
+<td>YACARE_URUGUAY</td>
+<td>EEC_GDDTMID_YACARE_URUGUAY</td>
+<td>Yacare (Uruguay).</td>
+<td>IR</td>
+<td>[83502T, App. C.2, "YAC"]</td>
+<td>[HELM, "YAC"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GDDTMID_ZANDERIJ_SURINAME" id="EEC_GDDTMID_ZANDERIJ_SURINAME">307</a></td>
+<td>ZANDERIJ_SURINAME</td>
+<td>EEC_GDDTMID_ZANDERIJ_SURINAME</td>
+<td>Zanderij (Suriname).</td>
+<td>IR</td>
+<td>[83502T, App. B.7, "ZAN"]</td>
+<td>[HELM, "ZAN"]</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_LOCATION">LOCATION</a>, <a href="groups.htm#EGC_GEN_SURVEY">SURVEY</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: HOD and HZD]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_GEOGRAPHIC_LIGHT_RANGE" id="EAC_GEOGRAPHIC_LIGHT_RANGE">GEOGRAPHIC_LIGHT_RANGE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_GEOGRAPHIC_LIGHT_RANGE
+</p><p>
+<b>EDCS Attribute Code</b>: 419
+</p><p>
+<b>Definition</b>:
+<br>
+The maximum distance at which the curvature of the &lt;<a href="ECC_P.htm#ECC_PLANETARY_SURFACE">PLANETARY_SURFACE</a>&gt; and refraction due to the &lt;<a href="ECC_A.htm#ECC_ATMOSPHERE">ATMOSPHERE</a>&gt; permit a &lt;<a href="ECC_L.htm#ECC_LIGHT">LIGHT</a>&gt; to be seen from a particular height of eye without regard to the luminous intensity of the &lt;<a href="ECC_L.htm#ECC_LIGHT">LIGHT</a>&gt;; the geographic light range.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_LENGTH">LENGTH</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_DIMENSION">DIMENSION</a>, <a href="groups.htm#EGC_GEN_EM_PHENOMENON">EM_PHENOMENON</a>, <a href="groups.htm#EGC_GEN_LIGHTING_AND_VISIBILITY">LIGHTING_AND_VISIBILITY</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [BOWD]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_GEOGRAPHIC_REGION" id="EAC_GEOGRAPHIC_REGION">GEOGRAPHIC_REGION</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_GEOGRAPHIC_REGION
+</p><p>
+<b>EDCS Attribute Code</b>: 420
+</p><p>
+<b>Definition</b>:
+<br>
+The &lt;<a href="ECC_R.htm#ECC_REGION">REGION</a>&gt; of the &lt;<a href="ECC_E.htm#ECC_EARTH">EARTH</a>&gt; in which an &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt; is located.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_GEOREGN_AFRICA" id="EEC_GEOREGN_AFRICA">1</a></td>
+<td>AFRICA</td>
+<td>EEC_GEOREGN_AFRICA</td>
+<td>Africa.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[SOED, "Africa"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GEOREGN_ANTARCTIC" id="EEC_GEOREGN_ANTARCTIC">2</a></td>
+<td>ANTARCTIC</td>
+<td>EEC_GEOREGN_ANTARCTIC</td>
+<td>Antarctic.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[SOED, "Antarctic", B]</td>
+</tr>
+<tr>
+<td><a name="EEC_GEOREGN_ARCTIC" id="EEC_GEOREGN_ARCTIC">3</a></td>
+<td>ARCTIC</td>
+<td>EEC_GEOREGN_ARCTIC</td>
+<td>Arctic.</td>
+<td>IR</td>
+<td>[FACC, Annex B, GEO:1]</td>
+<td>[SOED, "Arctic", A 1]</td>
+</tr>
+<tr>
+<td><a name="EEC_GEOREGN_ASIA" id="EEC_GEOREGN_ASIA">4</a></td>
+<td>ASIA</td>
+<td>EEC_GEOREGN_ASIA</td>
+<td>Asia.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[SOED, "Asia"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GEOREGN_AUSTRALIA" id="EEC_GEOREGN_AUSTRALIA">5</a></td>
+<td>AUSTRALIA</td>
+<td>EEC_GEOREGN_AUSTRALIA</td>
+<td>Australia.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[SOED, "Australia"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GEOREGN_EUROPE" id="EEC_GEOREGN_EUROPE">6</a></td>
+<td>EUROPE</td>
+<td>EEC_GEOREGN_EUROPE</td>
+<td>Europe.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[SOED, "Europe"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GEOREGN_NORTH_AMERICA" id="EEC_GEOREGN_NORTH_AMERICA">7</a></td>
+<td>NORTH_AMERICA</td>
+<td>EEC_GEOREGN_NORTH_AMERICA</td>
+<td>North America.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[SOED, "North America"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GEOREGN_OCEANIA" id="EEC_GEOREGN_OCEANIA">8</a></td>
+<td>OCEANIA</td>
+<td>EEC_GEOREGN_OCEANIA</td>
+<td>Oceania.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[SOED, "Oceania"]</td>
+</tr>
+<tr>
+<td><a name="EEC_GEOREGN_SOUTH_AMERICA" id="EEC_GEOREGN_SOUTH_AMERICA">9</a></td>
+<td>SOUTH_AMERICA</td>
+<td>EEC_GEOREGN_SOUTH_AMERICA</td>
+<td>South America.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[SOED, "South America"]</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ABSTRACT_OBJECT">ABSTRACT_OBJECT</a>, <a href="groups.htm#EGC_GEN_LOCATION">LOCATION</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: GEO]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_GEOMORPHIC_DEPTH" id="EAC_GEOMORPHIC_DEPTH">GEOMORPHIC_DEPTH</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_GEOMORPHIC_DEPTH
+</p><p>
+<b>EDCS Attribute Code</b>: 421
+</p><p>
+<b>Definition</b>:
+<br>
+The &lt;&lt;<a href="EAC_D.htm#EAC_DEPTH">DEPTH</a>&gt;&gt; of an &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt; below the mean level of the surrounding &lt;<a href="ECC_T.htm#ECC_TERRAIN">TERRAIN</a>&gt; as determined by a corresponding digital elevation matrix; if not obtainable, the mean &lt;&lt;<a href="EAC_D.htm#EAC_DEPTH">DEPTH</a>&gt;&gt; is used; the geomorphic depth.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_LENGTH">LENGTH</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_LOCATION">LOCATION</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: GPD]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_GEOMORPHIC_HEIGHT" id="EAC_GEOMORPHIC_HEIGHT">GEOMORPHIC_HEIGHT</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_GEOMORPHIC_HEIGHT
+</p><p>
+<b>EDCS Attribute Code</b>: 422
+</p><p>
+<b>Definition</b>:
+<br>
+The height of an &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt; above the mean level of the surrounding &lt;<a href="ECC_T.htm#ECC_TERRAIN">TERRAIN</a>&gt; as determined by a corresponding digital elevation matrix; the geomorphic height.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_LENGTH">LENGTH</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_LOCATION">LOCATION</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: GEH]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_GEOPOTENTIAL_ALTITUDE" id="EAC_GEOPOTENTIAL_ALTITUDE">GEOPOTENTIAL_ALTITUDE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_GEOPOTENTIAL_ALTITUDE
+</p><p>
+<b>EDCS Attribute Code</b>: 423
+</p><p>
+<b>Definition</b>:
+<br>
+The &lt;&lt;<a href="EAC_A.htm#EAC_ALTITUDE_MSL">ALTITUDE_MSL</a>&gt;&gt; of a given &lt;<a href="ECC_L.htm#ECC_LOCATION">LOCATION</a>&gt; in the &lt;<a href="ECC_A.htm#ECC_ATMOSPHERE">ATMOSPHERE</a>&gt; in units proportional to the potential energy of unit &lt;&lt;<a href="EAC_M.htm#EAC_MASS">MASS</a>&gt;&gt; (geopotential); the geopotential altitude.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_GEOPOTENTIAL_ENERGY_LENGTH">GEOPOTENTIAL_ENERGY_LENGTH</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ATMOSPHERE">ATMOSPHERE</a>, <a href="groups.htm#EGC_GEN_LOCATION">LOCATION</a>
+</p><p>
+<b>Reference Type</b>: PR
+</p><p>
+<b>Reference</b>: [WMO182, "geopotential altitude"]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_GLIDE_SLOPE_ANGLE" id="EAC_GLIDE_SLOPE_ANGLE">GLIDE_SLOPE_ANGLE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_GLIDE_SLOPE_ANGLE
+</p><p>
+<b>EDCS Attribute Code</b>: 424
+</p><p>
+<b>Definition</b>:
+<br>
+The vertical angle at which an &lt;<a href="ECC_A.htm#ECC_AIRCRAFT">AIRCRAFT</a>&gt; should properly descend to a touchdown point; the glide slope angle.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_PLANE_ANGLE">PLANE_ANGLE</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_AIR_TRNSP">AIR_TRNSP</a>, <a href="groups.htm#EGC_GEN_ANGULAR_MEASURE">ANGULAR_MEASURE</a>, <a href="groups.htm#EGC_GEN_TRNSP">TRNSP</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: GSA]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_GLINT_ANGLE" id="EAC_GLINT_ANGLE">GLINT_ANGLE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_GLINT_ANGLE
+</p><p>
+<b>EDCS Attribute Code</b>: 425
+</p><p>
+<b>Definition</b>:
+<br>
+The angle subtended by the glint vector and the surface normal, where the glint vector is the vector that bisects the source vector and the viewing vector at a &lt;<a href="ECC_S.htm#ECC_SURFACE">SURFACE</a>&gt;. Used by the Phong and Sandford-Robertson BRDF models.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_PLANE_ANGLE">PLANE_ANGLE</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ALGORITHM_RELATED">ALGORITHM_RELATED</a>, <a href="groups.htm#EGC_GEN_ANGULAR_MEASURE">ANGULAR_MEASURE</a>, <a href="groups.htm#EGC_GEN_SURFACE">SURFACE</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [WATT]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_GRADIENT_RICHARDSON_NUMBER" id="EAC_GRADIENT_RICHARDSON_NUMBER">GRADIENT_RICHARDSON_NUMBER</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_GRADIENT_RICHARDSON_NUMBER
+</p><p>
+<b>EDCS Attribute Code</b>: 1679
+</p><p>
+<b>Definition</b>:
+<br>
+A form of the &lt;&lt;<a href="EAC_R.htm#EAC_RICHARDSON_NUMBER">RICHARDSON_NUMBER</a>&gt;&gt; expressed using gradients.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_PURE_NUMBER">PURE_NUMBER</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_FLUID_CONDITION">FLUID_CONDITION</a>, <a href="groups.htm#EGC_GEN_RATE_OR_RATIO">RATE_OR_RATIO</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [GMET, "Gradient Richardson number"]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_GRADING_TYPE" id="EAC_GRADING_TYPE">GRADING_TYPE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_GRADING_TYPE
+</p><p>
+<b>EDCS Attribute Code</b>: 426
+</p><p>
+<b>Definition</b>:
+<br>
+The type and/or number of &lt;<a href="ECC_T.htm#ECC_TERRAIN_SURFACE_OBJECT">TERRAIN_SURFACE_OBJECT</a>&gt; (for example: a &lt;<a href="ECC_T.htm#ECC_TERRAIN_CUT">TERRAIN_CUT</a>&gt; and/or an &lt;<a href="ECC_E.htm#ECC_EMBANKMENT">EMBANKMENT</a>&gt;) sides for which the local &lt;<a href="ECC_T.htm#ECC_TERRAIN">TERRAIN</a>&gt; has been graded.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_GRDTY_NO_SIDES" id="EEC_GRDTY_NO_SIDES">1</a></td>
+<td>NO_SIDES</td>
+<td>EEC_GRDTY_NO_SIDES</td>
+<td>No sides.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GRDTY_ONE_SIDE" id="EEC_GRDTY_ONE_SIDE">2</a></td>
+<td>ONE_SIDE</td>
+<td>EEC_GRDTY_ONE_SIDE</td>
+<td>Only one side.</td>
+<td>IR</td>
+<td>[FACC, Annex B, CET:1]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GRDTY_TWO_SIDES" id="EEC_GRDTY_TWO_SIDES">3</a></td>
+<td>TWO_SIDES</td>
+<td>EEC_GRDTY_TWO_SIDES</td>
+<td>Two sides.</td>
+<td>IR</td>
+<td>[FACC, Annex B, CET:2]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GRDTY_MORE_THAN_TWO_SIDES" id="EEC_GRDTY_MORE_THAN_TWO_SIDES">4</a></td>
+<td>MORE_THAN_TWO_SIDES</td>
+<td>EEC_GRDTY_MORE_THAN_TWO_SIDES</td>
+<td>More than two sides.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_PHYSIOGRAPHY">PHYSIOGRAPHY</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: CET]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_GRATING_PRESENT" id="EAC_GRATING_PRESENT">GRATING_PRESENT</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_GRATING_PRESENT
+</p><p>
+<b>EDCS Attribute Code</b>: 427
+</p><p>
+<b>Definition</b>:
+<br>
+An indication that a passageway is blocked by one or more locked or fixed grates; grating present.
+<p>
+<b>EDCS Attribute Value Data Type</b>: BOOLEAN
+</p><p>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_TRNSP">TRNSP</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_GRID_DIAGONALIZATION" id="EAC_GRID_DIAGONALIZATION">GRID_DIAGONALIZATION</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_GRID_DIAGONALIZATION
+</p><p>
+<b>EDCS Attribute Code</b>: 428
+</p><p>
+<b>Definition</b>:
+<br>
+The manner in which a grid cell formed by four adjacent data values is divided into two triangular &lt;<a href="ECC_P.htm#ECC_POLYGONAL_FACE">POLYGONAL_FACE</a>&gt;s along a cell diagonal; the grid diagonalization.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_GRIDDIAG_LOWERLEFT_UPPERRIGHT" id="EEC_GRIDDIAG_LOWERLEFT_UPPERRIGHT">1</a></td>
+<td>LOWERLEFT_UPPERRIGHT</td>
+<td>EEC_GRIDDIAG_LOWERLEFT_UPPERRIGHT</td>
+<td>Lower-left to/from upper-right.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GRIDDIAG_UPPERLEFT_LOWERRIGHT" id="EEC_GRIDDIAG_UPPERLEFT_LOWERRIGHT">2</a></td>
+<td>UPPERLEFT_LOWERRIGHT</td>
+<td>EEC_GRIDDIAG_UPPERLEFT_LOWERRIGHT</td>
+<td>Upper-left to/from lower-right.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ALGORITHM_RELATED">ALGORITHM_RELATED</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_GROUND_VEHICLE_FUNCTION" id="EAC_GROUND_VEHICLE_FUNCTION">GROUND_VEHICLE_FUNCTION</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_GROUND_VEHICLE_FUNCTION
+</p><p>
+<b>EDCS Attribute Code</b>: 429
+</p><p>
+<b>Definition</b>:
+<br>
+The function of a &lt;<a href="ECC_G.htm#ECC_GROUND_VEHICLE">GROUND_VEHICLE</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_GNDVEHFN_AIR_DEFENCE_ARTILLERY" id="EEC_GNDVEHFN_AIR_DEFENCE_ARTILLERY">1</a></td>
+<td>AIR_DEFENCE_ARTILLERY</td>
+<td>EEC_GNDVEHFN_AIR_DEFENCE_ARTILLERY</td>
+<td>&lt;<a href="ECC_A.htm#ECC_AIR_DEFENCE_ARTILLERY">AIR_DEFENCE_ARTILLERY</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GNDVEHFN_ANTI_TANK" id="EEC_GNDVEHFN_ANTI_TANK">2</a></td>
+<td>ANTI_TANK</td>
+<td>EEC_GNDVEHFN_ANTI_TANK</td>
+<td>Transports and employs &lt;<a href="ECC_W.htm#ECC_WEAPON">WEAPON</a>&gt;s against &lt;<a href="ECC_A.htm#ECC_ARMOURED_TRACKED_FIGHTING_VEHICLE">ARMOURED_TRACKED_FIGHTING_VEHICLE</a>&gt;s; anti-tank.</td>
+<td>IR</td>
+<td>[F3-01]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GNDVEHFN_ARMOURED_BRIDGE_LAUNCHER" id="EEC_GNDVEHFN_ARMOURED_BRIDGE_LAUNCHER">3</a></td>
+<td>ARMOURED_BRIDGE_LAUNCHER</td>
+<td>EEC_GNDVEHFN_ARMOURED_BRIDGE_LAUNCHER</td>
+<td>&lt;<a href="ECC_A.htm#ECC_ARMOURED_BRIDGE_LAUNCHER">ARMOURED_BRIDGE_LAUNCHER</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GNDVEHFN_ARMOURED_FIGHTING_VEHICLE" id="EEC_GNDVEHFN_ARMOURED_FIGHTING_VEHICLE">4</a></td>
+<td>ARMOURED_FIGHTING_VEHICLE</td>
+<td>EEC_GNDVEHFN_ARMOURED_FIGHTING_VEHICLE</td>
+<td>&lt;<a href="ECC_A.htm#ECC_ARMOURED_FIGHTING_VEHICLE">ARMOURED_FIGHTING_VEHICLE</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GNDVEHFN_ARMOURED_TRACKED_FIGHTING_VEHICLE" id="EEC_GNDVEHFN_ARMOURED_TRACKED_FIGHTING_VEHICLE">5</a></td>
+<td>ARMOURED_TRACKED_FIGHTING_VEHICLE</td>
+<td>EEC_GNDVEHFN_ARMOURED_TRACKED_FIGHTING_VEHICLE</td>
+<td>&lt;<a href="ECC_A.htm#ECC_ARMOURED_TRACKED_FIGHTING_VEHICLE">ARMOURED_TRACKED_FIGHTING_VEHICLE</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GNDVEHFN_ARMOURED_UTILITY_VEHICLE" id="EEC_GNDVEHFN_ARMOURED_UTILITY_VEHICLE">6</a></td>
+<td>ARMOURED_UTILITY_VEHICLE</td>
+<td>EEC_GNDVEHFN_ARMOURED_UTILITY_VEHICLE</td>
+<td>&lt;<a href="ECC_A.htm#ECC_ARMOURED_UTILITY_VEHICLE">ARMOURED_UTILITY_VEHICLE</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GNDVEHFN_COMBAT_SUPPORT_VEHICLE" id="EEC_GNDVEHFN_COMBAT_SUPPORT_VEHICLE">7</a></td>
+<td>COMBAT_SUPPORT_VEHICLE</td>
+<td>EEC_GNDVEHFN_COMBAT_SUPPORT_VEHICLE</td>
+<td>&lt;<a href="ECC_C.htm#ECC_COMBAT_SUPPORT_VEHICLE">COMBAT_SUPPORT_VEHICLE</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GNDVEHFN_COMBATANT_VEHICLE" id="EEC_GNDVEHFN_COMBATANT_VEHICLE">8</a></td>
+<td>COMBATANT_VEHICLE</td>
+<td>EEC_GNDVEHFN_COMBATANT_VEHICLE</td>
+<td>&lt;<a href="ECC_C.htm#ECC_COMBATANT_VEHICLE">COMBATANT_VEHICLE</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GNDVEHFN_FIELD_ARTILLERY" id="EEC_GNDVEHFN_FIELD_ARTILLERY">9</a></td>
+<td>FIELD_ARTILLERY</td>
+<td>EEC_GNDVEHFN_FIELD_ARTILLERY</td>
+<td>&lt;<a href="ECC_F.htm#ECC_FIELD_ARTILLERY">FIELD_ARTILLERY</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GNDVEHFN_MISSILE" id="EEC_GNDVEHFN_MISSILE">10</a></td>
+<td>MISSILE</td>
+<td>EEC_GNDVEHFN_MISSILE</td>
+<td>Transports or accompanies a rocket or &lt;<a href="ECC_M.htm#ECC_MISSILE">MISSILE</a>&gt;.</td>
+<td>IR</td>
+<td>[F3-01]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GNDVEHFN_MOBILE_BRIDGE_SYSTEM" id="EEC_GNDVEHFN_MOBILE_BRIDGE_SYSTEM">11</a></td>
+<td>MOBILE_BRIDGE_SYSTEM</td>
+<td>EEC_GNDVEHFN_MOBILE_BRIDGE_SYSTEM</td>
+<td>Transports a &lt;<a href="ECC_M.htm#ECC_MOBILE_BRIDGE_SYSTEM">MOBILE_BRIDGE_SYSTEM</a>&gt;.</td>
+<td>IR</td>
+<td>[F3-01]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GNDVEHFN_MORTAR" id="EEC_GNDVEHFN_MORTAR">12</a></td>
+<td>MORTAR</td>
+<td>EEC_GNDVEHFN_MORTAR</td>
+<td>Transports and employs a &lt;<a href="ECC_M.htm#ECC_MORTAR">MORTAR</a>&gt;.</td>
+<td>IR</td>
+<td>[F3-01]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GNDVEHFN_MOTOR_VEHICLE" id="EEC_GNDVEHFN_MOTOR_VEHICLE">13</a></td>
+<td>MOTOR_VEHICLE</td>
+<td>EEC_GNDVEHFN_MOTOR_VEHICLE</td>
+<td>&lt;<a href="ECC_M.htm#ECC_MOTOR_VEHICLE">MOTOR_VEHICLE</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GNDVEHFN_MULTIDOMAIN" id="EEC_GNDVEHFN_MULTIDOMAIN">14</a></td>
+<td>MULTIDOMAIN</td>
+<td>EEC_GNDVEHFN_MULTIDOMAIN</td>
+<td>&lt;<a href="ECC_M.htm#ECC_MULTIDOMAIN_VEHICLE">MULTIDOMAIN_VEHICLE</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GNDVEHFN_RECONNAISSANCE" id="EEC_GNDVEHFN_RECONNAISSANCE">15</a></td>
+<td>RECONNAISSANCE</td>
+<td>EEC_GNDVEHFN_RECONNAISSANCE</td>
+<td>Performs reconnaissance.</td>
+<td>IR</td>
+<td>[F3-01]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GNDVEHFN_RECOVERY" id="EEC_GNDVEHFN_RECOVERY">16</a></td>
+<td>RECOVERY</td>
+<td>EEC_GNDVEHFN_RECOVERY</td>
+<td>Performs operations conducted to search for, locate, identify, recover, rescue, and return &lt;<a href="ECC_P.htm#ECC_PERSONNEL">PERSONNEL</a>&gt;, &lt;<a href="ECC_E.htm#ECC_EQUIPMENT">EQUIPMENT</a>&gt;, or items critical to national security.</td>
+<td>IR</td>
+<td>[F3-01]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GNDVEHFN_SELF_PROPELLED_ARTILLERY" id="EEC_GNDVEHFN_SELF_PROPELLED_ARTILLERY">17</a></td>
+<td>SELF_PROPELLED_ARTILLERY</td>
+<td>EEC_GNDVEHFN_SELF_PROPELLED_ARTILLERY</td>
+<td>&lt;<a href="ECC_S.htm#ECC_SELF_PROPELLED_ARTILLERY">SELF_PROPELLED_ARTILLERY</a>&gt;.</td>
+<td>IR</td>
+<td>[F3-01]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GNDVEHFN_TANK_DESTROYER" id="EEC_GNDVEHFN_TANK_DESTROYER">18</a></td>
+<td>TANK_DESTROYER</td>
+<td>EEC_GNDVEHFN_TANK_DESTROYER</td>
+<td>Transports and employs &lt;<a href="ECC_W.htm#ECC_WEAPON">WEAPON</a>&gt;s capable of engaging and destroying &lt;<a href="ECC_A.htm#ECC_ARMOURED_TRACKED_FIGHTING_VEHICLE">ARMOURED_TRACKED_FIGHTING_VEHICLE</a>&gt;s; tank destroyer.</td>
+<td>IR</td>
+<td>[F3-01]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GNDVEHFN_TOWED_VEHICLE" id="EEC_GNDVEHFN_TOWED_VEHICLE">19</a></td>
+<td>TOWED_VEHICLE</td>
+<td>EEC_GNDVEHFN_TOWED_VEHICLE</td>
+<td>&lt;<a href="ECC_T.htm#ECC_TOWED_VEHICLE">TOWED_VEHICLE</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GNDVEHFN_TRUCK" id="EEC_GNDVEHFN_TRUCK">20</a></td>
+<td>TRUCK</td>
+<td>EEC_GNDVEHFN_TRUCK</td>
+<td>&lt;<a href="ECC_T.htm#ECC_TRUCK">TRUCK</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_LAND_TRNSP">LAND_TRNSP</a>, <a href="groups.htm#EGC_GEN_TRNSP">TRNSP</a>, <a href="groups.htm#EGC_GEN_VEHICLE">VEHICLE</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [F3-01]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_GROUND_VEHICLE_PROPULSION_TYPE" id="EAC_GROUND_VEHICLE_PROPULSION_TYPE">GROUND_VEHICLE_PROPULSION_TYPE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_GROUND_VEHICLE_PROPULSION_TYPE
+</p><p>
+<b>EDCS Attribute Code</b>: 430
+</p><p>
+<b>Definition</b>:
+<br>
+The propulsion type or technique of a &lt;<a href="ECC_G.htm#ECC_GROUND_VEHICLE">GROUND_VEHICLE</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_GNDVEHPRPLTY_AIR_CUSHION" id="EEC_GNDVEHPRPLTY_AIR_CUSHION">1</a></td>
+<td>AIR_CUSHION</td>
+<td>EEC_GNDVEHPRPLTY_AIR_CUSHION</td>
+<td>Air-cushion.</td>
+<td>IR</td>
+<td>[F3-01]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GNDVEHPRPLTY_HALF_TRACK" id="EEC_GNDVEHPRPLTY_HALF_TRACK">2</a></td>
+<td>HALF_TRACK</td>
+<td>EEC_GNDVEHPRPLTY_HALF_TRACK</td>
+<td>Half-track.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GNDVEHPRPLTY_TOWED" id="EEC_GNDVEHPRPLTY_TOWED">3</a></td>
+<td>TOWED</td>
+<td>EEC_GNDVEHPRPLTY_TOWED</td>
+<td>Towed.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GNDVEHPRPLTY_TRACKED" id="EEC_GNDVEHPRPLTY_TRACKED">4</a></td>
+<td>TRACKED</td>
+<td>EEC_GNDVEHPRPLTY_TRACKED</td>
+<td>Tracked.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GNDVEHPRPLTY_WHEELED" id="EEC_GNDVEHPRPLTY_WHEELED">5</a></td>
+<td>WHEELED</td>
+<td>EEC_GNDVEHPRPLTY_WHEELED</td>
+<td>Wheeled.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_LAND_TRNSP">LAND_TRNSP</a>, <a href="groups.htm#EGC_GEN_TRNSP">TRNSP</a>, <a href="groups.htm#EGC_GEN_VEHICLE">VEHICLE</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [F3-01]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_GTRS_GEOTILE" id="EAC_GTRS_GEOTILE">GTRS_GEOTILE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_GTRS_GEOTILE
+</p><p>
+<b>EDCS Attribute Code</b>: 431
+</p><p>
+<b>Definition</b>:
+<br>
+The identification of a specific geotile within the Geotile Reference System (GTRS) formatted in a Basic Latin string. The string contains a 6-digit alphanumeric designation, the first two letters of which are the encompassing GTRS megatile, the next two digits are the easting index of the geotile within the megatile, and the last two digits are the northing index of the geotile within the megatile.<BR>The 2 letter designation of the GTRS megatile is based on the location of its south-west corner and is composed of a letter designating the longitudinal position of the megatile followed by a letter designating the latitudinal position of the megatile. Between 60&deg; N and 60&deg; S there are 24 longitudinal zones of megatiles each of 15 arc degrees width beginning at 180&deg; W and extending eastward through 360 arc degrees of longitude. These zones are lettered from A to Z inclusive (omitting I and O). Between 60&deg; N and 90&deg; N and between 60&deg; S and 90&deg; S there are 12 longitudinal zones of megatiles each of 30 arc degrees width beginning at 180&deg; W and extending eastward through 360 arc degrees of longitude. These zones are lettered as A, C, E, G, J, L, N, Q, S, U, W and Y. There are 12 latitudinal bands of megatiles each of 15 arc degrees height, beginning at 90&deg; S and extending northward through 180 arc degrees of latitude. These are lettered from A to M inclusive (omitting I). This 2 letter designation thus divides the earth's surface into 288 GTRS megatiles.<BR>The index of a GTRS geotile within a GTRS megatile is based on the location of its south-west corner and is composed of two digits designating the relative longitudinal position of the geotile followed by two digits designating the relative latitudinal position of the geotile. Between 60&deg; N and 60&deg; S there are 15 longitudinal zones of geotiles within a megatile, each of 1 arc degree width extending eastward from the western edge of the megatile. These zones are numbered from 00 to 14 inclusive. Between 60&deg; and 71&deg; (N or S) there are 15 longitudinal zones of geotiles within a megatile, each of 2 arc degrees width extending eastward from the western edge of the megatile. These zones are even numbered from 00 to 28 inclusive. Between 71&deg;o and 78&deg; (N or S) there are 10 longitudinal zones of geotiles within a megatile, each of 3 arc degrees width extending eastward from the western edge of the megatile. These zones are numbered 00, 03, 06, 09, 12, 15, 18, 21, 24 and 27. Between 78&deg; and 80&deg; (N or S) there are 6 longitudinal zones of geotiles within a megatile, each of 5 arc degrees width extending eastward from the western edge of the megatile. These zones are numbered 00, 05, 10, 15, 20 and 25. Between 80&deg; and 84&deg; (N or S) there are 5 longitudinal zones of geotiles within a megatile, each of 6 arc degrees width extending eastward from the western edge of the megatile. These zones are numbered 00, 06, 12, 18 and 24. Between 84&deg; and 86&deg; (N or S) there are 3 longitudinal zones of geotiles within a megatile, each of 10 arc degrees width extending eastward from the western edge of the megatile. These zones are numbered 00, 10 and 20. Between 86&deg;o and 88&deg; (N or S) there are 2 longitudinal zones of geotiles within a megatile, each of 15 arc degrees width extending eastward from the western edge of the megatile. These zones are numbered 00 and 15. Between 88&deg; and 90&deg; (N or S) there is a single longitudinal zone of geotiles within a megatile of 30 arc degrees. This zone is numbered 00. There are 15 latitudinal bands of geotiles within a megatile, each of 1 arc degree height, extending northward from the southern edge of the megatile. These bands are numbered from 00 to 14 inclusive. This 2 letter designation thus divides a GTRS megatile into as many as 225 GTRS geotiles. EXAMPLE The location 24&deg; N 37&deg; E corresponds to the south-west corner of the GTRS geotile designated "QH0709".
+<p>
+<b>EDCS Attribute Value Data Type</b>: STRING
+</p><p>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_IDENTIFICATION">IDENTIFICATION</a>, <a href="groups.htm#EGC_GEN_LOCATION">LOCATION</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [GTRS]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_GUIDED_MISSILE_DESTROYER_TYPE" id="EAC_GUIDED_MISSILE_DESTROYER_TYPE">GUIDED_MISSILE_DESTROYER_TYPE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_GUIDED_MISSILE_DESTROYER_TYPE
+</p><p>
+<b>EDCS Attribute Code</b>: 432
+</p><p>
+<b>Definition</b>:
+<br>
+The type of a &lt;<a href="ECC_G.htm#ECC_GUIDED_MISSILE_DESTROYER">GUIDED_MISSILE_DESTROYER</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_GDEMSSLDSTTY_MANCHESTER_CLASS_TYPE_42" id="EEC_GDEMSSLDSTTY_MANCHESTER_CLASS_TYPE_42">1</a></td>
+<td>MANCHESTER_CLASS_TYPE_42</td>
+<td>EEC_GDEMSSLDSTTY_MANCHESTER_CLASS_TYPE_42</td>
+<td>Manchester class Type 42 design.</td>
+<td>IR</td>
+<td>[WNT, Europe, United Kingdom, Surface combatants]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDEMSSLDSTTY_SHEFFIELD_CLASS_TYPE_42_BATCH_1" id="EEC_GDEMSSLDSTTY_SHEFFIELD_CLASS_TYPE_42_BATCH_1">2</a></td>
+<td>SHEFFIELD_CLASS_TYPE_42_BATCH_1</td>
+<td>EEC_GDEMSSLDSTTY_SHEFFIELD_CLASS_TYPE_42_BATCH_1</td>
+<td>Sheffield class Type 42 design, Batch 1.</td>
+<td>IR</td>
+<td>[WNT, Europe, United Kingdom, Surface combatants]</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_HYDROGRAPHIC_TRNSP">HYDROGRAPHIC_TRNSP</a>, <a href="groups.htm#EGC_GEN_MILITARY_SCIENCE">MILITARY_SCIENCE</a>, <a href="groups.htm#EGC_GEN_TRNSP">TRNSP</a>, <a href="groups.htm#EGC_GEN_VEHICLE">VEHICLE</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_GUIDED_MISSILE_FRIGATE_TYPE" id="EAC_GUIDED_MISSILE_FRIGATE_TYPE">GUIDED_MISSILE_FRIGATE_TYPE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_GUIDED_MISSILE_FRIGATE_TYPE
+</p><p>
+<b>EDCS Attribute Code</b>: 433
+</p><p>
+<b>Definition</b>:
+<br>
+The type of a &lt;<a href="ECC_G.htm#ECC_GUIDED_MISSILE_FRIGATE">GUIDED_MISSILE_FRIGATE</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_GDEMSSLFRIGTY_BROADSWORD_BOXER_TYPE_22_CLASS" id="EEC_GDEMSSLFRIGTY_BROADSWORD_BOXER_TYPE_22_CLASS">1</a></td>
+<td>BROADSWORD_BOXER_TYPE_22_CLASS</td>
+<td>EEC_GDEMSSLFRIGTY_BROADSWORD_BOXER_TYPE_22_CLASS</td>
+<td>Broadsword class Type 22 design, Boxer class.</td>
+<td>IR</td>
+<td>[WNT, Europe, United Kingdom, Surface combatants]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDEMSSLFRIGTY_BROADSWORD_CORNWALL_TYPE_22_CLASS" id="EEC_GDEMSSLFRIGTY_BROADSWORD_CORNWALL_TYPE_22_CLASS">2</a></td>
+<td>BROADSWORD_CORNWALL_TYPE_22_CLASS</td>
+<td>EEC_GDEMSSLFRIGTY_BROADSWORD_CORNWALL_TYPE_22_CLASS</td>
+<td>Broadsword class Type 22 design, Cornwall class.</td>
+<td>IR</td>
+<td>[WNT, Europe, United Kingdom, Surface combatants]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDEMSSLFRIGTY_DUKE_CLASS_TYPE_23" id="EEC_GDEMSSLFRIGTY_DUKE_CLASS_TYPE_23">3</a></td>
+<td>DUKE_CLASS_TYPE_23</td>
+<td>EEC_GDEMSSLFRIGTY_DUKE_CLASS_TYPE_23</td>
+<td>Duke class Type 23 multi-purpose.</td>
+<td>IR</td>
+<td>[WNT, Europe, United Kingdom, Surface combatants]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDEMSSLFRIGTY_NANUCHKA_I_CLASS_CORVETTE" id="EEC_GDEMSSLFRIGTY_NANUCHKA_I_CLASS_CORVETTE">4</a></td>
+<td>NANUCHKA_I_CLASS_CORVETTE</td>
+<td>EEC_GDEMSSLFRIGTY_NANUCHKA_I_CLASS_CORVETTE</td>
+<td>Nanuchka I class corvette.</td>
+<td>IR</td>
+<td>[WNT, Asia and the pacific, India, Patrol craft]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDEMSSLFRIGTY_NANUCHKA_III_CLASS_CORVETTE" id="EEC_GDEMSSLFRIGTY_NANUCHKA_III_CLASS_CORVETTE">5</a></td>
+<td>NANUCHKA_III_CLASS_CORVETTE</td>
+<td>EEC_GDEMSSLFRIGTY_NANUCHKA_III_CLASS_CORVETTE</td>
+<td>Nanuchka III class small corvette.</td>
+<td>IR</td>
+<td>[WNT, Asia and the pacific, India, Patrol craft]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_GDEMSSLFRIGTY_NANUCHKA_IV_CLASS_CORVETTE" id="EEC_GDEMSSLFRIGTY_NANUCHKA_IV_CLASS_CORVETTE">6</a></td>
+<td>NANUCHKA_IV_CLASS_CORVETTE</td>
+<td>EEC_GDEMSSLFRIGTY_NANUCHKA_IV_CLASS_CORVETTE</td>
+<td>Nanuchka IV class corvette, slightly modified from &lt;&lt;&lt;<a href="EAC_G.htm#EEC_GDEMSSLFRIGTY_NANUCHKA_III_CLASS_CORVETTE">NANUCHKA_III_CLASS_CORVETTE</a>&gt;&gt;&gt;.</td>
+<td>IR</td>
+<td>[WNT, Asia and the pacific, India, Patrol craft]</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_HYDROGRAPHIC_TRNSP">HYDROGRAPHIC_TRNSP</a>, <a href="groups.htm#EGC_GEN_MILITARY_SCIENCE">MILITARY_SCIENCE</a>, <a href="groups.htm#EGC_GEN_TRNSP">TRNSP</a>, <a href="groups.htm#EGC_GEN_VEHICLE">VEHICLE</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_GUYED" id="EAC_GUYED">GUYED</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_GUYED
+</p><p>
+<b>EDCS Attribute Code</b>: 434
+</p><p>
+<b>Definition</b>:
+<br>
+An indication that an &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt; has support &lt;<a href="ECC_W.htm#ECC_WIRE">WIRE</a>&gt;s; guyed.
+<p>
+<b>EDCS Attribute Value Data Type</b>: BOOLEAN
+</p><p>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ABSTRACT_OBJECT">ABSTRACT_OBJECT</a>, <a href="groups.htm#EGC_GEN_SUPPORT_STRUCTURE">SUPPORT_STRUCTURE</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: GUG]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<font color="#ff0000">Return to:</font>
+<b><a href="#Top">Top of page</a></b>,
+<b><a href="EAC_F.htm">Previous EAC Page (F)</a></b>,
+<b><a href="EAC_H.htm">Next EAC Page (H)</a></b>,
+<b><a href="EAC.htm">Attribute Index</a></b>,
+<b><a href="../edcs.htm#SDK">EDCS Home</a></b>
+<br><br>
+<table border="2" width="100%" bgcolor="#0000ff">
+<tr><td>
+<table width="100%" bgcolor="#0000ff">
+<tr>
+<td align="left"><font color="#00ffff"><small>
+Last updated: 
+July 1, 2011
+</small></font></td>
+<td align="right"><font color="#00ffff"><small>
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</small></font></td>
+</tr>
+</table>
+</td></tr>
+</table> 
+</body>
+</html>

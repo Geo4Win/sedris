@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE GetTransmittalName</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+SE GetTransmittalName
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../types/SE_Return_Code.htm">SE_Return_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SE_GetTransmittalName</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/SE_Transmittal.htm">SE_Transmittal</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="transmittal"></a>transmittal,</td><td class="CFunction"><sup><A href="#Notes_transmittal">1</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/SE_Store.htm">SE_Store</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="store"></a>store,</td><td class="CFunction"><sup><A href="#Notes_store">2</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../../drm/types/SE_URN.htm">SE_URN</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="name"></a>name</td><td class="CFunction"><sup><A href="#Notes_name">3</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+  Given a handle to a transmittal specified in
+<A href="#transmittal">transmittal</A>, this function returns
+in <A href="#name">name</A> the formal transmittal name associated
+  with the transmittal in the form of a URN.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A>
+</td><td class="Status">
+ and the transmittal name is returned.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A>
+</td><td class="Status">
+ and the status code is set appropriately if the call failed.
+</td></tr>
+</table>
+
+<h3>Status Codes</h3>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A> is returned:</B>
+</P><P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_SUCCESS">SE_STATCODE_SUCCESS</A>
+</td><td class="Status">
+ set if valid parameters were passed in and the call was successful.
+</td></tr>
+</table>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A> is returned:</B>
+</P><P>
+<table class="Status">
+<tr><td class="Status">
+  <A href="../types/SE_Status_Code.htm#SE_STATCODE_OUT_OF_MEMORY">SE_STATCODE_OUT_OF_MEMORY</A>
+</td><td class="Status">
+ and no changes are made if sufficient memory could not
+ be allocated.
+</td></tr>
+<tr><td class="Status">
+  <A href="../types/SE_Status_Code.htm#SE_STATCODE_C_STORE_INVALID">SE_STATCODE_C_STORE_INVALID</A>
+</td><td class="Status">
+ and no changes are made if <A href="#store">store</A>
+ is not a handle to a valid <A href="../types/SE_Store.htm">SE_Store</A>.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_INACTIONABLE_FAILURE">SE_STATCODE_INACTIONABLE_FAILURE</A>
+</td><td class="Status">
+ and no changes are made if
+<OL>
+<LI><A href="#transmittal">transmittal</A> is not a valid handle
+ to an open transmittal; or
+</LI>
+<LI>the call fails for any other reason
+</LI>
+</OL>
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#transmittal" name="Notes_transmittal">1</a></sup>
+ the transmittal for which the name is being requested.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#store" name="Notes_store">2</a></sup>
+ the store to be used when allocating the string used to return
+    the transmittal name.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#name" name="Notes_name">3</a></sup>
+ a pointer to an SE_URN variable from the user.
+    The transmittal name will be returned via this parameter.
+    The storage for the character string returned will be allocated within
+    the store passed in.
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SE_GetTransmittalLocation.htm">SE_GetTransmittalLocation</a>.
+<strong>Next:</strong> <a href="SE_GetTransmittalVersionInformation.htm">SE_GetTransmittalVersionInformation</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

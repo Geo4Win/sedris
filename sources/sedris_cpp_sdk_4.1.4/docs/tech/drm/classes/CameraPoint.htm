@@ -1,0 +1,345 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Camera Point</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Camera Point
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Camera Point</h2>
+<h3>Superclass - <a href="SEDRISAbstractBase.htm">&lt;SEDRIS Abstract Base&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies an eye point to view from,
+ specifying a location, an orientation, and either
+ an orthographic or perspective viewing volume.
+</P><P>
+ The location of the camera is specified by the
+ <A href="Location3D.htm">&lt;Location 3D&gt;</A> component. The
+ direction at which the camera is pointed is specified by the
+ <A href="ReferenceVector.htm">&lt;Reference Vector&gt;</A> component that has a
+ <A href="ReferenceVector.htm#vector_type">vector_type</A> field value of
+ <A href="../types/SE_Reference_Vector_Type.htm#SE_REFVEC_CAMERA_FORWARD_AXIS">SE_REFVEC_CAMERA_FORWARD_AXIS</A>.
+ The up axis of the camera is specified by
+ the <A href="ReferenceVector.htm">&lt;Reference Vector&gt;</A> component that has a
+ <A href="ReferenceVector.htm#vector_type">vector_type</A> field value of
+ <A href="../types/SE_Reference_Vector_Type.htm#SE_REFVEC_CAMERA_UP_AXIS">SE_REFVEC_CAMERA_UP_AXIS</A>.
+ The up axis specifies the rotational orientation of the camera around
+ the forward axis. These provide the necessary information to position
+ the camera in the currently applicable SRF, orient the camera
+ with respect to its up axis, and identify the direction in which the
+ camera is pointing. This orientation defines the coordinate space of
+ the camera, where the camera is at (0, 0, 0) and is oriented to
+ look down the +V axis (defined by the
+ <A href="../types/SE_Reference_Vector_Type.htm#SE_REFVEC_CAMERA_FORWARD_AXIS">SE_REFVEC_CAMERA_FORWARD_AXIS</A>
+ vector). The UV plane defines the horizontal plane and the
+ right-hand rule applies. The
+ <A href="../types/SE_Reference_Vector_Type.htm#SE_REFVEC_CAMERA_UP_AXIS">SE_REFVEC_CAMERA_UP_AXIS</A>
+ vector defines the +W axis.
+</P><P>
+ The viewing frustum of a given <A href="CameraPoint.htm">&lt;Camera Point&gt;</A>
+ instance is defined based on two parallel planes, the
+ near clipping plane and the far clipping plane. The
+ <I>near clipping plane</I> is the plane perpendicular to the
+ <A href="../types/SE_Reference_Vector_Type.htm#SE_REFVEC_CAMERA_FORWARD_AXIS">SE_REFVEC_CAMERA_FORWARD_AXIS</A>
+ vector and located <A href="#camera_near">camera_near</A> metres
+ from the origin. The <I>far clipping plane</I> is located
+ <A href="#camera_far">camera_far</A> metres from the origin.
+</P><P>
+ The projection type is specified by the
+ <A href="#projection">projection</A> field, and
+ may specify either an orthographic or a perspective projection. The
+ projection type also specifies the fundamental shape of the
+ viewing frustum. For an orthographic projection, the viewing
+ frustum is a parallelepiped. For a perspective projection, the
+ viewing frustum is a truncated pyramid.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet18.pdf"><strong>18</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet04.pdf"><strong>4</strong></A>
+</LI>
+<LI><A href="sheet07.pdf"><strong>7</strong></A>
+</LI>
+<LI><A href="sheet22.pdf"><strong>22</strong></A>
+</LI>
+</UL>
+
+<h3>Example</h3>
+<OL>
+<LI><P>
+ A <A href="CameraPoint.htm">&lt;Camera Point&gt;</A> instance may represent a
+ perspective viewing point defined at the beginning of a runway,
+ oriented to look down the runway.
+</P></LI>
+<LI><P>
+ A <A href="CameraPoint.htm">&lt;Camera Point&gt;</A> instance may represent an
+ orthographic viewing point defined high above the transmittal, in
+ the centre of the transmittal, to give a &quot;bird's eye view&quot; of
+ the entire transmittal.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ What are <A href="CameraPoint.htm">&lt;Camera Point&gt;</A> instances used for?
+</B></DT>
+<DD><P>
+ Typically, <A href="CameraPoint.htm">&lt;Camera Point&gt;</A> instances are used
+ for pre-set views into a transmittal. They can also be used for eye point
+ attachments for own-ship <A href="Model.htm">&lt;Model&gt;</A> instances.
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ConstraintsOnComponents.htm">&lt;&lt;Constraints On Components&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/InheritanceRuleForLocation.htm">&lt;&lt;Inheritance Rule For Location&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/PropertyConstraints.htm">&lt;&lt;Property Constraints&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Associated to (one-way)</h3>
+<UL>
+<li>zero or one <a href="Image.htm">&lt;Image&gt;</a> instance<sup><A href="#Notes_asn_toImage" name="asn_toImage">1</A></sup></li>
+</UL>
+
+<h3>Composed of (two-way)</h3>
+<UL>
+<li>zero or one <a href="ClassificationData.htm">&lt;Classification Data&gt;</a> instance</li>
+<li>one <a href="Location.htm">&lt;Location&gt;</a> instance</li>
+<li>zero or more <a href="PropertyValue.htm">&lt;Property Value&gt;</a> instances</li>
+<li>exactly 2 <a href="ReferenceVector.htm">&lt;Reference Vector&gt;</a> instances</li>
+</UL>
+
+<h3>Component of (two-way)</h3>
+<UL>
+<li>one or more <a href="AggregateGeometry.htm">&lt;Aggregate Geometry&gt;</a> instances</li>
+</UL>
+
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Camera_Projection_Type.htm">SE_Camera_Projection_Type</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="projection">projection</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_projection">2</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Long_Float.htm">SE_Long_Float</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="camera_near">camera_near</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_camera_near">3</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Long_Float.htm">SE_Long_Float</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="camera_far">camera_far</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_camera_far">4</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Boolean.htm">SE_Boolean</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="use_left_bottom_right_top">use_left_bottom_right_top</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_use_left_bottom_right_top">5</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Long_Float.htm">SE_Long_Float</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="left">left</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_left">6</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Long_Float.htm">SE_Long_Float</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="bottom">bottom</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_bottom">7</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Long_Float.htm">SE_Long_Float</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="right">right</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_right">8</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Long_Float.htm">SE_Long_Float</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="top">top</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_top">9</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Long_Float.htm">SE_Long_Float</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="horizontal_field_of_view">horizontal_field_of_view</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_horizontal_field_of_view">10</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Long_Float.htm">SE_Long_Float</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="aspect_ratio">aspect_ratio</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_aspect_ratio">11</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Associated to Notes</h3>
+<br>
+<h4><a href="#asn_toImage" name="Notes_asn_toImage">Image</a></h4>
+ The semantic meaning of this relationship is that the
+ given <A href="Image.htm">&lt;Image&gt;</A> instance represents a
+ picture taken from the location of the
+ <A href="CameraPoint.htm">&lt;Camera Point&gt;</A> instance with
+ the given aspect ratio, camera projection, and
+ camera axes as specified by the
+ <A href="ReferenceVector.htm">&lt;Reference Vector&gt;</A>
+ instances.
+</P><P>
+ The <A href="Image.htm">&lt;Image&gt;</A> instance should be of
+ the data described under the
+ <A href="AggregateGeometry.htm">&lt;Aggregate Geometry&gt;</A>
+ instance of which the
+ <A href="CameraPoint.htm">&lt;Camera Point&gt;</A> instance is
+ a component.
+</P>
+<h3>Fields Notes</h3>
+<h4><a href="#projection" name="Notes_projection">projection</a></h4>
+<P>
+ The <A href="#projection">projection</A> field
+ specifies the type of projection.
+ If <A href="#projection">projection</A> =
+ <A href="../types/SE_Camera_Projection_Type.htm#SE_CAM_ORTHOGRAPHIC">SE_CAM_ORTHOGRAPHIC</A>,
+ the viewing frustum is the parallelepiped volume between the
+ two clipping planes, bounded by the rectangle specified by
+ (<A href="#left">left</A>, <A href="#bottom">bottom</A>) as its lower left
+ corner and (<A href="#right">right</A>, <A href="#top">top</A>) as its
+ upper right corner.
+ If <A href="#projection">projection</A> =
+ <A href="../types/SE_Camera_Projection_Type.htm#SE_CAM_PERSPECTIVE">SE_CAM_PERSPECTIVE</A>,
+ the viewing frustum can be described in one of two ways.
+ In the first method, the perspective viewing frustum can be defined as
+ the volume starting at the near clipping plane and expanding
+ to the far clipping plane where the projection lines intersect the
+ corners of the rectangle specified on the near clipping plane by
+ (<A href="#left">left</A>, <A href="#bottom">bottom</A>) as the lower left
+ corner and (<A href="#right">right</A>, <A href="#top">top</A>) as the
+ upper right corner. In the second method, the perspective viewing volume
+ can be described by a horizontal field of view, an aspect ratio that is the
+ width of the viewing frustum divided by its height, and the distance to the
+ near and far clipping planes.
+</P>
+<h4><a href="#camera_near" name="Notes_camera_near">camera_near</a></h4>
+<P>
+ The <A href="#camera_near">camera_near</A>
+ field specifies the distance from camera position
+ to near clipping plane, in metres.
+</P>
+<h4><a href="#camera_far" name="Notes_camera_far">camera_far</a></h4>
+<P>
+ The <A href="#camera_far">camera_far</A>
+ field specifies the distance from camera position
+ to far clipping plane, in metres.
+</P>
+<h4><a href="#use_left_bottom_right_top" name="Notes_use_left_bottom_right_top">use_left_bottom_right_top</a></h4>
+<P>
+ If the value of the
+ <A href="#use_left_bottom_right_top">use_left_bottom_right_top</A>
+ field is <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A>, use the
+ parameters from the
+ <A href="#left">left</A>, <A href="#bottom">bottom</A>,
+ <A href="#right">right</A>, and <A href="#top">top</A> fields.
+ These fields are always used for orthographic viewing, but
+ perspective viewing can either use these fields or the
+ field-of-view and aspect ratio fields.
+</P>
+<h4><a href="#left" name="Notes_left">left</a></h4>
+<P>
+ The <A href="#left">left</A>
+ field specifies the U coordinate of the lower left corner
+ of the rectangle in the near clipping plane.
+</P>
+<h4><a href="#bottom" name="Notes_bottom">bottom</a></h4>
+<P>
+ The <A href="#bottom">bottom</A> field specifies the
+ V coordinate of the lower left corner
+ of the rectangle in the near clipping plane.
+</P>
+<h4><a href="#right" name="Notes_right">right</a></h4>
+<P>
+ The <A href="#right">right</A>
+ field specifies the U coordinate of the upper right corner
+ of the rectangle in the near clipping plane.
+</P>
+<h4><a href="#top" name="Notes_top">top</a></h4>
+<P>
+ The <A href="#top">top</A>
+ field specifies the V coordinate of the upper right corner
+ of the rectangle in the near clipping plane.
+</P>
+<h4><a href="#horizontal_field_of_view" name="Notes_horizontal_field_of_view">horizontal_field_of_view</a></h4>
+<P>
+ The <A href="#horizontal_field_of_view">horizontal_field_of_view</A>
+ field specifies the angle, in radians,
+ of the horizontal field of view. This value is used for perspective
+ viewing if the
+ <A href="#use_left_bottom_right_top">use_left_bottom_right_top</A>
+ flag is <A href="../types/SE_Boolean.htm#SE_FALSE">SE_FALSE</A>.
+</P>
+<h4><a href="#aspect_ratio" name="Notes_aspect_ratio">aspect_ratio</a></h4>
+<P>
+ The <A href="#aspect_ratio">aspect_ratio</A> field specifies the
+ width of the frustum divided by its height. This value is used for
+ perspective viewing if the
+ <A href="#use_left_bottom_right_top">use_left_bottom_right_top</A>
+ flag is <A href="../types/SE_Boolean.htm#SE_FALSE">SE_FALSE</A>.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="BrowseMedia.htm">Browse Media</A>.
+<strong>Next:</strong> <A href="CC3DLocation.htm">CC 3D Location</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>LSR 2D Location</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+LSR 2D Location
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: LSR 2D Location</h2>
+<h3>Superclass - <a href="Location2D.htm">&lt;Location 2D&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies a coordinate for an SRF
+ based on the Local Space Rectangular 2D SRFT.
+</P><P>
+ See <I>8.5.25 Local space rectangular 2D SRFT</I> of
+ <A href="../bibliography.htm#I18026">ISO/IEC 18026</A> for a complete definition.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet15.pdf"><strong>15</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+This class appears on only one page of the DRM class diagram.
+<h3>Example</h3>
+<OL>
+<LI><P>
+ <A href="LSR2DLocation.htm">&lt;LSR 2D Location&gt;</A> instances
+ are most commonly used in <A href="Model.htm">&lt;Model&gt;</A> instance
+ representations.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ What if all the <A href="Vertex.htm">&lt;Vertex&gt;</A> components of a
+ <A href="Polygon.htm">&lt;Polygon&gt;</A> instance use
+ <A href="LSR2DLocation.htm">&lt;LSR 2D Location&gt;</A> instances, and the
+ <A href="Polygon.htm">&lt;Polygon&gt;</A> instance crosses over two or
+ more terrain facets?
+</B></DT>
+<DD><P>
+ By default, the <A href="Polygon.htm">&lt;Polygon&gt;</A> instance should be draped
+ across the terrain, causing the <A href="Polygon.htm">&lt;Polygon&gt;</A> instance
+ to be broken at the terrain facet boundaries and creating multiple polygons.
+ If the <A href="../types/SE_Polygon_Flag.htm#Dont_Drape">Dont_Drape</A>Dont_Drape</A>
+ <A href="../types/SE_Polygon_Flag.htm">SE_Polygon_Flag</A> is set on the
+ <A href="Polygon.htm">&lt;Polygon&gt;</A> instance, do not drape the
+ <A href="Polygon.htm">&lt;Polygon&gt;</A> instance. Instead, the
+ <A href="Vertex.htm">&lt;Vertex&gt;</A> components of the
+ <A href="Polygon.htm">&lt;Polygon&gt;</A> instance conform to the terrain
+ surface, while the interior of the <A href="Polygon.htm">&lt;Polygon&gt;</A>
+ instance may cut through the terrain.
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/EnvironmentRootSRF.htm">&lt;&lt;Environment Root SRF&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ImageAnchorSRF.htm">&lt;&lt;Image Anchor SRF&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/InheritanceRuleForLocation.htm">&lt;&lt;Inheritance Rule For Location&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ModelSRF.htm">&lt;&lt;Model SRF&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Component of (two-way) (inherited)</h3>
+<UL>
+<li>zero or more <a href="Arc.htm">&lt;Arc&gt;</a> instances</li>
+<li>zero or more <a href="CameraPoint.htm">&lt;Camera Point&gt;</a> instances</li>
+<li>zero or more <a href="DirectionalLightBehaviour.htm">&lt;Directional Light Behaviour&gt;</a> instances</li>
+<li>zero or one <a href="DistanceLODData.htm">&lt;Distance LOD Data&gt;</a> instance</li>
+<li>zero or more <a href="Ellipse.htm">&lt;Ellipse&gt;</a> instances</li>
+<li>zero or more <a href="FeatureEdge.htm">&lt;Feature Edge&gt;</a> instances</li>
+<li>zero or more <a href="FeatureFace.htm">&lt;Feature Face&gt;</a> instances</li>
+<li>zero or one <a href="FeatureNode.htm">&lt;Feature Node&gt;</a> instance</li>
+<li>zero or more <a href="ImageAnchor.htm">&lt;Image Anchor&gt;</a> instances</li>
+<li>zero or more <a href="Label.htm">&lt;Label&gt;</a> instances</li>
+<li>zero or more <a href="PerimeterData.htm">&lt;Perimeter Data&gt;</a> instances</li>
+<li>zero or more <a href="Point.htm">&lt;Point&gt;</a> instances</li>
+<li>zero or more <a href="PropertyGridHookPoint.htm">&lt;Property Grid Hook Point&gt;</a> instances</li>
+<li>zero or one <a href="ReferenceOrigin.htm">&lt;Reference Origin&gt;</a> instance</li>
+<li>zero or more <a href="ReferenceVector.htm">&lt;Reference Vector&gt;</a> instances</li>
+<li>zero or more <a href="SpatialExtent.htm">&lt;Spatial Extent&gt;</a> instances</li>
+<li>zero or more <a href="SpatialIndexRelatedFeatureTopology.htm">&lt;Spatial Index Related Feature Topology&gt;</a> instances</li>
+<li>zero or more <a href="SpatialIndexRelatedFeatures.htm">&lt;Spatial Index Related Features&gt;</a> instances</li>
+<li>zero or more <a href="SpatialIndexRelatedGeometry.htm">&lt;Spatial Index Related Geometry&gt;</a> instances</li>
+<li>zero or more <a href="SpatialIndexRelatedGeometryTopology.htm">&lt;Spatial Index Related Geometry Topology&gt;</a> instances</li>
+<li>zero or more <a href="TackPoint.htm">&lt;Tack Point&gt;</a> instances</li>
+<li>zero or more <a href="Vertex.htm">&lt;Vertex&gt;</a> instances</li>
+<li>zero or more <a href="World3x3.htm">&lt;World 3x3&gt;</a> instances</li>
+<li>zero or more <a href="WorldTransformation.htm">&lt;World Transformation&gt;</a> instances</li>
+</UL>
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../../srm/types/SRM_Euclidean_2D_Coordinate.htm">SRM_Euclidean_2D_Coordinate</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="coordinate">coordinate</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_coordinate">1</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Fields Notes</h3>
+<h4><a href="#coordinate" name="Notes_coordinate">coordinate</a></h4>
+<P>
+ The <A href="#coordinate">coordinate</A> field
+ specifies the set of coordinate-component values.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="LSP2DLocation.htm">LSP 2D Location</A>.
+<strong>Next:</strong> <A href="LSR3DLocation.htm">LSR 3D Location</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

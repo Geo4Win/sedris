@@ -1,0 +1,199 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE OpenTransmittalByName</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+SE OpenTransmittalByName
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../types/SE_Return_Code.htm">SE_Return_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SE_OpenTransmittalByName</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1"><td class="CFunction">const&nbsp;</td><td class="CFunction"><a href="../../drm/types/SE_URN.htm">SE_URN</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="transmittal_name"></a>transmittal_name,</td><td class="CFunction"><sup><A href="#Notes_transmittal_name">1</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../types/SE_Encoding.htm">SE_Encoding</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="encoding"></a>encoding,</td><td class="CFunction"><sup><A href="#Notes_encoding">2</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../types/SE_Access_Mode.htm">SE_Access_Mode</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="access_mode"></a>access_mode,</td><td class="CFunction"><sup><A href="#Notes_access_mode">3</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../types/SE_Transmittal.htm">SE_Transmittal</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="transmittal"></a>transmittal</td><td class="CFunction"><sup><A href="#Notes_transmittal">4</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+  This function opens a transmittal for access, based on the mode
+  specified by <A href="#access_mode">access_mode</A>.  This
+  function specifies the transmittal to be opened using the formal
+  transmittal name of the transmittal.  The formal name of the
+  transmittal is resolved automatically based on the process
+  described for the function
+ <A href="SE_ResolveTransmittalName.htm">SE_ResolveTransmittalName()</A>.
+  If this function is successful, <A href="#transmittal">transmittal</A>
+  returns a handle to the newly opened transmittal.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A>
+</td><td class="Status">
+ and the opened tranmittal is returned.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A>
+</td><td class="Status">
+ and the status code is set appropriately if the call failed.
+</td></tr>
+</table>
+
+<h3>Status Codes</h3>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A> is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_SUCCESS">SE_STATCODE_SUCCESS</A>
+</td><td class="Status">
+ set if valid parameters were passed in and the name was a valid
+ transmittal name that the API could resolve and access.
+</td></tr>
+</table>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A> is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_INVALID_TRANSMITTAL_NAME">SE_STATCODE_INVALID_TRANSMITTAL_NAME</A>
+</td><td class="Status">
+ set if the <A href="#transmittal_name">transmittal_name</A> did not
+ specify a name that was valid according to the format of the
+ SEDRIS namespace.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_UNRESOLVED_TRANSMITTAL">SE_STATCODE_UNRESOLVED_TRANSMITTAL</A>
+</td><td class="Status">
+ set if the API could not resolve the
+ <A href="#transmittal_name">transmittal_name</A> to a file location.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_TRANSMITTAL_INACCESSIBLE">SE_STATCODE_TRANSMITTAL_INACCESSIBLE</A>
+</td><td class="Status">
+ set if the file location of the resolved transmittal name was not
+ accessible by the API.  This could occur if
+<OL>
+<LI>the transmittal was opened for read-only or update and the resolved
+    file location did not exist, or
+</LI>
+<LI>if the resolved file location specified a non-local file and the
+    API had no transport mechanism for accessing the remote file.
+</LI>
+</OL>
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_INVALID_ACCESS_MODE">SE_STATCODE_INVALID_ACCESS_MODE</A>
+</td><td class="Status">
+ set if
+<OL>
+ <LI> the resolved file location was found, but the security permissions
+      of the underlying system (OS / filesystem) prohibited access to the
+      file in the mode specified.  This could occur if the access mode
+      specified was create or update and the file was marked read-only, or
+      if no access was permitted for the account running the application.
+</LI>
+ <LI> if create or update mode was requested and the API implementation
+      encoding does not support the write capability.
+</LI>
+</OL>
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_UNSUPPORTED_ENCODING">SE_STATCODE_UNSUPPORTED_ENCODING</A>
+</td><td class="Status">
+ set if the resolved transmittal name referenced a format that is not
+ supported by the implementation(s) encoding of the SEDRIS API linked
+ to the application.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_INACTIONABLE_FAILURE">SE_STATCODE_INACTIONABLE_FAILURE</A>
+</td><td class="Status">
+ set if the call fails for any other reason.
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#transmittal_name" name="Notes_transmittal_name">1</a></sup>
+ the formal name of the transmittal to be opened.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#encoding" name="Notes_encoding">2</a></sup>
+ identifies the API implementation encoding
+    to use when opening this file.  If the specified API can't open the
+    given file location then the API will return a status code indicating
+    why it could not be opened.  If encoding is NULL, then
+    the API will try to open the given transmittal based on the
+    extension of the file location.
+
+    See also SE_GetEncoding().
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#access_mode" name="Notes_access_mode">3</a></sup>
+ the mode (read-only, create, update, etc.) that the
+     transmittal should be opened in.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#transmittal" name="Notes_transmittal">4</a></sup>
+ a pointer to the SE_Transmittal from the user.
+    The *transmittal value will be initialized by this function.
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SE_OpenTransmittalByLocation.htm">SE_OpenTransmittalByLocation</a>.
+<strong>Next:</strong> <a href="SE_PublishObject.htm">SE_PublishObject</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

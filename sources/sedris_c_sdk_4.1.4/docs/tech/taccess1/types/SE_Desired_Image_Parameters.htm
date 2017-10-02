@@ -1,0 +1,403 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE_Desired_Image_Parameters</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX B - Transmittal Access Level 1 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Types
+</font>
+<br>
+<font color="#ffffff">
+SE_Desired_Image_Parameters
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<PRE>
+/*
+ * STRUCT: SE_Desired_Image_Parameters
+ *
+ *   Parameters to repack/convert an &lt;Image&gt; using the
+ *   SE_GetRearrangedImageData() or SE_RearrangeImageData() functions.
+ */
+</PRE>
+<span class="Code">typedef struct 
+<br>
+{</span>
+<br>
+<table class="CFunctionPrototype">
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../drm/types/SE_Colour_Model.htm">SE_Colour_Model</a></td>
+        <td class="CFunction"><a name="colour_model"></a>colour_model;</td><td class="CFunction"><sup><A href="#Notes_colour_model">1</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../drm/types/SE_Image_Signature.htm">SE_Image_Signature</a></td>
+        <td class="CFunction"><a
+        name="image_signature"></a>image_signature;</td><td class="CFunction"><sup><A href="#Notes_image_signature">2</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../drm/types/SE_Image_Scan_Direction.htm">SE_Image_Scan_Direction</a></td>
+        <td class="CFunction"><a name="scan_direction"></a>scan_direction;</td><td class="CFunction"><sup><A href="#Notes_scan_direction">3</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../drm/types/SE_Image_Scan_Direction_Z.htm">SE_Image_Scan_Direction_Z</a></td>
+        <td class="CFunction"><a
+        name="scan_direction_z"></a>scan_direction_z;</td><td class="CFunction"><sup><A href="#Notes_scan_direction_z">4</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../drm/types/SE_Image_Component_Type.htm">SE_Image_Component_Type</a></td>
+        <td class="CFunction"><a
+        name="component_data_type"></a>component_data_type;</td><td class="CFunction"><sup><A href="#Notes_component_data_type">5</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../drm/types/SE_Boolean.htm">SE_Boolean</a></td>
+        <td class="CFunction"><a
+        name="ignore_negative_values"></a>ignore_negative_values;</td><td class="CFunction"><sup><A href="#Notes_ignore_negative_values">6</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../drm/types/SE_Boolean.htm">SE_Boolean</a></td>
+        <td class="CFunction"><a
+        name="make_values_little_endian"></a>make_values_little_endian;</td><td class="CFunction"><sup><A href="#Notes_make_values_little_endian">7</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../drm/types/SE_Short_Integer_Unsigned.htm">SE_Short_Integer_Unsigned</a></td>
+        <td class="CFunction"><a name="bits_of_alpha"></a>bits_of_alpha;</td><td class="CFunction"><sup><A href="#Notes_bits_of_alpha">8</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../drm/types/SE_Short_Integer_Unsigned.htm">SE_Short_Integer_Unsigned</a></td>
+        <td class="CFunction"><a
+        name="bits_of_luminance"></a>bits_of_luminance;</td><td class="CFunction"><sup><A href="#Notes_bits_of_luminance">9</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../drm/types/SE_Short_Integer_Unsigned.htm">SE_Short_Integer_Unsigned</a></td>
+        <td class="CFunction"><a
+        name="bits_of_colour_coordinate_1"></a>bits_of_colour_coordinate_1;</td><td class="CFunction"><sup><A href="#Notes_bits_of_colour_coordinate_1">10</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../drm/types/SE_Short_Integer_Unsigned.htm">SE_Short_Integer_Unsigned</a></td>
+        <td class="CFunction"><a
+        name="bits_of_colour_coordinate_2"></a>bits_of_colour_coordinate_2;</td><td class="CFunction"><sup><A href="#Notes_bits_of_colour_coordinate_2">11</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../drm/types/SE_Short_Integer_Unsigned.htm">SE_Short_Integer_Unsigned</a></td>
+        <td class="CFunction"><a
+        name="bits_of_colour_coordinate_3"></a>bits_of_colour_coordinate_3;</td><td class="CFunction"><sup><A href="#Notes_bits_of_colour_coordinate_3">12</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../drm/types/SE_Short_Integer_Unsigned.htm">SE_Short_Integer_Unsigned</a></td>
+        <td class="CFunction"><a
+        name="bits_of_bump_map_height"></a>bits_of_bump_map_height;</td><td class="CFunction"><sup><A href="#Notes_bits_of_bump_map_height">13</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../drm/types/SE_Short_Integer_Unsigned.htm">SE_Short_Integer_Unsigned</a></td>
+        <td class="CFunction"><a
+        name="bits_of_material_1"></a>bits_of_material_1;</td><td class="CFunction"><sup><A href="#Notes_bits_of_material_1">14</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../drm/types/SE_Short_Integer_Unsigned.htm">SE_Short_Integer_Unsigned</a></td>
+        <td class="CFunction"><a
+        name="bits_of_material_2"></a>bits_of_material_2;</td><td class="CFunction"><sup><A href="#Notes_bits_of_material_2">15</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../drm/types/SE_Short_Integer_Unsigned.htm">SE_Short_Integer_Unsigned</a></td>
+        <td class="CFunction"><a
+        name="bits_of_material_3"></a>bits_of_material_3;</td><td class="CFunction"><sup><A href="#Notes_bits_of_material_3">16</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../drm/types/SE_Short_Integer_Unsigned.htm">SE_Short_Integer_Unsigned</a></td>
+        <td class="CFunction"><a
+        name="bits_of_material_2_percentage"></a>bits_of_material_2_percentage;</td><td class="CFunction"><sup><A href="#Notes_bits_of_material_2_percentage">17</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../drm/types/SE_Short_Integer_Unsigned.htm">SE_Short_Integer_Unsigned</a></td>
+        <td class="CFunction"><a
+        name="bits_of_material_3_percentage"></a>bits_of_material_3_percentage;</td><td class="CFunction"><sup><A href="#Notes_bits_of_material_3_percentage">18</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../drm/types/SE_Short_Integer_Unsigned.htm">SE_Short_Integer_Unsigned</a></td>
+        <td class="CFunction"><a
+        name="bits_of_image_index"></a>bits_of_image_index;</td><td class="CFunction"><sup><A href="#Notes_bits_of_image_index">19</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../drm/types/SE_Short_Integer_Unsigned.htm">SE_Short_Integer_Unsigned</a></td>
+        <td class="CFunction"><a
+        name="bits_of_bump_map_u"></a>bits_of_bump_map_u;</td><td class="CFunction"><sup><A href="#Notes_bits_of_bump_map_u">20</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../drm/types/SE_Short_Integer_Unsigned.htm">SE_Short_Integer_Unsigned</a></td>
+        <td class="CFunction"><a
+        name="bits_of_bump_map_v"></a>bits_of_bump_map_v;</td><td class="CFunction"><sup><A href="#Notes_bits_of_bump_map_v">21</A></sup></td></tr>
+</table>
+<span class="Code">
+} SE_Desired_Image_Parameters;</span>
+<br>
+
+<br>
+<HR>
+<H2>Field Notes</H2>
+<h4><a href="#colour_model" name="Notes_colour_model">colour_model</a></h4>
+<P>
+ colour model in which the data shall be returned
+</P>
+<h4><a href="#image_signature" name="Notes_image_signature">image_signature</a></h4>
+<P>
+ Usually, the same image signature as the <A href="../../drm/classes/Image.htm">&lt;Image&gt;</A>.
+ However, in some cases, certain &quot;down-sampling&quot; or
+ &quot;up-sampling&quot; is allowed.
+</P><P>
+     Specifically, from a:
+</P>
+<UL>
+<LI><A href="../../drm/types/SE_Image_Signature.htm#SE_IMAGSIG_LUMINANCE_AND_ALPHA">SE_IMAGSIG_LUMINANCE_AND_ALPHA</A>
+ <A href="../../drm/classes/Image.htm">&lt;Image&gt;</A> instance, you can ask for
+<UL>
+<LI><A href="../../drm/types/SE_Image_Signature.htm#SE_IMAGSIG_ALPHA">SE_IMAGSIG_ALPHA</A>,
+</LI>
+<LI><A href="../../drm/types/SE_Image_Signature.htm#SE_IMAGSIG_LUMINANCE">SE_IMAGSIG_LUMINANCE</A>, or
+</LI>
+<LI><A href="../../drm/types/SE_Image_Signature.htm#SE_IMAGSIG_LUMINANCE_AND_ALPHA">SE_IMAGSIG_LUMINANCE_AND_ALPHA</A>.
+</LI>
+</UL>
+</LI>
+<LI><A href="../../drm/types/SE_Image_Signature.htm#SE_IMAGSIG_123COLOUR">SE_IMAGSIG_123COLOUR</A>
+ <A href="../../drm/classes/Image.htm">&lt;Image&gt;</A> instance, you can ask for
+<UL>
+<LI><A href="../../drm/types/SE_Image_Signature.htm#SE_IMAGSIG_COLOUR_COORDINATE_1">SE_IMAGSIG_COLOUR_COORDINATE_1</A>,
+</LI>
+<LI><A href="../../drm/types/SE_Image_Signature.htm#SE_IMAGSIG_COLOUR_COORDINATE_2">SE_IMAGSIG_COLOUR_COORDINATE_2</A>, or
+</LI>
+<LI><A href="../../drm/types/SE_Image_Signature.htm#SE_IMAGSIG_COLOUR_COORDINATE_3">SE_IMAGSIG_COLOUR_COORDINATE_3</A>.
+</LI>
+<LI><A href="../../drm/types/SE_Image_Signature.htm#SE_IMAGSIG_123COLOUR_ALPHA">SE_IMAGSIG_123COLOUR_ALPHA</A>
+</LI>
+</UL>
+<LI><A href="../../drm/types/SE_Image_Signature.htm#SE_IMAGSIG_123COLOUR_ALPHA">SE_IMAGSIG_123COLOUR_ALPHA</A>
+ <A href="../../drm/classes/Image.htm">&lt;Image&gt;</A> instance, you can ask for
+<UL>
+<LI><A href="../../drm/types/SE_Image_Signature.htm#SE_IMAGSIG_COLOUR_COORDINATE_1">SE_IMAGSIG_COLOUR_COORDINATE_1</A>,
+</LI>
+<LI><A href="../../drm/types/SE_Image_Signature.htm#SE_IMAGSIG_COLOUR_COORDINATE_2">SE_IMAGSIG_COLOUR_COORDINATE_2</A>,
+</LI>
+<LI><A href="../../drm/types/SE_Image_Signature.htm#SE_IMAGSIG_COLOUR_COORDINATE_3">SE_IMAGSIG_COLOUR_COORDINATE_3</A>, or
+</LI>
+<LI><A href="../../drm/types/SE_Image_Signature.htm#SE_IMAGSIG_ALPHA">SE_IMAGSIG_ALPHA</A>.
+</LI>
+</UL>
+<P>
+   The desired image signature takes precedence over the numerous
+   desired bits_of_xxxx fields, listed later in this struct; it
+   defines which of the desired bits_of_xxxx fields will be
+   examined and which will be ignored.
+</P><P>
+   For example, if <A href="../../drm/classes/Image.htm#image_signature">image_signature</A>
+ == <A href="../../drm/types/SE_Image_Signature.htm#SE_IMAGSIG_ALPHA">SE_IMAGSIG_ALPHA</A>,
+   then the desired bits_of_alpha field will be used appropriately,
+   and all the other desired bits_of_xxxx fields will be ignored.
+</P>
+<h4><a href="#scan_direction" name="Notes_scan_direction">scan_direction</a></h4>
+<P>
+ the way the texels should be ordered in 2 dimensions for the
+ data which is returned
+</P>
+<h4><a href="#scan_direction_z" name="Notes_scan_direction_z">scan_direction_z</a></h4>
+<P>
+ the way the texels should be ordered in the third dimension for
+ the data which is returned (ignored for 2-dimensional
+ <A href="../../drm/classes/Image.htm">&lt;Image&gt;</A> instances)
+</P>
+<h4><a href="#component_data_type" name="Notes_component_data_type">component_data_type</a></h4>
+<P>
+ specifies the form each converted component value should take - an
+ unsigned integer, a signed integer, or a floating point value. Note
+ that for unsigned or signed integers, the maximum number of bits
+ currently allowed is 32. For floats, the only choices are
+ 32 and 64 bits.
+</P><P>
+ Converting from a floating point value to a signed integer will
+ first clamp the floating point value to be between -1.0 and 1.0,
+ then scale the resulting value between the minimum and maximum
+ range of the signed integer.
+</P><P>
+ Converting from a signed integer value to a floating point value
+ will create a floating point value between -1.0 and 1.0
+</P><P>
+ No checking is done on conversions from 32 to 64 bit floats
+ (or vice-versa)
+</P><P>
+ For unsigned to signed conversions, see ignore_negative_values
+ field.
+</P>
+<h4><a href="#ignore_negative_values" name="Notes_ignore_negative_values">ignore_negative_values</a></h4>
+<P>
+ concerns conversions from signed integer or floating point to
+ an unsigned integer (and vice-versa)
+</P><P>
+ If the source number is a floating point number, then it is
+ clamped to a value between -1.0 and 1.0, before it is
+ converted to an integer.
+</P><P>
+ If <A href="#ignore_negative_values">ignore_negative_values</A> ==
+ <A href="../../drm/types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A>:
+</P><P>
+    Converting from
+ an <A href="../../drm/types/SE_Image_Component_Type.htm#SE_IMAGCOMP_SIGNED_INTEGER">SE_IMAGCOMP_SIGNED_INTEGER</A> or
+ <A href="../../drm/types/SE_Image_Component_Type.htm#SE_IMAGCOMP_FLOATING_POINT">SE_IMAGCOMP_FLOATING_POINT</A> to an
+<A href="../../drm/types/SE_Image_Component_Type.htm#SE_IMAGCOMP_UNSIGNED_INTEGER">SE_IMAGCOMP_UNSIGNED_INTEGER</A>
+</P>
+<PRE>
+         Source Value between             |       Result Value
+     -------------------------------------+-----------------------------
+     [max. negative source value and 0]   |   set to  0
+                                          |
+     (0 and max. positive source value]   |   scaled between 0 and
+                                          |   max. positive result value
+</PRE>
+<P>
+    Converting from
+ an <A href="../../drm/types/SE_Image_Component_Type.htm#SE_IMAGCOMP_UNSIGNED_INTEGER">SE_IMAGCOMP_UNSIGNED_INTEGER</A>
+ to an <A href="../../drm/types/SE_Image_Component_Type.htm#SE_IMAGCOMP_SIGNED_INTEGER">SE_IMAGCOMP_SIGNED_INTEGER</A> or
+<A href="../../drm/types/SE_Image_Component_Type.htm#SE_IMAGCOMP_FLOATING_POINT">SE_IMAGCOMP_FLOATING_POINT</A>
+</P>
+<PRE>
+         Source Value between             |       Result Value
+     -------------------------------------+-----------------------------
+     [0 and max. positive source value]   |   scaled between 0 and
+                                          |   max. positive result value
+</PRE>
+ If <A href="#ignore_negative_values">ignore_negative_values</A> ==
+ <A href="../../drm/types/SE_Boolean.htm#SE_FALSE">SE_FALSE</A>:
+</P><P>
+    Converting from
+ an <A href="../../drm/types/SE_Image_Component_Type.htm#SE_IMAGCOMP_SIGNED_INTEGER">SE_IMAGCOMP_SIGNED_INTEGER</A> or
+ <A href="../../drm/types/SE_Image_Component_Type.htm#SE_IMAGCOMP_FLOATING_POINT">SE_IMAGCOMP_FLOATING_POINT</A> to an
+<A href="../../drm/types/SE_Image_Component_Type.htm#SE_IMAGCOMP_UNSIGNED_INTEGER">SE_IMAGCOMP_UNSIGNED_INTEGER</A>
+</P>
+<PRE>
+         Source Value                     |       Result Value
+     -------------------------------------+-----------------------------
+         max. negative source value       |            0
+                                          |
+                0                         |   middle of result range
+                                          |
+         max. positive source value       |   max. positive result value
+
+     and all other values are scaled between the given mappings.
+</PRE>
+<P>
+    Converting from
+ an <A href="../../drm/types/SE_Image_Component_Type.htm#SE_IMAGCOMP_UNSIGNED_INTEGER">SE_IMAGCOMP_UNSIGNED_INTEGER</A>
+ to an <A href="../../drm/types/SE_Image_Component_Type.htm#SE_IMAGCOMP_SIGNED_INTEGER">SE_IMAGCOMP_SIGNED_INTEGER</A> or
+<A href="../../drm/types/SE_Image_Component_Type.htm#SE_IMAGCOMP_FLOATING_POINT">SE_IMAGCOMP_FLOATING_POINT</A>
+</P>
+<PRE>
+         Source Value                     |       Result Value
+     -------------------------------------+-----------------------------
+                0                         |   max. negative result value
+                                          |
+       middle of source range             |            0
+                                          |
+       max. positive source value         |   max. positive result value
+</PRE><P>
+     and all other values are scaled in between.
+</P>
+<h4><a href="#make_values_little_endian" name="Notes_make_values_little_endian">make_values_little_endian</a></h4>
+<P>
+ the individual component values will be returned as:
+</P>
+<table class="Status">
+<tr><td class="Status">
+ big
+</td><td class="Status">
+ endian values if
+ <A href="#make_values_little_endian">make_values_little_endian</A>
+ == <A href="../../drm/types/SE_Boolean.htm#SE_FALSE">SE_FALSE</A>
+</td></tr>
+<tr><td class="Status">
+ little
+</td><td class="Status">
+ endian values if
+ <A href="#make_values_little_endian">make_values_little_endian</A>
+ == <A href="../../drm/types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A>
+</td></tr>
+</table>
+<h4><a href="#bits_of_alpha" name="Notes_bits_of_alpha">bits_of_alpha</a></h4>
+<P>
+ the number of bits desired per alpha value.
+ If 0, then no alpha values will be returned. If the source image
+ is <A href="../../drm/types/SE_Image_Signature.htm#SE_IMAGSIG_123COLOUR">SE_IMAGSIG_123COLOUR</A> and the
+ desired image_signature is
+ <A href="../../drm/types/SE_Image_Signature.htm#SE_IMAGSIG_123COLOUR_ALPHA">SE_IMAGSIG_123COLOUR_ALPHA</A>, then the
+ default value for the alpha component is the maximum for the
+ component type.
+</P>
+<h4><a href="#bits_of_luminance" name="Notes_bits_of_luminance">bits_of_luminance</a></h4>
+<P>
+ the number of bits desired per luminance value.
+ If 0, then no luminance values will be returned.
+</P>
+<h4><a href="#bits_of_colour_coordinate_1" name="Notes_bits_of_colour_coordinate_1">bits_of_colour_coordinate_1</a></h4>
+<P>
+ the number of bits desired for the first colour coordinate of a texel
+ (Red, Cyan, or Hue, based on the desired colour_model).
+ If 0, then the first colour coordinate of a texel is not returned.
+</P>
+<h4><a href="#bits_of_colour_coordinate_2" name="Notes_bits_of_colour_coordinate_2">bits_of_colour_coordinate_2</a></h4>
+<P>
+ the number of bits desired for the second colour coordinate of a texel
+ (Green, Magenta, or Saturation, based on value of the desired
+ colour_model).
+ If 0, then the second colour coordinate of a texel is not returned.
+</P>
+<h4><a href="#bits_of_colour_coordinate_3" name="Notes_bits_of_colour_coordinate_3">bits_of_colour_coordinate_3</a></h4>
+<P>
+ the number of bits desired for the third colour coordinate of a texel
+ (Blue, Yellow, or Value, based on the value of the desired
+ colour_model).
+ If 0, then the third colour coordinate of a texel is not returned.
+</P>
+<h4><a href="#bits_of_bump_map_height" name="Notes_bits_of_bump_map_height">bits_of_bump_map_height</a></h4>
+<P>
+ the number of bits desired per bump_map_height value.
+ If 0, then no bump_map_height values will be returned.
+</P>
+<h4><a href="#bits_of_material_1" name="Notes_bits_of_material_1">bits_of_material_1</a></h4>
+<P>
+ the number of bits desired per material_1 value.
+ If 0, then no material_1 values will be returned.
+</P>
+<h4><a href="#bits_of_material_2" name="Notes_bits_of_material_2">bits_of_material_2</a></h4>
+<P>
+ the number of bits desired per material_2 value.
+ If 0, then no material_2 values will be returned.
+</P>
+<h4><a href="#bits_of_material_3" name="Notes_bits_of_material_3">bits_of_material_3</a></h4>
+<P>
+ the number of bits desired per material_3 value.
+ If 0, then no material_3 values will be returned.
+</P>
+<h4><a href="#bits_of_material_2_percentage" name="Notes_bits_of_material_2_percentage">bits_of_material_2_percentage</a></h4>
+<P>
+ the number of bits per material_2_percentage value.
+ If 0, then no values will be returned for material_2_percentage.
+</P>
+<h4><a href="#bits_of_material_3_percentage" name="Notes_bits_of_material_3_percentage">bits_of_material_3_percentage</a></h4>
+<P>
+ the number of bits per material_3_percentage value.
+ If 0, then no values will be returned for material_3_percentage.
+</P>
+<h4><a href="#bits_of_image_index" name="Notes_bits_of_image_index">bits_of_image_index</a></h4>
+<P>
+ the number of bits desired per image_index value.
+ If 0, then no image_index values will be returned.
+</P>
+<h4><a href="#bits_of_bump_map_u" name="Notes_bits_of_bump_map_u">bits_of_bump_map_u</a></h4>
+<P>
+ the number of bits desired per bump_map_u value.
+ If 0, then no bump_map_u values will be returned.
+</P>
+<h4><a href="#bits_of_bump_map_v" name="Notes_bits_of_bump_map_v">bits_of_bump_map_v</a></h4>
+<P>
+ the number of bits desired per bump_map_v value.
+ If 0, then no bump_map_v values will be returned.
+</P>
+
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

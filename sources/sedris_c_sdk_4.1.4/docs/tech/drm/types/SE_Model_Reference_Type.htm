@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE_Model_Reference_Type</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX C - Types
+</font>
+<br>
+<font color="#ffffff">
+SE_Model_Reference_Type
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<PRE>
+/*
+ * ENUM: SE_Model_Reference_Type
+ *
+ *   This data type specifies how a &lt;Model&gt; instance is
+ *   referenced within a transmittal.
+ */
+</PRE>
+<span class="Code">typedef enum
+<br>
+{
+</span>
+
+<table class="CFunctionPrototype">
+    <tr><td class="CFunction"></td><td class="CFunction"><a name="SE_MODREFTYP_COMPONENT"></a>SE_MODREFTYP_COMPONENT,</td><td class="CFunction"><sup><A href="#Notes_SE_MODREFTYP_COMPONENT">1</A></sup></td></tr>
+    <tr><td class="CFunction"></td><td class="CFunction"><a name="SE_MODREFTYP_ROOT"></a>SE_MODREFTYP_ROOT,</td><td class="CFunction"><sup><A href="#Notes_SE_MODREFTYP_ROOT">2</A></sup></td></tr>
+    <tr><td class="CFunction"></td><td class="CFunction"><a name="SE_MODREFTYP_ROOT_AND_COMPONENT"></a>SE_MODREFTYP_ROOT_AND_COMPONENT</td><td class="CFunction"><sup><A href="#Notes_SE_MODREFTYP_ROOT_AND_COMPONENT">3</A></sup></td></tr>
+</table>
+<span class="Code">
+} SE_Model_Reference_Type;
+</span>
+<br>
+<br>
+<hr>
+<h2>Enumerant Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#SE_MODREFTYP_COMPONENT" name="Notes_SE_MODREFTYP_COMPONENT">1</a></sup>
+ The &lt;Model&gt; instance can be referenced only as a component of
+ other &lt;Model&gt; instances; it cannot be referenced directly
+ from &lt;Environment Root&gt; instances.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#SE_MODREFTYP_ROOT" name="Notes_SE_MODREFTYP_ROOT">2</a></sup>
+ The &lt;Model&gt; instance cannot be instanced by any other &lt;Model&gt;
+ instance. In this case, the &lt;Model&gt; instance can be referenced
+ from &lt;Environment Root&gt; instances.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#SE_MODREFTYP_ROOT_AND_COMPONENT" name="Notes_SE_MODREFTYP_ROOT_AND_COMPONENT">3</a></sup>
+ The &lt;Model&gt; instance can be instanced both by other &lt;Model&gt;
+ instances and from &lt;Environment Root&gt; instances.
+</p>
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SE_Media_Format.htm">SE_Media_Format</a>.
+<strong>Next:</strong> <a href="SE_Month.htm">SE_Month</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

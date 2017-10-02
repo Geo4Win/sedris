@@ -1,0 +1,128 @@
+###
+#
+# Sample sedris.rsl file
+#
+# Any line beginning with '#' is a comment.
+#
+# Any line not beginning with TRANSMITTAL or DEFINE will also be ignored
+# at this time
+#
+# The sedris.rsl file may rest in any directory specified in the environment
+# variable SEDRIS_RESOLVER_PATH.
+# 
+# Note: If the environment variable SEDRIS_RESOLVER_PATH is not set, the SEDRIS
+# API will attempt to find the sedris.rsl file in the current working directory
+#
+### Format of the TRANSMITTAL entry
+#
+# TRANSMITTAL <sedris_uri>
+# <sedris_uri> := <sedris_urn> <version> <sedris_url>
+#
+# <sedris_urn> := urn:[x-sedris OR sedris]:<dnas>:<tn>:<tv>
+#   
+# The leading string urn:x-sedris will be replaced with urn:sedris after
+# IETF approval is obtained.
+#
+#           <dnas> := Delegated naming authority string.
+#             <tn> := Transmittal name.
+#             <tv> := Transmittal version.
+#
+#        <version> := <sdrm_ver>:<fmt_id>:<fmt_ver>
+#
+#       <sdrm_ver> := SEDRIS Data Representation Model version number.
+#         <fmt_id> := transmittal format identifier.
+#        <fmt_ver> := version number of the transmittal format.
+#
+# Note: the only version string accepted currently is "4.1:stf:4.1" 
+#
+# <sedris_url> := A path to a SEDRIS transmittal.
+#
+# Note: Only acceptable path format supported at this time is file:///<path>
+#       and file://localhost/<path> (if file:/// is specified, the localhost
+#       is assumed and filled in)
+# 
+# The path is always absolute (relative paths are not supported at this time)
+# 
+#   In Unix: always starts from the root directory 
+#       ie. file:///usr/local/transmittals/stf_belle.stf
+#       or  file://localhost/usr/local/transmittals/stf_belle.stf
+#       are identical
+#
+#   In Windows: the drive and directory path
+#       ie. file:///c:\transmittals\stf_belle.stf
+#       or  file://localhost/c:\transmittals\stf_belle.stf
+#       are also identical
+#  
+### Format of the DEFINE entry
+# 
+# This file supports limited macro substitution where
+#
+# DEFINE MACRO MACRO_SUB 
+#
+# will replace all instances of ${MACRO} and $(MACRO) with MACRO_SUB
+#
+### Additional notes
+# 
+# In order for this file to resolve the itr_testA, itr_testB, itr_testC,
+# etc under unix variants you could edit the following three defines
+# and set the environment variable to the path of this file, ie.
+#   setenv SEDRIS_RESOLVER_PATH /usr_root/Sedris_4.1/transmittals/
+#
+### Sample for using the sedris.rsl file under Unix, using DEFINE macros
+# 
+# the base of your sedris installation directory
+
+DEFINE SEDRIS_BASE /usr_root/Sedris_4.1
+
+# the architecture you are building under (get from make env)
+
+DEFINE ARCH sunos-5.6-sparc
+
+# the BUILD_MODE-API_IMPL you are building with
+
+DEFINE BUILD DEBUG-stf   
+
+#
+# One transmittal line for each of the transmittals that reference each other via ITR
+#
+
+TRANSMITTAL urn:x-sedris:saic:itr_testA.stf:1 4.1:stf:4.1 file://localhost/$(SEDRIS_BASE)/bin/$(ARCH)/$(BUILD)/itr_testA.stf
+
+TRANSMITTAL urn:x-sedris:saic:itr_testB.stf:1 4.1:stf:4.1 file://localhost/$(SEDRIS_BASE)/bin/$(ARCH)/$(BUILD)/itr_testB.stf
+
+TRANSMITTAL urn:x-sedris:saic:itr_testC.stf:1 4.1:stf:4.1 file:///$(SEDRIS_BASE)/bin/$(ARCH)/$(BUILD)/itr_testC.stf
+
+#
+### Windows Notes
+#
+# Running under Win32 is similiar, except file paths use '\' instead of '/' and drive letters 
+# are required.
+#
+# You can use this file on Win32 by commenting the above lines and uncommenting the following 
+#
+#DEFINE SEDRIS_BASE c:\Sedris_4.1
+#DEFINE BUILD release-msvcrt-dynamicLibs-stfAPI 
+# 
+#TRANSMITTAL urn:x-sedris:saic:itr_testA.stf:1 4.1:stf:4.1 file://localhost/$(SEDRIS_BASE)\bin\$(BUILD)\itr_testA.stf
+#TRANSMITTAL urn:x-sedris:saic:itr_testB.stf:1 4.1:stf:4.1 file://localhost/$(SEDRIS_BASE)\bin\$(BUILD)\itr_testB.stf
+#TRANSMITTAL urn:x-sedris:saic:itr_testC.stf:1 4.1:stf:4.1 file:///$(SEDRIS_BASE)\bin\$(BUILD)\itr_testC.stf
+#
+### CUR_RESOLVE_DIR macro
+#
+# There is one pre-defined macro CUR_RESOLVE_DIR which will default to 
+# the directory that the current sedris.rsl file being read resides in
+#
+# If you prefer for either unix or win32 you can replace the file path
+# with CUR_RESOLVE_DIR and copy this file to the directory the itr_test
+# examples are in, 
+#
+# TRANSMITTAL urn:x-sedris:saic:itr_testA.stf:1 4.1:stf:4.1 file:///$(CUR_RESOLVE_DIR)/itr_testA.stf
+#  or
+# TRANSMITTAL urn:x-sedris:saic:itr_testA.stf:1 4.1:stf:4.1 file://localhost/$(CUR_RESOLVE_DIR)/itr_testA.stf
+#
+# for each of the five itr_test produced transmittals
+#
+# also a resolution for our sample test.stf in the transmittals directory
+#TRANSMITTAL urn:x-sedris:saic:test.stf:1 4.1:stf:4.1 file:///$(SEDRIS_BASE)/transmittals/test.stf
+#
+###

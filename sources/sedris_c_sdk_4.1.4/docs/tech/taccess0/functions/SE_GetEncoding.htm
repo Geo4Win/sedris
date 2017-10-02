@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE GetEncoding</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+SE GetEncoding
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../types/SE_Return_Code.htm">SE_Return_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SE_GetEncoding</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/SE_Object.htm">SE_Object</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="object"></a>object,</td><td class="CFunction"><sup><A href="#Notes_object">1</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/SE_Encoding.htm">SE_Encoding</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="encoding"></a>encoding</td><td class="CFunction"><sup><A href="#Notes_encoding">2</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+ Given a handle to an object, return the implementation identifier
+ associated with the API implementation in which that object resides.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A>
+</td><td class="Status">
+ and the encoding parameter is returned
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A>
+</td><td class="Status">
+ and the status code is set appropriately if the call failed.
+</td></tr>
+</table>
+
+<h3>Status Codes</h3>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A> is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_SUCCESS">SE_STATCODE_SUCCESS</A>
+</td><td class="Status">
+ set if valid parameters were passed and operation completed successfully.
+</td></tr>
+</table>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A> is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_INACTIONABLE_FAILURE">SE_STATCODE_INACTIONABLE_FAILURE</A>
+</td><td class="Status">
+ set if the call fails for any reason.
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#object" name="Notes_object">1</a></sup>
+ the object for which the encoding should be returned.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#encoding" name="Notes_encoding">2</a></sup>
+ an SE_Encoding enumerant.
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SE_GetDataTableData.htm">SE_GetDataTableData</a>.
+<strong>Next:</strong> <a href="SE_GetFields.htm">SE_GetFields</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Parallelepiped Volume Extent</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Parallelepiped Volume Extent
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Parallelepiped Volume Extent</h2>
+<h3>Superclass - <a href="VolumeExtent.htm">&lt;Volume Extent&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies the length and orientation of each
+ of the edges of a parallelepiped volume relative to the location of the
+ volume centre (which is specified separately by the aggregate of the
+ <A href="ParallelepipedVolumeExtent.htm">&lt;Parallelepiped Volume Extent&gt;</A> instance).
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet09.pdf"><strong>9</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+This class appears on only one page of the DRM class diagram.
+<h3>Example</h3>
+<OL>
+<LI><P>
+ Consider a <A href="BoundingVolume.htm">&lt;Bounding Volume&gt;</A> instance for a
+ representation of a building, such that the bounding volume is specified
+ by a <A href="ParallelepipedVolumeExtent.htm">&lt;Parallelepiped Volume Extent&gt;</A> instance with:
+<BR>
+ <A href="#edge_length">edge_length[0]</A>
+ = width, first
+ <A href="ReferenceVector.htm">&lt;Reference Vector&gt;</A> instance
+ points to the right,
+<BR>
+ <A href="#edge_length">edge_length[1]</A>
+ = depth, second
+ <A href="ReferenceVector.htm">&lt;Reference Vector&gt;</A> instance
+ points to the back, and
+<BR>
+ <A href="#edge_length">edge_length[2]</A>
+ = height, third
+ <A href="ReferenceVector.htm">&lt;Reference Vector&gt;</A> instance points up.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ Given the location of the centre, how can the eight corners of the
+ parallelepiped be computed?
+</B></DT>
+<DD><P>
+ If V1, V2, and V3 are the three
+ <A href="ReferenceVector.htm">&lt;Reference Vector&gt;</A> components
+ and L0 is the <A href="Location3D.htm">&lt;Location 3D&gt;</A>
+ of the <A href="EnclosingVolume.htm">&lt;Enclosing Volume&gt;</A>, the vector equation for a
+ parallelepiped corner <span class="ConstructName">C</span> is given by:
+<BR>
+ <span class="ConstructName">C</span> = L0+(+/-0.5) *
+ <A href="#edge_length">edge_length</A>[0]*V1
+             +(+/-0.5) *
+ <A href="#edge_length">edge_length</A>[1]*V2
+             +(+/-0.5) *
+ <A href="#edge_length">edge_length</A>[2]*V3
+<BR>
+ The eight combinations of three (+/-0.5) coefficients give eight corners.
+</P></DD>
+<DT><B>
+ Given the three edges emanating from a corner of a parallelepiped,
+ how are edge lengths and
+ <A href="ReferenceVector.htm">&lt;Reference Vector&gt;</A> instances computed?
+</B></DT>
+<DD><P>
+ If C0 is the corner location and C[i] is the corner at the other end
+ edge i:
+<BR>
+ <A href="#edge_length">edge_length</A>[i-1]
+ = length of vector ( C[i]-C0 )
+<BR>
+  and the i-th reference vector is (1 /
+ <A href="#edge_length">edge_length</A>[i-1])
+ &times; (C[i]-C0) for i=1,2,3.
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ParallelepipedStructure.htm">&lt;&lt;Parallelepiped Structure&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Composed of (two-way)</h3>
+<UL>
+<li>exactly 3 {ordered} <a href="ReferenceVector.htm">&lt;Reference Vector&gt;</a> instances<sup><A href="#Notes_cmp_Reference_Vector" name="cmp_Reference_Vector">1</A></sup></li>
+</UL>
+
+<h3>Component of (two-way) (inherited)</h3>
+<UL>
+<li>zero or more <a href="EnclosingVolume.htm">&lt;Enclosing Volume&gt;</a> instances</li>
+<li>zero or more <a href="VolumeLightBehaviour.htm">&lt;Volume Light Behaviour&gt;</a> instances</li>
+<li>zero or more <a href="VolumeLODData.htm">&lt;Volume LOD Data&gt;</a> instances</li>
+<li>zero or more <a href="VolumeObject.htm">&lt;Volume Object&gt;</a> instances</li>
+</UL>
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Long_Float.htm">SE_Long_Float</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="edge_length">edge_length</a>[3];</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_edge_length">2</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Composed of Notes</h3>
+<br>
+<h4><a href="#cmp_Reference_Vector" name="Notes_cmp_Reference_Vector">Reference_Vector</a></h4>
+ These are edge directions, each of which has
+ <A href="ReferenceVector.htm#vector_type">vector_type</A> =
+ <A href="../types/SE_Reference_Vector_Type.htm#SE_REFVEC_PARALLELEPIPED_EDGE_DIRECTION">SE_REFVEC_PARALLELEPIPED_EDGE_DIRECTION</A>.
+</P>
+<h3>Fields Notes</h3>
+<h4><a href="#edge_length" name="Notes_edge_length">edge_length</a></h4>
+<P>
+ Each entry of the <A href="#edge_length">edge_length</A> array
+ is measured in metres and specifies the length of the edge
+ specified by the correspondingly ordered
+ <A href="ReferenceVector.htm">&lt;Reference Vector&gt;</A> instance.
+ Each entry shall be &gt; 0.0.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="OverloadPriorityIndex.htm">Overload Priority Index</A>.
+<strong>Next:</strong> <A href="PD3DLocation.htm">PD 3D Location</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

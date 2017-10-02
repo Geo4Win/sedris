@@ -1,0 +1,195 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE PutImageData</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+SE PutImageData
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../types/SE_Return_Code.htm">SE_Return_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SE_PutImageData</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../types/SE_Object.htm">SE_Object</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="image"></a>image,</td><td class="CFunction"><sup><A href="#Notes_image">1</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">const&nbsp;</td><td class="CFunction"><a href="../types/SE_Image_Texel_Location_3D.htm">SE_Image_Texel_Location_3D</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="start_texel"></a>start_texel,</td><td class="CFunction"><sup><A href="#Notes_start_texel">2</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">const&nbsp;</td><td class="CFunction"><a href="../types/SE_Image_Texel_Location_3D.htm">SE_Image_Texel_Location_3D</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="stop_texel"></a>stop_texel,</td><td class="CFunction"><sup><A href="#Notes_stop_texel">3</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../../drm/types/SE_Short_Integer_Unsigned.htm">SE_Short_Integer_Unsigned</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="mip_level"></a>mip_level,</td><td class="CFunction"><sup><A href="#Notes_mip_level">4</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">const&nbsp;</td><td class="CFunction"><a href="../types/SE_Image_Data.htm">SE_Image_Data</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="data_in_ptr"></a>data_in_ptr</td><td class="CFunction"><sup><A href="#Notes_data_in_ptr">5</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+  This function copies the selected texels from a buffer into the selected
+  area of interest of the given <A href="../../drm/classes/Image.htm">&lt;Image&gt;</A> instance.
+</P><P>
+  An <A href="../../drm/classes/Image.htm">&lt;Image&gt;</A> instance is a set of 2-D or 3-D collections
+  of texel values. The number of MIP levels for the
+  <A href="../../drm/classes/Image.htm">&lt;Image&gt;</A> instance defines the number of 2- or 3-D
+  collections in the <A href="../../drm/classes/Image.htm">&lt;Image&gt;</A> instance. The definition of
+  the <A href="../../drm/classes/Image.htm">&lt;Image&gt;</A> instance will define the number of texels
+  in each MIP level and the number of bits (not just bytes, but bits) for
+  each texel.
+</P><P>
+  The transmittal whose object is to be edited must be
+  explicitly opened in UPDATE mode for this operation to succeed.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A>
+</td><td class="Status">
+ and the data is stored in the tranmittal.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A>
+</td><td class="Status">
+and the status code is set appropriately if the call failed.
+</td></tr>
+</table>
+
+<h3>Status Codes</h3>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A>
+   is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+ <A href="../types/SE_Status_Code.htm#SE_STATCODE_SUCCESS">SE_STATCODE_SUCCESS</A>
+</td><td class="Status">
+ set if valid parameters were passed in and all operations succeeded.
+</td></tr>
+</table>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A>
+   is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+ <A href="../types/SE_Status_Code.htm#SE_STATCODE_UNRESOLVED_OUTPUT_OBJECT">SE_STATCODE_UNRESOLVED_OUTPUT_OBJECT</A>
+</td><td class="Status">
+ set if <A href="#image">image</A> is not a currently resolved object
+ (see <A href="../types/SE_Object.htm">SE_Object</A>'s comments for details on how
+ this condition occurs).
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_INVALID_ACCESS_MODE">SE_STATCODE_INVALID_ACCESS_MODE</A>
+</td><td class="Status">
+ set if <A href="#image">image</A> belongs to a transmittal that
+ was opened in read-only mode.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_INACTIONABLE_FAILURE">SE_STATCODE_INACTIONABLE_FAILURE</A>
+</td><td class="Status">set if any of the following conditions are
+ encountered:
+<OL>
+<LI><A href="#image">image</A> does not belong to an open transmittal,
+</LI>
+<LI><A href="#mip_level">mip_level</A> is out of range for
+ <A href="#image">image</A>'s
+ <A href="../../drm/classes/Image.htm#level_count">level_count</A>,
+</LI>
+<LI><A href="#image">image</A>'s
+<A href="../../drm/classes/Image.htm#mip_extents_array">mip_extents_array</A> is NULL,
+</LI>
+<LI>the start and stop extents are out of range for the specified
+ <A href="#mip_level">mip_level</A>, or stop &gt; start for
+ any of the extents,
+</LI>
+<LI> the API implementation specified does not provide this function in
+      its shared library, and dynamic binding is specified at compile time,
+</LI>
+<LI> a partial image is specified.
+</LI>
+</OL>
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#image" name="Notes_image">1</a></sup>
+ the &lt;Image&gt; object whose texels are being created.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#start_texel" name="Notes_start_texel">2</a></sup>
+ the starting texel index of the &lt;Image&gt; instance
+    data to be retrieved; must be less than or equal to stop_texel,
+    and must be valid for the specified MIP level of image.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#stop_texel" name="Notes_stop_texel">3</a></sup>
+ the stopping texel index of the &lt;Image&gt; instance
+    data to be retrieved; must be greater than or equal to start_texel,
+    and must be valid for the specified MIP level of image.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#mip_level" name="Notes_mip_level">4</a></sup>
+ the MIP level of the &lt;Image&gt; to which the data will be
+    written.  Each &lt;Image&gt; has at least one MIP level.  Many &lt;Image&gt;s have
+    multiple MIP levels.  Data can only be written to one mip level
+    at a time (only one MIP level per SE_PutImageData() call).
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#data_in_ptr" name="Notes_data_in_ptr">5</a></sup>
+ a pointer to byte_count bytes of memory, allocated in the
+    user's memory space, containing the values to be output. This memory
+    space is entirely under the user's control.  The only time the API
+    accesses this memory is when the API copies data into it during this
+    function call.
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SE_PutFields.htm">SE_PutFields</a>.
+<strong>Next:</strong> <a href="SE_PutMeshFaceTableData.htm">SE_PutMeshFaceTableData</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

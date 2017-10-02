@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>EDCS_Mapping_Entry</title>
+<link rel="stylesheet" href="../../../docs/styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>EDCS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+Concept Mapping from EDCS 3.1 to EDCS 4.x
+<!-- EDCS spec. 4.4 -->
+<font color="#ffffff">
+Types
+</font>
+<br>
+<font color="#ffffff">
+EDCS_Mapping_Entry
+</font>
+</th></tr>
+</table></div>
+
+<!-- EDCS SDK Release 4.4.0 -->
+
+<PRE>
+/*
+ * STRUCT: EDCS_Mapping_Entry
+ *
+ *   Specifies the mapping of an individual target in a
+ *   mapping structure's entry list.
+ */
+</PRE>
+<span class="Code">typedef struct 
+<br>
+{</span>
+<br>
+<table class="CFunctionPrototype">
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="EDCS_Mapping_Entry_Type_Code.htm">EDCS_Mapping_Entry_Type_Code</a></td>
+        <td class="CFunction"><a name="type"></a>type;</td></tr>
+<tr> <td class="CFunction">   </td><td class="CFunction">union</td></tr>
+<tr> <td class="CFunction">   </td><td class="CFunction">{</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../../../docs/types/EDCS_Attribute_Code.htm">EDCS_Attribute_Code</a></td>
+            <td class="CFunction"><a
+            name="attribute_entry"></a>attribute_entry;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="EDCS_Attribute_With_Value_Entry.htm">EDCS_Attribute_With_Value_Entry</a></td>
+            <td class="CFunction"><a
+            name="attr_value_entry"></a>attr_value_entry;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="EDCS_Value_Characteristic_Code_Entry.htm">EDCS_Value_Characteristic_Code_Entry</a></td>
+            <td class="CFunction"><a
+            name="characteristic_entry"></a>characteristic_entry;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../../../docs/types/EDCS_Classification_Code.htm">EDCS_Classification_Code</a></td>
+            <td class="CFunction"><a name="class_entry"></a>class_entry;</td></tr>
+<tr><td class="CFunction"></td> <td class="CFunction">} <a name="u"></a>u;</td></tr>
+</table>
+<span class="Code">
+} EDCS_Mapping_Entry;</span>
+<br>
+
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="EDCS_Attribute_With_Value_Entry.htm">EDCS_Attribute_With_Value_Entry</a>.
+<strong>Next:</strong> <a href="EDCS_Mapping_Entry_Type_Code.htm">EDCS_Mapping_Entry_Type_Code</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

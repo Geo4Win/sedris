@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>EDCS SymbolicConstantToEGCode</title>
+<link rel="stylesheet" href="../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>EDCS Reference Manual</big></big>
+<br>
+<!-- EDCS spec. 4.4 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+EDCS SymbolicConstantToEGCode
+</font>
+</th></tr>
+</table></div>
+
+<!-- EDCS SDK Release 4.4.0 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../types/EDCS_Status_Code.htm">EDCS_Status_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">EDCS_SymbolicConstantToEGCode</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1"><td class="CFunction">const&nbsp;</td><td class="CFunction"><a href="../types/EDCS_Character.htm">EDCS_Character</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="eg_symbolic_constant_in_ptr"></a>eg_symbolic_constant_in_ptr,</td><td class="CFunction"><sup><A href="#Notes_eg_symbolic_constant_in_ptr">1</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../types/EDCS_Organization_Schema_Code.htm">EDCS_Organization_Schema_Code</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="eo_out_ptr"></a>eo_out_ptr,</td><td class="CFunction"><sup><A href="#Notes_eo_out_ptr">2</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../types/EDCS_Group_Code.htm">EDCS_Group_Code</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="eg_out_ptr"></a>eg_out_ptr</td><td class="CFunction"><sup><A href="#Notes_eg_out_ptr">3</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+   Retrieves the {EO, EG} code pair corresponding to the given
+   symbolic constant.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/EDCS_Status_Code.htm#EDCS_SC_SUCCESS">EDCS_SC_SUCCESS</A>
+</td><td class="Status">
+ and <A href="#eo_out_ptr">*eo_out_ptr</A>,
+ <A href="#eg_out_ptr">*eg_out_ptr</A> are set to the
+ appropriate values, if valid parameters were passed in.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/EDCS_Status_Code.htm#EDCS_SC_NULL_REQUIRED_PARAMETER">EDCS_SC_NULL_REQUIRED_PARAMETER</A>
+</td><td class="Status">
+ and no changes are made, if any parameter is NULL.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/EDCS_Status_Code.htm#EDCS_SC_INVALID_INPUT_SYMBOLIC_CONSTANT">EDCS_SC_INVALID_INPUT_SYMBOLIC_CONSTANT</A>
+</td><td class="Status">
+ and no changes are made, if
+ <A href="#eg_symbolic_constant_in_ptr">*eg_symbolic_constant_in_ptr</A>
+ does not correspond to a valid EG for some EO.
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#eg_symbolic_constant_in_ptr" name="Notes_eg_symbolic_constant_in_ptr">1</a></sup>
+ the symbolic constant for which the
+    corresponding EG code is requested; note that this is the
+    language-binding symbolic constant name, rather than the
+    abstract label (i.e., corresponds to the C language binding
+    standard rather than the abstract EDCS specification)
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#eo_out_ptr" name="Notes_eo_out_ptr">2</a></sup>
+ pointer to a variable in the user's memory into which
+       the output EOC will be copied
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#eg_out_ptr" name="Notes_eg_out_ptr">3</a></sup>
+ pointer to a variable in the user's memory into which
+       the output EGC will be copied
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="EDCS_SymbolicConstantToEECode.htm">EDCS_SymbolicConstantToEECode</a>.
+<strong>Next:</strong> <a href="EDCS_SymbolicConstantToEOCode.htm">EDCS_SymbolicConstantToEOCode</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE_DRM_Field_Structure</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX C - Types
+</font>
+<br>
+<font color="#ffffff">
+SE_DRM_Field_Structure
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<PRE>
+/*
+ * STRUCT: SE_DRM_Field_Structure
+ *
+ *   Used in SE_DRM_Type_Structure to provide meta-data (the name, length,
+ *   offset, etc.) about a field within a C struct. (Also used in
+ *   SE_Class_Structure to provide meta-data about a class' fields.)  This
+ *   meta-data is available for all the C &quot;typedefs&quot; defined in the SEDRIS
+ *   DRM. The list of SEDRIS C &quot;typedefs&quot; is defined by the SE_DRM_Type
+ *   enumeration, and the function to obtain the meta-data for any of those
+ *   &quot;typedefs&quot; is SE_GetDRMTypeStructure().
+ *
+ * EXAMPLES:
+ * EDCS_Classification_Code tag, the first field of &lt;Classification Data&gt;,
+ * has
+ *        name_ptr            = &quot;tag&quot;;
+ *        offset              = offsetof(SE_Classification_Data_Fields, tag);
+ *        size                = sizeof(EDCS_Classification_Code);
+ *        field_modifier      = SE_FLD_MDFR_PLAIN;
+ *        underlying_drm_type = SE_DRM_TYP_EDCS_CLASSIFICATION_CODE;
+ *        first_dimension     = 0;
+ *        second_dimension    = 0;
+ *        union_tag_index     = -1;
+ *        union_member_count  = 0;
+ *        union_members       = NULL;
+ *
+ * SE_Character *characters, the 2nd field of SE_String, has
+ *        name_ptr            = &quot;characters&quot;;
+ *        offset              = offsetof(SE_String, characters);
+ *        size                = sizeof(SE_Character *);
+ *        field_modifier      = SE_FLD_MDFR_POINTER;
+ *        underlying_drm_type = SE_DRM_TYP_SE_CHARACTER;
+ *        first_dimension     = 0;
+ *        second_dimension    = 0;
+ *        union_tag_index     = -1;
+ *        union_member_count  = 0;
+ *        union_members       = NULL;
+ *
+ * union u in SE_Colour_Data
+ *        name_ptr            = &quot;u&quot;;
+ *        offset              = offsetof(SE_Colour_Data,u);
+ *        size                = MAX(sizeof(SE_CMY_Data),
+ *                                  MAX(sizeof(HSV_Data), sizeof(RGB_Data));
+ *        field_modifier      = SE_FLD_MDFR_UNION;
+ *        underlying_drm_type = (SE_Integer)SE_DRM_TYP_NULL;
+ *        first_dimension     = 0;
+ *        second_dimension    = 0;
+ *        union_tag_index     = 0;
+ *        union_member_count  = 3;
+ *
+ *        union_members[0].name_ptr       = &quot;cmy&quot;;
+ *        union_members[0].offset         = 0; // from beginning of union
+ *        union_members[0].size           = sizeof(SE_CMY_Data);
+ *        union_members[0].field_modifier    = SE_FLD_MDFR_PLAIN;
+ *        union_members[0].underlying_drm_type = SE_DRM_TYP_SE_CMY_DATA;
+ *        union_members[0].first_dimension   = 0;
+ *        union_members[0].second_dimension  = 0;
+ *        union_members[0].union_tag_index   = -1;
+ *        union_members[0].union_member_count = 0;
+ *        union_members[0].union_members     = NULL;
+ *
+ *        union_members[1].name_ptr       = &quot;hsv&quot;;
+ *        union_members[1].offset         = 0; // from beginning of union
+ *        union_members[1].size           = sizeof(SE_HSV_Data);
+ *        union_members[1].field_modifier    = SE_FLD_MDFR_PLAIN;
+ *        union_members[1].underlying_drm_type = SE_DRM_TYP_SE_HSV_DATA;
+ *        union_members[1].first_dimension   = 0;
+ *        union_members[1].second_dimension  = 0;
+ *        union_members[1].union_tag_index   = -1;
+ *        union_members[1].union_member_count = 0;
+ *        union_members[1].union_members     = NULL;
+ *
+ *        union_members[2].name_ptr       = &quot;rgb&quot;;
+ *        union_members[2].offset         = 0; // from beginning of union
+ *        union_members[2].size           = sizeof(SE_RGB_Data);
+ *        union_members[2].field_modifier    = SE_FLD_MDFR_PLAIN;
+ *        union_members[2].underlying_drm_type = SE_DRM_TYP_SE_RGB_DATA;
+ *        union_members[2].first_dimension   = 0;
+ *        union_members[2].second_dimension  = 0;
+ *        union_members[2].union_tag_index   = -1;
+ *        union_members[2].union_member_count = 0;
+ *        union_members[2].union_members     = NULL;
+ */
+</PRE>
+<span class="Code">typedef struct se_drm_field_structure
+<br>
+{</span>
+<br>
+<table class="CFunctionPrototype">
+<tr><td class="CFunction">   </td> <td class="CFunction">const</td> <td class="CFunction"><a href="SE_Character.htm">SE_Character</a></td>
+        <td class="CFunction">*<a name="name_ptr"></a>name_ptr;</td><td class="CFunction"><sup><A href="#Notes_name_ptr">1</A></sup></td></tr>
+<tr><td class="CFunction">         </td> <td class="CFunction"></td> <td class="CFunction"><a href="SE_Short_Integer_Unsigned.htm">SE_Short_Integer_Unsigned</a></td>
+              <td class="CFunction"><a name="offset"></a>offset;</td><td class="CFunction"> </td></tr>
+<tr><td class="CFunction">         </td> <td class="CFunction"></td> <td class="CFunction"><a href="SE_Short_Integer_Unsigned.htm">SE_Short_Integer_Unsigned</a></td>
+              <td class="CFunction"><a name="size"></a>size;</td><td class="CFunction"> </td></tr>
+<tr><td class="CFunction">         </td> <td class="CFunction"></td> <td class="CFunction"><a href="SE_Field_Modifier.htm">SE_Field_Modifier</a></td>
+              <td class="CFunction"><a
+              name="field_modifier"></a>field_modifier;</td><td class="CFunction"> </td></tr>
+<tr><td class="CFunction">         </td> <td class="CFunction"></td> <td class="CFunction"><a href="SE_Integer.htm">SE_Integer</a></td>
+              <td class="CFunction"><a
+              name="underlying_drm_type"></a>underlying_drm_type;</td><td class="CFunction"> </td></tr>
+<tr><td class="CFunction">         </td> <td class="CFunction"></td> <td class="CFunction"><a href="SE_Short_Integer_Unsigned.htm">SE_Short_Integer_Unsigned</a></td>
+              <td class="CFunction"><a
+              name="first_dimension"></a>first_dimension;</td><td class="CFunction"><sup><A href="#Notes_first_dimension">2</A></sup></td></tr>
+<tr><td class="CFunction">         </td> <td class="CFunction"></td> <td class="CFunction"><a href="SE_Short_Integer_Unsigned.htm">SE_Short_Integer_Unsigned</a></td>
+              <td class="CFunction"><a
+              name="second_dimension"></a>second_dimension;</td><td class="CFunction"><sup><A href="#Notes_second_dimension">3</A></sup></td></tr>
+<tr><td class="CFunction">         </td> <td class="CFunction"></td> <td class="CFunction"><a href="SE_Integer.htm">SE_Integer</a></td>
+              <td class="CFunction"><a
+              name="union_tag_index"></a>union_tag_index;</td></tr>
+<tr><td class="CFunction">         </td> <td class="CFunction"></td> <td class="CFunction"><a href="SE_Short_Integer_Unsigned.htm">SE_Short_Integer_Unsigned</a></td>
+              <td class="CFunction"><a
+              name="union_member_count"></a>union_member_count;</td><td class="CFunction"><sup><A href="#Notes_union_member_count">4</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction">const</td> <td class="CFunction"><a href="SE_DRM_Field_Structure.htm">struct se_drm_field_structure</a></td>
+        <td class="CFunction">*<a name="union_members"></a>union_members;</td><td class="CFunction"><sup><A href="#Notes_union_members">5</A></sup></td></tr>
+</table>
+<span class="Code">
+} SE_DRM_Field_Structure;</span>
+<br>
+
+<br>
+<HR>
+<H2>Field Notes</H2>
+<h4><a href="#name_ptr" name="Notes_name_ptr">name_ptr</a></h4>
+<P>
+ name of field; for example,
+ &quot;<A href="SE_String.htm#length">length</A>&quot; is the name of the 1st
+ member of the <A href="SE_String.htm">SE_String</A> type
+</P>
+
+<p class="DataItemNote">
+<sup><a href="#offset" name="Notes_offset">1</a></sup>
+ offset (in bytes). Within an SE_Class_Structure, offset is
+ measured from the beginning of the class' fields, while within
+ an SE_DRM_Type_Structure, it is measured from the beginning of
+ the type definition.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#size" name="Notes_size">2</a></sup>
+ size (in bytes) of field
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#field_modifier" name="Notes_field_modifier">3</a></sup>
+ whether, when the field was declared within the typedef,
+     it was modified by a pointer or an array symbol next to the field name.
+     The answer can be:
+       a 1-dimensional array
+       a 2-dimensional array
+       a pointer
+       a union (unions are special - they count as modifiers)
+       just a plain field (a field with no modifications)
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#underlying_drm_type" name="Notes_underlying_drm_type">4</a></sup>
+ specifies the field's underlying type, unless this
+                        is a union field (in which case it is
+                        SE_DRM_TYP_NULL). Note that this is stored as
+                        an SE_Integer rather than an SE_DRM_Type,
+                        to allow its use for more than one version of
+                        the DRM at a time (backward/forward compatibility).
+</p>
+<h4><a href="#first_dimension" name="Notes_first_dimension">first_dimension</a></h4>
+<P>
+ If this field is an array, size of 1st dimension; otherwise 0.
+</P>
+<h4><a href="#second_dimension" name="Notes_second_dimension">second_dimension</a></h4>
+<P>
+ If this field is a 2D array, size of 2nd dimension; otherwise 0.
+</P>
+<h4><a href="#union_member_count" name="Notes_union_member_count">union_member_count</a></h4>
+<P>
+ If this field is a union, the number of members; otherwise 0.
+</P>
+<h4><a href="#union_members" name="Notes_union_members">union_members</a></h4>
+<P>
+ If this field is a union, array of members of the union; otherwise NULL.
+</P>
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SE_DRM_Class_Fields.htm">SE_DRM_Class_Fields</a>.
+<strong>Next:</strong> <a href="SE_DRM_Status_Code.htm">SE_DRM_Status_Code</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

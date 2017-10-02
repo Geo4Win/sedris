@@ -1,0 +1,267 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Hierarchy Summary Constraints</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX B - Constraints
+</font>
+<br>
+<font color="#ffffff">
+Hierarchy Summary Constraints
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h3>Definition</h3>
+<P>
+ The following constraints apply:
+</P>
+<OL type='a'>
+<LI><P>
+ A <A href="../classes/HierarchySummaryItem.htm">&lt;Hierarchy Summary Item&gt;</A> instance shall have a
+ <A href="../classes/HierarchySummaryItem.htm#drm_class">drm_class</A> field value
+ corresponding to one of the following:
+</P>
+<OL type='1'>
+<LI>
+ the <A href="../classes/FeatureHierarchy.htm">&lt;Feature Hierarchy&gt;</A> class or one of its subclasses, or
+</LI>
+<LI>
+ the <A href="../classes/GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> class or one of its subclasses
+</LI>
+</OL>
+</LI>
+<LI><P>
+ For any <A href="../classes/HierarchySummaryItem.htm">&lt;Hierarchy Summary Item&gt;</A> instance <span class="ConstructName">B</span>
+ that is a component of another
+ <A href="../classes/HierarchySummaryItem.htm">&lt;Hierarchy Summary Item&gt;</A> instance <span class="ConstructName">A</span>,
+ the class represented by <span class="ConstructName">B</span>'s
+ <A href="../classes/HierarchySummaryItem.htm#drm_class">drm_class</A> field value
+ shall be specified as a formal component of
+ <span class="ConstructName">A</span>, and the
+ <A href="../classes/HierarchySummaryItem.htm#multiplicity">multiplicity</A>
+ and
+ <A href="../classes/HierarchySummaryItem.htm#multiplicity_meaning">multiplicity_meaning</A>
+ of <span class="ConstructName">B</span> shall comply with the corresponding
+ component relationship between the two classes.
+</P></LI>
+<LI><P>
+ Consider an <A href="../classes/EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instance
+ <span class="ConstructName">E</span>.
+</P>
+<OL type='1'>
+<LI><P>
+ If <span class="ConstructName">E</span> has a <A href="../classes/GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> component
+ <span class="ConstructName">H</span>, <span class="ConstructName">E</span> shall have at most one
+ <A href="../classes/HierarchySummaryItem.htm">&lt;Hierarchy Summary Item&gt;</A> component <span class="ConstructName">S</span> for
+ which the <A href="../classes/HierarchySummaryItem.htm#drm_class">drm_class</A> field
+ corresponds to a <A href="../classes/GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> subclass. If such a
+ component <span class="ConstructName">S</span> exists, its field values shall comply
+ with the following constraints:
+</P>
+<OL type='i'>
+<LI><P>
+ <span class="ConstructName">S</span>'s <A href="../classes/HierarchySummaryItem.htm#drm_class">drm_class</A>
+ field value shall match the DRM class of <span class="ConstructName">H</span>.
+</P></LI>
+<LI><P>
+ <span class="ConstructName">S</span>'s
+ <A href="../classes/HierarchySummaryItem.htm#multiplicity_meaning">multiplicity_meaning</A>
+ field value shall be
+ <A href="../types/SE_HS_Multiplicity_Code.htm#SE_HSMULCOD_EXACT">SE_HSMULCOD_EXACT</A>,
+ and its
+ <A href="../classes/HierarchySummaryItem.htm#multiplicity">multiplicity</A> field
+ value shall be 1.
+</P></LI>
+</OL>
+</LI>
+<LI><P>
+ If <span class="ConstructName">E</span> does not have a
+ <A href="../classes/GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> component, <span class="ConstructName">E</span> shall not
+ have any <A href="../classes/HierarchySummaryItem.htm">&lt;Hierarchy Summary Item&gt;</A> component for which the
+ <A href="../classes/HierarchySummaryItem.htm#drm_class">drm_class</A> field value
+ corresponds to a <A href="../classes/GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> subclass.
+</P></LI>
+<LI><P>
+ If <span class="ConstructName">E</span> has a
+ <A href="../classes/FeatureHierarchy.htm">&lt;Feature Hierarchy&gt;</A> component <span class="ConstructName">H</span>,
+ <span class="ConstructName">E</span> shall have at most one
+ <A href="../classes/HierarchySummaryItem.htm">&lt;Hierarchy Summary Item&gt;</A> component
+ <span class="ConstructName">S</span> for which the
+ <A href="../classes/HierarchySummaryItem.htm#drm_class">drm_class</A> field
+ corresponds to a <A href="../classes/FeatureHierarchy.htm">&lt;Feature Hierarchy&gt;</A> subclass. If
+ <span class="ConstructName">S</span> exists, its field values
+ shall comply with the following constraints.
+</P>
+<OL type='i'>
+<LI><P>
+ <span class="ConstructName">S</span>'s <A href="../classes/HierarchySummaryItem.htm#drm_class">drm_class</A>
+ field value shall match the DRM class of <span class="ConstructName">H</span>.
+</P></LI>
+<LI><P>
+ <span class="ConstructName">S</span>'s
+ <A href="../classes/HierarchySummaryItem.htm#multiplicity_meaning">multiplicity_meaning</A>
+ field value shall be
+ <A href="../types/SE_HS_Multiplicity_Code.htm#SE_HSMULCOD_EXACT">SE_HSMULCOD_EXACT</A>,
+ and its <A href="../classes/HierarchySummaryItem.htm#multiplicity">multiplicity</A> field
+ value shall be 1.
+</P></LI>
+</OL>
+</LI>
+<LI><P>
+ If <span class="ConstructName">E</span> does not have a
+ <A href="../classes/FeatureHierarchy.htm">&lt;Feature Hierarchy&gt;</A> component, <span class="ConstructName">E</span> shall not
+ have any <A href="../classes/HierarchySummaryItem.htm">&lt;Hierarchy Summary Item&gt;</A> component for which the
+ <A href="../classes/HierarchySummaryItem.htm#drm_class">drm_class</A> field value
+ corresponds to a <A href="../classes/FeatureHierarchy.htm">&lt;Feature Hierarchy&gt;</A> subclass.
+</P></LI>
+</OL>
+</LI>
+<LI><P>
+ Consider a <A href="../classes/Model.htm">&lt;Model&gt;</A> instance <span class="ConstructName">M</span>.
+</P>
+<OL type='1'>
+<LI><P>
+ If <span class="ConstructName">M</span> has a <A href="../classes/GeometryModel.htm">&lt;Geometry Model&gt;</A> component
+ with a <A href="../classes/GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> component <span class="ConstructName">H</span>,
+ <span class="ConstructName">M</span> shall have at most one
+ <A href="../classes/HierarchySummaryItem.htm">&lt;Hierarchy Summary Item&gt;</A> component
+ <span class="ConstructName">S</span> for which the
+ <A href="../classes/HierarchySummaryItem.htm#drm_class">drm_class</A> field value
+ corresponds to a <A href="../classes/GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A>
+ subclass. If such a component <span class="ConstructName">H</span>
+ exists, its field values shall comply with the following
+ constraints.
+</P>
+<OL type='i'>
+<LI><P>
+ <span class="ConstructName">S</span>'s
+ <A href="../classes/HierarchySummaryItem.htm#drm_class">drm_class</A> field value
+ shall match the DRM class of <span class="ConstructName">H</span>.
+</P></LI>
+<LI><P>
+ <span class="ConstructName">S</span>'s
+ <A href="../classes/HierarchySummaryItem.htm#multiplicity_meaning">multiplicity_meaning</A>
+ field value shall be
+ <A href="../types/SE_HS_Multiplicity_Code.htm#SE_HSMULCOD_EXACT">SE_HSMULCOD_EXACT</A>,
+ and its <A href="../classes/HierarchySummaryItem.htm#multiplicity">multiplicity</A>
+ field value shall be 1.
+</P></LI>
+</OL>
+</LI>
+<LI><P>
+ If <span class="ConstructName">M</span> does not have
+ a <A href="../classes/GeometryModel.htm">&lt;Geometry Model&gt;</A> component, or if its
+ <A href="../classes/GeometryModel.htm">&lt;Geometry Model&gt;</A> component does not have
+ a <A href="../classes/GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> component,
+ <span class="ConstructName">M</span> shall not have any
+ <A href="../classes/HierarchySummaryItem.htm">&lt;Hierarchy Summary Item&gt;</A> component for which the
+ <A href="../classes/HierarchySummaryItem.htm#drm_class">drm_class</A> field
+ value corresponds to a <A href="../classes/GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> subclass.
+</P></LI>
+<LI><P>
+ If <span class="ConstructName">M</span> has a <A href="../classes/FeatureModel.htm">&lt;Feature Model&gt;</A> component
+ with a <A href="../classes/FeatureHierarchy.htm">&lt;Feature Hierarchy&gt;</A> component <span class="ConstructName">H</span>,
+ <span class="ConstructName">M</span> shall have at most one
+ <A href="../classes/HierarchySummaryItem.htm">&lt;Hierarchy Summary Item&gt;</A> component <span class="ConstructName">S</span>
+ for which the
+ <A href="../classes/HierarchySummaryItem.htm#drm_class">drm_class</A> field value
+ corresponds to a <A href="../classes/FeatureHierarchy.htm">&lt;Feature Hierarchy&gt;</A> subclass. If such a
+ component instance <span class="ConstructName">HS_F</span> exists, its field
+ values shall comply with the following constraints.
+</P>
+<OL type='i'>
+<LI><P>
+ The <A href="../classes/HierarchySummaryItem.htm#drm_class">drm_class</A> field
+ of <span class="ConstructName">HS_F</span> shall match the DRM class of
+ <span class="ConstructName">FH</span>.
+</P></LI>
+<LI><P>
+ The
+ <A href="../classes/HierarchySummaryItem.htm#multiplicity_meaning">multiplicity_meaning</A>
+ of <span class="ConstructName">HS_F</span> shall be
+ <A href="../types/SE_HS_Multiplicity_Code.htm#SE_HSMULCOD_EXACT">SE_HSMULCOD_EXACT</A>,
+ and its
+ <A href="../classes/HierarchySummaryItem.htm#multiplicity">multiplicity</A>
+ shall be 1.
+</P></LI>
+</OL>
+</LI>
+<LI><P>
+ If <span class="ConstructName">M</span> does not have
+ a <A href="../classes/FeatureModel.htm">&lt;Feature Model&gt;</A> component, or if its
+ <A href="../classes/FeatureModel.htm">&lt;Feature Model&gt;</A> component does not have a
+ <A href="../classes/FeatureHierarchy.htm">&lt;Feature Hierarchy&gt;</A> component,
+ <span class="ConstructName">M</span> shall not have any
+ <A href="../classes/HierarchySummaryItem.htm">&lt;Hierarchy Summary Item&gt;</A> component for which the
+ <A href="../classes/HierarchySummaryItem.htm#drm_class">drm_class</A> field
+ value corresponds to a <A href="../classes/FeatureHierarchy.htm">&lt;Feature Hierarchy&gt;</A> subclass.
+</P></LI>
+</OL>
+</LI>
+<LI><P>
+ All <A href="../classes/GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> instances
+ (or <A href="../classes/FeatureHierarchy.htm">&lt;Feature Hierarchy&gt;</A> instances)
+ associated with a given
+ <A href="../classes/HierarchySummaryItem.htm">&lt;Hierarchy Summary Item&gt;</A> instance
+ shall be instances of the class specified by its
+ <A href="../classes/HierarchySummaryItem.htm#drm_class">drm_class</A> field value,
+ and shall conform to the structure that it specifies.
+</P></LI>
+</OL>
+
+<h3>Rationale</h3>
+<P>
+ A <A href="../classes/HierarchySummaryItem.htm">&lt;Hierarchy Summary Item&gt;</A> component
+ of an <A href="../classes/EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instance or
+ <A href="../classes/Model.htm">&lt;Model&gt;</A> instance exists to summarize a corresponding
+ hierarchy of its aggregate. Consequently, its
+ <A href="../classes/HierarchySummaryItem.htm#drm_class">drm_class</A> and
+ <A href="../classes/HierarchySummaryItem.htm#multiplicity">multiplicity</A>
+ shall be consistent with the hierarchy which it represents.
+</P>
+<h3>Example</h3>
+<p>
+No example supplied.
+</p>
+<h3>FAQs</h3>
+<p>
+No FAQs supplied.
+</p>
+
+<hr>
+<strong>Prev:</strong> <A href="GeneralAxisConstraints.htm">General Axis Constraints</A>.
+<strong>Next:</strong> <A href="HomogeneousLightRenderingProperties.htm">Homogeneous Light Rendering Properties</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

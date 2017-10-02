@@ -1,0 +1,287 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Line</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Line
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Line</h2>
+<h3>Superclass - <a href="LinearGeometry.htm">&lt;Linear Geometry&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies a sequence of connected
+ line segments, each implicitly specified between the i, i+1
+ pair of <A href="Vertex.htm">&lt;Vertex&gt;</A> components.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet05.pdf"><strong>5</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+This class appears on only one page of the DRM class diagram.
+<h3>Example</h3>
+<OL>
+<LI><P>
+ Consider a <A href="Line.htm">&lt;Line&gt;</A> instance <span class="ConstructName">L</span>
+ representing a string of 30 evenly spaced lights along one
+ side of a runway.
+</P><P>
+ To specify what <span class="ConstructName">L</span> represents, it has a qualified
+ <A href="ClassificationData.htm">&lt;Classification Data&gt;</A> component <span class="ConstructName">C</span>
+ with <A href="ClassificationData.htm#tag">tag</A> =
+ <A href="../../../../src/lib/edcs/docs/dictionary/ECC_A.htm#ECC_AERODROME_LIGHTING">ECC_AERODROME_LIGHTING</A>, where <span class="ConstructName">C</span> has a
+ <A href="PropertyValue.htm">&lt;Property Value&gt;</A> component with:
+</P><P>
+ <A href="PropertyValue.htm#meaning">meaning</A> =
+ {<A href="../types/SE_Property_Code_Type.htm#SE_PROPCODTYP_ATTRIBUTE">SE_PROPCODTYP_ATTRIBUTE</A>,
+  {<A href="../../../../src/lib/edcs/docs/dictionary/EAC_A.htm#EAC_AERONAUTICAL_LIGHT_TYPE">EAC_AERONAUTICAL_LIGHT_TYPE</A>}}
+<BR>
+ <A href="PropertyValue.htm#value">value</A> =
+ {<A href="../../../../src/lib/edcs/docs/types/EDCS_Attribute_Value_Type.htm#EDCS_AVT_ENUMERATION">EDCS_AVT_ENUMERATION</A>,
+  {<A href="../../../../src/lib/edcs/docs/dictionary/EAC_A.htm#EEC_AEROLGTTY_RUNWAY">EEC_AEROLGTTY_RUNWAY</A>}}.
+</P><P>
+ <span class="ConstructName">L</span> also has a <A href="LightRenderingProperties.htm">&lt;Light Rendering Properties&gt;</A>
+ component with an appropriate
+ <A href="FlashingLightBehaviour.htm">&lt;Flashing Light Behaviour&gt;</A> component.
+ The field values of <span class="ConstructName">L</span> are
+ <A href="#count">count</A> = 30 and
+ <A href="#suppress_last">suppress_last</A> =
+ <A href="../types/SE_Boolean.htm#SE_FALSE">SE_FALSE</A>, so that <span class="ConstructName">L</span>
+ is rendered as a string of 30 evenly spaced flashing lights.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<p>
+No FAQs supplied.
+</p>
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ConstraintsOnComponents.htm">&lt;&lt;Constraints On Components&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/NonCyclicAggregations.htm">&lt;&lt;Non Cyclic Aggregations&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/PrecedenceofPropertySetIndex.htm">&lt;&lt;Precedence of Property Set Index&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/PropertyConstraints.htm">&lt;&lt;Property Constraints&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ColourMappingConstraints.htm">&lt;&lt;Colour Mapping Constraints&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ContinuousLODConstraints.htm">&lt;&lt;Continuous LOD Constraints&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ImageMappingFunctionsandTextureCoordinates.htm">&lt;&lt;Image Mapping Functions and Texture Coordinates&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/NestedPrimitiveGeometry.htm">&lt;&lt;Nested Primitive Geometry&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/PresentationDomainConstraints.htm">&lt;&lt;Presentation Domain Constraints&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/LinearGeometryStructure.htm">&lt;&lt;Linear Geometry Structure&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Associated with (two-way) (inherited)</h3>
+<UL>
+<li>zero or more {ordered} <a href="GeometryEdge.htm">&lt;Geometry Edge&gt;</a> instances, each through the use of an <a href="EdgeDirection.htm">&lt;Edge Direction&gt;</a> link object</li>
+</UL>
+<h3>Composed of (two-way) (inherited)</h3>
+<UL>
+<li>zero or one <a href="ClassificationData.htm">&lt;Classification Data&gt;</a> instance</li>
+<li>zero or more {ordered} <a href="PropertySetIndex.htm">&lt;Property Set Index&gt;</a> instances</li>
+<li>zero or more <a href="PropertyTable.htm">&lt;Property Table&gt;</a> instances</li>
+<li>zero or more <a href="PropertyTableReference.htm">&lt;Property Table Reference&gt;</a> instances</li>
+<li>zero or more <a href="PropertyValue.htm">&lt;Property Value&gt;</a> instances</li>
+<li>zero or more <a href="Colour.htm">&lt;Colour&gt;</a> instances</li>
+<li>zero or more {ordered} <a href="ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</a> instances</li>
+<li>zero or one <a href="LightRenderingProperties.htm">&lt;Light Rendering Properties&gt;</a> instance</li>
+<li>zero or one <a href="PresentationDomain.htm">&lt;Presentation Domain&gt;</a> instance</li>
+<li>zero or one <a href="RenderingPriorityLevel.htm">&lt;Rendering Priority Level&gt;</a> instance</li>
+<li>zero or one <a href="RenderingProperties.htm">&lt;Rendering Properties&gt;</a> instance</li>
+<li>zero or more <a href="TackPoint.htm">&lt;Tack Point&gt;</a> instances</li>
+<li>zero or one <a href="UnionOfPrimitiveGeometry.htm">&lt;Union Of Primitive Geometry&gt;</a> instance<sup><A href="#Notes_cmp_Union_Of_Primitive_Geometry" name="cmp_Union_Of_Primitive_Geometry">1</A></sup></li>
+</UL>
+<h3>Composed of (two-way)</h3>
+<UL>
+<li>zero or more {ordered} <a href="ReferenceVector.htm">&lt;Reference Vector&gt;</a> instances</li>
+<li>2 or more {ordered} <a href="Vertex.htm">&lt;Vertex&gt;</a> instances</li>
+</UL>
+
+<h3>Composed of (two-way metadata) (inherited)</h3>
+<UL>
+<li>zero or one <a href="TimeConstraintsData.htm">&lt;Time Constraints Data&gt;</a> instance</li>
+</UL>
+<h3>Component of (two-way) (inherited)</h3>
+<UL>
+<li>zero or more <a href="UnionOfPrimitiveGeometry.htm">&lt;Union Of Primitive Geometry&gt;</a> instances</li>
+</UL>
+<h2><a name="inherited_field">Inherited Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Short_Integer_Unsigned.htm">SE_Short_Integer_Unsigned</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="count">count</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_count">2</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Boolean.htm">SE_Boolean</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="suppress_last">suppress_last</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_suppress_last">3</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Composed of Notes</h3>
+<br>
+<h4><a href="#cmp_Union_Of_Primitive_Geometry" name="Notes_cmp_Union_Of_Primitive_Geometry">Union_Of_Primitive_Geometry</a></h4>
+ A <A href="PrimitiveGeometry.htm">&lt;Primitive Geometry&gt;</A> instance <span class="ConstructName">P</span>
+ has a <A href="UnionOfPrimitiveGeometry.htm">&lt;Union Of Primitive Geometry&gt;</A> component only when
+ <span class="ConstructName">P</span> can be decomposed into nested
+ <A href="PrimitiveGeometry.htm">&lt;Primitive Geometry&gt;</A> instances.
+</P><P class=DataItemNoteExample>
+EXAMPLE&nbsp; 
+ A <A href="Polygon.htm">&lt;Polygon&gt;</A> instance can be decomposed into multiple
+ <A href="Polygon.htm">&lt;Polygon&gt;</A> instances representing subfaces.
+</p>
+<h3>Fields Notes</h3>
+<h4><a href="#count" name="Notes_count">count</a></h4>
+<P>
+ The <A href="#count">count</A> field of a
+ <A href="LinearGeometry.htm">&lt;Linear Geometry&gt;</A> instance indicates how the
+ <A href="LinearGeometry.htm">&lt;Linear Geometry&gt;</A> instance is to be rendered.
+ A <A href="#count">count</A> field value of zero for a
+ given <A href="LinearGeometry.htm">&lt;Linear Geometry&gt;</A> instance
+ <span class="ConstructName">L</span> indicates that <span class="ConstructName">L</span>
+ is to be rendered as one solid line segment, and
+ the <A href="#suppress_last">suppress_last</A> field
+ does not apply.
+</P><P>
+ If <A href="#count">count</A> is greater than zero and
+ <span class="ConstructName">L</span> has a <A href="LightRenderingProperties.htm">&lt;Light Rendering Properties&gt;</A>
+ component, the following applies:
+</P>
+<OL type='a'>
+<LI>
+ <A href="#count">count</A> is the number of evenly spaced
+ light points to be rendered along L.
+</LI>
+<LI>
+ The distance between light points is calculated by
+ dividing the total length of <span class="ConstructName">L</span> by
+ <A href="#count">count</A> - 1.
+</LI>
+<LI>
+ If <A href="#count">count</A> is one, a single light point is
+ placed at the halfway point of <span class="ConstructName">L</span> and the
+ <A href="#suppress_last">suppress_last</A> field does not apply.
+</LI>
+<LI>
+ The fields of the <A href="LightRenderingProperties.htm">&lt;Light Rendering Properties&gt;</A> component
+ are applicable to each light point as described in
+ <i>4.15.3.6 Simulating lighting effects</i> of ISO/IEC 18023-1.
+</LI>
+<LI>
+ If a <A href="RenderingProperties.htm">&lt;Rendering Properties&gt;</A> component is present,
+ it is applicable to each light point as described in
+ <i>4.15.3.4 Lighting effects</i> of ISO/IEC 18023-1.
+</LI>
+<LI>
+ No additional factors apply.
+</LI>
+</OL>
+<P>
+ If <A href="#count">count</A> is greater than zero and
+ <span class="ConstructName">L</span> does not have a
+ <A href="LightRenderingProperties.htm">&lt;Light Rendering Properties&gt;</A> component,
+ the following applies:
+</P>
+<OL type='a'>
+<LI>
+ <A href="#count">count</A> is the number of evenly spaced
+ line segments to be rendered along <span class="ConstructName">L</span>.
+</LI>
+<LI>
+ The length of a segment is calculated by dividing the
+ total length of <span class="ConstructName">L</span> by
+ <A href="#count">count</A>.
+</LI>
+<LI>
+ If <A href="#count">count</A> is one, a single
+ solid line segment is used and the
+ <A href="#suppress_last">suppress_last</A> field
+ does not apply.
+</LI>
+<LI>
+ If a <A href="RenderingProperties.htm">&lt;Rendering Properties&gt;</A> component is present,
+ it is applicable to each light point as described in
+ <i>4.15.3.4 Lighting effects</i> of ISO/IEC 18023-1.
+</LI>
+<LI>
+ No additional factors apply.
+</LI>
+</OL>
+<h4><a href="#suppress_last" name="Notes_suppress_last">suppress_last</a></h4>
+<P>
+ If <A href="#count">count</A> is greater than one,
+ the <A href="#suppress_last">suppress_last</A> field
+ specifies whether the last segment or point in the sequence
+ is suppressed or rendered.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="LightSourceControlLink.htm">Light Source Control Link</A>.
+<strong>Next:</strong> <A href="Lineage.htm">Lineage</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

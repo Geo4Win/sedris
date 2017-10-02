@@ -1,0 +1,415 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Model</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Model
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Model</h2>
+<h3>Superclass - <a href="SEDRISAbstractBase.htm">&lt;SEDRIS Abstract Base&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies a representation of some
+ environmental entity as a feature representation and/or a geometry
+ representation. This representation is usually a generic
+ representation that can be referenced many times in a transmittal
+ to create many instances of representations of similar
+ environmental entities.
+</P><P>
+ The special case of the null model is the case in which both
+ the feature and the geometric representation of the
+ <A href="Model.htm">&lt;Model&gt;</A> instance are empty; that is, they contain no
+ primitives. This is instanced in cases where some state or
+ condition of a representation exists but has no primitives, such
+ as a representation of an environmental entity that has been
+ completely destroyed or that is out of viewing range.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet02.pdf"><strong>2</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet10.pdf"><strong>10</strong></A>
+</LI>
+<LI><A href="sheet16.pdf"><strong>16</strong></A>
+</LI>
+</UL>
+
+<h3>Example</h3>
+<OL>
+<LI><P>
+ The lowest level of detail of a tank's turret may be represented by
+ a <A href="Model.htm">&lt;Model&gt;</A> instance.
+</P></LI>
+<LI><P>
+ A one degree by one degree tile of terrain containing thousands of
+ instances to other <A href="Model.htm">&lt;Model&gt;</A> instances may be represented by
+ a <A href="Model.htm">&lt;Model&gt;</A> instance.
+</P></LI>
+<LI><P>
+ An aircraft carrier that has both a geometric representation
+ and a feature representation may be represented by a
+ <A href="Model.htm">&lt;Model&gt;</A> instance.
+</P></LI>
+<LI><P>
+ A data provider has an overall model (call it &quot;automobile&quot;)
+ made up of several components: top, two sides, four tires, back, front,
+ underneath. When put into this data provider's
+ <A href="ModelLibrary.htm">&lt;Model Library&gt;</A> instance,
+ each of these components (as well as the overall
+ &quot;automobile&quot; placeholder) is represented as
+ a <A href="Model.htm">&lt;Model&gt;</A> instance.
+ The data provider's organization has a place
+ in its database where &quot;automobile&quot; is instantiated
+ that is represented in the resulting transmittal by
+ a <A href="GeometryModelInstance.htm">&lt;Geometry Model Instance&gt;</A> instance
+ of &quot;automobile&quot; appearing in the component tree of
+ an <A href="EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instance. No other
+ <A href="Model.htm">&lt;Model&gt;</A> instances in this data provider's mapping
+ to the DRM can reference the
+ &quot;automobile&quot; <A href="Model.htm">&lt;Model&gt;</A> instance.
+</P><P>
+ In this case, the &quot;automobile&quot; has
+ <A href="#model_reference_type">model_reference_type</A> set to
+ <A href="../types/SE_Model_Reference_Type.htm#SE_MODREFTYP_ROOT">SE_MODREFTYP_ROOT</A>,
+ since &quot;automobile&quot; can be instanced outside the
+ scope of the <A href="ModelLibrary.htm">&lt;Model Library&gt;</A> instance
+ and has <A href="GeometryModelInstance.htm">&lt;Geometry Model Instance&gt;</A> instance
+ in the component tree of an <A href="EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instance.
+</P><P>
+ On the other hand, the &quot;top&quot; <A href="Model.htm">&lt;Model&gt;</A> instance,
+ representing the top of the automobile, cannot be instantated
+ outside the <A href="ModelLibrary.htm">&lt;Model Library&gt;</A> instance in the
+ data provider's scheme of things, but only as part of more complex
+ <A href="Model.htm">&lt;Model&gt;</A> instances;
+ consequently, the &quot;top&quot; <A href="Model.htm">&lt;Model&gt;</A> instance has
+ <A href="#model_reference_type">model_reference_type</A>
+ <A href="../types/SE_Model_Reference_Type.htm#SE_MODREFTYP_COMPONENT">SE_MODREFTYP_COMPONENT</A>.
+</P></LI>
+<LI><P>
+ A producer has a <A href="Model.htm">&lt;Model&gt;</A> instance &quot;plane&quot;
+ that has several components (such as two wings, a tail, and a fuselage).
+ However, the producer has a <A href="Model.htm">&lt;Model&gt;</A> instance
+ &quot;ship&quot; that instances &quot;plane&quot; to specify a ship
+ with planes on its deck.
+ The transmittal instantiates &quot;ship&quot;, which has
+ <A href="#model_reference_type">model_reference_type</A> =
+ <A href="../types/SE_Model_Reference_Type.htm#SE_MODREFTYP_ROOT">SE_MODREFTYP_ROOT</A>.
+ Since the <A href="Model.htm">&lt;Model&gt;</A> instance
+ &quot;plane&quot; could be used elsewhere in the transmittal, its
+ instance under &quot;ship&quot; has
+ <A href="#model_reference_type">model_reference_type</A> =
+ <A href="../types/SE_Model_Reference_Type.htm#SE_MODREFTYP_ROOT_AND_COMPONENT">SE_MODREFTYP_ROOT_AND_COMPONENT</A>.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ Why would a consumer need a
+ <A href="#dynamic_model_processing">dynamic_model_processing</A>
+ flag?  When data is retrieved from a transmittal, won't the dynamic
+ <A href="Model.htm">&lt;Model&gt;</A> instances also be processed?
+</B></DT>
+<DD><P>
+ That depends entirely on how the data processing code was written.  If
+ the code starts at an <A href="EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instance and
+ processes everything that the components of the
+ <A href="EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instance eventually refer to,
+ dynamic <A href="Model.htm">&lt;Model&gt;</A> instances are not to be processed
+ unless the dynamic <A href="Model.htm">&lt;Model&gt;</A> instance(s) have a
+ connection to the database (unless at least one reference is made to
+ the dynamic <A href="Model.htm">&lt;Model&gt;</A> instance(s) from somewhere within
+ an <A href="EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instance).  In some
+ Interchange systems, the way around this has been to
+ &quot;connect&quot; the dynamic <A href="Model.htm">&lt;Model&gt;</A> instance(s) to
+ something like the southwest corner of the database.
+ However, this requires &quot;adding&quot; information, which is not
+ the purpose of SEDRIS.
+</P></DD>
+<DT><B>
+ Given a transmittal containing a
+ <A href="ModelLibrary.htm">&lt;Model Library&gt;</A> instance,
+ consider a consumer who keeps track of which
+ <A href="Model.htm">&lt;Model&gt;</A> instances are instanced by some
+ <A href="EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instance.
+ Does this information correlate at all with the
+ <A href="#dynamic_model_processing">dynamic_model_processing</A>
+ information of each <A href="Model.htm">&lt;Model&gt;</A> instance?
+</B></DT>
+<DD><P>
+ Not necessarily.
+</P><P>
+ As <A href="ModelLibrary.htm">&lt;Model Library&gt;</A> instances are passed around
+ projects and re-used for purposes other than that for which they were
+ built, many <A href="Model.htm">&lt;Model&gt;</A> instances in any given
+ <A href="ModelLibrary.htm">&lt;Model Library&gt;</A> instance may not be referenced in
+ a given <A href="EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instance that
+ references that <A href="ModelLibrary.htm">&lt;Model Library&gt;</A> instance.
+ For example, a
+ <A href="ModelLibrary.htm">&lt;Model Library&gt;</A> instance may contain a
+ <A href="Model.htm">&lt;Model&gt;</A> component
+ representing a free-standing brick wall that by chance
+ is not instanced by any <A href="EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instance,
+ but this does not make the brick wall dynamic.
+</P><P>
+ On the other hand, consider a <A href="Model.htm">&lt;Model&gt;</A> instance
+ <span class="ConstructName">B</span> representing a biplane, in which the
+ propellers are able to rotate.
+ An <A href="EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instance representing
+ the Smithsonian Air and Space Museum might contain a reference
+ to <span class="ConstructName">B</span> representing one of the exhibits.
+</P></DD>
+<DT><B>
+ Can't any <A href="Model.htm">&lt;Model&gt;</A> instance really be dynamic in the
+ database? All I have to do is put it through my special processing, and
+ it moves. Couldn't all the flags for dynamic model processing therefore
+ be set to <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A>?
+</B></DT>
+<DD><P>
+ Although the consumer can determine additional processing for any data
+ read from a transmittal, these flags are to be set by the data provider.
+ If a <A href="Model.htm">&lt;Model&gt;</A> instance is dynamic or has moving parts,
+ then the data provider is required to provide this information.
+</P></DD>
+<DT><B>
+ Relating to the
+ <A href="#has_moving_parts">has_moving_parts</A> flag, can't this
+ information be derived by searching the entire <A href="Model.htm">&lt;Model&gt;</A>
+ instance for <A href="LSRTransformation.htm">&lt;LSR Transformation&gt;</A> instances that
+ have <A href="ControlLink.htm">&lt;Control Link&gt;</A> instances attached to them?
+</B></DT>
+<DD><P>
+ Yes. The information is provided to allow consumers to detect
+ at the &quot;top&quot; level of the <A href="Model.htm">&lt;Model&gt;</A> instance whether it
+ has moving parts anywhere within its scope, rather than forcing them to
+ (potentially) search the entire <A href="Model.htm">&lt;Model&gt;</A> instance to derive this
+ information.
+</P></DD>
+<DT><B>
+ Why can a <A href="Model.htm">&lt;Model&gt;</A> instance have at most two
+ <A href="HierarchySummaryItem.htm">&lt;Hierarchy Summary Item&gt;</A> components?
+</B></DT>
+<DD><P>
+ A <A href="Model.htm">&lt;Model&gt;</A> instance is not required to have a
+ hierarchy summary at all, but if a data provider wants to provide a
+ summary of hierarchy, then a <A href="Model.htm">&lt;Model&gt;</A> instance
+ may have one summary for
+ <A href="GeometryRepresentation.htm">&lt;Geometry Representation&gt;</A>,
+ one summary for
+ <A href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</A>,
+ or a summary of each.
+</P></DD>
+<DT><B>
+ Can a <A href="Model.htm">&lt;Model&gt;</A> instance have both
+ <A href="HierarchySummaryItem.htm">&lt;Hierarchy Summary Item&gt;</A> components and
+ <A href="PrimitiveSummaryItem.htm">&lt;Primitive Summary Item&gt;</A> components
+ (as opposed to either/or)?
+</B></DT>
+<DD><P>
+ Yes.
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ConstraintsOnComponents.htm">&lt;&lt;Constraints On Components&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/HierarchySummaryConstraints.htm">&lt;&lt;Hierarchy Summary Constraints&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ModelReferenceTypeConstraints.htm">&lt;&lt;Model Reference Type Constraints&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ModelSRF.htm">&lt;&lt;Model SRF&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/NonEmptyModelInstance.htm">&lt;&lt;Non Empty Model Instance&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/PropertyConstraints.htm">&lt;&lt;Property Constraints&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Composed of (two-way)</h3>
+<UL>
+<li>zero or one <a href="ClassificationData.htm">&lt;Classification Data&gt;</a> instance</li>
+<li>zero or one <a href="FeatureModel.htm">&lt;Feature Model&gt;</a> instance</li>
+<li>zero or one <a href="GeometryModel.htm">&lt;Geometry Model&gt;</a> instance</li>
+<li>a bounded set of 0..2 <a href="HierarchySummaryItem.htm">&lt;Hierarchy Summary Item&gt;</a> instances</li>
+<li>zero or one <a href="InterfaceTemplate.htm">&lt;Interface Template&gt;</a> instance</li>
+<li>zero or one <a href="OverloadPriorityIndex.htm">&lt;Overload Priority Index&gt;</a> instance</li>
+<li>zero or more <a href="PrimitiveSummaryItem.htm">&lt;Primitive Summary Item&gt;</a> instances</li>
+<li>zero or more <a href="PropertyValue.htm">&lt;Property Value&gt;</a> instances</li>
+<li>zero or one <a href="SpatialExtent.htm">&lt;Spatial Extent&gt;</a> instance</li>
+</UL>
+
+<h3>Composed of (two-way metadata)</h3>
+<UL>
+<li>zero or one <a href="DataQuality.htm">&lt;Data Quality&gt;</a> instance</li>
+<li>zero or one <a href="Identification.htm">&lt;Identification&gt;</a> instance<sup><A href="#Notes_cmp_Identification" name="cmp_Identification">1</A></sup></li>
+<li>zero or one <a href="TimeConstraintsData.htm">&lt;Time Constraints Data&gt;</a> instance</li>
+</UL>
+
+<h3>Component of (two-way)</h3>
+<UL>
+<li>one <a href="ModelLibrary.htm">&lt;Model Library&gt;</a> instance</li>
+</UL>
+
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_String.htm">SE_String</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="name">name</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_name">2</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_SRF_Context_Info.htm">SE_SRF_Context_Info</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="srf_context_info">srf_context_info</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_srf_context_info">3</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Model_Reference_Type.htm">SE_Model_Reference_Type</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="model_reference_type">model_reference_type</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_model_reference_type">4</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Boolean.htm">SE_Boolean</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="dynamic_model_processing">dynamic_model_processing</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_dynamic_model_processing">5</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Boolean.htm">SE_Boolean</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="has_units">has_units</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_has_units">6</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Boolean.htm">SE_Boolean</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="has_moving_parts">has_moving_parts</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_has_moving_parts">7</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Composed of Notes</h3>
+<br>
+<h4><a href="#cmp_Identification" name="Notes_cmp_Identification">Identification</a></h4>
+ If provided, the <A href="Identification.htm">&lt;Identification&gt;</A>
+ component may be used to provide a more detailed description
+ than that specified by the <A href="#name">name</A> field.
+</P>
+<h3>Fields Notes</h3>
+<h4><a href="#name" name="Notes_name">name</a></h4>
+<P>
+ The <A href="#name">name</A> field specifies
+ a meaningful short name.
+</P>
+<h4><a href="#srf_context_info" name="Notes_srf_context_info">srf_context_info</a></h4>
+<P>
+ The <A href="#srf_context_info">srf_context_info</A> field specifies
+ the SRF within which the
+ <A href="Model.htm">&lt;Model&gt;</A> instance is defined.
+</P>
+<h4><a href="#model_reference_type" name="Notes_model_reference_type">model_reference_type</a></h4>
+<P>
+ The <A href="#model_reference_type">model_reference_type</A>
+ field specifies how the <A href="Model.htm">&lt;Model&gt;</A> instance
+ may be referenced within a transmittal.
+</P>
+<h4><a href="#dynamic_model_processing" name="Notes_dynamic_model_processing">dynamic_model_processing</a></h4>
+<P>
+ The value of the
+ <A href="#dynamic_model_processing">dynamic_model_processing</A>
+ field is <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A> only if
+ the <A href="Model.htm">&lt;Model&gt;</A> instance is used by the
+ data provider to represent something that moves throughout the
+ environment, such as a vehicle. This flag is used to identify
+ information at the top level of model data, so that it can be
+ set at the level where
+ <A href="#model_reference_type">model_reference_type</A> is not
+ <A href="../types/SE_Model_Reference_Type.htm#SE_MODREFTYP_COMPONENT">SE_MODREFTYP_COMPONENT</A>.
+</P>
+<h4><a href="#has_units" name="Notes_has_units">has_units</a></h4>
+<P>
+ The <A href="#has_units">has_units</A> field only takes
+ effect if the <A href="#srf_context_info">srf_context_info</A>
+ value specifies an LSR SRF. The <A href="#has_units">has_units</A> field
+ allows a data provider to say &quot;This LSR Model is in metres&quot; vs.
+ &quot;This LSR Model is unitless (it has no units)&quot;.
+ In the former case, when an LSR model is specified in metres, it can
+ be used to represent real-world things, such as a tank, a ship, or a
+ tree. Such a <A href="Model.htm">&lt;Model&gt;</A> instance
+ may be scaled when it is instantiated.
+ (<A href="Model.htm">&lt;Model&gt;</A> instances
+ representing trees are often scaled, but those representing
+ ships and tanks are not.)
+ In the latter case when an LSR model has no units, the
+ <A href="Model.htm">&lt;Model&gt;</A> instance
+ cannot be instantiated into another SRF.
+</P>
+<h4><a href="#has_moving_parts" name="Notes_has_moving_parts">has_moving_parts</a></h4>
+<P>
+ The value of the
+ <A href="#has_moving_parts">has_moving_parts</A>
+ field is <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A> only if
+ the <A href="Model.htm">&lt;Model&gt;</A> instance contains at least one
+ <A href="ControlLink.htm">&lt;Control Link&gt;</A> instance attached to
+ an <A href="LSRTransformationStep.htm">&lt;LSR Transformation Step&gt;</A>
+ instance that allows motion.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="MeshFaceTable.htm">Mesh Face Table</A>.
+<strong>Next:</strong> <A href="ModelInstanceTemplateIndex.htm">Model Instance Template Index</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

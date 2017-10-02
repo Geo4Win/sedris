@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE_Remaining_Packed_Hierarchies_List</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Types
+</font>
+<br>
+<font color="#ffffff">
+SE_Remaining_Packed_Hierarchies_List
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<PRE>
+/*
+ * STRUCT: SE_Remaining_Packed_Hierarchies_List
+ *
+ *   Used by SE_GetRemainingPackedHierarchiesList() to provide a method of
+ *   returning multiple packed hierarchies, each rooted at the objects
+ *   returned by the iterator.
+ */
+</PRE>
+<span class="Code">typedef struct 
+<br>
+{</span>
+<br>
+<table class="CFunctionPrototype">
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../drm/types/SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a></td>
+        <td class="CFunction"><a
+        name="hierarchy_count"></a>hierarchy_count;</td><td class="CFunction"><sup><A href="#Notes_hierarchy_count">1</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Packed_Hierarchy.htm">SE_Packed_Hierarchy</a></td>
+        <td class="CFunction">*<a
+        name="hierarchy_list"></a>hierarchy_list;</td><td class="CFunction"><sup><A href="#Notes_hierarchy_list">2</A></sup></td></tr>
+</table>
+<span class="Code">
+} SE_Remaining_Packed_Hierarchies_List;</span>
+<br>
+
+<br>
+<HR>
+<H2>Field Notes</H2>
+<h4><a href="#hierarchy_count" name="Notes_hierarchy_count">hierarchy_count</a></h4>
+<P>
+ The number of packed hierarchies returned in the list.
+</P>
+<h4><a href="#hierarchy_list" name="Notes_hierarchy_list">hierarchy_list</a></h4>
+<P>
+ A pointer to the list of <A href="SE_Packed_Hierarchy.htm">SE_Packed_Hierarchy</A> structures
+ representing the packed hierarchies rooted at each object that
+ would be returned by the iterator.
+</P>
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SE_Remaining_Objects_List.htm">SE_Remaining_Objects_List</a>.
+<strong>Next:</strong> <a href="SE_Return_Code.htm">SE_Return_Code</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

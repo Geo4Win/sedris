@@ -1,0 +1,156 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Vertex</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Vertex
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Vertex</h2>
+<h3>Superclass - <a href="SEDRISAbstractBase.htm">&lt;SEDRIS Abstract Base&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies a point that defines the end
+ of a line or the corner of a face. <A href="Vertex.htm">&lt;Vertex&gt;</A> instances are
+ used in the specification of:
+</P>
+<OL type='a'>
+<LI>arcs,
+</LI>
+<LI>finite element meshes,
+</LI>
+<LI>lines, and
+</LI>
+<LI>polygons.
+</LI>
+</OL>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet18.pdf"><strong>18</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet05.pdf"><strong>5</strong></A>
+</LI>
+<LI><A href="sheet13.pdf"><strong>13</strong></A>
+</LI>
+</UL>
+
+<h3>Example</h3>
+<OL>
+<LI><P>
+ <A href="Vertex.htm">&lt;Vertex&gt;</A> instances are used to specify the three corners
+ of a triangular polygon.
+</P></LI>
+<LI><P>
+ <A href="Vertex.htm">&lt;Vertex&gt;</A> instances are used to specify the two endpoints
+ of an arc.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<p>
+No FAQs supplied.
+</p>
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ImageMappingFunctionsandTextureCoordinates.htm">&lt;&lt;Image Mapping Functions and Texture Coordinates&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/InheritanceRuleForLocation.htm">&lt;&lt;Inheritance Rule For Location&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/PresentationDomainConstraints.htm">&lt;&lt;Presentation Domain Constraints&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Associated with (two-way)</h3>
+<UL>
+<li>zero or one <a href="GeometryNode.htm">&lt;Geometry Node&gt;</a> instance<sup><A href="#Notes_asn_biGeometry_Node" name="asn_biGeometry_Node">1</A></sup></li>
+</UL>
+
+<h3>Composed of (two-way)</h3>
+<UL>
+<li>zero or more <a href="Colour.htm">&lt;Colour&gt;</a> instances</li>
+<li>zero or one <a href="ConformalBehaviour.htm">&lt;Conformal Behaviour&gt;</a> instance</li>
+<li>one <a href="Location.htm">&lt;Location&gt;</a> instance</li>
+<li>zero or more <a href="PropertyTableReference.htm">&lt;Property Table Reference&gt;</a> instances</li>
+<li>zero or one <a href="ReferenceVector.htm">&lt;Reference Vector&gt;</a> instance</li>
+<li>zero or more {ordered} <a href="TextureCoordinate.htm">&lt;Texture Coordinate&gt;</a> instances<sup><A href="#Notes_cmp_Texture_Coordinate" name="cmp_Texture_Coordinate">2</A></sup></li>
+</UL>
+
+<h3>Component of (two-way)</h3>
+<UL>
+<li>zero or more <a href="Arc.htm">&lt;Arc&gt;</a> instances</li>
+<li>zero or more <a href="FiniteElementMesh.htm">&lt;Finite Element Mesh&gt;</a> instances</li>
+<li>zero or more <a href="Line.htm">&lt;Line&gt;</a> instances</li>
+<li>zero or more <a href="Polygon.htm">&lt;Polygon&gt;</a> instances</li>
+</UL>
+
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<hr>
+<h2>Notes</h2>
+<h3>Associated with Notes</h3>
+<br>
+<h4><a href="#asn_biGeometry_Node" name="Notes_asn_biGeometry_Node">Geometry_Node</a></h4>
+ The <A href="GeometryNode.htm">&lt;Geometry Node&gt;</A> instance that is associated with
+ a <A href="Vertex.htm">&lt;Vertex&gt;</A> instance is used in
+ topological representations, if topology is explicitly provided.
+</P>
+<h3>Composed of Notes</h3>
+<br>
+<h4><a href="#cmp_Texture_Coordinate" name="Notes_cmp_Texture_Coordinate">Texture_Coordinate</a></h4>
+ See <a href="../constraints/ImageMappingFunctionsandTextureCoordinates.htm">&lt;&lt;Image Mapping Functions and Texture Coordinates&gt;&gt;</a>.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="Variable.htm">Variable</A>.
+<strong>Next:</strong> <A href="VolumeExtent.htm">Volume Extent</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

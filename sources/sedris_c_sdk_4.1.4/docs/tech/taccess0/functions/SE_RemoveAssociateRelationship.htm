@@ -1,0 +1,201 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE RemoveAssociateRelationship</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+SE RemoveAssociateRelationship
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../types/SE_Return_Code.htm">SE_Return_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SE_RemoveAssociateRelationship</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/SE_Object.htm">SE_Object</a>&nbsp;</td> <td class="CFunction"><a name="from_object"></a>from_object,</td><td class="CFunction"><sup><A href="#Notes_from_object">1</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/SE_Object.htm">SE_Object</a>&nbsp;</td> <td class="CFunction"><a name="to_object"></a>to_object,</td><td class="CFunction"><sup><A href="#Notes_to_object">2</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/SE_Object.htm">SE_Object</a>&nbsp;</td> <td class="CFunction"><a name="link_object"></a>link_object,</td><td class="CFunction"><sup><A href="#Notes_link_object">3</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../../drm/types/SE_Boolean.htm">SE_Boolean</a>&nbsp;</td> <td class="CFunction"><a name="remove_two_way"></a>remove_two_way</td><td class="CFunction"><sup><A href="#Notes_remove_two_way">4</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+ Breaks the relationship between <A href="#from_object">from_object</A>
+ and <A href="#to_object">to_object</A> (and
+ <A href="#link_object">link_object</A>, if given), but does <EM>not</EM>
+ remove any of the objects involved from the transmittal (see
+ <A href="SE_RemoveFromTransmittal.htm">SE_RemoveFromTransmittal()</A>).
+</P><P>
+  The transmittal whose object is to be edited must be
+  explicitly opened in UPDATE mode for this operation to succeed.
+</P><P>
+ Note that the relationship being removed may be 1-way or 2-way. If it is
+ 2-way, and <A href="#remove_two_way">remove_two_way</A> is true,
+ both connections are broken, unless the
+ <A href="#to_object">to_object</A> is unresolved.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A>
+</td><td class="Status">
+ and the relationship is removed.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A>
+</td><td class="Status">
+ and the status code is set appropriately if the call failed.
+</td></tr>
+</table>
+
+<h3>Status Codes</h3>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A>
+   is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_SUCCESS">SE_STATCODE_SUCCESS</A>
+</td><td class="Status">
+ set if valid parameters were passed in and all operations succeeded.
+</td></tr>
+</table>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A>
+   is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_UNRESOLVED_INPUT_OBJECT">SE_STATCODE_UNRESOLVED_INPUT_OBJECT</A>
+</td><td class="Status">
+ set if
+<OL>
+ <LI> <A href="#from_object">from_object</A> is unresolved, or
+</LI>
+ <LI> <A href="#link_object">link_object</A> is provided
+ but is unresolved.
+</LI>
+</OL>
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_UNRESOLVED_OUTPUT_OBJECT">SE_STATCODE_UNRESOLVED_OUTPUT_OBJECT</A>
+</td><td class="Status">
+ set if <A href="#remove_two_way">remove_two_way</A> was specified,
+ and the DRM defines the relationship as bidirectional, but
+ <A href="#to_object">to_object</A> is unresolved, so the
+ relationship from <A href="#to_object">to_object</A> to
+ <A href="#from_object">from_object</A> cannot be removed.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_INVALID_ACCESS_MODE">SE_STATCODE_INVALID_ACCESS_MODE</A>
+</td><td class="Status">
+ set if
+<OL>
+<LI> <A href="#from_object">from_object</A> is in a transmittal
+ that is open in read-only mode,
+</LI>
+<LI> <A href="#link_object">link_object</A> was provided but is
+ in a transmittal that is open in read-only mode, and / or
+</LI>
+<LI> <A href="#to_object">to_object</A> is resolved, has
+ a relationship back to <A href="#from_object">from_object</A> and
+ <A href="#remove_two_way">remove_two_way</A> was specified, but
+ <A href="#to_object">to_object</A>
+ is in a transmittal that is open in read-only mode.
+</LI>
+</OL>
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_INACTIONABLE_FAILURE">SE_STATCODE_INACTIONABLE_FAILURE</A>
+</td><td class="Status">
+ set if
+<OL>
+ <LI> <A href="#from_object">from_object</A> and
+ <A href="#to_object">to_object</A> are not related by an associate
+ relationship,
+</LI>
+ <LI> if <A href="#link_object">link_object</A> is provided,
+ and it is not the link object for the relationship, or
+</LI>
+ <LI> the call fails for any other reason.
+</LI>
+</OL>
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#from_object" name="Notes_from_object">1</a></sup>
+ object whose relationship to one of its associates is being
+    broken.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#to_object" name="Notes_to_object">2</a></sup>
+ object whose relationship from one of its associates (1-way
+    or 2-way) is being broken.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#link_object" name="Notes_link_object">3</a></sup>
+ if specified, link object for the associate
+    relationship being removed.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#remove_two_way" name="Notes_remove_two_way">4</a></sup>
+ if the relationship is 2-way, and this flag is true,
+    both connections are broken; otherwise, only one connection (from =&gt; to)
+    is broken.
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SE_PutMeshFaceTableData.htm">SE_PutMeshFaceTableData</a>.
+<strong>Next:</strong> <a href="SE_RemoveComponentRelationship.htm">SE_RemoveComponentRelationship</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

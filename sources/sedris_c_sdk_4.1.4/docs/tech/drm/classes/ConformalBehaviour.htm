@@ -1,0 +1,247 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Conformal Behaviour</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Conformal Behaviour
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Conformal Behaviour</h2>
+<h3>Superclass - <a href="SEDRISAbstractBase.htm">&lt;SEDRIS Abstract Base&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of <A href="ConformalBehaviour.htm">&lt;Conformal Behaviour&gt;</A> instance specifies
+ how the aggregating geometry representation conforms to the
+ surface upon which the aggregating geometry representation is
+ applied.
+</P><P>
+ The <A href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> instance to which
+ a <A href="ConformalBehaviour.htm">&lt;Conformal Behaviour&gt;</A> instance is attached
+ conforms to the terrain skin automatically, either
+ parallel to gravity
+ (for example, ensuring that the base of a building touches the ground
+ without warping the walls) or orthogonally to the terrain skin
+ (for example, as in the case of a wall).
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet03.pdf"><strong>3</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet04.pdf"><strong>4</strong></A>
+</LI>
+<LI><A href="sheet05.pdf"><strong>5</strong></A>
+</LI>
+<LI><A href="sheet07.pdf"><strong>7</strong></A>
+</LI>
+<LI><A href="sheet18.pdf"><strong>18</strong></A>
+</LI>
+</UL>
+
+<h3>Example</h3>
+<OL>
+<LI><P>
+ Consider a <A href="Model.htm">&lt;Model&gt;</A> instance <span class="ConstructName">M</span>
+ being placed on terrain where the
+ <A href="GeometryModelInstance.htm">&lt;Geometry Model Instance&gt;</A>
+ instance specifies a <A href="ConformalBehaviour.htm">&lt;Conformal Behaviour&gt;</A> component
+ indicating conformance to the terrain skin. The terrain skin uses a
+ <A href="ClassificationRelatedGeometry.htm">&lt;Classification Related Geometry&gt;</A> instance to separate the
+ surface to which <span class="ConstructName">M</span> conforms from the rest of the
+ terrain geometry in that area.
+ If so, the <A href="ConformalBehaviour.htm">&lt;Conformal Behaviour&gt;</A>
+ instance can associate with the terrain skin. This would help the
+ consumer resolve ambiguities when deriving the actual 3D location.
+ The surface to be conformed to can be further qualified by the
+ <A href="PropertyValue.htm">&lt;Property Value&gt;</A> instance that has been
+ extended.
+</P></LI>
+<LI><P>
+ Consider a tree canopy that conforms to multiple or continuous LOD terrain.
+ The entire collection of tree canopy
+ <A href="Polygon.htm">&lt;Polygon&gt;</A> instances and the tree wall
+ <A href="Polygon.htm">&lt;Polygon&gt;</A> instances around the canopy is aggregated
+ into a <A href="ClassificationRelatedGeometry.htm">&lt;Classification Related Geometry&gt;</A>
+ instance, which is associated with
+ an <A href="ArealFeature.htm">&lt;Areal Feature&gt;</A> instance.
+</P><P>
+ Each <A href="Vertex.htm">&lt;Vertex&gt;</A> component of the
+ <A href="Polygon.htm">&lt;Polygon&gt;</A> instances
+ representing the tree wall around the canopy has a
+ <A href="ConformalBehaviour.htm">&lt;Conformal Behaviour&gt;</A> component. The
+ <A href="ConformalBehaviour.htm">&lt;Conformal Behaviour&gt;</A> component of each
+ <A href="Vertex.htm">&lt;Vertex&gt;</A> instance on the ground has
+ <A href="#parallel_gravity">parallel_gravity</A>
+ = <A href="../types/SE_Boolean.htm#SE_FALSE">SE_FALSE</A> and
+ <A href="#offset_distance">offset_distance</A> = 0, while the
+ <A href="ConformalBehaviour.htm">&lt;Conformal Behaviour&gt;</A> components
+ of the <A href="Vertex.htm">&lt;Vertex&gt;</A> instances at the top have
+ <A href="#parallel_gravity">parallel_gravity</A>
+ = <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A> and a positive
+ <A href="#offset_distance">offset_distance</A>
+ indicating the height of the tree wall. Each
+ <A href="Vertex.htm">&lt;Vertex&gt;</A> component of the
+ <A href="Polygon.htm">&lt;Polygon&gt;</A> instances representing the tree canopy has a
+ <A href="ConformalBehaviour.htm">&lt;Conformal Behaviour&gt;</A> component with
+ <A href="#parallel_gravity">parallel_gravity</A> =
+ <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A> and
+ <A href="#offset_distance">offset_distance</A>
+ indicating the height of the tree canopy.
+</P></LI>
+<LI><P>
+ An airplane <A href="Model.htm">&lt;Model&gt;</A> instance might have
+ <A href="GeometryRepresentation.htm">&lt;Geometry Representation&gt;</A>
+ instances that represent the projected shadow.
+ The <A href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> instance
+ containing the shadow could be given a
+ <A href="ConformalBehaviour.htm">&lt;Conformal Behaviour&gt;</A> component
+ so that it will hug the nominal terrain surface.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ Why has <A href="ConformalBehaviour.htm">&lt;Conformal Behaviour&gt;</A>
+ been made into a class of its own and not implemented as a
+ <A href="ControlLink.htm">&lt;Control Link&gt;</A> subclass?
+</B></DT>
+<DD><P>
+ Conformal behaviour could be achieved using a
+ <A href="TranslationControlLink.htm">&lt;Translation Control Link&gt;</A> instance with a
+ <A href="Variable.htm">&lt;Variable&gt;</A> component that
+ represents a Zenith (HAT) test. We have chosen to represent this
+ kind of behaviour as a class of its own because it is a
+ well-understood (abstracted) self-contained behaviour. This is also
+ the case with <A href="StampBehaviour.htm">&lt;Stamp Behaviour&gt;</A> instances and
+ level of detail.
+ The DRM has generally been designed to allow for high-level
+ abstraction as well as lower-level descriptions to exist in
+ the same <A href="Model.htm">&lt;Model&gt;</A> instance.
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ConformalBehaviourConstraints.htm">&lt;&lt;Conformal Behaviour Constraints&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Composed of (two-way)</h3>
+<UL>
+<li>zero or more <a href="PropertyValue.htm">&lt;Property Value&gt;</a> instances<sup><A href="#Notes_cmp_Property_Value" name="cmp_Property_Value">1</A></sup></li>
+</UL>
+
+<h3>Component of (two-way)</h3>
+<UL>
+<li>zero or more <a href="AggregateGeometry.htm">&lt;Aggregate Geometry&gt;</a> instances</li>
+<li>zero or more <a href="GeometryModelInstance.htm">&lt;Geometry Model Instance&gt;</a> instances</li>
+<li>zero or more <a href="Point.htm">&lt;Point&gt;</a> instances</li>
+<li>zero or more <a href="Vertex.htm">&lt;Vertex&gt;</a> instances</li>
+</UL>
+
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../../../../src/lib/edcs/docs/types/EDCS_Classification_Code.htm">EDCS_Classification_Code</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="classification">classification</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_classification">2</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Boolean.htm">SE_Boolean</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="parallel_gravity">parallel_gravity</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_parallel_gravity">3</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Float.htm">SE_Float</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="offset_distance">offset_distance</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_offset_distance">4</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Composed of Notes</h3>
+<br>
+<h4><a href="#cmp_Property_Value" name="Notes_cmp_Property_Value">Property_Value</a></h4>
+ A <A href="ConformalBehaviour.htm">&lt;Conformal Behaviour&gt;</A> instance has
+ <A href="PropertyValue.htm">&lt;Property Value&gt;</A> components only when
+ the <A href="#classification">classification</A>
+ of the <A href="ConformalBehaviour.htm">&lt;Conformal Behaviour&gt;</A> instance requires
+ elaboration by <A href="PropertyValue.htm">&lt;Property Value&gt;</A> components.
+</P>
+<h3>Fields Notes</h3>
+<h4><a href="#classification" name="Notes_classification">classification</a></h4>
+<P>
+ The (possibly elaborated) classification specified by the
+ <A href="#classification">classification</A> field
+ specifies the classification used to identify the
+ applicable <A href="ReferenceSurface.htm">&lt;Reference Surface&gt;</A> instance.
+</P>
+<h4><a href="#parallel_gravity" name="Notes_parallel_gravity">parallel_gravity</a></h4>
+<P>
+ If the value of the <A href="#parallel_gravity">parallel_gravity</A>
+ field is <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A>,
+ the direction of conformance is parallel to gravity; otherwise,
+ the direction of conformance is orthogonal to the applicable
+ geometry representation identified by the applicable
+ <A href="ReferenceSurface.htm">&lt;Reference Surface&gt;</A> instance.
+</P>
+<h4><a href="#offset_distance" name="Notes_offset_distance">offset_distance</a></h4>
+<P>
+ The <A href="#offset_distance">offset_distance</A>
+ field specifies the distance above the given surface, in metres.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="ConeDirectionalLight.htm">Cone Directional Light</A>.
+<strong>Next:</strong> <A href="ContactPoint.htm">Contact Point</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

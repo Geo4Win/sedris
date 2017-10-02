@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE_Time_Measurement_Type</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Types
+</font>
+<br>
+<font color="#ffffff">
+SE_Time_Measurement_Type
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<PRE>
+/*
+ * REGISTERABLE ENUM: SE_Time_Measurement_Type
+ *
+ *   Indicates whether time is being measured in terms of absolute
+ *   time, relative to the start of the exercise, or relative to
+ *   some reference time.
+ */
+</PRE><span class="Code">
+typedef <a href="../../drm/types/SE_Short_Integer.htm">SE_Short_Integer</a> SE_Time_Measurement_Type;
+</span>
+<table>
+<tr><th>Enumerant</th> <th>Definition</th> <th>Value</th></tr>
+<tr><td class="CFunction"><a name="SE_TIMEMEASTYP_GMT">SE_TIMEMEASTYP_GMT</a></td>
+<td class="CFunction"><PRE>
+ Sometimes called Absolute Time, since the other types of times
+ listed here are relative times.
+</PRE></td>
+<td class="CFunction">1</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_TIMEMEASTYP_RELATIVE_TO_EXERCISE_START">SE_TIMEMEASTYP_RELATIVE_TO_EXERCISE_START</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">2</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_TIMEMEASTYP_RELATIVE_TO_REFERENCE_TIME">SE_TIMEMEASTYP_RELATIVE_TO_REFERENCE_TIME</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">3</td>
+</TR>
+</table>
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SE_Time_Interval_Entry.htm">SE_Time_Interval_Entry</a>.
+<strong>Next:</strong> <a href="SE_Time_Point_Entry.htm">SE_Time_Point_Entry</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

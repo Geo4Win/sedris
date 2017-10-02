@@ -1,0 +1,315 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Sound Instance</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Sound Instance
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Sound Instance</h2>
+<h3>Superclass - <a href="SEDRISAbstractBase.htm">&lt;SEDRIS Abstract Base&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class is a single case of the existence of
+ a <A href="Sound.htm">&lt;Sound&gt;</A> instance within a given transmittal, including
+ variations or specializations unique to that case. A
+ <A href="SoundInstance.htm">&lt;Sound Instance&gt;</A> instance can represent environmental audio,
+ region-based audio, or spatialized audio:
+</P>
+<OL type='a'>
+<LI>
+ Environmental audio is audio that is non-localized and non-attenuated.
+ It is constant over the entire environment represented by the transmittal.
+ Environmental audio can be thought of as background sound. This type of
+ audio has no <A href="Location3D.htm">&lt;Location 3D&gt;</A> component,
+ <A href="PerimeterData.htm">&lt;Perimeter Data&gt;</A> component, or
+ <A href="SoundVolume.htm">&lt;Sound Volume&gt;</A> component and therefore cannot have a
+ <A href="FadeRange.htm">&lt;Fade Range&gt;</A> component.
+</LI>
+<LI>
+ Region-based audio is similar to environment audio, except that it is
+ constant over a two-dimensional region (if it has a
+ <A href="PerimeterData.htm">&lt;Perimeter Data&gt;</A> component) or
+ a three-dimensional region (if it has a
+ <A href="SoundVolume.htm">&lt;Sound Volume&gt;</A> component). Region-based
+ audio is non-localized, but it may be attenuated to support fade out
+ at the boundary of the region. (See examples for the
+ <A href="PerimeterData.htm">&lt;Perimeter Data&gt;</A> class and the <A href="SoundVolume.htm">&lt;Sound Volume&gt;</A> class).
+</LI>
+<LI>
+ Spatialized audio may be either two-dimensional or three-dimensional.
+ The method of rendering spatialized audio is left to the consuming
+ application.  In this case, a <A href="Location3D.htm">&lt;Location 3D&gt;</A> instance
+ is associated with the <A href="SoundInstance.htm">&lt;Sound Instance&gt;</A> instance,
+ if spatialized audio is desired.
+</LI>
+</OL>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet22.pdf"><strong>22</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet03.pdf"><strong>3</strong></A>
+</LI>
+<LI><A href="sheet08.pdf"><strong>8</strong></A>
+</LI>
+<LI><A href="sheet09.pdf"><strong>9</strong></A>
+</LI>
+</UL>
+
+<h3>Example</h3>
+<OL>
+<LI><P>
+ A <A href="SoundInstance.htm">&lt;Sound Instance&gt;</A> instance without any components
+ specifies the constant sound of rainfall over the entire
+ environment that is represented by the transmittal.
+</P></LI>
+<LI><P>
+ Given a <A href="GeometryModelInstance.htm">&lt;Geometry Model Instance&gt;</A> instance representing
+ a truck, a <A href="SoundInstance.htm">&lt;Sound Instance&gt;</A> component of the
+ <A href="GeometryModelInstance.htm">&lt;Geometry Model Instance&gt;</A> instance uses the
+ <A href="Location3D.htm">&lt;Location 3D&gt;</A> instance of the truck for the location
+ of the sound of the truck.
+</P></LI>
+<LI><P>
+ Given a <A href="GeometryModelInstance.htm">&lt;Geometry Model Instance&gt;</A> instance representing
+ a fighter jet, a <A href="SoundInstance.htm">&lt;Sound Instance&gt;</A> component of the
+ <A href="GeometryModelInstance.htm">&lt;Geometry Model Instance&gt;</A> instance
+ specifies a unique <A href="Location3D.htm">&lt;Location 3D&gt;</A> instance for the
+ audio in order to simulate propagation of sound delay
+ (one hears the audio in a slightly different location
+ than one sees the fighter jet).
+</P></LI>
+<LI><P>
+ Create a two-stage sound effect for an engine. The
+ stages are &quot;engine crank&quot; and &quot;engine running&quot;.
+ The application sets the <A href="SoundInstanceControlLink.htm">&lt;Sound Instance Control Link&gt;</A>
+ components of both <A href="SoundInstance.htm">&lt;Sound Instance&gt;</A> instances
+ to &quot;on&quot; to start the sound, at which point the crank sound
+ plays for 1.5 seconds,
+ followed by the (looped) engine running sound. The engine running sound
+ continues to play until the application sets the
+ <A href="SoundInstanceControlLink.htm">&lt;Sound Instance Control Link&gt;</A> instance
+ for the engine running sound to &quot;off&quot;.
+<OL type='a'>
+<LI>
+ The first <A href="Sound.htm">&lt;Sound&gt;</A> instance is instantiated by a
+ <A href="SoundInstance.htm">&lt;Sound Instance&gt;</A> instance with a
+ <A href="TimeInterval.htm">&lt;Time Interval&gt;</A> component
+ from 0.0 to 1.5 seconds.
+</LI>
+<LI>
+ The second <A href="Sound.htm">&lt;Sound&gt;</A> instance is a looped sound, and is
+ instanced by a <A href="SoundInstance.htm">&lt;Sound Instance&gt;</A> instance
+ with a start delay (using the <A href="TimeInterval.htm">&lt;Time Interval&gt;</A>
+ instance of 1.5 seconds) and no end time.
+</LI>
+</OL>
+</LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ Can multiple sound effects be chained together?
+</B></DT>
+<DD><P>
+ Yes. The <A href="TimeInterval.htm">&lt;Time Interval&gt;</A> component of
+ <A href="SoundInstance.htm">&lt;Sound Instance&gt;</A> can be used to daisy-chain
+ multiple sound effects. In Example 3 (below) of an engine cranking, each
+ of the sounds (i.e. engine crank and engine running) can be its own
+ <A href="SoundInstance.htm">&lt;Sound Instance&gt;</A>.
+</P></DD>
+<DT><B>
+ How are the components of a <A href="SoundInstance.htm">&lt;Sound Instance&gt;</A> instance
+ used to determine which type of audio it represents?
+</B></DT>
+<DD><P>
+ The components take precedence in the following manner for a
+ <A href="SoundInstance.htm">&lt;Sound Instance&gt;</A> instance <span class="ConstructName">S</span>.
+</P>
+<OL>
+<LI><P>
+ If <span class="ConstructName">S</span> has no <A href="Location3D.htm">&lt;Location 3D&gt;</A> component,
+ <A href="PerimeterData.htm">&lt;Perimeter Data&gt;</A> component, or <A href="SoundVolume.htm">&lt;Sound Volume&gt;</A>
+ component, <span class="ConstructName">S</span> represents environmental audio,
+ and is non-localized and non-attenuated. Consequently, for this
+ case, no <A href="FadeRange.htm">&lt;Fade Range&gt;</A> instance shall be present.
+</P></LI>
+<LI><P>
+ If <span class="ConstructName">S</span> has a <A href="Location3D.htm">&lt;Location 3D&gt;</A> component,
+ the <A href="Location3D.htm">&lt;Location 3D&gt;</A> component takes precedence over any
+ <A href="PerimeterData.htm">&lt;Perimeter Data&gt;</A> component or
+ <A href="SoundVolume.htm">&lt;Sound Volume&gt;</A> component that may be present.
+</P></LI>
+<LI><P>
+ If <span class="ConstructName">S</span> has no <A href="Location3D.htm">&lt;Location 3D&gt;</A> component,
+ but does have a <A href="SoundVolume.htm">&lt;Sound Volume&gt;</A> component, the
+ <A href="SoundVolume.htm">&lt;Sound Volume&gt;</A> component takes precedence over
+ any <A href="PerimeterData.htm">&lt;Perimeter Data&gt;</A> instance that may be present.
+</P></LI>
+</OL>
+</DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Associated to (one-way)</h3>
+<UL>
+<li>one <a href="Sound.htm">&lt;Sound&gt;</a> instance<sup><A href="#Notes_asn_toSound" name="asn_toSound">1</A></sup></li>
+</UL>
+
+<h3>Composed of (two-way)</h3>
+<UL>
+<li>zero or one <a href="FadeRange.htm">&lt;Fade Range&gt;</a> instance<sup><A href="#Notes_cmp_Fade_Range" name="cmp_Fade_Range">2</A></sup></li>
+<li>zero or one <a href="Location3D.htm">&lt;Location 3D&gt;</a> instance<sup><A href="#Notes_cmp_Location_3D" name="cmp_Location_3D">3</A></sup></li>
+<li>zero or one <a href="PerimeterData.htm">&lt;Perimeter Data&gt;</a> instance<sup><A href="#Notes_cmp_Perimeter_Data" name="cmp_Perimeter_Data">4</A></sup></li>
+<li>zero or one <a href="SoundInstanceControlLink.htm">&lt;Sound Instance Control Link&gt;</a> instance<sup><A href="#Notes_cmp_Sound_Instance_Control_Link" name="cmp_Sound_Instance_Control_Link">5</A></sup></li>
+<li>zero or one <a href="SoundVolume.htm">&lt;Sound Volume&gt;</a> instance<sup><A href="#Notes_cmp_Sound_Volume" name="cmp_Sound_Volume">6</A></sup></li>
+<li>zero or more <a href="TimeInterval.htm">&lt;Time Interval&gt;</a> instances</li>
+</UL>
+
+<h3>Component of (two-way)</h3>
+<UL>
+<li>zero or more <a href="FeatureHierarchy.htm">&lt;Feature Hierarchy&gt;</a> instances</li>
+<li>zero or more <a href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</a> instances</li>
+</UL>
+
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Boolean.htm">SE_Boolean</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="active_sound_value">active_sound_value</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_active_sound_value">7</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Associated to Notes</h3>
+<br>
+<h4><a href="#asn_toSound" name="Notes_asn_toSound">Sound</a></h4>
+ The <A href="Sound.htm">&lt;Sound&gt;</A> instance represents the sound recording
+ being instanced.
+</P>
+<h3>Composed of Notes</h3>
+<br>
+<h4><a href="#cmp_Fade_Range" name="Notes_cmp_Fade_Range">Fade_Range</a></h4>
+ The <A href="FadeRange.htm">&lt;Fade Range&gt;</A> component specifies the starting distance,
+ relative to the sound source, at which a fade to off should begin
+ and an ending distance, relative to the sound source, at which the
+ fade to off should be complete.
+</P><P>
+ The location of the sound source for the <A href="FadeRange.htm">&lt;Fade Range&gt;</A>
+ component is determined by:
+</P>
+<OL type='a'>
+<LI>the centre of the <A href="SoundVolume.htm">&lt;Sound Volume&gt;</A>
+ component of the <A href="SoundInstance.htm">&lt;Sound Instance&gt;</A> instance,
+</LI>
+<LI>the centroid of the <A href="PerimeterData.htm">&lt;Perimeter Data&gt;</A> component of the
+ <A href="SoundInstance.htm">&lt;Sound Instance&gt;</A> instance, or
+<LI>the spatial location for the sound.
+</LI>
+</OL>
+<P class=Note>
+NOTE&nbsp; 
+ If no <A href="FadeRange.htm">&lt;Fade Range&gt;</A> component is present,
+ no attenuation is to be performed, which implies instantaneous
+ on / off transitions at the borders of the
+ <A href="PerimeterData.htm">&lt;Perimeter Data&gt;</A> component and
+ <A href="SoundVolume.htm">&lt;Sound Volume&gt;</A> component.
+</p>
+<br>
+<h4><a href="#cmp_Location_3D" name="Notes_cmp_Location_3D">Location_3D</a></h4>
+ The <A href="Location3D.htm">&lt;Location 3D&gt;</A> component specifies the location
+ of the sound source for spatialized audio.
+</P>
+<br>
+<h4><a href="#cmp_Perimeter_Data" name="Notes_cmp_Perimeter_Data">Perimeter_Data</a></h4>
+ The <A href="PerimeterData.htm">&lt;Perimeter Data&gt;</A> component defines an area
+ within which the <A href="Sound.htm">&lt;Sound&gt;</A> instance
+ is to be active.
+</P>
+<br>
+<h4><a href="#cmp_Sound_Instance_Control_Link" name="Notes_cmp_Sound_Instance_Control_Link">Sound_Instance_Control_Link</a></h4>
+ If a <A href="SoundInstance.htm">&lt;Sound Instance&gt;</A> instance is
+ subject to dynamic control
+ (that is, if it can be turned on and off), it has a
+ <A href="SoundInstanceControlLink.htm">&lt;Sound Instance Control Link&gt;</A>
+ component to express that control mechanism.
+</P>
+<br>
+<h4><a href="#cmp_Sound_Volume" name="Notes_cmp_Sound_Volume">Sound_Volume</a></h4>
+ The <A href="SoundVolume.htm">&lt;Sound Volume&gt;</A> component
+ defines a volume within which the <A href="Sound.htm">&lt;Sound&gt;</A>
+ instance is to be active.
+</P>
+<h3>Fields Notes</h3>
+<h4><a href="#active_sound_value" name="Notes_active_sound_value">active_sound_value</a></h4>
+<P>
+ The <A href="#active_sound_value">active_sound_value</A>
+ specifies the default / active state of the given
+ <A href="Sound.htm">&lt;Sound&gt;</A> instance, where
+ <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A> indicates on and
+ <A href="../types/SE_Boolean.htm#SE_FALSE">SE_FALSE</A> indicates off.
+ For a <A href="SoundInstance.htm">&lt;Sound Instance&gt;</A> instance with
+ a <A href="SoundInstanceControlLink.htm">&lt;Sound Instance Control Link&gt;</A> component
+ <span class="ConstructName">X</span>, the value of the
+ <A href="#active_sound_value">active_sound_value</A>
+ field is obtained from <span class="ConstructName">X</span>.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="Sound.htm">Sound</A>.
+<strong>Next:</strong> <A href="SoundInstanceControlLink.htm">Sound Instance Control Link</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

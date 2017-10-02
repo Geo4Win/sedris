@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SRM GetVersionInformation</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SRM Reference Manual</big></big>
+<br>
+<!-- SRM spec. 4.1 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+SRM GetVersionInformation
+</font>
+</th></tr>
+</table></div>
+
+<!-- SRM SDK Release 4.1.4 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../types/SRM_Status_Code.htm">SRM_Status_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SRM_GetVersionInformation</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/SRM_Integer_Positive.htm">SRM_Integer_Positive</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="major_SRM_version"></a>major_SRM_version,</td><td class="CFunction"><sup><A href="#Notes_major_SRM_version">1</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/SRM_Integer_Unsigned.htm">SRM_Integer_Unsigned</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="minor_SRM_version"></a>minor_SRM_version,</td><td class="CFunction"><sup><A href="#Notes_minor_SRM_version">2</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction">char&nbsp;          </td> <td class="CFunction">*</td><td class="CFunction"><a name="interim_SRM_version"></a>interim_SRM_version</td><td class="CFunction"><sup><A href="#Notes_interim_SRM_version">3</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+  This function returns the version of the implementation of the
+  SRM used to define the given transmittal.
+</P><P>
+  Major versions are specified by an integer that is incremented
+  whenever large changes are made to the implementation.
+</P><P>
+  Minor versions are specified by an integer that is incremented
+  whenever any small changes are made to the implementation.
+</P><P>
+  Interim versions are specified using a lower case letter that
+  is incremented whenever a new interim version of the
+  implementation is released.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+ <A href="../types/SRM_Status_Code.htm#SRM_STATCOD_SUCCESS">SRM_STATCOD_SUCCESS</A>
+</td><td class="Status">and the output parameters are set, if valid parameters
+ were passed in and all operations succeeded.
+</td></tr>
+<tr><td class="Status">
+ <A href="../types/SRM_Status_Code.htm#SRM_STATCOD_INACTIONABLE">SRM_STATCOD_INACTIONABLE</A>
+</td><td class="Status">
+ and the output parameters are left unchanged, if
+ <A href="#major_SRM_version">*major_SRM_version</A>,
+ <A href="#minor_SRM_version">*minor_SRM_version</A>, or
+ <A href="#interim_SRM_version">*interim_SRM_version</A> was NULL.
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#major_SRM_version" name="Notes_major_SRM_version">1</a></sup>
+ a pointer to a SRM_Integer_Positive in the
+    user's memory space that will be set to an integer value
+    greater than or equal to 1
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#minor_SRM_version" name="Notes_minor_SRM_version">2</a></sup>
+ a pointer to a SRM_Integer_Unsigned in the
+    user's memory space that will be set to an integer value
+    between 0 and 99, inclusive
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#interim_SRM_version" name="Notes_interim_SRM_version">3</a></sup>
+ a pointer to a char in the user's memory
+    space that will be set to a value between 'a' and 'z' inclusive.
+    If it was not an interim version of the SRM, then the value will
+    be set to '\0'.
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SRM_GetPrecision.htm">SRM_GetPrecision</a>.
+<strong>Next:</strong> <a href="SRM_Matrix3x3Add.htm">SRM_Matrix3x3Add</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Irregular Axis</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Irregular Axis
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Irregular Axis</h2>
+<h3>Superclass - <a href="Axis.htm">&lt;Axis&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class is an <A href="Axis.htm">&lt;Axis&gt;</A> instance
+ that does not use a constant spacing between tick marks.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet06.pdf"><strong>6</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+This class appears on only one page of the DRM class diagram.
+<h3>Example</h3>
+<OL>
+<LI><P>
+ Data taken at times 1, 2, 5, 10, 50, and 100 seconds after some
+ start time are collected on
+ an <A href="IrregularAxis.htm">&lt;Irregular Axis&gt;</A> instance.
+</P></LI>
+<LI><P>
+ Radiosonde data, including temperature, humidity, wind speed, and
+ wind direction, is generally reported as a function of pressure height.
+ Data are reported only when there is a significant change in one of the
+ dependent variables. Accordingly, the pressure heights are captured at
+ unpredictable, irregular intervals. They are best collected in
+ an <A href="IrregularAxis.htm">&lt;Irregular Axis&gt;</A> instance.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ If a few values are missing from a regular sequence, should the data
+ provider use an <A href="IrregularAxis.htm">&lt;Irregular Axis&gt;</A> instance
+ to represent the data?
+</B></DT>
+<DD><P>
+ It depends how many values are missing. If only one or two values are
+ missing from a long regular sequence, it may be preferable to use a
+ <A href="RegularAxis.htm">&lt;Regular Axis&gt;</A> instance and indicate the
+ missing data points with an appropriate
+ <A href="PropertyCharacteristic.htm">&lt;Property Characteristic&gt;</A>
+ instance.
+</P></DD>
+<DT><B>
+ A data provider's data was taken on an irregular set of points on a
+ surface. Should <A href="IrregularAxis.htm">&lt;Irregular Axis&gt;</A> instances be
+ used to indicate the 2-dimensional locations of these points?
+</B></DT>
+<DD><P>
+ If the data were truly irregular, which is to say that there is only
+ one point at each x-value and only one point at each y-value, do not
+ use irregular x- and y-axes. Instead, use a single regular axis to give
+ each point an index and make the x- and y-values dependent variables.
+</P><P>
+ On the other hand, if the points are not quite that
+ irregular, but rather data were taken at each (or most)
+ combination of x- and y-values, irregular axes may be
+ appropriate. This would mean that the data really did
+ form a grid.
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/GeneralAxisConstraints.htm">&lt;&lt;General Axis Constraints&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Component of (two-way) (inherited)</h3>
+<UL>
+<li>one or more <a href="DataTable.htm">&lt;Data Table&gt;</a> instances</li>
+</UL>
+<h2><a name="inherited_field">Inherited Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../../../../src/lib/edcs/docs/types/EDCS_Attribute_Code.htm">EDCS_Attribute_Code</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="axis_type">axis_type</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_axis_type">1</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Short_Integer_Positive.htm">SE_Short_Integer_Positive</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="axis_value_count">axis_value_count</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_axis_value_count">2</A></sup></p></td>
+</tr>
+</table>
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Single_Value.htm">SE_Single_Value</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="axis_value_array">axis_value_array</a>[];</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_axis_value_array">3</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../../../../src/lib/edcs/docs/types/EDCS_Unit_Code.htm">EDCS_Unit_Code</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="value_unit">value_unit</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_value_unit">4</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../../../../src/lib/edcs/docs/types/EDCS_Unit_Scale_Code.htm">EDCS_Unit_Scale_Code</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="value_scale">value_scale</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_value_scale">5</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Interpolation_Type.htm">SE_Interpolation_Type</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="interpolation_type">interpolation_type</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_interpolation_type">6</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Fields Notes</h3>
+<h4><a href="#axis_type" name="Notes_axis_type">axis_type</a></h4>
+<P>
+ The <A href="#axis_type">axis_type</A> field specifies the
+ property being described by the
+ <A href="Axis.htm">&lt;Axis&gt;</A> instance.
+</P>
+<h4><a href="#axis_value_count" name="Notes_axis_value_count">axis_value_count</a></h4>
+<P>
+ The <A href="#axis_value_count">axis_value_count</A>
+ specifies the number of tick marks along the
+ <A href="Axis.htm">&lt;Axis&gt;</A> instance.
+</P>
+<h4><a href="#axis_value_array" name="Notes_axis_value_array">axis_value_array</a></h4>
+<P>
+ The <A href="#axis_value_array">axis_value_array</A>
+ field specifies the tick mark values, which shall be
+ arranged in monotonically ascending or monotonically descending
+ order.
+</P>
+<h4><a href="#value_unit" name="Notes_value_unit">value_unit</a></h4>
+<P>
+ The <A href="#value_unit">value_unit</A> field
+ specifies the unit of measurement of the
+ <A href="IrregularAxis.htm">&lt;Irregular Axis&gt;</A> instance, which
+ shall be compatible with the requirements imposed by its
+ <A href="#axis_type">axis_type</A> value.
+</P><P>
+ If the specified <A href="#axis_type">axis_type</A>
+ does not require a unit of measurement,
+ <A href="#value_unit">value_unit</A>
+ shall be set to <A href="../../../../src/lib/edcs/docs/dictionary/units.htm#EUC_UNITLESS">EUC_UNITLESS</A>.
+</P>
+<h4><a href="#value_scale" name="Notes_value_scale">value_scale</a></h4>
+<P>
+ The <A href="#value_scale">value_scale</A> field
+ specifies the scale applicable to
+ <A href="#value_unit">value_unit</A>.
+</P><P>
+ If the specified <A href="#axis_type">axis_type</A>
+ does not require a scale,
+ <A href="#value_scale">value_scale</A>
+ shall be set to <A href="../../../../src/lib/edcs/docs/dictionary/units.htm#ESC_UNI">ESC_UNI</A>.
+</P>
+<h4><a href="#interpolation_type" name="Notes_interpolation_type">interpolation_type</a></h4>
+<P>
+ The value of the <A href="#interpolation_type">interpolation_type</A>
+ field allows the data provider to indicate
+ how best to interpolate the data to points that are between
+ grid points on the axis represented by the
+ <A href="IrregularAxis.htm">&lt;Irregular Axis&gt;</A> instance.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="IntervalAxis.htm">Interval Axis</A>.
+<strong>Next:</strong> <A href="Keywords.htm">Keywords</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

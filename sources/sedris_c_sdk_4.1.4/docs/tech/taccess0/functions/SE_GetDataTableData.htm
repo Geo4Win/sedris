@@ -1,0 +1,192 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE GetDataTableData</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+SE GetDataTableData
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../types/SE_Return_Code.htm">SE_Return_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SE_GetDataTableData</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../types/SE_Object.htm">SE_Object</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"> </td><td class="CFunction"><a name="data_table_object"></a>data_table_object,</td><td class="CFunction"><sup><A href="#Notes_data_table_object">1</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">const&nbsp;</td><td class="CFunction"><a href="../types/SE_Data_Table_Sub_Extent.htm">SE_Data_Table_Sub_Extent</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction">*</td><td class="CFunction"><a name="extents"></a>extents,</td><td class="CFunction"><sup><A href="#Notes_extents">2</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../../drm/types/SE_Integer_Positive.htm">SE_Integer_Positive</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"> </td><td class="CFunction"><a name="element_count"></a>element_count,</td><td class="CFunction"><sup><A href="#Notes_element_count">3</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">const&nbsp;</td><td class="CFunction"><a href="../../drm/types/SE_Integer_Positive.htm">SE_Integer_Positive</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"> </td><td class="CFunction"><a name="element_indices"></a>element_indices[],</td><td class="CFunction"><sup><A href="#Notes_element_indices">4</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../types/SE_Store.htm">SE_Store</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"> </td><td class="CFunction"><a name="store"></a>store,</td><td class="CFunction"><sup><A href="#Notes_store">5</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../../drm/types/SE_Data_Table_Data.htm">SE_Data_Table_Data</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction">*</td><td class="CFunction"><a name="data"></a>data</td><td class="CFunction"><sup><A href="#Notes_data">6</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+  This function is used to retrieve cell data of a
+  <A href="../../drm/classes/DataTable.htm">&lt;Data Table&gt;</A> instance. Based on the extents
+  and elements specifed, the function will retrieve and copy the
+  requested data into the memory provided through
+ *<A href="#data">data</A>.
+  For example, in order to access
+  the ith cell of the jth float element the following syntax would be used:
+</P><P>
+ <A href="#data">data</A>[j].dt_array_union.float_array[i]
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A>
+</td><td class="Status">
+ and the requested data is returned, if valid parameters were passed in
+ and all operations succeeded.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A>
+</td><td class="Status">
+ and the status code is set appropriately if the call failed.
+</td></tr>
+</table>
+
+<h3>Status Codes</h3>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A> is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_SUCCESS">SE_STATCODE_SUCCESS</A>
+</td><td class="Status">
+ set if valid parameters were passed in and all operations
+ successfully completed.
+</td></tr>
+</table>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A> is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_UNRESOLVED_OUTPUT_OBJECT">SE_STATCODE_UNRESOLVED_OUTPUT_OBJECT</A>
+</td><td class="Status">
+ set if <A href="#data_table_object">data_table_object</A> is an
+ unresolved object (see <A href="../types/SE_Object.htm">SE_Object</A>'s comments
+ for details on how this condition occurs).
+</td></tr>
+<tr><td class="Status">
+  <A href="../types/SE_Status_Code.htm#SE_STATCODE_C_STORE_INVALID">SE_STATCODE_C_STORE_INVALID</A>
+</td><td class="Status">
+  set if <A href="#store">store</A> is not a handle to
+ a valid <A href="../types/SE_Store.htm">SE_Store</A>.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_INACTIONABLE_FAILURE">SE_STATCODE_INACTIONABLE_FAILURE</A>
+</td><td class="Status">
+ set if the call fails for any other reason, including:
+<OL>
+<LI>the extents pointed to by <A href="#extents">extents</A>
+ are invalid,
+</LI>
+<LI>
+ any of the <A href="#element_indices">element_indices</A>
+ entries are invalid for <A href="#data_table_object">data_table_object</A>,
+ or are not unique within the array,
+</LI>
+<LI><A href="#data_table_object">data_table_object</A> is
+ a <A href="../../drm/classes/PropertyGrid.htm">&lt;Property Grid&gt;</A> instance with a
+ <A href="../../drm/classes/PropertyGrid.htm#data_present">data_present</A> field set to
+ <A href="../../drm/types/SE_Boolean.htm#SE_FALSE">SE_FALSE</A>,
+</LI>
+<LI><A href="#data_table_object">data_table_object</A> has been created
+ via the API but has not yet had the cell data added to it.
+</LI>
+</OL>
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#data_table_object" name="Notes_data_table_object">1</a></sup>
+ the &lt;Data Table&gt; object whose cells are being retrieved.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#extents" name="Notes_extents">2</a></sup>
+ indicates the cells that the user wants returned (which
+    'region' of the &lt;Data Table&gt; to return).
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#element_count" name="Notes_element_count">3</a></sup>
+ the number of elements per cell to return which will
+   indicate the size of the element_indices and
+   data arrays.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#element_indices" name="Notes_element_indices">4</a></sup>
+ an array of indices into the ordered list of
+    &lt;Table Property Description&gt; instances aggregated by
+    data_table_object.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#store" name="Notes_store">5</a></sup>
+ a handle to a store; the API allocates memory for the requested
+    data within this store.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#data" name="Notes_data">6</a></sup>
+ a pointer to an array of SE_Data_Table_Data
+    structures. The API allocates memory for the requested data
+    and copies it into these structures.
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SE_GetDRMClass.htm">SE_GetDRMClass</a>.
+<strong>Next:</strong> <a href="SE_GetEncoding.htm">SE_GetEncoding</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

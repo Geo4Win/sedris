@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>EDCS GetLanguageCodeEntry</title>
+<link rel="stylesheet" href="../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>EDCS Reference Manual</big></big>
+<br>
+<!-- EDCS spec. 4.4 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+EDCS GetLanguageCodeEntry
+</font>
+</th></tr>
+</table></div>
+
+<!-- EDCS SDK Release 4.4.0 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../types/EDCS_Status_Code.htm">EDCS_Status_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">EDCS_GetLanguageCodeEntry</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1"><td class="CFunction">const&nbsp;</td><td class="CFunction"><a href="../types/EDCS_Character.htm">EDCS_Character</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"> </td><td class="CFunction"><a name="language_code"></a>language_code[],</td><td class="CFunction"><sup><A href="#Notes_language_code">1</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">const&nbsp;</td><td class="CFunction"><a href="../types/EDCS_ISO_639_Entry.htm">EDCS_ISO_639_Entry</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction">*</td><td class="CFunction"><a name="result_out_ptr"></a>result_out_ptr</td><td class="CFunction"><sup><A href="#Notes_result_out_ptr">2</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+  Given a 2-character language code, retrieves information
+  about that language code.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/EDCS_Status_Code.htm#EDCS_SC_SUCCESS">EDCS_SC_SUCCESS</A>
+</td><td class="Status">
+ and <A href="#result_out_ptr">result_out_ptr</A> is set
+ to the appropriate value, if valid parameters were passed in.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/EDCS_Status_Code.htm#EDCS_SC_NULL_REQUIRED_PARAMETER">EDCS_SC_NULL_REQUIRED_PARAMETER</A>
+</td><td class="Status">
+ and *<A href="#result_out_ptr">result_out_ptr</A> is left
+ unchanged, if <A href="#language_code">language_code</A> or
+ <A href="#result_out_ptr">result_out_ptr</A> is NULL.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/EDCS_Status_Code.htm#EDCS_SC_OTHER_FAILURE">EDCS_SC_OTHER_FAILURE</A>
+</td><td class="Status">
+ and *<A href="#result_out_ptr">result_out_ptr</A> is left
+ unchanged, if <A href="#language_code">language_code</A> is
+ not valid.
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#language_code" name="Notes_language_code">1</a></sup>
+ the language_code for which information is being retrieved
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#result_out_ptr" name="Notes_result_out_ptr">2</a></sup>
+ a pointer to the EDCS_ISO_639_Entry variable
+    into which a handle to the information will be placed
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="EDCS_GetImplVerInfo.htm">EDCS_GetImplVerInfo</a>.
+<strong>Next:</strong> <a href="EDCS_GetMinWidth.htm">EDCS_GetMinWidth</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

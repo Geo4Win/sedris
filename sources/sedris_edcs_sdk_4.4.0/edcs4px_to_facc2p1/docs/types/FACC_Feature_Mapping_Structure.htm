@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<title>FACC_Feature_Mapping_Structure</title>
+<link rel="stylesheet" href="../../../docs/styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+<div align="center">
+<table border="2" class="doc_set_header">
+<tr><th class="doc_set_header">
+<big><big>EDCS Reference Manual</big></big>
+<br>
+<font color="#ffffff">
+Concept Mapping from EDCS 4.4 to FACC 2.1
+<!-- EDCS SDK Release 4.4.0 -->
+<br>
+Types
+<br>
+FACC_Feature_Mapping_Structure
+</font></th>
+</tr>
+</table>
+</div>
+<!-- EDCS 4.4 to FACC 2.1 Mapping SDK Release 4.4.0.0 -->
+<pre>
+/*
+ * STRUCT: FACC_Feature_Mapping_Structure
+ *
+ * This structure will be returned from the call
+ * <a href="../functions/EDCS_to_FACC_MapClassificationCode.htm">EDCS_to_FACC_MapClassificationCode</a>. 
+ *
+ * If the mapping_type field is <a href="FACC_Mapping_Type_Code.htm#FACC_MAP_TYP_ONE_TO_ONE">FACC_MAP_TYP_ONE_TO_ONE</a> 
+ * then the additional concepts fields will be empty and 
+ * the facc_feature_code field will have the FACC feature 
+ * code.
+ *
+ * If the mapping_type field is <a href="FACC_Mapping_Type_Code.htm#FACC_MAP_TYP_ONE_TO_ONE_QUALIFIED">FACC_MAP_TYP_ONE_TO_ONE_QUALIFIED</a>
+ * then the additional concepts fields will be populated with
+ * concepts that qualify the FACC feature code in facc_feature_code
+ *
+ * If the mapping_type field is <a href="FACC_Mapping_Type_Code.htm#FACC_MAP_TYP_ONE_TO_ZERO">FACC_MAP_TYP_ONE_TO_ZERO</a>
+ * then all fields, except the notes field, will be 0 or NULL.
+ *
+ * In this version of the library, the mapping_type should be no other 
+ * case for mapping classification codes
+ */
+
+</pre>
+
+<table>
+<tbody>
+<tr>
+<td>typedef</td>
+<td>struct</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td>{</td>
+<td valign="top"></td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top">
+<a href="FACC_Mapping_Type_Code.htm">FACC_Mapping_Type_Code</a>
+</td>
+<td valign="top"><a name="mapping_type"></a>mapping_type;
+</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top">
+<a href="FACC_2p1_Feature_Code.htm">FACC_2p1_Feature_Code</a>
+</td>
+<td valign="top"><a name="facc_feature_code"></a>facc_feature_code;
+</td>
+</tr>
+<tr>
+<td valign="top"><br>
+</td>
+<td valign="top">
+<a href="../../../docs/types/EDCS_Integer.htm">EDCS_Integer</a>
+</td>
+<td valign="top"><i><a name="additional_concept_count"></a></i>additional_concept_count;
+</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top">
+<a href="FACC_Attribute_With_Value.htm">FACC_Attribute_With_Value</a>
+</td>
+<td valign="top"><a name="additional_concepts"></a>additional_concepts;</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top">const char</td>
+<td valign="top">* <a name="notes"></a>notes;</td>
+</tr>
+</tbody>
+</table>
+} FACC_Attribute_Mapping_Structure;<br>
+<br>
+
+<hr> <br>
+<font color="#ff0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a></strong>,
+<strong><a href="../edcs4px_facc2p1.htm#Data Structures">Type Index</a></strong>
+<br><br>
+<table class="doc_set_header">
+<tr><td>
+<table class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="left" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

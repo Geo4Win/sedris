@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Tack Point</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Tack Point
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Tack Point</h2>
+<h3>Superclass - <a href="SEDRISAbstractBase.htm">&lt;SEDRIS Abstract Base&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies a <A href="Location.htm">&lt;Location&gt;</A> instance
+ that corresponds to a fixed position on one or more images depending on
+ the number of corresponding <A href="ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</A> instances
+ that are components of the aggregating
+ <A href="PrimitiveGeometry.htm">&lt;Primitive Geometry&gt;</A> instance.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet05.pdf"><strong>5</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+This class appears on only one page of the DRM class diagram.
+<h3>Example</h3>
+<OL>
+<LI><P>
+ Consider a <A href="Polygon.htm">&lt;Polygon&gt;</A> instance <span class="ConstructName">P</span>
+ for which the data provider wishes to supply a texture coordinate
+ at the centre of <span class="ConstructName">P</span> rather than at one of its
+ vertices To achieve this, the data provider supplies a
+ <A href="TackPoint.htm">&lt;Tack Point&gt;</A> component <span class="ConstructName">K</span> for
+ <span class="ConstructName">P</span> such that <span class="ConstructName">K</span> specifies
+ the centre of <span class="ConstructName">P</span> as its <A href="Location.htm">&lt;Location&gt;</A>
+ component and the desired texture coordinate as a
+ <A href="TextureCoordinate.htm">&lt;Texture Coordinate&gt;</A> component.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<p>
+No FAQs supplied.
+</p>
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ImageMappingFunctionsandTextureCoordinates.htm">&lt;&lt;Image Mapping Functions and Texture Coordinates&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Composed of (two-way)</h3>
+<UL>
+<li>one <a href="Location.htm">&lt;Location&gt;</a> instance</li>
+<li>one or more {ordered} <a href="TextureCoordinate.htm">&lt;Texture Coordinate&gt;</a> instances</li>
+</UL>
+
+<h3>Component of (two-way)</h3>
+<UL>
+<li>one <a href="PrimitiveGeometry.htm">&lt;Primitive Geometry&gt;</a> instance</li>
+</UL>
+
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+
+<hr>
+<strong>Prev:</strong> <A href="TablePropertyDescription.htm">Table Property Description</A>.
+<strong>Next:</strong> <A href="Text.htm">Text</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

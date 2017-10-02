@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE_Time_Interval_Entry</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Types
+</font>
+<br>
+<font color="#ffffff">
+SE_Time_Interval_Entry
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<PRE>
+/*
+ * STRUCT: SE_Time_Interval_Entry
+ *
+ *  Used to build up the SE_Time_Entry data structure.
+ */
+</PRE>
+<span class="Code">typedef struct 
+<br>
+{</span>
+<br>
+<table class="CFunctionPrototype">
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Time_Measurement_Type.htm">SE_Time_Measurement_Type</a></td>
+        <td class="CFunction"><a name="time_type"></a>time_type;</td></tr>
+<tr> <td class="CFunction">   </td><td class="CFunction">union</td></tr>
+<tr> <td class="CFunction">   </td><td class="CFunction">{</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SE_Absolute_Time_Interval_Entry.htm">SE_Absolute_Time_Interval_Entry</a></td>
+            <td class="CFunction"><a
+            name="absolute_time"></a>absolute_time;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../../drm/classes/RelativeTimeInterval.htm">SE_Relative_Time_Interval_Fields</a></td>
+            <td class="CFunction"><a
+            name="relative_to_simulation"></a>relative_to_simulation;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SE_Relative_To_Absolute_Time_Interval_Entry.htm">SE_Relative_To_Absolute_Time_Interval_Entry</a></td>
+            <td class="CFunction"><a
+            name="relative_to_absolute"></a>relative_to_absolute;</td></tr>
+<tr><td class="CFunction"></td> <td class="CFunction">} <a
+        name="time_interval_data"></a>time_interval_data;</td></tr>
+</table>
+<span class="Code">
+} SE_Time_Interval_Entry;</span>
+<br>
+
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SE_Time_Entry.htm">SE_Time_Entry</a>.
+<strong>Next:</strong> <a href="SE_Time_Measurement_Type.htm">SE_Time_Measurement_Type</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

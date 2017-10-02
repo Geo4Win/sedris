@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE CloneContactInformation</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX D - Functions
+</font>
+<br>
+<font color="#ffffff">
+SE CloneContactInformation
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../types/SE_DRM_Status_Code.htm">SE_DRM_Status_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SE_CloneContactInformation</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1"><td class="CFunction">const&nbsp;</td><td class="CFunction"><a href="../types/SE_Contact_Information.htm">SE_Contact_Information</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="src_ptr"></a>src_ptr,</td><td class="CFunction"><sup><A href="#Notes_src_ptr">1</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../types/SE_Contact_Information.htm">SE_Contact_Information</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="dest_ptr"></a>dest_ptr</td><td class="CFunction"><sup><A href="#Notes_dest_ptr">2</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+ Clones the data from <A href="#src_ptr">*src_ptr</A>
+ into <A href="#dest_ptr">*dest_ptr</A>, by allocating
+ memory for any necessary internal pointers within
+ <A href="#dest_ptr">*dest_ptr</A>, then populating
+ <A href="#dest_ptr">*dest_ptr</A> with data from
+ <A href="#src_ptr">*src_ptr</A>.
+</P><P>
+<STRONG>IMPORTANT NOTES:</STRONG>
+</P>
+<OL>
+<LI> Because some of the fields contained in the data structure are
+ pointers to dynamically allocated memory, it is HIGHLY INADVISABLE
+ to use a member-wise structure copy in order to duplicate an
+ <A href="../types/SE_Contact_Information.htm">SE_Contact_Information</A> structure. In order to reliably
+ duplicate this data, developers should use the
+ <A href="SE_CloneContactInformation.htm">SE_CloneContactInformation()</A>
+ function.
+</LI>
+<LI> The caller is responsible for calling
+ <A href="SE_FreeContactInformation.htm">SE_FreeContactInformation()</A>
+ to free the internal pointers allocated within
+ <A href="#dest_ptr">*dest_ptr</A>.
+</LI>
+</OL>
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_DRM_Status_Code.htm#SE_DRM_STAT_CODE_SUCCESS">SE_DRM_STAT_CODE_SUCCESS</A>
+</td><td class="Status">
+ and memory is allocated for any dynamically allocated data within
+ the structure, and it is populated with data copied from
+ <A href="#src_ptr">*src_ptr</A>, if valid parameters
+ were passed in.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_DRM_Status_Code.htm#SE_DRM_STAT_CODE_NULL_REQUIRED_PARAMETER">SE_DRM_STAT_CODE_NULL_REQUIRED_PARAMETER</A>
+</td><td class="Status">
+ and <A href="#dest_ptr">*dest_ptr</A> is left unchanged,
+ if <A href="#dest_ptr">dest_ptr</A> or
+ <A href="#src_ptr">src_ptr</A> was NULL.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_DRM_Status_Code.htm#SE_DRM_STAT_CODE_FAILURE">SE_DRM_STAT_CODE_FAILURE</A>
+</td><td class="Status">
+ and <A href="#dest_ptr">*dest_ptr</A> is set to its (empty)
+ default value, if the API could not allocate the memory for the
+ dynamically allocated memory it should refer to.
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#src_ptr" name="Notes_src_ptr">1</a></sup>
+ the SE_Contact_Information that is to be duplicated
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#dest_ptr" name="Notes_dest_ptr">2</a></sup>
+ a pointer to an SE_Contact_Information structure within memory
+    managed by the caller.  Non-dynamically allocated fields in this
+    structure will be directly populated with data from the input fields.
+    Dynamically allocated data will be allocated by this function, then
+    copied from the input structure.
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SE_CloneCIOnlineResource.htm">SE_CloneCIOnlineResource</a>.
+<strong>Next:</strong> <a href="SE_CloneDataQualityElement.htm">SE_CloneDataQualityElement</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

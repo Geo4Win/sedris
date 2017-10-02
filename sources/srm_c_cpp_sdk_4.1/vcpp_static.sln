@@ -1,0 +1,39 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "all_sdk", "src\all_sdk.vcproj", "{38FC0714-2840-4D6E-8725-0B9AE1F21BEC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FDFE72EC-6CC4-267C-743F-DFC077D96C56} = {FDFE72EC-6CC4-267C-743F-DFC077D96C56}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lib_srm", "src\lib\lib_srm.vcproj", "{3FEFEE0C-B852-438A-8028-6CB94C496276}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sample_srm_access", "src\apps\sample_srm_access\sample_srm_access.vcproj", "{FDFE72EC-6CC4-267C-743F-DFC077D96C56}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3FEFEE0C-B852-438A-8028-6CB94C496276} = {3FEFEE0C-B852-438A-8028-6CB94C496276}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{38FC0714-2840-4D6E-8725-0B9AE1F21BEC}.Debug.ActiveCfg = Debug|Win32
+		{38FC0714-2840-4D6E-8725-0B9AE1F21BEC}.Debug.Build.0 = Debug|Win32
+		{38FC0714-2840-4D6E-8725-0B9AE1F21BEC}.Release.ActiveCfg = Release|Win32
+		{38FC0714-2840-4D6E-8725-0B9AE1F21BEC}.Release.Build.0 = Release|Win32
+		{3FEFEE0C-B852-438A-8028-6CB94C496276}.Debug.ActiveCfg = Debug|Win32
+		{3FEFEE0C-B852-438A-8028-6CB94C496276}.Debug.Build.0 = Debug|Win32
+		{3FEFEE0C-B852-438A-8028-6CB94C496276}.Release.ActiveCfg = Release|Win32
+		{3FEFEE0C-B852-438A-8028-6CB94C496276}.Release.Build.0 = Release|Win32
+		{FDFE72EC-6CC4-267C-743F-DFC077D96C56}.Debug.ActiveCfg = Debug|Win32
+		{FDFE72EC-6CC4-267C-743F-DFC077D96C56}.Debug.Build.0 = Debug|Win32
+		{FDFE72EC-6CC4-267C-743F-DFC077D96C56}.Release.ActiveCfg = Release|Win32
+		{FDFE72EC-6CC4-267C-743F-DFC077D96C56}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

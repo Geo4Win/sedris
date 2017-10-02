@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>EDCS_Mapping_Type_Code</title>
+<link rel="stylesheet" href="../../../docs/styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>EDCS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+Concept Mapping from EDCS 3.1 to EDCS 4.x
+<!-- EDCS spec. 4.4 -->
+<font color="#ffffff">
+Types
+</font>
+<br>
+<font color="#ffffff">
+EDCS_Mapping_Type_Code
+</font>
+</th></tr>
+</table></div>
+
+<!-- EDCS SDK Release 4.4.0 -->
+
+<PRE>
+/*
+ * REGISTERABLE ENUM: EDCS_Mapping_Type_Code
+ *
+ *   Specifies the type and multiplicity of a given forward
+ *   mapping.
+ */
+</PRE><span class="Code">
+typedef <a href="../../../docs/types/EDCS_Integer.htm">EDCS_Integer</a> EDCS_Mapping_Type_Code;
+</span>
+<table>
+<tr><th>Enumerant</th> <th>Definition</th> <th>Value</th></tr>
+<tr><td class="CFunction"><a name="EDCS_MAPPING_TYP_ONE_TO_ZERO">EDCS_MAPPING_TYP_ONE_TO_ZERO</a></td>
+<td class="CFunction"><PRE>
+ There is no forward mapping for the given concept.
+
+ In any mapping data structure with an entry list,
+ the entry list will be null.  Check the notes
+ field for relevant information.
+</PRE></td>
+<td class="CFunction">1</td>
+</TR>
+<tr><td class="CFunction"><a name="EDCS_MAPPING_TYP_ONE_TO_ONE">EDCS_MAPPING_TYP_ONE_TO_ONE</a></td>
+<td class="CFunction"><PRE>
+ The given concept has an exact mapping to a single
+ concept in the target version of EDCS.
+
+ In any mapping data structure with an entry list, there
+ will be exactly one unique replacement entry in the list.
+ There may or may not be information in the notes field
+ for this case.
+</PRE></td>
+<td class="CFunction">2</td>
+</TR>
+<tr><td class="CFunction"><a name="EDCS_MAPPING_TYP_ONE_TO_ONE_CONDITIONAL">EDCS_MAPPING_TYP_ONE_TO_ONE_CONDITIONAL</a></td>
+<td class="CFunction"><PRE>
+ The given concept has a single exact replacement, but it
+ involves a different category of concept, such as an
+ EA-with-specific-value mapping to an EC.
+</PRE></td>
+<td class="CFunction">3</td>
+</TR>
+<tr><td class="CFunction"><a name="EDCS_MAPPING_TYP_ONE_TO_ONE_QUALIFIED">EDCS_MAPPING_TYP_ONE_TO_ONE_QUALIFIED</a></td>
+<td class="CFunction"><PRE>
+ The given concept has been mapped to a combination of two or more
+ concepts in the target version of EDCS.
+
+ This occurs only within mapping data structures that have
+ entry lists. In this case, the entry list will have one or
+ more entries, and the notes field may have relevant
+ information.
+</PRE></td>
+<td class="CFunction">4</td>
+</TR>
+<tr><td class="CFunction"><a name="EDCS_MAPPING_TYP_ONE_TO_MANY">EDCS_MAPPING_TYP_ONE_TO_MANY</a></td>
+<td class="CFunction"><PRE>
+ The mapping for the given concept could be one of many concepts
+ in the target version of EDCS. The description of the possible
+ mappings will be in the notes field of the mapping structure.
+ There will be no mapping entries in the entry list.
+</PRE></td>
+<td class="CFunction">5</td>
+</TR>
+<tr><td class="CFunction"><a name="EDCS_MAPPING_TYP_CHANGE_IN_DATATYPE">EDCS_MAPPING_TYP_CHANGE_IN_DATATYPE</a></td>
+<td class="CFunction"><PRE>
+ The given concept has a one-to-one mapping, but the new concept
+ is realized by a different data type than was the old concept.
+
+ This mapping type only occurs when mapping EA and EE concepts.
+</PRE></td>
+<td class="CFunction">6</td>
+</TR>
+<tr><td class="CFunction"><a name="EDCS_MAPPING_TYP_CHANGE_TO_CHARACTERISTIC">EDCS_MAPPING_TYP_CHANGE_TO_CHARACTERISTIC</a></td>
+<td class="CFunction"><PRE>
+ The given concept has a one-to-one mapping, but the new concept
+ is an EDCS Attribute with an EDCS Value Characteristic.
+
+ This mapping type only occurs when mapping EA and EE concepts.
+</PRE></td>
+<td class="CFunction">7</td>
+</TR>
+<tr><td class="CFunction"><a name="EDCS_MAPPING_TYP_SPECIAL_CASE">EDCS_MAPPING_TYP_SPECIAL_CASE</a></td>
+<td class="CFunction"><PRE>
+ The mapping for the given concept is not implemented in the code
+ but the description of the mapping will be in the notes field
+ of the mapping structure.  There will be no mapping entries in
+ the entry list.
+</PRE></td>
+<td class="CFunction">8</td>
+</TR>
+</table>
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="EDCS_Mapping_Entry_Type_Code.htm">EDCS_Mapping_Entry_Type_Code</a>.
+<strong>Next:</strong> <a href="EDCS_Value_Characteristic_Code_Entry.htm">EDCS_Value_Characteristic_Code_Entry</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE_Element_Type</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX C - Types
+</font>
+<br>
+<font color="#ffffff">
+SE_Element_Type
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<PRE>
+/*
+ * STRUCT: SE_Element_Type
+ *
+ *   This data type specifies the type of data being specified by
+ *   a &lt;Table Property Description&gt; instance.
+ */
+</PRE>
+<span class="Code">typedef struct 
+<br>
+{</span>
+<br>
+<table class="CFunctionPrototype">
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Element_Type_Code.htm">SE_Element_Type_Code</a></td>
+        <td class="CFunction"><a name="code_type"></a>code_type;</td></tr>
+<tr> <td class="CFunction">   </td><td class="CFunction">union</td></tr>
+<tr> <td class="CFunction">   </td><td class="CFunction">{</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../../../../src/lib/edcs/docs/types/EDCS_Attribute_Code.htm">EDCS_Attribute_Code</a></td>
+            <td class="CFunction"><a name="attribute"></a>attribute;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SE_Index_Code.htm">SE_Index_Code</a></td>
+            <td class="CFunction"><a name="index"></a>index;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SE_Variable_Code.htm">SE_Variable_Code</a></td>
+            <td class="CFunction"><a name="variable"></a>variable;</td></tr>
+<tr><td class="CFunction"></td> <td class="CFunction">} <a
+        name="code"></a>code;</td></tr>
+</table>
+<span class="Code">
+} SE_Element_Type;</span>
+<br>
+
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SE_DRM_Type_Structure.htm">SE_DRM_Type_Structure</a>.
+<strong>Next:</strong> <a href="SE_Element_Type_Code.htm">SE_Element_Type_Code</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

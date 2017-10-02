@@ -1,0 +1,228 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Property Table Reference</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Property Table Reference
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Property Table Reference</h2>
+<h3>Superclass - <a href="SEDRISAbstractBase.htm">&lt;SEDRIS Abstract Base&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies a reference to an (N-1)-dimensional
+ slice of an N-dimensional <A href="PropertyTable.htm">&lt;Property Table&gt;</A> component of a
+ <A href="DataTableLibrary.htm">&lt;Data Table Library&gt;</A> instance, where N is the
+ number of <A href="Axis.htm">&lt;Axis&gt;</A> components of the
+ <A href="PropertyTable.htm">&lt;Property Table&gt;</A> instance.
+</P><P>
+ The <A href="PropertyTableReference.htm">&lt;Property Table Reference&gt;</A> class exists
+ primarily to allow a data provider to select a set of parameters from a
+ standard <A href="PropertyTable.htm">&lt;Property Table&gt;</A> instance containing
+ an indexed collection of alternatives.
+</P><P>
+ Since only one <A href="Axis.htm">&lt;Axis&gt;</A> instance requires a specific tick mark
+ to be specified, a <A href="PropertyTableReference.htm">&lt;Property Table Reference&gt;</A> instance
+ specifies the <A href="Axis.htm#axis_type">axis_type</A> of the
+ <A href="Axis.htm">&lt;Axis&gt;</A> instance to be matched, and the
+ <A href="#index_on_axis">index_on_axis</A>
+ specifies the tick mark on that <A href="Axis.htm">&lt;Axis&gt;</A> instance.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet06.pdf"><strong>6</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet03.pdf"><strong>3</strong></A>
+</LI>
+<LI><A href="sheet08.pdf"><strong>8</strong></A>
+</LI>
+<LI><A href="sheet16.pdf"><strong>16</strong></A>
+</LI>
+<LI><A href="sheet18.pdf"><strong>18</strong></A>
+</LI>
+<LI><A href="sheet19.pdf"><strong>19</strong></A>
+</LI>
+<LI><A href="sheet22.pdf"><strong>22</strong></A>
+</LI>
+</UL>
+
+<h3>Example</h3>
+<OL>
+<LI><P>
+ See the <A href="PropertyTableReferenceControlLink.htm">&lt;Property Table Reference Control Link&gt;</A> class,
+ second example.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ Why not use a collection of <A href="PropertyValue.htm">&lt;Property Value&gt;</A> instances instead
+ of a <A href="PropertyTableReference.htm">&lt;Property Table Reference&gt;</A> instance?
+</B></DT>
+<DD><P>
+ In some cases this might be possible, and is not prohibited.  However,
+ some tables are multi-dimensional. It would not be possible to define
+ <A href="PropertyValue.htm">&lt;Property Value&gt;</A> instances to designate each combination of
+ axis values that occur in a multi-dimensional table.
+</P></DD>
+<DT><B>
+ Why an N-1 dimensional slice?
+</B></DT>
+<DD><P>
+ This is the only case for which there is a currently identified
+ need, given the recursive composition capabilities of the
+ <A href="PropertyTable.htm">&lt;Property Table&gt;</A> class.
+</P></DD>
+<DT><B>
+ What restrictions are there on <A href="#axis_type">axis_type</A>?
+</B></DT>
+<DD><P>
+ The referenced <A href="PropertyTable.htm">&lt;Property Table&gt;</A> instance shall
+ contain an <A href="Axis.htm">&lt;Axis&gt;</A> component with a matching
+ <A href="#axis_type">axis_type</A>; otherwise,
+ there are no restrictions. Any <A href="Axis.htm">&lt;Axis&gt;</A> component
+ within the target
+ <A href="PropertyTable.htm">&lt;Property Table&gt;</A> instance may be specified.
+</P></DD>
+<DT><B>
+ Why is <A href="#index_on_axis">index_on_axis</A>
+ a zero-based index?
+</B></DT>
+<DD><P>
+ Because the corresponding <A href="Axis.htm">&lt;Axis&gt;</A> data structures for
+ tick marks are C arrays, and C uses zero-based indexes for arrays.
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/CharacteristicsOfPropertyTableReference.htm">&lt;&lt;Characteristics Of Property Table Reference&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ConstraintsOnAssociates.htm">&lt;&lt;Constraints On Associates&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Associated to (one-way)</h3>
+<UL>
+<li>one <a href="PropertyTable.htm">&lt;Property Table&gt;</a> instance</li>
+</UL>
+
+<h3>Composed of (two-way)</h3>
+<UL>
+<li>zero or one <a href="PropertyTableReferenceControlLink.htm">&lt;Property Table Reference Control Link&gt;</a> instance</li>
+</UL>
+
+<h3>Component of (two-way)</h3>
+<UL>
+<li>zero or more <a href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</a> instances</li>
+<li>zero or more <a href="GeometryRepresentation.htm">&lt;Geometry Representation&gt;</a> instances</li>
+<li>zero or more <a href="Image.htm">&lt;Image&gt;</a> instances</li>
+<li>zero or more <a href="PredefinedFunction.htm">&lt;Predefined Function&gt;</a> instances</li>
+<li>zero or more <a href="PropertySet.htm">&lt;Property Set&gt;</a> instances</li>
+<li>zero or more <a href="PropertyTable.htm">&lt;Property Table&gt;</a> instances</li>
+<li>zero or more <a href="Vertex.htm">&lt;Vertex&gt;</a> instances</li>
+</UL>
+
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../../../../src/lib/edcs/docs/types/EDCS_Attribute_Code.htm">EDCS_Attribute_Code</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="axis_type">axis_type</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_axis_type">1</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="index_on_axis">index_on_axis</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_index_on_axis">2</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Fields Notes</h3>
+<h4><a href="#axis_type" name="Notes_axis_type">axis_type</a></h4>
+<P>
+ The <A href="#axis_type">axis_type</A> field specifies the
+ property being described by the target <A href="Axis.htm">&lt;Axis&gt;</A> instance.
+</P>
+<h4><a href="#index_on_axis" name="Notes_index_on_axis">index_on_axis</a></h4>
+<P>
+ The <A href="#index_on_axis">index_on_axis</A> field specifies
+ the (zero-based) index of the tick mark being referenced on
+ the specified <A href="Axis.htm">&lt;Axis&gt;</A> instance. This
+ allows the tick mark to be specified in a manner
+ independent of the class of the <A href="Axis.htm">&lt;Axis&gt;</A> instance.
+ The only restriction is that the value of
+ <A href="#index_on_axis">index_on_axis</A>
+ shall be between zero and
+ <A href="Axis.htm#axis_value_count">axis_value_count</A>-1
+ for the specified <A href="Axis.htm">&lt;Axis&gt;</A> instance.
+</P><P>
+ If <A href="#index_on_axis">index_on_axis</A>
+ specifies some value j, the (j+1)<sup>th</sup> tick mark on
+ the <A href="Axis.htm">&lt;Axis&gt;</A> instance is being referenced regardless
+ of the data type of the tick marks specified by the specific
+ subclass of <A href="Axis.htm">&lt;Axis&gt;</A> being used.
+</P><P>
+ For a <A href="PropertyTableReference.htm">&lt;Property Table Reference&gt;</A> instance with a
+ <A href="PropertyTableReferenceControlLink.htm">&lt;Property Table Reference Control Link&gt;</A> component
+ <span class="ConstructName">X</span>, the value of the
+ <A href="#index_on_axis">index_on_axis</A> field is obtained
+ from <span class="ConstructName">X</span>.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="PropertyTable.htm">Property Table</A>.
+<strong>Next:</strong> <A href="PropertyTableReferenceControlLink.htm">Property Table Reference Control Link</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

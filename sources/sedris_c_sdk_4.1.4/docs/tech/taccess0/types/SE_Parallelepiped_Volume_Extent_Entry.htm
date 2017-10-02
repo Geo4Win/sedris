@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE_Parallelepiped_Volume_Extent_Entry</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Types
+</font>
+<br>
+<font color="#ffffff">
+SE_Parallelepiped_Volume_Extent_Entry
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<PRE>
+/*
+ * STRUCT: SE_Parallelepiped_Volume_Extent_Entry
+ *
+ *   Represents parallelepiped &lt;Volume Level Of Detail Data&gt;.
+ */
+</PRE>
+<span class="Code">typedef struct 
+<br>
+{</span>
+<br>
+<table class="CFunctionPrototype">
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../drm/classes/ParallelepipedVolumeExtent.htm">SE_Parallelepiped_Volume_Extent_Fields</a></td>
+        <td class="CFunction"><a name="parallelepiped"></a>parallelepiped;</td><td class="CFunction"><sup><A href="#Notes_parallelepiped">1</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../drm/classes/ReferenceVector.htm">SE_Reference_Vector_Fields</a></td>
+        <td class="CFunction"><a
+        name="reference_vectors"></a>reference_vectors[3];</td><td class="CFunction"><sup><A href="#Notes_reference_vectors">2</A></sup></td></tr>
+</table>
+<span class="Code">
+} SE_Parallelepiped_Volume_Extent_Entry;</span>
+<br>
+
+<br>
+<HR>
+<H2>Field Notes</H2>
+<h4><a href="#parallelepiped" name="Notes_parallelepiped">parallelepiped</a></h4>
+<P>
+ Specifies the dimensions of the box, the axes of which
+ are specified by the entries of
+ <A href="#reference_vectors">reference_vectors</A>.
+</P>
+<h4><a href="#reference_vectors" name="Notes_reference_vectors">reference_vectors</a></h4>
+<P>
+ The <A href="../../drm/classes/ReferenceVector.htm#vector_type">vector_type</A>
+ of each entry of
+<A href="#reference_vectors">reference_vectors</A> shall be
+<A href="../../drm/types/SE_Reference_Vector_Type.htm#SE_REFVEC_PARALLELEPIPED_EDGE_DIRECTION">SE_REFVEC_PARALLELEPIPED_EDGE_DIRECTION</A>.
+</P><P>
+ Consequently, <A href="../../drm/classes/PropertyValue.htm">&lt;Property Value&gt;</A> information is not needed
+ for the entries of <A href="#reference_vectors">reference_vectors</A>.
+</P>
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SE_Packed_Hierarchy_Reference_Ptr.htm">SE_Packed_Hierarchy_Reference_Ptr</a>.
+<strong>Next:</strong> <a href="SE_Predicate.htm">SE_Predicate</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

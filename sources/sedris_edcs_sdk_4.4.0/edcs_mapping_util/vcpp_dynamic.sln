@@ -1,0 +1,29 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "mapping_util_sdk", "src\mapping_util_sdk.vcproj", "{6CDD9787-557D-4A87-8344-4BB3BE4F4147}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lib_map_util_dynamic", "src\lib\lib_map_util_dynamic.vcproj", "{6BDCF96C-7069-4755-B903-48A7E5155ADE}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{6CDD9787-557D-4A87-8344-4BB3BE4F4147}.Debug.ActiveCfg = Debug|Win32
+		{6CDD9787-557D-4A87-8344-4BB3BE4F4147}.Debug.Build.0 = Debug|Win32
+		{6CDD9787-557D-4A87-8344-4BB3BE4F4147}.Release.ActiveCfg = Release|Win32
+		{6CDD9787-557D-4A87-8344-4BB3BE4F4147}.Release.Build.0 = Release|Win32
+		{6BDCF96C-7069-4755-B903-48A7E5155ADE}.Debug.ActiveCfg = Debug|Win32
+		{6BDCF96C-7069-4755-B903-48A7E5155ADE}.Debug.Build.0 = Debug|Win32
+		{6BDCF96C-7069-4755-B903-48A7E5155ADE}.Release.ActiveCfg = Release|Win32
+		{6BDCF96C-7069-4755-B903-48A7E5155ADE}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

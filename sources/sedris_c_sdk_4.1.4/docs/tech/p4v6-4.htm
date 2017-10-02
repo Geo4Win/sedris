@@ -1,0 +1,438 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>P4V6 - Section 4</title>
+<META name="Author" CONTENT="SAIC">
+<link rel="stylesheet" type="text/css" href="../styles/SDK_SEDRIS.css">
+</head>
+<body>
+
+<a name="Top" id="Top"></a>
+
+<div align="center">
+<table border="2" class="doc_set_header">
+<tr><th class="doc_set_header">
+<big><big>
+Data Tables Technical Guide
+</big></big>
+<br />
+<font color="#ffffff">
+Section 4 - PUTTING IT ALL TOGETHER
+</font>
+</th></tr>
+</table>
+
+<table class="doc_set_toc">
+<tr>
+<th class="doc_set_toc_outline_number"><a name="41" id="41">4.1</a></th>
+<th class="doc_set_toc_outline_description">Overview</th>
+</tr>
+
+<tr><td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+This section presents several examples that use the DRM classes
+discussed
+</p></td></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="42" id="42">4.2</a></td>
+<th class="doc_set_toc_outline_description">
+<a href="drm/classes/PropertyTable.htm">&lt;Property Table&gt;</a>
+ Examples</th>
+</tr>
+
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description">
+<table class="doc_set_toc">
+<tr>
+<th class="doc_set_toc_outline_number"><a name="421" id="421">4.2.1</a></td>
+<th class="doc_set_toc_outline_description">
+    <a href="drm/classes/PropertyTable.htm">&lt;Property Table&gt;</a>:
+    Backscatter Table Example
+</th>
+</tr>
+
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+Consider the following 2-dimensional table of electromagnetic
+backscatter properties for some material. One axis, representing
+angle of incidence, is a regularly-spaced numeric axis, starting
+at 15 degrees and incrementing by 15 degrees for a total of 6
+tick marks. The other axis specifies 5 electromagnetic bands.
+</p>
+<table border="1" cellpadding="3">
+<tr>
+<td></td>
+<th>15</th> <th>30</th> <th>45</th> <th>60</th> <th>75</th> <th>90</th>
+</tr>
+<tr>
+<th align="left">RF</th>
+<td align="center">300</td> <td align="center">290</td>
+<td align="center">240</td> <td align="center">207</td>
+<td align="center">198</td> <td align="center">170</td>
+</tr>
+<th align="left">microwave</th>
+<td align="center">160</td> <td align="center">230</td>
+<td align="center">180</td> <td align="center">167</td>
+<td align="center">158</td> <td align="center">130</td>
+</tr>
+<th align="left">infrared</th>
+<td align="center">165</td> <td align="center">152</td>
+<td align="center">78</td> <td align="center">22</td>
+<td align="center">8</td> <td align="center">1.5</td>
+</tr>
+<th align="left">visible</th>
+<td align="center">179</td> <td align="center">122</td>
+<td align="center">45</td> <td align="center">11</td>
+<td align="center">6</td> <td align="center">1</td>
+</tr>
+<th align="left">ultraviolet</th>
+<td align="center">200</td> <td align="center">90</td>
+<td align="center">40</td> <td align="center">9</td>
+<td align="center">4</td> <td align="center">0.1</td>
+</tr>
+</table>
+<p>
+The ECC for this data set is
+<a href="../../src/lib/edcs/docs/dictionary/ECC_E.htm#ECC_ELECTROMAGNETIC_MATERIAL_PROPERTY_SET">
+ECC_ELECTROMAGNETIC_MATERIAL_PROPERTY_SET</a>, while the
+EACs for the backscatter data and the two axes are
+<a href="../../src/lib/edcs/docs/dictionary/EAC_S.htm#EAC_SURFACE_BACKSCATTER">
+EAC_SURFACE_BACKSCATTER</a>,
+<a href="../../src/lib/edcs/docs/dictionary/EAC_I.htm#EAC_INCIDENCE_ELEV_ANGLE_LOCAL">
+EAC_INCIDENCE_ELEV_ANGLE_LOCAL</a>, and
+<a href="../../src/lib/edcs/docs/dictionary/EAC_E.htm#EAC_EM_BAND">EAC_EM_BAND</a>.
+</p><p>
+Mapping this to the DRM, we have a
+ <a href="drm/classes/PropertyTable.htm">&lt;Property Table&gt;</a>
+ with a
+ <a href="drm/classes/ClassificationData.htm">&lt;Classification Data&gt;</a>
+ identifying it as a
+<a href="../../src/lib/edcs/docs/dictionary/ECC_E.htm#ECC_ELECTROMAGNETIC_MATERIAL_PROPERTY_SET">
+ECC_ELECTROMAGNETIC_MATERIAL_PROPERTY_SET</a>, together with
+two <a href="drm/classes/Axis.htm">&lt;Axis&gt;</a> components and a
+<a href="drm/classes/TablePropertyDescription.htm">&lt;Table Property Description&gt;</a>
+ component.
+</p><p>
+Since
+<a href="../../src/lib/edcs/docs/dictionary/EAC_E.htm#EAC_EM_BAND">EAC_EM_BAND</a>
+is an enumerated EA, the corresponding axis is represented as an
+ <a href="drm/classes/EnumerationAxis.htm">&lt;Enumeration Axis&gt;</a>
+ instance, wherein the field values are
+<table>
+<tr><td>
+<a href="drm/classes/EnumerationAxis.htm#axis_type">axis_type</a>
+</td><td>
+ { <a href="../../docs/tech/drm/types/SE_Element_Type_Code.htm">SE_ELEMTYPCOD_ATTRIBUTE</a>,
+ { EAC_EM_BAND }}
+</td></tr>
+
+<tr><td>
+<a href="drm/classes/EnumerationAxis.htm#value_unit">value_unit</a>
+</td><td>
+EUC_UNITLESS
+</td></tr>
+
+<tr><td>
+<a href="drm/classes/EnumerationAxis.htm#value_unit_scale">value_unit_scale</a>
+</td><td>
+ESC_UNI
+</td></tr>
+
+<tr><td>
+<a href="drm/classes/EnumerationAxis.htm#axis_value_count">axis_value_count</a>
+</td><td>
+ 5
+</td></tr>
+<tr><td>
+<a href="drm/classes/EnumerationAxis.htm#axis_value_array">axis_value_array[]</a>
+</td><td>
+ { EEC_EMBAND_RADIO_FREQUENCY,
+                       EEC_EMBAND_MICROWAVE,
+                       EEC_EMBAND_INFRARED,
+                       EEC_EMBAND_VISIBLE,
+                       EEC_EMBAND_ULTRAVIOLET
+                     }
+</td></tr>
+</table>
+</p><p>
+On the other hand,
+<a href="../../src/lib/edcs/docs/dictionary/EAC_I.htm#EAC_INCIDENCE_ELEV_ANGLE_LOCAL">
+EAC_INCIDENCE_ELEV_ANGLE_LOCAL</a> is a numeric EA
+and has regular tick mark spacing for the axis in this example,
+so it is represented as a <a href="drm/classes/RegularAxis.htm">
+&lt;Regular Axis&gt;</a>, wherein the field values are
+<pre>
+axis_type          = { SE_ELEMCODTYP_ATTRIBUTE,
+                       { EAC_INCIDENCE_ELEV_ANGLE_LOCAL }
+value_unit         = EUC_DEGREE_ARC
+value_unit_scale        = ESC_UNI
+axis_value_count   = 6
+interpolation_type = SE_INTERPOLATION_TYP_LINEAR
+first_value        = { EDCS_AVT_INTEGER, 15 }
+spacing            = { EDCS_AVT_INTEGER, 15 }
+spacing_type       = SE_SPACING_TYP_ARITHMETIC
+axis_alignment     = SE_AXIS_ALNMNT_NONE
+</pre>
+</p><p>
+Since interpolation makes sense for the
+<a href="../../src/lib/edcs/docs/dictionary/EAC_I.htm#EAC_INCIDENCE_ELEV_ANGLE_LOCAL">
+EAC_INCIDENCE_ELEV_ANGLE_LOCAL</a> axis, linear interpolation is selected
+as an example. Note that the <a href="drm/classes/Axis.htm">&lt;Axis&gt;</a>
+is not aligned, because it is not a spatial axis.
+</p><p>
+Now for the actual backscatter data itself, which is modelled
+via a <a href="drm/classes/TablePropertyDescription.htm">
+&lt;Table Property Description&gt;</a> with the following
+fields, completing the definition of the structure of the
+cells in the <a href="drm/classes/PropertyTable.htm">&lt;Property Table&gt;</a>.
+</p>
+<pre>
+meaning     = { SE_ELEMCODTYP_ATTRIBUTE,
+                { EAC_SURFACE_BACKSCATTER },
+value_unit  = EUC_DB
+value_unit_scale = ESC_UNI
+value_type  = EDCS_AVT_REAL
+</pre>
+<p>
+Suppose that we have the following additional information
+about the backscatter values.
+</p>
+<ul>
+<li>Minimum value:   0.0 dB
+</li>
+<li>Maximum value: 400.0 dB
+</li>
+<li>Tolerance:       0.1 dB
+</li>
+</ul>
+<p>
+This information can be represented by adding three
+<a href="drm/classes/PropertyCharacteristic.htm">&lt;Property Characteristic&gt;</a>
+components to the <a href="drm/classes/TablePropertyDescription.htm">
+&lt;Table Property Description&gt;</a> component, wherein the field values of
+each <a href="drm/classes/PropertyCharacteristic.htm">
+&lt;Property Characteristic&gt;</a> correspond to one of the rows in the
+following table.
+</p>
+<table border="1" cellpadding="3">
+<tr>
+<th><a href="drm/classes/PropertyCharacteristic.htm#meaning">
+    meaning</a>
+</th>
+<th colspan=2>
+    <a href="drm/classes/PropertyCharacteristic.htm#characteristic_value">
+    characteristic_value</a>
+</th>
+</tr>
+<tr>
+<td><a href="../../src/lib/edcs/docs/dictionary/characteristic.htm#EVC_MINIMUM_VALUE">
+EVC_MINIMUM_VALUE</a></td>
+<td>
+<a href="../../src/lib/edcs/docs/types/EDCS_Attribute_Value_Type.htm#EDCS_AVT_REAL">
+EDCS_AVT_REAL</a></td> <td align="center">0.0</td>
+</tr>
+<tr>
+<td><a href="../../src/lib/edcs/docs/dictionary/characteristic.htm#EVC_MAXIMUM_VALUE">
+EVC_MAXIMUM_VALUE</a></td>
+<td>
+<a href="../../src/lib/edcs/docs/types/EDCS_Attribute_Value_Type.htm#EDCS_AVT_REAL">
+EDCS_AVT_REAL</a></td> <td align="center">400.0</td>
+</tr>
+<tr>
+<td><a href="../../src/lib/edcs/docs/dictionary/characteristic.htm#EVC_TOLERANCE">
+EVC_TOLERANCE</a></td>
+<td>
+<a href="../../src/lib/edcs/docs/types/EDCS_Attribute_Value_Type.htm#EDCS_AVT_REAL">
+EDCS_AVT_REAL</a></td> <td align="center">0.1</td>
+</tr>
+</table>
+<p>
+Note that the actual backscatter values do not appear explicitly in
+the DRM representation; instead, they are placed in the
+<a href="drm/classes/DataTable.htm">&lt;Data Table&gt;</a> by the
+<a href="taccess0/functions/SE_PutDataTableData.htm">SE_PutDataTableData()</a>
+function of the SEDRIS API, and can then be retrieved via the
+<a href="taccess0/functions/SE_GetDataTableData.htm">SE_GetDataTableData()</a>
+function.
+</p></td></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="422" id="422">4.2.2</a></td>
+<th class="doc_set_toc_outline_description">
+    <a href="drm/classes/PropertyTable.htm">&lt;Property Table&gt;</a>:
+    Emissivity Table Example
+</th>
+</tr>
+
+<tr><td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+Consider the following emissivity table corresponding to the
+same material as that being modelled in the previous example.
+</p>
+<table border="1" cellpadding="3">
+<tr>
+<td></td>
+<th>15</th> <th>30</th> <th>45</th> <th>60</th> <th>75</th> <th>90</th>
+</tr>
+<tr>
+<th align="left">RF</th>
+<td align="center">.32</td> <td align="center">.97</td>
+<td align="center">.38</td> <td align="center">207</td>
+<td align="center">.98</td> <td align="center">.70</td>
+</tr>
+<th align="left">microwave</th>
+<td align="center">.24</td> <td align="center">.93</td>
+<td align="center">.48</td> <td align="center">167</td>
+<td align="center">.58</td> <td align="center">.30</td>
+</tr>
+<th align="left">infrared</th>
+<td align="center">.56</td> <td align="center">.59</td>
+<td align="center">.78</td> <td align="center">22</td>
+<td align="center">.8</td> <td align="center">.5</td>
+</tr>
+<th align="left">visible</th>
+<td align="center">.73</td> <td align="center">.58</td>
+<td align="center">.45</td> <td align="center">.51</td>
+<td align="center">.6</td> <td align="center">.1</td>
+</tr>
+<th align="left">ultraviolet</th>
+<td align="center">.51</td> <td align="center">.43</td>
+<td align="center">.47</td> <td align="center">.19</td>
+<td align="center">.14</td> <td align="center">0.1</td>
+</tr>
+</table>
+<p>
+Since the axes of this table are identical to those in the previous
+example, and since the data herein describes further
+EM properties of the same material, we can easily represent
+the two tables as a single <a href="drm/classes/PropertyTable.htm">
+&lt;Property Table&gt;</a> rather
+than representing each separately, just by adding a
+second <a href="drm/classes/TablePropertyDescription.htm">
+&lt;Table Property Description&gt;</a> for the emissivity
+property (and subsequently using the API to add the corresponding
+element to each cell) to the existing <a href="drm/classes/PropertyTable.htm">
+&lt;Property Table&gt;</a>, thus giving it a two &quot;element&quot; signature.
+<font color="red">NOTE: This can be done while creating the
+<a href="drm/classes/PropertyTable.htm">&lt;Property Table&gt;</a> instance
+initially, but cannot currently be done in update mode; that is, in update
+mode the signature of a <a href="drm/classes/DataTable.htm">&lt;Data Table&gt;</a>
+for which the cell data has already been created cannot be modified.</font>
+</p><p>
+The difference between this <a href="drm/classes/PropertyTable.htm">
+&lt;Property Table&gt;</a> and that in
+the preceding example is that a second
+<a href="drm/classes/TablePropertyDescription.htm">
+&lt;Table Property Description&gt;</a> with the field values shown below
+would be added before the cell data was created.
+</p>
+<pre>
+meaning     = { SE_ELEMCODTYP_ATTRIBUTE, { EAC_EMISSIVITY },
+value_unit  = EUC_UNITLESS
+value_unit_scale = ESC_UNI
+value_type  = EDCS_AVT_REAL
+</pre>
+</p></td></tr>
+
+<!-- $$$ Paul Berner suggests adding a PTRef example here, indexing
+    on MEM band into the visible row ->
+</table>
+</td></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="43" id="43">4.3</a></th>
+<th class="doc_set_toc_outline_description">
+<a href="drm/classes/PropertyGrid.htm">&lt;Property Grid&gt;</a> Example</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="44" id="44">4.4</a></th>
+<th class="doc_set_toc_outline_description">Nested
+ <a href="drm/classes/PropertyGrid.htm">&lt;Property Grid&gt;</a>
+ Example</th>
+</tr>
+
+<tr><td></td>
+<td class="doc_set_toc_outline_description"><p>
+In this section, we will consider a grid of ocean volume properties.
+The properties of interest are:
+<ul>
+<li><a href="../../src/lib/edcs/docs/dictionary/EAC_P.htm#EAC_PRACTICAL_SALINITY">
+    EAC_PRACTICAL_SALINITY</a>
+</li>
+<li>
+   <a href="../../src/lib/edcs/docs/dictionary/EAC_W.htm#EAC_WATERBODY_TEMPERATURE">
+   EAC_WATERBODY_TEMPERATURE</a>
+<li>
+   <a href="../../src/lib/edcs/docs/dictionary/EAC_W.htm#EAC_WATERBODY_SOUND_SPEED">
+   EAC_WATERBODY_SOUND_SPEED</a>
+</li>
+</ul>
+</p><p>
+One would expect a simple 3-dimensional
+ <a href="drm/classes/PropertyGrid.htm">&lt;Property Grid&gt;</a>
+ (with longitude, latitude, and depth
+<a href="drm/classes/Axis.htm">&lt;Axis&gt;</a> components,
+for example) to be an adequate tool for this problem, and
+indeed it works well for shallow volumes in deep ocean areas
+and deep volumes over flat bottom areas. However, cases in
+which the volume intersects an irregular ocean bottom - that
+is, in which part of the volume lies outside the scope of the
+problem, since it isn't water - present a difficulty.
+</p><p>
+Although one possible solution is to provide a
+<a href="drm/classes/PropertyCharacteristic.htm">&lt;Property Characteristic&gt;</a>
+for
+<a href="../../src/lib/edcs/docs/dictionary/characteristic.htm#EVC_NOT_APPLICABLE">
+EVC_NOT_APPLICABLE</a>, this approach has its own problems,
+since the properties of interest in this example vary rapidly
+near the surface but slowly in the depths. For reasonable
+data resolution, this kind of data requires an
+<a href="drm/classes/IrregularAxis.htm">&lt;Irregular Axis&gt;</a> that has
+small intervals between tick marks near the surface, but large intervals between
+tick marks near the bottom. If such an axis is used, rather
+coarse chunks will be excluded near the ocean bottom.
+A further consideration is that computational models that use
+this kind of data are sensitive to boundary conditions such
+as the values at the bottom surface.
+</p><p>
+A solution to this problem is to use a 2-dimensional
+(latitude, longitude)
+ <a href="drm/classes/PropertyGrid.htm">&lt;Property Grid&gt;</a> to model the
+ocean surface. Each grid cell has a reference to a
+1-dimensional depth grid, which ends at a bottom depth
+appropriate for its (latitude, longitude) location. This
+gives us a collection of depth grids &quot;nested&quot;
+in the surface grid.
+</p></td></tr>
+</table>
+</div>
+
+<p>
+<hr>
+<font color="#ff0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a></strong>,
+<strong><a href="p4v6.htm">Table of Contents</a></strong>
+<br /><br />
+
+<div align="center">
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr><td class="doc_set_footer" align="left">
+Last updated: July 1, 2011
+</td>
+<td class="doc_set_footer" align="right">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td>
+</tr>
+</table>
+</td></tr>
+</table>
+</div>
+</body>
+</html>

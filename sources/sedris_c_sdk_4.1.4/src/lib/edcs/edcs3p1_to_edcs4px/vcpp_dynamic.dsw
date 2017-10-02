@@ -1,0 +1,146 @@
+Microsoft Developer Studio Workspace File, Format Version 6.00
+# WARNING: DO NOT EDIT OR DELETE THIS WORKSPACE FILE!
+
+###############################################################################
+
+Project: "all_sdk"=".\src\all_sdk.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name map_3p1_attribute
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name map_3p1_classification
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name map_3p1_enumerant
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name map_3p1_group
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name map_3p1_value_characteristic
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "lib_map_dynamic"=".\src\lib\lib_map_dynamic.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name lib_map_util_dynamic
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "lib_map_util_dynamic"="..\edcs_mapping_util\src\lib\lib_map_util_dynamic.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "map_3p1_attribute"=".\src\apps\sample_attribute_mapping\map_3p1_attribute.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name lib_map_dynamic
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "map_3p1_classification"=".\src\apps\sample_class_mapping\map_3p1_classification.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name lib_map_dynamic
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "map_3p1_enumerant"=".\src\apps\sample_enumerant_mapping\map_3p1_enumerant.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name lib_map_dynamic
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "map_3p1_group"=".\src\apps\sample_group_mapping\map_3p1_group.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name lib_map_dynamic
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "map_3p1_value_characteristic"=".\src\apps\sample_value_characteristic_mapping\map_3p1_value_characteristic.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name lib_map_dynamic
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+}}}
+
+Package=<3>
+{{{
+}}}
+
+###############################################################################
+

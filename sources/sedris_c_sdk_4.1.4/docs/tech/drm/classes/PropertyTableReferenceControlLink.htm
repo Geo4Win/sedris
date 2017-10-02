@@ -1,0 +1,267 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Property Table Reference Control Link</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Property Table Reference Control Link
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Property Table Reference Control Link</h2>
+<h3>Superclass - <a href="ControlLink.htm">&lt;Control Link&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies an <A href="Expression.htm">&lt;Expression&gt;</A>
+ component, the value of which determines the
+ <A href="PropertyTableReference.htm#index_on_axis">index_on_axis</A>
+ field value of all target <A href="PropertyTableReference.htm">&lt;Property Table Reference&gt;</A>
+ instances.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet17.pdf"><strong>17</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet18.pdf"><strong>18</strong></A>
+</LI>
+</UL>
+
+<h3>Example</h3>
+<OL>
+<LI><P>
+ A simple example is provided in
+ <i>4.16.6.3 &lt;DRM Property Table Reference Control Link&gt;</i> of ISO/IEC 18023-1.
+</P></LI>
+<LI><P>
+ Consider an instance of a geometric model of a wind sock that
+ is to be rotated depending on the wind direction. Whenever
+ the wind changes, the <A href="GeometryModelInstance.htm">&lt;Geometry Model Instance&gt;</A> instance
+ is rotated accordingly.
+</P><P>
+ The <A href="Rotation.htm">&lt;Rotation&gt;</A> component of the applicable
+ <A href="LSRTransformation.htm">&lt;LSR Transformation&gt;</A> instance is controlled
+ by a <A href="RotationControlLink.htm">&lt;Rotation Control Link&gt;</A> component,
+ which is driven using values from a
+ <A href="PropertyTable.htm">&lt;Property Table&gt;</A> instance as depicted in
+ <a href="#Figure44">Figure 44</a>.
+ The <A href="RotationControlLink.htm">&lt;Rotation Control Link&gt;</A> component
+ is driven by
+ a <A href="PredefinedFunction.htm">&lt;Predefined Function&gt;</A> component with
+ <A href="PredefinedFunction.htm#function">function</A> =
+ <A href="../types/SE_Predefined_Function.htm#SE_PREDEFFN_TABLE_VALUE">SE_PREDEFFN_TABLE_VALUE</A>,
+ which in turn has a <A href="PropertyTableReference.htm">&lt;Property Table Reference&gt;</A> component
+ associated to the <A href="PropertyTable.htm">&lt;Property Table&gt;</A> instance
+ containing the rotation values.
+</P>
+<DIV align="center">
+<p>
+<A name="Figure44"></A>
+<IMG SRC="../Images/PTRCLk_Ex1a.png"
+     ALT="Property Table Reference Control Link, Example 1a">
+</p>
+<p class=FigureCaption>Figure 44 &#8212; &lt;DRM Property Table Reference Control Link&gt; wind direction example</p>
+</DIV>
+<P>
+ The wind sock rotates around the V axis, depending on wind speed.
+ If the wind speed is zero, it hangs down toward the
+ ground, while if the wind speed is higher, it straightens out
+ parallel to the ground.
+</P><P>
+ The <A href="PropertyTable.htm">&lt;Property Table&gt;</A> instance is classified as
+ <A href="../../../../src/lib/edcs/docs/dictionary/ECC_C.htm#ECC_CONTROL_VALUE">ECC_CONTROL_VALUE</A>, and has a
+ <A href="TablePropertyDescription.htm">&lt;Table Property Description&gt;</A> component specified by
+ <A href="../types/SE_Variable_Code.htm#SE_VARCOD_ROTATION_ANGLE">SE_VARCOD_ROTATION_ANGLE</A>.
+ The <A href="PropertyTable.htm">&lt;Property Table&gt;</A> instance specifies,
+ for each <A href="../../../../src/lib/edcs/docs/dictionary/EAC_W.htm#EAC_WIND_SPEED">EAC_WIND_SPEED</A> value, the angle to which the
+ wind sock should be rotated as depicted in
+ <a href="#Figure45">Figure 45</a>.
+</P>
+<DIV align="center">
+<p>
+<A name="Figure45"></A>
+<IMG SRC="../Images/PTRCLk_Ex1b.png"
+     ALT="Property Table Reference Control Link, Example 1b">
+</p>
+<p class=FigureCaption>Figure 45 &#8212; &lt;DRM Property Table Reference Control Link&gt; wind sock example</p>
+</DIV>
+</LI>
+<LI><P>
+ Consider a <A href="TranslationControlLink.htm">&lt;Translation Control Link&gt;</A> instance that is driven
+ using values from a <A href="PropertyTable.htm">&lt;Property Table&gt;</A> instance. The
+ table values that are to
+ be used are cycled through eight times, with each cycle taking ten
+ seconds. This sequence of cycles is triggered from outside the
+ transmittal as depicted in <a href="#Figure46">Figure 46</a>.
+</P>
+<DIV align="center">
+<p>
+<A name="Figure46"></A>
+<IMG SRC="../Images/PTRCLk_Ex2a.png"
+     ALT="Property Table Reference Control Link, Example 2a">
+</p>
+<p class=FigureCaption>Figure 46 &#8212; &lt;DRM Property Table Reference Control Link&gt; cycle example</p>
+</DIV>
+<P>
+ The controlling <A href="Expression.htm">&lt;Expression&gt;</A> component of the
+ <A href="TranslationControlLink.htm">&lt;Translation Control Link&gt;</A> instance is a
+ <A href="PredefinedFunction.htm">&lt;Predefined Function&gt;</A> component with
+ <A href="PredefinedFunction.htm#function">function</A> =
+ <A href="../types/SE_Predefined_Function.htm#SE_PREDEFFN_TABLE_VALUE">SE_PREDEFFN_TABLE_VALUE</A>,
+ whose argument is a <A href="PropertyTableReference.htm">&lt;Property Table Reference&gt;</A> component
+ associated to the <A href="PropertyTable.htm">&lt;Property Table&gt;</A> instance containing the
+ translation values as depicted in
+ <a href="#Figure47">Figure 47</a>.
+</P>
+<DIV align="center">
+<p>
+<A name="Figure47"></A>
+<IMG SRC="../Images/PTRCLk_Ex2b.png"
+     ALT="Property Table Reference Control Link, Example 2b">
+</p>
+<p class=FigureCaption>Figure 47 &#8212; &lt;DRM Property Table Reference Control Link&gt; translation value table example</p>
+</DIV>
+<P>
+ The <A href="TablePropertyDescription.htm">&lt;Table Property Description&gt;</A>
+ instance for the control values and the
+ <A href="Variable.htm">&lt;Variable&gt;</A> instance controlling the referencing
+ expression have the same <span class="Code">meaning</span> =
+ {<A href="../types/SE_Element_Type_Code.htm#SE_ELEMTYPCOD_VARIABLE">SE_ELEMTYPCOD_VARIABLE</A>,
+ {<A href="../types/SE_Variable_Code.htm#SE_VARCOD_TRANSLATION_AMOUNT">SE_VARCOD_TRANSLATION_AMOUNT</A>}}
+</P><P>
+ The <A href="PropertyTableReferenceControlLink.htm">&lt;Property Table Reference Control Link&gt;</A>
+ instance controls which value is
+ referenced from the <A href="PropertyTable.htm">&lt;Property Table&gt;</A> instance
+ and is itself driven by the
+ <A href="PredefinedFunction.htm">&lt;Predefined Function&gt;</A> component with
+ <A href="PredefinedFunction.htm#function">function</A> =
+ <A href="../types/SE_Predefined_Function.htm#SE_PREDEFFN_CYCLE_TIME">SE_PREDEFFN_CYCLE_TIME</A>.
+ The cycle length (ten seconds) and the number of cycles (eight)
+ are specified as arguments to the function.
+</P><P>
+ The <A href="Variable.htm">&lt;Variable&gt;</A> instance drives the
+ <A href="PropertyTableReferenceControlLink.htm">&lt;Property Table Reference Control Link&gt;</A>
+ instance through the
+ <A href="PredefinedFunction.htm">&lt;Predefined Function&gt;</A>
+ instance so that it
+ determines which value is referenced from the
+ <A href="PropertyTable.htm">&lt;Property Table&gt;</A> instance.
+ To provide the hook for this <A href="Variable.htm">&lt;Variable&gt;</A> instance
+ to be set from outside the transmittal, the
+ <A href="Variable.htm">&lt;Variable&gt;</A> instance is associated with
+ an <A href="InterfaceTemplate.htm">&lt;Interface Template&gt;</A> instance (not shown).
+</P><P>
+ If this <A href="TranslationControlLink.htm">&lt;Translation Control Link&gt;</A>
+ instance appears within the component tree of a <A href="Model.htm">&lt;Model&gt;</A>
+ instance, in order to set the <A href="Variable.htm">&lt;Variable&gt;</A>
+ instance using another variable
+ from outside the transmittal, the data provider specifies that the
+ <A href="GeometryModelInstance.htm">&lt;Geometry Model Instance&gt;</A> instance is to supply a
+ <A href="Variable.htm">&lt;Variable&gt;</A> component from its own context to provide
+ the value of the <A href="Variable.htm">&lt;Variable&gt;</A> instance within the
+ component tree of the <A href="Model.htm">&lt;Model&gt;</A> instance.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<p>
+No FAQs supplied.
+</p>
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ControlLinkConstraints.htm">&lt;&lt;Control Link Constraints&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Composed of (two-way) (inherited)</h3>
+<UL>
+<li>one or more {ordered} <a href="Expression.htm">&lt;Expression&gt;</a> instances</li>
+</UL>
+<h3>Component of (two-way)</h3>
+<UL>
+<li>one or more <a href="PropertyTableReference.htm">&lt;Property Table Reference&gt;</a> instances</li>
+</UL>
+
+<h2><a name="inherited_field">Inherited Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_String.htm">SE_String</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="description">description</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_description">1</A></sup></p></td>
+</tr>
+</table>
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Integer_Positive.htm">SE_Integer_Positive</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="expression_index">expression_index</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_expression_index">2</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Fields Notes</h3>
+<h4><a href="#description" name="Notes_description">description</a></h4>
+<P>
+ The <A href="#description">description</A> field
+ specifies a text description of the purpose of the
+ <A href="ControlLink.htm">&lt;Control Link&gt;</A> instance.
+</P>
+<h4><a href="#expression_index" name="Notes_expression_index">expression_index</a></h4>
+<P>
+ The <A href="#expression_index">expression_index</A> field specifies which
+ of the ordered <A href="Expression.htm">&lt;Expression&gt;</A> components is that which
+ controls the
+ <A href="PropertyTableReference.htm#index_on_axis">index_on_axis</A>
+ values of the affected <A href="PropertyTableReference.htm">&lt;Property Table Reference&gt;</A> instances.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="PropertyTableReference.htm">Property Table Reference</A>.
+<strong>Next:</strong> <A href="PropertyValue.htm">Property Value</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

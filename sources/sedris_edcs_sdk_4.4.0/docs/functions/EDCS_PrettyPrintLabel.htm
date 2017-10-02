@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>EDCS PrettyPrintLabel</title>
+<link rel="stylesheet" href="../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>EDCS Reference Manual</big></big>
+<br>
+<!-- EDCS spec. 4.4 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+EDCS PrettyPrintLabel
+</font>
+</th></tr>
+</table></div>
+
+<!-- EDCS SDK Release 4.4.0 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern const char *</td></tr>
+<tr><td class="CFunction" colspan = "4">EDCS_PrettyPrintLabel</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1"><td class="CFunction">const&nbsp;</td><td class="CFunction">char&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="label_in_ptr"></a>label_in_ptr</td><td class="CFunction"><sup><A href="#Notes_label_in_ptr">1</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+  Given a character string representing an EDCS label, this function will
+  return a character string that has been smartly capitalized, for
+  presentation purposes.  Abbreviations in EDCS labels will retain their
+  capitalization.
+
+</p>
+<br>
+<h3>Returns</h3>
+  const char * representing the formated label.  If the
+ <A href="#label_in_ptr">label_in_ptr</A> is NULL, then this string
+ will read &quot;NULL&quot; and if the
+ <A href="#label_in_ptr">label_in_ptr</A> is a 0 length string
+ a 0 length string will be returned.
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#label_in_ptr" name="Notes_label_in_ptr">1</a></sup>
+ the EDCS label to be pretty-printed.
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="EDCS_LabelToEVCode.htm">EDCS_LabelToEVCode</a>.
+<strong>Next:</strong> <a href="EDCS_PrintAttributeCode.htm">EDCS_PrintAttributeCode</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

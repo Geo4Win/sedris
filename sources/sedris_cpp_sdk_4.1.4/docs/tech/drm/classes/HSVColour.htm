@@ -1,0 +1,162 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>HSV Colour</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+HSV Colour
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: HSV Colour</h2>
+<h3>Superclass - <a href="ColourData.htm">&lt;Colour Data&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies the actual hue, saturation,
+ and value data values for a colour defined within the
+ HSV colour model.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet14.pdf"><strong>14</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+This class appears on only one page of the DRM class diagram.
+<h3>Example</h3>
+<OL>
+<LI><P>
+ An <A href="HSVColour.htm">&lt;HSV Colour&gt;</A> instance representing pure black
+ has an <A href="#hsv_data">hsv_data</A> field with a value of
+ <A href="../types/SE_HSV_Data.htm#value">value</A> = 0.0,
+ where <A href="../types/SE_HSV_Data.htm#hue">hue</A>
+ and
+ <A href="../types/SE_HSV_Data.htm#saturation">saturation</A>
+ may have any value.
+</P></LI>
+<LI><P>
+ An <A href="HSVColour.htm">&lt;HSV Colour&gt;</A> instance representing red
+ has an <A href="#hsv_data">hsv_data</A> field with a value of
+ <A href="../types/SE_HSV_Data.htm#hue">hue</A> = 0.0,
+ <A href="../types/SE_HSV_Data.htm#saturation">saturation</A> = 1.0,
+ and <A href="../types/SE_HSV_Data.htm#value">value</A> = 1.0).
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ How can a data consumer who does not use the HSV colour model
+ retrieve the colour values in the colour model he or she does use?
+</B></DT>
+<DD><P>
+ The specific procedure to be followed depends on the colour model
+ used by the consuming application.
+<P></P>
+ If the data consumer uses a colour model directly supported by
+ the DRM, the Level 0 API can be instructed to change all
+ <A href="ColourData.htm">&lt;Colour Data&gt;</A> instances to the desired
+ colour model before any
+ <A href="ColourData.htm">&lt;Colour Data&gt;</A> instances are retrieved.
+<P></P>
+ Otherwise, the Level 0 API can be instructed to change all
+ <A href="ColourData.htm">&lt;Colour Data&gt;</A> instances to an appropriate
+ colour model before any
+ <A href="ColourData.htm">&lt;Colour Data&gt;</A> instances are retrieved,
+ and upon retrieval the consuming application can invoke the
+ appropriate utility function provided in the DRM API to convert
+ to the desired colour model.
+</P></DD>
+<DT><B>
+ Where can users go for further information on colour in the DRM?
+</B></DT>
+<DD><P>
+ See <A href="../../p4v8.htm">P4V8</A>
+ of the SEDRIS Documentation Set for further information.
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Composed of (two-way)</h3>
+<UL>
+<li>zero or one <a href="HSVColourControlLink.htm">&lt;HSV Colour Control Link&gt;</a> instance</li>
+</UL>
+
+<h3>Component of (two-way) (inherited)</h3>
+<UL>
+<li>zero or more <a href="AmbientColour.htm">&lt;Ambient Colour&gt;</a> instances</li>
+<li>zero or more <a href="DiffuseColour.htm">&lt;Diffuse Colour&gt;</a> instances</li>
+<li>zero or more <a href="EmissiveColour.htm">&lt;Emissive Colour&gt;</a> instances</li>
+<li>zero or more <a href="SpecularColour.htm">&lt;Specular Colour&gt;</a> instances</li>
+</UL>
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_HSV_Data.htm">SE_HSV_Data</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="hsv_data">hsv_data</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_hsv_data">1</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Fields Notes</h3>
+<h4><a href="#hsv_data" name="Notes_hsv_data">hsv_data</a></h4>
+<P>
+ The <A href="#hsv_data">hsv_data</A> field specifies
+ the HSV colour coordinate. For an <A href="HSVColour.htm">&lt;HSV Colour&gt;</A>
+ instance with an <A href="HSVColourControlLink.htm">&lt;HSV Colour Control Link&gt;</A>
+ component, the value of the <A href="#hsv_data">hsv_data</A>
+ field is obtained from the control link.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="HierarchySummaryItem.htm">Hierarchy Summary Item</A>.
+<strong>Next:</strong> <A href="HSVColourControlLink.htm">HSV Colour Control Link</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SRM_CS_Code</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SRM Reference Manual</big></big>
+<br>
+<!-- SRM spec. 4.1 -->
+<font color="#ffffff">
+Types
+</font>
+<br>
+<font color="#ffffff">
+SRM_CS_Code
+</font>
+</th></tr>
+</table></div>
+
+<!-- SRM SDK Release 4.1.4 -->
+
+<PRE>
+/*!
+ * REGISTERABLE ENUM: SRM_CS_Code
+ *
+ *  The SRM_Integer code data type SRM_CS_Code specifies a CS by its code as
+ *  defined in Clause 5 of 18026 or by registration.
+ */
+</PRE><span class="Code">
+typedef <a href="SRM_Integer.htm">SRM_Integer</a> SRM_CS_Code;
+</span>
+<table>
+<tr><th>Enumerant</th> <th>Definition</th> <th>Value</th></tr>
+<tr><td class="CFunction"><a name="SRM_CSCOD_UNSPECIFIED">SRM_CSCOD_UNSPECIFIED</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">0</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_CSCOD_EUCLIDEAN_3D">SRM_CSCOD_EUCLIDEAN_3D</a></td>
+<td class="CFunction"><PRE>
+ Euclidean 3D.
+</PRE></td>
+<td class="CFunction">1</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_CSCOD_LOCOCENTRIC_EUCLIDEAN_3D">SRM_CSCOD_LOCOCENTRIC_EUCLIDEAN_3D</a></td>
+<td class="CFunction"><PRE>
+ Localized Euclidean 3D
+</PRE></td>
+<td class="CFunction">2</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_CSCOD_SPHERICAL">SRM_CSCOD_SPHERICAL</a></td>
+<td class="CFunction"><PRE>
+ Spherical.
+</PRE></td>
+<td class="CFunction">3</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_CSCOD_LOCOCENTRIC_SPHERICAL">SRM_CSCOD_LOCOCENTRIC_SPHERICAL</a></td>
+<td class="CFunction"><PRE>
+ Localized spherical
+</PRE></td>
+<td class="CFunction">4</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_CSCOD_AZIMUTHAL_SPHERICAL">SRM_CSCOD_AZIMUTHAL_SPHERICAL</a></td>
+<td class="CFunction"><PRE>
+ Azimuthal spherical.
+</PRE></td>
+<td class="CFunction">5</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_CSCOD_LOCOCENTRIC_AZIMUTHAL_SPHERICAL">SRM_CSCOD_LOCOCENTRIC_AZIMUTHAL_SPHERICAL</a></td>
+<td class="CFunction"><PRE>
+ Localized azimuthal spherical.
+</PRE></td>
+<td class="CFunction">6</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_CSCOD_GEODETIC">SRM_CSCOD_GEODETIC</a></td>
+<td class="CFunction"><PRE>
+ Geodetic 3D.
+</PRE></td>
+<td class="CFunction">7</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_CSCOD_PLANETODETIC">SRM_CSCOD_PLANETODETIC</a></td>
+<td class="CFunction"><PRE>
+ Planetodetic 3D. Geodetic 3D with longitude in opposite direction.
+</PRE></td>
+<td class="CFunction">8</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_CSCOD_CYLINDRICAL">SRM_CSCOD_CYLINDRICAL</a></td>
+<td class="CFunction"><PRE>
+ Cylindrical.
+</PRE></td>
+<td class="CFunction">9</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_CSCOD_LOCOCENTRIC_CYLINDRICAL">SRM_CSCOD_LOCOCENTRIC_CYLINDRICAL</a></td>
+<td class="CFunction"><PRE>
+ Localized cylindrical.
+</PRE></td>
+<td class="CFunction">10</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_CSCOD_MERCATOR">SRM_CSCOD_MERCATOR</a></td>
+<td class="CFunction"><PRE>
+ Mercator and augmented Mercator map projection coordinate systems.
+</PRE></td>
+<td class="CFunction">11</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_CSCOD_OBLIQUE_MERCATOR_SPHERICAL">SRM_CSCOD_OBLIQUE_MERCATOR_SPHERICAL</a></td>
+<td class="CFunction"><PRE>
+ Oblique Mercator and augmented oblique Mercator map projections of a
+ sphere.
+</PRE></td>
+<td class="CFunction">12</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_CSCOD_TRANSVERSE_MERCATOR">SRM_CSCOD_TRANSVERSE_MERCATOR</a></td>
+<td class="CFunction"><PRE>
+ Transverse Mercator and augmented transverse Mercator map projections.
+</PRE></td>
+<td class="CFunction">13</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_CSCOD_LAMBERT_CONFORMAL_CONIC">SRM_CSCOD_LAMBERT_CONFORMAL_CONIC</a></td>
+<td class="CFunction"><PRE>
+ Lambert conformal conic and augmented Lambert conformal conic map
+ projections.
+</PRE></td>
+<td class="CFunction">14</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_CSCOD_POLAR_STEREOGRAPHIC">SRM_CSCOD_POLAR_STEREOGRAPHIC</a></td>
+<td class="CFunction"><PRE>
+ Polar stereographic and augmented polar stereographic map projections.
+</PRE></td>
+<td class="CFunction">15</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_CSCOD_EQUIDISTANT_CYLINDRICAL">SRM_CSCOD_EQUIDISTANT_CYLINDRICAL</a></td>
+<td class="CFunction"><PRE>
+ Equidistant cylindrical and augmented equidistant cylindrical map
+ projections.
+</PRE></td>
+<td class="CFunction">16</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_CSCOD_SURFACE_GEODETIC">SRM_CSCOD_SURFACE_GEODETIC</a></td>
+<td class="CFunction"><PRE>
+ Surface geodetic.
+</PRE></td>
+<td class="CFunction">17</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_CSCOD_SURFACE_PLANETODETIC">SRM_CSCOD_SURFACE_PLANETODETIC</a></td>
+<td class="CFunction"><PRE>
+ Surface planetodetic. Surface geodetic with longitude in opposite
+ direction.
+</PRE></td>
+<td class="CFunction">18</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_CSCOD_LOCOCENTRIC_SURFACE_EUCLIDEAN">SRM_CSCOD_LOCOCENTRIC_SURFACE_EUCLIDEAN</a></td>
+<td class="CFunction"><PRE>
+ Localization of Euclidean 2D CS into plane surface in 3D
+ position-space.
+</PRE></td>
+<td class="CFunction">19</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_CSCOD_LOCOCENTRIC_SURFACE_AZIMUTHAL">SRM_CSCOD_LOCOCENTRIC_SURFACE_AZIMUTHAL</a></td>
+<td class="CFunction"><PRE>
+ Localization of azimuthal CS into plane surface in 3D position-space.
+</PRE></td>
+<td class="CFunction">20</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_CSCOD_LOCOCENTRIC_SURFACE_POLAR">SRM_CSCOD_LOCOCENTRIC_SURFACE_POLAR</a></td>
+<td class="CFunction"><PRE>
+ Localization of polar CS into plane surface in 3D position-space.
+</PRE></td>
+<td class="CFunction">21</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_CSCOD_EUCLIDEAN_2D">SRM_CSCOD_EUCLIDEAN_2D</a></td>
+<td class="CFunction"><PRE>
+ Euclidean 2D.
+</PRE></td>
+<td class="CFunction">22</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_CSCOD_LOCOCENTRIC_EUCLIDEAN_2D">SRM_CSCOD_LOCOCENTRIC_EUCLIDEAN_2D</a></td>
+<td class="CFunction"><PRE>
+ Localized Euclidean 2D
+</PRE></td>
+<td class="CFunction">23</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_CSCOD_AZIMUTHAL">SRM_CSCOD_AZIMUTHAL</a></td>
+<td class="CFunction"><PRE>
+ Azimuthal coordinate system.
+</PRE></td>
+<td class="CFunction">24</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_CSCOD_LOCOCENTRIC_AZIMUTHAL">SRM_CSCOD_LOCOCENTRIC_AZIMUTHAL</a></td>
+<td class="CFunction"><PRE>
+ Localization of azimuthal CS.
+</PRE></td>
+<td class="CFunction">25</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_CSCOD_POLAR">SRM_CSCOD_POLAR</a></td>
+<td class="CFunction"><PRE>
+ Polar coordinate system.
+</PRE></td>
+<td class="CFunction">26</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_CSCOD_LOCOCENTRIC_POLAR">SRM_CSCOD_LOCOCENTRIC_POLAR</a></td>
+<td class="CFunction"><PRE>
+ Localized polar.
+</PRE></td>
+<td class="CFunction">27</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_CSCOD_EUCLIDEAN_1D">SRM_CSCOD_EUCLIDEAN_1D</a></td>
+<td class="CFunction"><PRE>
+ Euclidean 1D.
+</PRE></td>
+<td class="CFunction">28</td>
+</TR>
+</table>
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SRM_Coordinate3D_Array.htm">SRM_Coordinate3D_Array</a>.
+<strong>Next:</strong> <a href="SRM_Direction_Array.htm">SRM_Direction_Array</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

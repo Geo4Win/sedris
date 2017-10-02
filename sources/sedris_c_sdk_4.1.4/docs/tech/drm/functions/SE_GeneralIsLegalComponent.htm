@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE GeneralIsLegalComponent</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX D - Functions
+</font>
+<br>
+<font color="#ffffff">
+SE GeneralIsLegalComponent
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../types/SE_Boolean.htm">SE_Boolean</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SE_GeneralIsLegalComponent</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/SE_Short_Integer_Positive.htm">SE_Short_Integer_Positive</a>&nbsp;</td> <td class="CFunction"><a name="major_drm_version"></a>major_drm_version,</td><td class="CFunction"><sup><A href="#Notes_major_drm_version">1</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/SE_Byte_Unsigned.htm">SE_Byte_Unsigned</a>&nbsp;</td> <td class="CFunction"><a name="minor_drm_version"></a>minor_drm_version,</td><td class="CFunction"><sup><A href="#Notes_minor_drm_version">2</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/SE_Short_Integer_Positive.htm">SE_Short_Integer_Positive</a>&nbsp;</td> <td class="CFunction"><a name="drm_class_a"></a>drm_class_a,</td><td class="CFunction"><sup><A href="#Notes_drm_class_a">3</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/SE_Short_Integer_Positive.htm">SE_Short_Integer_Positive</a>&nbsp;</td> <td class="CFunction"><a name="drm_class_b"></a>drm_class_b</td><td class="CFunction"><sup><A href="#Notes_drm_class_b">4</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+  Tests whether an instance of class 'drm_class_a' can be a component of an
+  instance of class 'drm_class_b'.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A>
+</td><td class="Status">
+ if an instance of class
+ 'drm_class_a' can legally be a component of an instance of class
+ 'drm_class_b'.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Boolean.htm#SE_FALSE">SE_FALSE</A>
+</td><td class="Status">
+ otherwise.
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#major_drm_version" name="Notes_major_drm_version">1</a></sup>
+ major DRM version number of the DRM version for
+    which this function is being called
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#minor_drm_version" name="Notes_minor_drm_version">2</a></sup>
+ minor DRM version number of the DRM version for
+    which this function is being called
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#drm_class_a" name="Notes_drm_class_a">3</a></sup>
+ represents a DRM class A, the candidate component class
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#drm_class_b" name="Notes_drm_class_b">4</a></sup>
+ represents a DRM class B
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SE_GeneralIsLegalAssociate.htm">SE_GeneralIsLegalAssociate</a>.
+<strong>Next:</strong> <a href="SE_GeneralIsLinkClass.htm">SE_GeneralIsLinkClass</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

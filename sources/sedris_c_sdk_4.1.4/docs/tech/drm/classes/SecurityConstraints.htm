@@ -1,0 +1,255 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Security Constraints</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Security Constraints
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Security Constraints</h2>
+<h3>Superclass - <a href="SEDRISAbstractBase.htm">&lt;SEDRIS Abstract Base&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies the security classification
+ and any access and/or usage constraints
+ for its containing DRM object, provided in a form
+ compatible with <A href="../bibliography.htm#I19115">ISO 19115</A>.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet20.pdf"><strong>20</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+This class appears on only one page of the DRM class diagram.
+<h3>Example</h3>
+<OL>
+<LI><P>
+ Given a <A href="TransmittalRoot.htm">&lt;Transmittal Root&gt;</A> instance that has
+ restricted access (no access by non-U.S. citizens) and is for
+ official use only, the fields of the
+<A href="SecurityConstraints.htm">&lt;Security Constraints&gt;</A> instance's information might be
+ set to
+<TABLE>
+<TR>
+<TD>
+ <A href="#use_limitation_count">use_limitation_count</A>
+</TD>
+<TD>
+ 0
+</TD>
+</TR>
+<TR>
+<TD>
+ <A href="#use_limitation">use_limitation</A>
+</TD>
+<TD>
+ {empty}
+</TD>
+</TR>
+<TR>
+<TD>
+ <A href="#classification">classification</A>
+</TD>
+<TD>
+ <A href="../types/SE_MD_ClassificationCode.htm#SE_MD_CLSCOD_SECRET">SE_MD_CLSCOD_SECRET</A>
+</TD>
+</TR>
+<TR>
+<TD>
+<A href="#user_note">user_note</A>
+</TD>
+<TD>
+ &quot;No access by non-U.S. citizens&quot;
+</TD>
+</TR>
+<TR>
+<TD>
+<A href="#classification_system">classification_system</A>
+</TD>
+<TD>
+ &quot;United States Department of Defense&quot;
+</TD>
+</TR>
+<TR>
+<TD>
+<A href="#handling_description">handling_description</A>
+</TD>
+<TD>
+ &quot;Downgrade on 31 Dec 2004&quot;
+</TD>
+</TR>
+</TABLE>
+</LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ What is the purpose of this class?
+</B></DT>
+<DD><P>
+ This class supports the creation of transmittals that contain
+ classified or sensitive data.
+</P></DD>
+<DT><B>
+ How is the security classification of a DRM object related to the
+ security classifications of its component DRM objects, or to the
+ security classification of its containing DRM object?
+</B></DT>
+<DD><P>
+ In general, the rules for security classification metadata for DRM objects
+ within a transmittal are the same as the rules for security classification
+ markings of the paragraphs and sections within a hierarchically structured
+ classified document. The security classification of a DRM object shall be
+ at least as high as the highest of the security classifications of its
+ component DRM objects, and may be higher if the aggregation of the
+ component DRM objects allows additional information to be inferred.
+ Therefore, the security classification of a DRM object shall be no higher
+ than the security classification of its containing DRM object.
+ Unclassified DRM objects need not have
+ an <A href="SecurityConstraints.htm">&lt;Security Constraints&gt;</A> component, unless
+ they are unclassified components of a classified containing DRM object.
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/MandatoryMetadata.htm">&lt;&lt;Mandatory Metadata&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Component of (two-way)</h3>
+<UL>
+<li>one or more <a href="Identification.htm">&lt;Identification&gt;</a> instances</li>
+</UL>
+
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Short_Integer_Unsigned.htm">SE_Short_Integer_Unsigned</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="use_limitation_count">use_limitation_count</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_use_limitation_count">1</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_String.htm">SE_String</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="use_limitation">use_limitation</a>[];</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_use_limitation">2</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_MD_ClassificationCode.htm">SE_MD_ClassificationCode</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="classification">classification</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_classification">3</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_String.htm">SE_String</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="user_note">user_note</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_user_note">4</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_String.htm">SE_String</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="classification_system">classification_system</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_classification_system">5</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_String.htm">SE_String</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="handling_description">handling_description</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_handling_description">6</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Fields Notes</h3>
+<h4><a href="#use_limitation_count" name="Notes_use_limitation_count">use_limitation_count</a></h4>
+<P>
+ The <A href="#use_limitation_count">use_limitation_count</A>
+ field specifies the number of use limitations specified in
+ <A href="#use_limitation">use_limitation</A>.
+</P>
+<h4><a href="#use_limitation" name="Notes_use_limitation">use_limitation</a></h4>
+<P>
+ If non-empty, each entry of the
+ <A href="#use_limitation">use_limitation</A> field specifies
+ a limitation affecting the fitness for use of the resource
+ being described by the <A href="SecurityConstraints.htm">&lt;Security Constraints&gt;</A> instance.
+</P>
+<h4><a href="#classification" name="Notes_classification">classification</a></h4>
+<P>
+ The <A href="#classification">classification</A> field
+ identifies the handling restrictions
+ on the resource being described by the
+ <A href="SecurityConstraints.htm">&lt;Security Constraints&gt;</A> instance.
+</P>
+<h4><a href="#user_note" name="Notes_user_note">user_note</a></h4>
+<P>
+ The <A href="#user_note">user_note</A> field
+ provides an explanation of the application of
+ the legal constraints or other restrictions
+ and legal prerequisites for obtaining and using
+ the resource being described by the
+ <A href="SecurityConstraints.htm">&lt;Security Constraints&gt;</A> instance.
+</P>
+<h4><a href="#classification_system" name="Notes_classification_system">classification_system</a></h4>
+<P>
+ The <A href="#classification_system">classification_system</A>
+ field identifies the classification system.
+</P>
+<h4><a href="#handling_description" name="Notes_handling_description">handling_description</a></h4>
+<P>
+ The <A href="#handling_description">handling_description</A>
+ field provides any additional
+ information about the restrictions on handling the resource
+ being described by the <A href="SecurityConstraints.htm">&lt;Security Constraints&gt;</A> instance.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="SEC3DLocation.htm">SEC 3D Location</A>.
+<strong>Next:</strong> <A href="SEDRISAbstractBase.htm">SEDRIS Abstract Base</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

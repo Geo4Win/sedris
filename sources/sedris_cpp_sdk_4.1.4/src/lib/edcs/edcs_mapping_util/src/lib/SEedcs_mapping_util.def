@@ -1,0 +1,8 @@
+LIBRARY edcs_mapping_util
+EXPORTS
+EDCS_MapUtilGetImplVerInfo
+EDCS_PrintAttributeWithValueEntry
+EDCS_PrintMappingEntry
+EDCS_PrintValueCharacteristicCodeEntry
+EDCS_PrintMappingEntryTypeCode
+EDCS_PrintMappingTypeCode

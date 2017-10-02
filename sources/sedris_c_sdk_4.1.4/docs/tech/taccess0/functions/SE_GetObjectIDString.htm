@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE GetObjectIDString</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+SE GetObjectIDString
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../types/SE_Return_Code.htm">SE_Return_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SE_GetObjectIDString</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/SE_Object.htm">SE_Object</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="object"></a>object,</td><td class="CFunction"><sup><A href="#Notes_object">1</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/SE_Store.htm">SE_Store</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="store"></a>store,</td><td class="CFunction"><sup><A href="#Notes_store">2</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../../drm/types/SE_String.htm">SE_String</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="id"></a>id</td><td class="CFunction"><sup><A href="#Notes_id">3</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+  Given an object, provides an id string managed by the store
+  passed in which is 1) unique within the transmittal the object
+  resides in and 2) the same over separate SE_Open and SE_Close
+  sessions.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A>
+</td><td class="Status">
+ and the requested id string is returned.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A>
+</td><td class="Status">
+ and the status code is set appropriately if the call failed.
+</td></tr>
+</table>
+
+<h3>Status Codes</h3>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A> is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_SUCCESS">SE_STATCODE_SUCCESS</A>
+</td><td class="Status">
+ set if valid parameters were passed in and all operations succeeded.
+</td></tr>
+</table>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A> is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_UNRESOLVED_OUTPUT_OBJECT">SE_STATCODE_UNRESOLVED_OUTPUT_OBJECT</A>
+</td><td class="Status">
+ set if <A href="#object">object</A> is unresolved.
+</td></tr>
+<tr><td class="Status">
+  <A href="../types/SE_Status_Code.htm#SE_STATCODE_C_STORE_INVALID">SE_STATCODE_C_STORE_INVALID</A>
+</td><td class="Status">
+  set if <A href="#store">store</A> is not a handle to
+ a valid <A href="../types/SE_Store.htm">SE_Store</A>.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_INACTIONABLE_FAILURE">SE_STATCODE_INACTIONABLE_FAILURE</A>
+</td><td class="Status">
+ set if the call fails for any other reason.
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#object" name="Notes_object">1</a></sup>
+ the object for which an id string is requested.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#store" name="Notes_store">2</a></sup>
+ the store that will manage the string memory
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#id" name="Notes_id">3</a></sup>
+ pointer to the id string
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SE_GetObjectFromIDString.htm">SE_GetObjectFromIDString</a>.
+<strong>Next:</strong> <a href="SE_GetObjectReferenceCount.htm">SE_GetObjectReferenceCount</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

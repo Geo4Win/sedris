@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE_Traversal_Order</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Types
+</font>
+<br>
+<font color="#ffffff">
+SE_Traversal_Order
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<PRE>
+/*
+ * REGISTERABLE ENUM: SE_Traversal_Order
+ *
+ *   Used to indicate the desired traversal order for a component
+ *   iterator.  The traversal order of the branches of an &lt;Aggregate Feature&gt;/
+ *   &lt;Aggregate Geometry&gt; are determined either by the DRM or by the
+ *   SE_Hierarchy_Order_Parameters for the iterator, but the general traversal
+ *   scheme - the order to search for objects from the &lt;Transmittal Root&gt;
+ *   down to the maximum depth of the search, is up to the user.
+ *
+ *   All component iterators treat the start_object of the iterator as
+ *   the &quot;root&quot; of a &quot;composition tree&quot;.  The order of the tree traversal
+ *   from that root is given by one of the enumerants below.
+ */
+</PRE><span class="Code">
+typedef <a href="../../drm/types/SE_Short_Integer.htm">SE_Short_Integer</a> SE_Traversal_Order;
+</span>
+<table>
+<tr><th>Enumerant</th> <th>Definition</th> <th>Value</th></tr>
+<tr><td class="CFunction"><a name="SE_TRAVORDR_BREADTH_FIRST">SE_TRAVORDR_BREADTH_FIRST</a></td>
+<td class="CFunction"><PRE>
+ A breadth-first traversal.  Complete contexts (inherited components
+ and transformations) are available during a breadth-first traversal.
+</PRE></td>
+<td class="CFunction">1</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_TRAVORDR_DEPTH_FIRST">SE_TRAVORDR_DEPTH_FIRST</a></td>
+<td class="CFunction"><PRE>
+ A depth-first traversal.   Complete contexts (inherited components and
+ transformations) are available during a depth-first traversal.
+</PRE></td>
+<td class="CFunction">2</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_TRAVORDR_MOST_EFFICIENT">SE_TRAVORDR_MOST_EFFICIENT</a></td>
+<td class="CFunction"><PRE>
+ Leave the API free to search in any order it can.  Context and
+ transformation information is not necessarily maintained.
+</PRE></td>
+<td class="CFunction">3</td>
+</TR>
+</table>
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SE_Transmittal.htm">SE_Transmittal</a>.
+<strong>Next:</strong> <a href="SE_Unmatched_State_Behaviour.htm">SE_Unmatched_State_Behaviour</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

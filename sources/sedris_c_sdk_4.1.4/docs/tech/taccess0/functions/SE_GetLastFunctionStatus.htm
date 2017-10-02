@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE GetLastFunctionStatus</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+SE GetLastFunctionStatus
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../types/SE_Return_Code.htm">SE_Return_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SE_GetLastFunctionStatus</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/SE_Store.htm">SE_Store</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="store"></a>store,</td><td class="CFunction"><sup><A href="#Notes_store">1</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/SE_Status_Code.htm">SE_Status_Code</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="last_function_status"></a>last_function_status,</td><td class="CFunction"><sup><A href="#Notes_last_function_status">2</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../../drm/types/SE_String.htm">SE_String</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="status_description"></a>status_description</td><td class="CFunction"><sup><A href="#Notes_status_description">3</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+  This function provides a user of the SEDRIS API with additional
+  status information for the last function called by that user
+  prior to the invocation of this function; this information is
+  in the form of an <A href="../types/SE_Status_Code.htm">SE_Status_Code</A>
+  (<A href="#last_function_status">last_function_status</A>)
+  accompanied by an elaborating textual description
+ (<A href="#status_description">status_description</A>).
+</P><P>
+  This additional status information is available only for the last
+  function invoked. Upon the next call to the API, the internal
+  status information returned by
+ <A href="SE_GetLastFunctionStatus.htm">SE_GetLastFunctionStatus()</A>
+ will then be updated to refer to that function, regardless of its
+ <A href="../types/SE_Return_Code.htm">SE_Return_Code</A>.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A>
+</td><td class="Status">
+ and the last function information is returned
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A>
+</td><td class="Status">
+ and the status code is set appropriately if the call failed.
+</td></tr>
+</table>
+
+<h3>Status Codes</h3>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A> is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+ <A href="../types/SE_Status_Code.htm#SE_STATCODE_SUCCESS">SE_STATCODE_SUCCESS</A>
+</td><td class="Status">
+ set upon successful completion.
+</td></tr>
+</table>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+ <A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A> is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+ <A href="../types/SE_Status_Code.htm#SE_STATCODE_C_STORE_INVALID">SE_STATCODE_C_STORE_INVALID</A>
+</td><td class="Status">
+ set if <A href="#status_description">status_description</A>
+ is not NULL but <A href="#store">store</A> is not a handle to
+ a valid <A href="../types/SE_Store.htm">SE_Store</A>.
+</td></tr>
+<tr><td class="Status">
+  <A href="../types/SE_Status_Code.htm#SE_STATCODE_INACTIONABLE_FAILURE">SE_STATCODE_INACTIONABLE_FAILURE</A>
+</td><td class="Status">
+  set if
+<OL>
+<LI><A href="#last_function_status">last_function_status</A> is NULL, or
+<LI>the call fails for any other reason.
+</OL>
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#store" name="Notes_store">1</a></sup>
+ manages the memory associated by this function with
+    status_description
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#last_function_status" name="Notes_last_function_status">2</a></sup>
+ an appropriate SE_Status_Code describing the last
+    function (prior to the invocation of SE_GetLastFunctionStatus())
+    invoked by the caller.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#status_description" name="Notes_status_description">3</a></sup>
+ elaborating information (in addition to last_function_status)
+    supplied regarding the last function (prior to the invocation of
+    SE_GetLastFunctionStatus()) invoked by the caller.
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SE_GetIterationLengthRemaining.htm">SE_GetIterationLengthRemaining</a>.
+<strong>Next:</strong> <a href="SE_GetMeshFaceTableData.htm">SE_GetMeshFaceTableData</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

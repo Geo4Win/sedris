@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SRF Summary</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+SRF Summary
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: SRF Summary</h2>
+<h3>Superclass - <a href="SEDRISAbstractBase.htm">&lt;SEDRIS Abstract Base&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies that the SRF identified by the
+ <A href="#srf_context_info">srf_context_info</A> field is used by at
+ least one instance of the DRM class being summarized by the aggregating
+ <A href="DRMClassSummaryItem.htm">&lt;DRM Class Summary Item&gt;</A> instance.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet20.pdf"><strong>20</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+This class appears on only one page of the DRM class diagram.
+<h3>Example</h3>
+<OL>
+<LI><P>
+ Consider a transmittal containing terrain geometry, an oceanographic
+ <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance, an atmospheric
+ <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance, and a number of
+ <A href="Model.htm">&lt;Model&gt;</A> instances. The terrain is in one
+ SRF, the oceanographic <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A>
+ instance in another, the atmospheric <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A>
+ instance in a third, and some of the <A href="Model.htm">&lt;Model&gt;</A>
+ instances in a fourth (in this example, LSR). This situation
+ can be summarized as depicted in <a href="#Figure65">Figure 65</a> where
+ appropriate <A href="SRFSummary.htm">&lt;SRF Summary&gt;</A> instances are components
+ of the respective <A href="DRMClassSummaryItem.htm">&lt;DRM Class Summary Item&gt;</A> instances.
+</P>
+<DIV align="center">
+<p>
+<A name="Figure65"></A>
+<IMG SRC="../Images/SRFS_Ex1.png"
+     ALT="SRF Summary, Example 1">
+</p>
+<p class=FigureCaption>Figure 65 &#8212; &lt;DRM SRF Summary&gt; example</p>
+</DIV>
+</LI>
+<LI><P>
+ Consider a transmittal in which the environment being represented
+ covers two adjacent cells in GTRS Global Coordinate System
+ SRFs. The data provider represents this by creating a
+ <A href="TransmittalRoot.htm">&lt;Transmittal Root&gt;</A> instance with two
+ <A href="EnvironmentRoot.htm">&lt;Environment Root&gt;</A> components, one for each
+ GTRS GCS SRF.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<p>
+No FAQs supplied.
+</p>
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/NonOverlappingDRMClassSummaryItemInstances.htm">&lt;&lt;Non Overlapping DRM Class Summary Item Instances&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Component of (two-way)</h3>
+<UL>
+<li>zero or more <a href="DRMClassSummaryItem.htm">&lt;DRM Class Summary Item&gt;</a> instances</li>
+</UL>
+
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_SRF_Context_Info.htm">SE_SRF_Context_Info</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="srf_context_info">srf_context_info</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_srf_context_info">1</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Fields Notes</h3>
+<h4><a href="#srf_context_info" name="Notes_srf_context_info">srf_context_info</a></h4>
+<P>
+ The <A href="#srf_context_info">srf_context_info</A> field
+ specifies the SRF being identified.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="SpotLight.htm">Spot Light</A>.
+<strong>Next:</strong> <A href="StampBehaviour.htm">Stamp Behaviour</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

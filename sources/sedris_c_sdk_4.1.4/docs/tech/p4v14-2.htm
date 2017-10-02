@@ -1,0 +1,261 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>P4V14 - Section 2</TITLE>
+<META name="Author" CONTENT="SAIC">
+<link rel="stylesheet" type="text/css" href="../styles/SDK_SEDRIS.css">
+</HEAD>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border=2 class="doc_set_header">
+<tr><th class="doc_set_header">
+<big><big>
+How to Produce SEDRIS Transmittals
+</big></big>
+<br>
+<FONT COLOR="#ffffff">Section 2 - DATA PRODUCTION</font>
+</th></tr>
+</table></div>
+
+<div class="CenterDiv">
+<table class="doc_set_toc">
+<tr>
+<th class="doc_set_toc_outline_number"><a name="21">2.1</a></th>
+<th class="doc_set_toc_outline_description">Ensuring the Correctness of Transmittals</th>
+</tr>
+
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+First and foremost, a transmittal is required to pass both syntax_checker
+and rules_checker to have any possibility of being considered valid. The
+syntax_checker application tests that the transmittal is compliant with
+SEDRIS syntax, while rules_checker, given a transmittal that has already
+passed syntax_checker, tests for compliance with some of the formal
+semantic constraints of SEDRIS. Please note that the results of rules_checker
+presuppose that the transmittal has passed syntax_checker; rules_checker
+does not check for the syntactic validity ensured by syntax_checker.
+</p><p>
+When producing a transmittal, please review Part 5, Volume 2 of
+the SEDRIS Documentation Set, <a href="p5v2.htm">Checker User's Guide</a>,
+which specifies the constraints that are checked by each utility
+(apart from the purely syntactic requirements of a SEDRIS transmittal).
+If a data provider specifies data involving a constraint that is not
+currently checked by either application, the data provider's transmittal
+<EM>is still required</EM> to comply with that constraint in order
+to be considered valid.
+</p></td></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="22">2.2</a></th>
+<th class="doc_set_toc_outline_description">Providing Useful Meta-Information</th>
+</tr>
+
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description">
+<table class="doc_set_toc">
+<tr>
+<th class="doc_set_toc_outline_number"><a name="221">2.2.1</a></th>
+<th class="doc_set_toc_outline_description">Overview</th>
+</tr>
+
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+Certain optional information can be supplied within a transmittal that will
+make it more useful to the consumer; in some cases, it can reduce the size
+of the data provider's transmittal as well.
+</p></td></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="222">2.2.2</a></th>
+<th class="doc_set_toc_outline_description">Summary Information</th>
+</tr>
+
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+To produce a valid transmittal, a data provider is required to supply
+at least a sketchy summary of its contents via the
+<a href="drm/classes/TransmittalSummary.htm">&lt;Transmittal Summary&gt;</a>
+component of the
+<a href="drm/classes/TransmittalRoot.htm">&lt;Transmittal Root&gt;</a>.
+To assist the consumer of the
+data, however, it is recommended that data providers convey some of
+their a priori knowledge of their transmittals' structure by providing
+more than the required minimum of summary information. We will begin
+by discussing the required minimum.
+</p><p>
+The fields of the
+<a href="drm/classes/TransmittalSummary.htm">&lt;Transmittal Summary&gt;</a>
+instance of a transmittal should be
+set to their final values by the data provider once the entire content
+of the transmittal has been provided. Recall that the fields of a
+<a href="drm/classes/TransmittalSummary.htm">&lt;Transmittal Summary&gt;</a> 
+instance can be edited after the object has been
+created, and even after components have been added, if desired.
+</p><p>
+The <a href="drm/classes/TransmittalSummary.htm#models_present">models_present</a>,
+<a href="drm/classes/TransmittalSummary.htm#images_present">images_present</a>,
+<a href="drm/classes/TransmittalSummary.htm#sounds_present">sounds_present</a>, and
+<a href="drm/classes/TransmittalSummary.htm#symbols_present">symbols_present</a> field values of a 
+<a href="drm/classes/TransmittalSummary.htm">&lt;Transmittal Summary&gt;</a>
+should all be false unless the 
+<a href="drm/classes/TransmittalRoot.htm">&lt;Transmittal Root&gt;</a> has
+components matching the corresponding 
+<a href="drm/classes/Library.htm">&lt;Library&gt;</a> subclasses.
+Please note that the
+<a href="drm/classes/TransmittalSummary.htm#colours_present">colours_present</a>
+flag does not indicate merely the presence of a
+<a href="drm/classes/ColourTableLibrary.htm">&lt;Colour Table Library&gt;</a>,
+but the presence or absence
+of any <a href="drm/classes/Colour.htm">&lt;Colour&gt;</a> 
+instances anywhere in the transmittal.
+</p><p>
+Recommended practice is that a data provider keep track of what
+classes of objects have been added to a transmittal while it
+is being produced, and when the information is complete, use
+this information to generate an appropriate list of
+<a href="drm/classes/DRMClassSummaryItem.htm">&lt;DRM Class Summary Item&gt;</a>
+components for the
+<a href="drm/classes/TransmittalSummary.htm">&lt;Transmittal Summary&gt;</a>. 
+Note that for classes that specify
+spatial reference frames, such as 
+<a href="drm/classes/EnvironmentRoot.htm">&lt;Environment Root&gt;</a> and
+<a href="drm/classes/PropertyGrid.htm">&lt;Property Grid&gt;</a>, 
+the data provider should in addition specify complete lists of
+<a href="drm/classes/SRFSummary.htm">&lt;SRF Summary&gt;</a>
+instances for the
+<a href="drm/classes/DRMClassSummaryItem.htm">&lt;DRM Class Summary Item&gt;</a>
+instances corresponding to those classes, specifying the spatial reference
+frames in use in the transmittal.
+</p><p>
+A further recommended practice involves the
+<a href="drm/classes/TransmittalSummary.htm#DCS_usage_list_is_comprehensive">EDCS_usage_list_is_comprehensive</a>
+flag of 
+<a href="drm/classes/TransmittalSummary.htm">&lt;Transmittal Summary&gt;</a>.
+If a data provider does not use any EDCS Attribute Codes or
+EDCS Classification Codes in the transmittal, this flag shall be
+set to SE_FALSE. For data providers who use EDCS, however, it
+is recommended (though not required) that such a summary be provided
+via the optional
+<a href="drm/classes/EDCSUseSummaryItem.htm">&lt;EDCS Use Summary Item&gt;</a>
+components of 
+<a href="drm/classes/TransmittalSummary.htm">&lt;Transmittal Summary&gt;</a>.
+If, in such a summary, every 
+<a href="../../src/lib/edcs/docs/types/EDCS_Attribute_Code.htm">EDCS Attribute Code</a>
+used in the transmittal has a corresponding
+<a href="drm/classes/EDCSUseSummaryItem.htm">&lt;EDCS Use Summary Item&gt;</a>
+containing an appropriate
+<a href="drm/classes/PropertyDescription.htm">&lt;Property Description&gt;</a>,
+and every 
+<a href="../../src/lib/edcs/docs/types/EDCS_Classification_Code.htm">EDCS Classification Code</a>
+used in the transmittal has a corresponding 
+<a href="drm/classes/EDCSUseSummaryItem.htm">&lt;EDCS Use Summary Item&gt;</a>
+containing an appropriate 
+<a href="drm/classes/ClassificationData.htm">&lt;Classification Data&gt;<a/> 
+(qualified if the ECC is qualified), then the usage list may be 
+considered comprehensive.
+</p><p>
+For <a href="drm/classes/EnvironmentRoot.htm">&lt;Environment Root&gt;</a> 
+instances and for <a href="drm/classes/Model.htm">&lt;Models&gt;</a>
+with complex structures, data providers are advised to provide
+hierarchy summary information via appropriate
+<a href="drm/classes/HierarchySummaryItem.htm">&lt;Hierarchy Summary Item&gt;</a>
+lists. Additional context-specific summaries of DRM class usage and
+EDCS usage can be provided at various levels
+of a hierarchy summary, if desired.
+</p></td></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="223">2.2.3</a></th>
+<th class="doc_set_toc_outline_description"><a href="drm/classes/DataTable.htm">
+&lt;Data Table&gt;</a>s</th>
+</tr>
+
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+In the case of <a href="drm/classes/DataTable.htm">&lt;Data Table&gt;</a> 
+instances, a data provider may include
+<a href="drm/classes/PropertyCharacteristic.htm">
+&lt;Property Characteristic&gt;</a> components for the
+<a href="drm/classes/TablePropertyDescription.htm">
+&lt;Table Property Description&gt;</a> instances to specify minimum value,
+maximum value, measurement error, and other information about the
+data set represented by that slice of the table. In addition to being
+useful to the consumer of the data, such information can be used by
+the SEDRIS API to compress
+<a href="drm/classes/DataTable.htm">&lt;Data Table&gt;</a>
+instances when they are
+stored in the SEDRIS Transmittal Format.
+</p></td></tr>
+</table>
+</td></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="23">2.3</a></th>
+<th class="doc_set_toc_outline_description">
+<a href="drm/classes/DataTable.htm">&lt;Data Table&gt;</a>s</th>
+</tr>
+
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+The previous section discussed the metadata aspects of
+working with <a href="drm/classes/DataTable.htm">&lt;Data Table&gt;</a> 
+instances.
+</p><p>
+An even more important consideration comes into play when a data
+provider wishes to edit a <a href="drm/classes/DataTable.htm">
+&lt;Data Table&gt;</a>. While the individual
+cell data within a table can be manipulated, once the signature of
+the table has been specified and cell data has been initially
+added, a data provider <b><EM>cannot</EM></b> modify the signature
+of the existing table. Currently forbidden operations include:
+changing the field values of the <a href="drm/classes/Axis.htm">
+&lt;Axis&gt;</a> and <a href="drm/classes/TablePropertyDescription.htm">
+&lt;Table Property Description&gt;</a> components; removing 
+<a href="drm/classes/Axis.htm">&lt;Axis&gt;</a>
+or <a href="drm/classes/TablePropertyDescription.htm">
+&lt;Table Property Description&gt;</a> components; and adding
+<a href="drm/classes/Axis.htm">&lt;Axis&gt;</a> or 
+<a href="drm/classes/TablePropertyDescription.htm">
+&lt;Table Property Description&gt;</a> components.
+Some of these restrictions may be lifted in future releases of the
+SEDRIS API, but they are in force until further notice. Note that
+the API itself will not always stop a user from performing such an
+operation; it is the user's responsibility not to attempt to
+invalidate the structure of his or her <a href="drm/classes/DataTable.htm">
+&lt;Data Table&gt;</a> during an edit operation.
+</p></td></tr>
+</table></div>
+
+<p>
+<HR>
+<FONT color="#FF0000">Return to:</font><a href="#Top">Top of this Page</a></b>,
+    <b><a href="p4v14.htm">Table of Contents</a></b>
+<br><br>
+
+<div class="CenterDiv">
+<table border=2 class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr><td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td>
+</tr>
+</table>
+</td></tr>
+</table>
+</div>
+</body>
+</html>

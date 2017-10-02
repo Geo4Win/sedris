@@ -1,0 +1,204 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Pseudo Code Function</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Pseudo Code Function
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Pseudo Code Function</h2>
+<h3>Superclass - <a href="Function.htm">&lt;Function&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies the behaviour of a
+ function that does not correspond to an entry of
+ <A href="../types/SE_Predefined_Function.htm">SE_Predefined_Function</A>.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet16.pdf"><strong>16</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+This class appears on only one page of the DRM class diagram.
+<h3>Example</h3>
+<OL>
+<LI><P>
+ Consider a <A href="Translation.htm">&lt;Translation&gt;</A> instance representing the
+ current position of a lift cage in a lift shaft. Since the
+ <A href="Translation.htm#translation_amount">translation_amount</A>
+ varies, the <A href="Translation.htm">&lt;Translation&gt;</A> instance has a
+ <A href="TranslationControlLink.htm">&lt;Translation Control Link&gt;</A> component with a
+ <A href="PseudoCodeFunction.htm">&lt;Pseudo Code Function&gt;</A> component specifying the
+ <A href="Translation.htm#translation_amount">translation_amount</A>.
+ The <A href="PseudoCodeFunction.htm#name">name</A> field of
+ the <A href="PseudoCodeFunction.htm">&lt;Pseudo Code Function&gt;</A> component is set to
+ {<span class="Code"><a href="../constants/SE_LOCALE_DEFAULT.htm">SE_LOCALE_DEFAULT</a>,
+ 26, &quot;lift cage control function&quot;</span>}
+ and the <A href="PseudoCodeFunction.htm#pseudo_code">pseudo_code</A>
+ field content is
+ <span class="Code">&quot;Let <span class="ConstructName">B</span> be the
+ <A href="Variable.htm">&lt;Variable&gt;</A> component representing the button that
+ summons the lift cage. If <span class="ConstructName">B</span> is on and the
+ lift cage is present, open the door. If <span class="ConstructName">B</span>
+ is on and the lift cage is not present, translate the lift cage
+ into position at a speed of one metre per second and open the
+ door when the lift cage is in position.&quot;</span>
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ Why is <A href="PseudoCodeFunction.htm">&lt;Pseudo Code Function&gt;</A>
+ needed?  Doesn't this leave room for ambiguity?
+</B></DT>
+<DD><P>
+ The decision to support
+ <A href="PseudoCodeFunction.htm">&lt;Pseudo Code Function&gt;</A> was based on
+ three primary concerns.
+ First, we felt that it would be nearly impossible to capture every
+ possible function that would be used to define the behaviour of
+ <A href="ControlLink.htm">&lt;Control Link&gt;</A> instances. Second,
+ <A href="Expression.htm">&lt;Expression&gt;</A> instances lack the expressive power
+ to define functions that require looping, branching, etc.
+ Finally, given the first two, it is recognized that many functions
+ that are relatively simple when viewed as pseudo code or code
+ fragments, would become overly complicated when converted into
+ an expression tree.
+ It is important to keep in mind, that while any valid
+ <A href="Expression.htm">&lt;Expression&gt;</A> instances
+ could be converted into executable code or structures that could be
+ directly used by a consuming system, most systems will not use them
+ that way.  Currently, the majority of consuming systems would require
+ that the expression be recoded into the consuming system.  For complex
+ functions, pseudo code may be easier to convert.
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/NonCyclicAggregations.htm">&lt;&lt;Non Cyclic Aggregations&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Composed of (two-way) (inherited)</h3>
+<UL>
+<li>zero or more {ordered} <a href="Expression.htm">&lt;Expression&gt;</a> instances<sup><A href="#Notes_cmp_Expression" name="cmp_Expression">1</A></sup></li>
+</UL>
+<h3>Component of (two-way) (inherited)</h3>
+<UL>
+<li>zero or more <a href="ControlLink.htm">&lt;Control Link&gt;</a> instances</li>
+<li>zero or more <a href="FeatureModelInstance.htm">&lt;Feature Model Instance&gt;</a> instances, each through the use of a <a href="ModelInstanceTemplateIndex.htm">&lt;Model Instance Template Index&gt;</a> link object</li>
+<li>zero or more <a href="Function.htm">&lt;Function&gt;</a> instances</li>
+<li>zero or more <a href="GeometryModelInstance.htm">&lt;Geometry Model Instance&gt;</a> instances, each through the use of a <a href="ModelInstanceTemplateIndex.htm">&lt;Model Instance Template Index&gt;</a> link object</li>
+</UL>
+<h2><a name="inherited_field">Inherited Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../../../../src/lib/edcs/docs/types/EDCS_Attribute_Value_Type.htm">EDCS_Attribute_Value_Type</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="value_type">value_type</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_value_type">2</A></sup></p></td>
+</tr>
+</table>
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_String.htm">SE_String</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="name">name</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_name">3</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_String.htm">SE_String</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="pseudo_code">pseudo_code</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_pseudo_code">4</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Composed of Notes</h3>
+<br>
+<h4><a href="#cmp_Expression" name="Notes_cmp_Expression">Expression</a></h4>
+ The <A href="Expression.htm">&lt;Expression&gt;</A> components of a
+ <A href="Function.htm">&lt;Function&gt;</A> instance, if any, represent
+ the arguments of the function being represented, so a
+ <A href="Function.htm">&lt;Function&gt;</A> instance has
+ <A href="Expression.htm">&lt;Expression&gt;</A> components if that
+ <A href="Function.htm">&lt;Function&gt;</A> instance takes arguments. The
+ <A href="Expression.htm">&lt;Expression&gt;</A> components
+ are ordered so as to unambiguously specify which
+ <A href="Expression.htm">&lt;Expression&gt;</A> component
+ is being supplied for each argument of the
+ <A href="Function.htm">&lt;Function&gt;</A> instance.
+ The exact interpretation of each argument is defined by
+ the specific function.
+</P>
+<h3>Fields Notes</h3>
+<h4><a href="#value_type" name="Notes_value_type">value_type</a></h4>
+<P>
+ The <A href="#value_type">value_type</A> of a
+ <A href="Function.htm">&lt;Function&gt;</A> instance specifies the
+ type of value returned.
+</P>
+<h4><a href="#name" name="Notes_name">name</a></h4>
+<P>
+ The <A href="#name">name</A> field specifies
+ the name of the function being represented.
+</P>
+<h4><a href="#pseudo_code" name="Notes_pseudo_code">pseudo_code</a></h4>
+<P>
+ The <A href="#pseudo_code">pseudo_code</A> field
+ specifies the pseudo code describing the behaviour of the
+ function represented by the
+ <A href="PseudoCodeFunction.htm">&lt;Pseudo Code Function&gt;</A> instance.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="PSSurfaceLocation.htm">PS Surface Location</A>.
+<strong>Next:</strong> <A href="PyramidDirectionalLight.htm">Pyramid Directional Light</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

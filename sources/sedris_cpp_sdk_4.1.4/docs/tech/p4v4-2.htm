@@ -1,0 +1,218 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<title>P4V4 - Section 3</title>
+<META name="Author" CONTENT="SAIC">
+<link rel="stylesheet" type="text/css" href="../styles/SDK_SEDRIS.css">
+</HEAD>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th class="doc_set_header">
+<big><big>
+Topology Technical Guide
+</big></big>
+<br>
+<font color="#ffffff">
+Section 2 - TOPOLOGY
+</font>
+</th></tr>
+</table></div>
+
+<table class="doc_set_toc">
+<tr>
+<th class="doc_set_toc_outline_number"><a name="21">2.1</a></th>
+<th class="doc_set_toc_outline_description">TOPOLOGY HIERARCHY</th>
+</tr>
+
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+All topology in a SEDRIS transmittal is included via <i>topology hierarchy</i>
+instances, either
+<a href="drm/classes/FeatureTopologyHierarchy.htm">&lt;Feature Topology Hierarchy&gt;</a>
+instances (in the case of feature topology) or
+<a href="drm/classes/GeometryTopologyHierarchy.htm">&lt;Geometry Topology Hierarchy&gt;</a>
+instances (in the case of
+geometry topology). The general organization of and constraints upon
+feature topology and geometry topology are similar, so without
+loss of generality this document will discuss topology in terms
+of feature topology only, with the understanding that the principles
+of geometry topology can be extrapolated.
+</p><p>
+In accordance with the
+<a href="drm/constraints/ConstraintsOnAssociates.htm">
+&lt;&lt;Constraints On Associates&gt;&gt;</a> and
+<a href="drm/constraints/ConstraintsOnComponents.htm">
+&lt;&lt;Constraints On Components&gt;&gt;</a> constraints,
+the topology hierarchy components of an
+<a href="drm/classes/AggregateFeature.htm">&lt;Aggregate Feature&gt;</a> or
+<a href="drm/classes/AggregateGeometry.htm">&lt;Aggregate Geometry&gt;</a>
+shall organize all the topology instances referenced by the aggregate,
+and no other instances. If an aggregate A has a topology hierarchy TH,
+then all the topological primitives referenced by the primitives of A
+shall be among those organized by TH.
+</p><p>
+Consequently, each
+<a href="drm/classes/FeatureModel.htm">&lt;Feature Model&gt;</a>
+containing topological primitives
+would contain its own topology hierarchy instances to organize them
+in its component tree, and each
+<a href="drm/classes/EnvironmentRoot.htm">&lt;Environment Root&gt;</a>
+instance organizes its own topology. Note that the topology of a
+<a href="drm/classes/FeatureModelInstance.htm">&lt;Feature Model Instance&gt;</a>
+is organized by its 
+<a href="drm/classes/FeatureModel.htm">&lt;Feature Model&gt;</a>'s
+component tree and hierarchy, rather than by the instancing context.
+</p><p>
+In the case of ITR, a data provider would
+be expected to provide appropriate 
+<a href="drm/classes/FeatureModelInstance.htm">&lt;Feature Model Instance&gt;</a>s
+or (in the context of
+<a href="drm/classes/EnvironmentRoot.htm">&lt;Environment Root&gt;</a>
+features) references to
+<a href="drm/classes/FeatureRepresentation.htm">&lt;Feature Representation&gt;</a>
+instances rather than referencing 
+the topology in another component tree directly. As the interaction of ITR and
+various syntactic and practical considerations unfolds in actual
+usage, these interactions are expected to develop more explicit
+constraints and tighter restrictions.
+</p><p>
+As specified by the aggregate classes, an aggregate with a topology
+hierarchy component represents an independent (that is, free-standing
+and disconnected from its surroundings) topological surface. Frequently,
+this means that in the scope of an
+<a href="drm/classes/EnvironmentRoot.htm">&lt;Environment Root&gt;</a>,
+only the 
+<a href="drm/classes/AggregateFeature.htm">&lt;Aggregate Feature&gt;</a>
+component of the
+<a href="drm/classes/EnvironmentRoot.htm">&lt;Environment Root&gt;</a>
+itself will have a topology hierarchy
+component, which organizes the feature topology referenced within its scope.
+(Similar criteria apply to geometry topology.)
+</p></td>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="22">2.2</a></th>
+<th class="doc_set_toc_outline_description">LEVELS OF TOPOLOGY</th>
+</tr>
+
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+Each topology hierarchy instance specifies the <i>level</i> of
+topology that is supported, providing an indication of the quality
+of the topological information provided. Higher-level topology is
+easier to consume, because more and more relationships have been
+pre-computed, but it therefore requires more work on the part of
+the data provider.
+</p><p>
+Every data provider who provides topological objects at all provides
+at least level 0 topology. Level 0 is the easiest level to produce,
+and the most complex to consume, because it applies the least possible
+quality restrictions on the topology involved. At this level, topological
+objects are present and are required to be syntactically and semantically
+valid, but the data provider is not required to avoid duplicating
+information. For example, multiple
+<a href="drm/classes/FeatureNode.htm">&lt;Feature Node&gt;</a>
+instances may be present for a given position in space, so the burden
+of deriving complete information about the relationships between
+various objects is largely placed on the consumer.
+</p><p>
+Some of the semantic restrictions that are enforced even at level 0
+include, but are not limited to,
+restrictions designed to prevent degenerate rings for faces,
+such as permitting an edge to be included in a ring at most twice,
+once for each orientation. See the <a href="drm/constraints/index.htm">
+constraints</a> list for further details.
+</p><p>
+At level 1, the data provider guarantees that no two 
+<a href="drm/classes/FeatureNode.htm">&lt;Feature Node&gt;</a>
+instances have the same coordinates in space. This ensures that the
+consumer does
+not have to detect the presence of several 
+<a href="drm/classes/FeatureNode.htm">&lt;Feature Node&gt;</a> instances
+which really correspond to the same conceptual node. All topological
+information about a node is guaranteed to be provided via the same
+<a href="drm/classes/FeatureNode.htm">&lt;Feature Node&gt;</a> instance.
+</p><p>
+At level 2, the data provider not only ensures that 
+<a href="drm/classes/FeatureNode.htm">&lt;Feature Node&gt;</a>
+instances are unique (as in level 1), but that
+<a href="drm/classes/FeatureEdge.htm">&lt;Feature Edge&gt;</a>
+instances do not intersect or overlap one another except at common
+<a href="drm/classes/FeatureNode.htm">&lt;Feature Node&gt;</a>
+instances. This removes the burden of detecting intersections from 
+the consumer.
+</p><p>
+Level 3 is even more friendly to the consumer, while requiring the
+data provider to ensure that the following criteria have been met.
+Not only does the topology have to meet the standard set by level 2,
+but all <a href="drm/classes/FeatureNode.htm">&lt;Feature Node&gt;</a>
+instances lying within the boundaries
+of <a href="drm/classes/FeatureFace.htm">&lt;Feature Face&gt;</a>
+instances are required to supply the association
+relationships indicating that this is the case, and vice versa, removing
+the burden of testing for containment from the consumer. (At lower
+levels of topology this information may be supplied, but it isn't
+guaranteed to be complete.)
+</p><p>
+Furthermore, at level 3,
+<a href="drm/classes/FeatureFace.htm">&lt;Feature Face&gt;</a>
+instances are required (they are optional at lower levels of
+topology). The data provider shall provide exactly 1
+<a href="drm/classes/FeatureFace.htm">&lt;Feature Face&gt;</a>
+instance FF for the
+transmittal being produced, where FF represents the 'universe'
+<i>outside</i> the topology of the transmittal; its internal boundaries
+therefore represent the <i>external</i> boundaries of the topology.
+The data provider shall also provide 1 or more 
+<a href="drm/classes/FeatureFace.htm">&lt;Feature Face&gt;</a>
+instances that partition the topological surface being represented.
+All <a href="drm/classes/FeatureEdge.htm">&lt;Feature Edge&gt;</a>
+instances shall lie on the boundary between two faces; that is, no
+<a href="drm/classes/FeatureEdge.htm">&lt;Feature Edge&gt;</a>
+shall lie inside a face, because the data provider would partition
+such a face so that it consisted of 2 faces, one on either side
+of the edge.
+</p><p>
+At level 4, the topology is at least partially 3-dimensional, so
+edges are no longer required to bound faces, although otherwise
+the requirements of level 3 are in force. Since only in 3D does
+the concept of 'front' and 'back' have any meaning, only at this
+level are
+<a href="drm/classes/ArealFeature.htm">&lt;Areal Feature&gt;</a>
+instances provided with faces for which
+<a href="drm/classes/FaceDirection.htm">&lt;Face Direction&gt;</a>
+may not have <a href="drm/classes/FaceDirection.htm#front">front</a> =
+TRUE.
+</p></td>
+</tr>
+</table>
+<p>
+<HR>
+<font color="#ff0000">Return to:</font><a href="#Top">Top of this Page</a></b>,
+    <b><a href="p4v4.htm">Table of Contents</a></b>
+<br><br>
+
+<div class="CenterDiv">
+<table class="doc_set_header">
+<tr><td>
+<table class="doc_set_header">
+<tr><td class="doc_set_footer" align="left">
+Last updated: July 1, 2011
+</td>
+<td class="doc_set_footer" align="right">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td>
+</tr>
+</table>
+</td></tr>
+</table></div>
+</body>
+</html>

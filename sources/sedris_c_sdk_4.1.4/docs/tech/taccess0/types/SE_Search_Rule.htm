@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE_Search_Rule</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Types
+</font>
+<br>
+<font color="#ffffff">
+SE_Search_Rule
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<PRE>
+/*
+ * STRUCT: SE_Search_Rule
+ *
+ *   Used to specify a single rule in a set of rules, which can then
+ *   be used to create a search filter. A search filter uses its
+ *   associated set of rules to filter objects, so that only objects
+ *   that pass the rules will be returned to the user (see SE_Iterator,
+ *   SE_Search_Filter for more details.)
+ *
+ *   A single search rule by itself is useless. A set of search rules
+ *   is specified using an array of type SE_Search_Rule, filled in
+ *   with a well-formed postfix notation expression, ending with an
+ *   SE_Search_Rule entry with a rule_type value of SE_SEARCHRULETYP_END. The
+ *   sequence of SE_Search_Rule forms an RPN logic evaluation stack.
+ *
+ *   Macros are provided (which see) that allow a somewhat more
+ *   readable pre-fix notation to be used when initializing
+ *   arrays of SE_Search_Rule in variable declarations. A static
+ *   search (a search whose conditions are known at compile time) can
+ *   easily be specified by taking advantage of the search macros (see
+ *   the examples, given in the comments preceding the search macros).
+ *
+ *   A dynamically created search, on the other hand, requires the user to
+ *   create a rules array and fill in the array with a well-formed postfix
+ *   notation expression, ending with an SE_Search_Rule entry with a
+ *   rule_type value of SE_SEARCHRULETYP_END.
+ */
+</PRE>
+<span class="Code">typedef struct 
+<br>
+{</span>
+<br>
+<table class="CFunctionPrototype">
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Search_Rule_Type.htm">SE_Search_Rule_Type</a></td>
+        <td class="CFunction"><a name="rule_type"></a>rule_type;</td></tr>
+<tr><td>   </td><td>/*</td></tr>
+<tr><td>   </td> <td colspan = 3>* If the following fields were in a union, then it would be impossible to</td></tr>
+<TR> <td>   </td> <td colspan = 3>* use aggregate initializers (and then the #defined Search Macros could</td></tr>
+<TR> <td>   </td> <td colspan = 3>* not work).  So, in order to allow for the Search Macros, these fields</td></tr>
+<TR> <td>   </td> <td colspan = 3>* are presented in a &quot;plain struct&quot; instead of a union, even though for</td></tr>
+<TR> <td>   </td> <td colspan = 3>* any given rule_type, only a certain sub-set of the fields contain</td></tr>
+<TR> <td>   </td> <td colspan = 3>* applicable values.</td></tr>
+<tr><td>   </td><td> */</td></tr>
+
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../drm/types/SE_DRM_Class.htm">SE_DRM_Class</a></td>
+        <td class="CFunction"><a
+        name="object_drm_class"></a>object_drm_class;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../drm/types/SE_DRM_Class.htm">SE_DRM_Class</a></td>
+        <td class="CFunction"><a
+        name="component_object_drm_class"></a>component_object_drm_class;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../drm/types/SE_Short_Integer_Unsigned.htm">SE_Short_Integer_Unsigned</a></td>
+        <td class="CFunction"><a name="field_offset"></a>field_offset;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Search_Value_Type.htm">SE_Search_Value_Type</a></td>
+        <td class="CFunction"><a name="value_type"></a>value_type;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../drm/types/SE_Short_Integer_Unsigned.htm">SE_Short_Integer_Unsigned</a></td>
+        <td class="CFunction"><a
+        name="value_array_length"></a>value_array_length;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction">void</td>
+        <td class="CFunction">*<a name="value_ptr"></a>value_ptr;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction">void</td>
+        <td class="CFunction">*<a
+        name="second_value_ptr"></a>second_value_ptr;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Predicate.htm">SE_Predicate</a></td>
+        <td class="CFunction"><a name="user_function"></a>user_function;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../drm/types/SE_Short_Integer_Unsigned.htm">SE_Short_Integer_Unsigned</a></td>
+        <td class="CFunction"><a
+        name="max_search_depth"></a>max_search_depth;</td></tr>
+</table>
+<span class="Code">
+} SE_Search_Rule;</span>
+<br>
+
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SE_Search_Filter.htm">SE_Search_Filter</a>.
+<strong>Next:</strong> <a href="SE_Search_Rule_Type.htm">SE_Search_Rule_Type</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

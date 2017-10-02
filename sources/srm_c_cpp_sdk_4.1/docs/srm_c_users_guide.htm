@@ -1,0 +1,2908 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>SRM SDK - C API Users' Guide</title>
+<style type="text/css" media="all">
+<!--
+td.conv_supp { font-size: small;
+               text-align: center; }
+-->
+</style>
+</head>
+<body bgcolor="#ffffff">
+
+<div align="center">
+<h1><a name="top" id="top">C API Users' Guide</a></h1>
+</div><div align="center">
+<h3>
+SRM SDK Release 4.1.4
+</h3>
+<h3>
+July 1, 2011
+</h3>
+</div>
+
+<p>
+<ol>
+<li><a href="#intro">Introduction</a>
+</li>
+<li><a href="#concepts">SRM Concepts</a>
+</li>
+<li><a href="#capability">SRM Capability</a>
+</li>
+<li><a href="#conversion_types">Conversion Types</a>
+</li>
+<li><a href="#typical_usage">Typical Usages</a>
+</li>
+<li><a href="#sample_app">Sample Application</a>
+</li>
+</ol>
+
+<h3><a name="intro" id="intro">Introduction</a></h3>
+<p>
+Spatial information processing requires a robust capability to describe
+geometric properties such as position, direction and distance.
+Information may be spatially referenced to local structures
+(Example: building interiors) and regions (Example: cities), or spatially
+referenced to the Earth as a whole (Example: global weather). Information may be
+spatially referenced to other celestial bodies (Examples: astronomical, orbital,
+and geomagnetic observations). Information may also be spatially referenced to
+objects defined within contexts such as virtual realities (Example: 3D models).
+In each of these cases, a spatial reference frame is defined, with respect to
+which the values of geometric properties may be determined.
+</p><p>
+It is often necessary to represent
+position in several different spatial reference frames, simultaneously,
+according to the context in which the position is to be used. Each spatial
+reference frame corresponds to a particular way of expressing position. Spatial
+reference frames may be relative to moving objects (Examples: planets and
+spacecraft), and therefore have values that are a function of time. It is
+necessary to specify the time to which the spatial position refers, and the time
+for which the spatial reference frame is defined.
+</p><p>
+The Spatial reference model (SRM)
+defines the conceptual model and the methodologies that allow the description,
+and transformation or conversion, of geometric properties within or among
+spatial reference frames. The SRM supports unambiguous specification of the
+positions, directions, distances, and times associated with spatial information.
+It also defines algorithms for precise transformation of positions, directions
+and distances among different spatial reference frames.
+</p>
+
+<h3><a name="concepts" id="concepts">SRM Concepts</a></h3>
+<p>
+The SRM provides an integrated framework and precise terminology for
+describing spatial concepts and operations on spatial information (including
+positions, directions, and distances):
+</p>
+
+<ol type="1">
+<li>Spatial positions are identified by coordinates in a
+    spatial coordinate system. The collection of spatial positions associated
+    with a spatial object of interest, such as the Earth, is called its
+    object-space.
+</li>
+<li>A spatial reference frame specifies a spatial coordinate system by
+    combining an abstract coordinate system with an object reference model.
+    An abstract coordinate system may be combined with many different
+    object reference models. Thus, a geodetic coordinate tied to the
+    Earth object reference model WGS_1984 does not identify the same place as
+    when tied to the Earth object reference model EUROPEAN_1950, or when tied
+    to an object reference model for Mars.
+</li>
+<li>An abstract coordinate system associates coordinates with positions in
+    an abstract Euclidean space, which is called its position-space. Abstract
+    coordinate systems are defined independently of any object-space. There
+    are many spatial spherical coordinate systems for a given object-space,
+    but there is only one abstract spherical coordinate system for a
+    position-space.
+</li>
+<li>An object reference model determines a precise relationship between
+    position-space and the object-space for a spatial object of interest.
+    Different object reference models for the Earth relate position-space to
+    the object-space of the Earth in different ways. Thus, the
+    object reference model WGS_1984 relates the position-space x-axis to the
+    direction from the Earth's center of mass towards the intersection of the
+    Greenwich meridian with the equator, while the object reference model
+    EARTH_INERTIAL_J2000r0 relates the position-space x-axis to the direction
+    from the Earth's centre of mass towards the first point of Aries
+    (see 4.5 and Clause 7).
+</li>
+<li>The position-space to object-space relationship determined by
+    an object reference model is expressed mathematically by a
+    length-preserving embedding function called a normal embedding.
+</li>
+<li>A reference datum is a geometric primitive that relates measurements
+    and/or geometric characteristics of object-space to position-space.
+    Object reference models use reference datums to specify the position-space
+    to object-space relationship. An object reference model may also use
+    reference datums to model a geometric aspect of a spatial object. Thus,
+    an oblate ellipsoid reference datum may be used to model the figure of
+    the Earth or other celestial bodies.
+</li>
+<li>Temporal coordinate systems are introduced to describe the time-varying
+    characteristics of spatial reference frames.
+</li>
+<li>Vertical offset surfaces are introduced to define heights with respect to
+    equipotential or other complex surfaces. In particular, the
+    vertical offset surface EGM96_GEOID represents the geopotential surface
+    defined by the WGS 84 EGM 96 Earth Gravitational Model that is closely
+    associated with the mean ocean surface.
+</li>
+</ol>
+<p>
+The relationships among some of these concepts are depicted in the following
+figure. An abstract coordinate system is based on the underlying Euclidean
+structure of position-space. The reference datums that comprise the
+object reference model determine how position-space relates to
+object-space. That relationship is mathematically expressed by a normal
+embedding. A spatial reference frame combines the abstract coordinate system
+with the object reference model to specify a spatial coordinate system. This
+allows positions to be expressed relative to a spatial object of interest,
+such as the Earth.
+</p><div align="center">
+<img src="SRF.PNG" alt="Spatial Reference Frame" align="center" width="650" height="312">
+</div><br /><br />
+
+<h4><a name="srf" id="srf">Spatial Reference Frame</a></h4>
+
+<p>
+A spatial coordinate system is a means of associating a
+unique coordinate with a point in object-space. It is defined by binding an
+abstract Coordinate System (CS) to a normal embedding. A spatial reference frame
+is a specification of a spatial coordinate system for a region of object-space.
+It is formed by the binding of an abstract coordinate system to the normal
+embedding specified by an Object Reference Model (ORM) for that object. A full
+specification specifies the CS and the ORM and includes values for CS
+parameters, if any, and a specification of the region of object-space. Some or
+all CS parameters may be bound by ORM parameters. In particular, a CS based on
+an oblate ellipsoid (or sphere) must match the parameters of the oblate
+ellipsoid (or sphere) Reference Datum of the ORM.
+</p><p>
+A spatial reference frame template is an abstraction of a
+collection of spatial reference frames that share the same abstract coordinate
+system, coordinate system parameter binding rules, and similar ORMs that model
+the same spatial object type. Spatial reference frames may be organized into
+specified sets so as to form an atlas for a large region of space. The SRM
+specifies a collection of spatial reference frame templates, realizations of
+those templates, and sets of those realizations.
+</p><p>
+SRM defined the following SRF Templates (SRFT):
+</p>
+<ol type="1">
+<li>Celestiocentric (CC)
+</li>
+<li>Local Space Rectangular 3D (LSR_3D)
+</li>
+<li>Celestiodetic (CD)
+</li>
+<li>Planetodetic (PD)
+</li>
+<li>Local Tangent Space Euclidean (LTSE)
+</li>
+<li>Local Tangent Space Azimuthal Spherical (LTSAS)
+</li>
+<li>Local Tangent Space Cylindrical (LTSC)
+</li>
+<li>Lococentric Euclidean 3D (LCE_3D)
+</li>
+<li>Celestiomagnetic (CM)
+</li>
+<li>Equatorial Inertial (EI)
+</li>
+<li>Solar Ecliptic (SEC)
+</li>
+<li>Solar Equatorial (SEQ)
+</li>
+<li>Solar Magnetic Ecliptic (SME)
+</li>
+<li>Solar Magnetic Dipole (SMD)
+</li>
+<li>Heliospheric Aries Ecliptic (HAEC)
+</li>
+<li>Heliospheric Earth Ecliptic (HEEC)
+</li>
+<li>Heliospheric Earth Equatorial (HEEQ)
+</li>
+<li>Mercator (M)
+</li>
+<li>Oblique Mercator Spherical (OMS)
+</li>
+<li>Transverse Mercator (TM)
+</li>
+<li>Lambert Conformal Conic (LCC)
+</li>
+<li>Polar Stereographic (PS)
+</li>
+<li>Equidistant Cylindrical (EC)
+</li>
+<li>Local Space Rectangular 2D (LSR_2D)
+</li>
+<li>Local Space Azimuthal (LSA)
+</li>
+<li>Local Space Polar (LSP)
+</li>
+</ol>
+<p>
+
+SRM defined the following SRF Sets and their intrinsic SRF template types:
+<ol type="1">
+<li>Alabama State Plane Coordinate System (SPCS) - TM
+</li>
+<li>Geo-Tile Reference System Global Coordinate System (GTRS GCS) - LTSE
+</li>
+<li>Japan Rectangular Plane CS - TM
+</li>
+<li>Lambert NTF - LCC
+</li>
+<li>Universal Polar Stereographic (UPS) - PS
+</li>
+<li>Universal Transverse Mercator (UTM) - TM
+</li>
+<li>Wisconsin State Plane Coordinate System (SPCS) - LCC
+</li>
+</ol>
+
+<p>
+SRM defined the following Standard SRFs and their intrinsic SRF template types:
+</p>
+<ol type="1">
+<li>British National Grid (BNG) - TM
+</li>
+<li>British OSGRS80 Grid - TM
+</li>
+<li>Delaware State Plane Coordinate System (SPCS) 1983 - TM
+</li>
+<li>Geocentric WGS 1984 - CC
+</li>
+<li>Geodetic Australia 1984 - CD
+</li>
+<li>Geodetic WGS 1984 - CD
+</li>
+<li>Geodetic North America 1983 - CD
+</li>
+<li>Irish Grid 1965 - TM
+</li>
+<li>Irish Transverse Mercator 1989 - TM
+</li>
+<li>Lambert 1993 - LCC
+</li>
+<li>Lambert II Wide - LCC
+</li>
+<li>Mars Planetocentric 2000 - CD
+</li>
+<li>Mars Planetographic 2000 - PD
+</li>
+<li>Maryland State Plane Coordinate System (SPCS) 1983 - LCC
+</li>
+</ol>
+<p>
+
+<h4><a name="rd" id="rd">Reference Datum (RD)</a></h4>
+<p>
+A reference datum is a geometric primitive in position-space. Reference datums
+are points or directed curves in 2D position-space or points, directed curves
+or oriented surfaces in 3D position-space.
+</p><p>
+A reference datum is bound when the reference datum in position-space is
+identified with a corresponding constructed entity (i.e., a measured or
+conceptual geometric aspect of a spatial object) in object-space. The term
+&quot;corresponding&quot; in this context means that each position-space
+reference datum is bound to a constructed geometric entity of the same
+geometric object type. That is, position-space points are bound to
+object-space points, position-space lines to object-space lines,
+position-space curves to object-space curves, position-space planes to
+object-space planes, and position-space surfaces to object-space surfaces.
+</p>
+
+<h4><a name="orm" id="orm">Object Reference Model (ORM)</a></h4>
+<p>
+A set of bound Reference Datums can be selected so as to be compatible with
+only one normal embedding. In this way, a set of bound RDs with properly
+constrained relationships can specify a unique normal embedding. Such a
+constrained set of bound RDs is called an object reference model.
+</p><p>
+An object reference model (ORM) for a spatial object is a set of bound RDs
+for which there exists exactly one normal embedding that is compatible with
+each bound RD in the set. In the 3D case, this unique embedding shall also be
+right-handed.
+</p><p>
+An ORM is object-fixed if each of its RD bindings are object-fixed, otherwise
+it is called object-dynamic. The object-fixed definition assumes that the
+object itself is not changing in time by an amount significant for the
+accuracy and time scale of an application. The normal embedding determined
+by an ORM is, correspondingly, either an object-fixed embedding or an
+object-dynamic embedding.
+</p><p>
+Examples of ORMs are: World Geodesic System 1984 (WGS 1894), and COAMPS,
+and Heliocentric Aries Ecliptic.
+</p>
+
+<h4><a name="rt" id="rt">Reference Transformation (RT)</a></h4>
+<p>
+A reference transformation (RT) for an ORM is a similarity transformation
+from the ORM normal embedding to the normal embedding of the reference ORM
+for that object, ORM<sub>R</sub>. The reference transformation for an ORM,
+ORM<sub>S</sub>, shall be denoted by H<sub>SR</sub>.
+</p><p>
+For 3D ORMs, a reference transformation shall be specified by the seven
+parameters of the corresponding seven-parameter embedding specification. For 2D
+ORMs, a reference transformation shall be specified by the four parameters of
+the corresponding four-parameter embedding specification.
+</p><p>
+For a list of supported reference transformations for each ORM see the
+<a href="orm_rt.htm" onClick="return (false);">ORM-RT Relationship Table</a>.
+Notice that the leading part of the RT names is the name of the ORM with which they are associated.
+</p>
+
+<h4><a name="cs" id="cs">Coordinate System</a></h4>
+<p>
+An abstract coordinate system is a means of identifying positions in
+position-space by coordinate n-tuples. An abstract coordinate system is
+completely defined in terms of the mathematical structure of position-space.
+In SRM, the term &quot;coordinate system&quot; is defined to mean
+&quot;abstract coordinate system&quot;.
+</p><p>
+A temporal coordinate system is defined as a means of
+identifying events in the time continuum by coordinate 1-tuples using an
+abstract coordinate system of coordinate system type 1D. A spatial coordinate
+system is defined as an abstract coordinate system suitably combined with a
+normal embedding as a means of identifying points in object-space by coordinate
+n-tuples.
+</p>
+
+<h4><a name="coord" id="coord">Coordinate</a></h4>
+<p>
+A coordinate is an element of the coordinate system domain. In particular, if
+the domain is a subset of 3D Euclidean space (R3), each coordinate is called
+a 3D coordinate. If the domain is a subset of 2D Euclidean space (R2), each
+coordinate is called a 2D coordinate. Surface coordinates are defined as the
+projection of the 3D coordinate onto the surface of an RD.
+</p><p>
+Examples of coordinates are: Celestiocentric 3D coordinate,
+Local Space Rectangular 2D coordinate, and
+Transverse Mercator surface coordinate.
+</p>
+
+<h3><a name="capability" id="capability">SRM Capability</a></h3>
+<p>
+The SRM API supports the following functionality:
+</p>
+<ol type="1">
+<li>Instantiation and access
+<ol type="a">
+<li>SRFs
+<ol type="i">
+<li>SRF templates (e.g., LSR 3D, TM, Celestiodetic, Celestiocentric)
+</li>
+<li>SRF set members (e.g., UTM zone 12 Northern Hemisphere, GTRS cell 1234,
+UPS Northern Pole)
+</li>
+<li>Standard SRFs (e.g., British National Grid)
+</li>
+</ol>
+</li>
+<li>Coordinates
+<ol type="i">
+<li>2D coordinates
+</li>
+<li>3D coordinates
+</li>
+<li>Surface coordinates
+</li>
+</ol>
+</li>
+<li>Directions
+</li>
+<li>Orientations
+</li>
+</ol>
+</li>
+<li>Conversion
+<ol type="a">
+<li>Coordinate conversion between SRFs
+</li>
+<li>Direction conversion between SRFs
+</li>
+<li>Orientation conversion between SRFs
+</li>
+</ol>
+</li>
+<li>Validation
+<ol type="a">
+<li>Coordinate validation within an SRF
+<br />
+<strong>NOTE:</strong> Coordinate validation within an SRF is set to
+'on' by default. If a user instructs an SRF to set coordinate validation
+to 'off', it is the user's responsibility to ensure that he or she then
+supplies valid data for any coordinate conversion. The accuracy and
+performance of the conversion algorithms require that their input
+be within the validity regions specified in the Spatial Reference Model
+ISO standard.
+</li>
+<li>Direction validation within an SRF
+</li>
+<li>Orientation validation within an SRF
+</li>
+</ol>
+</li>
+<li>Calculation
+<ol type="a">
+<li>Euclidean distance
+</li>
+<li>Geodesic distance
+</li>
+<li>Point scale
+</li>
+<li>Vertical separation offset
+</li>
+<li>Convergence of the Meridian
+</li>
+<li>Map azimuth
+</li>
+<li>Natural Extent (zone)
+</li>
+</ol>
+</li>
+</ol>
+
+<p>
+Note that this release only supports the EGM_96 Geoid and
+WGS_84 Ellipsoid DSS codes for the Vertical Separation Offset
+calculation. See the Release Notes for additional information.
+</p>
+
+<h3><a name="conversion_types" id="conversion_types">Conversion Types</a></h3>
+
+There are three types of coordinate conversions:
+
+<ol>
+<li>Direct
+<p>
+These are conversions that have an algorithm implemented between the source
+SRF and the target SRF.  For instance, the coordinate conversion from a
+Celestiodetic SRF to a Celestiocentric SRF is a direct conversion.  This type
+of conversion does not involve intermediate SRFs for its computation and
+thus they are most efficient.
+</p></li>
+<li>Indirect (<i>a.k.a</i>.&quot;chained&quot; or &quot;transitive&quot;)
+<p>
+These conversions are chains of direct conversions, converting first from the
+source SRF to intermediate SRFs, then to the
+target SRF. Consequently, these conversions typically take more time to be
+executed.  For instance, the coordinate conversion from
+a Transverse Mercator SRF to a Celestiocentric SRF is an indirect conversion
+going through an intermediary conversion to Celestiodetic SRF.
+</p></li>
+<li>Reflexive
+<p>
+Reflexive conversions are the cases where the source and the target SRFs are of
+the same type. The trivial case of this type of conversion is when the source
+and the target SRFs have the exact same parameter values.  In that case, the
+identity transformation is applied to the source coordinate.  Another example,
+when converting from a CD SRF to another CD SRF with a different ORM/RT pair,
+a datum shift is performed by converting the coordinate from the source CD SRF
+to an intermediate CC SRF, apply the datum shift, then converting to the
+target CD SRF.
+</p></li>
+</ol>
+<p>
+The type of conversion applied to the coordinates is transparent to the
+users.  The users can invoke the SRM_ChangeCoordinateSRF() method, regardless
+of whether the conversion is direct, indirect, or reflexive. The API will
+perform the conversion in a most efficient way.  If a conversion is
+not supported between the two given SRFs, then the call to
+SRM_ChangeCoordinateSRF() will return the proper status code.
+</p><p>
+The chart below is provided as a reference to indicate which coordinate
+conversions are supported in SRM Version 4.1.x. Empty cells indicate
+conversion not supported in 4.1.x.
+</p>
+<ul>
+<li>D - directly supported conversion</li>
+<li>I - indirectly supported conversion</li>
+<li>R - reflexive conversion</li>
+</ul>
+
+<div align="center">
+<table border="1" cellspacing="1" cellpadding="3" bgcolor="#ffffff">
+<tr bgcolor="#808080">
+<th scope="col" bgcolor="#ffffff">&nbsp;</th>
+<th scope="col"><font color="#ffffff" size="-1">
+LSA
+</font>
+</th><th scope="col"><font color="#ffffff" size="-1">
+CC
+</font>
+</th><th scope="col"><font color="#ffffff" size="-1">
+CD
+</font>
+</th><th scope="col"><font color="#ffffff" size="-1">
+CM
+</font>
+</th><th scope="col"><font color="#ffffff" size="-1">
+EC
+</font>
+</th><th scope="col"><font color="#ffffff" size="-1">
+EI
+</font>
+</th><th scope="col"><font color="#ffffff" size="-1">
+HAEC
+</font>
+</th><th scope="col"><font color="#ffffff" size="-1">
+HEEC
+</font>
+</th><th scope="col"><font color="#ffffff" size="-1">
+HEEQ
+</font>
+</th><th scope="col"><font color="#ffffff" size="-1">
+LCC
+</font>
+</th><th scope="col"><font color="#ffffff" size="-1">
+LCE_3D
+</font>
+</th><th scope="col"><font color="#ffffff" size="-1">
+LSR_<br  >2D
+</font>
+</th><th scope="col"><font color="#ffffff" size="-1">
+LSR_<br  >3D
+</font>
+</th><th scope="col"><font color="#ffffff" size="-1">
+LTSAS
+</font>
+</th><th scope="col"><font color="#ffffff" size="-1">
+LTSC
+</font>
+</th><th scope="col"><font color="#ffffff" size="-1">
+LTSE
+</font>
+</th><th scope="col"><font color="#ffffff" size="-1">
+M
+</font>
+</th><th scope="col"><font color="#ffffff" size="-1">
+OM
+</font>
+</th><th scope="col"><font color="#ffffff" size="-1">
+PD
+</font>
+</th><th scope="col"><font color="#ffffff" size="-1">
+LSP
+</font>
+</th><th scope="col"><font color="#ffffff" size="-1">
+PS
+</font>
+</th><th scope="col"><font color="#ffffff" size="-1">
+SEC
+</font>
+</th><th scope="col"><font color="#ffffff" size="-1">
+SEQ
+</font>
+</th><th scope="col"><font color="#ffffff" size="-1">
+SME
+</font>
+</th><th scope="col"><font color="#ffffff" size="-1">
+SMD
+</font>
+</th><th scope="col"><font color="#ffffff" size="-1">
+TM
+</font></th>
+</tr>
+
+<tr>
+<td class="conv_supp" bgcolor="#ffff80">
+LSA
+</td><td class="conv_supp">
+R
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+D
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+</tr>
+
+<tr>
+<td class="conv_supp" bgcolor="#ffff80">
+CC
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+R
+</td>
+<td class="conv_supp">
+D
+</td>
+<td class="conv_supp">
+D
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+D
+</td>
+<td class="conv_supp">
+D
+</td>
+<td class="conv_supp">
+D
+</td>
+<td class="conv_supp">
+D
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+D
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+D
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+D
+</td>
+<td class="conv_supp">
+D
+</td>
+<td class="conv_supp">
+D
+</td>
+<td class="conv_supp">
+D
+</td>
+<td class="conv_supp">
+I
+</td>
+</tr>
+
+<tr>
+<td class="conv_supp" bgcolor="#ffff80">
+CD
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+D
+</td>
+<td class="conv_supp">
+R
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+D
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+D
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+D
+</td>
+<td class="conv_supp">
+D
+</td>
+<td class="conv_supp">
+D
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+D
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+D
+</td>
+</tr>
+
+<tr>
+<td class="conv_supp" bgcolor="#ffff80">
+CM
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+D
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+R
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+</tr>
+
+<tr>
+<td class="conv_supp" bgcolor="#ffff80">
+EC
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+D
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+R
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+</tr>
+
+<tr>
+<td class="conv_supp" bgcolor="#ffff80">
+EI
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+D
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+R
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+</tr>
+
+<tr>
+<td class="conv_supp" bgcolor="#ffff80">
+HAEC
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+D
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+R
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+</tr>
+
+<tr>
+<td class="conv_supp" bgcolor="#ffff80">
+HEEC
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+D
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+R
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+</tr>
+
+<tr>
+<td class="conv_supp" bgcolor="#ffff80">
+HEEQ
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+D
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+R
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+</tr>
+
+<tr>
+<td class="conv_supp" bgcolor="#ffff80">
+LCC
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+D
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+R
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+</tr>
+
+<tr>
+<td class="conv_supp" bgcolor="#ffff80">
+LCE_3D
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+D
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+R
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+</tr>
+
+<tr>
+<td class="conv_supp" bgcolor="#ffff80">
+LSR_2D
+</td>
+<td class="conv_supp">
+D
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+R
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+D
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+</tr>
+
+<tr>
+<td class="conv_supp" bgcolor="#ffff80">
+LSR_3D
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+R
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+</tr>
+
+<tr>
+<td class="conv_supp" bgcolor="#ffff80">
+LTSAS
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+R
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+D
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+</tr>
+
+<tr>
+<td class="conv_supp" bgcolor="#ffff80">
+LTSC
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+R
+</td>
+<td class="conv_supp">
+D
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+</tr>
+
+<tr>
+<td class="conv_supp" bgcolor="#ffff80">
+LTSE
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+D
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+D
+</td>
+<td class="conv_supp">
+D
+</td>
+<td class="conv_supp">
+R
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+</tr>
+
+<tr>
+<td class="conv_supp" bgcolor="#ffff80">
+M
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+D
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+R
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+</tr>
+
+<tr>
+<td class="conv_supp" bgcolor="#ffff80">
+OM
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+D
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+R
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+</tr>
+
+<tr>
+<td class="conv_supp" bgcolor="#ffff80">
+PD
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+D
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+R
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+</tr>
+
+<tr>
+<td class="conv_supp" bgcolor="#ffff80">
+LSP
+</td><td class="conv_supp">
+I
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+D
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+R
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+</tr>
+
+<tr>
+<td class="conv_supp" bgcolor="#ffff80">
+PS
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+D
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+R
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+</tr>
+
+<tr>
+<td class="conv_supp" bgcolor="#ffff80">
+SEC
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+D
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+R
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+</tr>
+
+<tr>
+<td class="conv_supp" bgcolor="#ffff80">
+SEQ
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+D
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+R
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+</tr>
+
+<tr>
+<td class="conv_supp" bgcolor="#ffff80">
+SME
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+D
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+R
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+</tr>
+
+<tr>
+<td class="conv_supp" bgcolor="#ffff80">
+SMD
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+D
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+R
+</td>
+<td class="conv_supp">
+I
+</td>
+</tr>
+
+<tr>
+<td class="conv_supp" bgcolor="#ffff80">
+TM
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+D
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">&nbsp;</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+I
+</td>
+<td class="conv_supp">
+R
+</td>
+</tr>
+</table>
+</div>
+<br />
+
+<h3><a name="typical_usage" id="typical_usage">Typical Usages</a></h3>
+
+A few typical API usages are described in this section
+
+<h4><a name="convert" id="convert">Convert a coordinate from one SRF to another</a></h4>
+
+In order to convert a coordinate from one SRF to another, the user has to:
+<ol type="1">
+<li>Allocate the SRF to which the coordinate to be converted
+    is associated (source).
+</li>
+<li>Allocate the SRF to which the resulting converted coordinate
+    is associate (target).
+</li>
+<li>Allocate the source coordinate.
+</li>
+<li>Allocate the target coordinate with default values.
+</li>
+<li>Compute the target coordinate.
+</li>
+</ol>
+
+The users should re-use the allocated SRFs for the coordinate conversions
+to minimize the one-time initialization cost.
+The source and target coordinates must be both 2D, 3D, or surface.
+<p>
+The details on how to allocate SRFs, allocate coordinates and convert
+coordinates are as follows:
+</p>
+<ol type="1">
+<li>Allocate an SRF
+<p>
+There are three ways to allocate SRFs, depending on whether they are instances
+of SRF Templates, SRF Sets, or standard SRFs.  Once an SRF is allocated, its
+parameter values cannot be changed:
+<p>
+<ol type="a">
+<li>Allocate an SRF Template:
+<p>
+There are 26 SRF Template types in SRM (see
+<a href="#srf">Spatial Reference Frame</a>).  These include
+Celestiodetic, Celestiocentric, Local Space Rectangular 3D,
+and Transverse Mercator.  Use specific SRM_&lt;SRFT&gt;_Create functions to
+allocate these types of SRF.  For example, to allocate a Celestiodetic
+SRF using the WGS 1984 ORM with the Identity reference transformation:
+</p><pre>
+SRM_Status_Code   status;
+SRM_Celestiodetic cd_srf;
+
+status = SRM_CD_Create(SRM_ORMCOD_WGS_1984,
+                       SRM_RTCOD_WGS_1984_IDENTITY,
+                       &amp;cd_srf);
+</pre></li>
+<li> Allocate an SRF Set member:
+<p>
+There are 7 SRF Sets currently defined in SRM (see
+<a href="#srf">Spatial Reference Frame</a>).  These include
+Universal Transverse Mercator (UTM),
+Geotile Reference System Global Coordinate System (GTRS GCS),
+and Universal Polar Stereographic (UPS). Each of these SRF Sets is composed
+of a well-defined set of members.  For example, UTM is composed of
+120 members (zones) while GTRS GCS has 59,896 members (cells).
+These SRF Set members can be allocated by invoking the
+SRM_CreateSRFSetMember function with proper SRM SET Code and member code.
+For example, to allocate an UTM member zone 12 in North hemisphere
+using the WGS 1984 ORM with the Identity reference transformation:
+</p><pre>
+SRM_Status_Code         status;
+SRM_SRFS_Code_Info      srfs_code_info;
+SRM_TransverseMercator  utm12_srf;
+
+srfs_code_info.srfs_code       = SRM_SRFSCOD_UNIVERSAL_TRANSVERSE_MERCATOR;
+srfs_code_info.value.srfsm_utm = SRM_SRFSMUTMCOD_ZONE_12_NORTHERN_HEMISPHERE;
+
+status = SRM_CreateSRFSetMember(srfs_code_info,
+                                SRM_ORMCOD_WGS_1984,
+                                SRM_RTCOD_WGS_1984_IDENTITY,
+                                (SRM_Object_Reference *)&amp;utm12_srf);
+</pre><p>
+The SRF template type for the Universal Transverse Mercator SRF is
+intrinsically Transverse Mercator. In other words, the allocated UTM SRF
+is an instance of the Transverse Mercator SRF Template, and
+therefore supports all the functionality applicable to that SRF Template.
+Likewise, for example, a GTRS GCS SRF is intrinsically an instance of the
+Local Tangent Space Euclidean SRF Template.
+</p></li>
+<li>Allocate a Standard SRF:
+<p>
+There are 14 Standard SRFs currently defined in SRM (see
+<a href="#srf">Spatial Reference Frame</a>).  These include
+British National Grid Airy (BNG), Irish Grid, and the
+Maryland State Plane Coordinate System (SPCS).  Instances of these
+Standard SRFs can be allocated by invoking
+the SRM_CreateStandardSRF() function using the proper SRF code.  For example, to
+allocate an instance of BNG:
+</p>
+<pre>
+SRM_Status_Code      status;
+SRM_Object_Reference bng_srf;
+
+status = SRM_CreateStandardSRF(SRM_SRFCOD_BRITISH_NATIONAL_GRID_AIRY,
+                               SRM_RTCOD_OSGB_1936_ENGLAND,
+                               &amp;bng_srf);
+</pre>
+<p>
+The SRF template type for the British National Grid SRF is intrinsically
+Transverse Mercator. In other words, the allocated BNG SRF is an instance of
+the Transverse Mercator SRF Template, and therefore, supports all the functions
+applicable to that SRF Template. Likewise, for example, a Maryland SPCS SRF is
+intrinsically an instance of the Lambert Conformal Conic SRF Template.
+</p><p>
+The ORM parameter is pre-defined for each standard SRF. Users can only specify
+the reference transformation parameter that are applicable to that particular
+ORM. The pre-specified ORMs for the standard SRFs are as follows:
+</p>
+<table border="1">
+<tr>
+<th>Standard SRF</th><th>ORM</th>
+</tr><tr>
+<td>British National Grid (BNG)</td>
+<td>SRM_ORMCOD_OSGB_1936</td>
+</tr><tr>
+<td>British OSGRS80 Grid</td>
+<td>SRM_ORMCOD_ETRS_1989</td>
+</tr><tr>
+<td>Delaware State Plane Coordinate System (SPCS) 1983</td>
+<td>SRM_ORMCOD_N_AM_1983</td>
+</tr><tr>
+<td>Geocentric WGS 1984</td>
+<td>SRM_ORMCOD_WGS_1984</td>
+</tr><tr>
+<td>Geodetic Australia 1984</td>
+<td>SRM_ORMCOD_AUSTRALIAN_GEOD_1984</td>
+</tr><tr>
+<td>Geodetic WGS 1984</td>
+<td>SRM_ORMCOD_WGS_1984</td>
+</tr><tr>
+<td>Geodetic North America 1983</td>
+<td>SRM_ORMCOD_N_AM_1983</td>
+</tr><tr>
+<td>Irish Grid 1965</td>
+<td>SRM_ORMCOD_IRELAND_1965</td>
+</tr><tr>
+<td>Irish Transverse Mercator 1989</td>
+<td>SRM_ORMCOD_ETRS_1989</td>
+</tr><tr>
+<td>Lambert 1993</td>
+<td>SRM_ORMCOD_RGF_1993</td>
+</tr><tr>
+<td>Lambert II Wide</td>
+<td>SRM_ORMCOD_NTF_1896_PM_PARIS</td>
+</tr><tr>
+<td>Mars Planetocentric 2000</td>
+<td>SRM_ORMCOD_MARS_SPHERE_2000</td>
+</tr><tr>
+<td>Mars Planetographic 2000</td>
+<td>SRM_ORMCOD_MARS_2000</td>
+</tr><tr>
+<td>Maryland State Plane Coordinate System (SPCS) 1983</td>
+<td>SRM_ORMCOD_N_AM_1983</td>
+</tr>
+</table>
+</li>
+</ol>
+<br /><br /></li>
+<li>Allocate a Coordinate
+<p>
+Each SRF Template has its specific coordinates defined. The coordinates are
+only valid when associated with a specific SRF. Depending on the SRF allocated,
+2D, 3D or surface coordinates can be associated with it:
+</p><p>
+For example, to allocate a 3D coordinate for a Celestiodetic SRF:
+<pre>
+SRM_Status_Code  status;
+SRM_Coordinate3D cd_3d_coord;
+SRM_Long_Float   longitude = 0.5645;
+SRM_Long_Float   latitude = 0.8987;
+SRM_Long_Float   ellipsoidal_height = 1000.0;
+
+status = cd_srf.methods-&gt;CreateCoordinate3D(&amp;cd_srf,
+                                            longitude, latitude, ellipsoidal_height,
+                                            &amp;cd_3d_coord);
+</pre>
+Another example, to allocate a UTM surface coordinate for a UTM SRF:
+<p><pre>
+SRM_Status_Code  status;
+SRM_Coordinate3D utm12_3d_coord;
+SRM_Long_Float   easting = 500000.0;
+SRM_Long_Float   northing = 0.0;
+SRM_Long_Float   ellipsoidal_height = 1000.0;
+
+status = utm12_srf-&gt;methods-&gt;CreateCoordinate3D(utm12_srf,
+                                                easting, northing, ellipsoidal_height,
+                                                &amp;utm_3d_coord);
+</pre>
+
+Notice that the utm12_srf is an object reference to the actual
+Transverse Mercator SRF. This assumes that it was instantiated using the
+CreateSRFSetMember() function.
+<p>
+<li>Convert a source coordinate from a source SRF to a target SRF
+<p>
+Having allocated the source SRF, the source coordinate, the target SRF, and
+the target coordinate, invoke the
+SRM_ChangeCoordinateSRF() to calculate the target coordinate and the
+Valid Region.  For example, to convert a Celestiodetic 3D coordinate
+to a Transverse Mercator SRF:
+<pre>
+SRM_Status_Code             status;
+SRM_Coordinate_Valid_Region valid_region;
+
+status = cd_srf.methods-&gt;ChangeCoordinate3DSRF(&amp;cd_srf,
+                                               utm12_srf,
+                                               &amp;utm12_3d_coord,
+                                               &amp;cd_3d_coord,
+                                               &amp;valid_region);
+</pre><p>
+Notice that the utm12_srf is an object reference to the actual
+Transverse Mercator SRF. This assumes that it was instantiated using the
+CreateSRFSetMember() function.
+</p></li>
+</ol>
+
+<h4><a name="direction" id="direction">Convert a direction from one SRF to another</a></h4>
+<p>
+The steps to convert a direction (source direction) from its original SRF
+(source SRF) to another SRF (target SRF) resulting in the final direction
+(target direction) is similar to converting a coordinate as follows:
+</p>
+<ol>
+<li> Allocate an SRF (same as above).
+</li>
+<li> Allocate a reference location coordinate (same as above).  The
+restriction is that this coordinate must be a 3D coordinate.
+</li>
+<li>Allocate a Direction
+<p>
+A Direction object can be allocated using the CreateDirection() method.
+For example, to allocate a Direction
+using a Celestiodetic 3D coordinate &quot;cd_ref_location&quot; associated with
+and a direction vector (0.0, 0.0, 1.0):
+</p><pre>
+SRM_Status_Code status;
+SRM_Direction   cd_dir;
+
+status = cd_srf.methods-&gt;CreateDirection(cd_srf,
+                                         cd_ref_location,
+                                         0.0, 0.0, 1.0,
+                                         &amp;cd_dir);
+</pre><p>
+The Celestiodetic SRF &quot;cd_srf&quot; must be the same one used to
+instantiate both the reference location &quot;cd_ref_location&quot; and the
+direction object &quot;cd_dir&quot;.
+</p></li>
+<li> Convert a source Direction from the source SRF to a target SRF
+<p>
+Having allocated the source and target SRFs and Directions, invoke the
+ChangeDirectionSRF() method to calculate the
+target direction and the Valid Region.  For example, to convert the
+Celestiodetic direction to a Transverse Mercator SRF &quot;tm_srf&quot;:
+<pre>
+SRM_Status_Code status;
+status = tm_srf.methods-&gt;ChangeDirectionSRF(&amp;tm_srf,
+                                            &amp;cd_srf,
+                                            &amp;cd_dir,
+                                            &amp;tm_dir,
+                                            &amp;valid_region);
+</pre><p>
+In converting a Direction, both its reference location and the vector are
+converted to the target SRF.  The valid region is associated with the
+resulting reference location.
+</p></li>
+</ol>
+
+<h4><a name="orientation" id="orientation">Convert an orientation from one SRF to another</a></h4>
+<p>
+The steps to convert a orientation (source orientation) from its original SRF
+(source SRF) to another SRF (target SRF) resulting in the final orientation
+(target direction) is similar to converting a direction as follows:
+</p>
+<ol>
+<li> Allocate an SRF (same as above).
+</li>
+<li> Allocate a reference location coordinate (same as above). The
+restriction is that this coordinate must be a 3D coordinate.
+</li>
+<li> Allocate an orientation
+<p>
+An Orientation object can be allocated using the CreateOrientation() method.
+For example, to allocate a
+Direction using a Celestiodetic 3D coordinate
+&quot;cd_ref_location&quot; associated with and an identity matrix:
+<pre>
+SRM_Status_Code status;
+SRM_Orientation cd_ori;
+SRM_Matrix_3x3  ident_mat = { {1.0, 0.0, 0.0},
+                              {0.0, 1.0, 0.0},
+                              {0.0, 0.0, 1.0} };
+
+status = cd_srf.methods-&gt;CreateOrientation(&amp;cd_srf,
+                                           &amp;cd_ref_location,
+                                           ident_mat,
+                                           &amp;cd_ori);
+</pre><p>
+The Celestiodetic SRF &quot;cd_srf&quot; is the SRF associated with  the
+reference location &quot;cd_ref_location&quot;.
+</p></li>
+<li> Convert a source orientation from the source SRF to a target SRF
+<p>
+Having allocated the source and target SRFs and orientations, invoke the
+ChangeOrientationSRF() method to calculate the
+target orientation and the Valid Region.  For example, to convert the Celestiodetic
+orientation to a Transverse Mercator SRF &quot;tm_srf&quot;:
+</p><pre>
+SRM_Status_Code status;
+
+status = tm_srf.methods-&gt;ChangeOrientationSRF(&amp;tm_srf,
+                                              &amp;cd_srf,
+                                              &amp;cd_ori,
+                                              &amp;tm_ori,
+                                              &amp;valid_region);
+</pre><p>
+In converting an Orientation, both its reference location and the orientation
+matrix are converted to the target SRF.  The valid region is associated with
+the resulting reference location.
+</p></li>
+</ol>
+
+<h3><a name="sample_app" id="sample_app">Sample Application</a></h3>
+<p>
+The following sample code performs a series of conversions between three
+coordinate formats using the SRM C++ API:
+</p><pre>
+#include &lt;stdio.h&gt;
+
+#include &quot;srm.h&quot;
+
+#ifndef PI
+#define PI 3.14159265358979323846
+#endif
+
+#define TO_DEGREES(__rad)   (__rad*(180/PI))
+
+/*
+ * FUNCTION: main
+ */
+int main
+(
+    int   argc,
+    char* argv[]
+)
+{
+    SRM_TransverseMercator      *utm12_srf;
+    SRM_Celestiocentric          cc_srf;
+    SRM_Celestiodetic            cd_srf;
+    SRM_Coordinate3D             utm_coord, cc_coord, cd_coord;
+    SRM_Long_Float               easting = 500000.0,
+                                 northing = 0.0,
+                                 ellipsoidal_height = 1000.0,
+                                 tgt_ord1, tgt_ord2, tgt_ord3,
+                                 src_ord1, src_ord2, src_ord3;
+    SRM_ORM_Code                 orm_code = SRM_ORMCOD_WGS_1984;
+    SRM_RT_Code                  rt_code  = SRM_RTCOD_WGS_1984_IDENTITY;
+    SRM_SRFS_Code_Info           srfs_code_info;
+    SRM_Coordinate_Valid_Region  val_region;
+
+    printf(&quot;SEDRIS SRM v4.1.4 C SDK Sample Conversion App\n\n&quot;);
+
+    if (SRM_CD_Create(orm_code, rt_code, &amp;cd_srf) != SRM_STATCOD_SUCCESS)
+    {
+        fprintf(stderr, &quot;Failed to create CD SRF\n&quot;);
+        return 1;
+    }
+    else if (cd_srf.methods-&gt;CreateCoordinate3D(&amp;cd_srf,
+            0.0, 0.0, 0.0, &amp;cd_coord) != SRM_STATCOD_SUCCESS)
+    {
+        fprintf(stderr, &quot;Failed to create CD coordinate\n&quot;);
+        cd_srf.methods-&gt;Destroy(&amp;cd_srf);
+        return 1;
+    }
+
+    srfs_code_info.srfs_code = SRM_SRFSCOD_UNIVERSAL_TRANSVERSE_MERCATOR;
+    srfs_code_info.value.srfsm_utm =
+        SRM_SRFSMUTMCOD_ZONE_12_NORTHERN_HEMISPHERE;
+
+    if (SRM_CreateSRFSetMember(srfs_code_info, orm_code, rt_code,
+          (SRM_Object_Reference *)&amp;utm12_srf) == SRM_STATCOD_SUCCESS)
+    {
+        if (utm12_srf-&gt;methods-&gt;CreateCoordinate3D(utm12_srf,
+            easting, northing, ellipsoidal_height, &amp;utm_coord)
+            == SRM_STATCOD_SUCCESS)
+        {
+            if (utm12_srf-&gt;methods-&gt;ChangeCoordinate3DSRF(&amp;cd_srf,
+                utm12_srf, &amp;utm_coord, &amp;cd_coord, &amp;val_region)
+                != SRM_STATCOD_SUCCESS)
+            {
+                fprintf(stderr, &quot;Failed to convert to UTM coordinate\n&quot;);
+            }
+            else if (cd_srf.methods-&gt;GetCoordinate3DValues(&amp;cd_srf,
+                     &amp;cd_coord, &amp;tgt_ord1, &amp;tgt_ord2, &amp;tgt_ord3)
+                     != SRM_STATCOD_SUCCESS)
+            {
+                fprintf(stderr, &quot;Failed getting CD coordinate values\n&quot;);
+            }
+            else
+            {
+                printf(&quot;UTM (Zone N12) [ %lf, %lf, %lf ]\n&quot;\
+                       &quot;  =&gt; CD [ %lf, %lf, %lf ]\n\n&quot;,
+                       easting, northing, ellipsoidal_height,
+                       TO_DEGREES(tgt_ord1), TO_DEGREES(tgt_ord2),
+                       tgt_ord3);
+            }
+            utm12_srf-&gt;methods-&gt;DestroyCoordinate3D(utm12_srf, &amp;utm_coord);
+        }
+        else
+        {
+            fprintf(stderr, &quot;Failed to create UTM coordinate\n&quot;);
+        }
+        utm12_srf-&gt;methods-&gt;Destroy(utm12_srf);
+    }
+    else
+    {
+        fprintf(stderr, &quot;Failed to create UTM SRF\n&quot;);
+    }
+
+   /*
+    * Copy values from previous conversion for printing later
+    */
+    src_ord1 = tgt_ord1;
+    src_ord2 = tgt_ord2;
+    src_ord3 = tgt_ord3;
+
+    if (SRM_CC_Create(orm_code, rt_code, &amp;cc_srf) == SRM_STATCOD_SUCCESS)
+    {
+        if (cc_srf.methods-&gt;CreateCoordinate3D(&amp;cc_srf,
+            0.0, 0.0, 0.0, &amp;cc_coord) != SRM_STATCOD_SUCCESS)
+        {
+            fprintf(stderr, &quot;Failed to create CC coordinate&quot;);
+        }
+        else
+        {
+            if (cc_srf.methods-&gt;ChangeCoordinate3DSRF(&amp;cc_srf, &amp;cd_srf,
+                &amp;cd_coord, &amp;cc_coord, &amp;val_region) != SRM_STATCOD_SUCCESS)
+            {
+                fprintf(stderr, &quot;Failed to convert to CC coordinate\n&quot;);
+            }
+            else if (cc_srf.methods-&gt;GetCoordinate3DValues(&amp;cc_srf,
+                     &amp;cc_coord, &amp;tgt_ord1, &amp;tgt_ord2, &amp;tgt_ord3)
+                     != SRM_STATCOD_SUCCESS)
+            {
+                fprintf(stderr,
+                        &quot;Failed getting the CC coordinate values\n&quot;);
+            }
+            else
+            {
+                printf(&quot;CD [ %lf, %lf, %lf ]\n&quot;, TO_DEGREES(src_ord1),
+                    TO_DEGREES(src_ord2), src_ord3);
+                printf(&quot;  =&gt; CC [ %lf, %lf, %lf ]\n\n&quot;,
+                    tgt_ord1, tgt_ord2, tgt_ord3);
+            }
+            cc_srf.methods-&gt;DestroyCoordinate3D(&amp;cc_srf,
+                &amp;cc_coord);
+        }
+        cc_srf.methods-&gt;Destroy(&amp;cc_srf);
+    }
+    else
+    {
+        fprintf(stderr, &quot;Failed to create CC SRF\n&quot;);
+    }
+    cd_srf.methods-&gt;DestroyCoordinate3D(&amp;cd_srf, &amp;cd_coord);
+    cd_srf.methods-&gt;Destroy(&amp;cd_srf);
+
+    return 0;
+}
+</pre>
+
+Executing the sample code would result the following output:
+<pre>
+SEDRIS SRM v4.1.4 C SDK Sample Conversion App
+
+UTM (Zone N12) [ 500000.000000, 0.000000, 1000.000000 ]
+  =&gt; CD [ -111.000000, -0.000000, 1000.000000 ]
+
+CD [ -111.000000, -0.000000, 1000.000000 ]
+  =&gt; CC [ -2286078.246559, -5955437.441144, -0.000000 ]
+</pre>
+<p>
+Return to: <a href="#top">Top</a>
+</p></blockquote>
+
+<p>
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</p>
+</body>
+</html>

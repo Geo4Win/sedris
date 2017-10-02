@@ -1,0 +1,170 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE PutDataTableData</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+SE PutDataTableData
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../types/SE_Return_Code.htm">SE_Return_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SE_PutDataTableData</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../types/SE_Object.htm">SE_Object</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="data_table"></a>data_table,</td><td class="CFunction"><sup><A href="#Notes_data_table">1</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">const&nbsp;</td><td class="CFunction"><a href="../types/SE_Data_Table_Sub_Extent.htm">SE_Data_Table_Sub_Extent</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="extents_ptr"></a>extents_ptr,</td><td class="CFunction"><sup><A href="#Notes_extents_ptr">2</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../../drm/types/SE_Integer_Positive.htm">SE_Integer_Positive</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="element_count"></a>element_count,</td><td class="CFunction"><sup><A href="#Notes_element_count">3</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">const&nbsp;</td><td class="CFunction"><a href="../../drm/types/SE_Integer_Positive.htm">SE_Integer_Positive</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="element_indices"></a>element_indices[],</td><td class="CFunction"><sup><A href="#Notes_element_indices">4</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">const&nbsp;</td><td class="CFunction"><a href="../../drm/types/SE_Data_Table_Data.htm">SE_Data_Table_Data</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="data_table_data_ptr"></a>data_table_data_ptr</td><td class="CFunction"><sup><A href="#Notes_data_table_data_ptr">5</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+  This function is used to insert the cell data of a given
+  <A href="../../drm/classes/DataTable.htm">&lt;Data Table&gt;</A>.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A>
+</td><td class="Status">
+ and the data is stored in the transmittal.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A>
+</td><td class="Status">
+ and the status code is set appropriately if the call failed.
+</td></tr>
+</table>
+
+<h3>Status Codes</h3>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+ <A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A> is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_SUCCESS">SE_STATCODE_SUCCESS</A>
+</td><td class="Status">
+ set if valid parameters were passed in and all operations succeeded.
+</td></tr>
+</table>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+ <A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A> is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_UNRESOLVED_OUTPUT_OBJECT">SE_STATCODE_UNRESOLVED_OUTPUT_OBJECT</A>
+</td><td class="Status">
+ set if data_table is an unresolved object.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_INVALID_ACCESS_MODE">SE_STATCODE_INVALID_ACCESS_MODE</A>
+</td><td class="Status">
+ set if data_table belongs to a transmittal that was opened in
+ read-only mode.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_INACTIONABLE_FAILURE">SE_STATCODE_INACTIONABLE_FAILURE</A>
+</td><td class="Status">
+ set if the call fails for any other reason including:
+<OL>
+<LI> the given element_indices does not form a valid
+      <A href="../../drm/classes/DataTable.htm">&lt;Data Table&gt;</A> signature,
+</LI>
+<LI> <A href="../../drm/classes/DataTable.htm">&lt;Data Table&gt;</A> doesn't belong to an open
+      transmittal,
+</LI>
+<LI>
+ <A href="../../drm/classes/DataTable.htm">&lt;Data Table&gt;</A> is a <A href="../../drm/classes/PropertyGrid.htm">&lt;Property Grid&gt;</A>
+ with <A href="../../drm/classes/PropertyGrid.htm#data_present">data_present</A>
+ set to <A href="../../drm/types/SE_Boolean.htm#SE_FALSE">SE_FALSE</A>
+ (note that the default value of this field is
+ <A href="../../drm/types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A>, if the user
+ has not yet set the fields of the <A href="../../drm/classes/PropertyGrid.htm">&lt;Property Grid&gt;</A>),
+</LI>
+</OL>
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#data_table" name="Notes_data_table">1</a></sup>
+ the &lt;Data Table&gt; whose cell data is inserted.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#extents_ptr" name="Notes_extents_ptr">2</a></sup>
+ indicates the cells to be inserted.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#element_count" name="Notes_element_count">3</a></sup>
+ the number of elements per cell to insert, and the size
+    of the element_indices array.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#element_indices" name="Notes_element_indices">4</a></sup>
+ an array of indices into the ordered list of
+    &lt;Table Property Description&gt; instances aggregated by the
+    &lt;Data Table&gt;.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#data_table_data_ptr" name="Notes_data_table_data_ptr">5</a></sup>
+ a pointer to an array of SE_Data_Table_Data
+    structures, already allocated either in a store or in the user's
+    memory space, to be written to data_table.
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SE_PublishObject.htm">SE_PublishObject</a>.
+<strong>Next:</strong> <a href="SE_PutFields.htm">SE_PutFields</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

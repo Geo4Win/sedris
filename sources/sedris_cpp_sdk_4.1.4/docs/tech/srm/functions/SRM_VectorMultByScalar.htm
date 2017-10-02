@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SRM VectorMultByScalar</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SRM Reference Manual</big></big>
+<br>
+<!-- SRM spec. 4.1 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+SRM VectorMultByScalar
+</font>
+</th></tr>
+</table></div>
+
+<!-- SRM SDK Release 4.1.4 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../types/SRM_Status_Code.htm">SRM_Status_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SRM_VectorMultByScalar</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1"><td class="CFunction">const&nbsp;</td><td class="CFunction"><a href="../types/SRM_Vector_3D.htm">SRM_Vector_3D</a>&nbsp;</td> <td class="CFunction"><a name="vec_ptr"></a>vec_ptr,</td><td class="CFunction"><sup><A href="#Notes_vec_ptr">1</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../types/SRM_Long_Float.htm">SRM_Long_Float</a>&nbsp;</td> <td class="CFunction"><a name="scalar"></a>scalar,</td><td class="CFunction"><sup><A href="#Notes_scalar">2</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../types/SRM_Vector_3D.htm">SRM_Vector_3D</a>&nbsp;</td> <td class="CFunction"><a name="result_out_ptr"></a>result_out_ptr</td><td class="CFunction"><sup><A href="#Notes_result_out_ptr">3</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+ Multiplies <A href="#vec_ptr">vec_ptr</A>'s vector by scalar,
+ returns the result in <A href="#result_out_ptr">*result_out_ptr</A>.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SRM_Status_Code.htm#SRM_STATCOD_SUCCESS">SRM_STATCOD_SUCCESS</A>
+</td><td class="Status"> and
+ <A href="#result_out_ptr">*result_out_ptr</A>.
+ is set to the appropriate value, if valid parameters were passed in.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SRM_Status_Code.htm#SRM_STATCOD_INACTIONABLE">SRM_STATCOD_INACTIONABLE</A>
+</td><td class="Status"> and no changes are made, if
+ <A href="#result_out_ptr">result_out_ptr</A> or
+ <A href="#vec_ptr">vec_ptr</A> is NULL.
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#vec_ptr" name="Notes_vec_ptr">1</a></sup>
+ pointer to the vector operand
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#scalar" name="Notes_scalar">2</a></sup>
+ the scalar multiplier.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#result_out_ptr" name="Notes_result_out_ptr">3</a></sup>
+ pointer to an SRM_Vector_3D variable in the user's
+    memory space where the result will be stored.
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SRM_VectorMagnitude.htm">SRM_VectorMagnitude</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

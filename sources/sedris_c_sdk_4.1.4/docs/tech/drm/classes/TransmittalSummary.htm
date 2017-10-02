@@ -1,0 +1,417 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Transmittal Summary</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Transmittal Summary
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Transmittal Summary</h2>
+<h3>Superclass - <a href="SEDRISAbstractBase.htm">&lt;SEDRIS Abstract Base&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class summarizes the content of the
+ transmittal for which its aggregate
+ <A href="TransmittalRoot.htm">&lt;Transmittal Root&gt;</A> instance
+ serves as root object, in terms of:
+</P>
+<OL type='a'>
+<LI>environmental domains represented (such as, terrain and ocean),
+</LI>
+<LI>types of data used (such as geometry representations,
+    feature representations, and data tables),
+</LI>
+<LI>DRM classes used,
+</LI>
+<LI>ECCs used, and
+</LI>
+<LI>SRFs used.
+</LI>
+</OL>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet20.pdf"><strong>20</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet01.pdf"><strong>1</strong></A>
+</LI>
+</UL>
+
+<h3>Example</h3>
+<OL>
+<LI><P>
+ A <A href="TransmittalSummary.htm">&lt;Transmittal Summary&gt;</A> instance for a transmittal containing a
+ <A href="ModelLibrary.htm">&lt;Model Library&gt;</A> instance and an <A href="EnvironmentRoot.htm">&lt;Environment Root&gt;</A>
+ instance is depicted in <a href="#Figure74">Figure 74</a>:
+</P>
+<DIV align="center">
+<p>
+<A name="Figure74"></A>
+<IMG SRC="../Images/TSum_Ex1.png" ALT="Transmittal Summary, Example 1">
+</p>
+<p class=FigureCaption>Figure 74 &#8212; &lt;DRM Transmittal Summary&gt; example</p>
+</DIV>
+</LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ How are the environmental domains represented in a transmittal
+ summarized?
+</B></DT>
+<DD><P>
+ A <A href="TransmittalSummary.htm">&lt;Transmittal Summary&gt;</A> instance can
+ have a list of
+ <A href="EnvironmentalDomainSummary.htm">&lt;Environmental Domain Summary&gt;</A>
+ components. Each
+ <A href="EnvironmentalDomainSummary.htm">&lt;Environmental Domain Summary&gt;</A>
+ component represents one of the domains for which data is provided.
+</P></DD>
+<DT><B>
+ How are the DRM classes used in a transmittal summarized?
+</B></DT>
+<DD><P>
+ A <A href="TransmittalSummary.htm">&lt;Transmittal Summary&gt;</A> instance can
+ have a list of
+ <A href="DRMClassSummaryItem.htm">&lt;DRM Class Summary Item&gt;</A> components.
+ Each <A href="DRMClassSummaryItem.htm">&lt;DRM Class Summary Item&gt;</A>
+ component represents one of the classes used.
+</P></DD>
+<DT><B>
+ How are the classifications used in a transmittal summarized?
+</B></DT>
+<DD><P>
+ Each classification (<I>i.e.</I>, the ECC and the sets of EACs used with
+ it) that is used in the given transmittal is summarized using a
+ <A href="EDCSUseSummaryItem.htm">&lt;EDCS Use Summary Item&gt;</A> instance. Each
+ <A href="EDCSUseSummaryItem.htm">&lt;EDCS Use Summary Item&gt;</A> instance is
+ a component
+ of the <A href="DRMClassSummaryItem.htm">&lt;DRM Class Summary Item&gt;</A>
+ instance that represents the class that uses the classification within
+ the transmittal.
+</P></DD>
+<DT><B>
+ How are SRFs used in a transmittal summarized?
+</B></DT>
+<DD><P>
+ Each SRF that is used in the given transmittal is summarized using
+ an <A href="SRFSummary.htm">&lt;SRF Summary&gt;</A> instance. Each
+ <A href="SRFSummary.htm">&lt;SRF Summary&gt;</A> instance is a component of the
+ <A href="DRMClassSummaryItem.htm">&lt;DRM Class Summary Item&gt;</A> instance
+ that represents the class that specifies the SRF within
+ the transmittal.
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/NonOverlappingDRMClassSummaryItemInstances.htm">&lt;&lt;Non Overlapping DRM Class Summary Item Instances&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Composed of (two-way)</h3>
+<UL>
+<li>zero or more <a href="DRMClassSummaryItem.htm">&lt;DRM Class Summary Item&gt;</a> instances</li>
+</UL>
+
+<h3>Composed of (two-way metadata)</h3>
+<UL>
+<li>zero or more <a href="EDCSUseSummaryItem.htm">&lt;EDCS Use Summary Item&gt;</a> instances</li>
+<li>zero or more <a href="EnvironmentalDomainSummary.htm">&lt;Environmental Domain Summary&gt;</a> instances</li>
+</UL>
+
+<h3>Component of (two-way)</h3>
+<UL>
+<li>one <a href="TransmittalRoot.htm">&lt;Transmittal Root&gt;</a> instance</li>
+</UL>
+
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Present_In.htm">SE_Present_In</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="features_present">features_present</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_features_present">1</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Present_In.htm">SE_Present_In</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="geometry_present">geometry_present</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_geometry_present">2</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Present_In.htm">SE_Present_In</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="geometry_topology_present">geometry_topology_present</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_geometry_topology_present">3</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Present_In.htm">SE_Present_In</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="data_tables_present">data_tables_present</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_data_tables_present">4</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Present_In.htm">SE_Present_In</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="priority_values_present">priority_values_present</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_priority_values_present">5</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Present_In.htm">SE_Present_In</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="mobility_values_present">mobility_values_present</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_mobility_values_present">6</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Present_In.htm">SE_Present_In</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="thermal_values_present">thermal_values_present</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_thermal_values_present">7</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Present_In.htm">SE_Present_In</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="terrain_lods_present">terrain_lods_present</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_terrain_lods_present">8</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Present_In.htm">SE_Present_In</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="two_D_features_flag">two_D_features_flag</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_two_D_features_flag">9</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Boolean.htm">SE_Boolean</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="models_present">models_present</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_models_present">10</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Boolean.htm">SE_Boolean</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="images_present">images_present</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_images_present">11</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Boolean.htm">SE_Boolean</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="sounds_present">sounds_present</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_sounds_present">12</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Boolean.htm">SE_Boolean</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="symbols_present">symbols_present</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_symbols_present">13</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Boolean.htm">SE_Boolean</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="colours_present">colours_present</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_colours_present">14</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Colour_Model.htm">SE_Colour_Model</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="colour_model">colour_model</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_colour_model">15</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Boolean.htm">SE_Boolean</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="EDCS_usage_list_is_complete">EDCS_usage_list_is_complete</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_EDCS_usage_list_is_complete">16</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Fields Notes</h3>
+<h4><a href="#features_present" name="Notes_features_present">features_present</a></h4>
+<P>
+ The <A href="#features_present">features_present</A> field specifies
+ whether <A href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> instances of some kind
+ are present in the transmittal being summarized and, if so,
+ in what context. If <A href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> instances
+ are present in a given context, <A href="FeatureTopology.htm">&lt;Feature Topology&gt;</A> instances
+ are also present.
+</P>
+<h4><a href="#geometry_present" name="Notes_geometry_present">geometry_present</a></h4>
+<P>
+ The <A href="#geometry_present">geometry_present</A> field specifies
+ whether <A href="GeometryRepresentation.htm">&lt;Geometry Representation&gt;</A> instances of some kind
+ are present in the transmittal being summarized and, if so,
+ in what context.
+</P>
+<h4><a href="#geometry_topology_present" name="Notes_geometry_topology_present">geometry_topology_present</a></h4>
+<P>
+ The <A href="#geometry_topology_present">geometry_topology_present</A>
+ field specifies whether
+ <A href="GeometryTopology.htm">&lt;Geometry Topology&gt;</A>
+ instances of some kind are present
+ in the transmittal being summarized and, if so, in what context.
+ If <A href="GeometryTopology.htm">&lt;Geometry Topology&gt;</A>
+ instances are present in a given context,
+ <A href="GeometryRepresentation.htm">&lt;Geometry Representation&gt;</A>
+ instances are also present.
+</P>
+<h4><a href="#data_tables_present" name="Notes_data_tables_present">data_tables_present</a></h4>
+<P>
+ The <A href="#data_tables_present">data_tables_present</A> field
+ specifies whether
+ <A href="DataTable.htm">&lt;Data Table&gt;</A>
+ instances of some kind are present in the transmittal being
+ summarized and, if so, in what context.
+</P>
+<h4><a href="#priority_values_present" name="Notes_priority_values_present">priority_values_present</a></h4>
+<P>
+ The <A href="#priority_values_present">priority_values_present</A>
+ field specifies whether
+ <A href="RenderingPriorityLevel.htm">&lt;Rendering Priority Level&gt;</A>
+ instances are present somewhere in the transmittal being
+ summarized and, if so, in what context.
+</P>
+<h4><a href="#mobility_values_present" name="Notes_mobility_values_present">mobility_values_present</a></h4>
+<P>
+ The <A href="#mobility_values_present">mobility_values_present</A>
+ field specifies whether instances of
+ <A href="Property.htm">&lt;Property&gt;</A> or <A href="TablePropertyDescription.htm">&lt;Table Property Description&gt;</A>
+ somewhere in the transmittal being summarized,
+ the EACs of which specify mobility (<I>i.e.</I>,
+ trafficability) information, such as
+ <A href="../../../../src/lib/edcs/docs/dictionary/EAC_T.htm#EAC_TERRAIN_TRAFFICABILITY_COARSE">EAC_TERRAIN_TRAFFICABILITY_COARSE</A>,
+ <A href="../../../../src/lib/edcs/docs/dictionary/EAC_T.htm#EAC_TERRAIN_TRAFFICABILITY_MEDIUM">EAC_TERRAIN_TRAFFICABILITY_MEDIUM</A>, and
+ <A href="../../../../src/lib/edcs/docs/dictionary/EAC_T.htm#EAC_TERRAIN_TRAFFICABILITY_FINE">EAC_TERRAIN_TRAFFICABILITY_FINE</A>.
+</P>
+<h4><a href="#thermal_values_present" name="Notes_thermal_values_present">thermal_values_present</a></h4>
+<P>
+ The <A href="#thermal_values_present">thermal_values_present</A>
+ field specifies whether instances of
+ <A href="Property.htm">&lt;Property&gt;</A> or <A href="TablePropertyDescription.htm">&lt;Table Property Description&gt;</A>
+ are present somewhere in the transmittal being summarized, the
+ EACs of which specify thermal information.
+</P>
+<h4><a href="#terrain_lods_present" name="Notes_terrain_lods_present">terrain_lods_present</a></h4>
+<P>
+ The <A href="#terrain_lods_present">terrain_lods_present</A>
+ field specifies whether
+ <A href="LODRelatedGeometry.htm">&lt;LOD Related Geometry&gt;</A> instances and/or
+ <A href="LODRelatedFeatures.htm">&lt;LOD Related Features&gt;</A>
+ instances representing terrain information
+ are present in the transmittal being summarized and, if so, in
+ what context.
+</P>
+<h4><a href="#two_D_features_flag" name="Notes_two_D_features_flag">two_D_features_flag</a></h4>
+<P>
+ The <A href="#two_D_features_flag">two_D_features_flag</A>
+ field specifies whether any
+ <A href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</A>
+ instance containing at least one
+ <A href="Location2D.htm">&lt;Location 2D&gt;</A> instance or
+ <A href="LocationSurface.htm">&lt;Location Surface&gt;</A> instance
+ is present in the transmittal being summarized and, if so,
+ in what context.
+</P>
+<h4><a href="#models_present" name="Notes_models_present">models_present</a></h4>
+<P>
+ The <A href="#models_present">models_present</A>
+ field specifies whether <A href="Model.htm">&lt;Model&gt;</A> instances
+ exist in the transmittal being summarized.
+</P>
+<h4><a href="#images_present" name="Notes_images_present">images_present</a></h4>
+<P>
+ The <A href="#images_present">images_present</A>
+ field specifies whether <A href="Image.htm">&lt;Image&gt;</A> instances
+ exist in the transmittal being summarized.
+</P>
+<h4><a href="#sounds_present" name="Notes_sounds_present">sounds_present</a></h4>
+<P>
+ The <A href="#sounds_present">sounds_present</A>
+ field specifies whether <A href="Sound.htm">&lt;Sound&gt;</A> instances
+ exist in the transmittal being summarized.
+</P>
+<h4><a href="#symbols_present" name="Notes_symbols_present">symbols_present</a></h4>
+<P>
+ The <A href="#symbols_present">symbols_present</A>
+ field specifies whether <A href="Symbol.htm">&lt;Symbol&gt;</A> instances
+ exist in the transmittal being summarized.
+</P>
+<h4><a href="#colours_present" name="Notes_colours_present">colours_present</a></h4>
+<P>
+ The <A href="#colours_present">colours_present</A> field
+ specifies whether <A href="Colour.htm">&lt;Colour&gt;</A>
+ instances are present in the transmittal being summarized. If no
+ <A href="Colour.htm">&lt;Colour&gt;</A> instances are
+ present, the value of the
+ <A href="#colour_model">colour_model</A>
+ field is not applicable.
+</P>
+<h4><a href="#colour_model" name="Notes_colour_model">colour_model</a></h4>
+<P>
+ The <A href="#colour_model">colour_model</A>
+ field is interpreted by the API only if
+ <A href="#colours_present">colours_present</A>
+ is set to <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A>. The
+ <A href="#colour_model">colour_model</A> field
+ specifies the colour model used by the data provider for all
+ <A href="Colour.htm">&lt;Colour&gt;</A> instances in the transmittal
+ for which the content is being summarized by the
+ <A href="TransmittalSummary.htm">&lt;Transmittal Summary&gt;</A> instance.
+</P><P class=DataItemNoteExample>
+EXAMPLE&nbsp; 
+ If the <A href="#colour_model">colour_model</A> field's value is
+ <A href="../types/SE_Colour_Model.htm#SE_COLRMOD_RGB">SE_COLRMOD_RGB</A>,
+ any <A href="ColourData.htm">&lt;Colour Data&gt;</A> instance in the
+ transmittal shall be
+ an <A href="RGBColour.htm">&lt;RGB Colour&gt;</A> instance.
+</p>
+<h4><a href="#EDCS_usage_list_is_complete" name="Notes_EDCS_usage_list_is_complete">EDCS_usage_list_is_complete</a></h4>
+<P>
+ The <A href="#EDCS_usage_list_is_complete">EDCS_usage_list_is_complete</A>
+ field specifies whether the set of
+ <A href="EDCSUseSummaryItem.htm">&lt;EDCS Use Summary Item&gt;</A> components
+ of the <A href="TransmittalSummary.htm">&lt;Transmittal Summary&gt;</A> instance
+ forms a complete summary of EDCS usage within the given transmittal.
+ The data provider is expected to only set this field to
+ <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A> if the summary of
+ EDCS usage is, in fact, complete.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="TransmittalRoot.htm">Transmittal Root</A>.
+<strong>Next:</strong> <A href="TwinklingLightBehaviour.htm">Twinkling Light Behaviour</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

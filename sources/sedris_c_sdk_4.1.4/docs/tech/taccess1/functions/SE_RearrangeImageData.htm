@@ -1,0 +1,188 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE RearrangeImageData</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX B - Transmittal Access Level 1 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+SE RearrangeImageData
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../../taccess0/types/SE_Status_Code.htm">SE_Status_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SE_RearrangeImageData</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1"><td class="CFunction">const&nbsp;</td><td class="CFunction"><a href="../../drm/classes/Image.htm">SE_Image_Fields</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="image_fields_ptr"></a>image_fields_ptr,</td><td class="CFunction"><sup><A href="#Notes_image_fields_ptr">1</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">const&nbsp;</td><td class="CFunction"><a href="../../taccess0/types/SE_Image_Data.htm">SE_Image_Data</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="data_in_ptr"></a>data_in_ptr,</td><td class="CFunction"><sup><A href="#Notes_data_in_ptr">2</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">const&nbsp;</td><td class="CFunction"><a href="../../taccess0/types/SE_Image_Texel_Location_3D.htm">SE_Image_Texel_Location_3D</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="start_texel"></a>start_texel,</td><td class="CFunction"><sup><A href="#Notes_start_texel">3</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">const&nbsp;</td><td class="CFunction"><a href="../../taccess0/types/SE_Image_Texel_Location_3D.htm">SE_Image_Texel_Location_3D</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="stop_texel"></a>stop_texel,</td><td class="CFunction"><sup><A href="#Notes_stop_texel">4</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../../drm/types/SE_Short_Integer_Unsigned.htm">SE_Short_Integer_Unsigned</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="mip_level"></a>mip_level,</td><td class="CFunction"><sup><A href="#Notes_mip_level">5</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">const&nbsp;</td><td class="CFunction"><a href="../types/SE_Desired_Image_Parameters.htm">SE_Desired_Image_Parameters</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="desired_image_parameters_ptr"></a>desired_image_parameters_ptr,</td><td class="CFunction"><sup><A href="#Notes_desired_image_parameters_ptr">6</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../../taccess0/types/SE_Image_Data.htm">SE_Image_Data</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="data_out_ptr"></a>data_out_ptr</td><td class="CFunction"><sup><A href="#Notes_data_out_ptr">7</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+  Used by <A href="SE_GetRearrangedImageData.htm">
+  SE_GetRearrangedImageData()</A> to rearrange the image data as specified
+  by the <A href="../types/SE_Desired_Image_Parameters.htm">SE_Desired_Image_Parameters</A>
+ structure. It is exposed to
+  the user so that image data previously obtained by a call to
+  <A href="SE_GetRearrangedImageData.htm">SE_GetRearrangedImageData()</A>
+  or <A href="../../taccess0/functions/SE_GetImageData.htm">SE_GetImageData()</A> (or
+  even user-created
+  image data) can be rearranged without a new call to the functions
+  mentioned above.
+</P><P>
+  This function requires information about how the image data passed in is
+  arranged. Consequently, the user must fill and pass in an appropriate
+   structure by either an explicit
+  allocation or by obtaining one from an <A href="../../drm/classes/Image.htm">&lt;Image&gt;</A> object
+  (this last is what the function
+ <A href="SE_GetRearrangedImageData.htm">SE_GetRearrangedImageData</A>
+  does).
+</P><P>
+  This function only rearranges the specified
+  <A NAME="#mip_level">mip_level</A>.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../../taccess0/types/SE_Status_Code.htm#SE_STATCODE_SUCCESS">SE_STATCODE_SUCCESS</A>
+</td><td class="Status">
+ and the appropriate values are placed in
+<A href="#data_out_ptr">*data_out_ptr</A>, if
+ valid parameters were passed in.
+</td></tr>
+<tr><td class="Status">
+<A href="../../taccess0/types/SE_Status_Code.htm#SE_STATCODE_INACTIONABLE_FAILURE">SE_STATCODE_INACTIONABLE_FAILURE</A>
+</td><td class="Status">
+ and <A href="#data_out_ptr">*data_out_ptr</A> is not affected,
+<OL>
+ <LI> if <A href="#image_fields_ptr">image_fields_ptr</A> is invalid,
+</LI>
+ <LI> if any start or stop texels were invalid for
+ <A href="#image_fields_ptr">image_fields_ptr</A>,
+</LI>
+<LI><A href="#desired_image_parameters_ptr">desired_image_parameters_ptr</A>
+ is invalid,
+</LI>
+ <LI> the source image signature (in
+ <A href="#image_fields_ptr">image_fields_ptr</A>)
+ is invalid, or
+</LI>
+ <LI> if the requested image is a floating-point image in which one of
+      the texel components is computed to be neither <A href="../../drm/types/SE_Float.htm">SE_Float</A>
+      nor <A href="../../drm/types/SE_Long_Float.htm">SE_Long_Float</A>
+</LI>
+</OL>
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#image_fields_ptr" name="Notes_image_fields_ptr">1</a></sup>
+ the fields of the &lt;Image&gt; whose data is pointed to by
+    data_in_ptr; this structure describes how the data pointed to by the
+    the data_in_ptr is organized.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#data_in_ptr" name="Notes_data_in_ptr">2</a></sup>
+ the source image data (possibly obtained from
+    SE_GetImageData()); a pointer to a block of memory, already allocated
+    in the user's memory space, which contain the image data to be
+    rearranged. This memory space is entirely under the user's control.
+    The only time the API accesses this memory is when the API reads the
+    image data during this function call.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#start_texel" name="Notes_start_texel">3</a></sup>
+ the starting texel index of the &lt;Image&gt; instance
+    data to be retrieved; must be less than or equal to stop_texel,
+    and must be valid for the specified MIP level of image.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#stop_texel" name="Notes_stop_texel">4</a></sup>
+ the stopping texel index of the &lt;Image&gt; instance
+    data to be retrieved; must be greater than or equal to start_texel,
+    and must be valid for the specified MIP level of image.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#mip_level" name="Notes_mip_level">5</a></sup>
+ the MIP level of the &lt;Image&gt; from which the data will be
+    returned.  Each &lt;Image&gt; has at least one MIP level.  Many &lt;Image&gt;s have
+    multiple MIP levels.  Data can only be retrieved from one MIP level
+    at a time (only one MIP level per SE_GetImageData() call).
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#desired_image_parameters_ptr" name="Notes_desired_image_parameters_ptr">6</a></sup>
+ a pointer to a structure containing the
+    &quot;rearranging&quot; parameters that the user must supply to rearrange the
+    the image data that was passed in.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#data_out_ptr" name="Notes_data_out_ptr">7</a></sup>
+ the results; a pointer to a block of memory,
+    already allocated in the user's memory space, which will be filled
+    by this function with the appropriate values.  This memory space
+    is entirely under the user's control.  The only time that the API
+    accesses this memory is when the API copies data into the memory
+    during this function call.
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SE_PrintDesiredImageParameters.htm">SE_PrintDesiredImageParameters</a>.
+<strong>Next:</strong> <a href="SE_RemoveObjectAndLinks.htm">SE_RemoveObjectAndLinks</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

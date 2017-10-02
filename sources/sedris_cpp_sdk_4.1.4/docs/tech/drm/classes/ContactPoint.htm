@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Contact Point</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Contact Point
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Contact Point</h2>
+<h3>Superclass - <a href="SEDRISAbstractBase.htm">&lt;SEDRIS Abstract Base&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies an identified location that
+ run-time systems can identify as a place where intersection tests
+ should occur.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet02.pdf"><strong>2</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+This class appears on only one page of the DRM class diagram.
+<h3>Example</h3>
+<OL>
+<LI><P>
+ Consider a <A href="Model.htm">&lt;Model&gt;</A> instance with a
+ <A href="GeometryModel.htm">&lt;Geometry Model&gt;</A> component specifying a
+ geometric representation of an airplane, which is to be used for
+ an application in which it is useful to know the position of the
+ bottom of the wheels when the landing gear is fully extended. In
+ this case, the landing gear is represented as a separate
+ <A href="Model.htm">&lt;Model&gt;</A> instance, and the
+ <A href="GeometryModel.htm">&lt;Geometry Model&gt;</A> instance representing
+ the landing gear
+ specifies a <A href="ContactPoint.htm">&lt;Contact Point&gt;</A> component
+ to identify this location.
+</P></LI>
+<LI><P>
+ Consider a <A href="Model.htm">&lt;Model&gt;</A> instance with a
+ <A href="GeometryModel.htm">&lt;Geometry Model&gt;</A> component
+ <span class="ConstructName">G</span> specifying a
+ geometric representation of a rail wagon. The rail wagon
+ has a hitch point where it can be attached to another
+ rail wagon or to a locomotive engine. This hitch point
+ is represented by a <A href="ContactPoint.htm">&lt;Contact Point&gt;</A> component
+ of <span class="ConstructName">G</span>, so that when a
+ <A href="GeometryModelInstance.htm">&lt;Geometry Model Instance&gt;</A> instance
+ instantiates the rail wagon, the <A href="ContactPoint.htm">&lt;Contact Point&gt;</A>
+ component of <span class="ConstructName">G</span> indicates where
+ another instantiation of the rail wagon can be connected
+ to the given instantiation.
+</P></LI>
+<LI><P>
+ Consider a <A href="Model.htm">&lt;Model&gt;</A> instance with a
+ <A href="GeometryModel.htm">&lt;Geometry Model&gt;</A> component specifying a
+ geometric representation of a roll-on-roll-off ship that
+ has a loading ramp. The endpoint of this loading ramp
+ is represented by a <A href="ContactPoint.htm">&lt;Contact Point&gt;</A> component
+ of the <A href="GeometryModel.htm">&lt;Geometry Model&gt;</A> component.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<p>
+No FAQs supplied.
+</p>
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Composed of (two-way)</h3>
+<UL>
+<li>one <a href="Location3D.htm">&lt;Location 3D&gt;</a> instance</li>
+</UL>
+
+<h3>Component of (two-way)</h3>
+<UL>
+<li>one <a href="GeometryModel.htm">&lt;Geometry Model&gt;</a> instance</li>
+</UL>
+
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+
+<hr>
+<strong>Prev:</strong> <A href="ConformalBehaviour.htm">Conformal Behaviour</A>.
+<strong>Next:</strong> <A href="ContinuousLODRelatedGeometry.htm">Continuous LOD Related Geometry</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

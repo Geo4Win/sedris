@@ -1,0 +1,217 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE_Hierarchy_Order_Parameters</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Types
+</font>
+<br>
+<font color="#ffffff">
+SE_Hierarchy_Order_Parameters
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<PRE>
+/*
+ * STRUCT: SE_Hierarchy_Order_Parameters
+ *
+ *   Determines the traversal order of the &quot;branches&quot; or &quot;switches&quot; from an
+ *   &lt;Aggregate Feature&gt; or &lt;Aggregate Geometry&gt; instance encountered
+ *   by a Component Iterator. If an &lt;Aggregate Feature&gt; or &lt;Aggregate Geometry&gt;
+ *   instance contains unordered branches, then the traversal order of these
+ *   branches is random by default. By using traversal order parameters, the
+ *   user can control the order in which the branches will be traversed.
+ *
+ *   If a given class of aggregate instance is not given any traversal order
+ *   controls, then the components of that class of aggregate instance will
+ *   be traversed in a random order, unless the aggregate class itself is
+ *   defined with an ordering of branches in the DRM.
+ *
+ *   ANIMATION RELATED GEOMETRY:
+ *
+ *     No order parameters are provided for an &lt;Animation Related Geometry&gt;,
+ *     because the traversal order of an &lt;Animation Related Geometry&gt; is
+ *     already defined by the DRM.  The frames of an animation are
+ *     ordered, and that ordering is the order in which the frames will
+ *     be traversed.
+ *
+ *   LEVEL OF DETAIL RELATED GEOMETRY &amp; FEATURES:
+ *
+ *     Note that Ascending and Descending refer to the level of detail of
+ *     the branches, thus, for distance level of detail, a smaller distance
+ *     provides a higher level of detail.
+ *
+ *     Ascending Order:
+ *         Distance - branches with higher minimum_ranges will be first
+ *         Index - branches with lower indices will be first
+ *         Map Scale - branches with lower map_scales will be first
+ *         Spatial Resolution - branches with lower resolutions will be first
+ *         Volume - volumes that occupy less volume will be first
+ *
+ *     Descending Order:
+ *         Distance - branches with lower minimum_ranges will be first
+ *         Index - branches with higher indices will be first
+ *         Map Scale - branches with higher map_scales will be first
+ *         Spatial Resolution - branches with higher resolutions will be first
+ *         Volume - volumes that occupy more volume will be first
+ *
+ *     Order does not matter:
+ *         A random traversal order will be taken
+ *
+ *   OCTANT AND QUADRANT RELATED GEOMETRY &amp; FEATURES:
+ *
+ *     Ascending Order:
+ *        from SE_QUADRANT_SOUTHWEST     to SE_QUADRANT_SOUTHEAST for Quad,
+ *             SE_OCTANT_UPPER_SOUTHWEST to SE_OCTANT_LOWER_NORTHEAST for Oct
+ *
+ *     Descending Order:
+ *        from SE_QUADRANT_SOUTHEAST     to SE_QUADRANT_SOUTHWEST for Quad,
+ *             SE_OCTANT_LOWER_NORTHEAST to SE_OCTANT_UPPER_SOUTHWEST for Oct
+ *
+ *     Order does not matter: A random traversal order will be taken
+ *
+ *   SEPARATING PLANE RELATED GEOMETRY:
+ *
+ *     Ascending Order: False branches will be traversed first
+ *
+ *     Descending Order: True branches will be traversed first
+ *
+ *     Order does not matter: A random traversal order will be taken
+ *
+ *   SPATIAL INDEX RELATED:
+ *
+ *     The ordering for spatial index related is always row order, from
+ *     left to right for ASCENDING and right to left for DESCENDING.
+ *
+ *   TIME RELATED GEOMETRY &amp; FEATURES:
+ *
+ *     Ascending Order:
+ *         &lt;Time Interval&gt; - branches with earlier start_times will be first
+ *         &lt;Time Point&gt; - branches with earlier times will be first
+ *             (by definition, all Exercise relative times will be considered
+ *             earlier than all GMT and Reference Relative times.  All GMT and
+ *             Relative Reference times will be compared appropriately to
+ *             each other.)
+ *         &lt;Season&gt; - order based on the SE_Season enum
+ *         &lt;Time Of Day&gt; - order based on the SE_Time_Of_Day enum
+ *
+ *     Descending Order:
+ *         &lt;Time Interval&gt; - branches with later start_times will be first
+ *         &lt;Time Point&gt; - branches with later times will be first
+ *         &lt;Season&gt; - order based on the SE_Season enum
+ *         &lt;Time Of Day&gt; - order based on the SE_Time_Of_Day enum
+ *
+ *     Order does not matter:
+ *         A random traversal order will be taken
+ *
+ *   PERIMETER RELATED GEOMETRY:
+ *
+ *     No parameters are specified for dealing with a &lt;Perimeter Related
+ *     Geometry&gt; instance.  If the order of traversal is important to the
+ *     user then making multiple iterators, each with a different Spatial
+ *     Search Boundary, is recommended.
+ *
+ *   CONTINUOUS LEVEL OF DETAIL GEOMETRY:
+ *
+ *     No ordering is allowable - the order of traversal doesn't matter
+ *     to the user.
+ *
+ *   UNION:
+ *
+ *     All of the components of a Union instance are already ordered by the
+ *     DRM, so no ordering parameters are required.
+ *
+ *   For all other types of &lt;Aggregate Feature&gt; and &lt;Aggregate Geometry&gt;,
+ *   see the definitions for the appropriate _PARAMETERS types used in
+ *   the following structure.
+ */
+</PRE>
+<span class="Code">typedef struct 
+<br>
+{</span>
+<br>
+<table class="CFunctionPrototype">
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_General_Hierarchy_Order.htm">SE_General_Hierarchy_Order</a></td>
+        <td class="CFunction"><a
+        name="general_hierarchy_mask"></a>general_hierarchy_mask;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Alternate_Hierarchy_Parameters.htm">SE_Alternate_Hierarchy_Parameters</a></td>
+        <td class="CFunction"><a
+        name="alternate_hierarchy_traversal_order"></a>alternate_hierarchy_traversal_order;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Classification_Parameters.htm">SE_Classification_Parameters</a></td>
+        <td class="CFunction"><a
+        name="classification_traversal_order"></a>classification_traversal_order;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Sibling_Traversal_Order.htm">SE_Sibling_Traversal_Order</a></td>
+        <td class="CFunction"><a
+        name="lod_traversal_order"></a>lod_traversal_order;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Sibling_Traversal_Order.htm">SE_Sibling_Traversal_Order</a></td>
+        <td class="CFunction"><a
+        name="octant_traversal_order"></a>octant_traversal_order;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Sibling_Traversal_Order.htm">SE_Sibling_Traversal_Order</a></td>
+        <td class="CFunction"><a
+        name="quadrant_traversal_order"></a>quadrant_traversal_order;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Sibling_Traversal_Order.htm">SE_Sibling_Traversal_Order</a></td>
+        <td class="CFunction"><a
+        name="separating_plane_traversal_order"></a>separating_plane_traversal_order;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Sibling_Traversal_Order.htm">SE_Sibling_Traversal_Order</a></td>
+        <td class="CFunction"><a
+        name="spatial_index_general_traversal_order"></a>spatial_index_general_traversal_order;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../drm/classes/StateData.htm">SE_State_Data_Fields</a></td>
+        <td class="CFunction"><a
+        name="state_traversal_order"></a>state_traversal_order;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Sibling_Traversal_Order.htm">SE_Sibling_Traversal_Order</a></td>
+        <td class="CFunction"><a
+        name="time_traversal_order"></a>time_traversal_order;</td></tr>
+</table>
+<span class="Code">
+} SE_Hierarchy_Order_Parameters;</span>
+<br>
+
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SE_Hierarchy_Inclusion.htm">SE_Hierarchy_Inclusion</a>.
+<strong>Next:</strong> <a href="SE_Hierarchy_Select_Parameters.htm">SE_Hierarchy_Select_Parameters</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

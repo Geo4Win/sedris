@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Union Of Geometry Topology</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Union Of Geometry Topology
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Union Of Geometry Topology</h2>
+<h3>Superclass - <a href="GeometryTopologyHierarchy.htm">&lt;Geometry Topology Hierarchy&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class is a collection of the
+ <A href="GeometryTopology.htm">&lt;Geometry Topology&gt;</A> instances that form
+ a complete topological surface.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet11.pdf"><strong>11</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+This class appears on only one page of the DRM class diagram.
+<h3>Example</h3>
+<OL>
+<LI><P>
+ A terrain region representing a road network might be broken up
+ into four rectangular tiles.  While the <A href="Polygon.htm">&lt;Polygon&gt;</A>
+ instances representing roads are allowed to extend across the tile
+ boundaries, the <A href="GeometryTopology.htm">&lt;Geometry Topology&gt;</A> instances
+ that are located within each tile are organized into separate
+ <A href="UnionOfGeometryTopology.htm">&lt;Union Of Geometry Topology&gt;</A> instances
+ to support access by spatial location.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ What is the purpose of this class?
+</B></DT>
+<DD><P>
+ This class allows <A href="GeometryTopology.htm">&lt;Geometry Topology&gt;</A> instances to be
+ grouped in an arbitrary manner.  It is used to ensure that all
+ <A href="GeometryTopology.htm">&lt;Geometry Topology&gt;</A> instances, particularly those that
+ are not directly associated with any
+ <A href="GeometryRepresentation.htm">&lt;Geometry Representation&gt;</A> instance,
+ have at least one containing DRM object.
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/PerimeterRelatedOrganizingPrinciple.htm">&lt;&lt;Perimeter Related Organizing Principle&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/UnionOrganizingPrinciple.htm">&lt;&lt;Union Organizing Principle&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Composed of (two-way)</h3>
+<UL>
+<li>one or more <a href="GeometryTopology.htm">&lt;Geometry Topology&gt;</a> instances</li>
+</UL>
+
+<h3>Component of (two-way) (inherited)</h3>
+<UL>
+<li>zero or more <a href="AggregateGeometry.htm">&lt;Aggregate Geometry&gt;</a> instances</li>
+</UL>
+<h3>Component of (two-way)</h3>
+<UL>
+<li>zero or one <a href="PerimeterRelatedGeometryTopology.htm">&lt;Perimeter Related Geometry Topology&gt;</a> instance, each through the use of a <a href="PerimeterData.htm">&lt;Perimeter Data&gt;</a> link object</li>
+<li>zero or one <a href="SpatialIndexRelatedGeometryTopology.htm">&lt;Spatial Index Related Geometry Topology&gt;</a> instance, each through the use of a <a href="SpatialIndexData.htm">&lt;Spatial Index Data&gt;</a> link object</li>
+</UL>
+
+<h2><a name="inherited_field">Inherited Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Geometry_Topology_Level.htm">SE_Geometry_Topology_Level</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="geometry_topology_level">geometry_topology_level</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_geometry_topology_level">1</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Fields Notes</h3>
+<h4><a href="#geometry_topology_level" name="Notes_geometry_topology_level">geometry_topology_level</a></h4>
+<P>
+ The <A href="#geometry_topology_level">geometry_topology_level</A>
+ field specifies the level of
+ geometry topology that is present within the hierarchy represented
+ by the
+ <A href="GeometryTopologyHierarchy.htm">&lt;Geometry Topology Hierarchy&gt;</A>
+ instance.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="UnionOfGeometryHierarchy.htm">Union Of Geometry Hierarchy</A>.
+<strong>Next:</strong> <A href="UnionOfPrimitiveGeometry.htm">Union Of Primitive Geometry</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

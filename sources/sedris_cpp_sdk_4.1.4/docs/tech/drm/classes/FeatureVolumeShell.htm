@@ -1,0 +1,159 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Feature Volume Shell</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Feature Volume Shell
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Feature Volume Shell</h2>
+<h3>Superclass - <a href="SEDRISAbstractBase.htm">&lt;SEDRIS Abstract Base&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies the one-directional
+ topological relationship from a <A href="FeatureVolume.htm">&lt;Feature Volume&gt;</A> instance
+ to the collection of two or more <A href="FeatureFace.htm">&lt;Feature Face&gt;</A>
+ instances that define one of its boundaries (external or internal).
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet12.pdf"><strong>12</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+This class appears on only one page of the DRM class diagram.
+<h3>Example</h3>
+<OL>
+<LI><P>
+ Consider a <A href="VolumetricFeature.htm">&lt;Volumetric Feature&gt;</A> instance
+ <span class="ConstructName">V</span> representing a building.
+ <span class="ConstructName">V</span> has:
+</P>
+<OL type='a'>
+<LI>an associated
+ <A href="FeatureVolume.htm">&lt;Feature Volume&gt;</A> instance that defines
+ its extent, shape, and topological relationships;
+</LI>
+<LI>a <A href="ClassificationData.htm">&lt;Classification Data&gt;</A> component
+ that classifies it as an <A href="../../../../src/lib/edcs/docs/dictionary/ECC_B.htm#ECC_BUILDING">ECC_BUILDING</A>;
+</LI>
+<LI><A href="PropertyValue.htm">&lt;Property Value&gt;</A> components that
+ describe its characteristics, such as material composition; and
+</LI>
+<LI>a <A href="Label.htm">&lt;Label&gt;</A> component that identifies it as
+ &quot;The Empire State Building&quot;.
+</LI>
+</OL>
+<P>
+ The external boundary of the <A href="FeatureVolume.htm">&lt;Feature Volume&gt;</A>
+ instance consists of a single
+ <A href="FeatureVolumeShell.htm">&lt;Feature Volume Shell&gt;</A> instance that
+ is associated with the <A href="FeatureFace.htm">&lt;Feature Face&gt;</A>
+ instances representing the walls, roof, and (basement) floor of
+ the building.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ When are
+ <A href="FeatureVolumeShell.htm">&lt;Feature Volume Shell&gt;</A> instances
+ required?
+</B></DT>
+<DD><P>
+ All <A href="FeatureVolume.htm">&lt;Feature Volume&gt;</A> instances
+ except the instance representing the universal volume are
+ required to have at least one
+ <A href="FeatureVolumeShell.htm">&lt;Feature Volume Shell&gt;</A>
+ component, representing its external boundary. All
+ <A href="FeatureVolume.htm">&lt;Feature Volume&gt;</A> instances,
+ including the instance representing the universal volume,
+ may also have any number of
+ <A href="FeatureVolumeShell.htm">&lt;Feature Volume Shell&gt;</A>
+ components that define internal boundaries (that is,
+ &quot;holes&quot;) within the
+ <A href="FeatureVolume.htm">&lt;Feature Volume&gt;</A>.
+</P></DD>
+<DT><B>
+ Can the same <A href="FeatureFace.htm">&lt;Feature Face&gt;</A>
+ appear more than once in the collection of
+ <A href="FeatureFace.htm">&lt;Feature Face&gt;</A> instances making
+ up a <A href="FeatureVolumeShell.htm">&lt;Feature Volume Shell&gt;</A>?
+</B></DT>
+<DD><P>
+ Yes. A <A href="FeatureFace.htm">&lt;Feature Face&gt;</A> can appear
+ up to twice in a
+ <A href="FeatureVolumeShell.htm">&lt;Feature Volume Shell&gt;</A>,
+ once with each orientation.
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/VolumeShellFaceConsistency.htm">&lt;&lt;Volume Shell Face Consistency&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Associated to (one-way)</h3>
+<UL>
+<li>2 or more <a href="FeatureFace.htm">&lt;Feature Face&gt;</a> instances, each through the use of a <a href="FaceDirection.htm">&lt;Face Direction&gt;</a> link object</li>
+</UL>
+
+<h3>Component of (two-way)</h3>
+<UL>
+<li>one <a href="FeatureVolume.htm">&lt;Feature Volume&gt;</a> instance</li>
+</UL>
+
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+
+<hr>
+<strong>Prev:</strong> <A href="FeatureVolume.htm">Feature Volume</A>.
+<strong>Next:</strong> <A href="FiniteElementMesh.htm">Finite Element Mesh</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

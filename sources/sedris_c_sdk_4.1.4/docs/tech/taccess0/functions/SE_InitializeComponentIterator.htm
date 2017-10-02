@@ -1,0 +1,333 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE InitializeComponentIterator</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+SE InitializeComponentIterator
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../types/SE_Return_Code.htm">SE_Return_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SE_InitializeComponentIterator</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../types/SE_Object.htm">SE_Object</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="start_object"></a>start_object,</td><td class="CFunction"><sup><A href="#Notes_start_object">1</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../types/SE_Search_Boundary.htm">SE_Search_Boundary</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="boundary"></a>boundary,</td><td class="CFunction"><sup><A href="#Notes_boundary">2</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../types/SE_Search_Filter.htm">SE_Search_Filter</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="filter"></a>filter,</td><td class="CFunction"><sup><A href="#Notes_filter">3</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../../drm/types/SE_Boolean.htm">SE_Boolean</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="directly_attach_table_components"></a>directly_attach_table_components,</td><td class="CFunction"><sup><A href="#Notes_directly_attach_table_components">4</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../../drm/types/SE_Boolean.htm">SE_Boolean</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="process_inheritance"></a>process_inheritance,</td><td class="CFunction"><sup><A href="#Notes_process_inheritance">5</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../../drm/types/SE_Boolean.htm">SE_Boolean</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="transform_locations"></a>transform_locations,</td><td class="CFunction"><sup><A href="#Notes_transform_locations">6</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../../drm/types/SE_Boolean.htm">SE_Boolean</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="follow_model_instances"></a>follow_model_instances,</td><td class="CFunction"><sup><A href="#Notes_follow_model_instances">7</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../../drm/types/SE_Boolean.htm">SE_Boolean</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="evaluate_static_control_links"></a>evaluate_static_control_links,</td><td class="CFunction"><sup><A href="#Notes_evaluate_static_control_links">8</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">const&nbsp;</td><td class="CFunction"><a href="../types/SE_Hierarchy_Select_Parameters.htm">SE_Hierarchy_Select_Parameters</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="select_parameters_ptr"></a>select_parameters_ptr,</td><td class="CFunction"><sup><A href="#Notes_select_parameters_ptr">9</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">const&nbsp;</td><td class="CFunction"><a href="../types/SE_Hierarchy_Order_Parameters.htm">SE_Hierarchy_Order_Parameters</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="traversal_order_parameters_ptr"></a>traversal_order_parameters_ptr,</td><td class="CFunction"><sup><A href="#Notes_traversal_order_parameters_ptr">10</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../types/SE_Traversal_Order.htm">SE_Traversal_Order</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="general_traversal_pattern"></a>general_traversal_pattern,</td><td class="CFunction"><sup><A href="#Notes_general_traversal_pattern">11</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../types/SE_ITR_Behaviour.htm">SE_ITR_Behaviour</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="itr_traversal"></a>itr_traversal,</td><td class="CFunction"><sup><A href="#Notes_itr_traversal">12</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../types/SE_Iterator.htm">SE_Iterator</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="iterator_out_ptr"></a>iterator_out_ptr</td><td class="CFunction"><sup><A href="#Notes_iterator_out_ptr">13</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+  Creates an iterator to (traverses over the list of)/(returns pointers to)
+  component objects that meet the user specified conditions.  This
+  iterator starts at the 'top' of an 'aggregation tree'.  Consider the
+  <A href="SE_InitializeComponentIterator.htm#start_object">start_object</A>
+  as the root of a tree.  All of the components below the
+  <A href="SE_InitializeComponentIterator.htm#start_object">start_object</A>
+  will be searched, and the components of those components
+  will be searched, and their components will be searched, etc., as far
+  down (as many levels down) as the search filter specifies.  If the search
+  filter does not limit the 'depth' of the search with a maximum search
+  depth rule, then the iterator will search until it has tested every object
+  in the 'aggregation-tree' rooted by the
+  <A href="SE_InitializeComponentIterator.htm#start_object">start_object</A>.
+</P><P>
+  Objects returned by a component iterator will meet these conditions:
+</P>
+<OL>
+<LI><P>they are components, either directly or transitively, of the
+  <A href="SE_InitializeComponentIterator.htm#start_object">start_object</A>.
+  That is, they are contained within the aggregation tree that is rooted at
+  the <A href="SE_InitializeComponentIterator.htm#start_object">
+  start_object</A>.
+</P></LI>
+<LI><P>they satisfy the rules specified in the search filter, if a search
+      filter is defined for the iterator.  If NULL is passed in for the
+      search filter, then no filtering is applied, and only conditions
+      (1) and (3) must be satisfied.
+</P><P>
+      A search filter can include a maximum search depth restriction.
+      If such a restriction is applied, then the sub-tree rooted at the
+      <A href="SE_InitializeComponentIterator.htm#start_object">
+      start_object</A> will only be searched until that maximum search depth
+      has been reached.  Components beyond that depth will not be searched.
+</P></LI>
+<LI><P>they fall within the bounds of the spatial search boundary, given
+    the inclusion rules defined for that search boundary.  If NULL is
+    passed in for the search boundary, then no location based filtering
+    is applied, and only conditions (1) and (2) must be satisfied.
+</P></LI>
+</OL>
+<P>
+  If a <A href="SE_InitializeComponentIterator.htm#start_object">
+  start_object</A> does not contain any component objects (or it contains
+  component objects, but none of the components within the specified search
+  depth meet the search filter and/or search boundary conditions), then a
+  Component Iterator for that
+  <A href="SE_InitializeComponentIterator.htm#start_object">start_object</A>,
+  search filter, and search boundary will not return any objects.  A
+  Component Iterator would be created, but it would have a length of 0 and
+  would not return any objects.
+</P><P>
+  To get the next object from an iterator, call
+ <A href="SE_GetNextObject.htm">SE_GetNextObject()</A>.
+</P><P>
+  To find out the remaining length of an iterator (the number of objects
+  remaining inside the iterator), call
+ <A href="SE_GetIterationLengthRemaining.htm">
+ SE_GetIterationLengthRemaining()</A>.
+</P><P>
+  When finished with an iterator, free it with a call to the
+  <A href="SE_FreeIterator.htm">SE_FreeIterator()</A> function.  Iterators
+  can be freed at any time
+  (they can be freed before all of their objects have been returned,
+  that is, before their remaining length == 0, if the user so desires).
+</P><P>
+  See also <A href="SE_InitializeInheritedComponentIterator.htm">
+  SE_InitializeInheritedComponentIterator()</A>.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A>
+</td><td class="Status">
+ and the iterator is initialized.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A>
+</td><td class="Status">
+ and the status code is set appropriately if the call failed.
+</td></tr>
+</table>
+
+<h3>Status Codes</h3>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A> is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_SUCCESS">SE_STATCODE_SUCCESS</A>
+</td><td class="Status">
+ set if valid parameters were passed in and all operations succeeded.
+</td></tr>
+</table>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A> is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+ <A href="../types/SE_Status_Code.htm#SE_STATCODE_UNRESOLVED_INPUT_OBJECT">SE_STATCODE_UNRESOLVED_INPUT_OBJECT</A>
+</td><td class="Status">
+ set if <A href="#start_object">start_object</A> is
+ currently unresolved.
+</td></tr>
+<tr><td class="Status">
+ <A href="../types/SE_Status_Code.htm#SE_STATCODE_INACTIONABLE_FAILURE">SE_STATCODE_INACTIONABLE_FAILURE</A>
+</td><td class="Status">
+ set if
+<OL>
+ <LI> itr_traversal is invalid,
+</LI>
+ <LI> general_traversal_pattern is invalid,
+</LI>
+ <LI> selection parameters are provided but are not valid,
+</LI>
+ <LI> traversal order parameters are provided, but are not valid
+</LI>
+ <LI> a search filter is provided, but is not a handle to a valid,
+      active (i.e., unfreed) search filter,
+</LI>
+ <LI> a search boundary is provided, but is not a legal, valid search
+      boundary for the scope of start_object
+</LI>
+ <LI> the start_object, search filter, and / or search boundary came from
+      different API implementations, or
+</LI>
+ <LI> the call fails for any other reason.
+</LI>
+</OL>
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#start_object" name="Notes_start_object">1</a></sup>
+ the object whose components will be traversed.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#boundary" name="Notes_boundary">2</a></sup>
+ a spatial search boundary that will be used
+    to filter this iterator's output.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#filter" name="Notes_filter">3</a></sup>
+ a search filter that will be used to filter
+    the output of this iterator.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#directly_attach_table_components" name="Notes_directly_attach_table_components">4</a></sup>
+ if SE_FALSE, then the actual
+    DRM objects will be examined by the consumer through the
+    component iterators.
+
+     However, if SE_TRUE, then the component iterators will
+     automatically make the following adjustments to the object types
+     returned through the API in the following special cases:
+
+     1) If an &lt;Property Set Index&gt; would otherwise be returned by the
+        component iterator, the &lt;Property Set Index&gt; object will be
+        automatically replaced by the corresponding objects referenced
+        by the primary (1st) &lt;Property Set&gt; of the referenced
+        &lt;Property Set Table Group&gt;.
+
+     2) If a &lt;Colour Index&gt; would otherwise be returned by the component
+        iterator, the &lt;Colour Index&gt; object will be replaced by an
+        &lt;Inline Colour&gt; containing the same &lt;Primitive Colour&gt; as the
+        &lt;Primitive Colour&gt; that would have been referenced by the
+        &lt;Colour Index&gt; (through the default &lt;Colour Table&gt; of the
+        associated &lt;Colour Table Group&gt;).
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#process_inheritance" name="Notes_process_inheritance">5</a></sup>
+ if true, then 'inherited components' will be
+    inherited, and they will show up as components of the appropriate
+    objects.  These 'inherited' components will be just as 'valid' as
+    'direct' components, and they will satisfy the
+    SE_COMPONENT_DRM_CLASS_MATCH, SE_COMPONENT_FIELD_MATCH, and
+    SE_COMPONENT_RANGE_MATCH macros just as 'direct' components do.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#transform_locations" name="Notes_transform_locations">6</a></sup>
+ if true, then all &lt;Location&gt; objects will be
+    transformed according to the transformations (&lt;LSR Transformation&gt;s
+    and/or &lt;World Transformation&gt;s) encountered by the iterator.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#follow_model_instances" name="Notes_follow_model_instances">7</a></sup>
+ if true, then the iterator will search through
+    the &lt;Geometry Model Instance&gt; to &lt;Geometry Model&gt; association as if
+    it were an aggregation (it will 'instance' the model).  The same logic
+    applies to the &lt;Feature Model Instance&gt; to &lt;Feature Model&gt; association.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#evaluate_static_control_links" name="Notes_evaluate_static_control_links">8</a></sup>
+ if true, then all expressions composed
+    entirely of literals and functions that use only literals will be
+    evaluated, and their results will 'over-write' the appropriate
+    fields of their targeted 'controlled' objects.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#select_parameters_ptr" name="Notes_select_parameters_ptr">9</a></sup>
+ a pointer to the parameters
+    that will be used to determine that components to traverse when
+    encountering a &lt;Aggregate Feature&gt; or &lt;Aggregate Geometry&gt; object.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#traversal_order_parameters_ptr" name="Notes_traversal_order_parameters_ptr">10</a></sup>
+ a pointer to the
+    parameters that will be used to determine what order to traverse the
+    components when encountering a &lt;Aggregate Feature&gt; or &lt;Aggregate
+    Geometry&gt; object.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#general_traversal_pattern" name="Notes_general_traversal_pattern">11</a></sup>
+ the user must choose whether the Iterator
+    should traverse the search space in a depth-first, breadth-first,
+    or any-order-the-API-chooses manner.  The depth-first and breadth-first
+    approaches allow for full transformation and inherited component
+    information to be maintained at all times.  The API-chooses-an-order
+    approach can be faster, possibly much faster, but there is no guarantee
+    that any path was taken from the start_object to the returned objects,
+    so it is possible for no context (an empty context) to be returned with
+    the returned objects.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#itr_traversal" name="Notes_itr_traversal">12</a></sup>
+ the user must choose how
+    the iterator will behave when it encounters an Inter-Transmittal
+    Reference (ITR). The iterator could automatically resolve such
+    references and continue the search within the new transmittal;
+    report all ITR references without resolving them; or just ignore
+    them completely and continue to search within the current
+    transmittal.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#iterator_out_ptr" name="Notes_iterator_out_ptr">13</a></sup>
+ a pointer to the freshly created component iterator
+    that will iterate over the objects that meet the conditions
+    described above.
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SE_InitializeAssociateIterator.htm">SE_InitializeAssociateIterator</a>.
+<strong>Next:</strong> <a href="SE_InitializeInheritedComponentIterator.htm">SE_InitializeInheritedComponentIterator</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

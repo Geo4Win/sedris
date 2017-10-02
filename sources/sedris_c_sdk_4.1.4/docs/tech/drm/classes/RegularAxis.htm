@@ -1,0 +1,278 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Regular Axis</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Regular Axis
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Regular Axis</h2>
+<h3>Superclass - <a href="Axis.htm">&lt;Axis&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class is an <A href="Axis.htm">&lt;Axis&gt;</A> instance
+ that uses a constant spacing between tick marks and numerical values.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet06.pdf"><strong>6</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+This class appears on only one page of the DRM class diagram.
+<h3>Example</h3>
+<OL>
+<LI><P>
+ DTED is sampled in a regular grid of latitude and longitude points
+ which is represented in a transmittal as a
+ <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance. Accordingly, <A href="RegularAxis.htm">&lt;Regular Axis&gt;</A>
+ components are used to contain the latitude and longitude values.
+</P></LI>
+<LI><P>
+ A table of wind chill values has axes of
+ <A href="../../../../src/lib/edcs/docs/dictionary/EAC_A.htm#EAC_AIR_TEMPERATURE">EAC_AIR_TEMPERATURE</A> and <A href="../../../../src/lib/edcs/docs/dictionary/EAC_W.htm#EAC_WIND_SPEED">EAC_WIND_SPEED</A>.
+ <A href="../../../../src/lib/edcs/docs/dictionary/EAC_A.htm#EAC_AIR_TEMPERATURE">EAC_AIR_TEMPERATURE</A> values typically start at 0 degrees Celsius
+ and are decremented in intervals of 1 degree. <A href="../../../../src/lib/edcs/docs/dictionary/EAC_W.htm#EAC_WIND_SPEED">EAC_WIND_SPEED</A>
+ values start at calm (0 mph) and are incremented at intervals of 5 mph.
+ Consequently, the <A href="../../../../src/lib/edcs/docs/dictionary/EAC_A.htm#EAC_AIR_TEMPERATURE">EAC_AIR_TEMPERATURE</A> and <A href="../../../../src/lib/edcs/docs/dictionary/EAC_W.htm#EAC_WIND_SPEED">EAC_WIND_SPEED</A>
+ axes of the <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance representing this table
+ are <A href="RegularAxis.htm">&lt;Regular Axis&gt;</A> components.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ What is the purpose of the
+ <A href="#axis_alignment">axis_alignment</A> field?
+</B></DT>
+<DD><P>
+ The <A href="#axis_alignment">axis_alignment</A> field
+ provides flexibility in specifying how cells are centred with respect
+ to middle, edge, corner, and so on.
+</P><P>
+ Consider the following four (of nine possible) cases for 2D grids.
+</P><P>
+ The * indicates the location where the tick mark coordinates intersect
+ in the cell relative to the cell edges. The grid of points determined
+ by axis tick marks represent the location of, to name a few examples,
+ the centre, lower left corner, upper right corner, or edge,
+ respectively, of the corresponding cell. The axis_alignment field
+ therefore indicates the axis alignment being used.
+<PRE>
+              FACE CNTR    LR LFT CORNER   UP RT CORNER      EDGE
+
+ Axis 1       -------        -------          ------*      -------
+ ^            |     |        |     |          |     |      |     |
+ |            |  *  |        |     |          |     |      *     |
+ |            |     |        |     |          |     |      |     |
+  --> Axis 0  -------        *------          -------      -------
+</PRE>
+ Axis 0:
+ <A href="../types/SE_Axis_Alignment.htm#SE_AXALGN_MEDIAN">SE_AXALGN_MEDIAN</A>
+ <A href="../types/SE_Axis_Alignment.htm#SE_AXALGN_LOWER">SE_AXALGN_LOWER</A>
+ <A href="../types/SE_Axis_Alignment.htm#SE_AXALGN_UPPER">SE_AXALGN_UPPER</A>
+ <A href="../types/SE_Axis_Alignment.htm#SE_AXALGN_LOWER">SE_AXALGN_LOWER</A>
+<BR>
+ Axis 1:
+ <A href="../types/SE_Axis_Alignment.htm#SE_AXALGN_MEDIAN">SE_AXALGN_MEDIAN</A>
+ <A href="../types/SE_Axis_Alignment.htm#SE_AXALGN_LOWER">SE_AXALGN_LOWER</A>
+ <A href="../types/SE_Axis_Alignment.htm#SE_AXALGN_UPPER">SE_AXALGN_UPPER</A>
+ <A href="../types/SE_Axis_Alignment.htm#SE_AXALGN_MEDIAN">SE_AXALGN_MEDIAN</A>
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/GeneralAxisConstraints.htm">&lt;&lt;General Axis Constraints&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Component of (two-way) (inherited)</h3>
+<UL>
+<li>one or more <a href="DataTable.htm">&lt;Data Table&gt;</a> instances</li>
+</UL>
+<h2><a name="inherited_field">Inherited Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../../../../src/lib/edcs/docs/types/EDCS_Attribute_Code.htm">EDCS_Attribute_Code</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="axis_type">axis_type</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_axis_type">1</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Short_Integer_Positive.htm">SE_Short_Integer_Positive</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="axis_value_count">axis_value_count</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_axis_value_count">2</A></sup></p></td>
+</tr>
+</table>
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../../../../src/lib/edcs/docs/types/EDCS_Unit_Code.htm">EDCS_Unit_Code</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="value_unit">value_unit</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_value_unit">3</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../../../../src/lib/edcs/docs/types/EDCS_Unit_Scale_Code.htm">EDCS_Unit_Scale_Code</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="value_scale">value_scale</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_value_scale">4</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Interpolation_Type.htm">SE_Interpolation_Type</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="interpolation_type">interpolation_type</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_interpolation_type">5</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Single_Value.htm">SE_Single_Value</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="first_value">first_value</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_first_value">6</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Single_Value.htm">SE_Single_Value</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="spacing">spacing</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_spacing">7</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Spacing_Type.htm">SE_Spacing_Type</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="spacing_type">spacing_type</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_spacing_type">8</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Axis_Alignment.htm">SE_Axis_Alignment</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="axis_alignment">axis_alignment</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_axis_alignment">9</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Fields Notes</h3>
+<h4><a href="#axis_type" name="Notes_axis_type">axis_type</a></h4>
+<P>
+ The <A href="#axis_type">axis_type</A> field specifies the
+ property being described by the
+ <A href="Axis.htm">&lt;Axis&gt;</A> instance.
+</P>
+<h4><a href="#axis_value_count" name="Notes_axis_value_count">axis_value_count</a></h4>
+<P>
+ The <A href="#axis_value_count">axis_value_count</A>
+ specifies the number of tick marks along the
+ <A href="Axis.htm">&lt;Axis&gt;</A> instance.
+</P>
+<h4><a href="#value_unit" name="Notes_value_unit">value_unit</a></h4>
+<P>
+ The <A href="#value_unit">value_unit</A> field
+ specifies the unit of measurement of the
+ <A href="RegularAxis.htm">&lt;Regular Axis&gt;</A> instance, which
+ shall be compatible with the requirements imposed by
+ <A href="#axis_type">axis_type</A>.
+ If <A href="#axis_type">axis_type</A> does not require a
+ unit of measurement (<I>e.g.</I>, if
+ <A href="#axis_type">axis_type</A> requires a value type of
+ <A href="../../../../src/lib/edcs/docs/types/EDCS_Attribute_Value_Type.htm#EDCS_AVT_INDEX">EDCS_AVT_INDEX</A>),
+ <A href="#value_unit">value_unit</A>
+ shall be set to <A href="../../../../src/lib/edcs/docs/dictionary/units.htm#EUC_UNITLESS">EUC_UNITLESS</A>.
+</P>
+<h4><a href="#value_scale" name="Notes_value_scale">value_scale</a></h4>
+<P>
+ The <A href="#value_scale">value_scale</A> field
+ specifies the scale applicable to
+ <A href="#value_unit">value_unit</A>.
+ If <A href="#axis_type">axis_type</A> does not require a
+ scale (<I>e.g.</I>, if
+ <A href="#axis_type">axis_type</A> requires a value type of
+ <A href="../../../../src/lib/edcs/docs/types/EDCS_Attribute_Value_Type.htm#EDCS_AVT_INDEX">EDCS_AVT_INDEX</A>),
+ <A href="#value_scale">value_scale</A>
+ shall be set to <A href="../../../../src/lib/edcs/docs/dictionary/units.htm#ESC_UNI">ESC_UNI</A>.
+</P>
+<h4><a href="#interpolation_type" name="Notes_interpolation_type">interpolation_type</a></h4>
+<P>
+ The <A href="#interpolation_type">interpolation_type</A>
+ field allows the data provider to indicate how best to interpolate
+ the data to points that are between grid points on the axis.
+</P>
+<h4><a href="#first_value" name="Notes_first_value">first_value</a></h4>
+<P>
+ The <A href="#first_value">first_value</A> field
+ specifies the first numeric value on the axis. When
+ <A href="#spacing_type">spacing_type</A> =
+ <A href="../types/SE_Spacing_Type.htm#SE_SPACTYP_GEOMETRIC">SE_SPACTYP_GEOMETRIC</A>,
+ <A href="#first_value">first_value</A> shall not be zero.
+</P>
+<h4><a href="#spacing" name="Notes_spacing">spacing</a></h4>
+<P>
+ The <A href="#spacing">spacing</A> field
+ specifies the distance between tick marks.
+ For <A href="../types/SE_Spacing_Type.htm#SE_SPACTYP_ARITHMETIC">SE_SPACTYP_ARITHMETIC</A>,
+ <A href="#spacing">spacing</A> is the
+ arithmetic difference between tick marks, such
+ that Tick(i) <span class="Code">= </span><A href="#first_value">first_value</A><span class="Code"> + (</span>i <span class="Code">&times;</span>
+ <A href="#spacing">spacing</A><span class="Code">)</span>
+ where i is the i<sup>th</sup> tick mark.
+ For <A href="../types/SE_Spacing_Type.htm#SE_SPACTYP_GEOMETRIC">SE_SPACTYP_GEOMETRIC</A>,
+ <A href="#spacing">spacing</A> is the
+ difference between tick marks such
+ that Tick(i) <span class="Code">= </span><A href="#first_value">first_value</A><span class="Code"> &times;
+ (</span><A href="#spacing">spacing</A><sup>i</sup><span class="Code">)</span>
+</P>
+<h4><a href="#spacing_type" name="Notes_spacing_type">spacing_type</a></h4>
+<P>
+ The <A href="#spacing_type">spacing_type</A>
+ field specifies how the spacing value is used to
+ compute tick marks.
+</P>
+<h4><a href="#axis_alignment" name="Notes_axis_alignment">axis_alignment</a></h4>
+<P>
+ The <A href="#axis_alignment">axis_alignment</A>
+ field specifies the position of the axis with respect
+ to the axis interval.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="ReferenceVectorControlLink.htm">Reference Vector Control Link</A>.
+<strong>Next:</strong> <A href="RelativeTime.htm">Relative Time</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

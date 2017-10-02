@@ -1,0 +1,181 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Browse Media</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Browse Media
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Browse Media</h2>
+<h3>Superclass - <a href="SEDRISAbstractBase.htm">&lt;SEDRIS Abstract Base&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies a graphic or multimedia resource
+ that provides a preview of the content of its containing DRM object.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet20.pdf"><strong>20</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+This class appears on only one page of the DRM class diagram.
+<h3>Example</h3>
+<OL>
+<LI><P>
+ A map of the area covered by a
+ <A href="TransmittalRoot.htm">&lt;Transmittal Root&gt;</A> instance or
+ an <A href="EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instance.
+</P></LI>
+<LI><P>
+ A rotating image of a <A href="Model.htm">&lt;Model&gt;</A> instance representing
+ an M1A2 tank.
+</P></LI>
+<LI><P>
+ A thumbnail version of an <A href="Image.htm">&lt;Image&gt;</A> component of
+ an <A href="ImageLibrary.htm">&lt;Image Library&gt;</A> instance.
+</P></LI>
+<LI><P>
+ A data provider supplies a graphic visualization of a function defined
+ by a <A href="DataTable.htm">&lt;Data Table&gt;</A> instance by providing a
+ <A href="BrowseMedia.htm">&lt;Browse Media&gt;</A> component for the <A href="DataTable.htm">&lt;Data Table&gt;</A>
+ instance.
+</P></LI>
+<LI><P>
+ A data provider supplies a graphic depiction of the contents of a
+ <A href="ColourTable.htm">&lt;Colour Table&gt;</A> instance by providing
+ a <A href="BrowseMedia.htm">&lt;Browse Media&gt;</A> component for the <A href="Identification.htm">&lt;Identification&gt;</A>
+ component of the <A href="ColourTable.htm">&lt;Colour Table&gt;</A> instance.
+</P></LI>
+<LI><P>
+ A data provider with a movie clip of a fly-through of a transmittal
+ represents the movie clip as a <A href="BrowseMedia.htm">&lt;Browse Media&gt;</A> component
+ of the <A href="Identification.htm">&lt;Identification&gt;</A> component of the
+ <A href="TransmittalRoot.htm">&lt;Transmittal Root&gt;</A> instance.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ What is the purpose of this class?
+</B></DT>
+<DD><P>
+ This class provides <A href="../bibliography.htm#I19115">ISO 19115</A>-compliant metadata
+ in the form of a graphical or multi-media representation that previews
+ the content of its containing DRM object. Its purpose is to allow
+ a potential user of the attributed object to easily assess the
+ utility of the attributed object.
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/MandatoryMetadata.htm">&lt;&lt;Mandatory Metadata&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Component of (two-way)</h3>
+<UL>
+<li>zero or more <a href="Identification.htm">&lt;Identification&gt;</a> instances</li>
+</UL>
+
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_String.htm">SE_String</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="name">name</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_name">1</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Media_Format.htm">SE_Media_Format</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="media_format">media_format</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_media_format">2</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_URN.htm">SE_URN</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="media_urn">media_urn</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_media_urn">3</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_String.htm">SE_String</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="description">description</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_description">4</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Fields Notes</h3>
+<h4><a href="#name" name="Notes_name">name</a></h4>
+<P>
+ The <A href="#name">name</A> field
+ specifies the title of the resource.
+</P>
+<h4><a href="#media_format" name="Notes_media_format">media_format</a></h4>
+<P>
+ The <A href="#media_format">media_format</A>
+ field specifies the media format of the resource
+ (see Annex C, 2 <i>Media_Format references</i>).
+</P>
+<h4><a href="#media_urn" name="Notes_media_urn">media_urn</a></h4>
+<P>
+ The <A href="#media_urn">media_urn</A>
+ field specifies a SEDRIS media URN (see <A href="../types/SE_URN.htm">SE_URN</A>).
+</P>
+<h4><a href="#description" name="Notes_description">description</a></h4>
+<P>
+ The <A href="#description">description</A>
+ field, if not empty, provides a description of the resource.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="BoundingVolume.htm">Bounding Volume</A>.
+<strong>Next:</strong> <A href="CameraPoint.htm">Camera Point</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

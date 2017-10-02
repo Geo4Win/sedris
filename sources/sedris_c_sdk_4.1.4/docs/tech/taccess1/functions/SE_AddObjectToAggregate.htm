@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE AddObjectToAggregate</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX B - Transmittal Access Level 1 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+SE AddObjectToAggregate
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../../taccess0/types/SE_Status_Code.htm">SE_Status_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SE_AddObjectToAggregate</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../../taccess0/types/SE_Object.htm">SE_Object</a>&nbsp;</td> <td class="CFunction"><a name="aggregate_object"></a>aggregate_object,</td><td class="CFunction"><sup><A href="#Notes_aggregate_object">1</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../../drm/types/SE_DRM_Class.htm">SE_DRM_Class</a>&nbsp;</td> <td class="CFunction"><a name="new_object_tag"></a>new_object_tag,</td><td class="CFunction"><sup><A href="#Notes_new_object_tag">2</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../../drm/types/SE_FIELDS_PTR.htm">SE_FIELDS_PTR</a>&nbsp;</td> <td class="CFunction"><a name="new_fields"></a>new_fields</td><td class="CFunction"><sup><A href="#Notes_new_fields">3</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+ Creates an object of the given class, sets its fields, adds it to a
+ transmittal, creates its relationship to the given aggregate, then
+ frees the new component object.
+</P><P>
+ Note that this function does <EM>not</EM> return the object that has just
+ been created. To access that object, you must retrieve it with
+ another function, e.g. <A href="../../taccess0/functions/SE_GetNextObject.htm">SE_GetNextObject()</A>
+ after creating an iterator.
+</P><P>
+ The transmittal whose object is to be edited must be
+ explicitly opened in UPDATE mode for this operation to succeed.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../../taccess0/types/SE_Status_Code.htm#SE_STATCODE_SUCCESS">SE_STATCODE_SUCCESS</A>
+</td><td class="Status">
+ and the requested object is created as specified, if
+ valid parameters were passed in and all operations succeeded.
+</td></tr>
+<tr><td class="Status">
+<A href="../../taccess0/types/SE_Status_Code.htm#SE_STATCODE_INACTIONABLE_FAILURE">SE_STATCODE_INACTIONABLE_FAILURE</A>
+</td><td class="Status">
+ and no changes are made, if <A href="#new_object_tag">new_object_tag</A>
+ is <A href="../../drm/types/SE_DRM_Class.htm#SE_CLS_DRM_NULL">SE_CLS_DRM_NULL</A>.
+</td></tr>
+<tr><td class="Status">
+<A href="../../taccess0/types/SE_Status_Code.htm#SE_STATCODE_UNRESOLVED_INPUT_OBJECT">SE_STATCODE_UNRESOLVED_INPUT_OBJECT</A>
+</td><td class="Status">
+ and no changes are made, if
+ <A href="#aggregate_object">aggregate_object</A> is unresolved.
+</td></tr>
+<tr><td class="Status">
+<A href="../../taccess0/types/SE_Status_Code.htm#SE_STATCODE_INVALID_ACCESS_MODE">SE_STATCODE_INVALID_ACCESS_MODE</A>
+</td><td class="Status">
+ and no changes are made, if
+ <A href="#aggregate_object">aggregate_object</A> belongs to a
+ transmittal opened in <A href="../../taccess0/types/SE_Access_Mode.htm#SE_AM_READ_ONLY">SE_AM_READ_ONLY</A>
+ mode.
+</td></tr>
+<tr><td class="Status">
+<A href="../../taccess0/types/SE_Status_Code.htm#SE_STATCODE_INACTIONABLE_FAILURE">SE_STATCODE_INACTIONABLE_FAILURE</A>
+</td><td class="Status">
+ and no changes are made, if this call fails for any other reason
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#aggregate_object" name="Notes_aggregate_object">1</a></sup>
+ existing object, for which we are creating and adding a component
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#new_object_tag" name="Notes_new_object_tag">2</a></sup>
+ the DRM class of the new object being created
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#new_fields" name="Notes_new_fields">3</a></sup>
+ if present, used instead of the default fields for the new object
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Next:</strong> <a href="SE_FreeDataTableConstantSignature.htm">SE_FreeDataTableConstantSignature</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

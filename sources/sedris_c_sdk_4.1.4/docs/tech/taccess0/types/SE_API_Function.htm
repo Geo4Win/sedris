@@ -1,0 +1,431 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE_API_Function</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Types
+</font>
+<br>
+<font color="#ffffff">
+SE_API_Function
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<PRE>
+/*
+ * REGISTERABLE ENUM: SE_API_Function
+ *
+ *   This data type specifies the names of the available
+ *   transmittal API functions.
+ */
+</PRE><span class="Code">
+typedef <a href="../../drm/types/SE_Short_Integer.htm">SE_Short_Integer</a> SE_API_Function;
+</span>
+<table>
+<tr><th>Enumerant</th> <th>Definition</th> <th>Value</th></tr>
+<tr><td class="CFunction"><a name="SE_APIFN_ADD_ASSOCIATE_RELATIONSHIP">SE_APIFN_ADD_ASSOCIATE_RELATIONSHIP</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">0</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_ADD_COMPONENT_RELATIONSHIP">SE_APIFN_ADD_COMPONENT_RELATIONSHIP</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">1</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_ALLOC_DATA_TABLE_DATA">SE_APIFN_ALLOC_DATA_TABLE_DATA</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">2</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_CLONE_OBJECT_HANDLE">SE_APIFN_CLONE_OBJECT_HANDLE</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">3</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_CLOSE_TRANSMITTAL">SE_APIFN_CLOSE_TRANSMITTAL</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">4</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_CREATE_OBJECT">SE_APIFN_CREATE_OBJECT</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">5</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_CREATE_SEARCH_FILTER">SE_APIFN_CREATE_SEARCH_FILTER</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">6</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_CREATE_SPATIAL_SEARCH_BOUNDARY">SE_APIFN_CREATE_SPATIAL_SEARCH_BOUNDARY</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">7</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_CREATE_STORE">SE_APIFN_CREATE_STORE</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">8</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_DETERMINE_SPATIAL_INCLUSION">SE_APIFN_DETERMINE_SPATIAL_INCLUSION</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">9</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_FREE_ITERATOR">SE_APIFN_FREE_ITERATOR</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">10</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_FREE_OBJECT">SE_APIFN_FREE_OBJECT</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">11</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_FREE_PACKED_HIERARCHY">SE_APIFN_FREE_PACKED_HIERARCHY</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">12</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_FREE_REMAINING_OBJECTS_LIST">SE_APIFN_FREE_REMAINING_OBJECTS_LIST</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">13</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_FREE_REMAINING_PACKED_HIERARCHIES_LIST">SE_APIFN_FREE_REMAINING_PACKED_HIERARCHIES_LIST</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">14</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_FREE_SEARCH_FILTER">SE_APIFN_FREE_SEARCH_FILTER</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">15</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_FREE_SPATIAL_SEARCH_BOUNDARY">SE_APIFN_FREE_SPATIAL_SEARCH_BOUNDARY</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">16</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_FREE_STORE">SE_APIFN_FREE_STORE</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">17</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_FREE_TRANSMITTAL">SE_APIFN_FREE_TRANSMITTAL</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">18</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_GET_AGGREGATE">SE_APIFN_GET_AGGREGATE</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">19</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_GET_ASSOCIATE">SE_APIFN_GET_ASSOCIATE</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">20</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_GET_COLOUR_MODEL">SE_APIFN_GET_COLOUR_MODEL</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">21</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_GET_COMPONENT">SE_APIFN_GET_COMPONENT</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">22</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_GET_CONTEXT_TRANSFORMATION">SE_APIFN_GET_CONTEXT_TRANSFORMATION</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">23</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_GET_DATA_TABLE_DATA">SE_APIFN_GET_DATA_TABLE_DATA</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">24</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_GET_DRM_CLASS">SE_APIFN_GET_DRM_CLASS</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">25</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_GET_ENCODING">SE_APIFN_GET_ENCODING</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">26</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_GET_FIELDS">SE_APIFN_GET_FIELDS</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">27</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_GET_IMAGE_DATA">SE_APIFN_GET_IMAGE_DATA</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">28</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_GET_ITERATION_LENGTH_REMAINING">SE_APIFN_GET_ITERATION_LENGTH_REMAINING</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">29</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_GET_LAST_FUNCTION_STATUS">SE_APIFN_GET_LAST_FUNCTION_STATUS</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">30</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_GET_MESH_FACE_TABLE_DATA">SE_APIFN_GET_MESH_FACE_TABLE_DATA</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">31</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_GET_NEXT_OBJECT">SE_APIFN_GET_NEXT_OBJECT</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">32</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_GET_NTH_ASSOCIATE">SE_APIFN_GET_NTH_ASSOCIATE</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">33</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_GET_NTH_COMPONENT">SE_APIFN_GET_NTH_COMPONENT</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">34</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_GET_NUMBER_OF_PATHS_TO_TRANSMITTAL_ROOT">SE_APIFN_GET_NUMBER_OF_PATHS_TO_TRANSMITTAL_ROOT</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">35</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_GET_OBJECT_FROM_ID_STRING">SE_APIFN_GET_OBJECT_FROM_ID_STRING</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">36</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_GET_OBJECT_ID_STRING">SE_APIFN_GET_OBJECT_ID_STRING</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">37</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_GET_OBJECT_REFERENCE_COUNT">SE_APIFN_GET_OBJECT_REFERENCE_COUNT</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">38</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_GET_PACKED_HIERARCHY">SE_APIFN_GET_PACKED_HIERARCHY</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">39</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_GET_PUBLISHED_LABELS">SE_APIFN_GET_PUBLISHED_LABELS</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">40</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_GET_PUBLISHED_OBJECT_LIST">SE_APIFN_GET_PUBLISHED_OBJECT_LIST</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">41</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_GET_REFERENCED_TRANSMITTAL_LIST">SE_APIFN_GET_REFERENCED_TRANSMITTAL_LIST</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">42</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_GET_RELATION_COUNTS">SE_APIFN_GET_RELATION_COUNTS</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">43</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_GET_REMAINING_OBJECTS_LIST">SE_APIFN_GET_REMAINING_OBJECTS_LIST</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">44</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_GET_REMAINING_PACKED_HIERARCHIES_LIST">SE_APIFN_GET_REMAINING_PACKED_HIERARCHIES_LIST</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">45</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_GET_ROOT_OBJECT">SE_APIFN_GET_ROOT_OBJECT</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">46</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_GET_SRF_CONTEXT_INFO">SE_APIFN_GET_SRF_CONTEXT_INFO</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">47</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_GET_TRANSMITTAL_FROM_OBJECT">SE_APIFN_GET_TRANSMITTAL_FROM_OBJECT</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">48</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_GET_TRANSMITTAL_LOCATION">SE_APIFN_GET_TRANSMITTAL_LOCATION</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">49</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_GET_TRANSMITTAL_NAME">SE_APIFN_GET_TRANSMITTAL_NAME</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">50</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_GET_TRANSMITTAL_VERSION_INFORMATION">SE_APIFN_GET_TRANSMITTAL_VERSION_INFORMATION</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">51</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_GET_UNIQUE_TRANSMITTAL_ID">SE_APIFN_GET_UNIQUE_TRANSMITTAL_ID</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">52</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_GET_UNRESOLVED_OBJECT_FROM_PUBLISHED_LABEL">SE_APIFN_GET_UNRESOLVED_OBJECT_FROM_PUBLISHED_LABEL</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">53</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_GET_USER_DATA">SE_APIFN_GET_USER_DATA</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">54</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_INITIALIZE_AGGREGATE_ITERATOR">SE_APIFN_INITIALIZE_AGGREGATE_ITERATOR</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">55</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_INITIALIZE_ASSOCIATE_ITERATOR">SE_APIFN_INITIALIZE_ASSOCIATE_ITERATOR</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">56</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_INITIALIZE_COMPONENT_ITERATOR">SE_APIFN_INITIALIZE_COMPONENT_ITERATOR</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">57</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_INITIALIZE_INHERITED_COMPONENT_ITERATOR">SE_APIFN_INITIALIZE_INHERITED_COMPONENT_ITERATOR</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">58</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_IS_ITERATOR_COMPLETE">SE_APIFN_IS_ITERATOR_COMPLETE</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">59</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_OBJECT_IS_PUBLISHED">SE_APIFN_OBJECT_IS_PUBLISHED</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">60</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_OBJECT_IS_RESOLVED">SE_APIFN_OBJECT_IS_RESOLVED</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">61</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_OBJECTS_ARE_SAME">SE_APIFN_OBJECTS_ARE_SAME</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">62</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_OPEN_TRANSMITTAL_BY_LOCATION">SE_APIFN_OPEN_TRANSMITTAL_BY_LOCATION</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">63</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_OPEN_TRANSMITTAL_BY_NAME">SE_APIFN_OPEN_TRANSMITTAL_BY_NAME</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">64</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_PUBLISH_OBJECT">SE_APIFN_PUBLISH_OBJECT</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">65</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_PUT_DATA_TABLE_DATA">SE_APIFN_PUT_DATA_TABLE_DATA</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">66</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_PUT_FIELDS">SE_APIFN_PUT_FIELDS</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">67</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_PUT_IMAGE_DATA">SE_APIFN_PUT_IMAGE_DATA</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">68</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_PUT_MESH_FACE_TABLE_DATA">SE_APIFN_PUT_MESH_FACE_TABLE_DATA</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">69</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_REMOVE_ASSOCIATE_RELATIONSHIP">SE_APIFN_REMOVE_ASSOCIATE_RELATIONSHIP</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">70</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_REMOVE_COMPONENT_RELATIONSHIP">SE_APIFN_REMOVE_COMPONENT_RELATIONSHIP</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">71</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_REMOVE_FROM_TRANSMITTAL">SE_APIFN_REMOVE_FROM_TRANSMITTAL</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">72</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_RESOLVE_OBJECT">SE_APIFN_RESOLVE_OBJECT</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">73</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_RESOLVE_TRANSMITTAL_NAME">SE_APIFN_RESOLVE_TRANSMITTAL_NAME</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">74</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_SET_COLOUR_MODEL">SE_APIFN_SET_COLOUR_MODEL</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">75</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_SET_FIRST_ERROR_MESSAGE">SE_APIFN_SET_FIRST_ERROR_MESSAGE</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">76</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_SET_GENERAL_CALLBACK">SE_APIFN_SET_GENERAL_CALLBACK</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">77</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_SET_GENERAL_CALLBACK_FOR_ONE_FUNCTION">SE_APIFN_SET_GENERAL_CALLBACK_FOR_ONE_FUNCTION</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">78</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_SET_ROOT_OBJECT">SE_APIFN_SET_ROOT_OBJECT</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">79</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_SET_SPECIFIC_CALLBACK">SE_APIFN_SET_SPECIFIC_CALLBACK</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">80</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_SET_SECOND_ERROR_MESSAGE">SE_APIFN_SET_SECOND_ERROR_MESSAGE</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">81</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_SET_SRF_CONTEXT_INFO">SE_APIFN_SET_SRF_CONTEXT_INFO</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">82</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_SET_TRANSMITTAL_NAME">SE_APIFN_SET_TRANSMITTAL_NAME</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">83</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_SET_USER_DATA">SE_APIFN_SET_USER_DATA</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">84</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_TRANSMITTALS_ARE_SAME">SE_APIFN_TRANSMITTALS_ARE_SAME</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">85</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_UNPUBLISH_OBJECT">SE_APIFN_UNPUBLISH_OBJECT</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">86</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_USE_DEFAULT_COLOUR_MODEL">SE_APIFN_USE_DEFAULT_COLOUR_MODEL</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">87</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_APIFN_USE_DEFAULT_SRF_CONTEXT_INFO">SE_APIFN_USE_DEFAULT_SRF_CONTEXT_INFO</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">88</td>
+</TR>
+</table>
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SE_Animation_Select_Parameters.htm">SE_Animation_Select_Parameters</a>.
+<strong>Next:</strong> <a href="SE_Branch_Range_Matching.htm">SE_Branch_Range_Matching</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

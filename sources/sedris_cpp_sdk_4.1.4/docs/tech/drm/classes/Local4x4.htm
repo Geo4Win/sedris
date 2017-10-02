@@ -1,0 +1,180 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Local 4x4</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Local 4x4
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Local 4x4</h2>
+<h3>Superclass - <a href="SEDRISAbstractBase.htm">&lt;SEDRIS Abstract Base&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies a 4&times;4 matrix that is
+ used to scale, orient, and position DRM objects in the scope of its
+ aggregate <A href="LSRTransformation.htm">&lt;LSR Transformation&gt;</A> instance.
+ The direction of rotation is determined by the right-hand rule. The
+ translation parameters are always in the rightmost column of the matrix.
+</P><P>
+ Since a <A href="Local4x4.htm">&lt;Local 4x4&gt;</A> instance only appears as a
+ component of an <A href="LSRTransformation.htm">&lt;LSR Transformation&gt;</A>
+ instance and
+ an <A href="LSRTransformation.htm">&lt;LSR Transformation&gt;</A> instance only
+ appears in the scope of an LSR SRF, the DRM objects to which a
+ <A href="Local4x4.htm">&lt;Local 4x4&gt;</A> instance is applied are always
+ specified in an LSR SRF.
+</P><P>
+ The matrix multiplication order is defined by
+ <span class="ConstructName">w</span> =
+ <span class="ConstructName">M</span> &times; <span class="ConstructName">v</span>, where
+ <span class="ConstructName">M</span> is the matrix of the <A href="Local4x4.htm">&lt;Local 4x4&gt;</A> instance,
+ <span class="ConstructName">v</span> is the original location vector, and
+ <span class="ConstructName">w</span> is the resulting location vector.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet07.pdf"><strong>7</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+This class appears on only one page of the DRM class diagram.
+<h3>Example</h3>
+<OL>
+<LI><P>
+ Let A be a <A href="Model.htm">&lt;Model&gt;</A> instance representing an airport,
+ and let <span class="ConstructName">C</span> be a separate <A href="Model.htm">&lt;Model&gt;</A>
+ instance representing a control tower, where <span class="ConstructName">A</span>
+ and <span class="ConstructName">C</span> are specified in matching LSR SRFs,
+ and <span class="ConstructName">A</span> contains a
+ <A href="GeometryModelInstance.htm">&lt;Geometry Model Instance&gt;</A> instance
+ <span class="ConstructName">G</span> that is a reference to <span class="ConstructName">C</span>.
+</P><P>
+ <span class="ConstructName">G</span> in <span class="ConstructName">A</span> shall have
+ an <A href="LSRTransformation.htm">&lt;LSR Transformation&gt;</A> component, where the position and
+ orientation of the control tower <span class="ConstructName">G</span> in
+ <span class="ConstructName">A</span> is specified by the <A href="Local4x4.htm">&lt;Local 4x4&gt;</A>
+ component of that <A href="LSRTransformation.htm">&lt;LSR Transformation&gt;</A> instance.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ How is the transformation matrix specified?
+</B></DT>
+<DD><P>
+ The DRM specifies matrices in <EM>row</EM> major order; that is, the
+ first four elements correspond to the first row of the matrix, the
+ following four elements correspond to the second row of the matrix,
+ and so on (just as a float[4][4] in C is organized). Hence, if
+ mat[][] is the matrix being used, mat[i][j] is the element in
+ row i and column j of the matrix.
+</P></DD>
+<DT><B>
+ What is the multiplication order for the matrices of
+ <A href="Local4x4.htm">&lt;Local 4x4&gt;</A> instances?
+</B></DT>
+<DD><P>
+ If <span class="ConstructName">M</span> is the transformation matrix of a
+ <A href="Local4x4.htm">&lt;Local 4x4&gt;</A> instance and <span class="ConstructName">v</span>
+ is a column location vector,
+ the Level 0 API transforms <span class="ConstructName">v</span> to a
+ column location vector <span class="ConstructName">w</span> by setting
+ <span class="ConstructName">w</span> =
+ <span class="ConstructName">M</span> &times; <span class="ConstructName">v</span>.
+</P>
+<DIV align="center">
+<p>
+<A name="Figure30"></A>
+<IMG SRC="../Images/PstM_ex1.jpg" ALT="Local 4x4 FAQ, post-multiply">
+</p>
+<p class=FigureCaption>Figure 30 &#8212; &lt;DRM Local 4x4&gt; example</p>
+</DIV>
+</DD>
+<DT><B>
+ Is a matrix in the DRM the same as a matrix in OpenGL?
+</B></DT>
+<DD><P>
+ No. A matrix in the DRM is specified in row major order, while in OpenGL,
+ matrices are specified in column major order (as in the glMultMatrix
+ function). Consequently, to correctly apply DRM transformations in
+ OpenGL programs, each matrix shall be reordered.
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Component of (two-way)</h3>
+<UL>
+<li>one <a href="LSRTransformation.htm">&lt;LSR Transformation&gt;</a> instance</li>
+</UL>
+
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../../srm/types/SRM_Matrix_4x4.htm">SRM_Matrix_4x4</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="matrix">matrix</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_matrix">1</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Fields Notes</h3>
+<h4><a href="#matrix" name="Notes_matrix">matrix</a></h4>
+<P>
+ The <A href="#matrix">matrix</A> field specifies a
+ standard 4 &times; 4 transformation matrix.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="LobeData.htm">Lobe Data</A>.
+<strong>Next:</strong> <A href="Location.htm">Location</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

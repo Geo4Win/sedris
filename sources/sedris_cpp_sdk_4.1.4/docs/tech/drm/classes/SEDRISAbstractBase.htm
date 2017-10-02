@@ -1,0 +1,433 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SEDRIS Abstract Base</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+SEDRIS Abstract Base
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Abstract Class Name: SEDRIS Abstract Base</h2>
+<h3>Subclasses</h3>
+<UL>
+<LI>
+<a href="AmbientColour.htm">&lt;Ambient Colour&gt;</a> 
+</LI>
+<LI>
+<a href="AnimationBehaviour.htm">&lt;Animation Behaviour&gt;</a> 
+</LI>
+<LI>
+<a href="AttachmentPoint.htm">&lt;Attachment Point&gt;</a> 
+</LI>
+<LI>
+<a href="Axis.htm">&lt;Axis&gt;</a> 
+</LI>
+<LI>
+<a href="BaseAssociationData.htm">&lt;Base Association Data&gt;</a> 
+</LI>
+<LI>
+<a href="BaseLODData.htm">&lt;Base LOD Data&gt;</a> 
+</LI>
+<LI>
+<a href="BaseSummaryItem.htm">&lt;Base Summary Item&gt;</a> 
+</LI>
+<LI>
+<a href="BaseTimeData.htm">&lt;Base Time Data&gt;</a> 
+</LI>
+<LI>
+<a href="BrowseMedia.htm">&lt;Browse Media&gt;</a> 
+</LI>
+<LI>
+<a href="CameraPoint.htm">&lt;Camera Point&gt;</a> 
+</LI>
+<LI>
+<a href="Citation.htm">&lt;Citation&gt;</a> 
+</LI>
+<LI>
+<a href="ClassificationData.htm">&lt;Classification Data&gt;</a> 
+</LI>
+<LI>
+<a href="Colour.htm">&lt;Colour&gt;</a> 
+</LI>
+<LI>
+<a href="ColourData.htm">&lt;Colour Data&gt;</a> 
+</LI>
+<LI>
+<a href="ColourShininess.htm">&lt;Colour Shininess&gt;</a> 
+</LI>
+<LI>
+<a href="ColourTable.htm">&lt;Colour Table&gt;</a> 
+</LI>
+<LI>
+<a href="ColourTableGroup.htm">&lt;Colour Table Group&gt;</a> 
+</LI>
+<LI>
+<a href="ConformalBehaviour.htm">&lt;Conformal Behaviour&gt;</a> 
+</LI>
+<LI>
+<a href="ContactPoint.htm">&lt;Contact Point&gt;</a> 
+</LI>
+<LI>
+<a href="ControlLink.htm">&lt;Control Link&gt;</a> 
+</LI>
+<LI>
+<a href="DataQuality.htm">&lt;Data Quality&gt;</a> 
+</LI>
+<LI>
+<a href="DataTable.htm">&lt;Data Table&gt;</a> 
+</LI>
+<LI>
+<a href="DiffuseColour.htm">&lt;Diffuse Colour&gt;</a> 
+</LI>
+<LI>
+<a href="EDCSUseSummaryItem.htm">&lt;EDCS Use Summary Item&gt;</a> 
+</LI>
+<LI>
+<a href="EdgeDirection.htm">&lt;Edge Direction&gt;</a> 
+</LI>
+<LI>
+<a href="EmissiveColour.htm">&lt;Emissive Colour&gt;</a> 
+</LI>
+<LI>
+<a href="EnclosingVolume.htm">&lt;Enclosing Volume&gt;</a> 
+</LI>
+<LI>
+<a href="EnvironmentRoot.htm">&lt;Environment Root&gt;</a> 
+</LI>
+<LI>
+<a href="EnvironmentalDomainSummary.htm">&lt;Environmental Domain Summary&gt;</a> 
+</LI>
+<LI>
+<a href="Expression.htm">&lt;Expression&gt;</a> 
+</LI>
+<LI>
+<a href="FaceDirection.htm">&lt;Face Direction&gt;</a> 
+</LI>
+<LI>
+<a href="FadeRange.htm">&lt;Fade Range&gt;</a> 
+</LI>
+<LI>
+<a href="FeatureFaceRing.htm">&lt;Feature Face Ring&gt;</a> 
+</LI>
+<LI>
+<a href="FeatureModel.htm">&lt;Feature Model&gt;</a> 
+</LI>
+<LI>
+<a href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</a> 
+</LI>
+<LI>
+<a href="FeatureTopology.htm">&lt;Feature Topology&gt;</a> 
+</LI>
+<LI>
+<a href="FeatureTopologyHierarchy.htm">&lt;Feature Topology Hierarchy&gt;</a> 
+</LI>
+<LI>
+<a href="FeatureVolumeShell.htm">&lt;Feature Volume Shell&gt;</a> 
+</LI>
+<LI>
+<a href="GeometricCentre.htm">&lt;Geometric Centre&gt;</a> 
+</LI>
+<LI>
+<a href="GeometryModel.htm">&lt;Geometry Model&gt;</a> 
+</LI>
+<LI>
+<a href="GeometryRepresentation.htm">&lt;Geometry Representation&gt;</a> 
+</LI>
+<LI>
+<a href="GeometryTopology.htm">&lt;Geometry Topology&gt;</a> 
+</LI>
+<LI>
+<a href="GeometryTopologyHierarchy.htm">&lt;Geometry Topology Hierarchy&gt;</a> 
+</LI>
+<LI>
+<a href="GridOverlap.htm">&lt;Grid Overlap&gt;</a> 
+</LI>
+<LI>
+<a href="HierarchyData.htm">&lt;Hierarchy Data&gt;</a> 
+</LI>
+<LI>
+<a href="Icon.htm">&lt;Icon&gt;</a> 
+</LI>
+<LI>
+<a href="Identification.htm">&lt;Identification&gt;</a> 
+</LI>
+<LI>
+<a href="Image.htm">&lt;Image&gt;</a> 
+</LI>
+<LI>
+<a href="ImageAnchor.htm">&lt;Image Anchor&gt;</a> 
+</LI>
+<LI>
+<a href="ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</a> 
+</LI>
+<LI>
+<a href="InOut.htm">&lt;In Out&gt;</a> 
+</LI>
+<LI>
+<a href="InterfaceTemplate.htm">&lt;Interface Template&gt;</a> 
+</LI>
+<LI>
+<a href="Keywords.htm">&lt;Keywords&gt;</a> 
+</LI>
+<LI>
+<a href="Label.htm">&lt;Label&gt;</a> 
+</LI>
+<LI>
+<a href="LegalConstraints.htm">&lt;Legal Constraints&gt;</a> 
+</LI>
+<LI>
+<a href="Library.htm">&lt;Library&gt;</a> 
+</LI>
+<LI>
+<a href="LightRenderingBehaviour.htm">&lt;Light Rendering Behaviour&gt;</a> 
+</LI>
+<LI>
+<a href="LightRenderingProperties.htm">&lt;Light Rendering Properties&gt;</a> 
+</LI>
+<LI>
+<a href="LightSource.htm">&lt;Light Source&gt;</a> 
+</LI>
+<LI>
+<a href="Lineage.htm">&lt;Lineage&gt;</a> 
+</LI>
+<LI>
+<a href="LobeData.htm">&lt;Lobe Data&gt;</a> 
+</LI>
+<LI>
+<a href="Local4x4.htm">&lt;Local 4x4&gt;</a> 
+</LI>
+<LI>
+<a href="Location.htm">&lt;Location&gt;</a> 
+</LI>
+<LI>
+<a href="LSRTransformationStep.htm">&lt;LSR Transformation Step&gt;</a> 
+</LI>
+<LI>
+<a href="MeshFaceTable.htm">&lt;Mesh Face Table&gt;</a> 
+</LI>
+<LI>
+<a href="Model.htm">&lt;Model&gt;</a> 
+</LI>
+<LI>
+<a href="ModelInstanceTemplateIndex.htm">&lt;Model Instance Template Index&gt;</a> 
+</LI>
+<LI>
+<a href="OctantData.htm">&lt;Octant Data&gt;</a> 
+</LI>
+<LI>
+<a href="OverloadPriorityIndex.htm">&lt;Overload Priority Index&gt;</a> 
+</LI>
+<LI>
+<a href="PerimeterData.htm">&lt;Perimeter Data&gt;</a> 
+</LI>
+<LI>
+<a href="PresentationDomain.htm">&lt;Presentation Domain&gt;</a> 
+</LI>
+<LI>
+<a href="PrimitiveColour.htm">&lt;Primitive Colour&gt;</a> 
+</LI>
+<LI>
+<a href="ProcessStep.htm">&lt;Process Step&gt;</a> 
+</LI>
+<LI>
+<a href="Property.htm">&lt;Property&gt;</a> 
+</LI>
+<LI>
+<a href="PropertyCharacteristic.htm">&lt;Property Characteristic&gt;</a> 
+</LI>
+<LI>
+<a href="PropertySet.htm">&lt;Property Set&gt;</a> 
+</LI>
+<LI>
+<a href="PropertySetIndex.htm">&lt;Property Set Index&gt;</a> 
+</LI>
+<LI>
+<a href="PropertySetTable.htm">&lt;Property Set Table&gt;</a> 
+</LI>
+<LI>
+<a href="PropertySetTableGroup.htm">&lt;Property Set Table Group&gt;</a> 
+</LI>
+<LI>
+<a href="PropertyTableReference.htm">&lt;Property Table Reference&gt;</a> 
+</LI>
+<LI>
+<a href="QuadrantData.htm">&lt;Quadrant Data&gt;</a> 
+</LI>
+<LI>
+<a href="ReferenceOrigin.htm">&lt;Reference Origin&gt;</a> 
+</LI>
+<LI>
+<a href="ReferenceSurface.htm">&lt;Reference Surface&gt;</a> 
+</LI>
+<LI>
+<a href="ReferenceVector.htm">&lt;Reference Vector&gt;</a> 
+</LI>
+<LI>
+<a href="RenderingPriorityLevel.htm">&lt;Rendering Priority Level&gt;</a> 
+</LI>
+<LI>
+<a href="RenderingProperties.htm">&lt;Rendering Properties&gt;</a> 
+</LI>
+<LI>
+<a href="ResponsibleParty.htm">&lt;Responsible Party&gt;</a> 
+</LI>
+<LI>
+<a href="RoleData.htm">&lt;Role Data&gt;</a> 
+</LI>
+<LI>
+<a href="SecurityConstraints.htm">&lt;Security Constraints&gt;</a> 
+</LI>
+<LI>
+<a href="SeparatingPlane.htm">&lt;Separating Plane&gt;</a> 
+</LI>
+<LI>
+<a href="SeparatingPlaneData.htm">&lt;Separating Plane Data&gt;</a> 
+</LI>
+<LI>
+<a href="SeparatingPlaneRelations.htm">&lt;Separating Plane Relations&gt;</a> 
+</LI>
+<LI>
+<a href="Sound.htm">&lt;Sound&gt;</a> 
+</LI>
+<LI>
+<a href="SoundInstance.htm">&lt;Sound Instance&gt;</a> 
+</LI>
+<LI>
+<a href="Source.htm">&lt;Source&gt;</a> 
+</LI>
+<LI>
+<a href="SpatialExtent.htm">&lt;Spatial Extent&gt;</a> 
+</LI>
+<LI>
+<a href="SpatialIndexData.htm">&lt;Spatial Index Data&gt;</a> 
+</LI>
+<LI>
+<a href="SpecularColour.htm">&lt;Specular Colour&gt;</a> 
+</LI>
+<LI>
+<a href="SRFSummary.htm">&lt;SRF Summary&gt;</a> 
+</LI>
+<LI>
+<a href="StampBehaviour.htm">&lt;Stamp Behaviour&gt;</a> 
+</LI>
+<LI>
+<a href="StateData.htm">&lt;State Data&gt;</a> 
+</LI>
+<LI>
+<a href="TablePropertyDescription.htm">&lt;Table Property Description&gt;</a> 
+</LI>
+<LI>
+<a href="TackPoint.htm">&lt;Tack Point&gt;</a> 
+</LI>
+<LI>
+<a href="TextureCoordinate.htm">&lt;Texture Coordinate&gt;</a> 
+</LI>
+<LI>
+<a href="TimeConstraintsData.htm">&lt;Time Constraints Data&gt;</a> 
+</LI>
+<LI>
+<a href="Transformation.htm">&lt;Transformation&gt;</a> 
+</LI>
+<LI>
+<a href="Translucency.htm">&lt;Translucency&gt;</a> 
+</LI>
+<LI>
+<a href="TransmittalRoot.htm">&lt;Transmittal Root&gt;</a> 
+</LI>
+<LI>
+<a href="TransmittalSummary.htm">&lt;Transmittal Summary&gt;</a> 
+</LI>
+<LI>
+<a href="Vertex.htm">&lt;Vertex&gt;</a> 
+</LI>
+<LI>
+<a href="VolumeExtent.htm">&lt;Volume Extent&gt;</a> 
+</LI>
+<LI>
+<a href="World3x3.htm">&lt;World 3x3&gt;</a> 
+</LI>
+</UL>
+<h3>Definition</h3>
+<P>
+ This DRM class is the root class for all other DRM classes.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet23.pdf"><strong>23</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet09.pdf"><strong>9</strong></A>
+</LI>
+</UL>
+
+<h3>Example</h3>
+<p>
+ See concrete classes for examples.
+
+</p>
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+What functionality does this class provide?
+</B></DT>
+<DD><P>
+ The SEDRIS API treats all DRM objects as belonging to a common
+ abstract class; this is that class. All other DRM classes descend
+ from this class.
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+</UL>
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+
+<hr>
+<strong>Prev:</strong> <A href="SecurityConstraints.htm">Security Constraints</A>.
+<strong>Next:</strong> <A href="SeparatingPlane.htm">Separating Plane</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

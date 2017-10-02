@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE_Branch_Range_Matching</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Types
+</font>
+<br>
+<font color="#ffffff">
+SE_Branch_Range_Matching
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<PRE>
+/*
+ * ENUM: SE_Branch_Range_Matching
+ *
+ *   This data type specifies, when evaluating the branches of
+ *   an &lt;Aggregate Feature&gt; or &lt;Aggregate Geometry&gt; instance
+ *   against a range of search values, how to evaluate the
+ *   field values of a given branch's link object against the
+ *   search range, where the link object's field values themselves
+ *   specify a range of values.
+ */
+</PRE>
+<span class="Code">typedef enum
+<br>
+{
+</span>
+
+<table class="CFunctionPrototype">
+    <tr><td class="CFunction"></td><td class="CFunction"><a name="SE_BRRNGMAT_EXACT"></a>SE_BRRNGMAT_EXACT,</td><td class="CFunction"><sup><A href="#Notes_SE_BRRNGMAT_EXACT">1</A></sup></td></tr>
+    <tr><td class="CFunction"></td><td class="CFunction"><a name="SE_BRRNGMAT_FULL_CONTAINMENT"></a>SE_BRRNGMAT_FULL_CONTAINMENT,</td><td class="CFunction"><sup><A href="#Notes_SE_BRRNGMAT_FULL_CONTAINMENT">2</A></sup></td></tr>
+    <tr><td class="CFunction"></td><td class="CFunction"><a name="SE_BRRNGMAT_INTERSECTION"></a>SE_BRRNGMAT_INTERSECTION</td><td class="CFunction"><sup><A href="#Notes_SE_BRRNGMAT_INTERSECTION">3</A></sup></td></tr>
+</table>
+<span class="Code">
+} SE_Branch_Range_Matching;
+</span>
+<br>
+<br>
+<hr>
+<h2>Enumerant Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#SE_BRRNGMAT_EXACT" name="Notes_SE_BRRNGMAT_EXACT">1</a></sup>
+ For a branch to be considered a match, the search value range
+ shall exactly match the branch's value range.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#SE_BRRNGMAT_FULL_CONTAINMENT" name="Notes_SE_BRRNGMAT_FULL_CONTAINMENT">2</a></sup>
+ For a branch to be considered a match, the search value range
+ shall be completely contained within the branch's value range.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#SE_BRRNGMAT_INTERSECTION" name="Notes_SE_BRRNGMAT_INTERSECTION">3</a></sup>
+ For a branch to be considered a match, the search value range
+ shall intersect the branch's value range.
+</p>
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SE_API_Function.htm">SE_API_Function</a>.
+<strong>Next:</strong> <a href="SE_Classification_Entry.htm">SE_Classification_Entry</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

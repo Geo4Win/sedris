@@ -1,0 +1,304 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Citation</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Citation
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Citation</h2>
+<h3>Superclass - <a href="SEDRISAbstractBase.htm">&lt;SEDRIS Abstract Base&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies the recommended bibliographic
+ reference information to be used for the environmental data being
+ described by the given <A href="Citation.htm">&lt;Citation&gt;</A> instance
+ such that the information is provided in
+ an <A href="../bibliography.htm#I19115">ISO 19115</A> compatible form.
+ The environmental data refers to the object tree rooted at the aggregate of
+ the <A href="Citation.htm">&lt;Citation&gt;</A> instance.
+ If a <A href="Citation.htm">&lt;Citation&gt;</A> instance is shared by multiple
+ aggregate objects, the environmental data refers to the
+ collection of object trees rooted at its various aggregates.
+</P><P class=Note>
+NOTE&nbsp; 
+ The term &quot;environmental data&quot; is equivalent to the term
+ &quot;data set&quot; in <A href="../bibliography.htm#I19115">ISO 19115</A>.
+</p>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet20.pdf"><strong>20</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+This class appears on only one page of the DRM class diagram.
+<h3>Example</h3>
+<OL>
+<LI><P>
+ Consider a transmittal produced from a transportation thematic layer in GIS
+ feature data, where the source data is not part of a series, and where this
+ is its first edition as a transmittal. In this case, the transmittal was
+ produced by ABC Company using their ABC conversion tool on
+ 2002-06-22T14:56:30Z.
+</P><P>
+ The citation information for the
+ <A href="TransmittalRoot.htm">&lt;Transmittal Root&gt;</A> instance of the transmittal is as follows.
+</P>
+<TABLE border=1>
+<TR>
+<TD>
+ <A href="#title">title</A>
+</TD>
+<TD>
+ &quot;Transportation Thematic Layer&quot;;
+</TD>
+</TR>
+<TR>
+<TD>
+ <A href="#edition">edition</A>
+</TD>
+ <TD>&quot;1.0&quot;;</TD>
+</TR>
+<TR>
+<TD>
+ <A href="#series_name">series_name</A>
+</TD>
+<TD>&quot;N/A&quot;;</TD>
+</TR>
+<TR>
+<TD>
+<A href="#issue_identification">issue_identification</A>
+</TD>
+ <TD>&quot;N/A&quot;;</TD>
+</TR>
+<TR>
+<TD>
+ <A href="#other_citation_details">other_citation_details</A>
+</TD>
+ <TD>&quot;Created using ABC to STF converter&quot;;</TD>
+</TR>
+</TABLE>
+<P>
+ The fields of the <A href="AbsoluteTime.htm">&lt;Absolute Time&gt;</A> instance
+ are set to the following.
+</P>
+<TABLE border=1>
+<TR>
+<TD>
+<A href="AbsoluteTime.htm#time_significance">time_significance</A>
+</TD>
+<TD>
+<A href="../types/SE_Time_Significance.htm#SE_TIMESIGNIF_PUBLICATION_DATE">SE_TIMESIGNIF_PUBLICATION_DATE</A>
+</TD>
+</TR>
+<TR>
+<TD>
+<A href="AbsoluteTime.htm#time_value">time_value</A>.<A href="../types/SE_Time_Value.htm#value">value</A>.
+<A href="../types/SE_Time_Value.htm#ymd_hms">ymd_hms</A>.<A href="../types/SE_Time_YMD_HMS_Value.htm#year">year</A>
+</TD>
+<TD>2002</TD>
+</TR>
+<TR>
+<TD>
+<A href="AbsoluteTime.htm#time_value">time_value</A>.<A href="../types/SE_Time_Value.htm#value">value</A>.
+<A href="../types/SE_Time_Value.htm#ymd_hms">ymd_hms</A>.<A href="../types/SE_Time_YMD_HMS_Value.htm#month">month</A>
+</TD>
+<TD><A href="../types/SE_Month.htm#SE_MONTH_JUNE">SE_MONTH_JUNE</A></TD>
+</TR>
+<TR>
+<TD>
+<A href="AbsoluteTime.htm#time_value">time_value</A>.<A href="../types/SE_Time_Value.htm#value">value</A>.
+<A href="../types/SE_Time_Value.htm#ymd_hms">ymd_hms</A>.<A href="../types/SE_Time_YMD_HMS_Value.htm#day">day</A>
+</TD>
+<TD>22</TD>
+</TR>
+<TR>
+<TD>
+<A href="AbsoluteTime.htm#time_value">time_value</A>.<A href="../types/SE_Time_Value.htm#value">value</A>.
+<A href="../types/SE_Time_Value.htm#ymd_hms">ymd_hms</A>.<A href="../types/SE_Time_YMD_HMS_Value.htm#hour">hour</A>
+</TD>
+<TD>14</TD>
+</TR>
+<TR>
+<TD>
+<A href="AbsoluteTime.htm#time_value">time_value</A>.<A href="../types/SE_Time_Value.htm#value">value</A>.
+<A href="../types/SE_Time_Value.htm#ymd_hms">ymd_hms</A>.<A href="../types/SE_Time_YMD_HMS_Value.htm#minutes">minutes</A>
+</TD>
+<TD>56</TD>
+</TR>
+<TR>
+<TD>
+<A href="AbsoluteTime.htm#time_value">time_value</A>.<A href="../types/SE_Time_Value.htm#value">value</A>.
+<A href="../types/SE_Time_Value.htm#ymd_hms">ymd_hms</A>.<A href="../types/SE_Time_YMD_HMS_Value.htm#seconds">seconds</A>
+</TD>
+<TD>30.0</TD>
+</TR>
+</TABLE>
+</LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ What is the purpose of this class?
+</B></DT>
+<DD><P>
+ This class provides
+ <A href="../bibliography.htm#I19115">ISO 19115</A> compliant metadata
+ that allows a <A href="TransmittalRoot.htm">&lt;Transmittal Root&gt;</A> or a
+ high-level component of a <A href="TransmittalRoot.htm">&lt;Transmittal Root&gt;</A>
+ (<I>e.g.</I>, a <A href="Model.htm">&lt;Model&gt;</A>, <A href="Image.htm">&lt;Image&gt;</A>)
+ to be referenced in external documents.
+ <A href="Citation.htm">&lt;Citation&gt;</A> identifies the object by name and
+ edition/version, and specifies who created and/or released the object, and
+ when it was created/released.
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/MandatoryMetadata.htm">&lt;&lt;Mandatory Metadata&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Composed of (two-way)</h3>
+<UL>
+<li>one or more <a href="AbsoluteTime.htm">&lt;Absolute Time&gt;</a> instances<sup><A href="#Notes_cmp_Absolute_Time" name="cmp_Absolute_Time">1</A></sup></li>
+</UL>
+
+<h3>Composed of (two-way metadata)</h3>
+<UL>
+<li>zero or more <a href="ResponsibleParty.htm">&lt;Responsible Party&gt;</a> instances, each through the use of a <a href="RoleData.htm">&lt;Role Data&gt;</a> link object<sup><A href="#Notes_cmp_Responsible_Party" name="cmp_Responsible_Party">2</A></sup></li>
+</UL>
+
+<h3>Component of (two-way)</h3>
+<UL>
+<li>zero or more <a href="Identification.htm">&lt;Identification&gt;</a> instances</li>
+<li>zero or more <a href="Keywords.htm">&lt;Keywords&gt;</a> instances</li>
+<li>zero or more <a href="Source.htm">&lt;Source&gt;</a> instances</li>
+</UL>
+
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_String.htm">SE_String</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="title">title</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_title">3</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_String.htm">SE_String</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="edition">edition</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_edition">4</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_String.htm">SE_String</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="series_name">series_name</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_series_name">5</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_String.htm">SE_String</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="issue_identification">issue_identification</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_issue_identification">6</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_String.htm">SE_String</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="other_citation_details">other_citation_details</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_other_citation_details">7</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Composed of Notes</h3>
+<br>
+<h4><a href="#cmp_Absolute_Time" name="Notes_cmp_Absolute_Time">Absolute_Time</a></h4>
+ The <A href="AbsoluteTime.htm">&lt;Absolute Time&gt;</A> components
+ specify the date (mandatory) and time (optional) indicated
+ by their
+ <A href="AbsoluteTime.htm#time_significance">time_significance</A> values.
+</P>
+<br>
+<h4><a href="#cmp_Responsible_Party" name="Notes_cmp_Responsible_Party">Responsible_Party</a></h4>
+ Each <A href="ResponsibleParty.htm">&lt;Responsible Party&gt;</A> component
+ identifies a party or parties responsible for the environmental data.
+</P>
+<h3>Fields Notes</h3>
+<h4><a href="#title" name="Notes_title">title</a></h4>
+<P>
+ The <A href="#title">title</A> field specifies the
+ name by which the environmental data is known.
+</P>
+<h4><a href="#edition" name="Notes_edition">edition</a></h4>
+<P>
+ The <A href="#edition">edition</A> field specifies the version of
+ the environmental data, if the value is provided.
+</P>
+<h4><a href="#series_name" name="Notes_series_name">series_name</a></h4>
+<P>
+ The <A href="#series_name">series_name</A> field specifies
+ the name of the series or aggregate environmental data of
+ which the given environmental data is a part.
+</P>
+<h4><a href="#issue_identification" name="Notes_issue_identification">issue_identification</a></h4>
+<P>
+ The <A href="#issue_identification">issue_identification</A>
+ field identifies the issue of the series.
+</P>
+<h4><a href="#other_citation_details" name="Notes_other_citation_details">other_citation_details</a></h4>
+<P>
+ The
+ <A href="#other_citation_details">other_citation_details</A>
+ field supplies any other information
+ required to complete the citation that is not recorded elsewhere.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="CDSurfaceLocation.htm">CD Surface Location</A>.
+<strong>Next:</strong> <A href="ClassificationData.htm">Classification Data</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

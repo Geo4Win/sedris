@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE GetDataTableSubExtent</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX B - Transmittal Access Level 1 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+SE GetDataTableSubExtent
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../../taccess0/types/SE_Status_Code.htm">SE_Status_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SE_GetDataTableSubExtent</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../../taccess0/types/SE_Object.htm">SE_Object</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="data_table"></a>data_table,</td><td class="CFunction"><sup><A href="#Notes_data_table">1</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../../taccess0/types/SE_Data_Table_Sub_Extent.htm">SE_Data_Table_Sub_Extent</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="extents_ptr"></a>extents_ptr,</td><td class="CFunction"><sup><A href="#Notes_extents_ptr">2</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../../drm/types/SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="cell_count_ptr"></a>cell_count_ptr</td><td class="CFunction"><sup><A href="#Notes_cell_count_ptr">3</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+  Allocates and initializes the axes_bounds array for extents, and
+  computes the number of cells in the table. Memory allocated by this
+  function should be freed via <A href="SE_FreeDataTableSubExtent.htm">
+  SE_FreeDataTableSubExtent()</A>.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../../taccess0/types/SE_Status_Code.htm#SE_STATCODE_SUCCESS">SE_STATCODE_SUCCESS</A>
+</td><td class="Status"> and *extents_ptr is allocated and the output
+    parameters are initialized to the appropriate values, if valid
+    parameters were passed in and all operations succeeded.
+</td></tr>
+<tr><td class="Status">
+<A href="../../taccess0/types/SE_Status_Code.htm#SE_STATCODE_UNRESOLVED_INPUT_OBJECT">SE_STATCODE_UNRESOLVED_INPUT_OBJECT</A>
+</td><td class="Status"> and no changes are made, if
+<A href="SE_GetDataTableSubExtent.htm#data_table">data_table</A> is
+ an unresolved DRM object.
+</td></tr>
+<tr><td class="Status">
+<A href="../../taccess0/types/SE_Status_Code.htm#SE_STATCODE_UNRESOLVED_OUTPUT_OBJECT">SE_STATCODE_UNRESOLVED_OUTPUT_OBJECT</A>
+</td><td class="Status"> and no changes are made, if an unresolved object
+     was encountered and could not be resolved.
+</td></tr>
+<tr><td class="Status">
+<A href="../../taccess0/types/SE_Status_Code.htm#SE_STATCODE_INACTIONABLE_FAILURE">SE_STATCODE_INACTIONABLE_FAILURE</A>
+</td><td class="Status"> and no changes are made, if
+<OL>
+<LI> an <A href="../../drm/classes/Axis.htm">&lt;Axis&gt;</A> or its fields could not be retrieved,
+</LI>
+<LI> an invalid <A href="../../drm/classes/Axis.htm">&lt;Axis&gt;</A> was encountered,
+</LI>
+<LI> the call fails for any other reason.
+</LI>
+</OL>
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#data_table" name="Notes_data_table">1</a></sup>
+ &lt;Data Table&gt; whose extents are being found
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#extents_ptr" name="Notes_extents_ptr">2</a></sup>
+ pointer to extents whose axes_bounds array is
+    allocated and initialized here
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#cell_count_ptr" name="Notes_cell_count_ptr">3</a></sup>
+ pointer to a variable in the user's memory space, which
+    is set to the number of cells in the &lt;Data Table&gt;
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SE_GetDataTableSignature.htm">SE_GetDataTableSignature</a>.
+<strong>Next:</strong> <a href="SE_GetRearrangedImageData.htm">SE_GetRearrangedImageData</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

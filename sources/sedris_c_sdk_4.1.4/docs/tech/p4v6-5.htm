@@ -1,0 +1,495 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>P4V6 - Section 5</title>
+<META name="Author" CONTENT="Science Applications International Corporation">
+<link rel="stylesheet" type="text/css" href="../styles/SDK_SEDRIS.css">
+</head>
+<body>
+
+<a name="Top" id="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr>
+<th class="doc_set_header">
+<big><big>
+Data Tables Technical Guide
+</big></big>
+<br>
+<font color="#ffffff">
+Section 5 - RETRIEVING DATA TABLE DATA WITH THE SEDRIS API
+</th>
+</tr>
+</table></div>
+
+<table class="doc_set_toc">
+<tr>
+<th class="doc_set_toc_outline_number"><a name="51" id="51">5.1</a></th>
+<th class="doc_set_toc_outline_description">Overview</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"></th>
+<td class="doc_set_toc_outline_description"><p>
+The SEDRIS API and its use is documented in the following volumes
+of Part 4 of the Documentation Set:
+</p>
+<ul>
+<li><p>Volume 13: <a href="p4v13.htm"><i>How to Extract Data from SEDRIS Transmittals</i></a>
+</p></li>
+<li><p>Volume 14: <a href="p4v14.htm"><i>How to Produce SEDRIS Transmittals</i></a>
+</p></li>
+<li><p>Volume 17: <a href="p4v17.htm"><i>API Reference Manual</i></a>
+</p></li>
+</ul>
+<p>
+In this section, the reader is assumed to be familiar with the
+SEDRIS API. This section provides supplemental information on
+SEDRIS API functions that are related to the extraction of
+data from <a href="drm/classes/DataTable.htm">&lt;Data Table&gt;</a> instances.
+</p></td></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="52" id="52">5.2</a></th>
+<th class="doc_set_toc_outline_description">Data Table Sub-Extents</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"></th>
+<td class="doc_set_toc_outline_description"><p>
+The SEDRIS API provides one function to retrieve data from
+<a href="drm/classes/DataTable.htm">&lt;Data Table&gt;</a> instances. The function
+<a href="taccess0/functions/SE_GetDataTableData.htm">SE_GetDataTableData()</a>
+is used to retrieve data for the complete
+<a href="drm/classes/DataTable.htm">&lt;Data Table&gt;</a> signature,
+or for a subset of the signature. This is important if the table is large
+and the data consumer is interested only in part of the table, or if the data
+consumer has memory constraints and can only handle the table
+piecemeal. <a href="drm/classes/DataTable.htm">&lt;Data Table&gt;</a> cell
+subsets are specified using a SEDRIS API data type,
+<a href="taccess0/types/SE_Data_Table_Sub_Extent.htm">SE_Data_Table_Sub_Extent</a>.
+</p><p>
+<a href="taccess0/types/SE_Data_Table_Sub_Extent.htm">SE_Data_Table_Sub_Extent</a>
+contains 2 fields: <a href="taccess0/types/SE_Data_Table_Sub_Extent.htm#axes_count">
+axes_count</a> and <a href="taccess0/types/SE_Data_Table_Sub_Extent.htm#axes_bounds">
+axes_bounds</a>, where
+<a href="taccess0/types/SE_Data_Table_Sub_Extent.htm#axes_count">axes_count</a>
+specifies the size of the
+<a href="taccess0/types/SE_Data_Table_Sub_Extent.htm#axes_bounds">
+axes_bounds array</a>. When a handle to a
+<a href="taccess0/types/SE_Data_Table_Sub_Extent.htm">SE_Data_Table_Sub_Extent</a>,
+we'll call it <span class="Code">extents_ptr</span>, is provided to the
+data table retrieval function, the value of <span class="Code">
+extents_ptr->axes_count</span> is required to match the number of
+<a href="drm/classes/Axis.htm">&lt;Axis&gt;</a> components of the
+<a href="drm/classes/DataTable.htm">&lt;Data Table&gt;</a>
+instance. Each entry in axes_bounds specifies the desired range
+of axis index values for the corresponding <a href="drm/classes/Axis.htm">
+&lt;Axis&gt;</a>. The indexing is zero-based, so that for the kth
+<a href="drm/classes/Axis.htm">&lt;Axis&gt;</a> component
+of the table for which cells are being retrieved, where
+axis_value_count is the number of tick marks on the kth
+<a href="drm/classes/Axis.htm">&lt;Axis&gt;</a>,
+</p><p><div class="CenterDiv"><span class="Code">
+0 &lt;= extents_ptr-&gt;axes_bounds[k].first_index
+  &lt;= extents_ptr-&gt;axes_bounds[k].last_index
+  &lt;= axis_value_count - 1
+</span></div></p><p>
+The number of cells, <span class="Code">cell_count</span>,
+specified by an <a href="taccess0/types/SE_Data_Table_Sub_Extent.htm">
+SE_Data_Table_Sub_Extent</a> is the product of the
+lengths of the index ranges for each axis.
+</p><p><div class="CenterDiv"><span class="Code">
+cell_count = product of (1 + extents_ptr-&gt;axes_bounds[k].last_index -
+                  extents_ptr-&gt;axes_bounds[k].first_index)
+</span></div><br>
+for k = 0 to k = axes_count -1.
+</p>
+</td></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="53" id="53">5.3</a></th>
+<th class="doc_set_toc_outline_description">
+<a href="taccess0/functions/SE_GetDataTableData.htm">SE_GetDataTableData()</a>
+</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"></th>
+<td class="doc_set_toc_outline_description"><p>
+If the signature of a <a href="drm/classes/DataTable.htm">&lt;Data Table&gt;</a>
+has more than one
+<a href="drm/classes/TablePropertyDescription.htm">&lt;Table Property Description&gt;</a>
+(signature item), the
+<a href="taccess0/functions/SE_GetDataTableData.htm">SE_GetDataTableData()</a>
+function allows several or all signature elements to be retrieved in one function call. The
+prototype for <a href="taccess0/functions/SE_GetDataTableData.htm">SE_GetDataTableData()</a> is:
+<br>
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="taccess0/types/SE_Return_Code.htm">SE_Return_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SE_GetDataTableData</td></tr>
+<tr><td class="CFunction">(</td>
+<tr><td class="CFunction">     </td><td class="CFunction"><a href="taccess0/types/SE_Object.htm">SE_Object</a></td> <td class="CFunction"> </td><td class="CFunction"> </td><td class="CFunction"><a name="data_table_object" id="data_table_object"></a>data_table_object,</td></tr>
+
+<tr><td class="CFunction">const</td><td class="CFunction"><a href="taccess0/types/SE_Data_Table_Sub_Extent.htm">SE_Data_Table_Sub_Extent</a></td> <td class="CFunction"> </td><td class="CFunction">*</td><td class="CFunction"><a name="extents" id="extents"></a>extents,</td></tr>
+<tr><td class="CFunction">     </td><td class="CFunction"><a href="drm/types/SE_Integer_Positive.htm">SE_Integer_Positive</a></td> <td class="CFunction"> </td><td class="CFunction"> </td><td class="CFunction"><a name="element_count" id="element_count"></a>element_count,</td></tr>
+<tr><td class="CFunction">const</td><td class="CFunction"><a href="drm/types/SE_Integer_Positive.htm">SE_Integer_Positive</a></td> <td class="CFunction"> </td><td class="CFunction"> </td><td class="CFunction"><a name="element_indices" id="element_indices"></a>element_indices[],</td></tr>
+
+<tr><td class="CFunction">     </td><td class="CFunction"><a href="taccess0/types/SE_Store.htm">SE_Store</a></td> <td class="CFunction"> </td><td class="CFunction"> </td><td class="CFunction"><a name="store" id="store"></a>store,</td></tr>
+<tr><td class="CFunction">     </td><td class="CFunction"><a href="drm/types/SE_Data_Table_Data.htm">SE_Data_Table_Data</a></td> <td class="CFunction">*</td><td class="CFunction">*</td><td class="CFunction"><a name="data" id="data"></a>data</td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table><p>
+The
+<span class="Code"><a href="taccess0/functions/SE_GetDataTableData.htm#data_table">data_table</a></span>
+argument is an
+<a href="taccess0/types/SE_Object.htm">SE_Object</a>
+representing a handle to the
+<a href="drm/classes/DataTable.htm">&lt;Data Table&gt;</a> instance
+for which cell data is being retrieved. The
+<span class="Code"><a href="taccess0/functions/SE_GetDataTableData.htm#extents_ptr">extents_ptr</a></span>
+argument uses the <a href="taccess0/types/SE_Data_Table_Sub_Extent.htm">
+SE_Data_Table_Sub_Extent</a> data type to specify the
+index bounds for the cells for which signature element data is desired.
+</p><p>
+Please see section <a href="#52">5.2</a> for more information about the
+<span class="Code"><a href="taccess0/functions/SE_GetDataTableData.htm#extents_ptr">extents_ptr</a></span>
+argument.
+</p><p>
+The
+<span class="Code"><a href="taccess0/functions/SE_GetDataTableData.htm#element_count">element_count</a></span>
+specifies the number of elements to be returned per cell,
+and is the dimension of the
+<span class="Code"><a href="taccess0/functions/SE_GetDataTableData.htm#element_indices">element_indices</a></span>
+array that follows. The
+<span class="Code"><a href="taccess0/functions/SE_GetDataTableData.htm#element_indices">element_indices</a></span>
+array itself both indicates which elements are requested for each cell
+and specifies the order in which they shall be retrieved; in other words,
+the retrieval order is not restricted to the
+<a href="drm/classes/TablePropertyDescription.htm">&lt;Table Property Description&gt;</a>
+order.  The
+<a href="drm/classes/TablePropertyDescription.htm">&lt;Table Property Description&gt;</a>
+indices used in the
+<span class="Code"><a href="taccess0/functions/SE_GetDataTableData.htm#element_indices">element_indices</a></span>
+array are 1-based.
+</p><p>
+The
+<span class="Code">
+<a href="taccess0/functions/SE_GetDataTableData.htm#store_in">store_in</a>
+</span> argument, in this
+<a href="drm/classes/DataTable.htm">&lt;Data Table&gt;</a> retrieval function,
+is required in order to allow the API to manage the memory associated
+with the cells of the given <a href="drm/classes/DataTable.htm">
+&lt;Data Table&gt;</a> instance, rather than requiring the user
+to do so. Consequently, the user does not allocate the memory within
+<span class="Code">
+<a href="taccess0/functions/SE_GetDataTableData.htm#data_table_data_out_ptr">
+data_table_data_out_ptr</a></span>, but merely provides
+a handle to the structure, which is then filled out by the API if
+valid parameters were passed in and all operations succeeded (e.g.,
+memory allocation didn't fail).
+</p><p>
+As an example of the usage of <a href="taccess0/functions/SE_GetDataTableData.htm">
+SE_GetDataTableData()</a>, consider
+the &quot;Surface Backscatter&quot; table from section 3.1, from which a
+consumer wishes to extract the value corresponding to the
+angle of incidence of 30 degrees from the IR band. The table is
+a 2-dimensional array, in which the first <a href="drm/classes/Axis.htm">
+&lt;Axis&gt;</a> represents the
+EM band (<a href="../../src/lib/edcs/docs/dictionary/EAC_E.htm#EAC_EM_BAND">EAC_EM_BAND </a>), wherein the IR band (
+<a href="../../src/lib/edcs/docs/dictionary/EAC_E.htm#EEC_EMBAND_INFRARED">EEC_EMBAND_INFRARED </a>)
+is located at index 2 in the (zero-based)
+<a href="drm/classes/EnumerationAxis.htm#axis_value_array">
+<span class="Code">axis_value_array</span></a>. On the second
+<a href="drm/classes/Axis.htm">&lt;Axis&gt;</a> (
+<a href="../../src/lib/edcs/docs/dictionary/EAC_I.htm#EAC_INCIDENCE_ELEV_ANGLE_LOCAL">EAC_INCIDENCE_ELEV_ANGLE_LOCAL </a>),
+the value 30 has index 1. Consequently, to specify a single cell, the index
+start and stop bounds on the first axis are from 2 to 2, and those
+on the second axis are from 1 to 1. In the following code example
+(Figure 5-1, the
+<a href="taccess0/functions/SE_GetDataTableData.htm#extents_ptr"><span class="Code">extents_ptr</span></a>
+argument is set, then the value (
+<a href="../../src/lib/edcs/docs/dictionary/EAC_S.htm#EAC_SURFACE_BACKSCATTER">
+EAC_SURFACE_BACKSCATTER </a>) is
+retrieved.
+</p><p><div class="CenterDiv"><table border="0" cellpadding="3">
+<tr><td><pre>
+      SE_Return_Code             return_code;
+      SE_Data_Table_Data        *dtd_results;
+      EDCS_Long_Float           *data_values;
+      SE_Data_Table_Sub_Extent   dtd_extents;
+      SE_Index_Range             ax_range[] = {{2, 2}, {1, 1}};
+      SE_Integer_Positive        element_count = 1;
+const SE_Integer_Positive        element_indices[] = { 1 };
+
+
+/*
+ * Set extents for cell (2, 1)
+ */
+extent.axes_count  = 2;
+extent.axes_bounds = ax_range;
+
+/*
+ * back_scatter_table has already been retrieved
+ * dtd_store has already been created by SE_CreateStore
+ */
+return_code = SE_GetDataTableData
+              (
+                back_scatter_table,
+               &amp;dtd_extents,
+                element_count,
+                element_indices,
+                dtd_store,
+               &amp;dtd_results
+         );
+
+/*
+ * Extract data value from dtd_result
+ */
+if ((return_code == SE_RETCOD_SUCCESS) &&
+    (dtd_results.value_type == SE_DTDATAVALTYP_SINGLE_FLOAT))
+{
+    int i = 0;
+    data_values = dtd_results.dt_array.single_long_float_values;
+    for(i = 0; i < dtd_results.data_count; i++)
+    {
+       printf(&quot;%f &quot;, data_values[i]);
+    }
+    printf(&quot;\n&quot;);
+}
+</pre></td></tr>
+<tr><th align="center" valign=top>
+Figure 5-1 Using <a href="taccess0/functions/SE_GetDataTableData.htm">
+SE_GetDataTableData()</a> to get a single element
+</th><tr>
+</table></div>
+</p><p>
+Retrieving the entire table, rather than one value, requires
+only changes to the values within the >extent
+structure, as shown in Figure 5-2, since
+<a href="taccess0/functions/SE_GetDataTableData.htm#store_in">
+<span class="Code">store_in</span></a> handles the memory management
+aspects of the retrieval for the user.
+</p><p><div class="CenterDiv"><table border="0" cellpadding="3">
+<tr><td><pre>
+SE_Index_Range             ax_range[] = {{0, 0}, {4, 5}};
+</pre></td></tr>
+<tr><th align="center" valign=top>
+Figure 5-2 Setting Maximum Sub-Extents
+</th><tr>
+</table></div>
+</p><p>
+The user is not required to possess a priori knowledge of the exact
+value count of each <a href="drm/classes/Axis.htm">&lt;Axis&gt;</a>
+component of a <a href="drm/classes/DataTable.htm">&lt;Data Table&gt;</a>
+instance to fill in an <a href="taccess0/types/SE_Data_Table_Sub_Extent.htm">
+SE_Data_Table_Sub_Extent</a> structure, however.
+As a convenience, the Transmittal Access Level 1 API provides the
+<a href="taccess1/functions/SE_GetDataTableSubExtent.htm">
+SE_GetDataTableSubExtent()</a> function, which allocates the
+<a href="taccess0/types/SE_Data_Table_Sub_Extent.htm#axes_bounds">
+<span class="Code">axes_bounds</span></a> field and sets each
+range entry with the minimum (0) and maximum
+(<span class="Code"><a href="drm/classes/Axis.htm#axis_value_count">
+axis_value_count</a> - 1</span>) index values.
+As an additional feature, the function also computes the cell count
+of the specified extent. This is illustrated in Figure 5-3, below.
+</p><p><div class="CenterDiv"><table border="0" cellpadding="3">
+<tr><td><pre>
+...
+SE_Data_Table_Sub_Extent  extent;
+SE_Integer_Unsigned       cell_count;
+
+/*
+ * Get the complete extents
+ */
+status = SE_GetDataTableSubExtent
+         (back_scatter_table, &extent, &amp;cell_count);
+
+...
+/* code that uses extent would be located here */
+
+SE_FreeDataTableSubExtent(&amp;extent);
+</pre></td></tr>
+<tr><th align="center" valign=top>
+Figure 5-3 Using <a href="taccess1/functions/SE_GetDataTableSubExtent.htm">
+SE_GetDataTableSubExtent()</a>
+</th><tr>
+</table></div>
+</p><p>
+Note that the user calls
+<a href="taccess1/functions/SE_FreeDataTableSubExtent.htm">
+SE_FreeDataTableSubExtent()</a> to free the memory allocated within
+the <a href="taccess0/types/SE_Data_Table_Sub_Extent.htm">
+SE_Data_Table_Sub_Extent</a> structure when it is no longer needed.
+</p><p>
+<!-- This section needs to be re-written possibly by Greg ->
+<font color=red>
+If the cell count exceeds 1, then the cell data is arranged within
+the appropriate union member of the SE_Property_Data_Value_Ptr
+argument with the first &lt;Axis&gt; varying slowest and the last
+&lt;Axis&gt; varying fastest. Consequently, the property value
+corresponding to cell index (1, 2), if it is an EDCS_Float, is in
+<span class="Code">result.float_value_ptr[1+2*6]</span>.
+In general, for a 2-dimensional array where the (i,j)-th cell
+satisfies the SE_Data_Table_Sub_Extent specification given by
+the <span class="Code">extents_ptr</span> argument, the
+cell property value will be found in the kth array element within
+result, where
+</p><p>
+<span class="Code">
+k = (i - extents_ptr-&gt;axes_bounds[0].first_index) +<br>
+    (j - extents_ptr-&gt;axes_bounds[1].first_index) *<br>
+    (1 + extents_ptr-&gt;axes_bounds[1].last_index -<br>
+         extents_ptr-&gt;axes_bounds[1].first_index);<br>
+</span>
+</font>
+</p><p>
+This holds similarly for <a href="drm/classes/DataTable.htm">&lt;Data Table&gt;</a>
+instances of higher dimension.
+</p></td></tr>
+
+<tr><th class="doc_set_toc_outline_number"><a name="54" id="54">5.4</a></th>
+    <th class="doc_set_toc_outline_description">Other API
+<a href="drm/classes/DataTable.htm">&lt;Data Table&gt;</a> Functions</th>
+</tr>
+
+<tr><th class="doc_set_toc_outline_number"></th>
+<td class="doc_set_toc_outline_description">
+<table class="doc_set_toc">
+<tr><th class="doc_set_toc_outline_number"><a name="541" id="541">5.4.1</a></th>
+    <th class="doc_set_toc_outline_description">Signature Information</th>
+</tr>
+
+<tr><th class="doc_set_toc_outline_number"></th>
+<td class="doc_set_toc_outline_description"><p>
+The <a href="taccess1/functions/SE_GetDataTableSignature.htm">
+SE_GetDataTableSignature()</a> function retrieves the
+<a href="drm/classes/TablePropertyDescription.htm">
+&lt;Table Property Description&gt;</a> components of the given
+<a href="drm/classes/DataTable.htm">&lt;Data Table&gt;</a>, calculates the
+element count per cell, allocates the output arrays, and sets the values of the
+output arrays. Its prototype is:
+</p>
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "3">extern <a href="taccess0/types/SE_Status_Code.htm">SE_Status_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "3">SE_GetDataTableSignature</td></tr>
+<tr><td class="CFunction">(</td>
+<tr>    <td class="CFunction"><a href="taccess0/types/SE_Object.htm">SE_Object</a></td> <td class="CFunction"> </td><td class="CFunction"> </td><td class="CFunction"><a href="taccess1/functions/SE_GetDataTableSignature.htm#data_table">data_table</a>,</td></tr>
+
+<tr>    <td class="CFunction"><a href="drm/types/SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a></td> <td class="CFunction"> </td><td class="CFunction">*</td><td class="CFunction"><a href="taccess1/functions/SE_GetDataTableSignature.htm#element_count_out_ptr">element_count_out_ptr</a>,</td></tr>
+<tr>    <td class="CFunction"><a href="drm/classes/TablePropertyDescription.htm">SE_Table_Property_Description_Fields</a></td> <td class="CFunction">*</td><td class="CFunction">*</td><td class="CFunction"><a href="taccess1/functions/SE_GetDataTableSignature.htm#prop_array_out_ptr">prop_array_out_ptr</a>,</td></tr>
+<tr>    <td class="CFunction"><a href="drm/types/SE_Integer_Positive.htm">SE_Integer_Positive</a></td> <td class="CFunction">*</td><td class="CFunction">*</td><td class="CFunction"><a href="taccess1/functions/SE_GetDataTableSignature.htm#table_prop_descript_number_out_ptr">table_prop_descript_number_out_ptr</a></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<p>
+The <a href="taccess1/functions/SE_GetDataTableSignature.htm#table_prop_descript_number_out_ptr"><span class="Code">*table_prop_descript_number_out_ptr</span></a>
+array may be used as
+<a href="taccess0/functions/SE_GetDataTableData.htm#element_indices">
+<span class="Code">element_indices</span></a>
+in calls to <a href="taccess0/functions/SE_GetDataTableData.htm">SE_GetDataTableData()</a>.
+</p><p>
+Memory allocated by this function for the output arrays should be freed via
+<a href="taccess1/functions/SE_FreeDataTableSignature.htm">SE_FreeDataTableSignature()</a>. Its prototype is
+</p>
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "3">extern void</td></tr>
+<tr><td class="CFunction" colspan = "3"><a href="taccess1/functions/SE_FreeDataTableSignature.htm">SE_FreeDataTableSignature</a></td></tr>
+<tr><td class="CFunction">(</td>
+<tr>    <td class="CFunction"><a href="drm/classes/TablePropertyDescription.htm">SE_Table_Property_Description_Fields</a></td> <td class="CFunction">*</td><td class="CFunction"><a href="taccess1/functions/SE_FreeDataTableSignature.htm#prop_array_ptr">prop_array_ptr</a>,</td></tr>
+<tr>    <td class="CFunction"><a href="drm/types/SE_Integer_Positive.htm">SE_Integer_Positive</a></td> <td class="CFunction"> </td><td class="CFunction"><a href="taccess1/functions/SE_FreeDataTableSignature.htm#table_prop_descript_number"></a>table_prop_descript_number[]</td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+</td></tr>
+
+<tr><th class="doc_set_toc_outline_number"><a name="542" id="542">5.4.2</a></th>
+    <th class="doc_set_toc_outline_description">Constant Signature Items</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"></th>
+<td class="doc_set_toc_outline_description"><p>
+As discussed previously in this technical guide, a constant
+signature item is identified as such by the presence of a
+<a href="drm/classes/PropertyCharacteristic.htm">&lt;Property Characteristic&gt;</a>
+instance as a component of the relevant
+<a href="drm/classes/TablePropertyDescription.htm">&lt;Table Property Description&gt;</a>,
+such that the <a href="drm/classes/PropertyCharacteristic.htm">&lt;Property Characteristic&gt;</a>'s
+<a href="drm/classes/PropertyCharacteristic.htm#meaning"><span class="Code">meaning</span></a> field value is
+<a href="../../src/lib/edcs/docs/dictionary/characteristic.htm#EVC_CONSTANT_VALUE">EVC_CONSTANT_VALUE</a>
+and its
+<a href="drm/classes/PropertyCharacteristic.htm#characteristic_value"><span class="Code">characteristic_value</span></a>
+field specifies the actual constant value.
+</p><p>
+If a signature item is constant, it is inefficient to call the
+<a href="taccess0/functions/SE_GetDataTableData.htm">SE_GetDataTableData()</a>
+retrieval function to return <span class="Code">cell_count</span> copies of the
+same constant value. Ideally, each desired signature item
+should be checked for a constant value
+<a href="drm/classes/PropertyCharacteristic.htm">&lt;Property Characteristic&gt;</a>
+before attempting to retrieve any data, to avoid wasting time
+and space. Consequently, as a convenience, the Transmittal Access Level 1 API
+provides the
+<a href="taccess1/functions/SE_GetDataTableConstantSignature.htm">SE_GetDataTableConstantSignature()</a>
+function. Its prototype is
+</p>
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "3">extern <a href="taccess0/types/SE_Status_Code.htm">SE_Status_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "3"><a href="taccess1/functions/SE_GetDataTableConstantSignature.htm">SE_GetDataTableConstantSignature</a></td></tr>
+<tr><td class="CFunction">(</td>
+<tr>    <td class="CFunction"><a href="taccess0/types/SE_Object.htm">SE_Object</a></td> <td class="CFunction"> </td><td class="CFunction"> </td><td class="CFunction"><a href="taccess1/functions/SE_GetDataTableConstantSignature.htm#data_table">data_table</a>,</td></tr>
+
+<tr>    <td class="CFunction"><a href="drm/types/SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a></td> <td class="CFunction"> </td><td class="CFunction">*</td><td class="CFunction"><a href="taccess1/functions/SE_GetDataTableConstantSignature.htm#constant_element_count_out_ptr">constant_element_count_out_ptr</a>,</td></tr>
+<tr>    <td class="CFunction"><a href="drm/classes/TablePropertyDescription.htm">SE_Table_Property_Description_Fields</a></td> <td class="CFunction">*</td><td class="CFunction">*</td><td class="CFunction"><a href="taccess1/functions/SE_GetDataTableConstantSignature.htm#prop_array_out_ptr">prop_array_out_ptr</a>,</td></tr>
+<tr>    <td class="CFunction"><a href="../../src/lib/edcs/docs/types/EDCS_Attribute_Value.htm">EDCS_Attribute_Value</a></td> <td class="CFunction">*</td><td class="CFunction">*</td><td class="CFunction"><a href="taccess1/functions/SE_GetDataTableConstantSignature.htm#constant_value_array_out_ptr">constant_value_array_out_ptr</a></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table></p><p>
+The <a href="taccess1/functions/SE_GetDataTableConstantSignature.htm#constant_element_count_out_ptr">
+<span class="Code">constant_element_count_out_ptr</span></a>
+returns the number of constant signature items for
+<a href="taccess1/functions/SE_GetDataTableConstantSignature.htm#data_table">
+<span class="Code">data_table</span></a>. If it is non-zero, it
+is also the dimension of both subsequent function arguments, which
+specify the constant signature items. The
+<a href="taccess1/functions/SE_GetDataTableConstantSignature.htm#prop_array_out_ptr">
+<span class="Code">*prop_array_out_ptr</span></a>
+specifies the fields of the <a href="drm/classes/TablePropertyDescription.htm">
+&lt;Table Property Description&gt;</a> instances marked as constant, while the
+<a href="taccess1/functions/SE_GetDataTableConstantSignature.htm#constant_value_array_out_ptr">
+<span class="Code">*constant_value_array_out_ptr</span></a>
+provides the corresponding constant values.
+</p><p>
+The memory allocated by this function should be freed by via
+<a href="taccess1/functions/SE_FreeDataTableConstantSignature.htm">
+SE_FreeDataTableConstantSignature()</a>.
+</p></td></tr>
+</table>
+</td></tr>
+</table>
+<hr>
+<font color="#ff0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a></strong>,
+<strong><a href="p4v6.htm">Table of Contents</a></strong>
+<br><br>
+
+<div class="CenterDiv">
+<table class="doc_set_header">
+<tr><td>
+<table class="doc_set_header">
+<tr><td class="doc_set_footer" align="left">
+Last updated: July 1, 2011
+</td>
+<td class="doc_set_footer" align="right">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td>
+</tr>
+</table>
+</td></tr>
+</table></div>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE_Data_Table_Sub_Extent</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Types
+</font>
+<br>
+<font color="#ffffff">
+SE_Data_Table_Sub_Extent
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<PRE>
+/*
+ * STRUCT: SE_Data_Table_Sub_Extent
+ *
+ *   This data type specifies the portion of a &lt;Data Table&gt; instance
+ *   that is to be accessed.
+ *
+ *   A &lt;Data Table&gt; is an N-dimensional collection of data.  This
+ *   extents structure is an N-dimensional &quot;area of interest&quot; definition.
+ *   It allows the user to specify starting and stopping indices of
+ *   interest for each dimension of the &lt;Data Table&gt;.  These indices
+ *   are 0 based (traditional C array access).
+ *
+ *   For example, consider a three dimensional &lt;Data Table&gt;, with
+ *   dimensions of 100 by 100 by 5.
+ *
+ *   To get all 50,000 values at once:
+ *        axes_count = 3, axes_bounds[0].first_index=0,
+ *                        axes_bounds[1].first_index=0,
+ *                        axes_bounds[2].first_index=0,
+ *                        axes_bounds[0].last_index=99,
+ *                        axes_bounds[1].last_index=99,
+ *                        axes_bounds[2].last_index=4
+ *
+ *   To treat it as 4 quadrants, 12,500 values each, the user could define:
+ *        axes_count = 3, axes_bounds[0].first_index=0,
+ *                        axes_bounds[1].first_index=0,
+ *                        axes_bounds[2].first_index=0,
+ *                        axes_bounds[0].last_index=49,
+ *                        axes_bounds[1].last_index=49,
+ *                        axes_bounds[2].last_index=4
+ *        axes_count = 3, axes_bounds[0].first_index=50,
+ *                        axes_bounds[1].first_index=0,
+ *                        axes_bounds[2].first_index=0,
+ *                        axes_bounds[0].last_index=99,
+ *                        axes_bounds[1].last_index=49,
+ *                        axes_bounds[2].last_index=4
+ *        axes_count = 3, axes_bounds[0].first_index=0,
+ *                        axes_bounds[1].first_index=50,
+ *                        axes_bounds[2].first_index=0,
+ *                        axes_bounds[0].last_index=49,
+ *                        axes_bounds[1].last_index=99,
+ *                        axes_bounds[2].last_index=4
+ *        axes_count = 3, axes_bounds[0].first_index=50,
+ *                        axes_bounds[1].first_index=50,
+ *                        axes_bounds[2].first_index=0,
+ *                        axes_bounds[0].last_index=99,
+ *                        axes_bounds[1].last_index=99,
+ *                        axes_bounds[2].last_index=4
+ */
+</PRE>
+<span class="Code">typedef struct 
+<br>
+{</span>
+<br>
+<table class="CFunctionPrototype">
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../drm/types/SE_Short_Integer_Unsigned.htm">SE_Short_Integer_Unsigned</a></td>
+        <td class="CFunction"><a name="axes_count"></a>axes_count;</td><td class="CFunction"><sup><A href="#Notes_axes_count">1</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Index_Range.htm">SE_Index_Range</a></td>
+        <td class="CFunction">*<a name="axes_bounds"></a>axes_bounds;</td><td class="CFunction"><sup><A href="#Notes_axes_bounds">2</A></sup></td></tr>
+</table>
+<span class="Code">
+} SE_Data_Table_Sub_Extent;</span>
+<br>
+
+<br>
+<HR>
+<H2>Field Notes</H2>
+<h4><a href="#axes_count" name="Notes_axes_count">axes_count</a></h4>
+<P>
+ the number of <A href="../../drm/classes/Axis.htm">&lt;Axis&gt;</A> components of the given
+ <A href="../../drm/classes/DataTable.htm">&lt;Data Table&gt;</A> instance; also the size of the following
+ <A href="#axes_bounds">axes_bounds</A> array
+</P>
+<h4><a href="#axes_bounds" name="Notes_axes_bounds">axes_bounds</a></h4>
+<P>
+ the array of index pairs representing each dimension
+ of the given <A href="../../drm/classes/DataTable.htm">&lt;Data Table&gt;</A> instance.
+</P>
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SE_Cylindrical_Volume_Extent_Entry.htm">SE_Cylindrical_Volume_Extent_Entry</a>.
+<strong>Next:</strong> <a href="SE_Encoding.htm">SE_Encoding</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

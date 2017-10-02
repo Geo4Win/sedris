@@ -1,0 +1,722 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SRM C API 4.0 to 4.1 Migration Guide</title>
+</head>
+
+<body bgcolor="#ffffff">
+
+<div align="center"><h1><a name="top">SRM C API 4.0 to 4.1 Migration Guide</a></h1></div>
+<div align="center">
+<h3>
+SRM SDK Release 4.1.4
+</h3>
+<h3>
+July 1, 2011
+</h3>
+</div>
+
+<br><br>
+<ol>
+<li><a href="#intro">Introduction</a>
+</li>
+<li><a href="#differences">Differences</a>
+<ol type="a">
+<li><a href="#differences1">Header Files</a>
+</li>
+<li><a href="#differences2">SRF Template Instantiation</a>
+</li>
+<li><a href="#differences3">Coordinate Instantiation</a>
+</li>
+<li><a href="#differences4">Direction Instantiation</a>
+</li>
+<li><a href="#differences5">Orientation Instantiation</a>
+</li>
+<li><a href="#differences6">Standard SRF Instantiation</a>
+</li>
+<li><a href="#differences7">SRF Set Member Instantiation</a>
+</li>
+<li><a href="#differences8">Coordinate and SRF Destruction</a>
+</li>
+<li><a href="#differences9">Coordinate SRF Change</a>
+</li>
+<li><a href="#differences10">Retrieve Coordinate Values</a>
+</li>
+</ol>
+</li>
+<li><a href="#sample">Sample Application</a>
+</li>
+<li><a href="#links">Related Links</a>
+</li>
+</ol>
+
+<h3><a name="intro">Introduction</a></h3>
+<p>
+This document provides a brief introduction to the changes to the
+4.0 SRM C SDK. In general, the API was modified to be more object-oriented
+with the SRFs, coordinates, directions, and orientations implemented as
+pseudo-objects that need to be instantiated and destroyed, and with each
+of the object classes implementing a specific set of methods. As with
+version 4.0, only SRFs can instantiate the coordinate, direction and
+orientation class objects.
+</p>
+
+<h3><a name="differences">Differences</a></h3>
+
+<p>
+This section describes the main differences between the
+SRM C 4.0 and SRM C 4.1 APIs.
+</p>
+
+<h4><a name="differences1">Header Files</a></h4>
+<blockquote><p>
+The header file for the SRM C API was renamed from
+&quot;srm_level_0.h&quot; to &quot;srm.h&quot;.
+</p>
+
+<h5>In 4.0</h5>
+<pre> #include &quot;srm_level_0.h&quot;</pre>
+
+<h5>In 4.1</h5>
+<pre> #include &quot;srm.h&quot;</pre>
+
+</blockquote>
+
+<h4><a name="differences2">SRF Template Instantiation</a></h4>
+<blockquote>
+
+<ol>
+<li>The generic type &quot;SRM_SRF&quot; in 4.0 was replaced by 26 specialized
+class types in 4.1. There is one SRF class type for every one of the 26
+SRF templates defined in SRM, with each one of them being a data structure
+containing a &quot;state&quot; pointer and a &quot;methods&quot; pointer.
+</li>
+<li>There are 26 specific functions to instantiate each one of the
+SRF Templates.  For example, the method
+&quot;SRM_CD_Create&quot; instantiates a Celestiodetic SRF Template.
+</li>
+<li>Upon the instantiation of a SRF Template class, its &quot;state&quot; and
+&quot;methods&quot; fields are initialized so that its methods could be
+subsequently invoked until when the object is destroyed.  The initialized
+&quot;methods&quot; field points to a list of suitable operations for that
+SRF Template class. In all SRF methods, the first parameter of a method is
+always the SRF template instance itself.
+</li>
+<li>The Reference Transformation (RT) code replaces the HSR code in 4.0.
+</li>
+<li>The ORM and RT codes are part of the SRF template instantiation method
+signature.  There could be other parameters for the SRF Template instantiation
+when necessary, such is the case with the Transverse Mercator (TM) SRF.
+</li>
+</ol>
+
+<h5>In 4.0</h5>
+<pre> SRM_SRF cd_srf;
+ SRM_ORM_Parameters cd_params;
+
+ cd_params.orm_code = SRM_ORM_WGS_1984;
+ cd_params.hsr_code = SRM_HSR_WGS_1984_IDENTITY;
+
+ if( SRM_CreateSRF_CD( cd_params,
+                       &amp;cd_srf ) != SRM_STAT_CODE_SUCCESS )
+     fprintf( stderr, &quot;Failed to create CD SRF\n&quot; );
+</pre>
+
+
+<h5>In 4.1</h5>
+<pre> SRM_Celestiodetic cd_srf;
+
+ if( SRM_CD_Create( SRM_ORMCOD_WGS_1984,
+		    SRM_RTCOD_WGS_1984_IDENTITY,
+		    &amp;cd_srf ) != SRM_STATCOD_SUCCESS )
+     fprintf( stderr, &quot;Failed to create CD SRF\n&quot; );
+</pre>
+
+</blockquote>
+
+<h4><a name="differences3">Coordinate Instantiation</a></h4>
+<blockquote>
+
+<ol>
+<li>The generic 3D coordinate &quot;SRM_Coordinate3D&quot; type replaces the
+specific 3D coordinate types (e.g., SRM_CD_3D_Coordinate) in 4.0.
+There are also other types for 2D and Surface coordinates in 4.1.
+</li>
+<li>The coordinate component values in 4.1 are part of the coordinate
+instantiation method signature.  It is no longer necessary to declare a
+specific coordinate information structure prior to coordinate instantiation.
+</li>
+<li>There is a generic coordinate instantiation method
+&quot;CreateCoordinate3D&quot; to create all 3D coordinates in 4.1.
+</li>
+<li>Upon instantiating a coordinate, any of the methods in its
+    &quot;methods&quot; list can be invoked.
+</li>
+<li>The order of the coordinate component values in the
+    instantiation method signature follows the order in the
+    definition of the coordinates.
+</li>
+<li>In 4.1, the first parameter of a method is always the instantiated
+ SRF template, passed in by reference.
+</li>
+</ol>
+
+<h5>In 4.0</h5>
+<pre> SRM_Coordinate cd_coord;
+ SRM_CD_3D_Coordinate cd_coord_info;
+
+ cd_coord_info.longitude = 0.0;
+ cd_coord_info.latitude = 0.785398163397;
+ cd_coord_info.ellipsoidal_height = 0.0;
+
+ if( SRM_CreateCoordinateCD_3D( cd_srf,
+                                &amp;cd_coord_info,
+                                &amp;cd_coord ) != SRM_STAT_CODE_SUCCESS )
+     fprintf( stderr, "Failed to create CD coordinate\n" );
+</pre>
+
+<h5>In 4.1</h5>
+<pre> SRM_Coordinate3D cd_coord;
+
+ if (cd_srf.methods-&gt;CreateCoordinate3D(&amp;cd_srf,
+				         0.0,            /* longitude */
+				         0.785398163397, /* latitude */
+				         0.0,            /* ellipsoidal height */
+					 &amp;cd_coord ) != SRM_STATCOD_SUCCESS )
+     fprintf( stderr, &quot;Failed to create CD coordinate\n&quot; );
+</pre>
+
+</blockquote>
+
+<h4><a name="differences4"></a>Direction Instantiation</h4>
+<blockquote>
+
+<ol>
+<li>The &quot;Direction&quot; type in 4.0 was replaced by the
+    &quot;SRM_Direction&quot; type in 4.1.
+</li>
+<li>The Direction component values are part of the method parameter in 4.1.
+    There is no longer a need to use a vector[3] array to instantiate a
+    direction object.
+</li>
+</ol>
+
+<h5>In 4.0</h5>
+<pre> Direction cd_dir;
+
+ SRM_Long_Float vector[3] = { 1.0, 0.0, 0.0 };
+
+ if (SRM_CreateDirection( cd_srf,
+                          cd_ref_coord,
+                          vector,
+                          &amp;cd_dir) != SRM_STAT_CODE_SUCCESS)
+     fprintf( stderr, &quot;Failed to create CD direction\n&quot; );
+</pre>
+
+<h5>In 4.1</h5>
+<pre> SRM_Direction cd_dir;
+
+ if (cd_srf.methods-&gt;CreateDirection(&amp;cd_srf,
+			   	      &amp;cd_ref_coord,
+				      1.0, 0.0, 0.0,
+				      &amp;cd_dir) != SRM_STATCOD_SUCCESS)
+     fprintf( stderr, &quot;Failed to create CD Direction\n&quot; );
+</pre>
+
+</blockquote>
+
+<h4><a name="differences5"></a>Orientation Instantiation</h4>
+<blockquote>
+
+<ol>
+<li>The &quot;Orientation&quot; type in 4.0 was replaced by the
+    &quot;SRM_Orientation&quot; type in 4.1.
+</li>
+<li>There is a new &quot;SRM_Matrix_3x3&quot; type in 4.1 for expressing
+    the 3x3 orientation matrix.
+</li>
+</ol>
+
+<h5>In 4.0</h5>
+<pre> Orientation cd_ori;
+
+ SRM_Long_Float ident_mat[3][3] = { {1.0, 0.0, 0.0},
+                                    {0.0, 1.0, 0.0},
+                                    {0.0, 0.0, 1.0} };
+
+ if (SRM_CreateOrientation( cd_srf,
+                            cd_ref_coord,
+                            ident_mat,
+                            &amp;cd_ori ) != SRM_STAT_CODE_SUCCESS )
+     fprintf( stderr, "Failed to create CD Orientation\n" );
+</pre>
+
+<h5>In 4.1</h5>
+<pre> SRM_Orientation cd_ori;
+
+ SRM_Matrix_3x3 ident_mat = { {1.0, 0.0, 0.0},
+                              {0.0, 1.0, 0.0},
+                              {0.0, 0.0, 1.0} };
+
+ if (cd_srf.methods-&gt;CreateOrientation(&amp;cd_srf,
+					&amp;cd_ref_coord,
+					ident_mat,
+					&amp;cd_ori) != SRM_STATCOD_SUCCESS)
+     fprintf( stderr, "Failed to create CD Orientation\n" );
+</pre>
+
+</blockquote>
+
+<h4><a name="differences6"></a>Standard SRF Instantiation</h4>
+<blockquote>
+
+<ol>
+<li>The &quot;SRM_Object_Reference&quot; type replaces the &quot;SRM_SRF&quot;
+    type as the output parameter for the instantiated standard SRF. The
+    &quot;SRM_Object_Reference&quot; is essentially a generic pointer to the
+    actual SRF Template class instantiated in this operation.  For example,
+    the British National Grid Airy SRF is an instance of
+    Transverse Mercator (TM) SRF Template.
+</li>
+<li>The Reference Transformation (RT) parameter was added to the
+    4.1 SRM_CreateStandardSRF method to allow user-selected RTs.
+Please see <a href="srm_c_users_guide.htm">SRM C API Users' Guide</a>
+for information on suitable <a href="orm_rt.htm">RTs</a>.
+</li>
+<li>To invoke a method of an instantiated standard SRF, it needs to be
+    type-cast to its intrinsic SRF Template class type (see the
+<a href="srm_c_users_guide.htm">SRM C API Users' Guide</a>) before it can
+access the methods in its method list. For example, the syntax for an
+instantiated BNG SRF to invoke its CreateCoordinate3D
+method would be:
+<pre>((SRM_TransverseMercator*)bng_srf)-&gt;methods-&gt;CreateCoordinate3D(...);</pre>
+</li>
+</ol>
+
+<h5>In 4.0</h5>
+<pre> SRM_SRF bng_srf;
+
+ if (SRM_CreateStandardSRF( SRM_SRF_BRITISH_NATIONAL_GRID,
+                            &amp;bng_srf ) != SRM_STAT_CODE_SUCCESS )
+     fprintf( stderr, &quot;Failed creating BRITISH NATIONAL GRID SRF\n&quot; );
+</pre>
+
+<h5>In 4.1</h5>
+<pre> SRM_Object_Reference bng_srf;
+
+ if (SRM_CreateStandardSRF( SRM_SRFCOD_BRITISH_NATIONAL_GRID_AIRY,
+                            SRM_RTCOD_OSGB_1936_3_MEAN_SOLUTION,
+                            &amp;bng_srf ) != SRM_STATCOD_SUCCESS )
+     fprintf( stderr, &quot;Failed creating BRITISH NATIONAL GRID AIRY SRF\n&quot; );
+</pre>
+
+</blockquote>
+
+<h4><a name="differences7"></a>SRF Set Member Instantiation</h4>
+<blockquote>
+
+<ol>
+<li>The &quot;SRM_Object_Reference&quot; type replaces the
+    &quot;SRM_SRF&quot; type as the output parameter for the
+    instantiated SRF Set member.  The &quot;SRM_Object_Reference&quot;
+    is essentially a generic pointer to the actual SRF Template class
+    instantiated in this operation.  For example, an
+    Universal Transverse Mercator (UTM) SRF Set member is an
+    instance of Transverse Mercator (TM) SRF Template.
+</li>
+<li>The ORM and RT are individually included as part of the method signature replacing
+the 4.0 &quot;SRM_ORM_Parameters&quot; type.
+</li>
+<li>There is a new &quot;SRM_SRFS_Code_Info&quot; type in 4.1 that specifies both the SRF Set code and its
+corresponding member code as a tagged union.  That type is part of the method signature in 4.1
+replacing the first two parameters ( SRM_SRFS_Code and SRM_SRFS_Member_Code ) of the method in 4.0
+</li>
+<li>To invoke a method of an instantiated SRF Set member, it needs to be type-cast to its intrinsic SRF
+Template class type (see the <a href="srm_c_users_guide.htm">SRM C API Users' Guide</a>) before it can access the
+methods in its method list. For example, the syntax for an instantiated UTM Northern Zone 12 SRF to invoke its CreateCoordinate3D
+method would be:
+<pre>((SRM_TransverseMercator*)utm_n12_srf)-&gt;methods-&gt;CreateCoordinate3D(...);</pre>
+</li>
+</ol>
+
+<h5>In 4.0</h5>
+<pre> SRM_SRF utm12_srf;
+ SRM_ORM_Parameters utm_params;
+
+ cd_params.orm_code = SRM_ORM_WGS_1984;
+ cd_params.hsr_code = SRM_HSR_WGS_1984_IDENTITY;
+
+ if (SRM_CreateSRFSetMember( SRM_SRFS_UNIVERSAL_TRANSVERSE_MERCATOR,
+                             SRM_SSM_UTM_ZONE_12_NORTHERN_HEMISPHERE,
+                             utm_params,
+                             &amp;utm12_srf ) != SRM_STAT_CODE_SUCCESS )
+     fprintf( stderr, &quot;Failed creating UNIVERSAL TRANSVERSE MERCATOR zone 12\n&quot; );
+</pre>
+
+<h5>In 4.1</h5>
+<pre> SRM_Object_Reference utm12_srf;
+ SRM_SRFS_Code_Info utm12_code_info;
+
+ utm12_code_info.srfs_code = SRM_SRFSCOD_UNIVERSAL_TRANSVERSE_MERCATOR;
+ utm12_code_info.value.srfsm_ups = SRM_SRFSMUTMCOD_ZONE_12_NORTHERN_HEMISPHERE;
+
+ if (SRM_CreateSRFSetMember( utm12_code_info,
+                             SRM_ORMCOD_WGS_1984,
+                             SRM_RTCOD_WGS_1984_IDENTITY,
+                             &amp;utm12_srf ) != SRM_STATCOD_SUCCESS )
+     fprintf( stderr, &quot;Failed creating UNIVERSAL TRANSVERSE MERCATOR zone 12\n&quot; );
+</pre>
+
+</blockquote>
+
+<h4><a name="differences8"></a>Coordinate and SRF Destruction</h4>
+<blockquote>
+
+<ol>
+<li>The generic &quot;SRM_FreeCoordinate&quot; function was replaced by the
+    destructor methods for 2D, 3D, and Surface coordinates. For example,
+    the destructor method for a 3D coordinate is &quot;DestroyCoordinate3D&quot;.
+</li>
+<li>The &quot;Destroy&quot; method replaces the &quot;SRM_FreeSRF&quot; function
+    as the destructor method for the SRFs.
+</li>
+</ol>
+
+<h5>In 4.0</h5>
+<pre> SRM_FreeCoordinate( cd_coord );
+
+ SRM_FreeSRF( cd_srf );
+</pre>
+
+<h5>In 4.1</h5>
+<pre> cd_srf.methods-&gt;DestroyCoordinate3D( &amp;cd_srf,
+                                      &amp;cd_coord );
+
+ cd_srf.methods-&gt;Destroy( &amp;cd_srf );
+</pre>
+
+</blockquote>
+
+<h4><a name="differences9"></a>Coordinate SRF Change</h4>
+<blockquote>
+
+<ol>
+<li> The order of the parameters for the ChangeCoordinate3DSRF method
+     has changed.  The order in 4.1 is target stf, source srf,
+     source coordinate, target coordinate, and valid region.
+</li>
+<li> In 4.1, both source and target coordinates must be instantiated
+     before they can be used in a method invocation.
+</li>
+</ol>
+
+<h5>In 4.0</h5>
+<pre> if (SRM_ChangeCoordinateSRF( cd_srf,
+                              cd_coord,
+                              cc_srf,
+                              &amp;cc_coord,
+                              &amp;valid_region ) != SRM_STAT_CODE_SUCCESS )
+     fprintf( stderr, &quot;SRM_ChangeCoordinateSRF failed\n&quot; );
+</pre>
+
+<h5>In 4.1</h5>
+<pre> if (cc_srf.methods-&gt;ChangeCoordinate3DSRF( &amp;cc_srf,
+                                             &amp;cd_srf,
+                                             &amp;cd_coord,
+                                             &amp;cc_coord,
+                                             &amp;val_region ) != SRM_STATCOD_SUCCESS )
+      fprintf( stderr, &quot;SRM_ChangeCoordinateSRF failed\n&quot; );
+</pre>
+
+</blockquote>
+
+<h4><a name="differences10"></a>Retrieve Coordinate Values</h4>
+<blockquote>
+
+<ol>
+<li>The specific method for retrieving 3D coordinate component values in 4.0
+    (e.g., SRM_GetCoordinateEuclidean_3D) were replaced by the generic
+    &quot;GetCoordinate3DValues&quot; method to retrieve all
+    3D coordinate component values.  There are also specific methods to
+    retrieve 2D and surface coordinate component values.
+</li>
+<li>The specific data structure types in 4.0 used for coordinate values
+    retrieval were replaced by the three ordinate out parameters in the
+    &quot;GetCoordinate3DValues&quot; method.
+</li>
+<li>The order of the coordinate component values follows the order in the
+    definition of the coordinates.  For example, for the Celestiocentric 3D
+    coordinate, the retrieved values for &quot;ord1&quot;, &quot;ord2&quot;,
+    and &quot;ord3&quot; would correspond to &quot;u&quot;, &quot;v&quot;,
+    and &quot;w&quot; respectively.
+</li>
+</ol>
+
+<h5>In 4.0</h5>
+<pre> SRM_CC_3D_Coordinate cc_coord_info;
+
+ if (SRM_GetCoordinateEuclidean_3D( cc_coord,
+                                    &amp;cc_coord_info ) != SRM_STAT_CODE_SUCCESS )
+     fprintf( stderr, &quot;Failed to get CC coordinate information\n&quot; );
+ else
+     printf( &quot;[ %f, %f, %f ]\n&quot;, cc_coord_info.u, cc_coord_info.v, cc_coord_info.w );
+</pre>
+
+<h5>In 4.1</h5>
+<pre> SRM_Long_Float ord1,ord2,ord3;
+
+ if ( cc_srf.methods-&gt;GetCoordinate3DValues( &amp;cc_srf,
+                                             &amp;cc_coord,
+                                             &amp;ord1,
+                                             &amp;ord2,
+                                             &amp;ord3 ) != SRM_STATCOD_SUCCESS )
+       fprintf( stderr, &quot;Failed getting the CC coordinate values\n&quot; );
+ else
+       printf( &quot;[ %f, %f, %f ]\n&quot;, ord1, ord2, ord3 );
+</pre>
+
+</blockquote>
+
+
+<h3><a name="sample">Sample Application</a></h3>
+
+<p>
+This section shows a sample SRM application that converts a coordinate from a Celestiodetic (CD)
+SRF to a Celestiocentric (CC) SRF using SRM C 4.0 and SRM C 4.1 APIs.
+</p>
+
+<h5>SRM C 4.0 - Sample SRM Access</h5>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+/* Header file for the SRM C API */
+#include &quot;srm_level_0.h&quot;
+
+int main
+(
+    int argc,
+    char* argv[]
+)
+{
+    /* Declare generic SRF handles for CC and CD. */
+    SRM_SRF cc_srf;
+    SRM_SRF cd_srf;
+
+    /* Declare SRF parameter structures for CC and CD. */
+    SRM_ORM_Parameters cc_params;
+    SRM_ORM_Parameters cd_params;
+
+    /* Declare generic coordinate handles for CC and CD. */
+    SRM_Coordinate cd_coord = NULL;
+    SRM_Coordinate cc_coord = NULL;
+
+    /* Declare coordinate component value structures. */
+    SRM_CD_3D_Coordinate cd_coord_info;
+    SRM_Euclidean_3D_Coordinate cc_coord_info;
+
+    printf( &quot;Running SRM Sample test program...\n&quot; );
+
+    /* Initialize the CC and CD SRF parameters with ORM and HSR values set to WGS 1984. */
+    cc_params.orm_code = SRM_ORM_WGS_1984;
+    cc_params.hsr_code = SRM_HSR_WGS_1984_IDENTITY;
+    cd_params.orm_code = SRM_ORM_WGS_1984;
+    cd_params.hsr_code = SRM_HSR_WGS_1984_IDENTITY;
+
+    /* Instantiate the CC SRF using the initialized CC parameter structure. */
+    if (SRM_CreateSRF_CC( cc_params, &amp;cc_srf ) != SRM_STAT_CODE_SUCCESS )
+    {
+        fprintf( stderr, &quot;Failed to create CC SRF\n&quot; );
+    }
+
+    /* Instantiate the CD using the initialized CD parameter structure. */
+    else if (SRM_CreateSRF_CD( cd_params, &amp;cd_srf ) != SRM_STAT_CODE_SUCCESS )
+    {
+        fprintf( stderr, &quot;Failed to create CD SRF\n&quot; );
+        /* Free the instantiated CC SRF is failed to instantiate the CD SRF */
+        SRM_FreeSRF( cc_srf );
+    }
+    else
+    {
+        /* Initialize the coordinate component value structure for the CD coordinate. */
+        cd_coord_info.longitude = 0.0;
+        cd_coord_info.latitude = 0.785398163397;
+        cd_coord_info.ellipsoidal_height = 0.0;
+
+        /* Create the CD coordinate using the initialized CD coordinate component value structure. */
+        if (SRM_CreateCoordinateCD_3D( cd_srf, &amp;cd_coord_info, &amp;cd_coord ) != SRM_STAT_CODE_SUCCESS )
+        {
+            fprintf( stderr, &quot;Failed to create CD coordinate\n&quot; );
+        }
+        else
+        {
+            /* Perform the change SRF operation from the source SRF (CD) to the target SRF (CC). */
+            if (SRM_ChangeCoordinateSRF( cd_srf, cd_coord, cc_srf, &amp;cc_coord, NULL ) != SRM_STAT_CODE_SUCCESS )
+            {
+                fprintf( stderr, &quot;SRM_ChangeCoordinateSRF failed\n&quot; );
+            }
+            else
+            {
+                /* Get the resulting CC coordinate component values */
+                if (SRM_GetCoordinateEuclidean_3D( cc_coord, &amp;cc_coord_info ) != SRM_STAT_CODE_SUCCESS )
+                {
+                    fprintf( stderr, &quot;Failed to get CC coordinate information\n&quot; );
+                }
+                else
+                {
+                    /* Display the CC Coordinate component values. */
+                    printf( &quot;[ %f, %f, %f ]\n&quot;, cc_coord_info.u, cc_coord_info.v, cc_coord_info.w );
+                }
+                /* Release memory for the CC coordinate. */
+                SRM_FreeCoordinate( cc_coord );
+            }
+            /* Release memory for the CD coordinate. */
+            SRM_FreeCoordinate( cd_coord );
+        }
+        /* Release memory for the CC and CD SRFs. */
+        SRM_FreeSRF( cd_srf );
+        SRM_FreeSRF( cc_srf );
+    }
+    return 0;
+}
+</pre>
+<p>
+
+<h5>SRM C 4.1 - Sample SRM Access</h5>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+/* Header file for the SRM C API */
+#include &quot;srm.h&quot;
+
+int main
+(
+ int argc,
+ char* argv[]
+ )
+{
+  SRM_Coordinate_Valid_Region val_region;
+
+  /* Declare specific SRF handles for CC and CD. */
+  SRM_Celestiocentric cc_srf;
+  SRM_Celestiodetic   cd_srf;
+
+  /* Declare generic 3D coordinate handles for CC and CD. */
+  SRM_Coordinate3D    cc_coord;
+  SRM_Coordinate3D    cd_coord;
+
+  SRM_Long_Float      ord1,ord2,ord3;
+
+  printf( &quot;Running SRM Sample test program...\n&quot; );
+
+  /* Instantiate the CD SRF with the WGS 1984 ORM and RT parameters. */
+  if ( SRM_CD_Create( SRM_ORMCOD_WGS_1984,
+                      SRM_RTCOD_WGS_1984_IDENTITY,
+                      &amp;cd_srf ) != SRM_STATCOD_SUCCESS )
+    fprintf( stderr, &quot;Failed to create CD SRF\n&quot; );
+
+  /* Instantiate the CC SRF with the WGS 1984 ORM and RT parameters. */
+  else
+    {
+      if ( SRM_CC_Create( SRM_ORMCOD_WGS_1984,
+                          SRM_RTCOD_WGS_1984_IDENTITY,
+                          &amp;cc_srf ) != SRM_STATCOD_SUCCESS )
+        fprintf( stderr, &quot;Failed to create CC SRF\n&quot; );
+
+      else
+      {
+          /* Create the CD coordinate using the initial coordinate component values. */
+          /* The CreateCoordinate3D() method is a method of the SRM_Celestiodetic SRF. */
+          if ( cd_srf.methods-&gt;CreateCoordinate3D( &amp;cd_srf,
+                                                   0.0,
+                                                   0.785398163397,
+                                                   0.0,
+                                                   &amp;cd_coord ) != SRM_STATCOD_SUCCESS )
+            fprintf( stderr, &quot;Failed to create CD coordinate\n&quot; );
+          else
+          {
+              /* Create the CC coordinate using the initial coordinate component values. */
+              /* The CreateCoordinate3D() method is a method of the SRM_Celestiocentric SRF. */
+              if ( cc_srf.methods-&gt;CreateCoordinate3D( &amp;cc_srf,
+                                                       0.0,
+                                                       0.0,
+                                                       0.0,
+                                                       &amp;cc_coord ) != SRM_STATCOD_SUCCESS )
+                  fprintf( stderr, &quot;Failed to create CC coordinate\n&quot; );
+              else
+              {
+                  /* Perform the change SRF operation from the source SRF (CD) to the target SRF (CC). */
+                  /* The ChangeCoordinate3DSRF() method is a method of the SRM_Celestiocentric SRF. */
+                  /* The change SRF method must always be called by the target SRF, CC in this case. */
+                  if ( cc_srf.methods-&gt;ChangeCoordinate3DSRF( &amp;cc_srf,
+                                                              &amp;cd_srf,
+                                                              &amp;cd_coord,
+                                                              &amp;cc_coord,
+                                                              &amp;val_region ) != SRM_STATCOD_SUCCESS )
+                    fprintf( stderr, &quot;SRM_ChangeCoordinateSRF failed\n&quot; );
+                  else
+                  {
+                      /* Get the resulting CC coordinate component values */
+                      /* The GetCoordinate3DValues() method is a method of the SRM_Celestiocentric SRF. */
+                      if ( cc_srf.methods-&gt;GetCoordinate3DValues( &amp;cc_srf,
+                                                                  &amp;cc_coord,
+                                                                  &amp;ord1,
+                                                                  &amp;ord2,
+                                                                  &amp;ord3 ) != SRM_STATCOD_SUCCESS )
+                        fprintf( stderr, &quot;Failed getting the CC coordinate values\n&quot; );
+                      else
+
+                        /* Display the CC Coordinate component values */
+                        printf(&quot;[ %lf, %lf, %lf ]\n\n&quot;, ord1, ord2, ord3 );
+                    }
+
+                  /* Release memory for the CC coordinate. */
+                  /* The DestroyCoordinate3D() method is a method of the SRM_Celestiocentric SRF. */
+                  cc_srf.methods-&gt;DestroyCoordinate3D(&amp;cc_srf,
+                                                      &amp;cc_coord);        
+                }
+
+              /* Release memory for the CD coordinate. */
+              /* The DestroyCoordinate3D() method is a method of the SRM_Celestiodetic SRF. */
+              cd_srf.methods-&gt;DestroyCoordinate3D(&amp;cd_srf,
+                                                  &amp;cd_coord);        
+            }
+
+          /* Release memory for the CC SRF. */
+          /* The Destroy() method is a method of the SRM_Celestiocentric SRF. */
+          cc_srf.methods-&gt;Destroy(&amp;cc_srf);        
+        }
+
+      /* Release memory for the CD SRF. */
+      /* The Destroy() method is a method of the SRM_Celestiodetic SRF. */
+      cd_srf.methods-&gt;Destroy(&amp;cd_srf);
+    }
+    return 0;
+}
+</pre>
+
+<h3><a name="links"></a>Related Links</h3>
+
+<ol>
+<li>The <a href="http://www.sedris.org/wg8home/Documents/18042-4_FDIS/C030827e.html">ISO 18042-4 - SRM C Language Binding</a>
+specification.
+</li>
+<li>The <a href="http://www.sedris.org">SEDRIS website</a> has relevant
+    information on SRM and other SEDRIS technologies.
+</li>
+<li>The <a href="srm_c_users_guide.htm">SRM C API Users' Guide</a> describes
+    the main concepts used in SRM and related examples.
+</li>
+<li>The <a href="srm_c_api/index.htm">SRM C API</a> describes the SRM C API.
+</li>
+</ol>
+
+<p>
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</p>
+
+</body>
+</html>

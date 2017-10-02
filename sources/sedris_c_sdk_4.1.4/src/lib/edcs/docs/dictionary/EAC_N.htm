@@ -1,0 +1,2079 @@
+<!DOCTYPE HTML PUBLIC="-//W3C/DTD HTML 4.01 Transitional//EN">
+<html>
+<!-- EDCS spec. 4.4 -->
+<!-- July 1, 2011 -->
+<head>
+<title>EDCS Reference Manual</title>
+</head>
+<body text="#000000" bgcolor="#ffffff" link="#0000ee" vlink="#800080" alink="#ff0000">
+<div align="center">
+<table border="2" width="100%" bgcolor="#0000ff">
+<tr>
+<th><font color="#00ffff"><big><big>
+EDCS Reference Manual
+</big></big></font><br>
+<font color="#ffffff">
+EDCS Attribute Dictionary - Concepts whose labels begin with the letter N
+</font>
+</th>
+</tr>
+</table>
+</div>
+<a name="Top" id="Top"></a>
+<br>
+<b>EDCS Attribute Label</b>: <a name="EAC_NAME" id="EAC_NAME">NAME</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_NAME
+</p><p>
+<b>EDCS Attribute Code</b>: 866
+</p><p>
+<b>Definition</b>:
+<br>
+A textual identifier or code used to denote an &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt;; the name.
+<p>
+<b>EDCS Attribute Value Data Type</b>: STRING
+</p><p>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ABSTRACT_OBJECT">ABSTRACT_OBJECT</a>, <a href="groups.htm#EGC_GEN_IDENTIFICATION">IDENTIFICATION</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: NAM]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_NATIONAL_PAINT_SCHEME" id="EAC_NATIONAL_PAINT_SCHEME">NATIONAL_PAINT_SCHEME</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_NATIONAL_PAINT_SCHEME
+</p><p>
+<b>EDCS Attribute Code</b>: 867
+</p><p>
+<b>Definition</b>:
+<br>
+The national paint scheme applied to an &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt;. The values are specified by a &lt;&lt;<a href="EAC_N.htm#EAC_NATIONAL_PAINT_SCHEME_VALUE_SET">NATIONAL_PAINT_SCHEME_VALUE_SET</a>&gt;&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: CONSTRAINED_STRING
+</p><p>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ABSTRACT_OBJECT">ABSTRACT_OBJECT</a>, <a href="groups.htm#EGC_GEN_COLOUR">COLOUR</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [EBEV, 4.2.2 Country]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_NATIONAL_PAINT_SCHEME_VALUE_SET" id="EAC_NATIONAL_PAINT_SCHEME_VALUE_SET">NATIONAL_PAINT_SCHEME_VALUE_SET</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_NATIONAL_PAINT_SCHEME_VALUE_SET
+</p><p>
+<b>EDCS Attribute Code</b>: 868
+</p><p>
+<b>Definition</b>:
+<br>
+The value set of a formatted &lt;&lt;<a href="EAC_N.htm#EAC_NATIONAL_PAINT_SCHEME">NATIONAL_PAINT_SCHEME</a>&gt;&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_NATLPNTVALSET_UNCONSTRAINED" id="EEC_NATLPNTVALSET_UNCONSTRAINED">1</a></td>
+<td>UNCONSTRAINED</td>
+<td>EEC_NATLPNTVALSET_UNCONSTRAINED</td>
+<td>A Basic Latin string whose contents are not further constrained.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NATLPNTVALSET_HISTORICAL" id="EEC_NATLPNTVALSET_HISTORICAL">2</a></td>
+<td>HISTORICAL</td>
+<td>EEC_NATLPNTVALSET_HISTORICAL</td>
+<td>A Basic Latin string containing one of the following: "Commonwealth of Independent States", "Gaza Strip, Israel", "Jan Mayen", "Montenegro", "Occupied Palestinian Territory", "Pacific Islands Trust Territories", "Paracel Islands", "Serbia", "Spratly Islands", "Svalbard", "West Bank, Israel", "Republic of Zaire", or "None present".</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NATLPNTVALSET_ISO_ENGLISH_CTRY_NAME" id="EEC_NATLPNTVALSET_ISO_ENGLISH_CTRY_NAME">3</a></td>
+<td>ISO_ENGLISH_CTRY_NAME</td>
+<td>EEC_NATLPNTVALSET_ISO_ENGLISH_CTRY_NAME</td>
+<td>A specific short country name in English, formatted in a Basic Latin string as specified in I3166, List 1, COUNTRY NAME.</td>
+<td>PR</td>
+<td>[I3166, List 1, COUNTRY NAME]</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_COLOUR">COLOUR</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_NATIVE_SETTLEMENT_TYPE" id="EAC_NATIVE_SETTLEMENT_TYPE">NATIVE_SETTLEMENT_TYPE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_NATIVE_SETTLEMENT_TYPE
+</p><p>
+<b>EDCS Attribute Code</b>: 869
+</p><p>
+<b>Definition</b>:
+<br>
+The type of distribution of native &lt;<a href="ECC_D.htm#ECC_DWELLING">DWELLING</a>&gt;s.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_NATSETTLTY_CENTRALIZED" id="EEC_NATSETTLTY_CENTRALIZED">1</a></td>
+<td>CENTRALIZED</td>
+<td>EEC_NATSETTLTY_CENTRALIZED</td>
+<td>Centralized to a relatively small &lt;<a href="ECC_R.htm#ECC_REGION">REGION</a>&gt;.</td>
+<td>PR</td>
+<td>[I3166]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NATSETTLTY_CONTINUOUS" id="EEC_NATSETTLTY_CONTINUOUS">2</a></td>
+<td>CONTINUOUS</td>
+<td>EEC_NATSETTLTY_CONTINUOUS</td>
+<td>Spread continuously over a relatively large &lt;<a href="ECC_R.htm#ECC_REGION">REGION</a>&gt;.</td>
+<td>PR</td>
+<td>[I3166]</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_SHELTER">SHELTER</a>, <a href="groups.htm#EGC_GEN_USAGE_REGION">USAGE_REGION</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: NAS]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_NAUTICAL_GATE_TYPE" id="EAC_NAUTICAL_GATE_TYPE">NAUTICAL_GATE_TYPE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_NAUTICAL_GATE_TYPE
+</p><p>
+<b>EDCS Attribute Code</b>: 870
+</p><p>
+<b>Definition</b>:
+<br>
+The type of a &lt;<a href="ECC_M.htm#ECC_MARINE_GATE">MARINE_GATE</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_NAUTGATETY_CAISSON" id="EEC_NAUTGATETY_CAISSON">1</a></td>
+<td>CAISSON</td>
+<td>EEC_NAUTGATETY_CAISSON</td>
+<td>A steel &lt;<a href="ECC_S.htm#ECC_STRUCTURE">STRUCTURE</a>&gt; used for closing the entrance of locks, &lt;<a href="ECC_W.htm#ECC_WET_DOCK">WET_DOCK</a>&gt;s and &lt;<a href="ECC_D.htm#ECC_DRY_DOCK">DRY_DOCK</a>&gt;s; a caisson.</td>
+<td>PR</td>
+<td>[S57A, Attribute, CATGAT:3]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAUTGATETY_DYKE" id="EEC_NAUTGATETY_DYKE">2</a></td>
+<td>DYKE</td>
+<td>EEC_NAUTGATETY_DYKE</td>
+<td>An opening &lt;<a href="ECC_M.htm#ECC_MARINE_GATE">MARINE_GATE</a>&gt; in a &lt;<a href="ECC_D.htm#ECC_DYKE">DYKE</a>&gt;.</td>
+<td>PR</td>
+<td>[S57A, Attribute, CATGAT:5]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAUTGATETY_FLOOD_BARRAGE" id="EEC_NAUTGATETY_FLOOD_BARRAGE">3</a></td>
+<td>FLOOD_BARRAGE</td>
+<td>EEC_NAUTGATETY_FLOOD_BARRAGE</td>
+<td>&lt;<a href="ECC_F.htm#ECC_FLOOD_BARRAGE">FLOOD_BARRAGE</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[S57A, Attribute, CATGAT:2]</td>
+</tr>
+<tr>
+<td><a name="EEC_NAUTGATETY_GENERAL" id="EEC_NAUTGATETY_GENERAL">4</a></td>
+<td>GENERAL</td>
+<td>EEC_NAUTGATETY_GENERAL</td>
+<td>A general-purpose gate.</td>
+<td>IR</td>
+<td>[FACC, Annex B, GNC:1]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAUTGATETY_LOCK" id="EEC_NAUTGATETY_LOCK">5</a></td>
+<td>LOCK</td>
+<td>EEC_NAUTGATETY_LOCK</td>
+<td>The massive hinged doors at each end of a &lt;<a href="ECC_H.htm#ECC_HYDROGRAPHIC_LOCK">HYDROGRAPHIC_LOCK</a>&gt;.</td>
+<td>PR</td>
+<td>[S57A, Attribute, CATGAT:4]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAUTGATETY_SLUICE" id="EEC_NAUTGATETY_SLUICE">6</a></td>
+<td>SLUICE</td>
+<td>EEC_NAUTGATETY_SLUICE</td>
+<td>A sliding gate or other contrivance for changing the level of a &lt;<a href="ECC_W.htm#ECC_WATERBODY">WATERBODY</a>&gt; by controlling the flow into or out of it; a sluice gate.</td>
+<td>PR</td>
+<td>[S57A, Attribute, CATGAT:6]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAUTGATETY_TIDAL" id="EEC_NAUTGATETY_TIDAL">7</a></td>
+<td>TIDAL</td>
+<td>EEC_NAUTGATETY_TIDAL</td>
+<td>Tidal gate (flood barrage).</td>
+<td>IR</td>
+<td>[FACC, Annex B, GNC:2]</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_HYDROGRAPHIC_ARTEFACT">HYDROGRAPHIC_ARTEFACT</a>, <a href="groups.htm#EGC_GEN_HYDROGRAPHIC_TRNSP">HYDROGRAPHIC_TRNSP</a>, <a href="groups.htm#EGC_GEN_TRNSP">TRNSP</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: GNC]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_NAVIGABLE_STATUS" id="EAC_NAVIGABLE_STATUS">NAVIGABLE_STATUS</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_NAVIGABLE_STATUS
+</p><p>
+<b>EDCS Attribute Code</b>: 871
+</p><p>
+<b>Definition</b>:
+<br>
+The type of navigability of a &lt;<a href="ECC_W.htm#ECC_WATERBODY_SURFACE_REGION">WATERBODY_SURFACE_REGION</a>&gt; by large &lt;<a href="ECC_V.htm#ECC_VESSEL">VESSEL</a>&gt;s (for example: ocean going); navigable status.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_NAVSTAT_NAVIGABLE" id="EEC_NAVSTAT_NAVIGABLE">1</a></td>
+<td>NAVIGABLE</td>
+<td>EEC_NAVSTAT_NAVIGABLE</td>
+<td>Navigable.</td>
+<td>IR</td>
+<td>[FAD, Annex B, NVS:3]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSTAT_NAVIGABLE_ABANDONED" id="EEC_NAVSTAT_NAVIGABLE_ABANDONED">2</a></td>
+<td>NAVIGABLE_ABANDONED</td>
+<td>EEC_NAVSTAT_NAVIGABLE_ABANDONED</td>
+<td>&lt;&lt;&lt;<a href="EAC_N.htm#EEC_NAVSTAT_NAVIGABLE">NAVIGABLE</a>&gt;&gt;&gt; and abandoned.</td>
+<td>IR</td>
+<td>[FAD, Annex B, NVS:2]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSTAT_NAVIGABLE_OPERATIONAL" id="EEC_NAVSTAT_NAVIGABLE_OPERATIONAL">3</a></td>
+<td>NAVIGABLE_OPERATIONAL</td>
+<td>EEC_NAVSTAT_NAVIGABLE_OPERATIONAL</td>
+<td>&lt;&lt;&lt;<a href="EAC_N.htm#EEC_NAVSTAT_NAVIGABLE">NAVIGABLE</a>&gt;&gt;&gt; and operational.</td>
+<td>IR</td>
+<td>[FAD, Annex B, NVS:1]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSTAT_NAVIGABLE_PERIODIC_RESTRICTION" id="EEC_NAVSTAT_NAVIGABLE_PERIODIC_RESTRICTION">4</a></td>
+<td>NAVIGABLE_PERIODIC_RESTRICTION</td>
+<td>EEC_NAVSTAT_NAVIGABLE_PERIODIC_RESTRICTION</td>
+<td>&lt;&lt;&lt;<a href="EAC_N.htm#EEC_NAVSTAT_NAVIGABLE">NAVIGABLE</a>&gt;&gt;&gt; with periodic restrictions.</td>
+<td>IR</td>
+<td>[FAD, Annex B, NVS:4]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSTAT_NOT_NAVIGABLE" id="EEC_NAVSTAT_NOT_NAVIGABLE">5</a></td>
+<td>NOT_NAVIGABLE</td>
+<td>EEC_NAVSTAT_NOT_NAVIGABLE</td>
+<td>Not &lt;&lt;&lt;<a href="EAC_N.htm#EEC_NAVSTAT_NAVIGABLE">NAVIGABLE</a>&gt;&gt;&gt;.</td>
+<td>IR</td>
+<td>[FAD, Annex B, NVS:5]</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_HYDROGRAPHIC_TRNSP">HYDROGRAPHIC_TRNSP</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FAD, Annex B: NVS]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_NAVIGATION_LIGHT_INTENSITY" id="EAC_NAVIGATION_LIGHT_INTENSITY">NAVIGATION_LIGHT_INTENSITY</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_NAVIGATION_LIGHT_INTENSITY
+</p><p>
+<b>EDCS Attribute Code</b>: 872
+</p><p>
+<b>Definition</b>:
+<br>
+A number between 0 and 1 inclusive representing the linearly-scaled fractional intensity of external &lt;<a href="ECC_L.htm#ECC_LIGHTING">LIGHTING</a>&gt; that is used to illuminate the environment in the &lt;<a href="ECC_D.htm#ECC_DIRECTION">DIRECTION</a>&gt; of travel of a &lt;<a href="ECC_V.htm#ECC_VEHICLE">VEHICLE</a>&gt;; the navigation or head light intensity. Zero means minimum intensity and one means maximum intensity.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_PURE_NUMBER">PURE_NUMBER</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_LIGHTING_AND_VISIBILITY">LIGHTING_AND_VISIBILITY</a>, <a href="groups.htm#EGC_GEN_RATE_OR_RATIO">RATE_OR_RATIO</a>, <a href="groups.htm#EGC_GEN_TRNSP">TRNSP</a>, <a href="groups.htm#EGC_GEN_VEHICLE">VEHICLE</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [EBEV, 4.3.1.2, Bit: 13 (Navigation Lights)]
+</p><p>
+<b>Supplemental References</b>: [EBEV, 4.3.1.1, Bit: 12 (Head Lights)]
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_NAVIGATION_PATH_TYPE" id="EAC_NAVIGATION_PATH_TYPE">NAVIGATION_PATH_TYPE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_NAVIGATION_PATH_TYPE
+</p><p>
+<b>EDCS Attribute Code</b>: 873
+</p><p>
+<b>Definition</b>:
+<br>
+The type of &lt;<a href="ECC_L.htm#ECC_LINE">LINE</a>&gt; defining a marine navigation path.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_NAVPATHTY_GEODESIC" id="EEC_NAVPATHTY_GEODESIC">1</a></td>
+<td>GEODESIC</td>
+<td>EEC_NAVPATHTY_GEODESIC</td>
+<td>A &lt;<a href="ECC_L.htm#ECC_LINE">LINE</a>&gt; of shortest distance between two points on a &lt;<a href="ECC_S.htm#ECC_SURFACE">SURFACE</a>&gt;; a geodesic or great circle.</td>
+<td>IR</td>
+<td>[FACC, Annex B, LNC:2]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVPATHTY_LOXODROME" id="EEC_NAVPATHTY_LOXODROME">2</a></td>
+<td>LOXODROME</td>
+<td>EEC_NAVPATHTY_LOXODROME</td>
+<td>A &lt;<a href="ECC_L.htm#ECC_LINE">LINE</a>&gt; that crosses successive meridians of longitude on an ellipsoid of revolution at a constant angle; a rhumb line or loxodrome.</td>
+<td>IR</td>
+<td>[FACC, Annex B, LNC:1]</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_HYDROGRAPHIC_TRNSP">HYDROGRAPHIC_TRNSP</a>, <a href="groups.htm#EGC_GEN_TRNSP">TRNSP</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: LNC]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_NAVIGATION_SYSTEM_TYPE" id="EAC_NAVIGATION_SYSTEM_TYPE">NAVIGATION_SYSTEM_TYPE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_NAVIGATION_SYSTEM_TYPE
+</p><p>
+<b>EDCS Attribute Code</b>: 874
+</p><p>
+<b>Definition</b>:
+<br>
+The type of technology used in electronic navigation. The value is either a type of &lt;<a href="ECC_E.htm#ECC_EQUIPMENT">EQUIPMENT</a>&gt; or the name of a &lt;<a href="ECC_S.htm#ECC_SYSTEM">SYSTEM</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_AERO_RADIO" id="EEC_NAVSYSTY_AERO_RADIO">1</a></td>
+<td>AERO_RADIO</td>
+<td>EEC_NAVSYSTY_AERO_RADIO</td>
+<td>Aeronautical radio.</td>
+<td>IR</td>
+<td>[FACC, Annex B, NST:38 and NS2:38]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_AERO_RADIO_RANGE" id="EEC_NAVSYSTY_AERO_RADIO_RANGE">2</a></td>
+<td>AERO_RADIO_RANGE</td>
+<td>EEC_NAVSYSTY_AERO_RADIO_RANGE</td>
+<td>Aeronautical radio range.</td>
+<td>IR</td>
+<td>[FACC, Annex B, NST:46 and NS2:46]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_AERODROME_SURV_RADAR" id="EEC_NAVSYSTY_AERODROME_SURV_RADAR">3</a></td>
+<td>AERODROME_SURV_RADAR</td>
+<td>EEC_NAVSYSTY_AERODROME_SURV_RADAR</td>
+<td>Aerodrome surveillance radar.</td>
+<td>IR</td>
+<td>[FACC, Annex B, NST:70]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_AIR_ROUTE_SURV_RADAR" id="EEC_NAVSYSTY_AIR_ROUTE_SURV_RADAR">4</a></td>
+<td>AIR_ROUTE_SURV_RADAR</td>
+<td>EEC_NAVSYSTY_AIR_ROUTE_SURV_RADAR</td>
+<td>Air route surveillance radar.</td>
+<td>IR</td>
+<td>[FACC, Annex B, NST:73]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_BONE_MARKER" id="EEC_NAVSYSTY_BONE_MARKER">5</a></td>
+<td>BONE_MARKER</td>
+<td>EEC_NAVSYSTY_BONE_MARKER</td>
+<td>An electronic navigation &lt;<a href="ECC_F.htm#ECC_FACILITY">FACILITY</a>&gt; (a marker beacon) transmitting a 75 megahertz bone-shaped radiation pattern: a bone marker beacon.</td>
+<td>IR</td>
+<td>[FACC, Annex B, NST:32 and NS2:32]</td>
+<td>[F7110.65]</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_CHAIKA" id="EEC_NAVSYSTY_CHAIKA">6</a></td>
+<td>CHAIKA</td>
+<td>EEC_NAVSYSTY_CHAIKA</td>
+<td>An electronic position fixing system using pulsed radio transmissions at 100 kilohertz; Chiaka.</td>
+<td>PR</td>
+<td>[S57A, Attribute, CATROS:14]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_CIRCULAR_RADIO_BEACON" id="EEC_NAVSYSTY_CIRCULAR_RADIO_BEACON">7</a></td>
+<td>CIRCULAR_RADIO_BEACON</td>
+<td>EEC_NAVSYSTY_CIRCULAR_RADIO_BEACON</td>
+<td>A circular radio &lt;<a href="ECC_B.htm#ECC_BEACON">BEACON</a>&gt;.</td>
+<td>IR</td>
+<td>[FACC, Annex B, NST:1 and NS2:1]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_CONSOL_BEACON" id="EEC_NAVSYSTY_CONSOL_BEACON">8</a></td>
+<td>CONSOL_BEACON</td>
+<td>EEC_NAVSYSTY_CONSOL_BEACON</td>
+<td>A type of long-range position fixing radio &lt;<a href="ECC_B.htm#ECC_BEACON">BEACON</a>&gt; referred to as a CONSOL beacon.</td>
+<td>IR</td>
+<td>[FACC, Annex B, NST:2 and NS2:2]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_DECCA" id="EEC_NAVSYSTY_DECCA">9</a></td>
+<td>DECCA</td>
+<td>EEC_NAVSYSTY_DECCA</td>
+<td>A high accuracy, short- to medium-range radio &lt;<a href="ECC_A.htm#ECC_AID_TO_NAVIGATION">AID_TO_NAVIGATION</a>&gt; intended for coastal and landfall navigation; a DECCA system.</td>
+<td>PR</td>
+<td>[S57A, Attribute, CATROS:8]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_DIFFERENTIAL_GPS" id="EEC_NAVSYSTY_DIFFERENTIAL_GPS">10</a></td>
+<td>DIFFERENTIAL_GPS</td>
+<td>EEC_NAVSYSTY_DIFFERENTIAL_GPS</td>
+<td>A system that improves on &lt;&lt;&lt;<a href="EAC_N.htm#EEC_NAVSYSTY_GPS">GPS</a>&gt;&gt;&gt; by removing common-mode errors; differential GPS.</td>
+<td>IR</td>
+<td>[FACC, Annex B, NST:59]</td>
+<td>[F7110.65]</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_DIRECTIONAL_RADIO_BEACON" id="EEC_NAVSYSTY_DIRECTIONAL_RADIO_BEACON">11</a></td>
+<td>DIRECTIONAL_RADIO_BEACON</td>
+<td>EEC_NAVSYSTY_DIRECTIONAL_RADIO_BEACON</td>
+<td>A directional radio &lt;<a href="ECC_B.htm#ECC_BEACON">BEACON</a>&gt;.</td>
+<td>IR</td>
+<td>[FACC, Annex B, NST:5 and NS2:5]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_DISTANCE_FINDING" id="EEC_NAVSYSTY_DISTANCE_FINDING">12</a></td>
+<td>DISTANCE_FINDING</td>
+<td>EEC_NAVSYSTY_DISTANCE_FINDING</td>
+<td>Distance finding.</td>
+<td>IR</td>
+<td>[FACC, Annex B, NST:6 and NS2:6]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_DME" id="EEC_NAVSYSTY_DME">13</a></td>
+<td>DME</td>
+<td>EEC_NAVSYSTY_DME</td>
+<td>&lt;<a href="ECC_E.htm#ECC_EQUIPMENT">EQUIPMENT</a>&gt; (airborne and ground) used to measure the slant range distance of an &lt;<a href="ECC_A.htm#ECC_AIRCRAFT">AIRCRAFT</a>&gt; from the DME &lt;<a href="ECC_A.htm#ECC_AID_TO_NAVIGATION">AID_TO_NAVIGATION</a>&gt;.</td>
+<td>IR</td>
+<td>[FACC, Annex B, NST:58 and NS2:58]</td>
+<td>[F7110.65]</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_FAN_MARKER_BEACON" id="EEC_NAVSYSTY_FAN_MARKER_BEACON">14</a></td>
+<td>FAN_MARKER_BEACON</td>
+<td>EEC_NAVSYSTY_FAN_MARKER_BEACON</td>
+<td>An electronic navigation system transmitting a 75 megahertz vertical fan radiation pattern; a Fan Marker (FM) beacon.</td>
+<td>IR</td>
+<td>[FACC, Annex B, NST:31 and NS2:31]</td>
+<td>[F7110.65]</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_GCA" id="EEC_NAVSYSTY_GCA">15</a></td>
+<td>GCA</td>
+<td>EEC_NAVSYSTY_GCA</td>
+<td>A radar approach system operated from the &lt;<a href="ECC_P.htm#ECC_PLANETARY_SURFACE">PLANETARY_SURFACE</a>&gt; by air traffic control &lt;<a href="ECC_P.htm#ECC_PERSONNEL">PERSONNEL</a>&gt; transmitting instructions to the air pilot by radio; ground control approach (GCA). The approach may be conducted with air surveillance radar only, or with both surveillance and precision approach radar.</td>
+<td>IR</td>
+<td>[FACC, Annex B, NST:34 and NS2:34]</td>
+<td>[F7110.65]</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_GCI" id="EEC_NAVSYSTY_GCI">16</a></td>
+<td>GCI</td>
+<td>EEC_NAVSYSTY_GCI</td>
+<td>A guidance technique that permits control of friendly &lt;<a href="ECC_A.htm#ECC_AIRCRAFT">AIRCRAFT</a>&gt; or guided &lt;<a href="ECC_M.htm#ECC_MISSILE">MISSILE</a>&gt;s for the purpose of effecting interception; ground control intercept (GCI).</td>
+<td>IR</td>
+<td>[J1-02]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_GLIDE_SLOPE" id="EEC_NAVSYSTY_GLIDE_SLOPE">17</a></td>
+<td>GLIDE_SLOPE</td>
+<td>EEC_NAVSYSTY_GLIDE_SLOPE</td>
+<td>Glide slope.</td>
+<td>IR</td>
+<td>[FACC, Annex B, NST:72]</td>
+<td>[SOED, "glide-slope"]</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_GPS" id="EEC_NAVSYSTY_GPS">18</a></td>
+<td>GPS</td>
+<td>EEC_NAVSYSTY_GPS</td>
+<td>A space-based radio positioning, navigation, and time-transfer system that provides highly accurate &lt;<a href="ECC_L.htm#ECC_LOCATION">LOCATION</a>&gt; and &lt;&lt;<a href="EAC_V.htm#EAC_VELOCITY">VELOCITY</a>&gt;&gt; information, and precise time, on a continuous global basis, to an unlimited number of properly equipped users; Global Positioning System (GPS).</td>
+<td>IR</td>
+<td>[F7110.65]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_HIFIX" id="EEC_NAVSYSTY_HIFIX">19</a></td>
+<td>HIFIX</td>
+<td>EEC_NAVSYSTY_HIFIX</td>
+<td>A land-based radio location system intended for coastal and landfall navigation; HiFix.</td>
+<td>IR</td>
+<td>[FACC, Annex B, NST:47 and NS2:47]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_HYPERFIX" id="EEC_NAVSYSTY_HYPERFIX">20</a></td>
+<td>HYPERFIX</td>
+<td>EEC_NAVSYSTY_HYPERFIX</td>
+<td>A land based radio location system intended for coastal and landfall navigation operating in the 1,6 megahertz to 3,4 megahertz band; HyperFix.</td>
+<td>IR</td>
+<td>[FACC, Annex B, NST:48 and NS2:48]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_ILS" id="EEC_NAVSYSTY_ILS">21</a></td>
+<td>ILS</td>
+<td>EEC_NAVSYSTY_ILS</td>
+<td>A precision instrument approach system which normally consists of the following electronic components and visual aids: localizer, glide slope, outer marker, middle marker, and approach &lt;<a href="ECC_L.htm#ECC_LIGHT">LIGHT</a>&gt;s; instrument landing system (ILS).</td>
+<td>IR</td>
+<td>[FACC, Annex B, NST:24 and NS2:24]</td>
+<td>[F7110.65]</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_ILS_OR_DME" id="EEC_NAVSYSTY_ILS_OR_DME">22</a></td>
+<td>ILS_OR_DME</td>
+<td>EEC_NAVSYSTY_ILS_OR_DME</td>
+<td>&lt;&lt;&lt;<a href="EAC_N.htm#EEC_NAVSYSTY_ILS">ILS</a>&gt;&gt;&gt; and/or &lt;&lt;&lt;<a href="EAC_N.htm#EEC_NAVSYSTY_DME">DME</a>&gt;&gt;&gt;.</td>
+<td>IR</td>
+<td>[FACC, Annex B, NST:25]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_LOCALIZER" id="EEC_NAVSYSTY_LOCALIZER">23</a></td>
+<td>LOCALIZER</td>
+<td>EEC_NAVSYSTY_LOCALIZER</td>
+<td>The &lt;<a href="ECC_C.htm#ECC_COMPONENT">COMPONENT</a>&gt; of an instrument landing &lt;<a href="ECC_S.htm#ECC_SYSTEM">SYSTEM</a>&gt; that provides course guidance to the &lt;<a href="ECC_R.htm#ECC_RUNWAY">RUNWAY</a>&gt;; localizer.</td>
+<td>IR</td>
+<td>[F7110.65]</td>
+<td>[SOED, "localizer"]</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_LOCALIZER_DIRECTION_AID" id="EEC_NAVSYSTY_LOCALIZER_DIRECTION_AID">24</a></td>
+<td>LOCALIZER_DIRECTION_AID</td>
+<td>EEC_NAVSYSTY_LOCALIZER_DIRECTION_AID</td>
+<td>Localizer Direction Aid (LDA).</td>
+<td>IR</td>
+<td>[FACC, Annex B, NST:29]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_LOCALIZER_WITH_DME" id="EEC_NAVSYSTY_LOCALIZER_WITH_DME">25</a></td>
+<td>LOCALIZER_WITH_DME</td>
+<td>EEC_NAVSYSTY_LOCALIZER_WITH_DME</td>
+<td>&lt;&lt;&lt;<a href="EAC_N.htm#EEC_NAVSYSTY_LOCALIZER">LOCALIZER</a>&gt;&gt;&gt; with &lt;&lt;&lt;<a href="EAC_N.htm#EEC_NAVSYSTY_DME">DME</a>&gt;&gt;&gt;.</td>
+<td>IR</td>
+<td>[FACC, Annex B, NST:27 and NS2:27]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_LOCATOR_WITHOUT_DME_INNER_MARKER" id="EEC_NAVSYSTY_LOCATOR_WITHOUT_DME_INNER_MARKER">26</a></td>
+<td>LOCATOR_WITHOUT_DME_INNER_MARKER</td>
+<td>EEC_NAVSYSTY_LOCATOR_WITHOUT_DME_INNER_MARKER</td>
+<td>Locator without &lt;&lt;&lt;<a href="EAC_N.htm#EEC_NAVSYSTY_DME">DME</a>&gt;&gt;&gt; or inner runway marker.</td>
+<td>IR</td>
+<td>[FACC, Annex B, NST:56]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_LORAN_C" id="EEC_NAVSYSTY_LORAN_C">27</a></td>
+<td>LORAN_C</td>
+<td>EEC_NAVSYSTY_LORAN_C</td>
+<td>A low frequency electronic position fixing system using pulsed transmissions at 100 kilohertz; LORAN C.</td>
+<td>PR</td>
+<td>[S57A, Attribute, CATROS:9]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_MICROWAVE" id="EEC_NAVSYSTY_MICROWAVE">28</a></td>
+<td>MICROWAVE</td>
+<td>EEC_NAVSYSTY_MICROWAVE</td>
+<td>A precision instrument approach system operating in the microwave spectrum.</td>
+<td>IR</td>
+<td>[FACC, Annex B, NST:16 and NS2:16]</td>
+<td>[F7110.65]</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_MLS" id="EEC_NAVSYSTY_MLS">29</a></td>
+<td>MLS</td>
+<td>EEC_NAVSYSTY_MLS</td>
+<td>A precision instrument approach system operating in the microwave spectrum that normally consists of three components: an azimuth station, an elevation station, and precision DME; microwave landing system (MLS).</td>
+<td>IR</td>
+<td>[FACC, Annex B, NST:30 and NS2:30]</td>
+<td>[F7110.65]</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_MLS_AZIMUTH_GUIDE" id="EEC_NAVSYSTY_MLS_AZIMUTH_GUIDE">30</a></td>
+<td>MLS_AZIMUTH_GUIDE</td>
+<td>EEC_NAVSYSTY_MLS_AZIMUTH_GUIDE</td>
+<td>The component of a &lt;&lt;&lt;<a href="EAC_N.htm#EEC_NAVSYSTY_MLS">MLS</a>&gt;&gt;&gt; that provides azimuth information; the MLS azimuth guide.</td>
+<td>IR</td>
+<td>[FACC, Annex B, NST:63]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_MLS_ELEVATION_GUIDE" id="EEC_NAVSYSTY_MLS_ELEVATION_GUIDE">31</a></td>
+<td>MLS_ELEVATION_GUIDE</td>
+<td>EEC_NAVSYSTY_MLS_ELEVATION_GUIDE</td>
+<td>The component of a &lt;&lt;&lt;<a href="EAC_N.htm#EEC_NAVSYSTY_MLS">MLS</a>&gt;&gt;&gt; that provides elevation guidance information; the MLS elevation guide.</td>
+<td>IR</td>
+<td>[FACC, Annex B, NST:64]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_NDB" id="EEC_NAVSYSTY_NDB">32</a></td>
+<td>NDB</td>
+<td>EEC_NAVSYSTY_NDB</td>
+<td>A L/MF or UHF radio beacon transmitting non-directional (omnidirectional) signals whereby the pilot of an &lt;<a href="ECC_A.htm#ECC_AIRCRAFT">AIRCRAFT</a>&gt; equipped with direction finding &lt;<a href="ECC_E.htm#ECC_EQUIPMENT">EQUIPMENT</a>&gt; can determine his bearing to or from the radio &lt;<a href="ECC_B.htm#ECC_BEACON">BEACON</a>&gt; and "home" on, or track to or from, the station; a non-directional beacon (NDB).</td>
+<td>IR</td>
+<td>[F7110.65]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_NDB_OR_DME" id="EEC_NAVSYSTY_NDB_OR_DME">33</a></td>
+<td>NDB_OR_DME</td>
+<td>EEC_NAVSYSTY_NDB_OR_DME</td>
+<td>&lt;&lt;&lt;<a href="EAC_N.htm#EEC_NAVSYSTY_NDB">NDB</a>&gt;&gt;&gt; and/or &lt;&lt;&lt;<a href="EAC_N.htm#EEC_NAVSYSTY_DME">DME</a>&gt;&gt;&gt;.</td>
+<td>IR</td>
+<td>[FACC, Annex B, NST:18]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_NONE_PRESENT" id="EEC_NAVSYSTY_NONE_PRESENT">34</a></td>
+<td>NONE_PRESENT</td>
+<td>EEC_NAVSYSTY_NONE_PRESENT</td>
+<td>No navigation system is present.</td>
+<td>IR</td>
+<td>[FACC, Annex B, NST:52]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_OMEGA" id="EEC_NAVSYSTY_OMEGA">35</a></td>
+<td>OMEGA</td>
+<td>EEC_NAVSYSTY_OMEGA</td>
+<td>A long-range radio navigational aid, which operates within the VLF frequency band; the system comprises eight land-based stations; omega.</td>
+<td>PR</td>
+<td>[S57A, Attribute, CATROS:12]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_PAR" id="EEC_NAVSYSTY_PAR">36</a></td>
+<td>PAR</td>
+<td>EEC_NAVSYSTY_PAR</td>
+<td>Radar &lt;<a href="ECC_E.htm#ECC_EQUIPMENT">EQUIPMENT</a>&gt; to detect and display azimuth, elevation, and range of &lt;<a href="ECC_A.htm#ECC_AIRCRAFT">AIRCRAFT</a>&gt; on the final approach course to a &lt;<a href="ECC_R.htm#ECC_RUNWAY">RUNWAY</a>&gt;; precision approach radar (PAR).</td>
+<td>IR</td>
+<td>[FACC, Annex B, NST:37 and NS2:37]</td>
+<td>[F7110.65]</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_PAR_TOUCHDOWN_REFLECTOR" id="EEC_NAVSYSTY_PAR_TOUCHDOWN_REFLECTOR">37</a></td>
+<td>PAR_TOUCHDOWN_REFLECTOR</td>
+<td>EEC_NAVSYSTY_PAR_TOUCHDOWN_REFLECTOR</td>
+<td>A PAR touchdown reflector.</td>
+<td>IR</td>
+<td>[FACC, Annex B, NST:71]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_PRECISION_APPROACH_PATH_INDICATOR" id="EEC_NAVSYSTY_PRECISION_APPROACH_PATH_INDICATOR">38</a></td>
+<td>PRECISION_APPROACH_PATH_INDICATOR</td>
+<td>EEC_NAVSYSTY_PRECISION_APPROACH_PATH_INDICATOR</td>
+<td>A precision approach path indicator.</td>
+<td>IR</td>
+<td>[FACC, Annex B, NST:65]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_QTG_STATION" id="EEC_NAVSYSTY_QTG_STATION">39</a></td>
+<td>QTG_STATION</td>
+<td>EEC_NAVSYSTY_QTG_STATION</td>
+<td>Navigation radar station located on or near a major coastline that responds to QTG interrogation.</td>
+<td>IR</td>
+<td>[FACC, Annex B, NST:53 and NS2:53]</td>
+<td>[A9RR]</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_RACON" id="EEC_NAVSYSTY_RACON">40</a></td>
+<td>RACON</td>
+<td>EEC_NAVSYSTY_RACON</td>
+<td>Radar transponder &lt;<a href="ECC_B.htm#ECC_BEACON">BEACON</a>&gt; with Morse identification.</td>
+<td>IR</td>
+<td>[FACC, Annex B, NST:10 and NS2:10]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_RADAR" id="EEC_NAVSYSTY_RADAR">41</a></td>
+<td>RADAR</td>
+<td>EEC_NAVSYSTY_RADAR</td>
+<td>&lt;<a href="ECC_R.htm#ECC_RADAR_DEVICE">RADAR_DEVICE</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_RADAR_AERIAL" id="EEC_NAVSYSTY_RADAR_AERIAL">42</a></td>
+<td>RADAR_AERIAL</td>
+<td>EEC_NAVSYSTY_RADAR_AERIAL</td>
+<td>The aerial of a radar.</td>
+<td>IR</td>
+<td>[FACC, Annex B, NST:35 and NS2:35]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_RADAR_REFLECTOR" id="EEC_NAVSYSTY_RADAR_REFLECTOR">43</a></td>
+<td>RADAR_REFLECTOR</td>
+<td>EEC_NAVSYSTY_RADAR_REFLECTOR</td>
+<td>Radar reflector.</td>
+<td>IR</td>
+<td>[FACC, Annex B, NST:55 and NS2:55]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_RADAR_STATION" id="EEC_NAVSYSTY_RADAR_STATION">44</a></td>
+<td>RADAR_STATION</td>
+<td>EEC_NAVSYSTY_RADAR_STATION</td>
+<td>&lt;<a href="ECC_R.htm#ECC_RADAR_STATION">RADAR_STATION</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_RADIO" id="EEC_NAVSYSTY_RADIO">45</a></td>
+<td>RADIO</td>
+<td>EEC_NAVSYSTY_RADIO</td>
+<td>Radio.</td>
+<td>IR</td>
+<td>[FACC, Annex B, NST:12 and NS2:12]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_RADIO_BEACON" id="EEC_NAVSYSTY_RADIO_BEACON">46</a></td>
+<td>RADIO_BEACON</td>
+<td>EEC_NAVSYSTY_RADIO_BEACON</td>
+<td>An L/MF or UHF radio &lt;<a href="ECC_B.htm#ECC_BEACON">BEACON</a>&gt; transmitting non-directional signals whereby the pilot of an &lt;<a href="ECC_A.htm#ECC_AIRCRAFT">AIRCRAFT</a>&gt; equipped with direction finding &lt;<a href="ECC_E.htm#ECC_EQUIPMENT">EQUIPMENT</a>&gt; can determine his bearing to or from the radio &lt;<a href="ECC_B.htm#ECC_BEACON">BEACON</a>&gt; and "home" on, or track to or from, the station. When the radio beacon is installed in conjunction with an ILS marker, it is normally called a Compass Locator.</td>
+<td>IR</td>
+<td>[FACC, Annex B, NST:40 and NS2:40]</td>
+<td>[F7110.65]</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_RADIO_BEACON_TYPE_UNKNOWN" id="EEC_NAVSYSTY_RADIO_BEACON_TYPE_UNKNOWN">47</a></td>
+<td>RADIO_BEACON_TYPE_UNKNOWN</td>
+<td>EEC_NAVSYSTY_RADIO_BEACON_TYPE_UNKNOWN</td>
+<td>&lt;&lt;&lt;<a href="EAC_N.htm#EEC_NAVSYSTY_RADIO_BEACON">RADIO_BEACON</a>&gt;&gt;&gt;, type unknown.</td>
+<td>IR</td>
+<td>[FACC, Annex B, NST:51 and NS2:51]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_RADIO_RANGE" id="EEC_NAVSYSTY_RADIO_RANGE">48</a></td>
+<td>RADIO_RANGE</td>
+<td>EEC_NAVSYSTY_RADIO_RANGE</td>
+<td>Radio range.</td>
+<td>IR</td>
+<td>[FACC, Annex B, NST:19 and NS2:19]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_RADIO_STATION" id="EEC_NAVSYSTY_RADIO_STATION">49</a></td>
+<td>RADIO_STATION</td>
+<td>EEC_NAVSYSTY_RADIO_STATION</td>
+<td>Radio station.</td>
+<td>IR</td>
+<td>[FACC, Annex B, NST:50 and NS2:50]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_RADIO_TELEGRAPH" id="EEC_NAVSYSTY_RADIO_TELEGRAPH">50</a></td>
+<td>RADIO_TELEGRAPH</td>
+<td>EEC_NAVSYSTY_RADIO_TELEGRAPH</td>
+<td>Radio telegraph.</td>
+<td>IR</td>
+<td>[FACC, Annex B, NST:33 and NS2:33]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_RADIO_TELEPHONE" id="EEC_NAVSYSTY_RADIO_TELEPHONE">51</a></td>
+<td>RADIO_TELEPHONE</td>
+<td>EEC_NAVSYSTY_RADIO_TELEPHONE</td>
+<td>Radio telephone.</td>
+<td>IR</td>
+<td>[FACC, Annex B, NST:13 and NS2:13]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_RAMARK" id="EEC_NAVSYSTY_RAMARK">52</a></td>
+<td>RAMARK</td>
+<td>EEC_NAVSYSTY_RAMARK</td>
+<td>Radar &lt;<a href="ECC_B.htm#ECC_BEACON">BEACON</a>&gt; transmitting continuously; RAMARK.</td>
+<td>IR</td>
+<td>[FACC, Annex B, NST:54 and NS2:54]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_RADIO_DIRECTION_FINDING" id="EEC_NAVSYSTY_RADIO_DIRECTION_FINDING">53</a></td>
+<td>RADIO_DIRECTION_FINDING</td>
+<td>EEC_NAVSYSTY_RADIO_DIRECTION_FINDING</td>
+<td>A radio receiver equipped with a directional sensing &lt;<a href="ECC_A.htm#ECC_AERIAL">AERIAL</a>&gt; used to take bearings on a radio transmitter; a radio direction finder.</td>
+<td>IR</td>
+<td>[FACC, Annex B, NST:4 and NS2:4]</td>
+<td>[F7110.65]</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_ROTATING_LOOP_RADIO_BEACON" id="EEC_NAVSYSTY_ROTATING_LOOP_RADIO_BEACON">54</a></td>
+<td>ROTATING_LOOP_RADIO_BEACON</td>
+<td>EEC_NAVSYSTY_ROTATING_LOOP_RADIO_BEACON</td>
+<td>Rotating loop radio &lt;<a href="ECC_B.htm#ECC_BEACON">BEACON</a>&gt;.</td>
+<td>IR</td>
+<td>[FACC, Annex B, NST:41 and NS2:41]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_SIMPLIFIED_DIRECTIONAL" id="EEC_NAVSYSTY_SIMPLIFIED_DIRECTIONAL">55</a></td>
+<td>SIMPLIFIED_DIRECTIONAL</td>
+<td>EEC_NAVSYSTY_SIMPLIFIED_DIRECTIONAL</td>
+<td>Simplified directional &lt;<a href="ECC_F.htm#ECC_FACILITY">FACILITY</a>&gt;.</td>
+<td>IR</td>
+<td>[FACC, Annex B, NST:28 and NS2:28]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_SYLEDIS" id="EEC_NAVSYSTY_SYLEDIS">56</a></td>
+<td>SYLEDIS</td>
+<td>EEC_NAVSYSTY_SYLEDIS</td>
+<td>A ranging position fixing system operating at 420-450 megahertz over a range of up to 400 kilometres; SYLEDIS.</td>
+<td>PR</td>
+<td>[S57A, Attribute, CATROS:13]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_TACTICAL_AIR" id="EEC_NAVSYSTY_TACTICAL_AIR">57</a></td>
+<td>TACTICAL_AIR</td>
+<td>EEC_NAVSYSTY_TACTICAL_AIR</td>
+<td>Tactical air navigation &lt;<a href="ECC_E.htm#ECC_EQUIPMENT">EQUIPMENT</a>&gt;.</td>
+<td>IR</td>
+<td>[FACC, Annex B, NST:23 and NS2:23]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_TELEVISION" id="EEC_NAVSYSTY_TELEVISION">58</a></td>
+<td>TELEVISION</td>
+<td>EEC_NAVSYSTY_TELEVISION</td>
+<td>Television.</td>
+<td>IR</td>
+<td>[FACC, Annex B, NST:15 and NS2:15]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_TORAN" id="EEC_NAVSYSTY_TORAN">59</a></td>
+<td>TORAN</td>
+<td>EEC_NAVSYSTY_TORAN</td>
+<td>An electronic position fixing system used mainly by aircraft; TORAN.</td>
+<td>PR</td>
+<td>[S57A, Attribute, CATROS:11]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_TRICOLOUR_PANEL" id="EEC_NAVSYSTY_TRICOLOUR_PANEL">60</a></td>
+<td>TRICOLOUR_PANEL</td>
+<td>EEC_NAVSYSTY_TRICOLOUR_PANEL</td>
+<td>Tricolour panel.</td>
+<td>IR</td>
+<td>[FACC, Annex B, NST:49 and NS2:49]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_TRICOLOUR_VASI" id="EEC_NAVSYSTY_TRICOLOUR_VASI">61</a></td>
+<td>TRICOLOUR_VASI</td>
+<td>EEC_NAVSYSTY_TRICOLOUR_VASI</td>
+<td>Tricolour VASI (TRCV).</td>
+<td>IR</td>
+<td>[FACC, Annex B, NST:68]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_TVASI" id="EEC_NAVSYSTY_TVASI">62</a></td>
+<td>TVASI</td>
+<td>EEC_NAVSYSTY_TVASI</td>
+<td>TVASI.</td>
+<td>IR</td>
+<td>[FACC, Annex B, NST:67]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_VASI" id="EEC_NAVSYSTY_VASI">63</a></td>
+<td>VASI</td>
+<td>EEC_NAVSYSTY_VASI</td>
+<td>Visual approach slope indicator (VASI).</td>
+<td>IR</td>
+<td>[FACC, Annex B, NST:69]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_VASI_PULSATING" id="EEC_NAVSYSTY_VASI_PULSATING">64</a></td>
+<td>VASI_PULSATING</td>
+<td>EEC_NAVSYSTY_VASI_PULSATING</td>
+<td>A PVASI.</td>
+<td>IR</td>
+<td>[FACC, Annex B, NST:66]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_VFR_TEST_SIGNAL_MAKER" id="EEC_NAVSYSTY_VFR_TEST_SIGNAL_MAKER">65</a></td>
+<td>VFR_TEST_SIGNAL_MAKER</td>
+<td>EEC_NAVSYSTY_VFR_TEST_SIGNAL_MAKER</td>
+<td>VFR test signal maker.</td>
+<td>IR</td>
+<td>[FACC, Annex B, NST:42 and NS2:42]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_VOR" id="EEC_NAVSYSTY_VOR">66</a></td>
+<td>VOR</td>
+<td>EEC_NAVSYSTY_VOR</td>
+<td>VHF omnidirectional range station; VOR.</td>
+<td>IR</td>
+<td>[FACC, Annex B, NST:20 and NS2:20]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_VOR_AND_DME" id="EEC_NAVSYSTY_VOR_AND_DME">67</a></td>
+<td>VOR_AND_DME</td>
+<td>EEC_NAVSYSTY_VOR_AND_DME</td>
+<td>&lt;&lt;&lt;<a href="EAC_N.htm#EEC_NAVSYSTY_VOR">VOR</a>&gt;&gt;&gt; with &lt;&lt;&lt;<a href="EAC_N.htm#EEC_NAVSYSTY_DME">DME</a>&gt;&gt;&gt;.</td>
+<td>IR</td>
+<td>[FACC, Annex B, NST:21 and NS2:21]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_VOR_TACAN" id="EEC_NAVSYSTY_VOR_TACAN">68</a></td>
+<td>VOR_TACAN</td>
+<td>EEC_NAVSYSTY_VOR_TACAN</td>
+<td>&lt;&lt;&lt;<a href="EAC_N.htm#EEC_NAVSYSTY_VOR">VOR</a>&gt;&gt;&gt; and/or TACAN. EXAMPLE &lt;&lt;&lt;<a href="EAC_N.htm#EEC_NAVSYSTY_VORTAC">VORTAC</a>&gt;&gt;&gt;.</td>
+<td>IR</td>
+<td>[DFAD, 714, "VOR/VORTAC/TACAN Facility"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NAVSYSTY_VORTAC" id="EEC_NAVSYSTY_VORTAC">69</a></td>
+<td>VORTAC</td>
+<td>EEC_NAVSYSTY_VORTAC</td>
+<td>&lt;&lt;&lt;<a href="EAC_N.htm#EEC_NAVSYSTY_VOR">VOR</a>&gt;&gt;&gt; and TACAN; VORTAC.</td>
+<td>IR</td>
+<td>[FACC, Annex B, NST:22 and NS2:22]</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_DEVICE_AND_EQUIPMENT">DEVICE_AND_EQUIPMENT</a>, <a href="groups.htm#EGC_GEN_TRNSP">TRNSP</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: NST and NS2]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_NOMINAL_LIGHT_RANGE" id="EAC_NOMINAL_LIGHT_RANGE">NOMINAL_LIGHT_RANGE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_NOMINAL_LIGHT_RANGE
+</p><p>
+<b>EDCS Attribute Code</b>: 875
+</p><p>
+<b>Definition</b>:
+<br>
+The maximum distance at which a &lt;<a href="ECC_L.htm#ECC_LIGHT">LIGHT</a>&gt; can be seen in clear weather as defined by the International Visibility Code; the nominal light range.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_LENGTH">LENGTH</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_DIMENSION">DIMENSION</a>, <a href="groups.htm#EGC_GEN_LIGHTING_AND_VISIBILITY">LIGHTING_AND_VISIBILITY</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [BOWD]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_NON_REGULATORY_AIRSPACE_CLASS" id="EAC_NON_REGULATORY_AIRSPACE_CLASS">NON_REGULATORY_AIRSPACE_CLASS</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_NON_REGULATORY_AIRSPACE_CLASS
+</p><p>
+<b>EDCS Attribute Code</b>: 876
+</p><p>
+<b>Definition</b>:
+<br>
+The class of a non-regulatory &lt;<a href="ECC_A.htm#ECC_AIRSPACE">AIRSPACE</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_NONREGARSPCCLS_SPECIAL_USE" id="EEC_NONREGARSPCCLS_SPECIAL_USE">1</a></td>
+<td>SPECIAL_USE</td>
+<td>EEC_NONREGARSPCCLS_SPECIAL_USE</td>
+<td>Special use airspace (SUA) is designed to segregate flight activity related to military and national security needs from other airspace users.</td>
+<td>IR</td>
+<td>[FNAS, A.2.3]</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_AIR_TRNSP">AIR_TRNSP</a>, <a href="groups.htm#EGC_GEN_TRNSP">TRNSP</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_NON_SUB_CONTACT_DATE" id="EAC_NON_SUB_CONTACT_DATE">NON_SUB_CONTACT_DATE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_NON_SUB_CONTACT_DATE
+</p><p>
+<b>EDCS Attribute Code</b>: 877
+</p><p>
+<b>Definition</b>:
+<br>
+The date of reporting of a &lt;<a href="ECC_N.htm#ECC_NON_SUBMARINE_CONTACT">NON_SUBMARINE_CONTACT</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: CONSTRAINED_STRING
+</p><p>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ACOUSTIC_PHENOMENON">ACOUSTIC_PHENOMENON</a>, <a href="groups.htm#EGC_GEN_HYDROGRAPHIC_TRNSP">HYDROGRAPHIC_TRNSP</a>, <a href="groups.htm#EGC_GEN_TIME">TIME</a>, <a href="groups.htm#EGC_GEN_TRNSP">TRNSP</a>, <a href="groups.htm#EGC_GEN_WATERBODY_FLOOR">WATERBODY_FLOOR</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: WDT]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_NON_SUB_CONTACT_POSITION_ACCURACY" id="EAC_NON_SUB_CONTACT_POSITION_ACCURACY">NON_SUB_CONTACT_POSITION_ACCURACY</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_NON_SUB_CONTACT_POSITION_ACCURACY
+</p><p>
+<b>EDCS Attribute Code</b>: 878
+</p><p>
+<b>Definition</b>:
+<br>
+The accuracy of the &lt;<a href="ECC_L.htm#ECC_LOCATION">LOCATION</a>&gt; of a &lt;<a href="ECC_N.htm#ECC_NON_SUBMARINE_CONTACT">NON_SUBMARINE_CONTACT</a>&gt;. When the accuracy is uncertain, the value 10&nbsp;000 kilometres is used.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_LENGTH">LENGTH</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ACOUSTIC_PHENOMENON">ACOUSTIC_PHENOMENON</a>, <a href="groups.htm#EGC_GEN_HYDROGRAPHIC_TRNSP">HYDROGRAPHIC_TRNSP</a>, <a href="groups.htm#EGC_GEN_LOCATION">LOCATION</a>, <a href="groups.htm#EGC_GEN_TRNSP">TRNSP</a>, <a href="groups.htm#EGC_GEN_WATERBODY_FLOOR">WATERBODY_FLOOR</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: PEV]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_NON_SUB_CONTACT_SOURCE" id="EAC_NON_SUB_CONTACT_SOURCE">NON_SUB_CONTACT_SOURCE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_NON_SUB_CONTACT_SOURCE
+</p><p>
+<b>EDCS Attribute Code</b>: 879
+</p><p>
+<b>Definition</b>:
+<br>
+The source of a reported &lt;<a href="ECC_N.htm#ECC_NON_SUBMARINE_CONTACT">NON_SUBMARINE_CONTACT</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRC_ABSTRACTS_1914_18" id="EEC_NSUBSRC_ABSTRACTS_1914_18">1</a></td>
+<td>ABSTRACTS_1914_18</td>
+<td>EEC_NSUBSRC_ABSTRACTS_1914_18</td>
+<td>Abstracts of losses 1914 - 1918.</td>
+<td>IR</td>
+<td>[FACC, Annex B, WSR:30]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRC_AMERICAN_SHIP_CASUALTIES_WW_I" id="EEC_NSUBSRC_AMERICAN_SHIP_CASUALTIES_WW_I">2</a></td>
+<td>AMERICAN_SHIP_CASUALTIES_WW_I</td>
+<td>EEC_NSUBSRC_AMERICAN_SHIP_CASUALTIES_WW_I</td>
+<td>American ship casualties of WW I.</td>
+<td>IR</td>
+<td>[FACC, Annex B, WSR:23]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRC_BHO_CHART" id="EEC_NSUBSRC_BHO_CHART">3</a></td>
+<td>BHO_CHART</td>
+<td>EEC_NSUBSRC_BHO_CHART</td>
+<td>British Home Office charts and chart reports.</td>
+<td>IR</td>
+<td>[FACC, Annex B, WSR:15]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRC_BHO_FILES" id="EEC_NSUBSRC_BHO_FILES">4</a></td>
+<td>BHO_FILES</td>
+<td>EEC_NSUBSRC_BHO_FILES</td>
+<td>British Home Office files.</td>
+<td>IR</td>
+<td>[FACC, Annex B, WSR:12]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRC_BHO_NOTICE_TO_MARINERS" id="EEC_NSUBSRC_BHO_NOTICE_TO_MARINERS">5</a></td>
+<td>BHO_NOTICE_TO_MARINERS</td>
+<td>EEC_NSUBSRC_BHO_NOTICE_TO_MARINERS</td>
+<td>British Home Office Notice to Mariners.</td>
+<td>IR</td>
+<td>[FACC, Annex B, WSR:16]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRC_BHO_WRECK_INFORMATION" id="EEC_NSUBSRC_BHO_WRECK_INFORMATION">6</a></td>
+<td>BHO_WRECK_INFORMATION</td>
+<td>EEC_NSUBSRC_BHO_WRECK_INFORMATION</td>
+<td>British Home Office wreck information list and supplement dated 10 March 1945 and 30 September 1946.</td>
+<td>IR</td>
+<td>[FACC, Annex B, WSR:22]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRC_BRITISH_1921_WRECK_CHARTS" id="EEC_NSUBSRC_BRITISH_1921_WRECK_CHARTS">7</a></td>
+<td>BRITISH_1921_WRECK_CHARTS</td>
+<td>EEC_NSUBSRC_BRITISH_1921_WRECK_CHARTS</td>
+<td>British Admiralty wreck charts, 1921.</td>
+<td>IR</td>
+<td>[FACC, Annex B, WSR:48]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRC_BRITISH_1961_WRECK_CHARTS" id="EEC_NSUBSRC_BRITISH_1961_WRECK_CHARTS">8</a></td>
+<td>BRITISH_1961_WRECK_CHARTS</td>
+<td>EEC_NSUBSRC_BRITISH_1961_WRECK_CHARTS</td>
+<td>British Admiralty wreck charts, 1961.</td>
+<td>IR</td>
+<td>[FACC, Annex B, WSR:50]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRC_BRITISH_MERCHANT_VESSELS" id="EEC_NSUBSRC_BRITISH_MERCHANT_VESSELS">9</a></td>
+<td>BRITISH_MERCHANT_VESSELS</td>
+<td>EEC_NSUBSRC_BRITISH_MERCHANT_VESSELS</td>
+<td>British &lt;<a href="ECC_M.htm#ECC_MERCHANT_MARINE_VESSEL">MERCHANT_MARINE_VESSEL</a>&gt;s captured or destroyed by enemy action 1914 - 1918.</td>
+<td>IR</td>
+<td>[FACC, Annex B, WSR:29]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRC_BRITISH_SHIPS_LOST_WW_II" id="EEC_NSUBSRC_BRITISH_SHIPS_LOST_WW_II">10</a></td>
+<td>BRITISH_SHIPS_LOST_WW_II</td>
+<td>EEC_NSUBSRC_BRITISH_SHIPS_LOST_WW_II</td>
+<td>British and foreign merchant ships lost during WW II.</td>
+<td>IR</td>
+<td>[FACC, Annex B, WSR:31]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRC_COMNAVFE" id="EEC_NSUBSRC_COMNAVFE">11</a></td>
+<td>COMNAVFE</td>
+<td>EEC_NSUBSRC_COMNAVFE</td>
+<td>NATO Commander Naval Forces, Europe.</td>
+<td>IR</td>
+<td>[FACC, Annex B, WSR:14]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRC_COMNAVPAC" id="EEC_NSUBSRC_COMNAVPAC">12</a></td>
+<td>COMNAVPAC</td>
+<td>EEC_NSUBSRC_COMNAVPAC</td>
+<td>NATO Commander Naval Forces, Pacific.</td>
+<td>IR</td>
+<td>[FACC, Annex B, WSR:13]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRC_DANISH_1914_18_SHIP_LOSSES" id="EEC_NSUBSRC_DANISH_1914_18_SHIP_LOSSES">13</a></td>
+<td>DANISH_1914_18_SHIP_LOSSES</td>
+<td>EEC_NSUBSRC_DANISH_1914_18_SHIP_LOSSES</td>
+<td>Smaling Soforklaringer - Danish ship war losses 1914 - 1918.</td>
+<td>IR</td>
+<td>[FACC, Annex B, WSR:43]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRC_DUTCH_WRECK_LIST" id="EEC_NSUBSRC_DUTCH_WRECK_LIST">14</a></td>
+<td>DUTCH_WRECK_LIST</td>
+<td>EEC_NSUBSRC_DUTCH_WRECK_LIST</td>
+<td>Dutch wreck list.</td>
+<td>IR</td>
+<td>[FACC, Annex B, WSR:58]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRC_DANISH_1914_18_WAR_LOSSES" id="EEC_NSUBSRC_DANISH_1914_18_WAR_LOSSES">15</a></td>
+<td>DANISH_1914_18_WAR_LOSSES</td>
+<td>EEC_NSUBSRC_DANISH_1914_18_WAR_LOSSES</td>
+<td>List of Danish war losses 1914 - 1918.</td>
+<td>IR</td>
+<td>[FACC, Annex B, WSR:28]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRC_DUTCH_WW_I_MERCHANT_LOSSES" id="EEC_NSUBSRC_DUTCH_WW_I_MERCHANT_LOSSES">16</a></td>
+<td>DUTCH_WW_I_MERCHANT_LOSSES</td>
+<td>EEC_NSUBSRC_DUTCH_WW_I_MERCHANT_LOSSES</td>
+<td>Netherlands (Dutch) merchant losses - WW I.</td>
+<td>IR</td>
+<td>[FACC, Annex B, WSR:36]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRC_FRENCH_WW_I_NAVAL_LOSSES" id="EEC_NSUBSRC_FRENCH_WW_I_NAVAL_LOSSES">17</a></td>
+<td>FRENCH_WW_I_NAVAL_LOSSES</td>
+<td>EEC_NSUBSRC_FRENCH_WW_I_NAVAL_LOSSES</td>
+<td>French naval and merchant losses during WW I.</td>
+<td>IR</td>
+<td>[FACC, Annex B, WSR:40]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRC_GERMAN_WW_II_SUBMARINE_LOSSES" id="EEC_NSUBSRC_GERMAN_WW_II_SUBMARINE_LOSSES">18</a></td>
+<td>GERMAN_WW_II_SUBMARINE_LOSSES</td>
+<td>EEC_NSUBSRC_GERMAN_WW_II_SUBMARINE_LOSSES</td>
+<td>German, Japanese, and Italian submarine losses in WW II.</td>
+<td>IR</td>
+<td>[FACC, Annex B, WSR:20]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRC_GREEK_WW_II_LOSSES" id="EEC_NSUBSRC_GREEK_WW_II_LOSSES">19</a></td>
+<td>GREEK_WW_II_LOSSES</td>
+<td>EEC_NSUBSRC_GREEK_WW_II_LOSSES</td>
+<td>Greek losses WW II.</td>
+<td>IR</td>
+<td>[FACC, Annex B, WSR:33]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRC_ITALIAN_WW_I_MERCHANT_LOSSES" id="EEC_NSUBSRC_ITALIAN_WW_I_MERCHANT_LOSSES">20</a></td>
+<td>ITALIAN_WW_I_MERCHANT_LOSSES</td>
+<td>EEC_NSUBSRC_ITALIAN_WW_I_MERCHANT_LOSSES</td>
+<td>Italian merchant losses - WW I.</td>
+<td>IR</td>
+<td>[FACC, Annex B, WSR:37]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRC_ITALIAN_WW_I_NAVAL_LOSSES" id="EEC_NSUBSRC_ITALIAN_WW_I_NAVAL_LOSSES">21</a></td>
+<td>ITALIAN_WW_I_NAVAL_LOSSES</td>
+<td>EEC_NSUBSRC_ITALIAN_WW_I_NAVAL_LOSSES</td>
+<td>Italian naval losses - WW I.</td>
+<td>IR</td>
+<td>[FACC, Annex B, WSR:34]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRC_ITALIAN_WW_II_NAVAL_LOSSES" id="EEC_NSUBSRC_ITALIAN_WW_II_NAVAL_LOSSES">22</a></td>
+<td>ITALIAN_WW_II_NAVAL_LOSSES</td>
+<td>EEC_NSUBSRC_ITALIAN_WW_II_NAVAL_LOSSES</td>
+<td>Italian naval and merchant losses, WW II.</td>
+<td>IR</td>
+<td>[FACC, Annex B, WSR:27]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRC_ITALIAN_NAVAL_SURVEY_CHARTS" id="EEC_NSUBSRC_ITALIAN_NAVAL_SURVEY_CHARTS">23</a></td>
+<td>ITALIAN_NAVAL_SURVEY_CHARTS</td>
+<td>EEC_NSUBSRC_ITALIAN_NAVAL_SURVEY_CHARTS</td>
+<td>Italian naval survey charts and lists.</td>
+<td>IR</td>
+<td>[FACC, Annex B, WSR:54]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRC_ITALIAN_NAVY_SURVEY" id="EEC_NSUBSRC_ITALIAN_NAVY_SURVEY">24</a></td>
+<td>ITALIAN_NAVY_SURVEY</td>
+<td>EEC_NSUBSRC_ITALIAN_NAVY_SURVEY</td>
+<td>Italian Navy survey.</td>
+<td>IR</td>
+<td>[FACC, Annex B, WSR:52]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRC_JAPAN_NAVAL_LOST_WW_II" id="EEC_NSUBSRC_JAPAN_NAVAL_LOST_WW_II">25</a></td>
+<td>JAPAN_NAVAL_LOST_WW_II</td>
+<td>EEC_NSUBSRC_JAPAN_NAVAL_LOST_WW_II</td>
+<td>Japanese naval and merchant losses during WW II by all causes (NAVEXOS P-468).</td>
+<td>IR</td>
+<td>[FACC, Annex B, WSR:10]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRC_JAPAN_NAVY_IN_WW_II" id="EEC_NSUBSRC_JAPAN_NAVY_IN_WW_II">26</a></td>
+<td>JAPAN_NAVY_IN_WW_II</td>
+<td>EEC_NSUBSRC_JAPAN_NAVY_IN_WW_II</td>
+<td>The Imperial Japanese Navy in WW II.</td>
+<td>IR</td>
+<td>[FACC, Annex B, WSR:18]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRC_LLOYDS_UNDERWRITERS" id="EEC_NSUBSRC_LLOYDS_UNDERWRITERS">27</a></td>
+<td>LLOYDS_UNDERWRITERS</td>
+<td>EEC_NSUBSRC_LLOYDS_UNDERWRITERS</td>
+<td>Lloyds and marine underwriter's reports.</td>
+<td>IR</td>
+<td>[FACC, Annex B, WSR:17]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRC_MAD_VERIFIED" id="EEC_NSUBSRC_MAD_VERIFIED">28</a></td>
+<td>MAD_VERIFIED</td>
+<td>EEC_NSUBSRC_MAD_VERIFIED</td>
+<td>Report, magnetic anomaly detector verified.</td>
+<td>IR</td>
+<td>[FACC, Annex B, WSR:9]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRC_MARITIME_COMMISSION" id="EEC_NSUBSRC_MARITIME_COMMISSION">29</a></td>
+<td>MARITIME_COMMISSION</td>
+<td>EEC_NSUBSRC_MARITIME_COMMISSION</td>
+<td>Maritime Commission; also ONI List WW I.</td>
+<td>IR</td>
+<td>[FACC, Annex B, WSR:42]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRC_MERCHANT_VESSELS_US_LOST" id="EEC_NSUBSRC_MERCHANT_VESSELS_US_LOST">30</a></td>
+<td>MERCHANT_VESSELS_US_LOST</td>
+<td>EEC_NSUBSRC_MERCHANT_VESSELS_US_LOST</td>
+<td>Merchant vessels of the US Lost (Commerce Department).</td>
+<td>IR</td>
+<td>[FACC, Annex B, WSR:44]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRC_NAVAL_CHRONOLOGY_WW_II" id="EEC_NSUBSRC_NAVAL_CHRONOLOGY_WW_II">31</a></td>
+<td>NAVAL_CHRONOLOGY_WW_II</td>
+<td>EEC_NSUBSRC_NAVAL_CHRONOLOGY_WW_II</td>
+<td>Naval chronology WW II.</td>
+<td>IR</td>
+<td>[FACC, Annex B, WSR:45]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRC_NAVAL_LOSSES" id="EEC_NSUBSRC_NAVAL_LOSSES">32</a></td>
+<td>NAVAL_LOSSES</td>
+<td>EEC_NSUBSRC_NAVAL_LOSSES</td>
+<td>Naval losses of all nations 3 September 1939 - 15 August 1945.</td>
+<td>IR</td>
+<td>[FACC, Annex B, WSR:26]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRC_NORTH_SEA_FISHING_CHARTS" id="EEC_NSUBSRC_NORTH_SEA_FISHING_CHARTS">33</a></td>
+<td>NORTH_SEA_FISHING_CHARTS</td>
+<td>EEC_NSUBSRC_NORTH_SEA_FISHING_CHARTS</td>
+<td>North Sea fishing charts.</td>
+<td>IR</td>
+<td>[FACC, Annex B, WSR:59]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRC_NORWEGIAN_1914_18_LOSSES" id="EEC_NSUBSRC_NORWEGIAN_1914_18_LOSSES">34</a></td>
+<td>NORWEGIAN_1914_18_LOSSES</td>
+<td>EEC_NSUBSRC_NORWEGIAN_1914_18_LOSSES</td>
+<td>Maritime declarations for Norwegian ships for war losses 1914 - 1918.</td>
+<td>IR</td>
+<td>[FACC, Annex B, WSR:38]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRC_OFFICE_OF_NAVAL_INTELLIGENCE" id="EEC_NSUBSRC_OFFICE_OF_NAVAL_INTELLIGENCE">35</a></td>
+<td>OFFICE_OF_NAVAL_INTELLIGENCE</td>
+<td>EEC_NSUBSRC_OFFICE_OF_NAVAL_INTELLIGENCE</td>
+<td>Office of Naval Intelligence.</td>
+<td>IR</td>
+<td>[FACC, Annex B, WSR:55]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRC_OMAN_NATIONAL_HYDROGRAPHIC_OFFICE" id="EEC_NSUBSRC_OMAN_NATIONAL_HYDROGRAPHIC_OFFICE">36</a></td>
+<td>OMAN_NATIONAL_HYDROGRAPHIC_OFFICE</td>
+<td>EEC_NSUBSRC_OMAN_NATIONAL_HYDROGRAPHIC_OFFICE</td>
+<td>Oman National Hydrographic Office.</td>
+<td>IR</td>
+<td>[FACC, Annex B, WSR:63]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRC_PHOTOGRAPHS_OF_PINNACLES" id="EEC_NSUBSRC_PHOTOGRAPHS_OF_PINNACLES">37</a></td>
+<td>PHOTOGRAPHS_OF_PINNACLES</td>
+<td>EEC_NSUBSRC_PHOTOGRAPHS_OF_PINNACLES</td>
+<td>Photographs of pinnacles and miscellaneous metals.</td>
+<td>IR</td>
+<td>[FACC, Annex B, WSR:60]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRC_PORTUGAL_HYDROGRAPHIC_OFFICE" id="EEC_NSUBSRC_PORTUGAL_HYDROGRAPHIC_OFFICE">38</a></td>
+<td>PORTUGAL_HYDROGRAPHIC_OFFICE</td>
+<td>EEC_NSUBSRC_PORTUGAL_HYDROGRAPHIC_OFFICE</td>
+<td>Portugal Hydrographic Office.</td>
+<td>IR</td>
+<td>[FACC, Annex B, WSR:51]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRC_RADIO_NAVIGATION_WARNING" id="EEC_NSUBSRC_RADIO_NAVIGATION_WARNING">39</a></td>
+<td>RADIO_NAVIGATION_WARNING</td>
+<td>EEC_NSUBSRC_RADIO_NAVIGATION_WARNING</td>
+<td>Radio Navigation Warning.</td>
+<td>IR</td>
+<td>[FACC, Annex B, WSR:62]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRC_RCN_WRECK_PUB_272" id="EEC_NSUBSRC_RCN_WRECK_PUB_272">40</a></td>
+<td>RCN_WRECK_PUB_272</td>
+<td>EEC_NSUBSRC_RCN_WRECK_PUB_272</td>
+<td>Royal Canadian Navy wreck list (RCN Publication 272).</td>
+<td>IR</td>
+<td>[FACC, Annex B, WSR:57]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRC_SHIP_VISIT" id="EEC_NSUBSRC_SHIP_VISIT">41</a></td>
+<td>SHIP_VISIT</td>
+<td>EEC_NSUBSRC_SHIP_VISIT</td>
+<td>Ship visit reports.</td>
+<td>IR</td>
+<td>[FACC, Annex B, WSR:46]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRC_SHIPPING_CASUALTIES" id="EEC_NSUBSRC_SHIPPING_CASUALTIES">42</a></td>
+<td>SHIPPING_CASUALTIES</td>
+<td>EEC_NSUBSRC_SHIPPING_CASUALTIES</td>
+<td>State of Shipping Casualties (resulting in total loss in St. Lawrence River and Gulf, on the Atlantic &lt;<a href="ECC_C.htm#ECC_COAST">COAST</a>&gt; from 1896 up to date).</td>
+<td>IR</td>
+<td>[FACC, Annex B, WSR:53]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRC_SHIPS_SUNK_BY_GERMANY" id="EEC_NSUBSRC_SHIPS_SUNK_BY_GERMANY">43</a></td>
+<td>SHIPS_SUNK_BY_GERMANY</td>
+<td>EEC_NSUBSRC_SHIPS_SUNK_BY_GERMANY</td>
+<td>List of neutral ships sunk by Germany.</td>
+<td>IR</td>
+<td>[FACC, Annex B, WSR:32]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRC_SONAR_VERIFIED" id="EEC_NSUBSRC_SONAR_VERIFIED">44</a></td>
+<td>SONAR_VERIFIED</td>
+<td>EEC_NSUBSRC_SONAR_VERIFIED</td>
+<td>Report sonar verified.</td>
+<td>IR</td>
+<td>[FACC, Annex B, WSR:8]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRC_SPANISH_HYDROGRAPHIC_OFFICE" id="EEC_NSUBSRC_SPANISH_HYDROGRAPHIC_OFFICE">45</a></td>
+<td>SPANISH_HYDROGRAPHIC_OFFICE</td>
+<td>EEC_NSUBSRC_SPANISH_HYDROGRAPHIC_OFFICE</td>
+<td>Spanish Hydrographic Office.</td>
+<td>IR</td>
+<td>[FACC, Annex B, WSR:47]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRC_SPANISH_WW_I_MERCHANT_LOSSES" id="EEC_NSUBSRC_SPANISH_WW_I_MERCHANT_LOSSES">46</a></td>
+<td>SPANISH_WW_I_MERCHANT_LOSSES</td>
+<td>EEC_NSUBSRC_SPANISH_WW_I_MERCHANT_LOSSES</td>
+<td>Spanish merchant losses - WW I.</td>
+<td>IR</td>
+<td>[FACC, Annex B, WSR:35]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRC_SWEDISH_1914_20_MERCHANT_LOSS" id="EEC_NSUBSRC_SWEDISH_1914_20_MERCHANT_LOSS">47</a></td>
+<td>SWEDISH_1914_20_MERCHANT_LOSS</td>
+<td>EEC_NSUBSRC_SWEDISH_1914_20_MERCHANT_LOSS</td>
+<td>Swedish merchant losses 1914-1920.</td>
+<td>IR</td>
+<td>[FACC, Annex B, WSR:21]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRC_SWEDISH_BOARD_SHIPPING" id="EEC_NSUBSRC_SWEDISH_BOARD_SHIPPING">48</a></td>
+<td>SWEDISH_BOARD_SHIPPING</td>
+<td>EEC_NSUBSRC_SWEDISH_BOARD_SHIPPING</td>
+<td>Swedish Board of Shipping and Navigation, Hydrographic Department.</td>
+<td>IR</td>
+<td>[FACC, Annex B, WSR:49]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRC_TENTH_FLEET_RECORDS_OP374" id="EEC_NSUBSRC_TENTH_FLEET_RECORDS_OP374">49</a></td>
+<td>TENTH_FLEET_RECORDS_OP374</td>
+<td>EEC_NSUBSRC_TENTH_FLEET_RECORDS_OP374</td>
+<td>US Tenth Fleet records (OP-374).</td>
+<td>IR</td>
+<td>[FACC, Annex B, WSR:25]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRC_US_COAST_AND_GEODETIC_SURVEY" id="EEC_NSUBSRC_US_COAST_AND_GEODETIC_SURVEY">50</a></td>
+<td>US_COAST_AND_GEODETIC_SURVEY</td>
+<td>EEC_NSUBSRC_US_COAST_AND_GEODETIC_SURVEY</td>
+<td>US Coast and Geodetic Survey (National Ocean Survey) charts.</td>
+<td>IR</td>
+<td>[FACC, Annex B, WSR:61]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRC_US_COAST_GUARD_DISTRICTS" id="EEC_NSUBSRC_US_COAST_GUARD_DISTRICTS">51</a></td>
+<td>US_COAST_GUARD_DISTRICTS</td>
+<td>EEC_NSUBSRC_US_COAST_GUARD_DISTRICTS</td>
+<td>Reports of known wrecks by US Coast Guard Districts 1950.</td>
+<td>IR</td>
+<td>[FACC, Annex B, WSR:39]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRC_US_COAST_GUARD_RECORDS" id="EEC_NSUBSRC_US_COAST_GUARD_RECORDS">52</a></td>
+<td>US_COAST_GUARD_RECORDS</td>
+<td>EEC_NSUBSRC_US_COAST_GUARD_RECORDS</td>
+<td>US Coast Guard and Geodetic Survey Records.</td>
+<td>IR</td>
+<td>[FACC, Annex B, WSR:24]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRC_US_LOSSES_DIRECTOR_FLEET_OPERATIONS" id="EEC_NSUBSRC_US_LOSSES_DIRECTOR_FLEET_OPERATIONS">53</a></td>
+<td>US_LOSSES_DIRECTOR_FLEET_OPERATIONS</td>
+<td>EEC_NSUBSRC_US_LOSSES_DIRECTOR_FLEET_OPERATIONS</td>
+<td>US losses - Director, Fleet Operations.</td>
+<td>IR</td>
+<td>[FACC, Annex B, WSR:11]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRC_US_NAVY_AT_WAR_1941_45" id="EEC_NSUBSRC_US_NAVY_AT_WAR_1941_45">54</a></td>
+<td>US_NAVY_AT_WAR_1941_45</td>
+<td>EEC_NSUBSRC_US_NAVY_AT_WAR_1941_45</td>
+<td>US Navy at War 1941-1945.</td>
+<td>IR</td>
+<td>[FACC, Annex B, WSR:19]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRC_US_NAVY_SONAR" id="EEC_NSUBSRC_US_NAVY_SONAR">55</a></td>
+<td>US_NAVY_SONAR</td>
+<td>EEC_NSUBSRC_US_NAVY_SONAR</td>
+<td>US Navy sonar reports and magnetic anomaly detector reports.</td>
+<td>IR</td>
+<td>[FACC, Annex B, WSR:41]</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ACOUSTIC_PHENOMENON">ACOUSTIC_PHENOMENON</a>, <a href="groups.htm#EGC_GEN_HYDROGRAPHIC_TRNSP">HYDROGRAPHIC_TRNSP</a>, <a href="groups.htm#EGC_GEN_TRNSP">TRNSP</a>, <a href="groups.htm#EGC_GEN_WATERBODY_FLOOR">WATERBODY_FLOOR</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: WSR]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_NON_SUB_CONTACT_SOURCE_TYPE" id="EAC_NON_SUB_CONTACT_SOURCE_TYPE">NON_SUB_CONTACT_SOURCE_TYPE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_NON_SUB_CONTACT_SOURCE_TYPE
+</p><p>
+<b>EDCS Attribute Code</b>: 880
+</p><p>
+<b>Definition</b>:
+<br>
+The type of source of a reported &lt;<a href="ECC_N.htm#ECC_NON_SUBMARINE_CONTACT">NON_SUBMARINE_CONTACT</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRCTY_ACTION" id="EEC_NSUBSRCTY_ACTION">1</a></td>
+<td>ACTION</td>
+<td>EEC_NSUBSRCTY_ACTION</td>
+<td>Action.</td>
+<td>IR</td>
+<td>[FACC, Annex B, RAG:4]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRCTY_CASUALTY" id="EEC_NSUBSRCTY_CASUALTY">2</a></td>
+<td>CASUALTY</td>
+<td>EEC_NSUBSRCTY_CASUALTY</td>
+<td>Casualty.</td>
+<td>IR</td>
+<td>[FACC, Annex B, RAG:3]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRCTY_CHART" id="EEC_NSUBSRCTY_CHART">3</a></td>
+<td>CHART</td>
+<td>EEC_NSUBSRCTY_CHART</td>
+<td>Navigation chart.</td>
+<td>IR</td>
+<td>[FACC, Annex B, RAG:14]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRCTY_CHART_RECORDS" id="EEC_NSUBSRCTY_CHART_RECORDS">4</a></td>
+<td>CHART_RECORDS</td>
+<td>EEC_NSUBSRCTY_CHART_RECORDS</td>
+<td>Navigation chart records.</td>
+<td>IR</td>
+<td>[FACC, Annex B, RAG:10]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRCTY_MAGNETIC_ANOMALY_DETECTOR" id="EEC_NSUBSRCTY_MAGNETIC_ANOMALY_DETECTOR">5</a></td>
+<td>MAGNETIC_ANOMALY_DETECTOR</td>
+<td>EEC_NSUBSRCTY_MAGNETIC_ANOMALY_DETECTOR</td>
+<td>Magnetic anomaly detector.</td>
+<td>IR</td>
+<td>[FACC, Annex B, RAG:19]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRCTY_MINESWEEPER" id="EEC_NSUBSRCTY_MINESWEEPER">6</a></td>
+<td>MINESWEEPER</td>
+<td>EEC_NSUBSRCTY_MINESWEEPER</td>
+<td>Minesweeper.</td>
+<td>IR</td>
+<td>[FACC, Annex B, RAG:15]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRCTY_NORTH_SEA_FISHING_CHARTS" id="EEC_NSUBSRCTY_NORTH_SEA_FISHING_CHARTS">7</a></td>
+<td>NORTH_SEA_FISHING_CHARTS</td>
+<td>EEC_NSUBSRCTY_NORTH_SEA_FISHING_CHARTS</td>
+<td>North Sea fishing charts.</td>
+<td>IR</td>
+<td>[FACC, Annex B, RAG:13]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRCTY_NOTICE_TO_MARINERS" id="EEC_NSUBSRCTY_NOTICE_TO_MARINERS">8</a></td>
+<td>NOTICE_TO_MARINERS</td>
+<td>EEC_NSUBSRCTY_NOTICE_TO_MARINERS</td>
+<td>Notice to Mariners.</td>
+<td>IR</td>
+<td>[FACC, Annex B, RAG:12]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRCTY_PHOTOGRAPH" id="EEC_NSUBSRCTY_PHOTOGRAPH">9</a></td>
+<td>PHOTOGRAPH</td>
+<td>EEC_NSUBSRCTY_PHOTOGRAPH</td>
+<td>Photograph.</td>
+<td>IR</td>
+<td>[FACC, Annex B, RAG:5]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRCTY_POSITION_ACCURATE_FIELD_CHECK" id="EEC_NSUBSRCTY_POSITION_ACCURATE_FIELD_CHECK">10</a></td>
+<td>POSITION_ACCURATE_FIELD_CHECK</td>
+<td>EEC_NSUBSRCTY_POSITION_ACCURATE_FIELD_CHECK</td>
+<td>Accurate position as determined by field check.</td>
+<td>IR</td>
+<td>[FACC, Annex B, RAG:17]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRCTY_SALVAGE" id="EEC_NSUBSRCTY_SALVAGE">11</a></td>
+<td>SALVAGE</td>
+<td>EEC_NSUBSRCTY_SALVAGE</td>
+<td>Salvage.</td>
+<td>IR</td>
+<td>[FACC, Annex B, RAG:2]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRCTY_SONAR" id="EEC_NSUBSRCTY_SONAR">12</a></td>
+<td>SONAR</td>
+<td>EEC_NSUBSRCTY_SONAR</td>
+<td>Sonar.</td>
+<td>IR</td>
+<td>[FACC, Annex B, RAG:18]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRCTY_SURVEY" id="EEC_NSUBSRCTY_SURVEY">13</a></td>
+<td>SURVEY</td>
+<td>EEC_NSUBSRCTY_SURVEY</td>
+<td>Survey.</td>
+<td>IR</td>
+<td>[FACC, Annex B, RAG:16]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRCTY_SURVIVOR" id="EEC_NSUBSRCTY_SURVIVOR">14</a></td>
+<td>SURVIVOR</td>
+<td>EEC_NSUBSRCTY_SURVIVOR</td>
+<td>Survivor.</td>
+<td>IR</td>
+<td>[FACC, Annex B, RAG:1]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRCTY_UK_HYDROGRAPHIC_RECORDS" id="EEC_NSUBSRCTY_UK_HYDROGRAPHIC_RECORDS">15</a></td>
+<td>UK_HYDROGRAPHIC_RECORDS</td>
+<td>EEC_NSUBSRCTY_UK_HYDROGRAPHIC_RECORDS</td>
+<td>UK hydrographic records. EXAMPLES <a href="http://www.hydro.gov.uk/">UK Hydrographic Office</a>, <a href="http://www.royal-navy.mod.uk/">UK Royal Navy</a>.</td>
+<td>IR</td>
+<td>[FACC, Annex B, RAG:8]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRCTY_UNSPECIFIED_DETECTOR" id="EEC_NSUBSRCTY_UNSPECIFIED_DETECTOR">16</a></td>
+<td>UNSPECIFIED_DETECTOR</td>
+<td>EEC_NSUBSRCTY_UNSPECIFIED_DETECTOR</td>
+<td>Unspecified detector. EXAMPLES &lt;&lt;&lt;<a href="EAC_N.htm#EEC_NSUBSRCTY_SONAR">SONAR</a>&gt;&gt;&gt;,&lt;&lt;&lt;<a href="EAC_N.htm#EEC_NSUBSRCTY_MAGNETIC_ANOMALY_DETECTOR">MAGNETIC_ANOMALY_DETECTOR</a>&gt;&gt;&gt;.</td>
+<td>IR</td>
+<td>[FACC, Annex B, RAG: 20]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRCTY_US_COAST_GUARD_RECORDS" id="EEC_NSUBSRCTY_US_COAST_GUARD_RECORDS">17</a></td>
+<td>US_COAST_GUARD_RECORDS</td>
+<td>EEC_NSUBSRCTY_US_COAST_GUARD_RECORDS</td>
+<td>US Coast Guard records.</td>
+<td>IR</td>
+<td>[FACC, Annex B, RAG:11]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRCTY_US_COAST_SURVEY" id="EEC_NSUBSRCTY_US_COAST_SURVEY">18</a></td>
+<td>US_COAST_SURVEY</td>
+<td>EEC_NSUBSRCTY_US_COAST_SURVEY</td>
+<td>US coast survey. EXAMPLES Coast and Geodetic Survey, National Ocean Service.</td>
+<td>IR</td>
+<td>[FACC, Annex B, RAG: 6]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRCTY_US_NAVY" id="EEC_NSUBSRCTY_US_NAVY">19</a></td>
+<td>US_NAVY</td>
+<td>EEC_NSUBSRCTY_US_NAVY</td>
+<td>US Navy. EXAMPLES Headquarters, commands.</td>
+<td>IR</td>
+<td>[FACC, Annex B, RAG:7]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_NSUBSRCTY_US_WRECK_LIST" id="EEC_NSUBSRCTY_US_WRECK_LIST">20</a></td>
+<td>US_WRECK_LIST</td>
+<td>EEC_NSUBSRCTY_US_WRECK_LIST</td>
+<td>US wreck list.</td>
+<td>IR</td>
+<td>[FACC, Annex B, RAG:9]</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ACOUSTIC_PHENOMENON">ACOUSTIC_PHENOMENON</a>, <a href="groups.htm#EGC_GEN_HYDROGRAPHIC_TRNSP">HYDROGRAPHIC_TRNSP</a>, <a href="groups.htm#EGC_GEN_TRNSP">TRNSP</a>, <a href="groups.htm#EGC_GEN_WATERBODY_FLOOR">WATERBODY_FLOOR</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: RAG]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_NON_SUB_CONTACT_WRECK_IDENTIFIER" id="EAC_NON_SUB_CONTACT_WRECK_IDENTIFIER">NON_SUB_CONTACT_WRECK_IDENTIFIER</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_NON_SUB_CONTACT_WRECK_IDENTIFIER
+</p><p>
+<b>EDCS Attribute Code</b>: 881
+</p><p>
+<b>Definition</b>:
+<br>
+The numeric identifier of a &lt;<a href="ECC_N.htm#ECC_NON_SUBMARINE_CONTACT">NON_SUBMARINE_CONTACT</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: INDEX
+</p><p>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ACOUSTIC_PHENOMENON">ACOUSTIC_PHENOMENON</a>, <a href="groups.htm#EGC_GEN_HYDROGRAPHIC_TRNSP">HYDROGRAPHIC_TRNSP</a>, <a href="groups.htm#EGC_GEN_IDENTIFICATION">IDENTIFICATION</a>, <a href="groups.htm#EGC_GEN_TRNSP">TRNSP</a>, <a href="groups.htm#EGC_GEN_WATERBODY_FLOOR">WATERBODY_FLOOR</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: WRN]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_NULL" id="EAC_NULL">NULL</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_NULL
+</p><p>
+<b>EDCS Attribute Code</b>: 882
+</p><p>
+<b>Definition</b>:
+<br>
+The null attribute concept; provided for information processing applications.
+<p>
+<b>EDCS Attribute Value Data Type</b>: NULL
+</p><p>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ALGORITHM_RELATED">ALGORITHM_RELATED</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: [SOED, "null", 4.b]
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_NUMERIC_IDENTIFIER" id="EAC_NUMERIC_IDENTIFIER">NUMERIC_IDENTIFIER</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_NUMERIC_IDENTIFIER
+</p><p>
+<b>EDCS Attribute Code</b>: 883
+</p><p>
+<b>Definition</b>:
+<br>
+A numeric identifier used to reference values in a data structure; an index.
+<p>
+<b>EDCS Attribute Value Data Type</b>: INDEX
+</p><p>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ALGORITHM_RELATED">ALGORITHM_RELATED</a>, <a href="groups.htm#EGC_GEN_IDENTIFICATION">IDENTIFICATION</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_NUMERIC_OBJECT_IDENTIFIER" id="EAC_NUMERIC_OBJECT_IDENTIFIER">NUMERIC_OBJECT_IDENTIFIER</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_NUMERIC_OBJECT_IDENTIFIER
+</p><p>
+<b>EDCS Attribute Code</b>: 884
+</p><p>
+<b>Definition</b>:
+<br>
+The numeric identifier of an &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: INDEX
+</p><p>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ABSTRACT_OBJECT">ABSTRACT_OBJECT</a>, <a href="groups.htm#EGC_GEN_IDENTIFICATION">IDENTIFICATION</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: UID]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<font color="#ff0000">Return to:</font>
+<b><a href="#Top">Top of page</a></b>,
+<b><a href="EAC_M.htm">Previous EAC Page (M)</a></b>,
+<b><a href="EAC_O.htm">Next EAC Page (O)</a></b>,
+<b><a href="EAC.htm">Attribute Index</a></b>,
+<b><a href="../edcs.htm#SDK">EDCS Home</a></b>
+<br><br>
+<table border="2" width="100%" bgcolor="#0000ff">
+<tr><td>
+<table width="100%" bgcolor="#0000ff">
+<tr>
+<td align="left"><font color="#00ffff"><small>
+Last updated:
+July 1, 2011
+</small></font></td>
+<td align="right"><font color="#00ffff"><small>
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</small></font></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

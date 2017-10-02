@@ -1,0 +1,12 @@
+FACC 2.1 to EDCS 4.4 Mapping SDK Release 4.4.0.0 - July 1, 2011
+ - EDCS spec. 4.4
+July 1, 2011
+
+This mapping API implementation of FACC 2.1 to EDCS 4.4 concepts is
+compatible with EDCS SDK 4.4.
+
+For a successful build, this source tree has to be placed under the
+EDCS SDK directly under the /edcs directory and build it following 
+the same process to build the EDCS SDK.
+
+Copyright (C)2011 SEDRIS TM

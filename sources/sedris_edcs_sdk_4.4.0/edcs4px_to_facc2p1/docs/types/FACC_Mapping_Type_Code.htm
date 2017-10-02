@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<title>FACC_Mapping_Type_Code</title>
+<link rel="stylesheet" href="../../../docs/styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+<div align="center">
+<table border="2" class="doc_set_header">
+<tr><th class="doc_set_header">
+<big><big>EDCS Reference Manual</big></big>
+<br>
+<font color="#ffffff">
+Concept Mapping from EDCS 4.4 to FACC 2.1
+<!-- EDCS SDK Release 4.4.0 -->
+<br>
+Types
+<br>
+FACC_Mapping_Type_Code
+</font></th>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- EDCS 4.4 to FACC 2.1 Mapping SDK Release 4.4.0.0 -->
+<pre>
+/*
+ *  FACC_MAP_TYP_ONE_TO_ONE:
+ *
+ * Mapping is one to one, with only one FACC concept necessary
+ * to represent the given EDCS concept.
+ *
+ */
+typedef <a href="../../../docs/types/EDCS_Integer.htm">EDCS_Integer</a> FACC_Mapping_Type_Code;
+</pre>
+
+<table class="CFunction">
+<tr>
+ <th>Enumerant</th>
+<th>Definition</th>
+<th>Value</th>
+</tr>
+<tr>
+ <td><a name="FACC_MAP_TYP_ONE_TO_ONE">FACC_MAP_TYP_ONE_TO_ONE</a></td>
+<td>
+Mapping is one to one, with only one FACC concept necessary
+to represent the given EDCS concept.
+</td>
+<td>1</td>
+</tr>
+
+<tr>
+<td><a name="FACC_MAP_TYP_ONE_TO_ONE_QUALIFIED">FACC_MAP_TYP_ONE_TO_ONE_QUALIFIED</a></td>
+
+<td>
+Mapping is one to one, but in FACC there are additional
+qualifying concepts necessary to represent the EDCS concept.
+<br>
+For example:
+<br>
+ADMINISTRATION_BUILDING will map to AL015 for building, but it
+will also be qualified with BFC_28 which is Building Function
+<br>
+Category - Administration Building
+<br>
+In these cases the additional_concept_count will be &gt; 0 and the
+additional_concepts array will be populated with the qualifying
+concepts.
+</td>
+ <td>2</td>
+ </tr>
+
+<tr>
+<td><a name="FACC_MAP_TYP_ONE_TO_ZERO">FACC_MAP_TYP_ONE_TO_ZERO</a></td>
+<td>
+Mapping is one to zero, i.e. there are no concepts in FACC that
+can be used to represent the given EDCS concept
+</td>
+ <td>3</td>
+ </tr>
+
+<tr>
+<td><a name="FACC_MAP_TYP_MAP_TO_CODED">FACC_MAP_TYP_MAP_TO_CODED</a></td>
+<td>
+In this case the FACC is a ranged enumerant, but in EDCS the
+concept uses intervals to map those ranges.  So for specific
+intervals that either match or are a subset of the ranged enumerant,
+a mapping will take place.
+</td>
+ <td>4</td>
+ </tr>
+
+<tr>
+<td><a name="FACC_MAP_TYP_INDETERMINATE">FACC_MAP_TYP_INDETERMINATE</a></td>
+<td>
+This is a special case.  Some EDCS Attributes map to different
+FACC codes depending on what value is handed in.  In this case
+when attempting to map just the EDCS Attribute, the mapping
+type will be INDETERMINATE, meaning that there will be different
+FACC codes returned using EDCS_MapAttributeWithValue depending
+on the value passed in.
+</td>
+ <td>5</td>
+ </tr>
+
+<tr>
+<td><a name="FACC_MAP_TYP_SPECIAL_CASE">FACC_MAP_TYP_SPECIAL_CASE</a></td>
+<td>
+In this case the mapping is special in that it may need
+user intervention to perform the mapping.  In these cases the
+notes field will contain the special case information.
+</td>
+<td>6</td>
+</tr>
+</table>
+  <br>
+
+<hr width="100%" size="2">
+<br>
+<font color="#ff0000">Return to:</font>
+<b><a href="#Top">Top of this Page</a></b>,
+<b><a href="../edcs4px_facc2p1.htm#Data Structures">Type Index</a></b>
+<br><br>
+<table class="doc_set_header">
+<tr><td>
+<table class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="left" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

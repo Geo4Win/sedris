@@ -1,0 +1,931 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE_DRM_Class_Fields</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX C - Types
+</font>
+<br>
+<font color="#ffffff">
+SE_DRM_Class_Fields
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<PRE>
+/*
+ * STRUCT: SE_DRM_Class_Fields
+ *
+ *   The SE_DRM_Class_Fields variant record data type specifies
+ *   the field values for the DRM class identified by drm_class.
+ */
+</PRE>
+<span class="Code">typedef struct 
+<br>
+{</span>
+<br>
+<table class="CFunctionPrototype">
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_DRM_Class.htm">SE_DRM_Class</a></td>
+        <td class="CFunction"><a name="tag"></a>tag;</td></tr>
+<tr> <td class="CFunction">   </td><td class="CFunction">union</td></tr>
+<tr> <td class="CFunction">   </td><td class="CFunction">{</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/AbsoluteTime.htm">SE_Absolute_Time_Fields</a></td>
+            <td class="CFunction"><a
+            name="Absolute_Time"></a>Absolute_Time;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/AbsoluteTimeInterval.htm">SE_Absolute_Time_Interval_Fields</a></td>
+            <td class="CFunction"><a
+            name="Absolute_Time_Interval"></a>Absolute_Time_Interval;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/AggregateFeature.htm">SE_Aggregate_Feature_Fields</a></td>
+            <td class="CFunction"><a
+            name="Aggregate_Feature"></a>Aggregate_Feature;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/AggregateGeometry.htm">SE_Aggregate_Geometry_Fields</a></td>
+            <td class="CFunction"><a
+            name="Aggregate_Geometry"></a>Aggregate_Geometry;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/AlternateHierarchyRelatedFeatures.htm">SE_Alternate_Hierarchy_Related_Features_Fields</a></td>
+            <td class="CFunction"><a
+            name="Alternate_Hierarchy_Related_Features"></a>Alternate_Hierarchy_Related_Features;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/AlternateHierarchyRelatedGeometry.htm">SE_Alternate_Hierarchy_Related_Geometry_Fields</a></td>
+            <td class="CFunction"><a
+            name="Alternate_Hierarchy_Related_Geometry"></a>Alternate_Hierarchy_Related_Geometry;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/AmbientColour.htm">SE_Ambient_Colour_Fields</a></td>
+            <td class="CFunction"><a
+            name="Ambient_Colour"></a>Ambient_Colour;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/AnimationBehaviour.htm">SE_Animation_Behaviour_Fields</a></td>
+            <td class="CFunction"><a
+            name="Animation_Behaviour"></a>Animation_Behaviour;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/AnimationRelatedGeometry.htm">SE_Animation_Related_Geometry_Fields</a></td>
+            <td class="CFunction"><a
+            name="Animation_Related_Geometry"></a>Animation_Related_Geometry;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/Arc.htm">SE_Arc_Fields</a></td>
+            <td class="CFunction"><a name="Arc"></a>Arc;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/ArealFeature.htm">SE_Areal_Feature_Fields</a></td>
+            <td class="CFunction"><a
+            name="Areal_Feature"></a>Areal_Feature;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/AttachmentPoint.htm">SE_Attachment_Point_Fields</a></td>
+            <td class="CFunction"><a
+            name="Attachment_Point"></a>Attachment_Point;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/Axis.htm">SE_Axis_Fields</a></td>
+            <td class="CFunction"><a name="Axis"></a>Axis;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/BaseAssociationData.htm">SE_Base_Association_Data_Fields</a></td>
+            <td class="CFunction"><a
+            name="Base_Association_Data"></a>Base_Association_Data;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/BaseLODData.htm">SE_Base_LOD_Data_Fields</a></td>
+            <td class="CFunction"><a
+            name="Base_LOD_Data"></a>Base_LOD_Data;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/BasePositionalLight.htm">SE_Base_Positional_Light_Fields</a></td>
+            <td class="CFunction"><a
+            name="Base_Positional_Light"></a>Base_Positional_Light;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/BaseSpatialAssociationData.htm">SE_Base_Spatial_Association_Data_Fields</a></td>
+            <td class="CFunction"><a
+            name="Base_Spatial_Association_Data"></a>Base_Spatial_Association_Data;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/BaseSummaryItem.htm">SE_Base_Summary_Item_Fields</a></td>
+            <td class="CFunction"><a
+            name="Base_Summary_Item"></a>Base_Summary_Item;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/BaseTimeData.htm">SE_Base_Time_Data_Fields</a></td>
+            <td class="CFunction"><a
+            name="Base_Time_Data"></a>Base_Time_Data;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/BlendDirectionalLight.htm">SE_Blend_Directional_Light_Fields</a></td>
+            <td class="CFunction"><a
+            name="Blend_Directional_Light"></a>Blend_Directional_Light;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/BoundingVolume.htm">SE_Bounding_Volume_Fields</a></td>
+            <td class="CFunction"><a
+            name="Bounding_Volume"></a>Bounding_Volume;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/BrowseMedia.htm">SE_Browse_Media_Fields</a></td>
+            <td class="CFunction"><a name="Browse_Media"></a>Browse_Media;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/CameraPoint.htm">SE_Camera_Point_Fields</a></td>
+            <td class="CFunction"><a name="Camera_Point"></a>Camera_Point;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/CC3DLocation.htm">SE_CC_3D_Location_Fields</a></td>
+            <td class="CFunction"><a
+            name="CC_3D_Location"></a>CC_3D_Location;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/CD3DLocation.htm">SE_CD_3D_Location_Fields</a></td>
+            <td class="CFunction"><a
+            name="CD_3D_Location"></a>CD_3D_Location;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/CDSurfaceLocation.htm">SE_CD_Surface_Location_Fields</a></td>
+            <td class="CFunction"><a
+            name="CD_Surface_Location"></a>CD_Surface_Location;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/Citation.htm">SE_Citation_Fields</a></td>
+            <td class="CFunction"><a name="Citation"></a>Citation;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/ClassificationData.htm">SE_Classification_Data_Fields</a></td>
+            <td class="CFunction"><a
+            name="Classification_Data"></a>Classification_Data;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/ClassificationRelatedFeatures.htm">SE_Classification_Related_Features_Fields</a></td>
+            <td class="CFunction"><a
+            name="Classification_Related_Features"></a>Classification_Related_Features;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/ClassificationRelatedGeometry.htm">SE_Classification_Related_Geometry_Fields</a></td>
+            <td class="CFunction"><a
+            name="Classification_Related_Geometry"></a>Classification_Related_Geometry;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/CM3DLocation.htm">SE_CM_3D_Location_Fields</a></td>
+            <td class="CFunction"><a
+            name="CM_3D_Location"></a>CM_3D_Location;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/CMYColour.htm">SE_CMY_Colour_Fields</a></td>
+            <td class="CFunction"><a name="CMY_Colour"></a>CMY_Colour;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/CMYColourControlLink.htm">SE_CMY_Colour_Control_Link_Fields</a></td>
+            <td class="CFunction"><a
+            name="CMY_Colour_Control_Link"></a>CMY_Colour_Control_Link;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/CollisionVolume.htm">SE_Collision_Volume_Fields</a></td>
+            <td class="CFunction"><a
+            name="Collision_Volume"></a>Collision_Volume;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/Colour.htm">SE_Colour_Fields</a></td>
+            <td class="CFunction"><a name="Colour"></a>Colour;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/ColourData.htm">SE_Colour_Data_Fields</a></td>
+            <td class="CFunction"><a name="Colour_Data"></a>Colour_Data;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/ColourIndex.htm">SE_Colour_Index_Fields</a></td>
+            <td class="CFunction"><a name="Colour_Index"></a>Colour_Index;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/ColourIndexControlLink.htm">SE_Colour_Index_Control_Link_Fields</a></td>
+            <td class="CFunction"><a
+            name="Colour_Index_Control_Link"></a>Colour_Index_Control_Link;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/ColourShininess.htm">SE_Colour_Shininess_Fields</a></td>
+            <td class="CFunction"><a
+            name="Colour_Shininess"></a>Colour_Shininess;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/ColourTable.htm">SE_Colour_Table_Fields</a></td>
+            <td class="CFunction"><a name="Colour_Table"></a>Colour_Table;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/ColourTableGroup.htm">SE_Colour_Table_Group_Fields</a></td>
+            <td class="CFunction"><a
+            name="Colour_Table_Group"></a>Colour_Table_Group;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/ColourTableLibrary.htm">SE_Colour_Table_Library_Fields</a></td>
+            <td class="CFunction"><a
+            name="Colour_Table_Library"></a>Colour_Table_Library;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/ConeDirectionalLight.htm">SE_Cone_Directional_Light_Fields</a></td>
+            <td class="CFunction"><a
+            name="Cone_Directional_Light"></a>Cone_Directional_Light;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/ConformalBehaviour.htm">SE_Conformal_Behaviour_Fields</a></td>
+            <td class="CFunction"><a
+            name="Conformal_Behaviour"></a>Conformal_Behaviour;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/ContactPoint.htm">SE_Contact_Point_Fields</a></td>
+            <td class="CFunction"><a
+            name="Contact_Point"></a>Contact_Point;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/ContinuousLODRelatedGeometry.htm">SE_Continuous_LOD_Related_Geometry_Fields</a></td>
+            <td class="CFunction"><a
+            name="Continuous_LOD_Related_Geometry"></a>Continuous_LOD_Related_Geometry;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/ControlLink.htm">SE_Control_Link_Fields</a></td>
+            <td class="CFunction"><a name="Control_Link"></a>Control_Link;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/CylindricalVolumeExtent.htm">SE_Cylindrical_Volume_Extent_Fields</a></td>
+            <td class="CFunction"><a
+            name="Cylindrical_Volume_Extent"></a>Cylindrical_Volume_Extent;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/DataQuality.htm">SE_Data_Quality_Fields</a></td>
+            <td class="CFunction"><a name="Data_Quality"></a>Data_Quality;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/DataTable.htm">SE_Data_Table_Fields</a></td>
+            <td class="CFunction"><a name="Data_Table"></a>Data_Table;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/DataTableLibrary.htm">SE_Data_Table_Library_Fields</a></td>
+            <td class="CFunction"><a
+            name="Data_Table_Library"></a>Data_Table_Library;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/DiffuseColour.htm">SE_Diffuse_Colour_Fields</a></td>
+            <td class="CFunction"><a
+            name="Diffuse_Colour"></a>Diffuse_Colour;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/DirectionalLightBehaviour.htm">SE_Directional_Light_Behaviour_Fields</a></td>
+            <td class="CFunction"><a
+            name="Directional_Light_Behaviour"></a>Directional_Light_Behaviour;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/DistanceLODData.htm">SE_Distance_LOD_Data_Fields</a></td>
+            <td class="CFunction"><a
+            name="Distance_LOD_Data"></a>Distance_LOD_Data;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/DRMClassSummaryItem.htm">SE_DRM_Class_Summary_Item_Fields</a></td>
+            <td class="CFunction"><a
+            name="DRM_Class_Summary_Item"></a>DRM_Class_Summary_Item;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/ECAugmented3DLocation.htm">SE_EC_Augmented_3D_Location_Fields</a></td>
+            <td class="CFunction"><a
+            name="EC_Augmented_3D_Location"></a>EC_Augmented_3D_Location;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/ECSurfaceLocation.htm">SE_EC_Surface_Location_Fields</a></td>
+            <td class="CFunction"><a
+            name="EC_Surface_Location"></a>EC_Surface_Location;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/EDCSUseSummaryItem.htm">SE_EDCS_Use_Summary_Item_Fields</a></td>
+            <td class="CFunction"><a
+            name="EDCS_Use_Summary_Item"></a>EDCS_Use_Summary_Item;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/EdgeDirection.htm">SE_Edge_Direction_Fields</a></td>
+            <td class="CFunction"><a
+            name="Edge_Direction"></a>Edge_Direction;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/EI3DLocation.htm">SE_EI_3D_Location_Fields</a></td>
+            <td class="CFunction"><a
+            name="EI_3D_Location"></a>EI_3D_Location;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/Ellipse.htm">SE_Ellipse_Fields</a></td>
+            <td class="CFunction"><a name="Ellipse"></a>Ellipse;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/EmissiveColour.htm">SE_Emissive_Colour_Fields</a></td>
+            <td class="CFunction"><a
+            name="Emissive_Colour"></a>Emissive_Colour;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/EnclosingVolume.htm">SE_Enclosing_Volume_Fields</a></td>
+            <td class="CFunction"><a
+            name="Enclosing_Volume"></a>Enclosing_Volume;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/EnumerationAxis.htm">SE_Enumeration_Axis_Fields</a></td>
+            <td class="CFunction"><a
+            name="Enumeration_Axis"></a>Enumeration_Axis;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/EnvironmentRoot.htm">SE_Environment_Root_Fields</a></td>
+            <td class="CFunction"><a
+            name="Environment_Root"></a>Environment_Root;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/EnvironmentalDomainSummary.htm">SE_Environmental_Domain_Summary_Fields</a></td>
+            <td class="CFunction"><a
+            name="Environmental_Domain_Summary"></a>Environmental_Domain_Summary;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/Expression.htm">SE_Expression_Fields</a></td>
+            <td class="CFunction"><a name="Expression"></a>Expression;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/FaceDirection.htm">SE_Face_Direction_Fields</a></td>
+            <td class="CFunction"><a
+            name="Face_Direction"></a>Face_Direction;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/FadeRange.htm">SE_Fade_Range_Fields</a></td>
+            <td class="CFunction"><a name="Fade_Range"></a>Fade_Range;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/FeatureEdge.htm">SE_Feature_Edge_Fields</a></td>
+            <td class="CFunction"><a name="Feature_Edge"></a>Feature_Edge;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/FeatureFace.htm">SE_Feature_Face_Fields</a></td>
+            <td class="CFunction"><a name="Feature_Face"></a>Feature_Face;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/FeatureFaceRing.htm">SE_Feature_Face_Ring_Fields</a></td>
+            <td class="CFunction"><a
+            name="Feature_Face_Ring"></a>Feature_Face_Ring;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/FeatureHierarchy.htm">SE_Feature_Hierarchy_Fields</a></td>
+            <td class="CFunction"><a
+            name="Feature_Hierarchy"></a>Feature_Hierarchy;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/FeatureModel.htm">SE_Feature_Model_Fields</a></td>
+            <td class="CFunction"><a
+            name="Feature_Model"></a>Feature_Model;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/FeatureModelInstance.htm">SE_Feature_Model_Instance_Fields</a></td>
+            <td class="CFunction"><a
+            name="Feature_Model_Instance"></a>Feature_Model_Instance;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/FeatureNode.htm">SE_Feature_Node_Fields</a></td>
+            <td class="CFunction"><a name="Feature_Node"></a>Feature_Node;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/FeatureRepresentation.htm">SE_Feature_Representation_Fields</a></td>
+            <td class="CFunction"><a
+            name="Feature_Representation"></a>Feature_Representation;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/FeatureTopology.htm">SE_Feature_Topology_Fields</a></td>
+            <td class="CFunction"><a
+            name="Feature_Topology"></a>Feature_Topology;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/FeatureTopologyHierarchy.htm">SE_Feature_Topology_Hierarchy_Fields</a></td>
+            <td class="CFunction"><a
+            name="Feature_Topology_Hierarchy"></a>Feature_Topology_Hierarchy;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/FeatureVolume.htm">SE_Feature_Volume_Fields</a></td>
+            <td class="CFunction"><a
+            name="Feature_Volume"></a>Feature_Volume;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/FeatureVolumeShell.htm">SE_Feature_Volume_Shell_Fields</a></td>
+            <td class="CFunction"><a
+            name="Feature_Volume_Shell"></a>Feature_Volume_Shell;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/FiniteElementMesh.htm">SE_Finite_Element_Mesh_Fields</a></td>
+            <td class="CFunction"><a
+            name="Finite_Element_Mesh"></a>Finite_Element_Mesh;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/FlashingLightBehaviour.htm">SE_Flashing_Light_Behaviour_Fields</a></td>
+            <td class="CFunction"><a
+            name="Flashing_Light_Behaviour"></a>Flashing_Light_Behaviour;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/Function.htm">SE_Function_Fields</a></td>
+            <td class="CFunction"><a name="Function"></a>Function;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/FunctionalAssociationData.htm">SE_Functional_Association_Data_Fields</a></td>
+            <td class="CFunction"><a
+            name="Functional_Association_Data"></a>Functional_Association_Data;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/GeometricCentre.htm">SE_Geometric_Centre_Fields</a></td>
+            <td class="CFunction"><a
+            name="Geometric_Centre"></a>Geometric_Centre;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/GeometryEdge.htm">SE_Geometry_Edge_Fields</a></td>
+            <td class="CFunction"><a
+            name="Geometry_Edge"></a>Geometry_Edge;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/GeometryFace.htm">SE_Geometry_Face_Fields</a></td>
+            <td class="CFunction"><a
+            name="Geometry_Face"></a>Geometry_Face;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/GeometryHierarchy.htm">SE_Geometry_Hierarchy_Fields</a></td>
+            <td class="CFunction"><a
+            name="Geometry_Hierarchy"></a>Geometry_Hierarchy;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/GeometryModel.htm">SE_Geometry_Model_Fields</a></td>
+            <td class="CFunction"><a
+            name="Geometry_Model"></a>Geometry_Model;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/GeometryModelInstance.htm">SE_Geometry_Model_Instance_Fields</a></td>
+            <td class="CFunction"><a
+            name="Geometry_Model_Instance"></a>Geometry_Model_Instance;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/GeometryNode.htm">SE_Geometry_Node_Fields</a></td>
+            <td class="CFunction"><a
+            name="Geometry_Node"></a>Geometry_Node;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/GeometryRepresentation.htm">SE_Geometry_Representation_Fields</a></td>
+            <td class="CFunction"><a
+            name="Geometry_Representation"></a>Geometry_Representation;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/GeometryTopology.htm">SE_Geometry_Topology_Fields</a></td>
+            <td class="CFunction"><a
+            name="Geometry_Topology"></a>Geometry_Topology;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/GeometryTopologyHierarchy.htm">SE_Geometry_Topology_Hierarchy_Fields</a></td>
+            <td class="CFunction"><a
+            name="Geometry_Topology_Hierarchy"></a>Geometry_Topology_Hierarchy;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/GeometryVolume.htm">SE_Geometry_Volume_Fields</a></td>
+            <td class="CFunction"><a
+            name="Geometry_Volume"></a>Geometry_Volume;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/GridOverlap.htm">SE_Grid_Overlap_Fields</a></td>
+            <td class="CFunction"><a name="Grid_Overlap"></a>Grid_Overlap;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/HAEC3DLocation.htm">SE_HAEC_3D_Location_Fields</a></td>
+            <td class="CFunction"><a
+            name="HAEC_3D_Location"></a>HAEC_3D_Location;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/HEEC3DLocation.htm">SE_HEEC_3D_Location_Fields</a></td>
+            <td class="CFunction"><a
+            name="HEEC_3D_Location"></a>HEEC_3D_Location;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/HEEQ3DLocation.htm">SE_HEEQ_3D_Location_Fields</a></td>
+            <td class="CFunction"><a
+            name="HEEQ_3D_Location"></a>HEEQ_3D_Location;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/HierarchyData.htm">SE_Hierarchy_Data_Fields</a></td>
+            <td class="CFunction"><a
+            name="Hierarchy_Data"></a>Hierarchy_Data;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/HierarchySummaryItem.htm">SE_Hierarchy_Summary_Item_Fields</a></td>
+            <td class="CFunction"><a
+            name="Hierarchy_Summary_Item"></a>Hierarchy_Summary_Item;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/HSVColour.htm">SE_HSV_Colour_Fields</a></td>
+            <td class="CFunction"><a name="HSV_Colour"></a>HSV_Colour;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/HSVColourControlLink.htm">SE_HSV_Colour_Control_Link_Fields</a></td>
+            <td class="CFunction"><a
+            name="HSV_Colour_Control_Link"></a>HSV_Colour_Control_Link;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/Icon.htm">SE_Icon_Fields</a></td>
+            <td class="CFunction"><a name="Icon"></a>Icon;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/Identification.htm">SE_Identification_Fields</a></td>
+            <td class="CFunction"><a
+            name="Identification"></a>Identification;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/Image.htm">SE_Image_Fields</a></td>
+            <td class="CFunction"><a name="Image"></a>Image;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/ImageAnchor.htm">SE_Image_Anchor_Fields</a></td>
+            <td class="CFunction"><a name="Image_Anchor"></a>Image_Anchor;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/ImageLibrary.htm">SE_Image_Library_Fields</a></td>
+            <td class="CFunction"><a
+            name="Image_Library"></a>Image_Library;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/ImageMappingFunction.htm">SE_Image_Mapping_Function_Fields</a></td>
+            <td class="CFunction"><a
+            name="Image_Mapping_Function"></a>Image_Mapping_Function;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/InOut.htm">SE_In_Out_Fields</a></td>
+            <td class="CFunction"><a name="In_Out"></a>In_Out;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/IndexLODData.htm">SE_Index_LOD_Data_Fields</a></td>
+            <td class="CFunction"><a
+            name="Index_LOD_Data"></a>Index_LOD_Data;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/InfiniteLight.htm">SE_Infinite_Light_Fields</a></td>
+            <td class="CFunction"><a
+            name="Infinite_Light"></a>Infinite_Light;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/InlineColour.htm">SE_Inline_Colour_Fields</a></td>
+            <td class="CFunction"><a
+            name="Inline_Colour"></a>Inline_Colour;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/InterfaceTemplate.htm">SE_Interface_Template_Fields</a></td>
+            <td class="CFunction"><a
+            name="Interface_Template"></a>Interface_Template;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/IntervalAxis.htm">SE_Interval_Axis_Fields</a></td>
+            <td class="CFunction"><a
+            name="Interval_Axis"></a>Interval_Axis;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/IrregularAxis.htm">SE_Irregular_Axis_Fields</a></td>
+            <td class="CFunction"><a
+            name="Irregular_Axis"></a>Irregular_Axis;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/Keywords.htm">SE_Keywords_Fields</a></td>
+            <td class="CFunction"><a name="Keywords"></a>Keywords;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/Label.htm">SE_Label_Fields</a></td>
+            <td class="CFunction"><a name="Label"></a>Label;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/LCCAugmented3DLocation.htm">SE_LCC_Augmented_3D_Location_Fields</a></td>
+            <td class="CFunction"><a
+            name="LCC_Augmented_3D_Location"></a>LCC_Augmented_3D_Location;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/LCCSurfaceLocation.htm">SE_LCC_Surface_Location_Fields</a></td>
+            <td class="CFunction"><a
+            name="LCC_Surface_Location"></a>LCC_Surface_Location;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/LCE3DLocation.htm">SE_LCE_3D_Location_Fields</a></td>
+            <td class="CFunction"><a
+            name="LCE_3D_Location"></a>LCE_3D_Location;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/LegalConstraints.htm">SE_Legal_Constraints_Fields</a></td>
+            <td class="CFunction"><a
+            name="Legal_Constraints"></a>Legal_Constraints;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/Library.htm">SE_Library_Fields</a></td>
+            <td class="CFunction"><a name="Library"></a>Library;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/LightRenderingBehaviour.htm">SE_Light_Rendering_Behaviour_Fields</a></td>
+            <td class="CFunction"><a
+            name="Light_Rendering_Behaviour"></a>Light_Rendering_Behaviour;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/LightRenderingProperties.htm">SE_Light_Rendering_Properties_Fields</a></td>
+            <td class="CFunction"><a
+            name="Light_Rendering_Properties"></a>Light_Rendering_Properties;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/LightRenderingPropertiesControlLink.htm">SE_Light_Rendering_Properties_Control_Link_Fields</a></td>
+            <td class="CFunction"><a
+            name="Light_Rendering_Properties_Control_Link"></a>Light_Rendering_Properties_Control_Link;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/LightSource.htm">SE_Light_Source_Fields</a></td>
+            <td class="CFunction"><a name="Light_Source"></a>Light_Source;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/LightSourceControlLink.htm">SE_Light_Source_Control_Link_Fields</a></td>
+            <td class="CFunction"><a
+            name="Light_Source_Control_Link"></a>Light_Source_Control_Link;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/Line.htm">SE_Line_Fields</a></td>
+            <td class="CFunction"><a name="Line"></a>Line;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/Lineage.htm">SE_Lineage_Fields</a></td>
+            <td class="CFunction"><a name="Lineage"></a>Lineage;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/LinearFeature.htm">SE_Linear_Feature_Fields</a></td>
+            <td class="CFunction"><a
+            name="Linear_Feature"></a>Linear_Feature;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/LinearGeometry.htm">SE_Linear_Geometry_Fields</a></td>
+            <td class="CFunction"><a
+            name="Linear_Geometry"></a>Linear_Geometry;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/Literal.htm">SE_Literal_Fields</a></td>
+            <td class="CFunction"><a name="Literal"></a>Literal;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/LobeData.htm">SE_Lobe_Data_Fields</a></td>
+            <td class="CFunction"><a name="Lobe_Data"></a>Lobe_Data;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/Local4x4.htm">SE_Local_4x4_Fields</a></td>
+            <td class="CFunction"><a name="Local_4x4"></a>Local_4x4;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/Location.htm">SE_Location_Fields</a></td>
+            <td class="CFunction"><a name="Location"></a>Location;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/Location2D.htm">SE_Location_2D_Fields</a></td>
+            <td class="CFunction"><a name="Location_2D"></a>Location_2D;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/Location3D.htm">SE_Location_3D_Fields</a></td>
+            <td class="CFunction"><a name="Location_3D"></a>Location_3D;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/LocationSurface.htm">SE_Location_Surface_Fields</a></td>
+            <td class="CFunction"><a
+            name="Location_Surface"></a>Location_Surface;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/LODRelatedFeatures.htm">SE_LOD_Related_Features_Fields</a></td>
+            <td class="CFunction"><a
+            name="LOD_Related_Features"></a>LOD_Related_Features;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/LODRelatedGeometry.htm">SE_LOD_Related_Geometry_Fields</a></td>
+            <td class="CFunction"><a
+            name="LOD_Related_Geometry"></a>LOD_Related_Geometry;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/LSA2DLocation.htm">SE_LSA_2D_Location_Fields</a></td>
+            <td class="CFunction"><a
+            name="LSA_2D_Location"></a>LSA_2D_Location;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/LSP2DLocation.htm">SE_LSP_2D_Location_Fields</a></td>
+            <td class="CFunction"><a
+            name="LSP_2D_Location"></a>LSP_2D_Location;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/LSR2DLocation.htm">SE_LSR_2D_Location_Fields</a></td>
+            <td class="CFunction"><a
+            name="LSR_2D_Location"></a>LSR_2D_Location;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/LSR3DLocation.htm">SE_LSR_3D_Location_Fields</a></td>
+            <td class="CFunction"><a
+            name="LSR_3D_Location"></a>LSR_3D_Location;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/LSR3DLocationControlLink.htm">SE_LSR_3D_Location_Control_Link_Fields</a></td>
+            <td class="CFunction"><a
+            name="LSR_3D_Location_Control_Link"></a>LSR_3D_Location_Control_Link;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/LSRTransformation.htm">SE_LSR_Transformation_Fields</a></td>
+            <td class="CFunction"><a
+            name="LSR_Transformation"></a>LSR_Transformation;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/LSRTransformationStep.htm">SE_LSR_Transformation_Step_Fields</a></td>
+            <td class="CFunction"><a
+            name="LSR_Transformation_Step"></a>LSR_Transformation_Step;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/LTSAS3DLocation.htm">SE_LTSAS_3D_Location_Fields</a></td>
+            <td class="CFunction"><a
+            name="LTSAS_3D_Location"></a>LTSAS_3D_Location;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/LTSASSurfaceLocation.htm">SE_LTSAS_Surface_Location_Fields</a></td>
+            <td class="CFunction"><a
+            name="LTSAS_Surface_Location"></a>LTSAS_Surface_Location;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/LTSC3DLocation.htm">SE_LTSC_3D_Location_Fields</a></td>
+            <td class="CFunction"><a
+            name="LTSC_3D_Location"></a>LTSC_3D_Location;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/LTSCSurfaceLocation.htm">SE_LTSC_Surface_Location_Fields</a></td>
+            <td class="CFunction"><a
+            name="LTSC_Surface_Location"></a>LTSC_Surface_Location;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/LTSE3DLocation.htm">SE_LTSE_3D_Location_Fields</a></td>
+            <td class="CFunction"><a
+            name="LTSE_3D_Location"></a>LTSE_3D_Location;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/LTSESurfaceLocation.htm">SE_LTSE_Surface_Location_Fields</a></td>
+            <td class="CFunction"><a
+            name="LTSE_Surface_Location"></a>LTSE_Surface_Location;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/MAugmented3DLocation.htm">SE_M_Augmented_3D_Location_Fields</a></td>
+            <td class="CFunction"><a
+            name="M_Augmented_3D_Location"></a>M_Augmented_3D_Location;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/MSurfaceLocation.htm">SE_M_Surface_Location_Fields</a></td>
+            <td class="CFunction"><a
+            name="M_Surface_Location"></a>M_Surface_Location;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/MapScaleLODData.htm">SE_Map_Scale_LOD_Data_Fields</a></td>
+            <td class="CFunction"><a
+            name="Map_Scale_LOD_Data"></a>Map_Scale_LOD_Data;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/MeshFaceTable.htm">SE_Mesh_Face_Table_Fields</a></td>
+            <td class="CFunction"><a
+            name="Mesh_Face_Table"></a>Mesh_Face_Table;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/Model.htm">SE_Model_Fields</a></td>
+            <td class="CFunction"><a name="Model"></a>Model;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/ModelInstanceTemplateIndex.htm">SE_Model_Instance_Template_Index_Fields</a></td>
+            <td class="CFunction"><a
+            name="Model_Instance_Template_Index"></a>Model_Instance_Template_Index;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/ModelLibrary.htm">SE_Model_Library_Fields</a></td>
+            <td class="CFunction"><a
+            name="Model_Library"></a>Model_Library;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/MovingLightBehaviour.htm">SE_Moving_Light_Behaviour_Fields</a></td>
+            <td class="CFunction"><a
+            name="Moving_Light_Behaviour"></a>Moving_Light_Behaviour;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/OctantData.htm">SE_Octant_Data_Fields</a></td>
+            <td class="CFunction"><a name="Octant_Data"></a>Octant_Data;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/OctantRelatedFeatures.htm">SE_Octant_Related_Features_Fields</a></td>
+            <td class="CFunction"><a
+            name="Octant_Related_Features"></a>Octant_Related_Features;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/OctantRelatedGeometry.htm">SE_Octant_Related_Geometry_Fields</a></td>
+            <td class="CFunction"><a
+            name="Octant_Related_Geometry"></a>Octant_Related_Geometry;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/OMSAugmented3DLocation.htm">SE_OMS_Augmented_3D_Location_Fields</a></td>
+            <td class="CFunction"><a
+            name="OMS_Augmented_3D_Location"></a>OMS_Augmented_3D_Location;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/OMSSurfaceLocation.htm">SE_OMS_Surface_Location_Fields</a></td>
+            <td class="CFunction"><a
+            name="OMS_Surface_Location"></a>OMS_Surface_Location;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/OverloadPriorityIndex.htm">SE_Overload_Priority_Index_Fields</a></td>
+            <td class="CFunction"><a
+            name="Overload_Priority_Index"></a>Overload_Priority_Index;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/ParallelepipedVolumeExtent.htm">SE_Parallelepiped_Volume_Extent_Fields</a></td>
+            <td class="CFunction"><a
+            name="Parallelepiped_Volume_Extent"></a>Parallelepiped_Volume_Extent;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/PD3DLocation.htm">SE_PD_3D_Location_Fields</a></td>
+            <td class="CFunction"><a
+            name="PD_3D_Location"></a>PD_3D_Location;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/PDSurfaceLocation.htm">SE_PD_Surface_Location_Fields</a></td>
+            <td class="CFunction"><a
+            name="PD_Surface_Location"></a>PD_Surface_Location;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/PerimeterData.htm">SE_Perimeter_Data_Fields</a></td>
+            <td class="CFunction"><a
+            name="Perimeter_Data"></a>Perimeter_Data;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/PerimeterRelatedFeatureTopology.htm">SE_Perimeter_Related_Feature_Topology_Fields</a></td>
+            <td class="CFunction"><a
+            name="Perimeter_Related_Feature_Topology"></a>Perimeter_Related_Feature_Topology;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/PerimeterRelatedFeatures.htm">SE_Perimeter_Related_Features_Fields</a></td>
+            <td class="CFunction"><a
+            name="Perimeter_Related_Features"></a>Perimeter_Related_Features;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/PerimeterRelatedGeometry.htm">SE_Perimeter_Related_Geometry_Fields</a></td>
+            <td class="CFunction"><a
+            name="Perimeter_Related_Geometry"></a>Perimeter_Related_Geometry;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/PerimeterRelatedGeometryTopology.htm">SE_Perimeter_Related_Geometry_Topology_Fields</a></td>
+            <td class="CFunction"><a
+            name="Perimeter_Related_Geometry_Topology"></a>Perimeter_Related_Geometry_Topology;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/Point.htm">SE_Point_Fields</a></td>
+            <td class="CFunction"><a name="Point"></a>Point;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/PointFeature.htm">SE_Point_Feature_Fields</a></td>
+            <td class="CFunction"><a
+            name="Point_Feature"></a>Point_Feature;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/Polygon.htm">SE_Polygon_Fields</a></td>
+            <td class="CFunction"><a name="Polygon"></a>Polygon;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/PolygonControlLink.htm">SE_Polygon_Control_Link_Fields</a></td>
+            <td class="CFunction"><a
+            name="Polygon_Control_Link"></a>Polygon_Control_Link;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/Polyhedron.htm">SE_Polyhedron_Fields</a></td>
+            <td class="CFunction"><a name="Polyhedron"></a>Polyhedron;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/PositionalLight.htm">SE_Positional_Light_Fields</a></td>
+            <td class="CFunction"><a
+            name="Positional_Light"></a>Positional_Light;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/PredefinedFunction.htm">SE_Predefined_Function_Fields</a></td>
+            <td class="CFunction"><a
+            name="Predefined_Function"></a>Predefined_Function;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/PresentationDomain.htm">SE_Presentation_Domain_Fields</a></td>
+            <td class="CFunction"><a
+            name="Presentation_Domain"></a>Presentation_Domain;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/PrimitiveColour.htm">SE_Primitive_Colour_Fields</a></td>
+            <td class="CFunction"><a
+            name="Primitive_Colour"></a>Primitive_Colour;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/PrimitiveFeature.htm">SE_Primitive_Feature_Fields</a></td>
+            <td class="CFunction"><a
+            name="Primitive_Feature"></a>Primitive_Feature;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/PrimitiveGeometry.htm">SE_Primitive_Geometry_Fields</a></td>
+            <td class="CFunction"><a
+            name="Primitive_Geometry"></a>Primitive_Geometry;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/PrimitiveSummaryItem.htm">SE_Primitive_Summary_Item_Fields</a></td>
+            <td class="CFunction"><a
+            name="Primitive_Summary_Item"></a>Primitive_Summary_Item;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/ProcessStep.htm">SE_Process_Step_Fields</a></td>
+            <td class="CFunction"><a name="Process_Step"></a>Process_Step;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/Property.htm">SE_Property_Fields</a></td>
+            <td class="CFunction"><a name="Property"></a>Property;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/PropertyCharacteristic.htm">SE_Property_Characteristic_Fields</a></td>
+            <td class="CFunction"><a
+            name="Property_Characteristic"></a>Property_Characteristic;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/PropertyDescription.htm">SE_Property_Description_Fields</a></td>
+            <td class="CFunction"><a
+            name="Property_Description"></a>Property_Description;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/PropertyGrid.htm">SE_Property_Grid_Fields</a></td>
+            <td class="CFunction"><a
+            name="Property_Grid"></a>Property_Grid;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/PropertyGridHookPoint.htm">SE_Property_Grid_Hook_Point_Fields</a></td>
+            <td class="CFunction"><a
+            name="Property_Grid_Hook_Point"></a>Property_Grid_Hook_Point;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/PropertySet.htm">SE_Property_Set_Fields</a></td>
+            <td class="CFunction"><a name="Property_Set"></a>Property_Set;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/PropertySetIndex.htm">SE_Property_Set_Index_Fields</a></td>
+            <td class="CFunction"><a
+            name="Property_Set_Index"></a>Property_Set_Index;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/PropertySetIndexControlLink.htm">SE_Property_Set_Index_Control_Link_Fields</a></td>
+            <td class="CFunction"><a
+            name="Property_Set_Index_Control_Link"></a>Property_Set_Index_Control_Link;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/PropertySetTable.htm">SE_Property_Set_Table_Fields</a></td>
+            <td class="CFunction"><a
+            name="Property_Set_Table"></a>Property_Set_Table;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/PropertySetTableGroup.htm">SE_Property_Set_Table_Group_Fields</a></td>
+            <td class="CFunction"><a
+            name="Property_Set_Table_Group"></a>Property_Set_Table_Group;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/PropertySetTableLibrary.htm">SE_Property_Set_Table_Library_Fields</a></td>
+            <td class="CFunction"><a
+            name="Property_Set_Table_Library"></a>Property_Set_Table_Library;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/PropertyTable.htm">SE_Property_Table_Fields</a></td>
+            <td class="CFunction"><a
+            name="Property_Table"></a>Property_Table;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/PropertyTableReference.htm">SE_Property_Table_Reference_Fields</a></td>
+            <td class="CFunction"><a
+            name="Property_Table_Reference"></a>Property_Table_Reference;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/PropertyTableReferenceControlLink.htm">SE_Property_Table_Reference_Control_Link_Fields</a></td>
+            <td class="CFunction"><a
+            name="Property_Table_Reference_Control_Link"></a>Property_Table_Reference_Control_Link;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/PropertyValue.htm">SE_Property_Value_Fields</a></td>
+            <td class="CFunction"><a
+            name="Property_Value"></a>Property_Value;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/ProximityData.htm">SE_Proximity_Data_Fields</a></td>
+            <td class="CFunction"><a
+            name="Proximity_Data"></a>Proximity_Data;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/PSAugmented3DLocation.htm">SE_PS_Augmented_3D_Location_Fields</a></td>
+            <td class="CFunction"><a
+            name="PS_Augmented_3D_Location"></a>PS_Augmented_3D_Location;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/PSSurfaceLocation.htm">SE_PS_Surface_Location_Fields</a></td>
+            <td class="CFunction"><a
+            name="PS_Surface_Location"></a>PS_Surface_Location;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/PseudoCodeFunction.htm">SE_Pseudo_Code_Function_Fields</a></td>
+            <td class="CFunction"><a
+            name="Pseudo_Code_Function"></a>Pseudo_Code_Function;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/PyramidDirectionalLight.htm">SE_Pyramid_Directional_Light_Fields</a></td>
+            <td class="CFunction"><a
+            name="Pyramid_Directional_Light"></a>Pyramid_Directional_Light;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/QuadrantData.htm">SE_Quadrant_Data_Fields</a></td>
+            <td class="CFunction"><a
+            name="Quadrant_Data"></a>Quadrant_Data;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/QuadrantRelatedFeatures.htm">SE_Quadrant_Related_Features_Fields</a></td>
+            <td class="CFunction"><a
+            name="Quadrant_Related_Features"></a>Quadrant_Related_Features;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/QuadrantRelatedGeometry.htm">SE_Quadrant_Related_Geometry_Fields</a></td>
+            <td class="CFunction"><a
+            name="Quadrant_Related_Geometry"></a>Quadrant_Related_Geometry;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/ReferenceOrigin.htm">SE_Reference_Origin_Fields</a></td>
+            <td class="CFunction"><a
+            name="Reference_Origin"></a>Reference_Origin;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/ReferenceSurface.htm">SE_Reference_Surface_Fields</a></td>
+            <td class="CFunction"><a
+            name="Reference_Surface"></a>Reference_Surface;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/ReferenceVector.htm">SE_Reference_Vector_Fields</a></td>
+            <td class="CFunction"><a
+            name="Reference_Vector"></a>Reference_Vector;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/ReferenceVectorControlLink.htm">SE_Reference_Vector_Control_Link_Fields</a></td>
+            <td class="CFunction"><a
+            name="Reference_Vector_Control_Link"></a>Reference_Vector_Control_Link;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/RegularAxis.htm">SE_Regular_Axis_Fields</a></td>
+            <td class="CFunction"><a name="Regular_Axis"></a>Regular_Axis;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/RelativeTime.htm">SE_Relative_Time_Fields</a></td>
+            <td class="CFunction"><a
+            name="Relative_Time"></a>Relative_Time;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/RelativeTimeInterval.htm">SE_Relative_Time_Interval_Fields</a></td>
+            <td class="CFunction"><a
+            name="Relative_Time_Interval"></a>Relative_Time_Interval;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/RenderingPriorityLevel.htm">SE_Rendering_Priority_Level_Fields</a></td>
+            <td class="CFunction"><a
+            name="Rendering_Priority_Level"></a>Rendering_Priority_Level;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/RenderingProperties.htm">SE_Rendering_Properties_Fields</a></td>
+            <td class="CFunction"><a
+            name="Rendering_Properties"></a>Rendering_Properties;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/ResponsibleParty.htm">SE_Responsible_Party_Fields</a></td>
+            <td class="CFunction"><a
+            name="Responsible_Party"></a>Responsible_Party;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/RGBColour.htm">SE_RGB_Colour_Fields</a></td>
+            <td class="CFunction"><a name="RGB_Colour"></a>RGB_Colour;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/RGBColourControlLink.htm">SE_RGB_Colour_Control_Link_Fields</a></td>
+            <td class="CFunction"><a
+            name="RGB_Colour_Control_Link"></a>RGB_Colour_Control_Link;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/RoleData.htm">SE_Role_Data_Fields</a></td>
+            <td class="CFunction"><a name="Role_Data"></a>Role_Data;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/RotatingLightBehaviour.htm">SE_Rotating_Light_Behaviour_Fields</a></td>
+            <td class="CFunction"><a
+            name="Rotating_Light_Behaviour"></a>Rotating_Light_Behaviour;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/Rotation.htm">SE_Rotation_Fields</a></td>
+            <td class="CFunction"><a name="Rotation"></a>Rotation;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/RotationControlLink.htm">SE_Rotation_Control_Link_Fields</a></td>
+            <td class="CFunction"><a
+            name="Rotation_Control_Link"></a>Rotation_Control_Link;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/Scale.htm">SE_Scale_Fields</a></td>
+            <td class="CFunction"><a name="Scale"></a>Scale;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/ScaleControlLink.htm">SE_Scale_Control_Link_Fields</a></td>
+            <td class="CFunction"><a
+            name="Scale_Control_Link"></a>Scale_Control_Link;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/Season.htm">SE_Season_Fields</a></td>
+            <td class="CFunction"><a name="Season"></a>Season;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/SecurityConstraints.htm">SE_Security_Constraints_Fields</a></td>
+            <td class="CFunction"><a
+            name="Security_Constraints"></a>Security_Constraints;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/SEC3DLocation.htm">SE_SEC_3D_Location_Fields</a></td>
+            <td class="CFunction"><a
+            name="SEC_3D_Location"></a>SEC_3D_Location;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/SEDRISAbstractBase.htm">SE_SEDRIS_Abstract_Base_Fields</a></td>
+            <td class="CFunction"><a
+            name="SEDRIS_Abstract_Base"></a>SEDRIS_Abstract_Base;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/SeparatingPlane.htm">SE_Separating_Plane_Fields</a></td>
+            <td class="CFunction"><a
+            name="Separating_Plane"></a>Separating_Plane;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/SeparatingPlaneData.htm">SE_Separating_Plane_Data_Fields</a></td>
+            <td class="CFunction"><a
+            name="Separating_Plane_Data"></a>Separating_Plane_Data;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/SeparatingPlaneRelatedGeometry.htm">SE_Separating_Plane_Related_Geometry_Fields</a></td>
+            <td class="CFunction"><a
+            name="Separating_Plane_Related_Geometry"></a>Separating_Plane_Related_Geometry;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/SeparatingPlaneRelations.htm">SE_Separating_Plane_Relations_Fields</a></td>
+            <td class="CFunction"><a
+            name="Separating_Plane_Relations"></a>Separating_Plane_Relations;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/SEQ3DLocation.htm">SE_SEQ_3D_Location_Fields</a></td>
+            <td class="CFunction"><a
+            name="SEQ_3D_Location"></a>SEQ_3D_Location;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/SMD3DLocation.htm">SE_SMD_3D_Location_Fields</a></td>
+            <td class="CFunction"><a
+            name="SMD_3D_Location"></a>SMD_3D_Location;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/SME3DLocation.htm">SE_SME_3D_Location_Fields</a></td>
+            <td class="CFunction"><a
+            name="SME_3D_Location"></a>SME_3D_Location;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/Sound.htm">SE_Sound_Fields</a></td>
+            <td class="CFunction"><a name="Sound"></a>Sound;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/SoundInstance.htm">SE_Sound_Instance_Fields</a></td>
+            <td class="CFunction"><a
+            name="Sound_Instance"></a>Sound_Instance;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/SoundInstanceControlLink.htm">SE_Sound_Instance_Control_Link_Fields</a></td>
+            <td class="CFunction"><a
+            name="Sound_Instance_Control_Link"></a>Sound_Instance_Control_Link;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/SoundLibrary.htm">SE_Sound_Library_Fields</a></td>
+            <td class="CFunction"><a
+            name="Sound_Library"></a>Sound_Library;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/SoundVolume.htm">SE_Sound_Volume_Fields</a></td>
+            <td class="CFunction"><a name="Sound_Volume"></a>Sound_Volume;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/Source.htm">SE_Source_Fields</a></td>
+            <td class="CFunction"><a name="Source"></a>Source;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/SpatialAssociationData.htm">SE_Spatial_Association_Data_Fields</a></td>
+            <td class="CFunction"><a
+            name="Spatial_Association_Data"></a>Spatial_Association_Data;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/SpatialExtent.htm">SE_Spatial_Extent_Fields</a></td>
+            <td class="CFunction"><a
+            name="Spatial_Extent"></a>Spatial_Extent;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/SpatialIndexData.htm">SE_Spatial_Index_Data_Fields</a></td>
+            <td class="CFunction"><a
+            name="Spatial_Index_Data"></a>Spatial_Index_Data;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/SpatialIndexRelatedFeatureTopology.htm">SE_Spatial_Index_Related_Feature_Topology_Fields</a></td>
+            <td class="CFunction"><a
+            name="Spatial_Index_Related_Feature_Topology"></a>Spatial_Index_Related_Feature_Topology;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/SpatialIndexRelatedFeatures.htm">SE_Spatial_Index_Related_Features_Fields</a></td>
+            <td class="CFunction"><a
+            name="Spatial_Index_Related_Features"></a>Spatial_Index_Related_Features;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/SpatialIndexRelatedGeometry.htm">SE_Spatial_Index_Related_Geometry_Fields</a></td>
+            <td class="CFunction"><a
+            name="Spatial_Index_Related_Geometry"></a>Spatial_Index_Related_Geometry;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/SpatialIndexRelatedGeometryTopology.htm">SE_Spatial_Index_Related_Geometry_Topology_Fields</a></td>
+            <td class="CFunction"><a
+            name="Spatial_Index_Related_Geometry_Topology"></a>Spatial_Index_Related_Geometry_Topology;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/SpatialResolutionLODData.htm">SE_Spatial_Resolution_LOD_Data_Fields</a></td>
+            <td class="CFunction"><a
+            name="Spatial_Resolution_LOD_Data"></a>Spatial_Resolution_LOD_Data;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/SpecularColour.htm">SE_Specular_Colour_Fields</a></td>
+            <td class="CFunction"><a
+            name="Specular_Colour"></a>Specular_Colour;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/SphericalVolumeExtent.htm">SE_Spherical_Volume_Extent_Fields</a></td>
+            <td class="CFunction"><a
+            name="Spherical_Volume_Extent"></a>Spherical_Volume_Extent;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/SpotLight.htm">SE_Spot_Light_Fields</a></td>
+            <td class="CFunction"><a name="Spot_Light"></a>Spot_Light;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/SRFSummary.htm">SE_SRF_Summary_Fields</a></td>
+            <td class="CFunction"><a name="SRF_Summary"></a>SRF_Summary;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/StampBehaviour.htm">SE_Stamp_Behaviour_Fields</a></td>
+            <td class="CFunction"><a
+            name="Stamp_Behaviour"></a>Stamp_Behaviour;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/StateControlLink.htm">SE_State_Control_Link_Fields</a></td>
+            <td class="CFunction"><a
+            name="State_Control_Link"></a>State_Control_Link;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/StateData.htm">SE_State_Data_Fields</a></td>
+            <td class="CFunction"><a name="State_Data"></a>State_Data;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/StateRelatedFeatures.htm">SE_State_Related_Features_Fields</a></td>
+            <td class="CFunction"><a
+            name="State_Related_Features"></a>State_Related_Features;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/StateRelatedGeometry.htm">SE_State_Related_Geometry_Fields</a></td>
+            <td class="CFunction"><a
+            name="State_Related_Geometry"></a>State_Related_Geometry;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/StrobingLightBehaviour.htm">SE_Strobing_Light_Behaviour_Fields</a></td>
+            <td class="CFunction"><a
+            name="Strobing_Light_Behaviour"></a>Strobing_Light_Behaviour;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/SurfaceGeometry.htm">SE_Surface_Geometry_Fields</a></td>
+            <td class="CFunction"><a
+            name="Surface_Geometry"></a>Surface_Geometry;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/Symbol.htm">SE_Symbol_Fields</a></td>
+            <td class="CFunction"><a name="Symbol"></a>Symbol;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/SymbolLibrary.htm">SE_Symbol_Library_Fields</a></td>
+            <td class="CFunction"><a
+            name="Symbol_Library"></a>Symbol_Library;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/TablePropertyDescription.htm">SE_Table_Property_Description_Fields</a></td>
+            <td class="CFunction"><a
+            name="Table_Property_Description"></a>Table_Property_Description;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/TackPoint.htm">SE_Tack_Point_Fields</a></td>
+            <td class="CFunction"><a name="Tack_Point"></a>Tack_Point;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/Text.htm">SE_Text_Fields</a></td>
+            <td class="CFunction"><a name="Text"></a>Text;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/TextureCoordinate.htm">SE_Texture_Coordinate_Fields</a></td>
+            <td class="CFunction"><a
+            name="Texture_Coordinate"></a>Texture_Coordinate;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/TextureCoordinateControlLink.htm">SE_Texture_Coordinate_Control_Link_Fields</a></td>
+            <td class="CFunction"><a
+            name="Texture_Coordinate_Control_Link"></a>Texture_Coordinate_Control_Link;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/TimeConstraintsData.htm">SE_Time_Constraints_Data_Fields</a></td>
+            <td class="CFunction"><a
+            name="Time_Constraints_Data"></a>Time_Constraints_Data;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/TimeInterval.htm">SE_Time_Interval_Fields</a></td>
+            <td class="CFunction"><a
+            name="Time_Interval"></a>Time_Interval;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/TimeOfDay.htm">SE_Time_Of_Day_Fields</a></td>
+            <td class="CFunction"><a name="Time_Of_Day"></a>Time_Of_Day;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/TimePoint.htm">SE_Time_Point_Fields</a></td>
+            <td class="CFunction"><a name="Time_Point"></a>Time_Point;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/TimeRelatedFeatures.htm">SE_Time_Related_Features_Fields</a></td>
+            <td class="CFunction"><a
+            name="Time_Related_Features"></a>Time_Related_Features;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/TimeRelatedGeometry.htm">SE_Time_Related_Geometry_Fields</a></td>
+            <td class="CFunction"><a
+            name="Time_Related_Geometry"></a>Time_Related_Geometry;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/TMAugmented3DLocation.htm">SE_TM_Augmented_3D_Location_Fields</a></td>
+            <td class="CFunction"><a
+            name="TM_Augmented_3D_Location"></a>TM_Augmented_3D_Location;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/TMSurfaceLocation.htm">SE_TM_Surface_Location_Fields</a></td>
+            <td class="CFunction"><a
+            name="TM_Surface_Location"></a>TM_Surface_Location;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/Transformation.htm">SE_Transformation_Fields</a></td>
+            <td class="CFunction"><a
+            name="Transformation"></a>Transformation;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/Translation.htm">SE_Translation_Fields</a></td>
+            <td class="CFunction"><a name="Translation"></a>Translation;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/TranslationControlLink.htm">SE_Translation_Control_Link_Fields</a></td>
+            <td class="CFunction"><a
+            name="Translation_Control_Link"></a>Translation_Control_Link;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/Translucency.htm">SE_Translucency_Fields</a></td>
+            <td class="CFunction"><a name="Translucency"></a>Translucency;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/TranslucencyControlLink.htm">SE_Translucency_Control_Link_Fields</a></td>
+            <td class="CFunction"><a
+            name="Translucency_Control_Link"></a>Translucency_Control_Link;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/TransmittalRoot.htm">SE_Transmittal_Root_Fields</a></td>
+            <td class="CFunction"><a
+            name="Transmittal_Root"></a>Transmittal_Root;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/TransmittalSummary.htm">SE_Transmittal_Summary_Fields</a></td>
+            <td class="CFunction"><a
+            name="Transmittal_Summary"></a>Transmittal_Summary;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/TwinklingLightBehaviour.htm">SE_Twinkling_Light_Behaviour_Fields</a></td>
+            <td class="CFunction"><a
+            name="Twinkling_Light_Behaviour"></a>Twinkling_Light_Behaviour;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/UnionOfFeatureTopology.htm">SE_Union_Of_Feature_Topology_Fields</a></td>
+            <td class="CFunction"><a
+            name="Union_Of_Feature_Topology"></a>Union_Of_Feature_Topology;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/UnionOfFeatures.htm">SE_Union_Of_Features_Fields</a></td>
+            <td class="CFunction"><a
+            name="Union_Of_Features"></a>Union_Of_Features;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/UnionOfGeometry.htm">SE_Union_Of_Geometry_Fields</a></td>
+            <td class="CFunction"><a
+            name="Union_Of_Geometry"></a>Union_Of_Geometry;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/UnionOfGeometryHierarchy.htm">SE_Union_Of_Geometry_Hierarchy_Fields</a></td>
+            <td class="CFunction"><a
+            name="Union_Of_Geometry_Hierarchy"></a>Union_Of_Geometry_Hierarchy;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/UnionOfGeometryTopology.htm">SE_Union_Of_Geometry_Topology_Fields</a></td>
+            <td class="CFunction"><a
+            name="Union_Of_Geometry_Topology"></a>Union_Of_Geometry_Topology;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/UnionOfPrimitiveGeometry.htm">SE_Union_Of_Primitive_Geometry_Fields</a></td>
+            <td class="CFunction"><a
+            name="Union_Of_Primitive_Geometry"></a>Union_Of_Primitive_Geometry;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/Variable.htm">SE_Variable_Fields</a></td>
+            <td class="CFunction"><a name="Variable"></a>Variable;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/Vertex.htm">SE_Vertex_Fields</a></td>
+            <td class="CFunction"><a name="Vertex"></a>Vertex;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/VolumeExtent.htm">SE_Volume_Extent_Fields</a></td>
+            <td class="CFunction"><a
+            name="Volume_Extent"></a>Volume_Extent;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/VolumeGeometry.htm">SE_Volume_Geometry_Fields</a></td>
+            <td class="CFunction"><a
+            name="Volume_Geometry"></a>Volume_Geometry;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/VolumeLightBehaviour.htm">SE_Volume_Light_Behaviour_Fields</a></td>
+            <td class="CFunction"><a
+            name="Volume_Light_Behaviour"></a>Volume_Light_Behaviour;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/VolumeLODData.htm">SE_Volume_LOD_Data_Fields</a></td>
+            <td class="CFunction"><a
+            name="Volume_LOD_Data"></a>Volume_LOD_Data;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/VolumeObject.htm">SE_Volume_Object_Fields</a></td>
+            <td class="CFunction"><a
+            name="Volume_Object"></a>Volume_Object;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/VolumetricFeature.htm">SE_Volumetric_Feature_Fields</a></td>
+            <td class="CFunction"><a
+            name="Volumetric_Feature"></a>Volumetric_Feature;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/World3x3.htm">SE_World_3x3_Fields</a></td>
+            <td class="CFunction"><a name="World_3x3"></a>World_3x3;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../classes/WorldTransformation.htm">SE_World_Transformation_Fields</a></td>
+            <td class="CFunction"><a
+            name="World_Transformation"></a>World_Transformation;</td></tr>
+<tr><td class="CFunction"></td> <td class="CFunction">} <a name="u"></a>u;</td></tr>
+</table>
+<span class="Code">
+} SE_DRM_Class_Fields;</span>
+<br>
+
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SE_DRM_Class.htm">SE_DRM_Class</a>.
+<strong>Next:</strong> <a href="SE_DRM_Field_Structure.htm">SE_DRM_Field_Structure</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

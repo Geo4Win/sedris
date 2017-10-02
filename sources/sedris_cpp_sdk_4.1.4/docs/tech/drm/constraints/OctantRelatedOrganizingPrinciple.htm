@@ -1,0 +1,513 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Octant Related Organizing Principle</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX B - Constraints
+</font>
+<br>
+<font color="#ffffff">
+Octant Related Organizing Principle
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<h3>Definition</h3>
+<P>
+ Consider an instance <span class="ConstructName">O</span> that is either
+ an <A href="../classes/OctantRelatedGeometry.htm">&lt;Octant Related Geometry&gt;</A> instance or
+ an <A href="../classes/OctantRelatedFeatures.htm">&lt;Octant Related Features&gt;</A> instance.
+</P>
+<OL type='a'>
+<LI><P>
+ <span class="ConstructName">O</span> shall have a <A href="../classes/SpatialExtent.htm">&lt;Spatial Extent&gt;</A> component,
+ specifying the bounding volume that is being organized into
+ octants. Since a volume is being specified, this
+ <A href="../classes/SpatialExtent.htm">&lt;Spatial Extent&gt;</A> component
+ shall be specified in terms of <A href="../classes/Location3D.htm">&lt;Location 3D&gt;</A> components.
+</P></LI>
+<LI><P>
+ Each branch of <span class="ConstructName">O</span> shall comply with
+ the following constraints.
+</P>
+<OL type='1'>
+<LI><P>
+ Each component representing an octant shall have a
+ <A href="../classes/SpatialExtent.htm">&lt;Spatial Extent&gt;</A> component. In the case of
+ octants represented by
+ <A href="../classes/GeometryModelInstance.htm">&lt;Geometry Model Instance&gt;</A> instances or
+ <A href="../classes/FeatureModelInstance.htm">&lt;Feature Model Instance&gt;</A>
+ instances, the <A href="../classes/Model.htm">&lt;Model&gt;</A> instance being referenced shall
+ have the <A href="../classes/SpatialExtent.htm">&lt;Spatial Extent&gt;</A> component. Since a
+ subdivision of a volume is being specified, this
+ <A href="../classes/SpatialExtent.htm">&lt;Spatial Extent&gt;</A> instance shall be specified in
+ terms of <A href="../classes/Location3D.htm">&lt;Location 3D&gt;</A> instances.
+</P></LI>
+<LI><P>
+ For each branch of <span class="ConstructName">O</span>, each primitive
+ within the branch shall have a spatial extent fully contained
+ within that specified by the <A href="../classes/SpatialExtent.htm">&lt;Spatial Extent&gt;</A> instance
+ corresponding to the branch. Consequently, the
+ <span class="Code">unique_descendants</span> field of
+ <span class="ConstructName">O</span> shall be set to <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A>,
+ because no DRM object can be fully contained within the
+ <A href="../classes/SpatialExtent.htm">&lt;Spatial Extent&gt;</A> instance of more than one branch of
+ <span class="ConstructName">O</span>.
+</P></LI>
+<LI><P>
+ The regions specified by the branches shall not overlap; that is,
+ the corresponding <A href="../classes/SpatialExtent.htm">&lt;Spatial Extent&gt;</A> instances shall not
+ overlap.
+</P></LI>
+<LI><P>
+ The eight possible octant components'
+ <A href="../classes/SpatialExtent.htm">&lt;Spatial Extent&gt;</A> instances shall be specified in their
+ native SRF within the area specified by <span class="ConstructName">O</span>'s
+ <A href="../classes/SpatialExtent.htm">&lt;Spatial Extent&gt;</A> instance as shown in
+ <a href="#Figure3">Figure 3</a>. Consider the bounding area
+ specified by the <A href="../classes/SpatialExtent.htm">&lt;Spatial Extent&gt;</A> instance of
+ <span class="ConstructName">O</span>, as divided into eight octants of equal
+ size with the area specified from point &quot;a&quot; to
+ point &quot;o&quot; in <a href="#Figure3">Figure 3</a>.
+</P>
+<DIV align="center">
+<p>
+<A name="Figure3"></A>
+<IMG SRC="../Images/OctantID.png"
+  ALT="Octant Related Organizing Principle: Octant Specification">
+</p>
+<p class=FigureCaption>Figure 3 &#8212; &lt;DRM Octant Related Organizing Principle&gt; Octant Specification</p>
+</DIV>
+</P></LI>
+</OL>
+</LI>
+<LI><P>
+ If a branch with <A href="../types/SE_Octant.htm#SE_OCTANT_UPPER_RIGHT_BACK">SE_OCTANT_UPPER_RIGHT_BACK</A>
+ is present, its <A href="../classes/SpatialExtent.htm">&lt;Spatial Extent&gt;</A> instance shall specify
+ the area of the upper right back octant, from point
+&quot;h&quot; to point &quot;o&quot; in <a href="#Figure3">Figure 3</a>.
+ such that
+</P>
+<OL>
+<LI><P>its front boundary aligns with the back boundary of the
+ <A href="../types/SE_Octant.htm#SE_OCTANT_UPPER_RIGHT_FRONT">SE_OCTANT_UPPER_RIGHT_FRONT</A> octant's
+ <A href="../classes/SpatialExtent.htm">&lt;Spatial Extent&gt;</A> instance, if present; and
+</P></LI>
+<LI><P>its lower boundary aligns with the upper boundary of the
+<A href="../types/SE_Octant.htm#SE_OCTANT_LOWER_RIGHT_BACK">SE_OCTANT_LOWER_RIGHT_BACK</A> octant's
+ <A href="../classes/SpatialExtent.htm">&lt;Spatial Extent&gt;</A> instance, if present.
+</P></LI>
+<LI><P>In the case where a primitive lies entirely along the
+ right boundary of the branch, the primitive is considered to
+ lie within the spatial extent of the
+<A href="../types/SE_Octant.htm#SE_OCTANT_UPPER_RIGHT_BACK">SE_OCTANT_UPPER_RIGHT_BACK</A> octant and
+ not that of the <A href="../types/SE_Octant.htm#SE_OCTANT_UPPER_LEFT_BACK">SE_OCTANT_UPPER_LEFT_BACK</A> octant.
+</P></LI>
+<LI><P>In the case where a primitive lies entirely along the
+ front boundary of the branch, the primitive is considered to
+ lie within the spatial extent of the
+<A href="../types/SE_Octant.htm#SE_OCTANT_UPPER_RIGHT_BACK">SE_OCTANT_UPPER_RIGHT_BACK</A> octant and not
+ within that of the
+ <A href="../types/SE_Octant.htm#SE_OCTANT_UPPER_RIGHT_FRONT">SE_OCTANT_UPPER_RIGHT_FRONT</A> octant.
+</P></LI>
+<LI><P>In the case where a primitive lies entirely along the
+ lower boundary of the branch, the primitive is considered to
+ lie within the spatial extent of the
+<A href="../types/SE_Octant.htm#SE_OCTANT_UPPER_RIGHT_BACK">SE_OCTANT_UPPER_RIGHT_BACK</A> octant and
+ not within that of the
+ <A href="../types/SE_Octant.htm#SE_OCTANT_LOWER_RIGHT_BACK">SE_OCTANT_LOWER_RIGHT_BACK</A> octant.
+</P></LI>
+</OL>
+</LI>
+<LI><P>
+ If a branch with <A href="../types/SE_Octant.htm#SE_OCTANT_UPPER_LEFT_BACK">SE_OCTANT_UPPER_LEFT_BACK</A>
+ is present, its <A href="../classes/SpatialExtent.htm">&lt;Spatial Extent&gt;</A> instance shall specify
+ the area of the upper left back octant, from point
+&quot;g&quot; to point &quot;n&quot; in <a href="#Figure3">Figure 3</a>.
+ such that
+</P>
+<OL>
+<LI><P>
+ the <A href="../classes/Location3D.htm">&lt;Location 3D&gt;</A> instance representing its upper left back
+ corner corresponds to that of <span class="ConstructName">O</span>'s
+ <A href="../classes/SpatialExtent.htm">&lt;Spatial Extent&gt;</A> instance;
+</P></LI>
+<LI><P>its right boundary aligns with the left boundary of the
+ <A href="../types/SE_Octant.htm#SE_OCTANT_UPPER_RIGHT_BACK">SE_OCTANT_UPPER_RIGHT_BACK</A> octant's
+ <A href="../classes/SpatialExtent.htm">&lt;Spatial Extent&gt;</A> instance, if present, and its
+ front boundary aligns with the back boundary of the
+ <A href="../types/SE_Octant.htm#SE_OCTANT_UPPER_LEFT_FRONT">SE_OCTANT_UPPER_LEFT_FRONT</A> octant's
+ <A href="../classes/SpatialExtent.htm">&lt;Spatial Extent&gt;</A> instance, if present; and
+</P></LI>
+<LI><P>its lower boundary aligns with the upper boundary of the
+<A href="../types/SE_Octant.htm#SE_OCTANT_LOWER_RIGHT_BACK">SE_OCTANT_LOWER_RIGHT_BACK</A> octant's
+<A href="../classes/SpatialExtent.htm">&lt;Spatial Extent&gt;</A> instance, if present.
+</P></LI>
+<LI><P>In the case where a primitive lies entirely along the
+ right boundary of the branch, the primitive is considered not
+ to lie within the spatial extent of the
+<A href="../types/SE_Octant.htm#SE_OCTANT_UPPER_LEFT_BACK">SE_OCTANT_UPPER_LEFT_BACK</A> octant but within
+ that of the <A href="../types/SE_Octant.htm#SE_OCTANT_UPPER_RIGHT_BACK">SE_OCTANT_UPPER_RIGHT_BACK</A> octant.
+</P></LI>
+<LI><P>In the case where a primitive lies entirely along the
+ front boundary of the branch, the primitive is considered to
+ lie within the spatial extent of the
+<A href="../types/SE_Octant.htm#SE_OCTANT_UPPER_LEFT_BACK">SE_OCTANT_UPPER_LEFT_BACK</A> octant and not
+ within that of the
+ <A href="../types/SE_Octant.htm#SE_OCTANT_UPPER_LEFT_FRONT">SE_OCTANT_UPPER_LEFT_FRONT</A> octant.
+</P></LI>
+<LI><P>In the case where a primitive lies entirely along the
+ lower boundary of the branch, the primitive is considered to
+ lie within the spatial extent of the
+<A href="../types/SE_Octant.htm#SE_OCTANT_UPPER_LEFT_BACK">SE_OCTANT_UPPER_LEFT_BACK</A> octant and
+ not within that of the
+ <A href="../types/SE_Octant.htm#SE_OCTANT_LOWER_LEFT_BACK">SE_OCTANT_LOWER_LEFT_BACK</A> octant.
+</P></LI>
+</OL>
+</LI>
+<LI><P>
+ If a branch with <A href="../types/SE_Octant.htm#SE_OCTANT_UPPER_RIGHT_FRONT">SE_OCTANT_UPPER_RIGHT_FRONT</A>
+ is present, its <A href="../classes/SpatialExtent.htm">&lt;Spatial Extent&gt;</A> instance shall specify
+ the area of the upper right front octant, from point
+&quot;f&quot; to point &quot;m&quot; in <a href="#Figure3">Figure 3</a>.
+ such that
+</P>
+<OL>
+<LI><P>its left boundary aligns with the right boundary of the
+ <A href="../types/SE_Octant.htm#SE_OCTANT_UPPER_LEFT_FRONT">SE_OCTANT_UPPER_LEFT_FRONT</A> octant's
+ <A href="../classes/SpatialExtent.htm">&lt;Spatial Extent&gt;</A> instance, if present; and
+</P></LI>
+<LI><P>its back boundary aligns with the front boundary of the
+<A href="../types/SE_Octant.htm#SE_OCTANT_UPPER_RIGHT_BACK">SE_OCTANT_UPPER_RIGHT_BACK</A> octant's
+ <A href="../classes/SpatialExtent.htm">&lt;Spatial Extent&gt;</A> instance, if present.
+</P></LI>
+<LI><P>its lower boundary aligns with the upper boundary of the
+<A href="../types/SE_Octant.htm#SE_OCTANT_LOWER_RIGHT_FRONT">SE_OCTANT_LOWER_RIGHT_FRONT</A> octant's
+ <A href="../classes/SpatialExtent.htm">&lt;Spatial Extent&gt;</A> instance, if present.
+</P></LI>
+<LI><P>In the case where a primitive lies entirely along the
+ right boundary of the branch, the primitive is considered to
+ lie within the spatial extent of the
+<A href="../types/SE_Octant.htm#SE_OCTANT_UPPER_RIGHT_FRONT">SE_OCTANT_UPPER_RIGHT_FRONT</A> octant and
+ not that of the <A href="../types/SE_Octant.htm#SE_OCTANT_UPPER_LEFT_FRONT">SE_OCTANT_UPPER_LEFT_FRONT</A> octant.
+</P></LI>
+<LI><P>In the case where a primitive lies entirely along the
+ back boundary of the branch, the primitive is considered to
+ lie within the spatial extent of the
+<A href="../types/SE_Octant.htm#SE_OCTANT_UPPER_RIGHT_FRONT">SE_OCTANT_UPPER_RIGHT_FRONT</A> octant and not
+ within that of the
+ <A href="../types/SE_Octant.htm#SE_OCTANT_UPPER_LEFT_FRONT">SE_OCTANT_UPPER_LEFT_FRONT</A> octant.
+</P></LI>
+<LI><P>In the case where a primitive lies entirely along the
+ lower boundary of the branch, the primitive is considered to
+ lie within the spatial extent of the
+<A href="../types/SE_Octant.htm#SE_OCTANT_UPPER_RIGHT_FRONT">SE_OCTANT_UPPER_RIGHT_FRONT</A> octant and
+ not within that of the
+ <A href="../types/SE_Octant.htm#SE_OCTANT_LOWER_RIGHT_FRONT">SE_OCTANT_LOWER_RIGHT_FRONT</A> octant.
+</P></LI>
+</OL>
+</LI>
+<LI><P>
+ If a branch with <A href="../types/SE_Octant.htm#SE_OCTANT_UPPER_LEFT_FRONT">SE_OCTANT_UPPER_LEFT_FRONT</A>
+ is present, its <A href="../classes/SpatialExtent.htm">&lt;Spatial Extent&gt;</A> instance shall specify
+ the area of the upper left front octant, from point
+&quot;e&quot; to point &quot;l&quot; in <a href="#Figure3">Figure 3</a>.
+ such that
+</P>
+<OL>
+<LI><P>its right boundary aligns with the left boundary of the
+ <A href="../types/SE_Octant.htm#SE_OCTANT_UPPER_RIGHT_FRONT">SE_OCTANT_UPPER_RIGHT_FRONT</A> octant's
+ <A href="../classes/SpatialExtent.htm">&lt;Spatial Extent&gt;</A> instance, if present; and
+</P></LI>
+<LI><P>its back boundary aligns with the front boundary of the
+<A href="../types/SE_Octant.htm#SE_OCTANT_UPPER_LEFT_BACK">SE_OCTANT_UPPER_LEFT_BACK</A> octant's
+ <A href="../classes/SpatialExtent.htm">&lt;Spatial Extent&gt;</A> instance, if present.
+</P></LI>
+<LI><P>its lower boundary aligns with the upper boundary of the
+<A href="../types/SE_Octant.htm#SE_OCTANT_LOWER_LEFT_FRONT">SE_OCTANT_LOWER_LEFT_FRONT</A> octant's
+ <A href="../classes/SpatialExtent.htm">&lt;Spatial Extent&gt;</A> instance, if present.
+</P></LI>
+<LI><P>In the case where a primitive lies entirely along the
+ right boundary of the branch, the primitive is considered
+ not to lie within the spatial extent of the
+<A href="../types/SE_Octant.htm#SE_OCTANT_UPPER_LEFT_FRONT">SE_OCTANT_UPPER_LEFT_FRONT</A> octant but
+ within that of the
+ <A href="../types/SE_Octant.htm#SE_OCTANT_UPPER_RIGHT_FRONT">SE_OCTANT_UPPER_RIGHT_FRONT</A> octant.
+</P></LI>
+<LI><P>In the case where a primitive lies entirely along the
+ back boundary of the branch, the primitive is considered to
+ lie within the spatial extent of the
+<A href="../types/SE_Octant.htm#SE_OCTANT_UPPER_LEFT_BACK">SE_OCTANT_UPPER_LEFT_BACK</A> octant and not
+ within that of the
+ <A href="../types/SE_Octant.htm#SE_OCTANT_UPPER_LEFT_FRONT">SE_OCTANT_UPPER_LEFT_FRONT</A> octant.
+</P></LI>
+<LI><P>In the case where a primitive lies entirely along the
+ lower boundary of the branch, the primitive is considered to
+ lie within the spatial extent of the
+<A href="../types/SE_Octant.htm#SE_OCTANT_UPPER_LEFT_FRONT">SE_OCTANT_UPPER_LEFT_FRONT</A> octant and
+ not within that of the
+ <A href="../types/SE_Octant.htm#SE_OCTANT_LOWER_LEFT_FRONT">SE_OCTANT_LOWER_LEFT_FRONT</A> octant.
+</P></LI>
+</OL>
+</LI>
+<LI><P>
+ If a branch with <A href="../types/SE_Octant.htm#SE_OCTANT_LOWER_RIGHT_BACK">SE_OCTANT_LOWER_RIGHT_BACK</A>
+ is present, its <A href="../classes/SpatialExtent.htm">&lt;Spatial Extent&gt;</A> instance shall specify
+ the area of the lower right back octant, from point
+&quot;d&quot; to point &quot;k&quot; in <a href="#Figure3">Figure 3</a>.
+ such that
+</P>
+<OL>
+<LI><P>its left boundary aligns with the right boundary of the
+ <A href="../types/SE_Octant.htm#SE_OCTANT_LOWER_LEFT_BACK">SE_OCTANT_LOWER_LEFT_BACK</A> octant's
+ <A href="../classes/SpatialExtent.htm">&lt;Spatial Extent&gt;</A> instance, if present; and
+</P></LI>
+<LI><P>its front boundary aligns with the back boundary of the
+ <A href="../types/SE_Octant.htm#SE_OCTANT_LOWER_RIGHT_FRONT">SE_OCTANT_LOWER_RIGHT_FRONT</A> octant's
+ <A href="../classes/SpatialExtent.htm">&lt;Spatial Extent&gt;</A> instance, if present; and
+</P></LI>
+<LI><P>its upper boundary aligns with the lower boundary of the
+<A href="../types/SE_Octant.htm#SE_OCTANT_UPPER_RIGHT_BACK">SE_OCTANT_UPPER_RIGHT_BACK</A> octant's
+ <A href="../classes/SpatialExtent.htm">&lt;Spatial Extent&gt;</A> instance, if present.
+</P></LI>
+<LI><P>In the case where a primitive lies entirely along the
+ right boundary of the branch, the primitive is considered to
+ lie within the spatial extent of the
+<A href="../types/SE_Octant.htm#SE_OCTANT_LOWER_RIGHT_BACK">SE_OCTANT_LOWER_RIGHT_BACK</A> octant and
+ not that of the <A href="../types/SE_Octant.htm#SE_OCTANT_LOWER_LEFT_BACK">SE_OCTANT_LOWER_LEFT_BACK</A> octant.
+</P></LI>
+<LI><P>In the case where a primitive lies entirely along the
+ front boundary of the branch, the primitive is considered to
+ lie within the spatial extent of the
+<A href="../types/SE_Octant.htm#SE_OCTANT_LOWER_RIGHT_BACK">SE_OCTANT_LOWER_RIGHT_BACK</A> octant and not
+ within that of the
+ <A href="../types/SE_Octant.htm#SE_OCTANT_LOWER_RIGHT_FRONT">SE_OCTANT_LOWER_RIGHT_FRONT</A> octant.
+</P></LI>
+<LI><P>In the case where a primitive lies entirely along the
+ upper boundary of the branch, the primitive is considered to
+ lie within the spatial extent of the
+<A href="../types/SE_Octant.htm#SE_OCTANT_UPPER_RIGHT_BACK">SE_OCTANT_UPPER_RIGHT_BACK</A> octant and
+ not within that of the
+ <A href="../types/SE_Octant.htm#SE_OCTANT_LOWER_RIGHT_BACK">SE_OCTANT_LOWER_RIGHT_BACK</A> octant.
+</P></LI>
+</OL>
+</LI>
+<LI><P>
+ If a branch with <A href="../types/SE_Octant.htm#SE_OCTANT_LOWER_LEFT_BACK">SE_OCTANT_LOWER_LEFT_BACK</A>
+ is present, its <A href="../classes/SpatialExtent.htm">&lt;Spatial Extent&gt;</A> instance shall specify
+ the area of the lower left back octant, from point
+&quot;c&quot; to point &quot;j&quot; in <a href="#Figure3">Figure 3</a>.
+ such that
+</P>
+<OL>
+<LI><P>its right boundary aligns with the left boundary of the
+ <A href="../types/SE_Octant.htm#SE_OCTANT_LOWER_RIGHT_BACK">SE_OCTANT_LOWER_RIGHT_BACK</A> octant's
+ <A href="../classes/SpatialExtent.htm">&lt;Spatial Extent&gt;</A> instance, if present;
+</P></LI>
+<LI><P>its front boundary aligns with the back boundary of the
+ <A href="../types/SE_Octant.htm#SE_OCTANT_LOWER_LEFT_FRONT">SE_OCTANT_LOWER_LEFT_FRONT</A> octant's
+ <A href="../classes/SpatialExtent.htm">&lt;Spatial Extent&gt;</A> instance, if present; and
+</P></LI>
+<LI><P>its upper boundary aligns with the lower boundary of the
+<A href="../types/SE_Octant.htm#SE_OCTANT_UPPER_LEFT_BACK">SE_OCTANT_UPPER_LEFT_BACK</A> octant's
+<A href="../classes/SpatialExtent.htm">&lt;Spatial Extent&gt;</A> instance, if present.
+</P></LI>
+<LI><P>In the case where a primitive lies entirely along the
+ right boundary of the branch, the primitive is considered not
+ to lie within the spatial extent of the
+<A href="../types/SE_Octant.htm#SE_OCTANT_LOWER_LEFT_BACK">SE_OCTANT_LOWER_LEFT_BACK</A> octant but within
+ that of the <A href="../types/SE_Octant.htm#SE_OCTANT_LOWER_RIGHT_BACK">SE_OCTANT_LOWER_RIGHT_BACK</A> octant.
+</P></LI>
+<LI><P>In the case where a primitive lies entirely along the
+ front boundary of the branch, the primitive is considered to
+ lie within the spatial extent of the
+<A href="../types/SE_Octant.htm#SE_OCTANT_LOWER_LEFT_BACK">SE_OCTANT_LOWER_LEFT_BACK</A> octant and not
+ within that of the
+ <A href="../types/SE_Octant.htm#SE_OCTANT_LOWER_LEFT_FRONT">SE_OCTANT_LOWER_LEFT_FRONT</A> octant.
+</P></LI>
+<LI><P>In the case where a primitive lies entirely along the
+ lower boundary of the branch, the primitive is considered to
+ lie within the spatial extent of the
+<A href="../types/SE_Octant.htm#SE_OCTANT_UPPER_LEFT_BACK">SE_OCTANT_UPPER_LEFT_BACK</A> octant and
+ not within that of the
+ <A href="../types/SE_Octant.htm#SE_OCTANT_LOWER_LEFT_BACK">SE_OCTANT_LOWER_LEFT_BACK</A> octant.
+</P></LI>
+</OL>
+</LI>
+<LI><P>
+ If a branch with <A href="../types/SE_Octant.htm#SE_OCTANT_LOWER_RIGHT_FRONT">SE_OCTANT_LOWER_RIGHT_FRONT</A>
+ is present, its <A href="../classes/SpatialExtent.htm">&lt;Spatial Extent&gt;</A> instance shall specify
+ the area of the lower right front octant, from point
+&quot;b&quot; to point &quot;i&quot; in <a href="#Figure3">Figure 3</a>.
+ such that
+</P>
+<OL>
+<LI><P>
+ the <A href="../classes/Location3D.htm">&lt;Location 3D&gt;</A> instance representing its lower right front
+ corner corresponds to that of <span class="ConstructName">O</span>'s
+ <A href="../classes/SpatialExtent.htm">&lt;Spatial Extent&gt;</A> instance;
+</P></LI>
+<LI><P>its left boundary aligns with the right boundary of the
+ <A href="../types/SE_Octant.htm#SE_OCTANT_LOWER_LEFT_FRONT">SE_OCTANT_LOWER_LEFT_FRONT</A> octant's
+ <A href="../classes/SpatialExtent.htm">&lt;Spatial Extent&gt;</A> instance, if present; and
+</P></LI>
+<LI><P>its back boundary aligns with the front boundary of the
+<A href="../types/SE_Octant.htm#SE_OCTANT_LOWER_RIGHT_BACK">SE_OCTANT_LOWER_RIGHT_BACK</A> octant's
+ <A href="../classes/SpatialExtent.htm">&lt;Spatial Extent&gt;</A> instance, if present.
+</P></LI>
+<LI><P>its upper boundary aligns with the lower boundary of the
+<A href="../types/SE_Octant.htm#SE_OCTANT_UPPER_RIGHT_FRONT">SE_OCTANT_UPPER_RIGHT_FRONT</A> octant's
+ <A href="../classes/SpatialExtent.htm">&lt;Spatial Extent&gt;</A> instance, if present.
+</P></LI>
+<LI><P>In the case where a primitive lies entirely along the
+ right boundary of the branch, the primitive is considered to
+ lie within the spatial extent of the
+<A href="../types/SE_Octant.htm#SE_OCTANT_LOWER_RIGHT_FRONT">SE_OCTANT_LOWER_RIGHT_FRONT</A> octant and
+ not that of the <A href="../types/SE_Octant.htm#SE_OCTANT_LOWER_LEFT_FRONT">SE_OCTANT_LOWER_LEFT_FRONT</A> octant.
+</P></LI>
+<LI><P>In the case where a primitive lies entirely along the
+ back boundary of the branch, the primitive is considered to
+ lie within the spatial extent of the
+<A href="../types/SE_Octant.htm#SE_OCTANT_LOWER_RIGHT_FRONT">SE_OCTANT_LOWER_RIGHT_FRONT</A> octant and not
+ within that of the
+ <A href="../types/SE_Octant.htm#SE_OCTANT_LOWER_LEFT_FRONT">SE_OCTANT_LOWER_LEFT_FRONT</A> octant.
+</P></LI>
+<LI><P>In the case where a primitive lies entirely along the
+ upper boundary of the branch, the primitive is considered to
+ lie within the spatial extent of the
+<A href="../types/SE_Octant.htm#SE_OCTANT_UPPER_RIGHT_FRONT">SE_OCTANT_UPPER_RIGHT_FRONT</A> octant and
+ not within that of the
+ <A href="../types/SE_Octant.htm#SE_OCTANT_LOWER_RIGHT_FRONT">SE_OCTANT_LOWER_RIGHT_FRONT</A> octant.
+</P></LI>
+</OL>
+</LI>
+<LI><P>
+ If a branch with <A href="../types/SE_Octant.htm#SE_OCTANT_LOWER_LEFT_FRONT">SE_OCTANT_LOWER_LEFT_FRONT</A>
+ is present, its <A href="../classes/SpatialExtent.htm">&lt;Spatial Extent&gt;</A> instance shall specify
+ the area of the lower left front octant, from point
+&quot;a&quot; to point &quot;h&quot; in <a href="#Figure3">Figure 3</a>.
+ such that
+</P>
+<OL>
+<LI><P>its right boundary aligns with the left boundary of the
+ <A href="../types/SE_Octant.htm#SE_OCTANT_LOWER_RIGHT_FRONT">SE_OCTANT_LOWER_RIGHT_FRONT</A> octant's
+ <A href="../classes/SpatialExtent.htm">&lt;Spatial Extent&gt;</A> instance, if present; and
+</P></LI>
+<LI><P>its back boundary aligns with the front boundary of the
+<A href="../types/SE_Octant.htm#SE_OCTANT_LOWER_LEFT_BACK">SE_OCTANT_LOWER_LEFT_BACK</A> octant's
+ <A href="../classes/SpatialExtent.htm">&lt;Spatial Extent&gt;</A> instance, if present.
+</P></LI>
+<LI><P>its upper boundary aligns with the lower boundary of the
+<A href="../types/SE_Octant.htm#SE_OCTANT_UPPER_LEFT_FRONT">SE_OCTANT_UPPER_LEFT_FRONT</A> octant's
+ <A href="../classes/SpatialExtent.htm">&lt;Spatial Extent&gt;</A> instance, if present.
+</P></LI>
+<LI><P>In the case where a primitive lies entirely along the
+ right boundary of the branch, the primitive is considered
+ not to lie within the spatial extent of the
+<A href="../types/SE_Octant.htm#SE_OCTANT_LOWER_LEFT_FRONT">SE_OCTANT_LOWER_LEFT_FRONT</A> octant but
+ within that of the
+ <A href="../types/SE_Octant.htm#SE_OCTANT_LOWER_RIGHT_FRONT">SE_OCTANT_LOWER_RIGHT_FRONT</A> octant.
+</P></LI>
+<LI><P>In the case where a primitive lies entirely along the
+ back boundary of the branch, the primitive is considered to
+ lie within the spatial extent of the
+<A href="../types/SE_Octant.htm#SE_OCTANT_LOWER_LEFT_BACK">SE_OCTANT_LOWER_LEFT_BACK</A> octant and not
+ within that of the
+ <A href="../types/SE_Octant.htm#SE_OCTANT_LOWER_LEFT_FRONT">SE_OCTANT_LOWER_LEFT_FRONT</A> octant.
+</P></LI>
+<LI><P>In the case where a primitive lies entirely along the
+ upper boundary of the branch, the primitive is considered to
+ lie within the spatial extent of the
+<A href="../types/SE_Octant.htm#SE_OCTANT_UPPER_LEFT_FRONT">SE_OCTANT_UPPER_LEFT_FRONT</A> octant and
+ not within that of the
+ <A href="../types/SE_Octant.htm#SE_OCTANT_LOWER_LEFT_FRONT">SE_OCTANT_LOWER_LEFT_FRONT</A> octant.
+</P></LI>
+</OL>
+</LI>
+<LI><P>
+ If <span class="ConstructName">O</span> has eight branches, the
+ <span class="Code">strict_organizing_principle</span> field of
+ <span class="ConstructName">O</span> shall be set to <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A>;
+ otherwise it shall be set to <A href="../types/SE_Boolean.htm#SE_FALSE">SE_FALSE</A>.
+</P></LI>
+</OL>
+
+<h3>Rationale</h3>
+<OL>
+<LI><P>
+ The octant-related organization shall provide a
+ <A href="../classes/SpatialExtent.htm">&lt;Spatial Extent&gt;</A>,
+ so that the data provider specifies the bounding volume that the
+ octant is dividing into octants.
+</P></LI>
+<LI><P>
+ Each component representing an octant shall specify a
+ <A href="../classes/SpatialExtent.htm">&lt;Spatial Extent&gt;</A> instance,
+ because although octants are intended to be of equal size,
+ &quot;size&quot; is not invariant under coordinate transformation. The
+ <A href="../classes/SpatialExtent.htm">&lt;Spatial Extent&gt;</A> instances
+ are necessary to ensure that the boundaries between octants are
+ well-defined when coordinate conversions and transformations are
+ applied.
+</P></LI>
+<LI><P>
+ The <A href="../classes/SpatialExtent.htm">&lt;Spatial Extent&gt;</A> instances of the
+ branches and the octants that they represent shall correspond.
+</P></LI>
+<LI><P>
+ These <A href="../classes/SpatialExtent.htm">&lt;Spatial Extent&gt;</A> instances shall
+ be 3D, because the concept of an octant is inherently 3D.
+</P></LI>
+</OL>
+<h3>Example</h3>
+<p>
+No example supplied.
+</p>
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ Why specify a <A href="../classes/SpatialExtent.htm">&lt;Spatial Extent&gt;</A> for
+ each branch of an octant? Aren't the octants of equal size?
+</B></DT>
+<DD><P>
+ 'Size' is not invariant under coordinate transformation.
+</P></DD>
+</DL>
+
+
+<hr>
+<strong>Prev:</strong> <A href="NonSelfOverlappingPerimeterDataLocations.htm">Non Self Overlapping Perimeter Data Locations</A>.
+<strong>Next:</strong> <A href="ParallelepipedStructure.htm">Parallelepiped Structure</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

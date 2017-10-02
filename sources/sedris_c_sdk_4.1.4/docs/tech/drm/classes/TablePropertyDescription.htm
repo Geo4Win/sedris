@@ -1,0 +1,298 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Table Property Description</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Table Property Description
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Table Property Description</h2>
+<h3>Superclass - <a href="SEDRISAbstractBase.htm">&lt;SEDRIS Abstract Base&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies a single data element for
+ a cell within a <A href="DataTable.htm">&lt;Data Table&gt;</A> instance by providing:
+</P>
+<OL type='a'>
+<LI>
+ an EAC,
+ <A href="../types/SE_Index_Code.htm">SE_Index_Code</A>, or
+ <A href="../types/SE_Variable_Code.htm">SE_Variable_Code</A>, identifying
+ the meaning of the cell data element,
+</LI>
+<LI>
+ a <A href="#value_type">value_type</A>
+ that specifies its storage type, and
+</LI>
+<LI>
+ an EUC and ESC that together specify the scaled unit of measurement
+ if the EAC is numeric.
+</LI>
+</OL>
+<P>
+ The complete structure of a cell within the given
+ <A href="DataTable.htm">&lt;Data Table&gt;</A> instance is described by the complete
+ ordered set of <A href="TablePropertyDescription.htm">&lt;Table Property Description&gt;</A>
+ components of that <A href="DataTable.htm">&lt;Data Table&gt;</A> instance.
+</P><P>
+ Additional information about the cell property being described,
+ where such information is to be applied throughout the scope of
+ the <A href="DataTable.htm">&lt;Data Table&gt;</A> instance, such as sentinel values
+ and tolerances, is specified by attaching
+ <A href="PropertyCharacteristic.htm">&lt;Property Characteristic&gt;</A> components to the applicable
+ <A href="TablePropertyDescription.htm">&lt;Table Property Description&gt;</A> instance(s).
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet06.pdf"><strong>6</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+This class appears on only one page of the DRM class diagram.
+<h3>Example</h3>
+<OL>
+<LI><P>
+ Consider a <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance
+ containing sound speed data for a body of water. For each
+ spatial location in the grid, the corresponding cell in the
+ <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance
+ specifies the properties of <A href="../../../../src/lib/edcs/docs/dictionary/EAC_P.htm#EAC_PRACTICAL_SALINITY">EAC_PRACTICAL_SALINITY</A>,
+ <A href="../../../../src/lib/edcs/docs/dictionary/EAC_M.htm#EAC_MEAN_WATERBODY_TEMPERATURE">EAC_MEAN_WATERBODY_TEMPERATURE</A>,
+ and <A href="../../../../src/lib/edcs/docs/dictionary/EAC_W.htm#EAC_WATERBODY_SOUND_SPEED">EAC_WATERBODY_SOUND_SPEED</A> at
+ that location as depicted in <a href="#Figure70">Figure 70</a>:
+</P>
+<DIV align="center">
+<p>
+<A name="Figure70"></A>
+<IMG SRC="../Images/TPDesc_Ex1.png"
+     ALT="Table Property Description, Example 1">
+</p>
+<p class=FigureCaption>Figure 70 &#8212; &lt;DRM Table Property Description&gt; example</p>
+</DIV>
+</LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ Why is the <A href="#value_type">value_type</A> field needed?
+</B></DT>
+<DD><P>
+ The storage type of each cell data element shall be specified,
+ and each cell data element shall be allowed to specify its own
+ storage type. This means that the storage type information cannot
+ be stored in the <A href="DataTable.htm">&lt;Data Table&gt;</A> instance's
+ own fields, but shall be specified at the
+ <A href="TablePropertyDescription.htm">&lt;Table Property Description&gt;</A>
+ instance level.
+</P><P>
+ Unlike a <A href="PropertyValue.htm">&lt;Property Value&gt;</A> instance,
+ which contains a complete <A href="../../../../src/lib/edcs/docs/types/EDCS_Attribute_Value.htm">EDCS_Attribute_Value</A>,
+ a <A href="TablePropertyDescription.htm">&lt;Table Property Description&gt;</A>
+ instance only needs to to specify the storage type without a value being
+ stored,
+ since the values being described are the cells of the
+ <A href="DataTable.htm">&lt;Data Table&gt;</A> instance, rather than any part of the
+ <A href="TablePropertyDescription.htm">&lt;Table Property Description&gt;</A>
+ instance itself.
+</P></DD>
+<DT><B>
+ What is the purpose of the
+ <A href="#component_data_table_ecc">component_data_table_ecc</A>
+ field and the optional
+ <A href="PropertyValue.htm">&lt;Property Value&gt;</A> components?
+</B></DT>
+<DD><P>
+ Consider a <A href="DataTable.htm">&lt;Data Table&gt;</A> instance with
+ more than one
+ <A href="TablePropertyDescription.htm">&lt;Table Property Description&gt;</A>
+ supplying the same <A href="../types/SE_Index_Code.htm">SE_Index_Code</A> as a
+ meaning, where that meaning is that each such
+ <A href="TablePropertyDescription.htm">&lt;Table Property Description&gt;</A>
+ acts as a signature element to reference other
+ <A href="DataTable.htm">&lt;Data Table&gt;</A> instances.
+</P><P>
+ In these cases, the
+ <A href="#component_data_table_ecc">component_data_table_ecc</A>,
+ possibly elaborated by optional
+ <A href="PropertyValue.htm">&lt;Property Value&gt;</A> components, is needed to
+ distinguish index values in any given cell.
+</P><P>
+ See <A href="ClassificationData.htm">&lt;Classification Data&gt;</A> and
+ <a href="../constraints/IndexCodeswithinTables.htm">&lt;&lt;Index Codes within Tables&gt;&gt;</a> for further information.
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/TablePropertyDescriptionConstraints.htm">&lt;&lt;Table Property Description Constraints&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Composed of (two-way)</h3>
+<UL>
+<li>zero or more <a href="PropertyCharacteristic.htm">&lt;Property Characteristic&gt;</a> instances</li>
+<li>zero or more <a href="PropertyValue.htm">&lt;Property Value&gt;</a> instances<sup><A href="#Notes_cmp_Property_Value" name="cmp_Property_Value">1</A></sup></li>
+</UL>
+
+<h3>Component of (two-way)</h3>
+<UL>
+<li>one or more <a href="DataTable.htm">&lt;Data Table&gt;</a> instances</li>
+</UL>
+
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Element_Type.htm">SE_Element_Type</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="meaning">meaning</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_meaning">2</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../../../../src/lib/edcs/docs/types/EDCS_Unit_Code.htm">EDCS_Unit_Code</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="value_unit">value_unit</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_value_unit">3</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../../../../src/lib/edcs/docs/types/EDCS_Unit_Scale_Code.htm">EDCS_Unit_Scale_Code</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="value_scale">value_scale</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_value_scale">4</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Data_Table_Data_Value_Type.htm">SE_Data_Table_Data_Value_Type</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="value_type">value_type</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_value_type">5</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../../../../src/lib/edcs/docs/types/EDCS_Classification_Code.htm">EDCS_Classification_Code</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="component_data_table_ecc">component_data_table_ecc</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_component_data_table_ecc">6</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Composed of Notes</h3>
+<br>
+<h4><a href="#cmp_Property_Value" name="Notes_cmp_Property_Value">Property_Value</a></h4>
+ The <A href="PropertyValue.htm">&lt;Property Value&gt;</A> components are provided only when the
+ <A href="TablePropertyDescription.htm">&lt;Table Property Description&gt;</A> instance specifies an
+ <A href="../../../../src/lib/edcs/docs/types/EDCS_Attribute_Code.htm">EDCS_Attribute_Code</A> as its
+ <A href="TablePropertyDescription.htm#meaning">meaning</A> field value
+ or when the <A href="TablePropertyDescription.htm">&lt;Table Property Description&gt;</A> instance specifies
+ an <A href="../types/SE_Index_Code.htm">SE_Index_Code</A> as its
+ <A href="TablePropertyDescription.htm#meaning">meaning</A> field value
+ such that the <A href="TablePropertyDescription.htm">&lt;Table Property Description&gt;</A> instance serves
+ as an index into another <A href="DataTable.htm">&lt;Data Table&gt;</A> instance.
+</P><P>
+ When the <A href="TablePropertyDescription.htm#meaning">meaning</A>
+ field value specifies an EAC, the
+ <A href="PropertyValue.htm">&lt;Property Value&gt;</A> components qualify the
+ <A href="TablePropertyDescription.htm#meaning">meaning</A>
+ field value.
+</P><P>
+ When the <A href="TablePropertyDescription.htm">&lt;Table Property Description&gt;</A> instance serves as an
+ index into another <A href="DataTable.htm">&lt;Data Table&gt;</A> instance,
+ <A href="PropertyValue.htm">&lt;Property Value&gt;</A> components are present when the
+ <A href="ClassificationData.htm">&lt;Classification Data&gt;</A> component of the target
+ <A href="DataTable.htm">&lt;Data Table&gt;</A> instance is elaborated by
+ <A href="PropertyValue.htm">&lt;Property Value&gt;</A> components. When such elaboration is
+ present in the target, the <A href="PropertyValue.htm">&lt;Property Value&gt;</A> components of
+ this <A href="TablePropertyDescription.htm">&lt;Table Property Description&gt;</A>
+ instance shall match those in the target.
+</P>
+<h3>Fields Notes</h3>
+<h4><a href="#meaning" name="Notes_meaning">meaning</a></h4>
+<P>
+ The <A href="#meaning">meaning</A> field
+ specifies the meaning of the
+ <A href="TablePropertyDescription.htm">&lt;Table Property Description&gt;</A>
+ instance.
+</P>
+<h4><a href="#value_unit" name="Notes_value_unit">value_unit</a></h4>
+<P>
+ The <A href="#value_unit">value_unit</A> field
+ specifies the unit of measurement of the
+ <A href="TablePropertyDescription.htm">&lt;Table Property Description&gt;</A>
+ instance.
+</P>
+<h4><a href="#value_scale" name="Notes_value_scale">value_scale</a></h4>
+<P>
+ The <A href="#value_scale">value_scale</A> field specifies
+ the scale applicable to <A href="#value_unit">value_unit</A>.
+</P>
+<h4><a href="#value_type" name="Notes_value_type">value_type</a></h4>
+<P>
+ The <A href="#value_type">value_type</A> field specifies
+ the storage type of the
+ <A href="TablePropertyDescription.htm">&lt;Table Property Description&gt;</A>
+ instance.
+</P>
+<h4><a href="#component_data_table_ecc" name="Notes_component_data_table_ecc">component_data_table_ecc</a></h4>
+<P>
+ The <A href="#component_data_table_ecc">component_data_table_ecc</A>
+ field specifies the ECC used to identify the table type
+ of a component or library
+ <A href="DataTable.htm">&lt;Data Table&gt;</A> instance.  It is only used if the
+ <A href="TablePropertyDescription.htm">&lt;Table Property Description&gt;</A>
+ instance is describing
+ an index that refers to a <A href="DataTable.htm">&lt;Data Table&gt;</A> instance.
+ This, in turn, is only the case if
+ <A href="#meaning">meaning</A> =
+ {<A href="../types/SE_Element_Type_Code.htm#SE_ELEMTYPCOD_INDEX">SE_ELEMTYPCOD_INDEX</A>,
+  {<A href="../types/SE_Index_Code.htm#SE_IDXCODE_DATA_TABLE_COMPONENT">SE_IDXCODE_DATA_TABLE_COMPONENT</A>}}
+ or
+ <A href="#meaning">meaning</A> =
+ {<A href="../types/SE_Element_Type_Code.htm#SE_ELEMTYPCOD_INDEX">SE_ELEMTYPCOD_INDEX</A>,
+ {<A href="../types/SE_Index_Code.htm#SE_IDXCODE_DATA_TABLE_LIBRARY">SE_IDXCODE_DATA_TABLE_LIBRARY</A>}}
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="SymbolLibrary.htm">Symbol Library</A>.
+<strong>Next:</strong> <A href="TackPoint.htm">Tack Point</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE GetNthAssociate</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+SE GetNthAssociate
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../types/SE_Return_Code.htm">SE_Return_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SE_GetNthAssociate</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/SE_Object.htm">SE_Object</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="from_object"></a>from_object,</td><td class="CFunction"><sup><A href="#Notes_from_object">1</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../../drm/types/SE_DRM_Class.htm">SE_DRM_Class</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="desired_associate_class"></a>desired_associate_class,</td><td class="CFunction"><sup><A href="#Notes_desired_associate_class">2</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../../drm/types/SE_Integer_Positive.htm">SE_Integer_Positive</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="n"></a>n,</td><td class="CFunction"><sup><A href="#Notes_n">3</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/SE_Object.htm">SE_Object</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="associate_object"></a>associate_object,</td><td class="CFunction"><sup><A href="#Notes_associate_object">4</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/SE_Object.htm">SE_Object</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="link_object"></a>link_object</td><td class="CFunction"><sup><A href="#Notes_link_object">5</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+  Given an object that has multiple, ordered associates of a certain
+  DRM class, returns an <A href="../types/SE_Object.htm">SE_Object</A> for the
+ Nth associate of that class.
+  ITR associates will be automatically resolved and if an ITR associate
+  is encountered that cannot be resolved, the call will return
+  <A href="../types/SE_Status_Code.htm#SE_STATCODE_UNRESOLVED_OUTPUT_OBJECT">SE_STATCODE_UNRESOLVED_OUTPUT_OBJECT</A>
+ for the n value passed in and any
+  higher n values.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A>
+</td><td class="Status">
+ and the requested object is returned.
+</td></tr>
+<tr><td class="Status">
+ <A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A>
+</td><td class="Status">
+ and the status code is set appropriately if the call failed.
+</td></tr>
+</table>
+
+<h3>Status Codes</h3>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A> is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_SUCCESS">SE_STATCODE_SUCCESS</A>
+</td><td class="Status">
+ set if valid parameters were passed in and all operations succeeded.
+</td></tr>
+</table>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A> is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_UNRESOLVED_OUTPUT_OBJECT">SE_STATCODE_UNRESOLVED_OUTPUT_OBJECT</A>
+</td><td class="Status">
+ set if valid parameters were passed in and valid objects are returned,
+ but the object returned using
+ <A href="#associate_object">*associate_object</A>
+ is unresolved.
+</td></tr>
+<tr><td class="Status">
+ <A href="../types/SE_Status_Code.htm#SE_STATCODE_UNRESOLVED_INPUT_OBJECT">SE_STATCODE_UNRESOLVED_INPUT_OBJECT</A>
+</td><td class="Status">
+ set if <A href="#from_object">from_object</A> is an unresolved
+ object.
+</td></tr>
+<tr><td class="Status">
+  <A href="../types/SE_Status_Code.htm#SE_STATCODE_NO_OBJECT">SE_STATCODE_NO_OBJECT</A>
+</td><td class="Status">
+ set if the <A href="#from_object">from_object</A> did not
+ contain 'n' associate objects of the desired class.
+</td></tr>
+<tr><td class="Status">
+ <A href="../types/SE_Status_Code.htm#SE_STATCODE_C_ENUMERATION_VALUE_INVALID">SE_STATCODE_C_ENUMERATION_VALUE_INVALID</A>
+</td><td class="Status">
+ set if <A href="#desired_associate_class">desired_associate_class</A>
+ was not valid.
+</td></tr>
+<tr><td class="Status">
+ <A href="../types/SE_Status_Code.htm#SE_STATCODE_INACTIONABLE_FAILURE">SE_STATCODE_INACTIONABLE_FAILURE</A>
+</td><td class="Status">
+ set if
+<OL>
+<LI> 'n' was 0 (since this is a 1-based index),
+</LI>
+<LI> the given class of associate is not ordered for the given
+     <A href="#from_object">from_object</A>, or
+</LI>
+ <LI> the call fails for any other reason.
+</LI>
+</OL>
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#from_object" name="Notes_from_object">1</a></sup>
+ the object containing the desired component
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#desired_associate_class" name="Notes_desired_associate_class">2</a></sup>
+ the DRM class of component the user wants.
+    Abstract types are allowed.  The SE_CLS_DRM_NULL is not.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#n" name="Notes_n">3</a></sup>
+ the 'index' of that component, given an ordered list of all components
+      of the desired class for the given from_object. This is a 1-based
+      index.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#associate_object" name="Notes_associate_object">4</a></sup>
+ a pointer to a variable in the user's memory
+    space, to which the desired associate of the from_object will be
+    copied.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#link_object" name="Notes_link_object">5</a></sup>
+ a pointer to
+    a variable in the user's memory space, to which the link object
+    (sometimes called the association class object) traversed to reach the
+    desired associate object will be copied. If no link class object was
+    attached to the link used to reach the desired associate object, then
+    *link_object will be NULL.
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SE_GetNextObject.htm">SE_GetNextObject</a>.
+<strong>Next:</strong> <a href="SE_GetNthComponent.htm">SE_GetNthComponent</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

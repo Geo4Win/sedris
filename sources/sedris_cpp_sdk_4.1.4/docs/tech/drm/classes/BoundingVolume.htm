@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Bounding Volume</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Bounding Volume
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Bounding Volume</h2>
+<h3>Superclass - <a href="EnclosingVolume.htm">&lt;Enclosing Volume&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies a volume that encompasses the
+ <A href="AggregateGeometry.htm">&lt;Aggregate Geometry&gt;</A> instance of which it is a
+ component.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet09.pdf"><strong>9</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet04.pdf"><strong>4</strong></A>
+</LI>
+</UL>
+
+<h3>Example</h3>
+<OL>
+<LI><P>
+ The rectangular <A href="BoundingVolume.htm">&lt;Bounding Volume&gt;</A> instance of a
+ house that is used to show the maximum extents of the house in three
+ dimensions.  This may be used to calculate first level ray-volume
+ intersections.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ Can the <A href="BoundingVolume.htm">&lt;Bounding Volume&gt;</A> component and
+ <A href="CollisionVolume.htm">&lt;Collision Volume&gt;</A> component of
+ an <A href="AggregateGeometry.htm">&lt;Aggregate Geometry&gt;</A> instance be the same?
+</B></DT>
+<DD><P>
+ Yes.
+</P></DD>
+<DT><B>
+ Can the <A href="BoundingVolume.htm">&lt;Bounding Volume&gt;</A> component and
+ <A href="CollisionVolume.htm">&lt;Collision Volume&gt;</A> component of
+ an <A href="AggregateGeometry.htm">&lt;Aggregate Geometry&gt;</A> instance be different?
+</B></DT>
+<DD><P>
+ Yes.
+</P></DD>
+<DT><B>
+ Is the <A href="BoundingVolume.htm">&lt;Bounding Volume&gt;</A> component the
+ convex hull of the
+ <A href="AggregateGeometry.htm">&lt;Aggregate Geometry&gt;</A> instance?
+</B></DT>
+<DD><P>
+ Not necessarily. The convex hull could be considerably more complex
+ than the <A href="BoundingVolume.htm">&lt;Bounding Volume&gt;</A> instance.
+</P></DD>
+<DT><B>
+ Does the <A href="BoundingVolume.htm">&lt;Bounding Volume&gt;</A> component
+ exactly contain the
+ <A href="AggregateGeometry.htm">&lt;Aggregate Geometry&gt;</A> instance?
+</B></DT>
+<DD><P>
+ In special cases, the <A href="BoundingVolume.htm">&lt;Bounding Volume&gt;</A>
+ component may fail to contain all of the geometry due to
+ distortion introduced by coordinate conversion or transformation.
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/InheritanceRuleForLocation.htm">&lt;&lt;Inheritance Rule For Location&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Composed of (two-way) (inherited)</h3>
+<UL>
+<li>one <a href="Location3D.htm">&lt;Location 3D&gt;</a> instance<sup><A href="#Notes_cmp_Location_3D" name="cmp_Location_3D">1</A></sup></li>
+<li>one <a href="VolumeExtent.htm">&lt;Volume Extent&gt;</a> instance<sup><A href="#Notes_cmp_Volume_Extent" name="cmp_Volume_Extent">2</A></sup></li>
+</UL>
+<h3>Component of (two-way)</h3>
+<UL>
+<li>one <a href="AggregateGeometry.htm">&lt;Aggregate Geometry&gt;</a> instance</li>
+</UL>
+
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<hr>
+<h2>Notes</h2>
+<h3>Composed of Notes</h3>
+<br>
+<h4><a href="#cmp_Location_3D" name="Notes_cmp_Location_3D">Location_3D</a></h4>
+ The <A href="Location3D.htm">&lt;Location 3D&gt;</A> component specifies the volume centre.
+</P>
+<br>
+<h4><a href="#cmp_Volume_Extent" name="Notes_cmp_Volume_Extent">Volume_Extent</a></h4>
+ The <A href="VolumeExtent.htm">&lt;Volume Extent&gt;</A> component specifies the volume shape.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="BlendDirectionalLight.htm">Blend Directional Light</A>.
+<strong>Next:</strong> <A href="BrowseMedia.htm">Browse Media</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

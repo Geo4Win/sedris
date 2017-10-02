@@ -1,0 +1,24 @@
+# Massive cheating going on here.
+# Prints out the word on the last column of the file
+# that this script processes, but will only print for 
+# the first line of the file.
+
+# 12/18/00 - Cheating fixed
+# This script now looks for the "Version" word in the 
+# output line of "CC -version" and then prints the version number
+# that follows it as long as the "CC -version" command
+# follows this convention of putting the version number
+# after the "Version" in the output line.
+
+
+NR == 1 {
+split($0, word);
+j=NF;
+for(i=1; i<=j; i++) 	
+{
+	if (word[i]=="Version")
+	{	
+		print substr(word[i+1],1,3);		
+	}
+}
+} 

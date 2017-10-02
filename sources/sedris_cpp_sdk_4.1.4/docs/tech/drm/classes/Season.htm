@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Season</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Season
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Season</h2>
+<h3>Superclass - <a href="BaseTimeData.htm">&lt;Base Time Data&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies the season of the year for
+ which the attributed object is applicable.
+ Since the definition of a season of the year is relative to the
+ hemisphere being described, a <A href="TimeInterval.htm">&lt;Time Interval&gt;</A>
+ component is required to specify the data provider's definition of the
+ specified season.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet20.pdf"><strong>20</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+This class appears on only one page of the DRM class diagram.
+<h3>Example</h3>
+<OL>
+<LI><P>
+ Consider a <A href="TimeRelatedGeometry.htm">&lt;Time Related Geometry&gt;</A> instance
+ representing a forest in the northern hemisphere in winter, spring,
+ summer, and autumn. The branch for summer has a
+ <A href="TimeConstraintsData.htm">&lt;Time Constraints Data&gt;</A> link object
+ with a <A href="Season.htm">&lt;Season&gt;</A> component.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<p>
+No FAQs supplied.
+</p>
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Composed of (two-way)</h3>
+<UL>
+<li>one <a href="TimeInterval.htm">&lt;Time Interval&gt;</a> instance<sup><A href="#Notes_cmp_Time_Interval" name="cmp_Time_Interval">1</A></sup></li>
+</UL>
+
+<h3>Component of (two-way) (inherited)</h3>
+<UL>
+<li>zero or more <a href="EnvironmentRoot.htm">&lt;Environment Root&gt;</a> instances</li>
+<li>zero or more <a href="TimeConstraintsData.htm">&lt;Time Constraints Data&gt;</a> instances</li>
+<li>zero or one <a href="TransmittalRoot.htm">&lt;Transmittal Root&gt;</a> instance</li>
+</UL>
+<h2><a name="inherited_field">Inherited Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Time_Significance.htm">SE_Time_Significance</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="time_significance">time_significance</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_time_significance">2</A></sup></p></td>
+</tr>
+</table>
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Season.htm">SE_Season</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="season">season</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_season">3</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Composed of Notes</h3>
+<br>
+<h4><a href="#cmp_Time_Interval" name="Notes_cmp_Time_Interval">Time_Interval</a></h4>
+ The <A href="TimeInterval.htm">&lt;Time Interval&gt;</A> component represents the
+ interval of time covered by the
+ <A href="Season.htm">&lt;Season&gt;</A> instance.
+</P>
+<h3>Fields Notes</h3>
+<h4><a href="#time_significance" name="Notes_time_significance">time_significance</a></h4>
+<P>
+ The <A href="#time_significance">time_significance</A>
+ field specifies the usage of the time information.
+</P>
+<h4><a href="#season" name="Notes_season">season</a></h4>
+<P>
+ The <A href="#season">season</A> field specifies a
+ season of the year.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="ScaleControlLink.htm">Scale Control Link</A>.
+<strong>Next:</strong> <A href="SEC3DLocation.htm">SEC 3D Location</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

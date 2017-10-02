@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE_Struct_As_Union</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX C - Types
+</font>
+<br>
+<font color="#ffffff">
+SE_Struct_As_Union
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<PRE>
+/*
+ * STRUCT: SE_Struct_As_Union
+ *
+ *   Used by SE_DRM_Type_Structure in place of a union field,
+ *   to permit initialization of SE_DRM_Type_Structure.
+ *
+ *   Acts as union of
+ *       basic_type_ptr
+ *       enum_field
+ *       registerable_enum_type
+ *       set_field
+ *       struct_field
+ */
+</PRE>
+<span class="Code">typedef struct 
+<br>
+{</span>
+<br>
+<table class="CFunctionPrototype">
+<tr><td class="CFunction">   </td> <td class="CFunction">const</td> <td class="CFunction"><a href="SE_DRM_Field_Structure.htm">SE_DRM_Field_Structure</a></td>
+        <td class="CFunction">*<a
+        name="basic_type_ptr"></a>basic_type_ptr;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction">const</td> <td class="CFunction"><a href="SE_Enumerant_Structure.htm">SE_Enumerant_Structure</a></td>
+        <td class="CFunction">*<a name="enum_field"></a>enum_field;</td></tr>
+<tr><td class="CFunction">         </td> <td class="CFunction"></td> <td class="CFunction"><a href="SE_Registerable_Enum_Type_Structure.htm">SE_Registerable_Enum_Type_Structure</a></td>
+              <td class="CFunction"><a
+              name="registerable_enum_type"></a>registerable_enum_type;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction">const</td> <td class="CFunction"><a href="SE_DRM_Field_Structure.htm">SE_DRM_Field_Structure</a></td>
+        <td class="CFunction">*<a name="set_field"></a>set_field;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction">const</td> <td class="CFunction"><a href="SE_DRM_Field_Structure.htm">SE_DRM_Field_Structure</a></td>
+        <td class="CFunction">*<a name="struct_field"></a>struct_field;</td></tr>
+</table>
+<span class="Code">
+} SE_Struct_As_Union;</span>
+<br>
+
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SE_String.htm">SE_String</a>.
+<strong>Next:</strong> <a href="SE_Symbol_Format.htm">SE_Symbol_Format</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

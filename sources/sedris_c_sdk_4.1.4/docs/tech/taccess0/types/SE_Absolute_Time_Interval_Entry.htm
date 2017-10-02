@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE_Absolute_Time_Interval_Entry</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Types
+</font>
+<br>
+<font color="#ffffff">
+SE_Absolute_Time_Interval_Entry
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<PRE>
+/*
+ * STRUCT: SE_Absolute_Time_Interval_Entry
+ *
+ *   This data type specifies a time interval based on
+ *   an absolute time specification.
+ */
+</PRE>
+<span class="Code">typedef struct 
+<br>
+{</span>
+<br>
+<table class="CFunctionPrototype">
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../drm/classes/AbsoluteTime.htm">SE_Absolute_Time_Fields</a></td>
+        <td class="CFunction"><a name="reference_time"></a>reference_time;</td><td class="CFunction"><sup><A href="#Notes_reference_time">1</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../drm/classes/AbsoluteTimeInterval.htm">SE_Absolute_Time_Interval_Fields</a></td>
+        <td class="CFunction"><a
+        name="absolute_interval"></a>absolute_interval;</td><td class="CFunction"><sup><A href="#Notes_absolute_interval">2</A></sup></td></tr>
+</table>
+<span class="Code">
+} SE_Absolute_Time_Interval_Entry;</span>
+<br>
+
+<br>
+<HR>
+<H2>Field Notes</H2>
+<h4><a href="#reference_time" name="Notes_reference_time">reference_time</a></h4>
+<P>
+ The start time of the interval.
+</P>
+<h4><a href="#absolute_interval" name="Notes_absolute_interval">absolute_interval</a></h4>
+<P>
+ The duration of the interval.
+</P>
+
+<br>
+<hr>
+<br>
+<strong>Next:</strong> <a href="SE_Access_Mode.htm">SE_Access_Mode</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

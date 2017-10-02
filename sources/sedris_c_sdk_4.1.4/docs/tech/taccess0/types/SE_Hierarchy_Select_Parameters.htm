@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE_Hierarchy_Select_Parameters</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Types
+</font>
+<br>
+<font color="#ffffff">
+SE_Hierarchy_Select_Parameters
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<PRE>
+/*
+ * STRUCT: SE_Hierarchy_Select_Parameters
+ *
+ *   These parameters are used to determine which &quot;branches&quot; or &quot;switches&quot;
+ *   to traverse from an &lt;Aggregate Feature&gt; or &lt;Aggregate Geometry&gt; instance
+ *   encountered by a Component Iterator. They determine which branch will
+ *   be followed based on the field values of the link object attached to
+ *   that branch.
+ *
+ *   If a certain class of aggregate instance is not given any selection
+ *   controls, then all of the components of that class of aggregate
+ *   instance will be traversed whenever an aggregate instance of that class
+ *   is encountered.
+ *
+ *   GENERAL HIERARCHY MASK:
+ *
+ *     A set of values, one for each &quot;type&quot; of aggregate hierarchy instance,
+ *     to indicate whether *any* of the branches from that class of instance
+ *     should be traversed, and if so, whether *all* of the branches will
+ *     be traversed, or whether the selection parameters for that &quot;type&quot;
+ *     will be evaluated. See SE_General_Hierarchy_Select for more details.
+ *
+ *   PERIMETER RELATED GEOMETRY:
+ *
+ *     No parameters are specified for dealing with a &lt;Perimeter Related
+ *     Geometry&gt; instance.  By default, all components of a &lt;Perimeter Related
+ *     Geometry&gt; instance will be traversed (unless Perimeter Related is &quot;masked
+ *     out&quot; by an SE_FALSE value in the general_hierarchy_mask struct, in which
+ *     case, none of the components of a &lt;Perimeter Related Geometry&gt; will be
+ *     searched).  In order to selectively limit the components traversed from
+ *     a &lt;Perimeter Related Geometry&gt; instance, define and use a Spatial
+ *     Search Boundary when initializing the Component Iterator.
+ *
+ *   UNION:
+ *
+ *     All components of a Union instance are always traversed (unless that
+ *     type of Union is masked out by an SE_FALSE value in the
+ *     general_hierarchy_mask struct, in which case none of the components
+ *     for that type of Union are traversed).
+ *
+ *   For all other types of &lt;Aggregate Feature&gt; and &lt;Aggregate Geometry&gt;,
+ *   see the definitions for the appropriate _Parameters types used in
+ *   the following structure.
+ */
+</PRE>
+<span class="Code">typedef struct 
+<br>
+{</span>
+<br>
+<table class="CFunctionPrototype">
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_General_Hierarchy_Select.htm">SE_General_Hierarchy_Select</a></td>
+        <td class="CFunction"><a
+        name="general_hierarchy_mask"></a>general_hierarchy_mask;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Alternate_Hierarchy_Parameters.htm">SE_Alternate_Hierarchy_Parameters</a></td>
+        <td class="CFunction"><a
+        name="alternate_hierarchy_branches"></a>alternate_hierarchy_branches;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Animation_Select_Parameters.htm">SE_Animation_Select_Parameters</a></td>
+        <td class="CFunction"><a
+        name="animation_branches"></a>animation_branches;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Classification_Parameters.htm">SE_Classification_Parameters</a></td>
+        <td class="CFunction"><a
+        name="classification_branches"></a>classification_branches;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Continuous_LOD_Select_Parameters.htm">SE_Continuous_LOD_Select_Parameters</a></td>
+        <td class="CFunction"><a
+        name="continuous_lod_branches"></a>continuous_lod_branches;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_LOD_Select_Parameters.htm">SE_LOD_Select_Parameters</a></td>
+        <td class="CFunction"><a name="lod_branches"></a>lod_branches;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Octant_Select_Parameters.htm">SE_Octant_Select_Parameters</a></td>
+        <td class="CFunction"><a
+        name="octant_branches"></a>octant_branches;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Quadrant_Select_Parameters.htm">SE_Quadrant_Select_Parameters</a></td>
+        <td class="CFunction"><a
+        name="quadrant_branches"></a>quadrant_branches;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Separating_Plane_Select_Parameters.htm">SE_Separating_Plane_Select_Parameters</a></td>
+        <td class="CFunction"><a
+        name="separating_plane_branches"></a>separating_plane_branches;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Spatial_Index_Parameters.htm">SE_Spatial_Index_Parameters</a></td>
+        <td class="CFunction"><a
+        name="spatial_index_branches"></a>spatial_index_branches;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_State_Select_Parameters.htm">SE_State_Select_Parameters</a></td>
+        <td class="CFunction"><a name="state_branches"></a>state_branches;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Time_Select_Parameters.htm">SE_Time_Select_Parameters</a></td>
+        <td class="CFunction"><a name="time_branches"></a>time_branches;</td></tr>
+</table>
+<span class="Code">
+} SE_Hierarchy_Select_Parameters;</span>
+<br>
+
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SE_Hierarchy_Order_Parameters.htm">SE_Hierarchy_Order_Parameters</a>.
+<strong>Next:</strong> <a href="SE_Image_Data.htm">SE_Image_Data</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

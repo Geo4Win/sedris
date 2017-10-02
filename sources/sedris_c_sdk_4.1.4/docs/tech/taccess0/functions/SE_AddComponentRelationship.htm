@@ -1,0 +1,235 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE AddComponentRelationship</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+SE AddComponentRelationship
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../types/SE_Return_Code.htm">SE_Return_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SE_AddComponentRelationship</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/SE_Object.htm">SE_Object</a>&nbsp;</td> <td class="CFunction"><a name="aggregate_object"></a>aggregate_object,</td><td class="CFunction"><sup><A href="#Notes_aggregate_object">1</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/SE_Object.htm">SE_Object</a>&nbsp;</td> <td class="CFunction"><a name="component_object"></a>component_object,</td><td class="CFunction"><sup><A href="#Notes_component_object">2</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/SE_Object.htm">SE_Object</a>&nbsp;</td> <td class="CFunction"><a name="link_object"></a>link_object</td><td class="CFunction"><sup><A href="#Notes_link_object">3</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+ Adds a composition relationship from
+ <A href="#aggregate_object">aggregate_object</A> to
+ <A href="#component_object">component_object</A>,
+ provided that the following criteria are met.
+<OL>
+<LI><P>
+ Either <A href="#aggregate_object">aggregate_object</A> or
+ <A href="#component_object">component_object</A>
+ shall be a resolved object, or both shall be
+ resolved objects. If both
+ <A href="#aggregate_object">aggregate_object</A> and
+ <A href="#component_object">component_object</A> are resolved, then
+ <A href="#link_object">link_object</A>
+ (if provided) shall be a resolved object; otherwise,
+ <A href="#link_object">link_object</A>
+ may be unresolved.
+</P></LI>
+<LI><P>
+ <A href="#aggregate_object">aggregate_object</A>
+ shall reside in a transmittal that has been explicitly
+ opened with either <A href="../types/SE_Access_Mode.htm#SE_AM_CREATE">SE_AM_CREATE</A>
+ or <A href="../types/SE_Access_Mode.htm#SE_AM_UPDATE">SE_AM_UPDATE</A>.
+</P></LI>
+<LI><P>
+ <A href="#component_object">component_object</A>,
+ if not in the same transmittal as
+ <A href="#aggregate_object">aggregate_object</A>,
+ shall be a published object.
+</P></LI>
+<LI><P>
+ <A href="#link_object">link_object</A>,
+ if not in the same transmittal as
+ <A href="#aggregate_object">aggregate_object</A>,
+ shall be a published object.
+</P></LI>
+</OL>
+<table class="Status" border="0">
+<tr><th ALIGN="LEFT">
+ NOTE:
+</th><td class="Status">
+ Relationships between objects in different transmittals are <EM>not</EM>
+ implicitly bi-directional, so if the component object is unresolved,
+ then the relationship will be uni-directional from the aggregate to
+ the component.
+</td></tr>
+</table>
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A>
+</td><td class="Status">
+ and the requested relationship is added, if valid parameters
+ were passed in and all operations succeeded.
+</td></tr>
+<tr><td class="Status">
+ <A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A>
+</td><td class="Status">
+ and the status code is set appropriately if the call failed.
+</td></tr>
+</tr>
+</table>
+
+<h3>Status Codes</h3>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A> is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_SUCCESS">SE_STATCODE_SUCCESS</A>
+</td><td class="Status">
+ set upon successful completion
+</td></tr>
+</table>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A> is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+ <A href="../types/SE_Status_Code.htm#SE_STATCODE_UNPUBLISHED_OBJECT">SE_STATCODE_UNPUBLISHED_OBJECT</A>
+</td><td class="Status">
+ set if <A href="#component_object">component_object</A> is in
+ another transmittal than
+ <A href="#aggregate_object">aggregate_object</A>, but is not
+ published by that transmittal or vice-versa.
+</td></tr>
+<tr><td class="Status">
+ <A href="../types/SE_Status_Code.htm#SE_STATCODE_UNRESOLVED_INPUT_OBJECT">SE_STATCODE_UNRESOLVED_INPUT_OBJECT</A>
+</td><td class="Status">
+ set if
+<OL>
+<LI>
+<A href="#aggregate_object">aggregate_object</A> and
+<A href="#component_object">component_object</A> are unresolved, or
+</LI>
+<LI>
+<A href="#link_object">link_object</A> is an unresolved object,
+ and the <A href="#aggregate_object">aggregate_object</A> and
+ <A href="#component_object">component_object</A> are both resolved.
+</LI>
+</OL>
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_INVALID_ACCESS_MODE">SE_STATCODE_INVALID_ACCESS_MODE</A>
+</td><td class="Status">
+ set if
+<OL>
+<LI>
+<A href="#aggregate_object">aggregate_object</A> (or
+<A href="#link_object">link_object</A> if specified)
+ is in a transmittal that is not open for creation or modification.
+</LI>
+<LI>
+<A href="#component_object">component_object</A> is in a
+ transmittal that is not open for creation or modification.
+</LI>
+</OL>
+</td></tr>
+<tr><td class="Status">
+ <A href="../types/SE_Status_Code.htm#SE_STATCODE_INACTIONABLE_FAILURE">SE_STATCODE_INACTIONABLE_FAILURE</A>
+</td><td class="Status">
+ set if
+<OL>
+<LI>the DRM does not define a valid composition relationship
+ between the classes instanced by
+ <A href="#aggregate_object">aggregate_object</A> and
+ <A href="#component_object">component_object</A>;
+</LI>
+<LI>the relationship defined between
+ <A href="#aggregate_object">aggregate_object</A> and
+ <A href="#component_object">component_object</A> requires
+ a <A href="#link_object">link_object</A>, but the
+ <A href="#link_object">link_object</A> supplied was not
+ of the class specified for the relationship;
+</LI>
+<LI>the relationship defined between
+ <A href="#aggregate_object">aggregate_object</A> and
+ <A href="#component_object">component_object</A> does not
+ take a <A href="#link_object">link object</A>, but one
+ was supplied;
+</LI>
+<LI> or the function fails for any other reason
+</LI>
+</OL>
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#aggregate_object" name="Notes_aggregate_object">1</a></sup>
+ object to which a component is being added
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#component_object" name="Notes_component_object">2</a></sup>
+ component object being added
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#link_object" name="Notes_link_object">3</a></sup>
+ the link object that will be traversed to reach
+    the component object, if applicable; must be resolved, if provided.
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SE_AddAssociateRelationship.htm">SE_AddAssociateRelationship</a>.
+<strong>Next:</strong> <a href="SE_AllocDataTableData.htm">SE_AllocDataTableData</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

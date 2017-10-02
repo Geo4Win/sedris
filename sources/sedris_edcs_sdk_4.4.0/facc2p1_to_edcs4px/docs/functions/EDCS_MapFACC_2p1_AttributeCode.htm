@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<title>EDCS MapFACC_2p1_AttributeCode</title>
+<link rel="stylesheet" href="../../../docs/styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<A name="Top"></a>
+
+<div align="center">
+<table border="2" class="doc_set_header">
+<tr><th class="doc_set_header">
+<big><big>EDCS Reference Manual</big></big>
+<br>
+<font color="#ffffff">
+Concept Mapping from FACC 2.1 to EDCS 4.4
+<!-- FACC 2.1 to EDCS 4.4 Mapping SDK Release 4.4.0.0 -->
+<!-- EDCS spec. 4.4 -->
+<br>
+Functions
+<br>
+EDCS MapFACC_2p1_AttributeCode
+</font>
+</th></tr>
+</table>
+</div>
+
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan="4">extern <a href="../../../docs/types/EDCS_Status_Code.htm">EDCS_Status_Code</a></td></tr>
+<tr><td class="CFunction" colspan="4">EDCS_MapFACC_2p1_AttributeCode</td></tr>
+<tr><td class="CFunction">(</td>
+<tr><td class="CFunction">const</td><td class="CFunction"><a href="../types/FACC_2p1_Attribute_Code.htm">FACC_2p1_Attribute_Code</a></td> <td class="CFunction"> </td><td class="CFunction">*</td><td class="CFunction"><a name="fac_attr_code_in_ptr">fac_attr_code_in_ptr</a>,</td><td class="CFunction"> <a href="#Notes2829b8">(notes)</a></td></tr>
+<tr><td class="CFunction">const</td><td class="CFunction"><a href="../types/FACC_2p1_Unit_Mapping_Structure.htm">FACC_2p1_Unit_Mapping_Structure</a></td> <td class="CFunction">*</td><td class="CFunction">*</td><td class="CFunction"><a name="unit_mapping_info_out_ptr">unit_mapping_info_out_ptr</a></td><td class="CFunction"> <a href="#Notes2840c9">(notes)</a></td></tr>
+<tr><td class="CFunction">const</td><td class="CFunction"><a href="../types/FACC_2p1_Attribute_Mapping_Structure.htm">FACC_2p1_Attribute_Mapping_Structure</a></td> <td class="CFunction">*</td><td class="CFunction">*</td><td class="CFunction"><a name="mapping_info_out_ptr">mapping_info_out_ptr</a></td><td class="CFunction"> <a href="#Notes2840c8" name="Text2840c8">(notes)</a></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<H3>Definition</H3>
+<P>
+Retrieves mapping information for the given FACC Attribute Code.
+</P>
+<H3>Returns</H3>
+<P> <TABLE border=1>
+<tr><td>
+<a href="../../../docs/types/EDCS_Status_Code.htm#EDCS_SC_SUCCESS">
+ EDCS_SC_SUCCESS</a>
+</td><td>
+and a handle to the requested mapping
+    information is copied into <a href="#mapping_info_out_ptr">*mapping_info_out_ptr</a>, if valid
+    parameters were passed in.
+</td></tr>
+<tr><td>
+<a href="../../../docs/types/EDCS_Status_Code.htm#EDCS_SC_NULL_REQUIRED_PARAMETER">
+ EDCS_SC_NULL_REQUIRED_PARAMETER</a>
+</td><td>
+and <a href="#mapping_info_out_ptr">*mapping_info_out_ptr</a>
+    is left unaltered, if any parameter was NULL.
+</td></tr>
+<tr><td>
+<a href="../../../docs/types/EDCS_Status_Code.htm#EDCS_SC_INVALID_CODE">
+ EDCS_SC_INVALID_CODE</a></td>
+<td>
+and <a href="#mapping_info_out_ptr">*mapping_info_out_ptr</a>
+is set to NULL, if
+<a href="#fac_attr_code_in_ptr">*fac_attr_code_in_ptr</a>
+does not correspond to a valid EDCS 4.4 Attribute.
+</td></tr>
+</table>
+
+<HR><H2>Parameters Notes</H2>
+<P><H4><a href="#fac_attr_code_in_ptr" name="Notes2829b8">fac_attr_code_in_ptr</a></H4>
+<p>
+ the FACC 2.1 Attribute Code whose mapping information is
+    being retrieved
+</p>
+<P><H4><a href="#unit_mapping_info_out_ptr" name="Notes2840c9">unit_mapping_info_out_ptr</a></H4>
+<p>
+ pointer to a pointer variable in the user's
+    memory space where a handle to the unit mapping information will be
+    copied
+</p>
+<P><H4><a href="#Text2840c8" name="Notes2840c8">mapping_info_out_ptr</a></H4>
+<p>
+ pointer to a pointer variable in the user's
+    memory space where a handle to the mapping information will be
+    copied
+</p>
+
+<P>
+<HR>
+<P>
+<strong>Up:</strong><a href="../facc2p1_edcs4px.htm#Part5">Index</a>.
+<br><br>
+<table class="doc_set_header">
+<tr><td>
+<table class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="left" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</BODY>
+</HTML>

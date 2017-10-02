@@ -1,0 +1,204 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Model Instance Template Index</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Model Instance Template Index
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Model Instance Template Index</h2>
+<h3>Superclass - <a href="SEDRISAbstractBase.htm">&lt;SEDRIS Abstract Base&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class is used by a
+ <A href="FeatureModelInstance.htm">&lt;Feature Model Instance&gt;</A> instance (FMI)
+ or <A href="GeometryModelInstance.htm">&lt;Geometry Model Instance&gt;</A> instance (GMI)
+ to specify, for a given <A href="Expression.htm">&lt;Expression&gt;</A> component
+ of the FMI / GMI, which <A href="Variable.htm">&lt;Variable&gt;</A> instance within
+ <A href="InterfaceTemplate.htm">&lt;Interface Template&gt;</A> component of the
+ instantiated <A href="Model.htm">&lt;Model&gt;</A> instance is
+ receiving that <A href="Expression.htm">&lt;Expression&gt;</A> instance as its
+ value for that FMI / GMI.
+</P><P>
+ The mechanism works as follows.
+</P><P>
+ Consider a <A href="Model.htm">&lt;Model&gt;</A> instance <span class="ConstructName">M</span>
+ that contains <A href="Variable.htm">&lt;Variable&gt;</A> instances. In order to be
+ semantically valid, <span class="ConstructName">M</span> shall have
+ an <A href="InterfaceTemplate.htm">&lt;Interface Template&gt;</A> component
+ <span class="ConstructName">I</span> that, by definition, has an ordered set
+ of association relationships to each <A href="Variable.htm">&lt;Variable&gt;</A>
+ instance within <span class="ConstructName">M</span>.
+</P><P>
+ The <A href="InterfaceTemplate.htm">&lt;Interface Template&gt;</A> instance
+ <span class="ConstructName">I</span> exists to provide access to all
+ <A href="Variable.htm">&lt;Variable&gt;</A> instances within <span class="ConstructName">M</span>,
+ so that all FMI and GMI instances
+ referring to <span class="ConstructName">M</span> have a means of specifying
+ values to be plugged into those
+ <A href="Variable.htm">&lt;Variable&gt;</A> instances for a particular FMI or GMI
+ instance referring to <span class="ConstructName">M</span>.
+</P><P>
+ Specifically, a model instance object referring to
+ <span class="ConstructName">M</span> (whether a
+ <A href="FeatureModelInstance.htm">&lt;Feature Model Instance&gt;</A> instance or a
+ <A href="GeometryModelInstance.htm">&lt;Geometry Model Instance&gt;</A> instance) provides a set of
+ <A href="Expression.htm">&lt;Expression&gt;</A> instances to be plugged into the
+ <A href="Variable.htm">&lt;Variable&gt;</A> instances of <span class="ConstructName">M</span>. For a
+ <A href="Model.htm">&lt;Model&gt;</A> instance <span class="ConstructName">M</span> with
+ N <A href="Variable.htm">&lt;Variable&gt;</A> instances, the
+ <A href="InterfaceTemplate.htm">&lt;Interface Template&gt;</A> component of <span class="ConstructName">M</span>
+ has 1..N ordered associations, one to each
+ <A href="Variable.htm">&lt;Variable&gt;</A> instance within <span class="ConstructName">M</span>.
+ Each model instance of <span class="ConstructName">M</span> supplies N
+ <A href="Expression.htm">&lt;Expression&gt;</A> components, together with
+ a <A href="ModelInstanceTemplateIndex.htm">&lt;Model Instance Template Index&gt;</A> link object for each
+ <A href="Expression.htm">&lt;Expression&gt;</A> component. The <A href="#index">index</A>
+ field value within the <A href="ModelInstanceTemplateIndex.htm">&lt;Model Instance Template Index&gt;</A>
+ link object for a given <A href="Expression.htm">&lt;Expression&gt;</A> component
+ specifies which of the N <A href="Variable.htm">&lt;Variable&gt;</A> instances of
+ <span class="ConstructName">M</span> is to be supplied with that
+ <A href="Expression.htm">&lt;Expression&gt;</A> component as its value.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet07.pdf"><strong>7</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet03.pdf"><strong>3</strong></A>
+</LI>
+<LI><A href="sheet16.pdf"><strong>16</strong></A>
+</LI>
+</UL>
+
+<h3>Example</h3>
+<p>
+ See the <A href="InterfaceTemplate.htm">&lt;Interface Template&gt;</A> class for examples.
+
+</p>
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ What restrictions are there on the value of the
+ <A href="#index">index</A> field?
+</B></DT>
+<DD><P>
+ The <A href="#index">index</A> is a one-based index,
+ which (as described in the definition of
+ the <A href="ModelInstanceTemplateIndex.htm">&lt;Model Instance Template Index&gt;</A> class)
+ serves as an index into the ordered list of
+ <A href="Expression.htm">&lt;Expression&gt;</A> instances provided by the
+ <A href="InterfaceTemplate.htm">&lt;Interface Template&gt;</A> component of the
+ given <A href="Model.htm">&lt;Model&gt;</A> instance.
+</P><P>
+ Consequently, if the <A href="Model.htm">&lt;Model&gt;</A> instance contains
+ N <A href="Variable.htm">&lt;Variable&gt;</A> instances, the
+ <A href="InterfaceTemplate.htm">&lt;Interface Template&gt;</A> component
+ has N ordered associates, so the value of the
+ <A href="#index">index</A> field of a
+ <A href="ModelInstanceTemplateIndex.htm">&lt;Model Instance Template Index&gt;</A> link object
+ for a given <A href="Expression.htm">&lt;Expression&gt;</A> component being supplied
+ by a model instance shall be in [1..N].
+</P><P>
+ See also the constraints for this class, and for the
+ <A href="FeatureModelInstance.htm">&lt;Feature Model Instance&gt;</A> class and the
+ <A href="GeometryModelInstance.htm">&lt;Geometry Model Instance&gt;</A> class.
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/DistinctLinkObjects.htm">&lt;&lt;Distinct Link Objects&gt;&gt;</a><sup><A href="#Notes1" name="Text_1">1</A></sup>
+</LI>
+</UL>
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Integer_Positive.htm">SE_Integer_Positive</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="index">index</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_index">2</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Constraint Notes</h3>
+
+<p>
+<sup><A href="#Text_3" name="Notes3">3</A></sup>
+<p>
+No Notes supplied.
+</p>
+
+<p>
+<sup><A href="#Text_4" name="Notes4">4</A></sup>
+ A given model instance is not permitted to supply
+ conflicting <A href="Expression.htm">&lt;Expression&gt;</A> components
+ for a given <A href="Variable.htm">&lt;Variable&gt;</A> instance. Therefore,
+ for any model instance instance, all its
+ <A href="ModelInstanceTemplateIndex.htm">&lt;Model Instance Template Index&gt;</A>
+ link objects shall be unique.
+</P>
+<h3>Fields Notes</h3>
+<h4><a href="#index" name="Notes_index">index</a></h4>
+<P>
+ Given the <A href="Model.htm">&lt;Model&gt;</A> instance <span class="ConstructName">M</span> that is
+ being instantiated, the <A href="#index">index</A> field specifies
+ an index into the ordered <A href="Variable.htm">&lt;Variable&gt;</A> instances associated
+ with the <A href="InterfaceTemplate.htm">&lt;Interface Template&gt;</A> component of
+ <span class="ConstructName">M</span>.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="Model.htm">Model</A>.
+<strong>Next:</strong> <A href="ModelLibrary.htm">Model Library</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

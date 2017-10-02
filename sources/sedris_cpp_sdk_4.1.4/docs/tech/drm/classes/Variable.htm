@@ -1,0 +1,271 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Variable</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Variable
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Variable</h2>
+<h3>Superclass - <a href="Expression.htm">&lt;Expression&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class is an <A href="Expression.htm">&lt;Expression&gt;</A> instance
+ that specifies a variable value used in conjunction with
+ an <A href="InterfaceTemplate.htm">&lt;Interface Template&gt;</A> instance to exert external
+ influence on one or more <A href="ControlLink.htm">&lt;Control Link&gt;</A> instances,
+ either directly or indirectly.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet16.pdf"><strong>16</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+This class appears on only one page of the DRM class diagram.
+<h3>Example</h3>
+<OL>
+<LI><P>
+ See the examples for the <A href="CMYColourControlLink.htm">&lt;CMY Colour Control Link&gt;</A> class
+ and the <A href="ColourIndexControlLink.htm">&lt;Colour Index Control Link&gt;</A> class.
+</P></LI>
+<LI><P>
+ The following is an example of how a
+ <A href="#name">name</A> on a
+ <A href="Variable.htm">&lt;Variable&gt;</A> instance is used.
+</P><P>
+ Consider a <A href="Model.htm">&lt;Model&gt;</A> instance representing a motorcycle
+ in a database within which polygons have infrared values attached to them.
+ Since many portions of the surfaces being represented by
+ <A href="Polygon.htm">&lt;Polygon&gt;</A> instances in a transmittal have similar
+ material properties, the data provider in this example has
+ created a <A href="PropertyTable.htm">&lt;Property Table&gt;</A> instance in which the
+ infrared values are stored.
+</P><P>
+ The <A href="Polygon.htm">&lt;Polygon&gt;</A> instances of the motorcycle reference
+ these elements through a
+ <A href="PropertyTableReference.htm">&lt;Property Table Reference&gt;</A> instance.
+ A <A href="PropertyTableReferenceControlLink.htm">&lt;Property Table Reference Control Link&gt;</A> instance
+ is used for those <A href="Polygon.htm">&lt;Polygon&gt;</A> instances
+ that have heat-producing capability (for instance, the exhaust pipes), so
+ that the index into the infrared table can be changed to other values as the
+ exhaust pipes heat up. More than one <A href="Polygon.htm">&lt;Polygon&gt;</A> instance
+ will contain the same ID. The consumer shall be able to identify the
+ <A href="Polygon.htm">&lt;Polygon&gt;</A> instances (through the
+ <A href="PropertyTableReferenceControlLink.htm">&lt;Property Table Reference Control Link&gt;</A> instance and
+ <A href="InterfaceTemplate.htm">&lt;Interface Template&gt;</A> instance)
+ by this ID so that during consumption these <A href="Polygon.htm">&lt;Polygon&gt;</A>
+ instances can be switched to be heat-producing.
+</P></LI>
+<LI><P>
+ Consider a data provider with a polygonal representation of a
+ truck in which the polygons reference table-driven textures, <I>i.e.</I>,
+ in which the texture coordinates used by the texture-mapped polygons
+ are stored in tables such that the index into the table is
+ determined at run-time.
+</P><P>
+ The data provider chooses to represent the truck in a transmittal
+ with a <A href="Model.htm">&lt;Model&gt;</A> instance <span class="ConstructName">M</span> having a
+ <A href="GeometryModel.htm">&lt;Geometry Model&gt;</A> component. Consider a triangular polygon
+ within the truck representation where the triangle is represented by a
+ <A href="Polygon.htm">&lt;Polygon&gt;</A> instance <span class="ConstructName">P</span> in the transmittal.
+ <span class="ConstructName">P</span> has three <A href="Vertex.htm">&lt;Vertex&gt;</A> components
+ <span class="ConstructName">V<SUB>1</SUB></span>, <span class="ConstructName">V<SUB>2</SUB></span>,
+ and <span class="ConstructName">V<SUB>3</SUB></span> and one
+ <A href="ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</A> component, where each
+ <span class="ConstructName">V<SUB>i</SUB></span> has a <A href="TextureCoordinate.htm">&lt;Texture Coordinate&gt;</A>
+ component <span class="ConstructName">T<SUB>i</SUB></span>. Since a table-driven texture
+ is being represented, the <A href="TextureCoordinate.htm#s">s</A> and
+ <A href="TextureCoordinate.htm#t">t</A> field values of each
+ <span class="ConstructName">T<SUB>i</SUB></span> are determined by references into a
+ table of texture coordinate values. This is done as follows.
+</P><P>
+ The table supplying the texture coordinate values is represented by
+ a <A href="PropertyTable.htm">&lt;Property Table&gt;</A> instance <span class="ConstructName">C</span> which is
+ specified as a component of the <A href="DataTableLibrary.htm">&lt;Data Table Library&gt;</A> instance
+ of the transmittal. Each <span class="ConstructName">T<SUB>i</SUB></span> has a
+ <A href="TextureCoordinateControlLink.htm">&lt;Texture Coordinate Control Link&gt;</A> component which determines
+ the <A href="TextureCoordinate.htm#s">s</A> value of
+ <span class="ConstructName">T<SUB>i</SUB></span> with a
+ <A href="PropertyTableReference.htm">&lt;Property Table Reference&gt;</A> component that associates to
+ <span class="ConstructName">C</span>. The <A href="TextureCoordinate.htm#t">t</A> value
+ of <span class="ConstructName">T<SUB>i</SUB></span> is determined similarly.
+</P><P>
+ The data provider wishes each of the indexes into <span class="ConstructName">C</span>
+ to vary at run-time, so it is necessary for the
+ <A href="PropertyTableReference.htm#index_on_axis">index_on_axis</A>
+ field of each <A href="PropertyTableReference.htm">&lt;Property Table Reference&gt;</A> component to be
+ determined at run-time. Consequently, each
+ <A href="PropertyTableReference.htm">&lt;Property Table Reference&gt;</A> component in this example has a
+ <A href="PropertyTableReferenceControlLink.htm">&lt;Property Table Reference Control Link&gt;</A> component specifying a
+ <A href="Variable.htm">&lt;Variable&gt;</A> component to determine the
+ <A href="PropertyTableReference.htm#index_on_axis">index_on_axis</A>
+ field value being controlled. Each such <A href="Variable.htm">&lt;Variable&gt;</A> instance is
+ associated with the <A href="InterfaceTemplate.htm">&lt;Interface Template&gt;</A> component of
+ <span class="ConstructName">M</span> so that each <A href="Variable.htm">&lt;Variable&gt;</A> instance can be
+ supplied with an appropriate value whenever <span class="ConstructName">M</span> is
+ instantiated.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ Why is identification of <A href="Variable.htm">&lt;Variable&gt;</A> instances
+ (provided by <A href="#name">name</A>)
+ desirable?
+</B></DT>
+<DD><P>
+ So that consumers can control what value is being plugged in,
+ depending on how it is identified. See examples for how this
+ is used and why it is needed.
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/NonCyclicAggregations.htm">&lt;&lt;Non Cyclic Aggregations&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ConstraintsOnAssociates.htm">&lt;&lt;Constraints On Associates&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/VariableMeaningConstraints.htm">&lt;&lt;Variable Meaning Constraints&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Associated with (two-way)</h3>
+<UL>
+<li>one <a href="InterfaceTemplate.htm">&lt;Interface Template&gt;</a> instance</li>
+</UL>
+
+<h3>Component of (two-way) (inherited)</h3>
+<UL>
+<li>zero or more <a href="ControlLink.htm">&lt;Control Link&gt;</a> instances</li>
+<li>zero or more <a href="FeatureModelInstance.htm">&lt;Feature Model Instance&gt;</a> instances, each through the use of a <a href="ModelInstanceTemplateIndex.htm">&lt;Model Instance Template Index&gt;</a> link object</li>
+<li>zero or more <a href="Function.htm">&lt;Function&gt;</a> instances</li>
+<li>zero or more <a href="GeometryModelInstance.htm">&lt;Geometry Model Instance&gt;</a> instances, each through the use of a <a href="ModelInstanceTemplateIndex.htm">&lt;Model Instance Template Index&gt;</a> link object</li>
+</UL>
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_String.htm">SE_String</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="name">name</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_name">1</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Property_Code.htm">SE_Property_Code</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="meaning">meaning</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_meaning">2</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../../../../src/lib/edcs/docs/types/EDCS_Unit_Code.htm">EDCS_Unit_Code</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="value_unit">value_unit</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_value_unit">3</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../../../../src/lib/edcs/docs/types/EDCS_Unit_Scale_Code.htm">EDCS_Unit_Scale_Code</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="value_scale">value_scale</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_value_scale">4</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../../../../src/lib/edcs/docs/types/EDCS_Attribute_Value_Type.htm">EDCS_Attribute_Value_Type</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="value_type">value_type</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_value_type">5</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_String.htm">SE_String</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="description">description</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_description">6</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Fields Notes</h3>
+<h4><a href="#name" name="Notes_name">name</a></h4>
+<P>
+ The <A href="#name">name</A> field specifies the name of the
+ <A href="Variable.htm">&lt;Variable&gt;</A> instance.
+</P>
+<h4><a href="#meaning" name="Notes_meaning">meaning</a></h4>
+<P>
+ The <A href="#meaning">meaning</A> field specifies
+ the quantity represented by the
+ <A href="Variable.htm">&lt;Variable&gt;</A> instance.
+</P>
+<h4><a href="#value_unit" name="Notes_value_unit">value_unit</a></h4>
+<P>
+ The <A href="#value_unit">value_unit</A> field
+ specifies the unit of measurement of the quantity represented
+ by the <A href="Variable.htm">&lt;Variable&gt;</A> instance.
+</P>
+<h4><a href="#value_scale" name="Notes_value_scale">value_scale</a></h4>
+<P>
+ The <A href="#value_scale">value_scale</A> field
+ specifies the scale applicable to
+ <A href="#value_unit">value_unit</A>.
+</P>
+<h4><a href="#value_type" name="Notes_value_type">value_type</a></h4>
+<P>
+ The <A href="#value_type">value_type</A> field
+ specifies the storage type of the
+ <A href="Variable.htm">&lt;Variable&gt;</A> instance.
+</P>
+<h4><a href="#description" name="Notes_description">description</a></h4>
+<P>
+ The <A href="#description">description</A> field
+ specifies a meaningful explanation of the purpose of the
+ <A href="Variable.htm">&lt;Variable&gt;</A> instance.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="UnionOfPrimitiveGeometry.htm">Union Of Primitive Geometry</A>.
+<strong>Next:</strong> <A href="Vertex.htm">Vertex</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

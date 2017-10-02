@@ -1,0 +1,2400 @@
+<!DOCTYPE HTML PUBLIC="-//W3C/DTD HTML 4.01 Transitional//EN">
+<html>
+<!-- EDCS spec. 4.4 -->
+<!-- July 1, 2011 -->
+<head>
+<title>EDCS Reference Manual</title>
+</head>
+<body text="#000000" bgcolor="#ffffff" link="#0000ee" vlink="#800080" alink="#ff0000">
+<div align="center">
+<table border="2" width="100%" bgcolor="#0000ff">
+<tr>
+<th><font color="#00ffff"><big><big>
+EDCS Reference Manual
+</big></big></font><br>
+<font color="#ffffff">
+EDCS Attribute Dictionary - Concepts whose labels begin with the letter D
+</font>
+</th>
+</tr>
+</table>
+</div>
+<a name="Top" id="Top"></a>
+<br>
+<b>EDCS Attribute Label</b>: <a name="EAC_DAILY_TIDE_INDEX" id="EAC_DAILY_TIDE_INDEX">DAILY_TIDE_INDEX</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_DAILY_TIDE_INDEX
+</p><p>
+<b>EDCS Attribute Code</b>: 283
+</p><p>
+<b>Definition</b>:
+<br>
+The sequential number of the peak &lt;<a href="ECC_T.htm#ECC_TIDE">TIDE</a>&gt; for a day; the daily tide index. The value starts at 1 for the first peak &lt;<a href="ECC_T.htm#ECC_TIDE">TIDE</a>&gt; for a day and increases.
+<p>
+<b>EDCS Attribute Value Data Type</b>: INTEGER
+</p><p>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_TIME">TIME</a>, <a href="groups.htm#EGC_GEN_WATERBODY_SURFACE">WATERBODY_SURFACE</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_DAM_FACE_TYPE" id="EAC_DAM_FACE_TYPE">DAM_FACE_TYPE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_DAM_FACE_TYPE
+</p><p>
+<b>EDCS Attribute Code</b>: 284
+</p><p>
+<b>Definition</b>:
+<br>
+The type of face of a &lt;<a href="ECC_D.htm#ECC_DAM">DAM</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_DAMFACETY_SLOPED" id="EEC_DAMFACETY_SLOPED">1</a></td>
+<td>SLOPED</td>
+<td>EEC_DAMFACETY_SLOPED</td>
+<td>Slopes away from vertical.</td>
+<td>IR</td>
+<td>[FACC, Annex B, DFT:2]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DAMFACETY_VERTICAL" id="EEC_DAMFACETY_VERTICAL">2</a></td>
+<td>VERTICAL</td>
+<td>EEC_DAMFACETY_VERTICAL</td>
+<td>Vertical.</td>
+<td>IR</td>
+<td>[FACC, Annex B, DFT:1]</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_HYDROGRAPHIC_ARTEFACT">HYDROGRAPHIC_ARTEFACT</a>, <a href="groups.htm#EGC_GEN_INFRASTRUCTURE">INFRASTRUCTURE</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: DFT]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_DAMAGE_WEIGHT" id="EAC_DAMAGE_WEIGHT">DAMAGE_WEIGHT</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_DAMAGE_WEIGHT
+</p><p>
+<b>EDCS Attribute Code</b>: 285
+</p><p>
+<b>Definition</b>:
+<br>
+The amount of ordinance in equivalent &lt;&lt;<a href="EAC_M.htm#EAC_MASS">MASS</a>&gt;&gt; of TNT required to cause distinguishable damage to a &lt;<a href="ECC_S.htm#ECC_STRUCTURE">STRUCTURE</a>&gt;; the damage weight.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_MASS">MASS</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_MILITARY_SCIENCE">MILITARY_SCIENCE</a>, <a href="groups.htm#EGC_GEN_SUPPORT_STRUCTURE">SUPPORT_STRUCTURE</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_DATA_COLLECTION_CRITERIA" id="EAC_DATA_COLLECTION_CRITERIA">DATA_COLLECTION_CRITERIA</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_DATA_COLLECTION_CRITERIA
+</p><p>
+<b>EDCS Attribute Code</b>: 286
+</p><p>
+<b>Definition</b>:
+<br>
+Criteria describing the collection of data.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_DATACOLLCRIT_COLLECTED" id="EEC_DATACOLLCRIT_COLLECTED">1</a></td>
+<td>COLLECTED</td>
+<td>EEC_DATACOLLCRIT_COLLECTED</td>
+<td>Collected by approved methods.</td>
+<td>IR</td>
+<td>[FACC, Annex B, CAC:9]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DATACOLLCRIT_DERIVED" id="EEC_DATACOLLCRIT_DERIVED">2</a></td>
+<td>DERIVED</td>
+<td>EEC_DATACOLLCRIT_DERIVED</td>
+<td>Derived (from other authoritative data) by approved methods.</td>
+<td>IR</td>
+<td>[FACC, Annex B, CAC:10]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DATACOLLCRIT_DIFFERENT_HEIGHT_THRESHOLD" id="EEC_DATACOLLCRIT_DIFFERENT_HEIGHT_THRESHOLD">3</a></td>
+<td>DIFFERENT_HEIGHT_THRESHOLD</td>
+<td>EEC_DATACOLLCRIT_DIFFERENT_HEIGHT_THRESHOLD</td>
+<td>Collected using a different height threshold than that specified.</td>
+<td>IR</td>
+<td>[FACC, Annex B, CAC:4]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DATACOLLCRIT_LOW_DATA_COLLECTION_CRITERIA" id="EEC_DATACOLLCRIT_LOW_DATA_COLLECTION_CRITERIA">4</a></td>
+<td>LOW_DATA_COLLECTION_CRITERIA</td>
+<td>EEC_DATACOLLCRIT_LOW_DATA_COLLECTION_CRITERIA</td>
+<td>Collected using low data collection criteria.</td>
+<td>IR</td>
+<td>[FACC, Annex B, CAC:5]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DATACOLLCRIT_NO_AVAILABLE_IMAGERY" id="EEC_DATACOLLCRIT_NO_AVAILABLE_IMAGERY">5</a></td>
+<td>NO_AVAILABLE_IMAGERY</td>
+<td>EEC_DATACOLLCRIT_NO_AVAILABLE_IMAGERY</td>
+<td>Collected using methods that did not include use of imagery as it was not available.</td>
+<td>IR</td>
+<td>[FACC, Annex B, CAC:3]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DATACOLLCRIT_NO_AVAILABLE_MAP_SOURCE" id="EEC_DATACOLLCRIT_NO_AVAILABLE_MAP_SOURCE">6</a></td>
+<td>NO_AVAILABLE_MAP_SOURCE</td>
+<td>EEC_DATACOLLCRIT_NO_AVAILABLE_MAP_SOURCE</td>
+<td>Collected using methods that did not include use of &lt;<a href="ECC_M.htm#ECC_MAP">MAP</a>&gt;s as they were not available.</td>
+<td>IR</td>
+<td>[FACC, Annex B, CAC:6]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DATACOLLCRIT_NO_SUITABLE_IMAGERY" id="EEC_DATACOLLCRIT_NO_SUITABLE_IMAGERY">7</a></td>
+<td>NO_SUITABLE_IMAGERY</td>
+<td>EEC_DATACOLLCRIT_NO_SUITABLE_IMAGERY</td>
+<td>Collected using methods that did not include reference to imagery as no suitable imagery was available.</td>
+<td>IR</td>
+<td>[FACC, Annex B, CAC:7]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DATACOLLCRIT_NOT_COLLECTED" id="EEC_DATACOLLCRIT_NOT_COLLECTED">8</a></td>
+<td>NOT_COLLECTED</td>
+<td>EEC_DATACOLLCRIT_NOT_COLLECTED</td>
+<td>Not collected.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DATACOLLCRIT_NOT_REQUESTED" id="EEC_DATACOLLCRIT_NOT_REQUESTED">9</a></td>
+<td>NOT_REQUESTED</td>
+<td>EEC_DATACOLLCRIT_NOT_REQUESTED</td>
+<td>Not requested.</td>
+<td>IR</td>
+<td>[FACC, Annex B, CAC:1]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DATACOLLCRIT_NOT_REQUIRED" id="EEC_DATACOLLCRIT_NOT_REQUIRED">10</a></td>
+<td>NOT_REQUIRED</td>
+<td>EEC_DATACOLLCRIT_NOT_REQUIRED</td>
+<td>Not required.</td>
+<td>IR</td>
+<td>[FACC, Annex B, CAC:8]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DATACOLLCRIT_TOO_ROUGH_TO_COLLECT" id="EEC_DATACOLLCRIT_TOO_ROUGH_TO_COLLECT">11</a></td>
+<td>TOO_ROUGH_TO_COLLECT</td>
+<td>EEC_DATACOLLCRIT_TOO_ROUGH_TO_COLLECT</td>
+<td>The &lt;<a href="ECC_R.htm#ECC_REGION">REGION</a>&gt; was too rough to collect the data.</td>
+<td>IR</td>
+<td>[FACC, Annex B, CAC:2]</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ALGORITHM_RELATED">ALGORITHM_RELATED</a>, <a href="groups.htm#EGC_GEN_SURVEY">SURVEY</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: CAC]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_DATE_FORMAT" id="EAC_DATE_FORMAT">DATE_FORMAT</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_DATE_FORMAT
+</p><p>
+<b>EDCS Attribute Code</b>: 287
+</p><p>
+<b>Definition</b>:
+<br>
+The format of a date.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_DATEFMT_CALENDAR_DATE" id="EEC_DATEFMT_CALENDAR_DATE">1</a></td>
+<td>CALENDAR_DATE</td>
+<td>EEC_DATEFMT_CALENDAR_DATE</td>
+<td>A specific calendar date that is formatted in a Basic Latin string as specified in I8601, 5.2.1.</td>
+<td>PR</td>
+<td>[I8601, 5.2.1]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DATEFMT_YY" id="EEC_DATEFMT_YY">2</a></td>
+<td>YY</td>
+<td>EEC_DATEFMT_YY</td>
+<td>A reduced precision representation of a specific century that is formatted in a Basic Latin string as specified in I8601, 5.2.1.2 c, Basic format; YY.</td>
+<td>PR</td>
+<td>[I8601, 5.2.1.2.c, Basic format]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DATEFMT_YYYY" id="EEC_DATEFMT_YYYY">3</a></td>
+<td>YYYY</td>
+<td>EEC_DATEFMT_YYYY</td>
+<td>A reduced precision representation of a specific year that is formatted in a Basic Latin string as specified in I8601, 5.2.1.2 b, Basic format; YYYY.</td>
+<td>PR</td>
+<td>[I8601, 5.2.1.2.b, Basic format]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DATEFMT_YYYY_DDD" id="EEC_DATEFMT_YYYY_DDD">4</a></td>
+<td>YYYY_DDD</td>
+<td>EEC_DATEFMT_YYYY_DDD</td>
+<td>A complete representation for a specific ordinal date that is formatted in a Basic Latin string as specified in I8601, 5.2.2.1, Extended format; YYYY-DDD.</td>
+<td>PR</td>
+<td>[I8601, 5.2.2.1, Extended format]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DATEFMT_YYYY_MM" id="EEC_DATEFMT_YYYY_MM">5</a></td>
+<td>YYYY_MM</td>
+<td>EEC_DATEFMT_YYYY_MM</td>
+<td>A reduced precision representation of a specific month that is formatted in a Basic Latin string as specified in I8601, 5.2.1.2 a, Basic format; YYYY-MM.</td>
+<td>PR</td>
+<td>[I8601, 5.2.1.2.a, Basic format]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DATEFMT_YYYY_MM_DD" id="EEC_DATEFMT_YYYY_MM_DD">6</a></td>
+<td>YYYY_MM_DD</td>
+<td>EEC_DATEFMT_YYYY_MM_DD</td>
+<td>A complete representation of a specific calendar date that is formatted in a Basic Latin string as specified in I8601, 5.2.1.1, Extended format; YYYY-MM-DD.</td>
+<td>PR</td>
+<td>[I8601, 5.2.1.1, Extended format]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DATEFMT_YYYY_WWW" id="EEC_DATEFMT_YYYY_WWW">7</a></td>
+<td>YYYY_WWW</td>
+<td>EEC_DATEFMT_YYYY_WWW</td>
+<td>A reduced precision representation of a specific date identified by calendar week number that is formatted in a Basic Latin string as specified in I8601, 5.2.3.2 a, Extended format; YYYY-Www.</td>
+<td>PR</td>
+<td>[I8601, 5.2.3.2.a, Extended format]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DATEFMT_YYYY_WWW_D" id="EEC_DATEFMT_YYYY_WWW_D">8</a></td>
+<td>YYYY_WWW_D</td>
+<td>EEC_DATEFMT_YYYY_WWW_D</td>
+<td>A complete representation of a specific date identified by calendar week and day numbers that is formatted in a Basic Latin string as specified in I8601, 5.2.3.1, Extended format; YYYY-Www-D.</td>
+<td>PR</td>
+<td>[I8601, 5.2.3.1, Extended format]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DATEFMT_YYYYDDD" id="EEC_DATEFMT_YYYYDDD">9</a></td>
+<td>YYYYDDD</td>
+<td>EEC_DATEFMT_YYYYDDD</td>
+<td>A complete representation for a specific ordinal date that is formatted in a Basic Latin string as specified in I8601, 5.2.2.1, Basic format; YYYYDDD.</td>
+<td>PR</td>
+<td>[I8601, 5.2.2.1, Basic format]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DATEFMT_YYYYMMDD" id="EEC_DATEFMT_YYYYMMDD">10</a></td>
+<td>YYYYMMDD</td>
+<td>EEC_DATEFMT_YYYYMMDD</td>
+<td>A complete representation specific calendar date that is formatted in a Basic Latin string as specified in I8601, 5.2.1.1, Basic format; YYYYMMDD.</td>
+<td>PR</td>
+<td>[I8601, 5.2.1.1, Basic format]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DATEFMT_YYYYWWW" id="EEC_DATEFMT_YYYYWWW">11</a></td>
+<td>YYYYWWW</td>
+<td>EEC_DATEFMT_YYYYWWW</td>
+<td>A reduced precision representation of a specific date identified by calendar week number that is formatted in a Basic Latin string as specified in I8601, 5.2.3.2 a, Basic format; YYYYWww.</td>
+<td>PR</td>
+<td>[I8601, 5.2.3.2.a, Basic format]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DATEFMT_YYYYWWWD" id="EEC_DATEFMT_YYYYWWWD">12</a></td>
+<td>YYYYWWWD</td>
+<td>EEC_DATEFMT_YYYYWWWD</td>
+<td>A complete representation of a specific date identified by calendar week and day numbers that is formatted in a Basic Latin string as specified in I8601, 5.2.3.1, Basic format; YYYYWwwD.</td>
+<td>PR</td>
+<td>[I8601, 5.2.3.1, Basic format]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DATEFMT_DD" id="EEC_DATEFMT_DD">13</a></td>
+<td>DD</td>
+<td>EEC_DATEFMT_DD</td>
+<td>A truncated representation for a specific day in the implied month that is formatted in a Basic Latin string as specified in I8601, 5.2.1.3 f, Basic format; ---DD.</td>
+<td>PR</td>
+<td>[I8601, 5.2.1.3.f, Basic format]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DATEFMT_DDD" id="EEC_DATEFMT_DDD">14</a></td>
+<td>DDD</td>
+<td>EEC_DATEFMT_DDD</td>
+<td>A truncated representation for a specific ordinal day only in the implied year that is formatted in a Basic Latin string as specified in I8601, 5.2.2.2 b, Basic format; -DDD.</td>
+<td>PR</td>
+<td>[I8601, 5.2.2.2.b, Basic format]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DATEFMT_ISO" id="EEC_DATEFMT_ISO">15</a></td>
+<td>ISO</td>
+<td>EEC_DATEFMT_ISO</td>
+<td>A specific date that is formatted in a Basic Latin string as specified in I8601, 5.2.</td>
+<td>PR</td>
+<td>[I8601, 5.2]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DATEFMT_MM" id="EEC_DATEFMT_MM">16</a></td>
+<td>MM</td>
+<td>EEC_DATEFMT_MM</td>
+<td>A truncated representation for a specific month in the implied year that is formatted in a Basic Latin string as specified in I8601, 5.2.1.3 e, Basic format; --MM.</td>
+<td>PR</td>
+<td>[I8601, 5.2.1.3.e, Basic format]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DATEFMT_MM_DD" id="EEC_DATEFMT_MM_DD">17</a></td>
+<td>MM_DD</td>
+<td>EEC_DATEFMT_MM_DD</td>
+<td>A truncated representation for a specific day of a month in the implied year that is formatted in a Basic Latin string as specified in I8601, 5.2.1.3 d, Extended format; --MM-DD.</td>
+<td>PR</td>
+<td>[I8601, 5.2.1.3.d, Extended format]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DATEFMT_MMDD" id="EEC_DATEFMT_MMDD">18</a></td>
+<td>MMDD</td>
+<td>EEC_DATEFMT_MMDD</td>
+<td>A truncated representation for a specific day of a month in the implied year that is formatted in a Basic Latin string as specified in I8601, 5.2.1.3 d, Basic format; --MMDD.</td>
+<td>PR</td>
+<td>[I8601, 5.2.1.3.d, Basic format]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DATEFMT_ORDINAL_DATE" id="EEC_DATEFMT_ORDINAL_DATE">19</a></td>
+<td>ORDINAL_DATE</td>
+<td>EEC_DATEFMT_ORDINAL_DATE</td>
+<td>A specific ordinal date that is formatted in a Basic Latin string as specified in I8601, 5.2.2.</td>
+<td>PR</td>
+<td>[I8601, 5.2.2]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DATEFMT_W_D" id="EEC_DATEFMT_W_D">20</a></td>
+<td>W_D</td>
+<td>EEC_DATEFMT_W_D</td>
+<td>A specific day only of the implied week that is formatted in a Basic Latin string as specified in I8601, 5.2.3.3 g, Basic format; -W-D.</td>
+<td>PR</td>
+<td>[I8601, 5.2.3.3.g, Basic format]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DATEFMT_WEEK_DATE" id="EEC_DATEFMT_WEEK_DATE">21</a></td>
+<td>WEEK_DATE</td>
+<td>EEC_DATEFMT_WEEK_DATE</td>
+<td>A specific date identified by calendar week and day of the week numbers that is formatted in a Basic Latin string as specified in I8601, 5.2.3.</td>
+<td>PR</td>
+<td>[I8601, 5.2.3]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DATEFMT_WWW" id="EEC_DATEFMT_WWW">22</a></td>
+<td>WWW</td>
+<td>EEC_DATEFMT_WWW</td>
+<td>A specific week only of the implied year that is formatted in a Basic Latin string as specified in I8601, 5.2.3.3 f, Basic format; -Www.</td>
+<td>PR</td>
+<td>[I8601, 5.2.3.3.f, Basic format]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DATEFMT_WWW_D" id="EEC_DATEFMT_WWW_D">23</a></td>
+<td>WWW_D</td>
+<td>EEC_DATEFMT_WWW_D</td>
+<td>A specific week and day only of the implied year that is formatted in a Basic Latin string as specified in I8601, 5.2.3.3 e, Extended format; -Www-D.</td>
+<td>PR</td>
+<td>[I8601, 5.2.3.3.e, Extended format]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DATEFMT_WWWD" id="EEC_DATEFMT_WWWD">24</a></td>
+<td>WWWD</td>
+<td>EEC_DATEFMT_WWWD</td>
+<td>A specific week and day only of the implied year that is formatted in a Basic Latin string as specified in I8601, 5.2.3.3 e, Basic format; -WwwD.</td>
+<td>PR</td>
+<td>[I8601, 5.2.3.3.e, Basic format]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DATEFMT_Y_WWW" id="EEC_DATEFMT_Y_WWW">25</a></td>
+<td>Y_WWW</td>
+<td>EEC_DATEFMT_Y_WWW</td>
+<td>A specific year of the implied decade and week only that is formatted in a Basic Latin string as specified in I8601, 5.2.3.3 d, Extended format; -Y-Www.</td>
+<td>PR</td>
+<td>[I8601, 5.2.3.3 d, Extended format]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DATEFMT_Y_WWW_D" id="EEC_DATEFMT_Y_WWW_D">26</a></td>
+<td>Y_WWW_D</td>
+<td>EEC_DATEFMT_Y_WWW_D</td>
+<td>A specific year of the implied decade, week, and day only that is formatted in a Basic Latin string as specified in I8601, 5.2.3.3 c, Extended format; -Y-Www-D.</td>
+<td>PR</td>
+<td>[I8601, 5.2.3.3.c, Extended format]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DATEFMT_YWWW" id="EEC_DATEFMT_YWWW">27</a></td>
+<td>YWWW</td>
+<td>EEC_DATEFMT_YWWW</td>
+<td>A specific year of the implied decade and week only that is formatted in a Basic Latin string as specified in I8601, 5.2.3.3 d, Basic format; -YWww.</td>
+<td>PR</td>
+<td>[I8601, 5.2.3.3 d, Basic format]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DATEFMT_YWWWD" id="EEC_DATEFMT_YWWWD">28</a></td>
+<td>YWWWD</td>
+<td>EEC_DATEFMT_YWWWD</td>
+<td>A specific year of the implied decade, week, and day only that is formatted in a Basic Latin string as specified in I8601, 5.2.3.3 c, Basic format; -YWwwD.</td>
+<td>PR</td>
+<td>[I8601, 5.2.3.3.c, Basic format]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DATEFMT_YY_TRUNCATED" id="EEC_DATEFMT_YY_TRUNCATED">29</a></td>
+<td>YY_TRUNCATED</td>
+<td>EEC_DATEFMT_YY_TRUNCATED</td>
+<td>A truncated representation for a specific year in the implied century that is formatted in a Basic Latin string as specified in I8601, 5.2.1.3 c, Basic format; -YY.</td>
+<td>PR</td>
+<td>[I8601, 5.2.1.3.c, Basic format]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DATEFMT_YY_DDD" id="EEC_DATEFMT_YY_DDD">30</a></td>
+<td>YY_DDD</td>
+<td>EEC_DATEFMT_YY_DDD</td>
+<td>A truncated representation for a specific year and ordinal day in the implied century that is formatted in a Basic Latin string as specified in I8601, 5.2.2.2 a, Extended format; YY-DDD.</td>
+<td>PR</td>
+<td>[I8601, 5.2.2.2.a, Extended format]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DATEFMT_YY_MM" id="EEC_DATEFMT_YY_MM">31</a></td>
+<td>YY_MM</td>
+<td>EEC_DATEFMT_YY_MM</td>
+<td>A truncated representation for a specific year and month in the implied century that is formatted in a Basic Latin string as specified in I8601, 5.2.1.3 b, Extended format; -YY-MM.</td>
+<td>PR</td>
+<td>[I8601, 5.2.1.3.b, Extended format]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DATEFMT_YY_MM_DD" id="EEC_DATEFMT_YY_MM_DD">32</a></td>
+<td>YY_MM_DD</td>
+<td>EEC_DATEFMT_YY_MM_DD</td>
+<td>A truncated representation for a specific date in the implied century that is formatted in a Basic Latin string as specified in I8601, 5.2.1.3 a, Extended format; YY-MM-DD.</td>
+<td>PR</td>
+<td>[I8601, 5.2.1.3.a, Extended format]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DATEFMT_YY_WWW" id="EEC_DATEFMT_YY_WWW">33</a></td>
+<td>YY_WWW</td>
+<td>EEC_DATEFMT_YY_WWW</td>
+<td>A specific year and week only in the implied century that is formatted in a Basic Latin string as specified in I8601, 5.2.3.3 b, Extended format; YY-Www.</td>
+<td>PR</td>
+<td>[I8601, 5.2.3.3.b, Extended format]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DATEFMT_YY_WWW_D" id="EEC_DATEFMT_YY_WWW_D">34</a></td>
+<td>YY_WWW_D</td>
+<td>EEC_DATEFMT_YY_WWW_D</td>
+<td>A specific year, week, and day in the implied century that is formatted in a Basic Latin string as specified in I8601, 5.2.3.3 a, Extended format; YY-Www-D.</td>
+<td>PR</td>
+<td>[I8601, 5.2.3.3.a, Extended format]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DATEFMT_YYDDD" id="EEC_DATEFMT_YYDDD">35</a></td>
+<td>YYDDD</td>
+<td>EEC_DATEFMT_YYDDD</td>
+<td>A truncated representation for a specific year and ordinal day in the implied century that is formatted in a Basic Latin string as specified in I8601, 5.2.2.2 a, Basic format; YYDDD.</td>
+<td>PR</td>
+<td>[I8601, 5.2.2.2.a, Basic format]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DATEFMT_YYMM" id="EEC_DATEFMT_YYMM">36</a></td>
+<td>YYMM</td>
+<td>EEC_DATEFMT_YYMM</td>
+<td>A truncated representation for a specific year and month in the implied century that is formatted in a Basic Latin string as specified in I8601, 5.2.1.3 b, Basic format; -YYMM.</td>
+<td>PR</td>
+<td>[I8601, 5.2.1.3.b, Basic format]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DATEFMT_YYMMDD" id="EEC_DATEFMT_YYMMDD">37</a></td>
+<td>YYMMDD</td>
+<td>EEC_DATEFMT_YYMMDD</td>
+<td>A truncated representation for a specific date in the implied century that is formatted in a Basic Latin string as specified in I8601, 5.2.1.3 a, Basic format; YYMMDD.</td>
+<td>PR</td>
+<td>[I8601, 5.2.1.3.a, Basic format]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DATEFMT_YYWWW" id="EEC_DATEFMT_YYWWW">38</a></td>
+<td>YYWWW</td>
+<td>EEC_DATEFMT_YYWWW</td>
+<td>A specific year and week only in the implied century that is formatted in a Basic Latin string as specified in I8601, 5.2.3.3 b, Basic format; YYWww.</td>
+<td>PR</td>
+<td>[I8601, 5.2.3.3.b, Basic format]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DATEFMT_YYWWWD" id="EEC_DATEFMT_YYWWWD">39</a></td>
+<td>YYWWWD</td>
+<td>EEC_DATEFMT_YYWWWD</td>
+<td>A specific year, week and day in the implied century that is formatted in a Basic Latin string as specified in I8601, 5.2.3.3 a, Basic format; YYWwwD.</td>
+<td>PR</td>
+<td>[I8601, 5.2.3.3.a, Basic format]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DATEFMT_YYY" id="EEC_DATEFMT_YYY">40</a></td>
+<td>YYY</td>
+<td>EEC_DATEFMT_YYY</td>
+<td>An expanded representation of a specific century that is formatted in a Basic Latin string as specified in I8601, 5.2.1.4 d, Basic format; YYY. As many digits as required may be used to expand the century.</td>
+<td>PR</td>
+<td>[I8601, 5.2.1.4.d, Basic format]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DATEFMT_YYYYY" id="EEC_DATEFMT_YYYYY">41</a></td>
+<td>YYYYY</td>
+<td>EEC_DATEFMT_YYYYY</td>
+<td>An expanded representation of a specific year that is formatted in a Basic Latin string as specified in I8601, 5.2.1.2.b, Basic format; YYYYY. As many digits as required may be used to expand the year.</td>
+<td>PR</td>
+<td>[I8601, 5.2.1.2.b, Basic format]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DATEFMT_YYYYY_DDD" id="EEC_DATEFMT_YYYYY_DDD">42</a></td>
+<td>YYYYY_DDD</td>
+<td>EEC_DATEFMT_YYYYY_DDD</td>
+<td>An expanded representation for a specific ordinal date that is formatted in a Basic Latin string as specified in I8601, 5.2.2.3 a, Extended format; YYYYY-DDD. As many digits as required may be used to expand the year.</td>
+<td>PR</td>
+<td>[I8601, 5.2.2.3.a, Extended format]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DATEFMT_YYYYY_MM" id="EEC_DATEFMT_YYYYY_MM">43</a></td>
+<td>YYYYY_MM</td>
+<td>EEC_DATEFMT_YYYYY_MM</td>
+<td>An expanded representation of a specific month that is formatted in a Basic Latin string as specified in I8601, 5.2.1.2.a, Basic format; YYYYY-MM. As many digits as required may be used to expand the year.</td>
+<td>PR</td>
+<td>[I8601, 5.2.1.2.a, Basic format]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DATEFMT_YYYYY_MM_DD" id="EEC_DATEFMT_YYYYY_MM_DD">44</a></td>
+<td>YYYYY_MM_DD</td>
+<td>EEC_DATEFMT_YYYYY_MM_DD</td>
+<td>An expanded representation of a specific calendar date that is formatted in a Basic Latin string as specified in I8601, 5.2.1.1, Extended format; YYYYY-MM-DD. As many digits as required may be used to expand the year.</td>
+<td>PR</td>
+<td>[I8601, 5.2.1.1, Extended format]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DATEFMT_YYYYYDDD" id="EEC_DATEFMT_YYYYYDDD">45</a></td>
+<td>YYYYYDDD</td>
+<td>EEC_DATEFMT_YYYYYDDD</td>
+<td>An expanded representation for a specific ordinal date that is formatted in a Basic Latin string as specified in I8601, 5.2.2.3 a, Basic format; YYYYYDDD. As many digits as required may be used to expand the year.</td>
+<td>PR</td>
+<td>[I8601, 5.2.2.3.a, Basic format]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DATEFMT_YYYYYMMDD" id="EEC_DATEFMT_YYYYYMMDD">46</a></td>
+<td>YYYYYMMDD</td>
+<td>EEC_DATEFMT_YYYYYMMDD</td>
+<td>An expanded representation of a specific calendar date that is formatted in a Basic Latin string as specified in I8601, 5.2.1.1, Basic format; YYYYYMMDD. As many digits as required may be used to expand the year.</td>
+<td>PR</td>
+<td>[I8601, 5.2.1.1, Basic format]</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_TIME">TIME</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_DATE_TIME_FORMAT" id="EAC_DATE_TIME_FORMAT">DATE_TIME_FORMAT</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_DATE_TIME_FORMAT
+</p><p>
+<b>EDCS Attribute Code</b>: 288
+</p><p>
+<b>Definition</b>:
+<br>
+The format of a date and time of the day.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_DATETIMEFMT_ISO" id="EEC_DATETIMEFMT_ISO">1</a></td>
+<td>ISO</td>
+<td>EEC_DATETIMEFMT_ISO</td>
+<td>A specific date and time of the day that is formatted in a Basic Latin string as specified in I8601, 5.4.</td>
+<td>PR</td>
+<td>[I8601, 5.4]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DATETIMEFMT_YYYYMMDDTHHMMSS" id="EEC_DATETIMEFMT_YYYYMMDDTHHMMSS">2</a></td>
+<td>YYYYMMDDTHHMMSS</td>
+<td>EEC_DATETIMEFMT_YYYYMMDDTHHMMSS</td>
+<td>A specific date and local time of the day that is formatted in a Basic Latin string as specified in I8601, 5.4.1 a, Basic format; either YYYYMMDDThhmmss or YYYYMMDDThhmm or YYYYMMDDThh.</td>
+<td>PR</td>
+<td>[I8601, 5.4.1.a, Basic format]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DATETIMEFMT_YYYY_MM_DDTHH_MM_SS" id="EEC_DATETIMEFMT_YYYY_MM_DDTHH_MM_SS">3</a></td>
+<td>YYYY_MM_DDTHH_MM_SS</td>
+<td>EEC_DATETIMEFMT_YYYY_MM_DDTHH_MM_SS</td>
+<td>A specific date and local time of the day that is formatted in a Basic Latin string as specified in I8601, 5.4.1 a, Extended format; either YYYY-MM-DDThh:mm:ss or YYYY-MM-DDThh:mm or YYYY-MM-DDThh.</td>
+<td>PR</td>
+<td>[I8601, 5.4.1.a, Extended format]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DATETIMEFMT_YYYYDDDTHHMMSS" id="EEC_DATETIMEFMT_YYYYDDDTHHMMSS">4</a></td>
+<td>YYYYDDDTHHMMSS</td>
+<td>EEC_DATETIMEFMT_YYYYDDDTHHMMSS</td>
+<td>A specific ordinal date and local time of the day that is formatted in a Basic Latin string as specified in I8601, 5.4.1 b, Basic format; either YYYYDDDThhmmss or YYYYDDDThhmm or YYYYDDDThh.</td>
+<td>PR</td>
+<td>[I8601, 5.4.1.b, Basic format]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DATETIMEFMT_YYYY_DDDTHH_MM_SS" id="EEC_DATETIMEFMT_YYYY_DDDTHH_MM_SS">5</a></td>
+<td>YYYY_DDDTHH_MM_SS</td>
+<td>EEC_DATETIMEFMT_YYYY_DDDTHH_MM_SS</td>
+<td>A specific ordinal date and local time of the day that is formatted in a Basic Latin string as specified in I8601, 5.4.1 b, Extended format; either YYYY-DDDThh:mm:ss or YYYY-DDDThh:mm or YYYY-DDDThh.</td>
+<td>PR</td>
+<td>[I8601, 5.4.1.b, Extended format]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DATETIMEFMT_YYYYWWWDTHHMMSS" id="EEC_DATETIMEFMT_YYYYWWWDTHHMMSS">6</a></td>
+<td>YYYYWWWDTHHMMSS</td>
+<td>EEC_DATETIMEFMT_YYYYWWWDTHHMMSS</td>
+<td>A specific date identified by calendar week and day numbers and local time of the day that is formatted in a Basic Latin string as specified in I8601, 5.4.1 c, Basic format; either YYYYWwwDThhmmss or YYYYWwwDThhmm or YYYYWwwDThh.</td>
+<td>PR</td>
+<td>[I8601, 5.4.1.c, Basic format]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DATETIMEFMT_YYYY_WWW_DTHH_MM_SS" id="EEC_DATETIMEFMT_YYYY_WWW_DTHH_MM_SS">7</a></td>
+<td>YYYY_WWW_DTHH_MM_SS</td>
+<td>EEC_DATETIMEFMT_YYYY_WWW_DTHH_MM_SS</td>
+<td>A specific date identified by calendar week and day numbers and local time of the day that is formatted in a Basic Latin string as specified in I8601, 5.4.1 c, Extended format; either YYYY-Www-DThh:mm:ss or YYYY-Www-DThh:mm or YYYY-Www-DThh.</td>
+<td>PR</td>
+<td>[I8601, 5.4.1.c, Extended format]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DATETIMEFMT_REDUCED" id="EEC_DATETIMEFMT_REDUCED">8</a></td>
+<td>REDUCED</td>
+<td>EEC_DATETIMEFMT_REDUCED</td>
+<td>A specific date time of the day, using a reduced precision or truncated representation that is formatted in a Basic Latin string as specified in I8601, 5.4.2.</td>
+<td>PR</td>
+<td>[I8601, 5.4.2]</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_TIME">TIME</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_DATE_TIME_GROUP" id="EAC_DATE_TIME_GROUP">DATE_TIME_GROUP</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_DATE_TIME_GROUP
+</p><p>
+<b>EDCS Attribute Code</b>: 289
+</p><p>
+<b>Definition</b>:
+<br>
+The date and time, formatted as specified by &lt;&lt;<a href="EAC_D.htm#EAC_DATE_TIME_FORMAT">DATE_TIME_FORMAT</a>&gt;&gt;; a date time group.
+<p>
+<b>EDCS Attribute Value Data Type</b>: CONSTRAINED_STRING
+</p><p>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_TIME">TIME</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [SP35, "date-time group"]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_DAY_WITHIN_YEAR" id="EAC_DAY_WITHIN_YEAR">DAY_WITHIN_YEAR</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_DAY_WITHIN_YEAR
+</p><p>
+<b>EDCS Attribute Code</b>: 290
+</p><p>
+<b>Definition</b>:
+<br>
+The ordinal index of a day within the year, starting with 1 on the 1<sup>st</sup> of January.
+<p>
+<b>EDCS Attribute Value Data Type</b>: COUNT
+</p><p>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_TIME">TIME</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_DEEP_SOUND_CHANNEL_AXIS_DEPTH" id="EAC_DEEP_SOUND_CHANNEL_AXIS_DEPTH">DEEP_SOUND_CHANNEL_AXIS_DEPTH</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_DEEP_SOUND_CHANNEL_AXIS_DEPTH
+</p><p>
+<b>EDCS Attribute Code</b>: 291
+</p><p>
+<b>Definition</b>:
+<br>
+The &lt;&lt;<a href="EAC_D.htm#EAC_DEPTH">DEPTH</a>&gt;&gt; at which the &lt;&lt;<a href="EAC_S.htm#EAC_SPEED">SPEED</a>&gt;&gt; of propagation of a compressional wave achieves its minimum value in a &lt;<a href="ECC_D.htm#ECC_DEEP_SOUND_CHANNEL">DEEP_SOUND_CHANNEL</a>&gt;; the deep sound channel axis depth.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_LENGTH">LENGTH</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ACOUSTIC_PHENOMENON">ACOUSTIC_PHENOMENON</a>, <a href="groups.htm#EGC_GEN_HYDROLOGY">HYDROLOGY</a>, <a href="groups.htm#EGC_GEN_LOCATION">LOCATION</a>, <a href="groups.htm#EGC_GEN_WATERBODY_STATE">WATERBODY_STATE</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: [PUWS]
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_DEEP_SOUND_CHANNEL_TOP_DEPTH" id="EAC_DEEP_SOUND_CHANNEL_TOP_DEPTH">DEEP_SOUND_CHANNEL_TOP_DEPTH</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_DEEP_SOUND_CHANNEL_TOP_DEPTH
+</p><p>
+<b>EDCS Attribute Code</b>: 292
+</p><p>
+<b>Definition</b>:
+<br>
+The topmost of the two &lt;&lt;<a href="EAC_D.htm#EAC_DEPTH">DEPTH</a>&gt;&gt;s of equal maximum &lt;&lt;<a href="EAC_S.htm#EAC_SPEED">SPEED</a>&gt;&gt; of propagation of compressional waves in a &lt;<a href="ECC_D.htm#ECC_DEEP_SOUND_CHANNEL">DEEP_SOUND_CHANNEL</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_LENGTH">LENGTH</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ACOUSTIC_PHENOMENON">ACOUSTIC_PHENOMENON</a>, <a href="groups.htm#EGC_GEN_HYDROLOGY">HYDROLOGY</a>, <a href="groups.htm#EGC_GEN_LOCATION">LOCATION</a>, <a href="groups.htm#EGC_GEN_WATERBODY_STATE">WATERBODY_STATE</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: [PUWS]
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_DEFENSIVE_POSITION_COUNT" id="EAC_DEFENSIVE_POSITION_COUNT">DEFENSIVE_POSITION_COUNT</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_DEFENSIVE_POSITION_COUNT
+</p><p>
+<b>EDCS Attribute Code</b>: 293
+</p><p>
+<b>Definition</b>:
+<br>
+The number of &lt;<a href="ECC_D.htm#ECC_DEFENSIVE_POSITION">DEFENSIVE_POSITION</a>&gt;s within a delineated &lt;<a href="ECC_R.htm#ECC_REGION">REGION</a>&gt;; the defensive position count.
+<p>
+<b>EDCS Attribute Value Data Type</b>: COUNT
+</p><p>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_MILITARY_SCIENCE">MILITARY_SCIENCE</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_DEFENSIVE_POSITION_TYPE" id="EAC_DEFENSIVE_POSITION_TYPE">DEFENSIVE_POSITION_TYPE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_DEFENSIVE_POSITION_TYPE
+</p><p>
+<b>EDCS Attribute Code</b>: 294
+</p><p>
+<b>Definition</b>:
+<br>
+The type of a &lt;<a href="ECC_D.htm#ECC_DEFENSIVE_POSITION">DEFENSIVE_POSITION</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_DEFPOSTY_DELIB_FULL_HIDE_ARMOURED_TRACKED_FIGHTING_VEHICLE" id="EEC_DEFPOSTY_DELIB_FULL_HIDE_ARMOURED_TRACKED_FIGHTING_VEHICLE">1</a></td>
+<td>DELIB_FULL_HIDE_ARMOURED_TRACKED_FIGHTING_VEHICLE</td>
+<td>EEC_DEFPOSTY_DELIB_FULL_HIDE_ARMOURED_TRACKED_FIGHTING_VEHICLE</td>
+<td>Deliberate prepared with full hide capability for an &lt;<a href="ECC_A.htm#ECC_ARMOURED_TRACKED_FIGHTING_VEHICLE">ARMOURED_TRACKED_FIGHTING_VEHICLE</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DEFPOSTY_DELIB_MORTAR_FULL_HIDE" id="EEC_DEFPOSTY_DELIB_MORTAR_FULL_HIDE">2</a></td>
+<td>DELIB_MORTAR_FULL_HIDE</td>
+<td>EEC_DEFPOSTY_DELIB_MORTAR_FULL_HIDE</td>
+<td>Deliberate prepared with full hide capability for a mortar-carrier &lt;<a href="ECC_G.htm#ECC_GROUND_VEHICLE">GROUND_VEHICLE</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DEFPOSTY_DELIB_MORTAR_NO_FULL_HIDE" id="EEC_DEFPOSTY_DELIB_MORTAR_NO_FULL_HIDE">3</a></td>
+<td>DELIB_MORTAR_NO_FULL_HIDE</td>
+<td>EEC_DEFPOSTY_DELIB_MORTAR_NO_FULL_HIDE</td>
+<td>Deliberate prepared without full hide capability for a mortar-carrier &lt;<a href="ECC_G.htm#ECC_GROUND_VEHICLE">GROUND_VEHICLE</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DEFPOSTY_DELIB_NO_FULL_HIDE_ARMOURED_TRACKED_FIGHTING_VEHICLE" id="EEC_DEFPOSTY_DELIB_NO_FULL_HIDE_ARMOURED_TRACKED_FIGHTING_VEHICLE">4</a></td>
+<td>DELIB_NO_FULL_HIDE_ARMOURED_TRACKED_FIGHTING_VEHICLE</td>
+<td>EEC_DEFPOSTY_DELIB_NO_FULL_HIDE_ARMOURED_TRACKED_FIGHTING_VEHICLE</td>
+<td>Deliberate prepared without full hide capability for an &lt;<a href="ECC_A.htm#ECC_ARMOURED_TRACKED_FIGHTING_VEHICLE">ARMOURED_TRACKED_FIGHTING_VEHICLE</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DEFPOSTY_DELIB_PER_DEF_COVERED" id="EEC_DEFPOSTY_DELIB_PER_DEF_COVERED">5</a></td>
+<td>DELIB_PER_DEF_COVERED</td>
+<td>EEC_DEFPOSTY_DELIB_PER_DEF_COVERED</td>
+<td>Deliberate prepared with overhead cover for &lt;<a href="ECC_M.htm#ECC_MILITARY_PERSONNEL">MILITARY_PERSONNEL</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DEFPOSTY_DELIB_PER_DEF_NO_COVER" id="EEC_DEFPOSTY_DELIB_PER_DEF_NO_COVER">6</a></td>
+<td>DELIB_PER_DEF_NO_COVER</td>
+<td>EEC_DEFPOSTY_DELIB_PER_DEF_NO_COVER</td>
+<td>Deliberate prepared without overhead cover for &lt;<a href="ECC_M.htm#ECC_MILITARY_PERSONNEL">MILITARY_PERSONNEL</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DEFPOSTY_DELIB_VEH_DEF_FULL_HIDE" id="EEC_DEFPOSTY_DELIB_VEH_DEF_FULL_HIDE">7</a></td>
+<td>DELIB_VEH_DEF_FULL_HIDE</td>
+<td>EEC_DEFPOSTY_DELIB_VEH_DEF_FULL_HIDE</td>
+<td>Deliberate prepared with full hide for &lt;<a href="ECC_G.htm#ECC_GROUND_VEHICLE">GROUND_VEHICLE</a>&gt;s.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DEFPOSTY_DELIB_VEH_DEF_NO_FULL_HIDE" id="EEC_DEFPOSTY_DELIB_VEH_DEF_NO_FULL_HIDE">8</a></td>
+<td>DELIB_VEH_DEF_NO_FULL_HIDE</td>
+<td>EEC_DEFPOSTY_DELIB_VEH_DEF_NO_FULL_HIDE</td>
+<td>Deliberate prepared without full hide for &lt;<a href="ECC_G.htm#ECC_GROUND_VEHICLE">GROUND_VEHICLE</a>&gt;s.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DEFPOSTY_HASTY_PER_DEF_POSITION" id="EEC_DEFPOSTY_HASTY_PER_DEF_POSITION">9</a></td>
+<td>HASTY_PER_DEF_POSITION</td>
+<td>EEC_DEFPOSTY_HASTY_PER_DEF_POSITION</td>
+<td>Hastily prepared for &lt;<a href="ECC_M.htm#ECC_MILITARY_PERSONNEL">MILITARY_PERSONNEL</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DEFPOSTY_HASTY_VEH_DEF_POSITION" id="EEC_DEFPOSTY_HASTY_VEH_DEF_POSITION">10</a></td>
+<td>HASTY_VEH_DEF_POSITION</td>
+<td>EEC_DEFPOSTY_HASTY_VEH_DEF_POSITION</td>
+<td>Hastily prepared for &lt;<a href="ECC_G.htm#ECC_GROUND_VEHICLE">GROUND_VEHICLE</a>&gt;s.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DEFPOSTY_MACHINE_GUN_BUNKER" id="EEC_DEFPOSTY_MACHINE_GUN_BUNKER">11</a></td>
+<td>MACHINE_GUN_BUNKER</td>
+<td>EEC_DEFPOSTY_MACHINE_GUN_BUNKER</td>
+<td>Deliberately prepared &lt;<a href="ECC_B.htm#ECC_BUNKER">BUNKER</a>&gt; for a machine gun.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_MILITARY_SCIENCE">MILITARY_SCIENCE</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_DELINEATION_CERTAIN" id="EAC_DELINEATION_CERTAIN">DELINEATION_CERTAIN</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_DELINEATION_CERTAIN
+</p><p>
+<b>EDCS Attribute Code</b>: 295
+</p><p>
+<b>Definition</b>:
+<br>
+An indication that knowledge of the delineation of an &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt; is certain.
+<p>
+<b>EDCS Attribute Value Data Type</b>: BOOLEAN
+</p><p>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ABSTRACT_OBJECT">ABSTRACT_OBJECT</a>, <a href="groups.htm#EGC_GEN_DEMARCATION">DEMARCATION</a>, <a href="groups.htm#EGC_GEN_SURVEY">SURVEY</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: COD]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_DENSITY_ALTITUDE" id="EAC_DENSITY_ALTITUDE">DENSITY_ALTITUDE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_DENSITY_ALTITUDE
+</p><p>
+<b>EDCS Attribute Code</b>: 296
+</p><p>
+<b>Definition</b>:
+<br>
+The &lt;&lt;<a href="EAC_P.htm#EAC_PRESSURE_ALTITUDE">PRESSURE_ALTITUDE</a>&gt;&gt; corrected for deviations from the standard &lt;<a href="ECC_A.htm#ECC_ATMOSPHERE">ATMOSPHERE</a>&gt;; the density altitude.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_LENGTH">LENGTH</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ATMOSPHERE">ATMOSPHERE</a>, <a href="groups.htm#EGC_GEN_LOCATION">LOCATION</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [GMET, "density altitude"]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_DEPTH" id="EAC_DEPTH">DEPTH</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_DEPTH
+</p><p>
+<b>EDCS Attribute Code</b>: 297
+</p><p>
+<b>Definition</b>:
+<br>
+The distance from a &lt;<a href="ECC_S.htm#ECC_SURFACE">SURFACE</a>&gt; down to a &lt;<a href="ECC_L.htm#ECC_LOCATION">LOCATION</a>&gt; or &lt;<a href="ECC_S.htm#ECC_SURFACE">SURFACE</a>&gt;; depth. The value is expressed as a positive number.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_LENGTH">LENGTH</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ABSTRACT_OBJECT">ABSTRACT_OBJECT</a>, <a href="groups.htm#EGC_GEN_DIMENSION">DIMENSION</a>, <a href="groups.htm#EGC_GEN_SURFACE">SURFACE</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: [SOED, "depth", 1]
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_DEPTH_BELOW_SURFACE_LEVEL" id="EAC_DEPTH_BELOW_SURFACE_LEVEL">DEPTH_BELOW_SURFACE_LEVEL</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_DEPTH_BELOW_SURFACE_LEVEL
+</p><p>
+<b>EDCS Attribute Code</b>: 298
+</p><p>
+<b>Definition</b>:
+<br>
+The &lt;&lt;<a href="EAC_D.htm#EAC_DEPTH">DEPTH</a>&gt;&gt; measured from the highest point of an &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt; at the level of the surrounding &lt;<a href="ECC_S.htm#ECC_SURFACE">SURFACE</a>&gt; to the lowest point of that &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt; below the &lt;<a href="ECC_S.htm#ECC_SURFACE">SURFACE</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_LENGTH">LENGTH</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ABSTRACT_OBJECT">ABSTRACT_OBJECT</a>, <a href="groups.htm#EGC_GEN_DIMENSION">DIMENSION</a>, <a href="groups.htm#EGC_GEN_SURFACE">SURFACE</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: DEP]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_DEPTH_BELOW_WATERBODY_FLOOR" id="EAC_DEPTH_BELOW_WATERBODY_FLOOR">DEPTH_BELOW_WATERBODY_FLOOR</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_DEPTH_BELOW_WATERBODY_FLOOR
+</p><p>
+<b>EDCS Attribute Code</b>: 299
+</p><p>
+<b>Definition</b>:
+<br>
+The &lt;&lt;<a href="EAC_D.htm#EAC_DEPTH">DEPTH</a>&gt;&gt; from a &lt;<a href="ECC_W.htm#ECC_WATERBODY_FLOOR">WATERBODY_FLOOR</a>&gt; down to a &lt;<a href="ECC_L.htm#ECC_LOCATION">LOCATION</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_LENGTH">LENGTH</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_LOCATION">LOCATION</a>, <a href="groups.htm#EGC_GEN_WATERBODY_FLOOR">WATERBODY_FLOOR</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_DEPTH_BELOW_WATERBODY_SURFACE" id="EAC_DEPTH_BELOW_WATERBODY_SURFACE">DEPTH_BELOW_WATERBODY_SURFACE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_DEPTH_BELOW_WATERBODY_SURFACE
+</p><p>
+<b>EDCS Attribute Code</b>: 300
+</p><p>
+<b>Definition</b>:
+<br>
+The &lt;&lt;<a href="EAC_D.htm#EAC_DEPTH">DEPTH</a>&gt;&gt; of an &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt; below a &lt;<a href="ECC_W.htm#ECC_WATERBODY_SURFACE">WATERBODY_SURFACE</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_LENGTH">LENGTH</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_DIMENSION">DIMENSION</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: DEP]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_DEPTH_OF_WATERBODY_FLOOR" id="EAC_DEPTH_OF_WATERBODY_FLOOR">DEPTH_OF_WATERBODY_FLOOR</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_DEPTH_OF_WATERBODY_FLOOR
+</p><p>
+<b>EDCS Attribute Code</b>: 301
+</p><p>
+<b>Definition</b>:
+<br>
+The &lt;&lt;<a href="EAC_D.htm#EAC_DEPTH">DEPTH</a>&gt;&gt; from a &lt;<a href="ECC_W.htm#ECC_WATERBODY_SURFACE">WATERBODY_SURFACE</a>&gt; to a &lt;<a href="ECC_W.htm#ECC_WATERBODY_FLOOR">WATERBODY_FLOOR</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_LENGTH">LENGTH</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_LOCATION">LOCATION</a>, <a href="groups.htm#EGC_GEN_WATERBODY_FLOOR">WATERBODY_FLOOR</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: DW1, DW2]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_DEW_POINT_DEPRESSION" id="EAC_DEW_POINT_DEPRESSION">DEW_POINT_DEPRESSION</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_DEW_POINT_DEPRESSION
+</p><p>
+<b>EDCS Attribute Code</b>: 302
+</p><p>
+<b>Definition</b>:
+<br>
+The difference between an &lt;&lt;<a href="EAC_A.htm#EAC_AIR_TEMPERATURE">AIR_TEMPERATURE</a>&gt;&gt; at a &lt;<a href="ECC_L.htm#ECC_LOCATION">LOCATION</a>&gt; and the &lt;&lt;<a href="EAC_D.htm#EAC_DEW_POINT_TEMPERATURE">DEW_POINT_TEMPERATURE</a>&gt;&gt; at that &lt;<a href="ECC_L.htm#ECC_LOCATION">LOCATION</a>&gt;; the dew point depression.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_THERMO_TEMPERATURE">THERMO_TEMPERATURE</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ATMOSPHERE">ATMOSPHERE</a>, <a href="groups.htm#EGC_GEN_TEMPERATURE">TEMPERATURE</a>
+</p><p>
+<b>Reference Type</b>: PR
+</p><p>
+<b>Reference</b>: [WMO182, "dewpoint depression"]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_DEW_POINT_ERROR" id="EAC_DEW_POINT_ERROR">DEW_POINT_ERROR</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_DEW_POINT_ERROR
+</p><p>
+<b>EDCS Attribute Code</b>: 303
+</p><p>
+<b>Definition</b>:
+<br>
+The error in a measurement of a &lt;&lt;<a href="EAC_D.htm#EAC_DEW_POINT_TEMPERATURE">DEW_POINT_TEMPERATURE</a>&gt;&gt; that is introduced by uncertainties.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_THERMO_TEMPERATURE">THERMO_TEMPERATURE</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ATMOSPHERE">ATMOSPHERE</a>, <a href="groups.htm#EGC_GEN_TEMPERATURE">TEMPERATURE</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [JMCDM, "AIR-TEMPERATURE-ANALYSIS-FORECAST dewpoint-temperature error quantity"]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_DEW_POINT_MAXIMUM_DIFFERENCE_CLIMATOLOGY" id="EAC_DEW_POINT_MAXIMUM_DIFFERENCE_CLIMATOLOGY">DEW_POINT_MAXIMUM_DIFFERENCE_CLIMATOLOGY</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_DEW_POINT_MAXIMUM_DIFFERENCE_CLIMATOLOGY
+</p><p>
+<b>EDCS Attribute Code</b>: 304
+</p><p>
+<b>Definition</b>:
+<br>
+The historical (climatology) maximum difference between the &lt;&lt;<a href="EAC_D.htm#EAC_DEW_POINT_TEMPERATURE">DEW_POINT_TEMPERATURE</a>&gt;&gt; at an initial time and the &lt;&lt;<a href="EAC_D.htm#EAC_DEW_POINT_TEMPERATURE">DEW_POINT_TEMPERATURE</a>&gt;&gt; at an offset from that time.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_THERMO_TEMPERATURE">THERMO_TEMPERATURE</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ATMOSPHERE">ATMOSPHERE</a>, <a href="groups.htm#EGC_GEN_TEMPERATURE">TEMPERATURE</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [GMET]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_DEW_POINT_MINIMUM_DIFFERENCE_CLIMATOLOGY" id="EAC_DEW_POINT_MINIMUM_DIFFERENCE_CLIMATOLOGY">DEW_POINT_MINIMUM_DIFFERENCE_CLIMATOLOGY</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_DEW_POINT_MINIMUM_DIFFERENCE_CLIMATOLOGY
+</p><p>
+<b>EDCS Attribute Code</b>: 305
+</p><p>
+<b>Definition</b>:
+<br>
+The historical (climatology) minimum difference between the &lt;&lt;<a href="EAC_D.htm#EAC_DEW_POINT_TEMPERATURE">DEW_POINT_TEMPERATURE</a>&gt;&gt; at an initial time and the &lt;&lt;<a href="EAC_D.htm#EAC_DEW_POINT_TEMPERATURE">DEW_POINT_TEMPERATURE</a>&gt;&gt; at an offset from that time.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_THERMO_TEMPERATURE">THERMO_TEMPERATURE</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ATMOSPHERE">ATMOSPHERE</a>, <a href="groups.htm#EGC_GEN_TEMPERATURE">TEMPERATURE</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [GMET]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_DEW_POINT_QUALITY" id="EAC_DEW_POINT_QUALITY">DEW_POINT_QUALITY</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_DEW_POINT_QUALITY
+</p><p>
+<b>EDCS Attribute Code</b>: 306
+</p><p>
+<b>Definition</b>:
+<br>
+The quality of a &lt;&lt;<a href="EAC_D.htm#EAC_DEW_POINT_TEMPERATURE">DEW_POINT_TEMPERATURE</a>&gt;&gt; measurement.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_DEWPTQUAL_GOOD" id="EEC_DEWPTQUAL_GOOD">1</a></td>
+<td>GOOD</td>
+<td>EEC_DEWPTQUAL_GOOD</td>
+<td>The quality of the value was acceptable; good.</td>
+<td>IR</td>
+<td>[QCMO, Table 1:1]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DEWPTQUAL_NO_CHECK" id="EEC_DEWPTQUAL_NO_CHECK">2</a></td>
+<td>NO_CHECK</td>
+<td>EEC_DEWPTQUAL_NO_CHECK</td>
+<td>No check on the quality of the value was performed.</td>
+<td>IR</td>
+<td>[QCMO, Table 1:0]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DEWPTQUAL_SUSPECT" id="EEC_DEWPTQUAL_SUSPECT">3</a></td>
+<td>SUSPECT</td>
+<td>EEC_DEWPTQUAL_SUSPECT</td>
+<td>The value may be in error; suspect.</td>
+<td>IR</td>
+<td>[QCMO, Table 1:2]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DEWPTQUAL_ERR_CORRECTED" id="EEC_DEWPTQUAL_ERR_CORRECTED">4</a></td>
+<td>ERR_CORRECTED</td>
+<td>EEC_DEWPTQUAL_ERR_CORRECTED</td>
+<td>The original value was erroneous and was corrected.</td>
+<td>IR</td>
+<td>[QCMO, Table 1:4]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DEWPTQUAL_ERR_CORRECTION_SUSPECT" id="EEC_DEWPTQUAL_ERR_CORRECTION_SUSPECT">5</a></td>
+<td>ERR_CORRECTION_SUSPECT</td>
+<td>EEC_DEWPTQUAL_ERR_CORRECTION_SUSPECT</td>
+<td>&lt;&lt;&lt;<a href="EAC_D.htm#EEC_DEWPTQUAL_ERR_CORRECTED">ERR_CORRECTED</a>&gt;&gt;&gt; but the corrected value may be in error.</td>
+<td>IR</td>
+<td>[QCMO, Table 1:5]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DEWPTQUAL_ERR" id="EEC_DEWPTQUAL_ERR">6</a></td>
+<td>ERR</td>
+<td>EEC_DEWPTQUAL_ERR</td>
+<td>The value is erroneous.</td>
+<td>IR</td>
+<td>[QCMO, Table 1:5]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DEWPTQUAL_MISS_SUBST" id="EEC_DEWPTQUAL_MISS_SUBST">7</a></td>
+<td>MISS_SUBST</td>
+<td>EEC_DEWPTQUAL_MISS_SUBST</td>
+<td>&lt;&lt;&lt;<a href="EAC_D.htm#EEC_DEWPTQUAL_MISS">MISS</a>&gt;&gt;&gt;, so a substitute value was provided.</td>
+<td>IR</td>
+<td>[QCMO, Table 1:6]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DEWPTQUAL_MISS_SUBST_SUSPECT" id="EEC_DEWPTQUAL_MISS_SUBST_SUSPECT">8</a></td>
+<td>MISS_SUBST_SUSPECT</td>
+<td>EEC_DEWPTQUAL_MISS_SUBST_SUSPECT</td>
+<td>&lt;&lt;&lt;<a href="EAC_D.htm#EEC_DEWPTQUAL_MISS_SUBST">MISS_SUBST</a>&gt;&gt;&gt;, but the substitute value may be in error.</td>
+<td>IR</td>
+<td>[QCMO, Table 1:7]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DEWPTQUAL_MISS" id="EEC_DEWPTQUAL_MISS">9</a></td>
+<td>MISS</td>
+<td>EEC_DEWPTQUAL_MISS</td>
+<td>The value is missing.</td>
+<td>IR</td>
+<td>[QCMO, Table 1:9]</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ATMOSPHERE">ATMOSPHERE</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [QCMO]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_DEW_POINT_TEMPERATURE" id="EAC_DEW_POINT_TEMPERATURE">DEW_POINT_TEMPERATURE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_DEW_POINT_TEMPERATURE
+</p><p>
+<b>EDCS Attribute Code</b>: 307
+</p><p>
+<b>Definition</b>:
+<br>
+The &lt;&lt;<a href="EAC_T.htm#EAC_TEMPERATURE">TEMPERATURE</a>&gt;&gt; to which a given parcel of &lt;<a href="ECC_A.htm#ECC_AIR">AIR</a>&gt; must be cooled at constant &lt;&lt;<a href="EAC_A.htm#EAC_ATM_PRESSURE">ATM_PRESSURE</a>&gt;&gt; and water vapour content in order for saturation to occur; the dew point temperature.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_THERMO_TEMPERATURE">THERMO_TEMPERATURE</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ATMOSPHERE">ATMOSPHERE</a>, <a href="groups.htm#EGC_GEN_TEMPERATURE">TEMPERATURE</a>
+</p><p>
+<b>Reference Type</b>: PR
+</p><p>
+<b>Reference</b>: [WMO182, "dewpoint temperature"]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_DIR_SHIPPING_NOISE_CORRECTION" id="EAC_DIR_SHIPPING_NOISE_CORRECTION">DIR_SHIPPING_NOISE_CORRECTION</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_DIR_SHIPPING_NOISE_CORRECTION
+</p><p>
+<b>EDCS Attribute Code</b>: 308
+</p><p>
+<b>Definition</b>:
+<br>
+The correction to the &lt;&lt;<a href="EAC_D.htm#EAC_DIR_SHIPPING_NOISE_SPECTRAL_POWER_LEVEL">DIR_SHIPPING_NOISE_SPECTRAL_POWER_LEVEL</a>&gt;&gt;, typically taken at 50 hertz.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_FIELD_OR_POWER_LEVEL_DIFF">FIELD_OR_POWER_LEVEL_DIFF</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ACOUSTIC_PHENOMENON">ACOUSTIC_PHENOMENON</a>, <a href="groups.htm#EGC_GEN_RATE_OR_RATIO">RATE_OR_RATIO</a>, <a href="groups.htm#EGC_GEN_WATERBODY_STATE">WATERBODY_STATE</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [OAML, Shipping Noise Database]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_DIR_SHIPPING_NOISE_SPECTRAL_POWER_LEVEL" id="EAC_DIR_SHIPPING_NOISE_SPECTRAL_POWER_LEVEL">DIR_SHIPPING_NOISE_SPECTRAL_POWER_LEVEL</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_DIR_SHIPPING_NOISE_SPECTRAL_POWER_LEVEL
+</p><p>
+<b>EDCS Attribute Code</b>: 309
+</p><p>
+<b>Definition</b>:
+<br>
+In a volume of a &lt;<a href="ECC_W.htm#ECC_WATERBODY">WATERBODY</a>&gt;, the directional shipping noise spectral power level, typically taken at 50 hertz.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_PRESSURE_POWER_LEVEL">PRESSURE_POWER_LEVEL</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ACOUSTIC_PHENOMENON">ACOUSTIC_PHENOMENON</a>, <a href="groups.htm#EGC_GEN_RATE_OR_RATIO">RATE_OR_RATIO</a>, <a href="groups.htm#EGC_GEN_WATERBODY_STATE">WATERBODY_STATE</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [OAML, Shipping Noise Database]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_DIRECTIONAL_HEMISPHERICAL_REFLECTIVITY" id="EAC_DIRECTIONAL_HEMISPHERICAL_REFLECTIVITY">DIRECTIONAL_HEMISPHERICAL_REFLECTIVITY</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_DIRECTIONAL_HEMISPHERICAL_REFLECTIVITY
+</p><p>
+<b>EDCS Attribute Code</b>: 310
+</p><p>
+<b>Definition</b>:
+<br>
+The ratio, for a particular material &lt;<a href="ECC_S.htm#ECC_SURFACE">SURFACE</a>&gt; and unit solid angle about a particular incident &lt;<a href="ECC_D.htm#ECC_DIRECTION">DIRECTION</a>&gt;, of the reflected &lt;&lt;<a href="EAC_R.htm#EAC_RADIANCE">RADIANCE</a>&gt;&gt; into the hemisphere above that &lt;<a href="ECC_S.htm#ECC_SURFACE">SURFACE</a>&gt; to the incident &lt;&lt;<a href="EAC_R.htm#EAC_RADIANCE">RADIANCE</a>&gt;&gt;. This quantity is also defined as the integral over the reflected hemisphere of the BRDF times the cosine of the angle between the surface normal and the reflection &lt;<a href="ECC_D.htm#ECC_DIRECTION">DIRECTION</a>&gt; times the differential reflection solid angle. It is a function of the &lt;&lt;<a href="EAC_I.htm#EAC_INCIDENCE_ZENITH_ANGLE_LOCAL">INCIDENCE_ZENITH_ANGLE_LOCAL</a>&gt;&gt; and &lt;&lt;<a href="EAC_I.htm#EAC_INCIDENCE_AZIMUTH_LOCAL">INCIDENCE_AZIMUTH_LOCAL</a>&gt;&gt; of the incident &lt;&lt;<a href="EAC_R.htm#EAC_RADIANCE">RADIANCE</a>&gt;&gt; and is spectral (a distribution function in &lt;&lt;<a href="EAC_W.htm#EAC_WAVELENGTH">WAVELENGTH</a>&gt;&gt;); therefore the quantity is measured in terms of inverse &lt;&lt;<a href="EAC_W.htm#EAC_WAVELENGTH">WAVELENGTH</a>&gt;&gt; bin size.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_INV_LENGTH">INV_LENGTH</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ALGORITHM_RELATED">ALGORITHM_RELATED</a>, <a href="groups.htm#EGC_GEN_EM_PHENOMENON">EM_PHENOMENON</a>, <a href="groups.htm#EGC_GEN_LIGHTING_AND_VISIBILITY">LIGHTING_AND_VISIBILITY</a>, <a href="groups.htm#EGC_GEN_RATE_OR_RATIO">RATE_OR_RATIO</a>, <a href="groups.htm#EGC_GEN_SURFACE">SURFACE</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [TRHT]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_DISPLAY_SIGN_TYPE" id="EAC_DISPLAY_SIGN_TYPE">DISPLAY_SIGN_TYPE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_DISPLAY_SIGN_TYPE
+</p><p>
+<b>EDCS Attribute Code</b>: 311
+</p><p>
+<b>Definition</b>:
+<br>
+The type of a &lt;<a href="ECC_D.htm#ECC_DISPLAY_SIGN">DISPLAY_SIGN</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_DISPSIGNTY_ADVERTISING_BILLBOARD" id="EEC_DISPSIGNTY_ADVERTISING_BILLBOARD">1</a></td>
+<td>ADVERTISING_BILLBOARD</td>
+<td>EEC_DISPSIGNTY_ADVERTISING_BILLBOARD</td>
+<td>Advertising billboard.</td>
+<td>IR</td>
+<td>[FAD, Annex B, SIA:1]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DISPSIGNTY_HIGHWAY" id="EEC_DISPSIGNTY_HIGHWAY">2</a></td>
+<td>HIGHWAY</td>
+<td>EEC_DISPSIGNTY_HIGHWAY</td>
+<td>Highway sign.</td>
+<td>IR</td>
+<td>[FAD, Annex B, SIA:3]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DISPSIGNTY_SCOREBOARD" id="EEC_DISPSIGNTY_SCOREBOARD">3</a></td>
+<td>SCOREBOARD</td>
+<td>EEC_DISPSIGNTY_SCOREBOARD</td>
+<td>Scoreboard.</td>
+<td>IR</td>
+<td>[FAD, Annex B, SIA:2]</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_INFRASTRUCTURE">INFRASTRUCTURE</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FAD, Annex B: SIA]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_DISSECTED_TERRAIN" id="EAC_DISSECTED_TERRAIN">DISSECTED_TERRAIN</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_DISSECTED_TERRAIN
+</p><p>
+<b>EDCS Attribute Code</b>: 312
+</p><p>
+<b>Definition</b>:
+<br>
+An indication that a &lt;<a href="ECC_T.htm#ECC_TERRAIN_SURFACE_REGION">TERRAIN_SURFACE_REGION</a>&gt; is dominated by culturally or naturally dissected &lt;<a href="ECC_T.htm#ECC_TERRAIN">TERRAIN</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: BOOLEAN
+</p><p>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_PHYSIOGRAPHY">PHYSIOGRAPHY</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_DOMINANT_BREAKER_TYPE" id="EAC_DOMINANT_BREAKER_TYPE">DOMINANT_BREAKER_TYPE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_DOMINANT_BREAKER_TYPE
+</p><p>
+<b>EDCS Attribute Code</b>: 313
+</p><p>
+<b>Definition</b>:
+<br>
+The type of the dominant breaking &lt;<a href="ECC_W.htm#ECC_WATER_WAVE">WATER_WAVE</a>&gt;s tripped by shoaling &lt;<a href="ECC_W.htm#ECC_WATER">WATER</a>&gt;; dependent on the nature of the &lt;<a href="ECC_W.htm#ECC_WATERBODY_FLOOR">WATERBODY_FLOOR</a>&gt; and &lt;<a href="ECC_B.htm#ECC_BEACH">BEACH</a>&gt; slope.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_DOMBRKRTY_PLUNGING" id="EEC_DOMBRKRTY_PLUNGING">1</a></td>
+<td>PLUNGING</td>
+<td>EEC_DOMBRKRTY_PLUNGING</td>
+<td>Steepens gradually but breaks very rapidly with a crash of &lt;<a href="ECC_W.htm#ECC_WATER">WATER</a>&gt;; plunging.</td>
+<td>IR</td>
+<td>[SP35, "breaker"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DOMBRKRTY_SPILLING" id="EEC_DOMBRKRTY_SPILLING">2</a></td>
+<td>SPILLING</td>
+<td>EEC_DOMBRKRTY_SPILLING</td>
+<td>Bubbles and turbulent &lt;<a href="ECC_W.htm#ECC_WATER">WATER</a>&gt; spill down the front face of the &lt;<a href="ECC_W.htm#ECC_WATER_WAVE">WATER_WAVE</a>&gt;; the upper 25 percent of the front face may become vertical before breaking, and breaking generally occurs over quite a distance; spilling.</td>
+<td>IR</td>
+<td>[SP35, "breaker"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DOMBRKRTY_SURGING" id="EEC_DOMBRKRTY_SURGING">3</a></td>
+<td>SURGING</td>
+<td>EEC_DOMBRKRTY_SURGING</td>
+<td>Peaks up but the bottom rushes forward from under the &lt;<a href="ECC_W.htm#ECC_WATER_WAVE">WATER_WAVE</a>&gt; and the &lt;<a href="ECC_W.htm#ECC_WATER_WAVE">WATER_WAVE</a>&gt; slides up the face of the &lt;<a href="ECC_B.htm#ECC_BEACH">BEACH</a>&gt; with little or no bubble production; the &lt;<a href="ECC_S.htm#ECC_SURFACE">SURFACE</a>&gt; of the water remains almost flat except where ripples may be produced on the face of the &lt;<a href="ECC_B.htm#ECC_BEACH">BEACH</a>&gt; during runback; surging.</td>
+<td>IR</td>
+<td>[SP35, "breaker"]</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_WATERBODY_SURFACE">WATERBODY_SURFACE</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [JSM]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_DOOR_CONSTRUCTION_TYPE" id="EAC_DOOR_CONSTRUCTION_TYPE">DOOR_CONSTRUCTION_TYPE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_DOOR_CONSTRUCTION_TYPE
+</p><p>
+<b>EDCS Attribute Code</b>: 314
+</p><p>
+<b>Definition</b>:
+<br>
+The type of &lt;<a href="ECC_M.htm#ECC_MATERIAL">MATERIAL</a>&gt; and/or techniques used to construct a &lt;<a href="ECC_D.htm#ECC_DOOR">DOOR</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_DOORCNSTCTTY_FIRE" id="EEC_DOORCNSTCTTY_FIRE">1</a></td>
+<td>FIRE</td>
+<td>EEC_DOORCNSTCTTY_FIRE</td>
+<td>Highly fire-resistant and intended to be closed to provide fire protection.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DOORCNSTCTTY_GLASS" id="EEC_DOORCNSTCTTY_GLASS">2</a></td>
+<td>GLASS</td>
+<td>EEC_DOORCNSTCTTY_GLASS</td>
+<td>Constructed predominantly of glass.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[SOED, "glass", 1]</td>
+</tr>
+<tr>
+<td><a name="EEC_DOORCNSTCTTY_METAL_CLAD" id="EEC_DOORCNSTCTTY_METAL_CLAD">3</a></td>
+<td>METAL_CLAD</td>
+<td>EEC_DOORCNSTCTTY_METAL_CLAD</td>
+<td>Metal clad with wood particleboard, foam honeycomb, or other structural interior.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DOORCNSTCTTY_METAL_HOLLOW_CORE" id="EEC_DOORCNSTCTTY_METAL_HOLLOW_CORE">4</a></td>
+<td>METAL_HOLLOW_CORE</td>
+<td>EEC_DOORCNSTCTTY_METAL_HOLLOW_CORE</td>
+<td>Lightweight wood or cardboard spacers form a (relatively) hollow core, separating two metal face skins.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DOORCNSTCTTY_SOLID_METAL" id="EEC_DOORCNSTCTTY_SOLID_METAL">5</a></td>
+<td>SOLID_METAL</td>
+<td>EEC_DOORCNSTCTTY_SOLID_METAL</td>
+<td>Constructed of solid metal.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DOORCNSTCTTY_SOLID_WOOD" id="EEC_DOORCNSTCTTY_SOLID_WOOD">6</a></td>
+<td>SOLID_WOOD</td>
+<td>EEC_DOORCNSTCTTY_SOLID_WOOD</td>
+<td>Constructed of solid wood or particleboard.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DOORCNSTCTTY_WOOD_HOLLOW_CORE" id="EEC_DOORCNSTCTTY_WOOD_HOLLOW_CORE">7</a></td>
+<td>WOOD_HOLLOW_CORE</td>
+<td>EEC_DOORCNSTCTTY_WOOD_HOLLOW_CORE</td>
+<td>Lightweight wood or cardboard spacers form a (relatively) hollow core, separating two wooden face skins.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_BUILDING_COMPONENT">BUILDING_COMPONENT</a>, <a href="groups.htm#EGC_GEN_MATERIAL">MATERIAL</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_DOOR_OPENING_METHOD" id="EAC_DOOR_OPENING_METHOD">DOOR_OPENING_METHOD</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_DOOR_OPENING_METHOD
+</p><p>
+<b>EDCS Attribute Code</b>: 315
+</p><p>
+<b>Definition</b>:
+<br>
+The method in which a &lt;<a href="ECC_D.htm#ECC_DOOR">DOOR</a>&gt; opens.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_DOOROPNMETH_DOUBLE_SWINGING" id="EEC_DOOROPNMETH_DOUBLE_SWINGING">1</a></td>
+<td>DOUBLE_SWINGING</td>
+<td>EEC_DOOROPNMETH_DOUBLE_SWINGING</td>
+<td>Swings both inwards and outwards.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DOOROPNMETH_DOWN" id="EEC_DOOROPNMETH_DOWN">2</a></td>
+<td>DOWN</td>
+<td>EEC_DOOROPNMETH_DOWN</td>
+<td>A horizontal &lt;<a href="ECC_D.htm#ECC_DOOR">DOOR</a>&gt; opening downward.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DOOROPNMETH_LEFT" id="EEC_DOOROPNMETH_LEFT">3</a></td>
+<td>LEFT</td>
+<td>EEC_DOOROPNMETH_LEFT</td>
+<td>As viewed from the outside, or the larger of two adjacent &lt;<a href="ECC_R.htm#ECC_REGION">REGION</a>&gt;s, the &lt;<a href="ECC_D.htm#ECC_DOOR">DOOR</a>&gt; opens outwards on left-side hinges, or slides toward the left.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DOOROPNMETH_RIGHT" id="EEC_DOOROPNMETH_RIGHT">4</a></td>
+<td>RIGHT</td>
+<td>EEC_DOOROPNMETH_RIGHT</td>
+<td>As viewed from the outside, or the larger of two adjacent &lt;<a href="ECC_R.htm#ECC_REGION">REGION</a>&gt;s, the &lt;<a href="ECC_D.htm#ECC_DOOR">DOOR</a>&gt; opens outwards on right-side hinges, or slides toward the right.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DOOROPNMETH_UP" id="EEC_DOOROPNMETH_UP">5</a></td>
+<td>UP</td>
+<td>EEC_DOOROPNMETH_UP</td>
+<td>A horizontal &lt;<a href="ECC_D.htm#ECC_DOOR">DOOR</a>&gt; opening upward.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_BUILDING_COMPONENT">BUILDING_COMPONENT</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_DOOR_SHAPE" id="EAC_DOOR_SHAPE">DOOR_SHAPE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_DOOR_SHAPE
+</p><p>
+<b>EDCS Attribute Code</b>: 1662
+</p><p>
+<b>Definition</b>:
+<br>
+The shape of a &lt;<a href="ECC_D.htm#ECC_DOOR">DOOR</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_DOORSHAP_ARCHED" id="EEC_DOORSHAP_ARCHED">1</a></td>
+<td>ARCHED</td>
+<td>EEC_DOORSHAP_ARCHED</td>
+<td>Arched.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DOORSHAP_RECTANGULAR" id="EEC_DOORSHAP_RECTANGULAR">2</a></td>
+<td>RECTANGULAR</td>
+<td>EEC_DOORSHAP_RECTANGULAR</td>
+<td>Rectangular.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_BUILDING_COMPONENT">BUILDING_COMPONENT</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_DOOR_TYPE" id="EAC_DOOR_TYPE">DOOR_TYPE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_DOOR_TYPE
+</p><p>
+<b>EDCS Attribute Code</b>: 316
+</p><p>
+<b>Definition</b>:
+<br>
+The type of a &lt;<a href="ECC_D.htm#ECC_DOOR">DOOR</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_DOORTY_AUTOMATIC_HINGED" id="EEC_DOORTY_AUTOMATIC_HINGED">1</a></td>
+<td>AUTOMATIC_HINGED</td>
+<td>EEC_DOORTY_AUTOMATIC_HINGED</td>
+<td>Hinged and equipped with a power-operated mechanism and controls that opens and closes automatically upon receipt of a momentary actuating signal.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DOORTY_AUTOMATIC_SLIDING" id="EEC_DOORTY_AUTOMATIC_SLIDING">2</a></td>
+<td>AUTOMATIC_SLIDING</td>
+<td>EEC_DOORTY_AUTOMATIC_SLIDING</td>
+<td>Sliding and equipped with a power-operated mechanism and controls that opens and closes automatically upon receipt of a momentary actuating signal.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DOORTY_BLAST_RESISTANT" id="EEC_DOORTY_BLAST_RESISTANT">3</a></td>
+<td>BLAST_RESISTANT</td>
+<td>EEC_DOORTY_BLAST_RESISTANT</td>
+<td>Designed to withstand &lt;<a href="ECC_M.htm#ECC_MUNITION">MUNITION</a>&gt;s, attenuate blast pressure, and protect from fragment impact; blast resistant.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DOORTY_DOUBLE_LEAF" id="EEC_DOORTY_DOUBLE_LEAF">4</a></td>
+<td>DOUBLE_LEAF</td>
+<td>EEC_DOORTY_DOUBLE_LEAF</td>
+<td>Consists of two &lt;<a href="ECC_D.htm#ECC_DOOR">DOOR</a>&gt;s that open into a single &lt;<a href="ECC_A.htm#ECC_APERTURE">APERTURE</a>&gt;; double leaf.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DOORTY_DUTCH" id="EEC_DOORTY_DUTCH">5</a></td>
+<td>DUTCH</td>
+<td>EEC_DOORTY_DUTCH</td>
+<td>Divided into two &lt;<a href="ECC_C.htm#ECC_COMPONENT">COMPONENT</a>&gt;s, horizontally, so arranged that the lower &lt;<a href="ECC_C.htm#ECC_COMPONENT">COMPONENT</a>&gt; can be shut and fastened, while the upper &lt;<a href="ECC_C.htm#ECC_COMPONENT">COMPONENT</a>&gt; remains open; Dutch [AHD, "Dutch door"].</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DOORTY_HINGED" id="EEC_DOORTY_HINGED">6</a></td>
+<td>HINGED</td>
+<td>EEC_DOORTY_HINGED</td>
+<td>Using a movable joint or mechanism by which a &lt;<a href="ECC_G.htm#ECC_GATE">GATE</a>&gt; or &lt;<a href="ECC_D.htm#ECC_DOOR">DOOR</a>&gt; is hung upon the side-post, so as to be opened or shut by being turned upon it; hinged [SOED, "hinge", I.1.a].</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DOORTY_LIFT" id="EEC_DOORTY_LIFT">7</a></td>
+<td>LIFT</td>
+<td>EEC_DOORTY_LIFT</td>
+<td>Automatic or manual &lt;<a href="ECC_D.htm#ECC_DOOR">DOOR</a>&gt; on a &lt;<a href="ECC_L.htm#ECC_LIFT">LIFT</a>&gt; or &lt;<a href="ECC_L.htm#ECC_LIFT_SHAFT">LIFT_SHAFT</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DOORTY_OVERHEAD" id="EEC_DOORTY_OVERHEAD">8</a></td>
+<td>OVERHEAD</td>
+<td>EEC_DOORTY_OVERHEAD</td>
+<td>Opens vertically and is secured from the top of the &lt;<a href="ECC_A.htm#ECC_APERTURE">APERTURE</a>&gt;; overhead.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DOORTY_POCKET" id="EEC_DOORTY_POCKET">9</a></td>
+<td>POCKET</td>
+<td>EEC_DOORTY_POCKET</td>
+<td>Slides into a concealed recess in a &lt;<a href="ECC_W.htm#ECC_WALL">WALL</a>&gt;; pocket.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DOORTY_REVOLVING" id="EEC_DOORTY_REVOLVING">10</a></td>
+<td>REVOLVING</td>
+<td>EEC_DOORTY_REVOLVING</td>
+<td>Consists of rigid upright sections, usually four, interconnected at right angles and rotating about a central upright pivot; revolving.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DOORTY_ROLLING" id="EEC_DOORTY_ROLLING">11</a></td>
+<td>ROLLING</td>
+<td>EEC_DOORTY_ROLLING</td>
+<td>Rolled inside a horizontal casing permanently attached above the opening, rolling down to cover the opening.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DOORTY_SINGLE_PANEL_SPRING" id="EEC_DOORTY_SINGLE_PANEL_SPRING">12</a></td>
+<td>SINGLE_PANEL_SPRING</td>
+<td>EEC_DOORTY_SINGLE_PANEL_SPRING</td>
+<td>Single solid panel on springs that opens vertically by swinging overhead.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DOORTY_SLIDING" id="EEC_DOORTY_SLIDING">13</a></td>
+<td>SLIDING</td>
+<td>EEC_DOORTY_SLIDING</td>
+<td>A single or double &lt;<a href="ECC_D.htm#ECC_DOOR">DOOR</a>&gt; that opens by sliding into a recess [SOED, "sliding door", 1.c].</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DOORTY_SLIDING_GARAGE" id="EEC_DOORTY_SLIDING_GARAGE">14</a></td>
+<td>SLIDING_GARAGE</td>
+<td>EEC_DOORTY_SLIDING_GARAGE</td>
+<td>Opens horizontally by sliding and is hung from the top of the &lt;<a href="ECC_A.htm#ECC_APERTURE">APERTURE</a>&gt;; sliding garage.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DOORTY_TURNSTILE" id="EEC_DOORTY_TURNSTILE">15</a></td>
+<td>TURNSTILE</td>
+<td>EEC_DOORTY_TURNSTILE</td>
+<td>Consists of horizontally revolving arms fixed to a vertical post, to allow &lt;<a href="ECC_H.htm#ECC_HUMAN">HUMAN</a>&gt;s on foot to pass through one by one; turnstile [SOED, "turnstile"].</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_BUILDING_COMPONENT">BUILDING_COMPONENT</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_DRAGON_TEETH_TYPE" id="EAC_DRAGON_TEETH_TYPE">DRAGON_TEETH_TYPE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_DRAGON_TEETH_TYPE
+</p><p>
+<b>EDCS Attribute Code</b>: 317
+</p><p>
+<b>Definition</b>:
+<br>
+The type of a &lt;<a href="ECC_D.htm#ECC_DRAGON_TEETH">DRAGON_TEETH</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_DRAGONTEETHTY_CONCRETE_BLOCK" id="EEC_DRAGONTEETHTY_CONCRETE_BLOCK">1</a></td>
+<td>CONCRETE_BLOCK</td>
+<td>EEC_DRAGONTEETHTY_CONCRETE_BLOCK</td>
+<td>A series of rectangular-shaped blocks of concrete emplaced in one or more rows.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DRAGONTEETHTY_CONCRETE_TETRAHEDRON" id="EEC_DRAGONTEETHTY_CONCRETE_TETRAHEDRON">2</a></td>
+<td>CONCRETE_TETRAHEDRON</td>
+<td>EEC_DRAGONTEETHTY_CONCRETE_TETRAHEDRON</td>
+<td>A series of tetrahedron-shaped blocks of concrete emplaced in one or more rows.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DRAGONTEETHTY_LOG_POST" id="EEC_DRAGONTEETHTY_LOG_POST">3</a></td>
+<td>LOG_POST</td>
+<td>EEC_DRAGONTEETHTY_LOG_POST</td>
+<td>A series of hardwood posts or &lt;<a href="ECC_L.htm#ECC_LOG">LOG</a>&gt;s, buried more than a metre into the &lt;<a href="ECC_T.htm#ECC_TERRAIN">TERRAIN</a>&gt;, either vertically or at a slight angle toward the opposing force, and projecting about a metre above ground level (the &lt;&lt;<a href="EAC_H.htm#EAC_HEIGHT_AGL">HEIGHT_AGL</a>&gt;&gt; will vary from post to post). The post spacing is irregular, typically between one and two metres apart, with posts emplaced two or more per metre of front. Spirals of barbed &lt;<a href="ECC_W.htm#ECC_WIRE">WIRE</a>&gt; may be woven among the posts.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DRAGONTEETHTY_STEEL_HEDGEHOG" id="EEC_DRAGONTEETHTY_STEEL_HEDGEHOG">4</a></td>
+<td>STEEL_HEDGEHOG</td>
+<td>EEC_DRAGONTEETHTY_STEEL_HEDGEHOG</td>
+<td>Constructed of steel or iron bars embedded in concrete, typically used to impede and damage a &lt;<a href="ECC_G.htm#ECC_GROUND_VEHICLE">GROUND_VEHICLE</a>&gt; (for example: a &lt;<a href="ECC_V.htm#ECC_VESSEL">VESSEL</a>&gt; and/or an &lt;<a href="ECC_A.htm#ECC_ARMOURED_TRACKED_VEHICLE">ARMOURED_TRACKED_VEHICLE</a>&gt;) of a beach landing force; steel hedgehog.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DRAGONTEETHTY_STEEL_TETRAHEDRON" id="EEC_DRAGONTEETHTY_STEEL_TETRAHEDRON">5</a></td>
+<td>STEEL_TETRAHEDRON</td>
+<td>EEC_DRAGONTEETHTY_STEEL_TETRAHEDRON</td>
+<td>A series of three steel or iron bars welded together to form tetrahedrons that are subsequently emplaced in one or more rows, typically used to impede and damage a &lt;<a href="ECC_G.htm#ECC_GROUND_VEHICLE">GROUND_VEHICLE</a>&gt; (for example: a &lt;<a href="ECC_V.htm#ECC_VESSEL">VESSEL</a>&gt; and/or an &lt;<a href="ECC_A.htm#ECC_ARMOURED_TRACKED_VEHICLE">ARMOURED_TRACKED_VEHICLE</a>&gt;) of a beach landing force.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_LAND_TRNSP">LAND_TRNSP</a>, <a href="groups.htm#EGC_GEN_TRNSP">TRNSP</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_DROP_GATE_METHOD" id="EAC_DROP_GATE_METHOD">DROP_GATE_METHOD</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_DROP_GATE_METHOD
+</p><p>
+<b>EDCS Attribute Code</b>: 318
+</p><p>
+<b>Definition</b>:
+<br>
+The method by which a &lt;<a href="ECC_D.htm#ECC_DROP_GATE">DROP_GATE</a>&gt; is closed.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_DROPGATEMETH_OVERHEAD" id="EEC_DROPGATEMETH_OVERHEAD">1</a></td>
+<td>OVERHEAD</td>
+<td>EEC_DROPGATEMETH_OVERHEAD</td>
+<td>Descends from overhead.</td>
+<td>IR</td>
+<td>[FACC, Annex B, DGC:1]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DROPGATEMETH_SIDE" id="EEC_DROPGATEMETH_SIDE">2</a></td>
+<td>SIDE</td>
+<td>EEC_DROPGATEMETH_SIDE</td>
+<td>Swings up from flat on side.</td>
+<td>IR</td>
+<td>[FACC, Annex B, DGC:2]</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_LAND_TRNSP">LAND_TRNSP</a>, <a href="groups.htm#EGC_GEN_TRNSP">TRNSP</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: DGC]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_DUST_PRODUCTION_RATE" id="EAC_DUST_PRODUCTION_RATE">DUST_PRODUCTION_RATE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_DUST_PRODUCTION_RATE
+</p><p>
+<b>EDCS Attribute Code</b>: 319
+</p><p>
+<b>Definition</b>:
+<br>
+A number between 0 and 1 inclusive representing the linearly-scaled fraction of the production rate of &lt;<a href="ECC_D.htm#ECC_DUST">DUST</a>&gt; at an &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt; that has been induced by ground movement or surface &lt;<a href="ECC_W.htm#ECC_WIND">WIND</a>&gt;s. Zero means no production at all and one means maximum production.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_PURE_NUMBER">PURE_NUMBER</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_AIRBORNE_PARTICLE">AIRBORNE_PARTICLE</a>, <a href="groups.htm#EGC_GEN_ATMOSPHERE">ATMOSPHERE</a>, <a href="groups.htm#EGC_GEN_RATE_OR_RATIO">RATE_OR_RATIO</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [EBEV, 4.3.1.1, Bits: 7-8 (Trailing Effects)]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_DWELLING_TYPE" id="EAC_DWELLING_TYPE">DWELLING_TYPE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_DWELLING_TYPE
+</p><p>
+<b>EDCS Attribute Code</b>: 320
+</p><p>
+<b>Definition</b>:
+<br>
+The type of a &lt;<a href="ECC_D.htm#ECC_DWELLING">DWELLING</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_DWELLTY_APARTMENT" id="EEC_DWELLTY_APARTMENT">1</a></td>
+<td>APARTMENT</td>
+<td>EEC_DWELLTY_APARTMENT</td>
+<td>Apartment.</td>
+<td>IR</td>
+<td>[FAD, Annex B, DDC:8]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DWELLTY_COTTAGE" id="EEC_DWELLTY_COTTAGE">2</a></td>
+<td>COTTAGE</td>
+<td>EEC_DWELLTY_COTTAGE</td>
+<td>Week-end or vacation cottage.</td>
+<td>IR</td>
+<td>[FAD, Annex B, DDC:7]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DWELLTY_DORMITORY" id="EEC_DWELLTY_DORMITORY">3</a></td>
+<td>DORMITORY</td>
+<td>EEC_DWELLTY_DORMITORY</td>
+<td>&lt;<a href="ECC_D.htm#ECC_DORMITORY">DORMITORY</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[FAD, Annex B, DDC:5]</td>
+</tr>
+<tr>
+<td><a name="EEC_DWELLTY_HOUSE" id="EEC_DWELLTY_HOUSE">4</a></td>
+<td>HOUSE</td>
+<td>EEC_DWELLTY_HOUSE</td>
+<td>&lt;<a href="ECC_H.htm#ECC_HOUSE">HOUSE</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[FAD, Annex B, DDC:1]</td>
+</tr>
+<tr>
+<td><a name="EEC_DWELLTY_MOBILE_HOME" id="EEC_DWELLTY_MOBILE_HOME">5</a></td>
+<td>MOBILE_HOME</td>
+<td>EEC_DWELLTY_MOBILE_HOME</td>
+<td>&lt;<a href="ECC_M.htm#ECC_MOBILE_HOME">MOBILE_HOME</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[FAD, Annex B, DDC:3]</td>
+</tr>
+<tr>
+<td><a name="EEC_DWELLTY_MOUNTAIN_HUT" id="EEC_DWELLTY_MOUNTAIN_HUT">6</a></td>
+<td>MOUNTAIN_HUT</td>
+<td>EEC_DWELLTY_MOUNTAIN_HUT</td>
+<td>Mountain &lt;<a href="ECC_H.htm#ECC_HUT">HUT</a>&gt;.</td>
+<td>IR</td>
+<td>[FAD, Annex B, DDC:6]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_DWELLTY_MULTI_UNIT_DWELLING" id="EEC_DWELLTY_MULTI_UNIT_DWELLING">7</a></td>
+<td>MULTI_UNIT_DWELLING</td>
+<td>EEC_DWELLTY_MULTI_UNIT_DWELLING</td>
+<td>&lt;<a href="ECC_M.htm#ECC_MULTI_UNIT_DWELLING">MULTI_UNIT_DWELLING</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[FAD, Annex B, DDC:2]</td>
+</tr>
+<tr>
+<td><a name="EEC_DWELLTY_OUTBUILDING" id="EEC_DWELLTY_OUTBUILDING">8</a></td>
+<td>OUTBUILDING</td>
+<td>EEC_DWELLTY_OUTBUILDING</td>
+<td>&lt;<a href="ECC_O.htm#ECC_OUTBUILDING">OUTBUILDING</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[FAD, Annex B, DDC:10]</td>
+</tr>
+<tr>
+<td><a name="EEC_DWELLTY_SENIOR_CITIZENS_HOME" id="EEC_DWELLTY_SENIOR_CITIZENS_HOME">9</a></td>
+<td>SENIOR_CITIZENS_HOME</td>
+<td>EEC_DWELLTY_SENIOR_CITIZENS_HOME</td>
+<td>&lt;<a href="ECC_S.htm#ECC_SENIOR_CITIZENS_HOME">SENIOR_CITIZENS_HOME</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[FAD, Annex B, DDC:4]</td>
+</tr>
+<tr>
+<td><a name="EEC_DWELLTY_TEMPORARY_RESIDENCE" id="EEC_DWELLTY_TEMPORARY_RESIDENCE">10</a></td>
+<td>TEMPORARY_RESIDENCE</td>
+<td>EEC_DWELLTY_TEMPORARY_RESIDENCE</td>
+<td>Temporary residence. EXAMPLES &lt;<a href="ECC_H.htm#ECC_HOTEL">HOTEL</a>&gt;, &lt;<a href="ECC_M.htm#ECC_MOTEL">MOTEL</a>&gt;.</td>
+<td>IR</td>
+<td>[FAD, Annex B, DDC:9]</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_SHELTER">SHELTER</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FAD, Annex B: DDC]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<font color="#ff0000">Return to:</font>
+<b><a href="#Top">Top of page</a></b>,
+<b><a href="EAC_C.htm">Previous EAC Page (C)</a></b>,
+<b><a href="EAC_E.htm">Next EAC Page (E)</a></b>,
+<b><a href="EAC.htm">Attribute Index</a></b>,
+<b><a href="../edcs.htm#SDK">EDCS Home</a></b>
+<br><br>
+<table border="2" width="100%" bgcolor="#0000ff">
+<tr><td>
+<table width="100%" bgcolor="#0000ff">
+<tr>
+<td align="left"><font color="#00ffff"><small>
+Last updated:
+July 1, 2011
+</small></font></td>
+<td align="right"><font color="#00ffff"><small>
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</small></font></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

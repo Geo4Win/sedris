@@ -1,0 +1,208 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Valid Node Edge Relationships</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX B - Constraints
+</font>
+<br>
+<font color="#ffffff">
+Valid Node Edge Relationships
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h3>Definition</h3>
+<P>
+ The following specifies the constraints for forming valid relationships
+ between <A href="../classes/FeatureNode.htm">&lt;Feature Node&gt;</A>/<A href="../classes/GeometryNode.htm">&lt;Geometry Node&gt;</A> instances and
+ <A href="../classes/FeatureEdge.htm">&lt;Feature Edge&gt;</A>/<A href="../classes/GeometryEdge.htm">&lt;Geometry Edge&gt;</A> instances,
+ respectively:
+</P>
+<OL type='a'>
+<LI><P>
+ A <A href="../classes/FeatureNode.htm">&lt;Feature Node&gt;</A> instance <span class="ConstructName">FN</span> has the
+ following relationship with its <A href="../classes/FeatureEdge.htm">&lt;Feature Edge&gt;</A> instances,
+ if any exist.
+</P>
+<OL type='1'>
+<LI><P>
+ For each <A href="../classes/FeatureEdge.htm">&lt;Feature Edge&gt;</A> instance <span class="ConstructName">FE</span>
+ that has <span class="ConstructName">FN</span> as a starting node,
+ <span class="ConstructName">FN</span> shall be associated with <span class="ConstructName">FE</span>
+ through the use of an <A href="../classes/EdgeDirection.htm">&lt;Edge Direction&gt;</A> link object with
+ a <A href="../classes/EdgeDirection.htm#forwards">forwards</A> field value of
+ <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A>.
+</P></LI>
+<LI><P>
+ For each <A href="../classes/FeatureEdge.htm">&lt;Feature Edge&gt;</A> instance <span class="ConstructName">FE</span>
+ that has <span class="ConstructName">FN</span> as a ending node,
+ <span class="ConstructName">FN</span> shall be associated with <span class="ConstructName">FE</span>
+ through the use of an <A href="../classes/EdgeDirection.htm">&lt;Edge Direction&gt;</A> link object with
+ a <A href="../classes/EdgeDirection.htm#forwards">forwards</A> field value of
+ <A href="../types/SE_Boolean.htm#SE_FALSE">SE_FALSE</A>.
+</P></LI>
+<LI><P>
+ Consequently, for any <A href="../classes/FeatureEdge.htm">&lt;Feature Edge&gt;</A> instance
+ <span class="ConstructName">FE</span> with which <span class="ConstructName">FN</span> is
+ associated, <span class="ConstructName">FE</span> shall appear among the
+ associates of <span class="ConstructName">FN</span> either:
+</P>
+<OL type='i'>
+<LI><P>
+ once, if <span class="ConstructName">FN</span> is <span class="ConstructName">FE</span>'s
+ starting node and not its ending node,
+</P></LI>
+<LI><P>
+ once, if <span class="ConstructName">FN</span> is <span class="ConstructName">FE</span>'s
+ ending node and not its starting node,
+</P></LI>
+<LI><P>
+ twice, through the use of distinct
+ <A href="../classes/EdgeDirection.htm">&lt;Edge Direction&gt;</A> link objects, if
+ <span class="ConstructName">FE</span> is a loop.
+</P></LI>
+</OL>
+</LI>
+</OL>
+</LI>
+<LI><P>
+ A <A href="../classes/GeometryNode.htm">&lt;Geometry Node&gt;</A> instance GN has the following
+ relationship with its associated
+ <A href="../classes/GeometryEdge.htm">&lt;Geometry Edge&gt;</A> instances, if any exist.
+</P>
+<OL type='1'>
+<LI><P>
+ For each <A href="../classes/GeometryEdge.htm">&lt;Geometry Edge&gt;</A> instance <span class="ConstructName">GE</span>
+ that has <span class="ConstructName">GN</span> as a starting node,
+ <span class="ConstructName">GN</span> shall be associated with <span class="ConstructName">GE</span>
+ through the use of an <A href="../classes/EdgeDirection.htm">&lt;Edge Direction&gt;</A> link object with
+ a <A href="../classes/EdgeDirection.htm#forwards">forwards</A> field value of
+ <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A>.
+</P></LI>
+<LI><P>
+ For each <A href="../classes/GeometryEdge.htm">&lt;Geometry Edge&gt;</A> instance <span class="ConstructName">GE</span>
+ that has <span class="ConstructName">GN</span> as a ending node,
+ <span class="ConstructName">GN</span> shall be associated with <span class="ConstructName">GE</span>
+ through the use of an <A href="../classes/EdgeDirection.htm">&lt;Edge Direction&gt;</A> link object with
+ a <A href="../classes/EdgeDirection.htm#forwards">forwards</A> field value of
+ <A href="../types/SE_Boolean.htm#SE_FALSE">SE_FALSE</A>.
+</P></LI>
+<LI><P>
+ Consequently, for any given <A href="../classes/GeometryEdge.htm">&lt;Geometry Edge&gt;</A> instance
+ <span class="ConstructName">GE</span> with which <span class="ConstructName">GN</span> is
+ associated, <span class="ConstructName">GE</span> shall appear among the associates
+ of <span class="ConstructName">GN</span> once, where <span class="ConstructName">GN</span> is
+ either <span class="ConstructName">GE</span>'s starting node or
+ <span class="ConstructName">GE</span>'s ending node but not both.
+</P></LI>
+</OL>
+</LI>
+</OL>
+
+<h3>Rationale</h3>
+<P>
+ The associations between <A href="../classes/FeatureNode.htm">&lt;Feature Node&gt;</A>
+ and <A href="../classes/FeatureEdge.htm">&lt;Feature Edge&gt;</A>
+ implement a boundary/co-boundary relationship.  This topological
+ relationship must be consistent, and must be consistent with the
+ geometric representation of these objects.
+</P><P>
+ The associations between <A href="../classes/GeometryNode.htm">&lt;Geometry Node&gt;</A>
+ and <A href="../classes/GeometryEdge.htm">&lt;Geometry Edge&gt;</A> implement a
+ boundary/co-boundary relationship.  This topological
+ relationship must be consistent, and must also be consistent with the
+ geometric counterparts of these objects.
+<h3>Example</h3>
+<OL>
+<LI><P>
+ Consider a <A href="../classes/FeatureEdge.htm">&lt;Feature Edge&gt;</A> instance
+ E1 that has distinct starting and ending
+ <A href="../classes/FeatureNode.htm">&lt;Feature Node&gt;</A> instances N1 and N2.
+ N1 shall be associated to E1, and N2 shall also be
+ associated to E1.
+</P></LI>
+<LI><P>
+ Consider a <A href="../classes/GeometryEdge.htm">&lt;Geometry Edge&gt;</A> instance E1
+ that has distinct starting and ending
+ <A href="../classes/GeometryNode.htm">&lt;Geometry Node&gt;</A> instances N1 and N2. N1
+ shall be associated to E1, and N2 shall also be associated to E1.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ For a <A href="../classes/FeatureEdge.htm">&lt;Feature Edge&gt;</A> instance FE that forms a
+ loop (that is, a <A href="../classes/FeatureEdge.htm">&lt;Feature Edge&gt;</A> instance
+ for which the starting <A href="../classes/FeatureNode.htm">&lt;Feature Node&gt;</A> instance
+ and ending <A href="../classes/FeatureNode.htm">&lt;Feature Node&gt;</A> instance are the same
+ <A href="../classes/FeatureNode.htm">&lt;Feature Node&gt;</A> instance), how many times does
+ FE appear in that
+ <A href="../classes/FeatureNode.htm">&lt;Feature Node&gt;</A> instance's list of associated
+ <A href="../classes/FeatureEdge.htm">&lt;Feature Edge&gt;</A> instances?
+</B></DT>
+<DD><P>
+ Twice, with <A href="../classes/EdgeDirection.htm">&lt;Edge Direction&gt;</A> instances
+ having opposite field values.
+ A <A href="../classes/FeatureEdge.htm">&lt;Feature Edge&gt;</A> instance
+ with distinct starting and ending
+ <A href="../classes/FeatureNode.htm">&lt;Feature Node&gt;</A> instances
+ would appear only once.
+</P></DD>
+<DT><B>
+ For a <A href="../classes/GeometryEdge.htm">&lt;Geometry Edge&gt;</A> instance GE that forms a
+ loop (that is, a <A href="../classes/GeometryEdge.htm">&lt;Geometry Edge&gt;</A> instance
+ for which the starting <A href="../classes/GeometryNode.htm">&lt;Geometry Node&gt;</A> instance
+ and ending <A href="../classes/GeometryNode.htm">&lt;Geometry Node&gt;</A> instance are the same
+ <A href="../classes/GeometryNode.htm">&lt;Geometry Node&gt;</A> instance), how many times does
+ GE appear in that
+ <A href="../classes/GeometryNode.htm">&lt;Geometry Node&gt;</A> instance's list of associated
+ <A href="../classes/GeometryEdge.htm">&lt;Geometry Edge&gt;</A> instances?
+</B></DT>
+<DD><P>
+ This case can never occur for a <A href="../classes/GeometryEdge.htm">&lt;Geometry Edge&gt;</A>
+ instance GE, because GE corresponds to either a
+ <A href="../classes/LinearGeometry.htm">&lt;Linear Geometry&gt;</A> instance or one of the
+ edges of a <A href="../classes/Polygon.htm">&lt;Polygon&gt;</A> instance, neither of which
+ permits loops to occur.
+</P></DD>
+</DL>
+
+
+<hr>
+<strong>Prev:</strong> <A href="UnionOrganizingPrinciple.htm">Union Organizing Principle</A>.
+<strong>Next:</strong> <A href="VariableMeaningConstraints.htm">Variable Meaning Constraints</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

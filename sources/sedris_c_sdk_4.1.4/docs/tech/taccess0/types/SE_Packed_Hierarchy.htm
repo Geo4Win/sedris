@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE_Packed_Hierarchy</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Types
+</font>
+<br>
+<font color="#ffffff">
+SE_Packed_Hierarchy
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<PRE>
+/*
+ * STRUCT: SE_Packed_Hierarchy
+ *
+ *   The primary data structure returned from SE_GetPackedHierarchy() or
+ *   SE_GetRemainingPackedHierarchiesList(). This structure represents the
+ *   entry point in the the packed hierarchy.
+ */
+</PRE>
+<span class="Code">typedef struct 
+<br>
+{</span>
+<br>
+<table class="CFunctionPrototype">
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Packed_Hierarchy_Object_Access.htm">SE_Packed_Hierarchy_Object_Access</a></td>
+        <td class="CFunction"><a
+        name="hierarchy_root_object"></a>hierarchy_root_object;</td><td class="CFunction"><sup><A href="#Notes_hierarchy_root_object">1</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../drm/types/SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a></td>
+        <td class="CFunction"><a name="object_count"></a>object_count;</td><td class="CFunction"><sup><A href="#Notes_object_count">2</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Packed_Hierarchy_Object.htm">SE_Packed_Hierarchy_Object</a></td>
+        <td class="CFunction">*<a name="object_list"></a>object_list;</td><td class="CFunction"><sup><A href="#Notes_object_list">3</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../drm/types/SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a></td>
+        <td class="CFunction"><a
+        name="reference_list_length"></a>reference_list_length;</td><td class="CFunction"><sup><A href="#Notes_reference_list_length">4</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Packed_Hierarchy_Reference.htm">SE_Packed_Hierarchy_Reference</a></td>
+        <td class="CFunction">*<a
+        name="reference_list"></a>reference_list;</td><td class="CFunction"><sup><A href="#Notes_reference_list">5</A></sup></td></tr>
+</table>
+<span class="Code">
+} SE_Packed_Hierarchy;</span>
+<br>
+
+<br>
+<HR>
+<H2>Field Notes</H2>
+<h4><a href="#hierarchy_root_object" name="Notes_hierarchy_root_object">hierarchy_root_object</a></h4>
+<P>
+ A pointer to a structure representing the root object of the packed
+ hierarchy. This root object will be the object that was passed in as
+ the root of the call to
+ <A href="../functions/SE_GetPackedHierarchy.htm">SE_GetPackedHierarchy()</A>.
+</P>
+<h4><a href="#object_count" name="Notes_object_count">object_count</a></h4>
+<P>
+ The number of entries in <A href="#object_list">object_list</A>,
+ including the entry for the root object of the packed hierarchy.
+</P>
+<h4><a href="#object_list" name="Notes_object_list">object_list</a></h4>
+<P>
+ An array of <A href="SE_Packed_Hierarchy_Object.htm">SE_Packed_Hierarchy_Object</A>s, representing the
+ objects of the packed hierarchy. This list is provided as
+ an alternative access method (as opposed to walking the
+ hierarchy tree). The
+ <A href="#hierarchy_root_object">hierarchy_root_object</A> is
+ included in this list. All references included in
+ <A href="#reference_list">reference_list</A> will contain pointers
+ into this list of objects.
+</P>
+<h4><a href="#reference_list_length" name="Notes_reference_list_length">reference_list_length</a></h4>
+<P>
+ The number of entries in <A href="#reference_list">reference_list</A>.
+</P>
+<h4><a href="#reference_list" name="Notes_reference_list">reference_list</a></h4>
+<P>
+ An array of <A href="SE_Packed_Hierarchy_Reference.htm">SE_Packed_Hierarchy_Reference</A>s, specifically,
+ the references within this <A href="SE_Packed_Hierarchy.htm">SE_Packed_Hierarchy</A>. This list
+ is provided as an alternate access point to the references.  However,
+ the primary access will be through the
+ <A href="SE_Packed_Hierarchy_Object.htm#components">components</A>
+ and
+ <A href="SE_Packed_Hierarchy_Object.htm#aggregates">aggregates</A>
+ within the <A href="SE_Packed_Hierarchy_Object.htm">SE_Packed_Hierarchy_Object</A> structure.  These
+ &quot;arrays&quot; of references will be contiguous sections of this
+ <A href="#reference_list">reference_list</A>. All references in the
+ <A href="SE_Packed_Hierarchy_Object.htm#components">components</A>
+ and
+ <A href="SE_Packed_Hierarchy_Object.htm#aggregates">aggregates</A>
+ must resolve to <A href="SE_Packed_Hierarchy_Reference.htm">SE_Packed_Hierarchy_Reference</A> structures
+ within this list.
+</P>
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SE_Octant_Select_Parameters.htm">SE_Octant_Select_Parameters</a>.
+<strong>Next:</strong> <a href="SE_Packed_Hierarchy_Object.htm">SE_Packed_Hierarchy_Object</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

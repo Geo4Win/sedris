@@ -1,0 +1,438 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+   <TITLE>P4V9 - Section 2</TITLE>
+   <META NAME="Author" CONTENT="SAIC">
+<link rel="stylesheet" type="text/css" href="../../styles/SDK_SEDRIS.css">
+</HEAD>
+<body>
+
+<a name="Top"></A>
+
+<div class="CenterDiv">
+<table border=2 class="doc_set_header">
+<tr><th class="doc_set_header">
+<big><big>
+Attribute Inheritance and Context Technical Guide
+</big></big>
+<br><font color="#FFFFFF">
+Section 2 - ATTRIBUTES AND INHERITANCE
+</font>
+</th></tr>
+</table>
+
+<table class="doc_set_toc">
+<tr>
+<th class="doc_set_toc_outline_number"><a name="21">2.1</a></th>
+<th class="doc_set_toc_outline_description">Inheritance Overview</th>
+</tr>
+
+<tr><th class="doc_set_toc_outline_number"></th>
+<td class="doc_set_toc_outline_description"><p>
+DRM objects that specify properties can be attached to various levels of a
+<a href="classes/AggregateFeature.htm">&lt;Aggregate Feature&gt;</a> (or
+<a href="classes/AggregateGeometry.htm">&lt;Aggregate Geometry&gt;</a>) 
+instance hierarchy and &quot;inherited&quot; by the various features (or 
+geometry) that are organized by that aggregate. That is, an instance of
+<a href="classes/AggregateGeometry.htm">&lt;Aggregate Geometry&gt;</a> 
+instances (or <a href="classes/AggregateFeature.htm">
+&lt;Aggregate Feature&gt;</a>) inherits a list of properties from 
+its aggregate. </p>
+
+<p>Property inheritance and context applies to the following DRM classes:</p>
+
+<ol>
+  <li><a href="classes/PrimitiveFeature.htm">&lt;Primitive Feature&gt;</a> 
+      and its subclasses;</li>
+  <li><a href="classes/PrimitiveGeometry.htm">&lt;Primitive Geometry&gt;</a> 
+      and its subclasses;</li>
+  <li><a href="classes/AggregateFeature.htm">&lt;Aggregate Feature&gt;</a> 
+      and its subclasses, each of which organizes one or more collections 
+      of <a href="classes/PrimitiveFeature.htm">&lt;Primitive Feature&gt;</a> 
+      instances;</li>
+  <li><a href="classes/AggregateGeometry.htm">&lt;Aggregate Geometry&gt;</a> 
+      and its subclasses, each of which organizes one or more collections 
+      of <a href="classes/PrimitiveGeometry.htm">
+      &lt;Primitive Geometry&gt;</a> instances; and</li>
+  <li>DRM objects that specify attributes of geometry or features.</li>
+</ol>
+
+<p>For the purposes of discussion, the following terminology will be 
+established. One object A is the <i>ancestor</i> of another object B when A 
+aggregates B as a component, or when A is an aggregate of an ancestor of B. B, 
+in turn, is said to be a <i>descendant</i> of A. If A is an aggregate of B, B 
+is said to be a <i>directly attached</i> component of A, to distinguish this 
+case from cases where A is an ancestor but not an aggregate of B. </p>
+<p>EXAMPLE:&nbsp;&nbsp;A <a href="classes/Polygon.htm">&lt;Polygon&gt;</a> 
+is an ancestor of its <a href="classes/Vertex.htm">&lt;Vertex&gt;</a> 
+components, and a <a href="classes/UnionOfPrimitiveGeometry.htm">
+&lt;Union Of Primitive Geometry&gt;</a> can be an ancestor of a 
+<a href="classes/Polygon.htm">&lt;Polygon&gt;</a>.</p>
+
+<p>The purpose of attribute inheritance is to indicate that a
+collection of <a href="classes/PrimitiveFeature.htm">
+&lt;Primitive Feature&gt;</a> instances (or 
+<a href="classes/PrimitiveGeometry.htm">&lt;Primitive Geometry&gt;</a> 
+instances) all have the same attribute as a component. This
+allows attaching the component to a &ldquo;higher&rdquo; object in the 
+hierarchy, rather than attaching it to each individual primitive object. This
+&quot;higher&quot; object eventually aggregates the primitive objects, which
+inherit the component from this &ldquo;higher&rdquo; ancestor object. Thus, 
+explicit sharing of individual object instances occurs efficiently among many 
+aggregates.</p>
+
+<p>Inheritance is transitive. That is, when a 
+<a href="classes/GeometryRepresentation.htm">
+&lt;Geometry Representation&gt;</a> or 
+<a href="classes/FeatureRepresentation.htm">
+&lt;Feature Representation&gt;</a> inherits a component, that component may 
+be treated as if it were attached directly to the 
+<a href="classes/GeometryRepresentation.htm">
+&lt;Geometry Representation&gt;</a> or 
+<a href="classes/FeatureRepresentation.htm">&lt;Feature Representation&gt;</a> 
+instance that inherited the component. All the inherited components of
+an <a href="classes/AggregateGeometry.htm">&lt;Aggregate Geometry&gt;</a> 
+are inherited in turn by any <a href="classes/PrimitiveGeometry.htm">
+&lt;Primitive Geometry&gt;</a> and <a href="classes/PropertyGridHookPoint.htm">
+&lt;Property Grid Hook Point&gt;</a> instances aggregated by that 
+<a href="classes/AggregateGeometry.htm">&lt;Aggregate Geometry&gt;</a>, 
+subject to the rules of inheritance. Similarly, all the inherited 
+components of a <a href="classes/AggregateFeature.htm">
+&lt;Aggregate Feature&gt;</a> are inherited in turn by any 
+<a href="classes/PrimitiveFeature.htm">&lt;Primitive Feature&gt;</a> 
+instances aggregated by that <a href="classes/AggregateFeature.htm">
+&lt;Aggregate Feature&gt;</a>.</p>
+
+<p>The <a href="classes/GeometryModelInstance.htm">
+&lt;Geometry Model Instance&gt;</a> and 
+<a href="classes/FeatureModelInstance.htm">&lt;Feature Model Instance&gt;</a>
+classes do <em>not</em> participate in attribute inheritance. If the attribute
+objects within a <a href="classes/Model.htm">&lt;Model&gt;</a> are to be
+determined on an instance-by-instance basis, <a href="classes/Model.htm">
+&lt;Model&gt;</a> shall have an <a href="classes/InterfaceTemplate.htm">
+&lt;Interface Template&gt;</a> and an appropriate set of 
+<a href="classes/ControlLink.htm">&lt;Control Link</a>&gt; and 
+<a href="classes/Variable.htm">&lt;Variable&gt;</a> instances.</p>
+
+<p>In addition to inheriting components, there are two cases in
+which link objects are inherited: the classification related and time related
+organizations. The same rules that apply to classification related aggregations
+also apply to time related aggregations. An aggregate, primitive, or 
+<a href="classes/PropertyGridHookPoint.htm">
+&lt;Property Grid Hook Point&gt;</a> member of a classification related 
+aggregation inherits a <a href="classes/ClassificationData.htm">
+&lt;Classification Data&gt;</a> component identical to the information 
+in the link object between the component and the classification related 
+aggregation.
+</p></td></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="22">2.2</a></th>
+<th class="doc_set_toc_outline_description">General Inheritance Rules</th>
+</tr>
+
+<tr><th class="doc_set_toc_outline_number"></th>
+<td class="doc_set_toc_outline_description"><p>
+If a component is directly attached to an object to
+associate a property with that object and the object is a member of an
+aggregating hierarchy, that component will override any similar component
+attached at a higher level in the aggregating hierarchy.
+</p></td></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="23">2.3</a></th>
+<th class="doc_set_toc_outline_description">Inheritable Components</th>
+</tr>
+
+<tr><th class="doc_set_toc_outline_number"></th>
+<td class="doc_set_toc_outline_description">
+<h4>2.3.1 Overview</h4>
+
+<p>The following classes are subject to simple replacement. A
+directly attached component always overrides an inherited component in the case
+of instances of these classes.</p>
+
+<ol>
+  <li><a href="classes/BaseLODData.htm">&lt;Base LOD Data&gt;</a>,</li>
+  <li><a href="classes/Colour.htm">&lt;Colour&gt;</a>,</li>
+  <li><a href="classes/DataQuality.htm">&lt;Data Quality&gt;</a>,</li>
+  <li><a href="classes/LegalConstraints.htm">&lt;Legal Constraints&gt;</a>,</li>
+  <li><a href="classes/LightRenderingProperties.htm">
+      &lt;Light Rendering Properties&gt;</a>,</li>
+  <li><a href="classes/PerimeterData.htm">&lt;Perimeter Data&gt;</a>,</li>
+  <li><a href="classes/PresentationDomain.htm">
+      &lt;Presentation Domain&gt;</a>,</li>
+  <li><a href="classes/RenderingPriorityLevel.htm">
+      &lt;Rendering Priority Level&gt;</a>,</li>
+  <li><a href="classes/RenderingProperties.htm">
+      &lt;Rendering Properties&gt;</a>, and</li>
+  <li><a href="classes/SecurityConstraints.htm">&lt;Security Constraints&gt;</a>,</li>
+  <li><a href="classes/TimeConstraintsData.htm">
+      &lt;Time Constraints Data&gt;</a>.</li>
+</ol>
+
+<p>The following classes are subject to more complex rules of inheritance:</p>
+
+<ol>
+  <li><a href="classes/ClassificationData.htm">
+      &lt;Classification Data&gt;</a>,</li>
+  <li><a href="classes/PropertySetIndex.htm">&lt;Property Set Index&gt;</a>, 
+      and</li>
+  <li><a href="classes/ImageMappingFunction.htm">
+      &lt;Image Mapping Function&gt;</a>.</li>
+</ol>
+
+<p><h4>2.3.2 <a href="classes/ClassificationData.htm">&lt;Classification Data&gt;</a></h4></p>
+
+<p>
+<a href="classes/ClassificationData.htm">
+&lt;Classification Data&gt;</a> instances are not inherited in the general 
+case, but only in the specific context of a 
+<a href="classes/UnionOfFeatures.htm">&lt;Union Of Features&gt;</a> or 
+<a href="classes/UnionOfGeometry.htm">&lt;Union Of Geometry&gt;</a> instance. 
+The union is used to explicitly distinguish between the cases of a union 
+representing a single environmental object versus the case of a union 
+representing a collection of environmental objects, where in the latter 
+case the<a href="classes/ClassificationData.htm">
+&lt;Classification Data&gt;</a> is being shared by the components of the 
+union for efficiency of representation. 
+</p><p>
+In the case of a union representing a single environmental object, the
+<span>union_reason</span> field will value&nbsp; 
+<span>CLASSIFIED_OBJECT</span>. In this case, the 
+<a href="classes/ClassificationData.htm">&lt;Classification Data&gt;</a> 
+instance is not inherited by the components of the 
+union. In the case of a union representing a collection of environmental 
+objects, the <span>union_reason</span> field will have some other 
+value. In this case, the <a href="classes/ClassificationData.htm">
+&lt;Classification Data&gt;</a> instance is inherited by the components of the 
+union. If they in turn are union instances, further property inheritance 
+behaviour is determined by their own <span>union_reason</span> field values. 
+If the components of the union are not themselves unions, 
+property inheritance stops at that level for the
+<a href="classes/ClassificationData.htm">&lt;Classification Data&gt;</a> 
+instance.</p>
+
+<p><h4>2.3.3 &lt;Property Set Index&gt;</h4></p>
+
+<p><a href="classes/PropertySetIndex.htm">&lt;Property Set Index&gt;</a> is 
+not inherited itself. Instead, the applicable attribute objects from the 
+referenced <a href="classes/PropertySet.htm">&lt;Property Set&gt;</a> are 
+treated as if they replaced the <a href="classes/PropertySetIndex.htm">
+&lt;Property Set Index&gt;</a> for the purposes of inheritance. For each of 
+those attribute objects, the individual, standard inheritance rules for their
+classes apply.</p>
+
+<p>A <a href="classes/PropertySet.htm">&lt;Property Set&gt;</a> may contain 
+some objects that are <a href="classes/FeatureRepresentation.htm">
+&lt;Feature Representation&gt;</a> specific and some that are 
+<a href="classes/GeometryRepresentation.htm">
+&lt;Geometry Representation&gt;</a> specific. In this case, 
+<a href="classes/FeatureRepresentation.htm">&lt;Feature&gt;</a> instances 
+only use the properties that are legal for the 
+<a href="classes/FeatureRepresentation.htm">&lt;Feature Representation&gt;</a> 
+class, while <a href="classes/GeometryRepresentation.htm">
+&lt;Geometry Representation&gt;</a> instances only use the properties that 
+are legal for the <a href="classes/GeometryRepresentation.htm">
+&lt;Geometry Representation&gt;</a> class.</p>
+
+<p>The general rule of &ldquo;lower&rdquo; components overriding 
+&ldquo;higher&rdquo; components still applies. As an extension of that rule, 
+if there is a conflict between a directly attached component and an 
+attribute from a referenced <a href="classes/PropertySet.htm">
+&lt;Property Set&gt;</a> that appears at the same level, the directly 
+attached component overrides the component from the 
+<a href="classes/PropertySet.htm">&lt;Property Set&gt;</a>.</p>
+
+<p><h4>2.3.4 &lt;Image Mapping Function&gt;</h4></p>
+
+<p>At any level, a set of <a href="classes/ImageMappingFunction.htm">
+&lt;Image Mapping Function&gt;</a> objects can be attached; they are 
+treated as a group. Each set completely replaces the previous set, even if 
+the set contains only one <a href="classes/ImageMappingFunction.htm">
+&lt;Image Mapping Function&gt;</a>. In other words, any object with one or 
+more direct <a href="classes/ImageMappingFunction.htm">
+&lt;Image Mapping Function&gt;</a> components will not inherit any 
+<a href="classes/ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</a> 
+components from its ancestors, but instead will pass on its own direct 
+<a href="classes/ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</a> 
+components to its components.</p>
+
+<p><h4>2.3.5 &lt;Location&gt;s for &lt;Reference Vector&gt;s</h4></p>
+
+<p>In general, <a href="classes/Location.htm">&lt;Location&gt;</a> 
+is not inherited; it is covered by a special rule specific to 
+<a href="classes/ReferenceVector.htm">&lt;Reference Vector&gt;</a>.</p>
+
+<p>A <a href="classes/ReferenceVector.htm">&lt;Reference Vector&gt;</a> 
+is required to have a specified point of origin. In order for
+the <span>unit_vector</span> field of a <a href="classes/ReferenceVector.htm">
+&lt;Reference Vector&gt;</a> to be specified in an SRF, that SRF shall have a
+compatible vector space structure. Several of the SRFs supported by this
+part of ISO/IEC 18023 (e.g., geodetic) do not have vector space structure.
+When a <a href="classes/ReferenceVector.htm">&lt;Reference Vector&gt;</a>
+is specified in such an SRF, an LTP space is embedded in that non-vector SRF at
+the vector's point of origin, so that the vector is actually specified inside
+that LTP space.</p>
+
+<p>If a <a href="classes/ReferenceVector.htm">&lt;Reference Vector&gt;</a> 
+has a directly attached <a href="classes/Location.htm">&lt;Location&gt;</a> 
+component, that is its point of origin. However, in many contexts where 
+<a href="classes/ReferenceVector.htm">&lt;Reference Vector&gt;</a> appears
+in the DRM, the vector can unambiguously inherit a 
+<a href="classes/Location.htm">&lt;Location&gt;</a> from the object that
+aggregates the <a href="classes/ReferenceVector.htm">
+&lt;Reference Vector&gt;</a> rather than specifying a separate 
+<a href="classes/Location.htm">&lt;Location&gt;</a>.
+The rule for this inheritance, expressed by the constraint 
+<a href="constraints/RequiredReferenceVectorLocation.htm">
+&lt;&lt;Required Reference Vector Location&gt;&gt;</a> is that, given any 
+object A with a <a href="classes/Location.htm">&lt;Location&gt;</a> component
+(or an ordered list of <a href="classes/Location.htm">&lt;Location&gt;</a>
+components), that object's first <a href="classes/Location.htm">
+&lt;Location&gt;</a> component becomes the default 
+<a href="classes/Location.htm">&lt;Location&gt;</a> in the context of the 
+aggregation tree rooted at A.</p>
+
+<p>In the cases of those classes specified by the 
+<a href="constraints/RequiredReferenceVectorLocation.htm">
+&lt;&lt;Required Reference Vector Location&gt;&gt;</a> constraint, in which 
+multiple <a href="classes/Location.htm">&lt;Location&gt;</a> components are 
+present, and inheritance would be ambiguous, a directly attached 
+<a href="classes/Location.htm">&lt;Location&gt;</a> is required for the 
+<a href="classes/ReferenceVector.htm">&lt;Reference Vector&gt;</a>.</p>
+
+<p><h4>2.3.6 &lt;Property Description&gt;</h4></p>
+
+<p>A directly attached <a href="classes/PropertyDescription.htm">
+&lt;Property Description&gt;</a> component overrides an inherited instance 
+if the &quot;newer&quot; <a href="classes/PropertyDescription.htm">
+&lt;Property Description&gt;</a> instance applies&nbsp; to the same 
+envrionmental attribute, as indicated by its <span>meaning</span> field 
+value. Otherwise, both <a href="classes/PropertyDescription.htm">
+&lt;Property Description&gt;</a> instances apply and are inherited further 
+down in the tree. Thus, two <a href="classes/PropertyDescription.htm">
+&lt;Property Description&gt;</a> instances conflict only if they apply to 
+the same property.</p>
+
+<p>If a <a href="classes/PropertyDescription.htm">
+&lt;Property Description&gt;</a> is a component of an object instance A and a 
+<a href="classes/PropertyValue.htm">&lt;Property Value&gt;</a> with
+matching <span>meaning</span> is in the component tree rooted at A, that 
+<a href="classes/PropertyValue.htm">&lt;Property Value&gt;</a> is
+considered to be qualified by the <a href="classes/PropertyValue.htm">
+&lt;Property Value&gt;</a> and <a href="classes/PropertyCharacteristic.htm">
+&lt;Property Characteristic&gt;</a> components of the matching <a
+href="classes/PropertyDescription.htm">&lt;Property Description&gt;</a>.</p>
+
+<p><h4>2.3.7 &lt;Property Table&gt;</h4></p>
+
+<p>A directly attached <a href="classes/PropertyTable.htm">
+&lt;Property Table&gt;</a> object overrides an inherited instance if the 
+newer <a href="classes/PropertyTable.htm">&lt;Property Table&gt;</a> has 
+the same qualified classification. Otherwise, both 
+<a href="classes/PropertyTable.htm">&lt;Property Table&gt;</a> objects 
+apply and are inherited further down in the tree. Thus, two 
+<a href="classes/PropertyTable.htm">&lt;Property Table&gt;</a> instances 
+conflict only if they have the same qualified classification.</p>
+
+<p><h4>2.3.8 &lt;Property Table Reference&gt;</h4></p>
+
+<p>A directly attached <a
+href="classes/PropertyTableReference.htm">&lt;Property Table Reference&gt;</a>
+instance overrides an inherited instance if both referenced 
+<a href="classes/PropertyTable.htm">&lt;Property Table&gt;</a> instances 
+have the same qualified classification. Otherwise, both 
+<a href="classes/PropertyTableReference.htm">
+&lt;Property Table Reference&gt;</a> instances apply and are inherited 
+further down in the tree. Thus, two 
+<a href="classes/PropertyTableReference.htm">
+&lt;Property Table Reference&gt;</a> instances conflict only if the referenced 
+<a href="classes/PropertyTable.htm">&lt;Property Table&gt;</a> instances 
+conflict.</p>
+
+<p><h4>2.3.9 &lt;Property Value&gt;</h4></p>
+
+<p>A directly attached <a href="classes/PropertyValue.htm">&lt;
+Property Value&gt;</a> instance overrides an inherited instance if the newer 
+<a href="classes/PropertyValue.htm">&lt;Property Value&gt;</a> applies to the
+same environmental attribute, as indicated by its <span>meaning</span> field 
+value. Otherwise, both <a href="classes/PropertyValue.htm">
+&lt;Property Value&gt;</a> instances apply and are inherited further down 
+in the tree. Thus, two <a href="classes/PropertyValue.htm">
+&lt;Property Value&gt;</a> instances conflict only if they specify values 
+for the same property.
+</p></td></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="24">2.4</a></th>
+<th class="doc_set_toc_outline_description">
+Classes of properties that are not inherited
+</th>
+</tr>
+
+<tr><th class="doc_set_toc_outline_number"></th>
+<td class="doc_set_toc_outline_description"><p>
+Property inheritance does not apply to all kinds of property classes. Those 
+classes to which property inheritance does not apply are discussed below, 
+including the reasons why property inheritance does not apply. </p>
+
+<p>Instances of <a href="classes/Citation.htm">&lt;Citation&gt;</a> cannot be 
+inherited. The <a href="classes/Citation.htm">&lt;Citation&gt;</a> at the top 
+of any hierarchy specifies the bibliographic citation information for the 
+collection as a whole. Referencing any part of the collection specifically 
+requires its own <a href="classes/Citation.htm">&lt;Citation&gt;</a>.</p>
+
+<p>Instances of <a href="classes/Keywords.htm">&lt;Keywords&gt;</a> apply 
+only to the object to which they are attached, because the keywords applicable 
+at the level of a hierarchy at which a <a href="classes/Keywords.htm">
+&lt;Keywords&gt;</a> instance is specified are built up from smaller subsets 
+of keywords derived from lower levels of that hierarchy. Consequently, 
+property inheritance does not apply to instances of 
+<a href="classes/Keywords.htm">&lt;Keywords&gt;</a>.</p>
+
+<p>An <a href="classes/Identification.htm">&lt;Identification&gt;</a> instance is 
+specific to the DRM object that aggregates it, describing the hierarchy as a 
+whole.</p>
+
+<p><a href="classes/SpatialExtent.htm">&lt;Spatial Extent&gt;</a> instances 
+cannot be inherited due to the bottom-up nature of a 
+<a href="classes/SpatialExtent.htm">&lt;Spatial Extent&gt;</a>.  </p>
+
+<p>EXAMPLE:&nbsp;&nbsp;A <a href="classes/EnvironmentRoot.htm">
+&lt;Environment Root&gt;</a> may cover a <a href="classes/SpatialExtent.htm">
+&lt;Spatial Extent&gt;</a> of thousands of square kilometres, while one of its 
+<a href="classes/Polygon.htm">&lt;Polygon&gt;</a> instances covers only a
+square metre or two.</p>
+
+<p><a href="classes/ResponsibleParty.htm">&lt;Responsible Party&gt;</a> 
+instances are not inherited.</p>
+</td>
+</tr>
+</table>
+</div>
+
+<p>
+<HR>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a></strong>,
+<strong><a href="p4v9.htm">Table of Contents</a></strong>
+<br><br>
+
+<div class="CenterDiv">
+<table class="doc_set_header">
+<tr><td>
+<table class="doc_set_header">
+<tr><td class="doc_set_footer" align="left">
+Last updated: July 1, 2011
+</td>
+<td class="doc_set_footer" align="right">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td>
+</tr>
+</table>
+</td></tr>
+</table></div>
+</BODY>
+</HTML>

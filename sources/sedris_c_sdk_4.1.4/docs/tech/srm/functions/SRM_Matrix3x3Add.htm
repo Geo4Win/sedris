@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SRM Matrix3x3Add</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SRM Reference Manual</big></big>
+<br>
+<!-- SRM spec. 4.1 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+SRM Matrix3x3Add
+</font>
+</th></tr>
+</table></div>
+
+<!-- SRM SDK Release 4.1.4 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../types/SRM_Status_Code.htm">SRM_Status_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SRM_Matrix3x3Add</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1"><td class="CFunction">const&nbsp;</td><td class="CFunction"><a href="../types/SRM_Matrix_3x3.htm">SRM_Matrix_3x3</a>&nbsp;</td> <td class="CFunction"><a name="a_ptr"></a>a_ptr,</td><td class="CFunction"><sup><A href="#Notes_a_ptr">1</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">const&nbsp;</td><td class="CFunction"><a href="../types/SRM_Matrix_3x3.htm">SRM_Matrix_3x3</a>&nbsp;</td> <td class="CFunction"><a name="b_ptr"></a>b_ptr,</td><td class="CFunction"><sup><A href="#Notes_b_ptr">2</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../types/SRM_Matrix_3x3.htm">SRM_Matrix_3x3</a>&nbsp;</td> <td class="CFunction"><a name="result_out_ptr"></a>result_out_ptr</td><td class="CFunction"><sup><A href="#Notes_result_out_ptr">3</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+  Adds two <A href="../types/SRM_Matrix_3x3.htm">SRM_Matrix_3x3</A> matrices.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+ <A href="../types/SRM_Status_Code.htm#SRM_STATCOD_SUCCESS">SRM_STATCOD_SUCCESS</A>
+</td><td class="Status">if valid parameters were passed in and all operations succeeded.
+</td></tr>
+<tr><td class="Status">
+ <A href="../types/SRM_Status_Code.htm#SRM_STATCOD_INACTIONABLE">SRM_STATCOD_INACTIONABLE</A>
+</td><td class="Status">
+ and <A href="#result_out_ptr">*result_out_ptr</A> is left unchanged,
+ if <A href="#result_out_ptr">*result_out_ptr</A>,
+ <A href="#a_ptr">a_ptr</A>, or
+ <A href="#b_ptr">b_ptr</A> was NULL.
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#a_ptr" name="Notes_a_ptr">1</a></sup>
+ pointer to 1st operand
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#b_ptr" name="Notes_b_ptr">2</a></sup>
+ pointer to 2nd operand
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#result_out_ptr" name="Notes_result_out_ptr">3</a></sup>
+ pointer to result.
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SRM_GetVersionInformation.htm">SRM_GetVersionInformation</a>.
+<strong>Next:</strong> <a href="SRM_Matrix3x3Multiply.htm">SRM_Matrix3x3Multiply</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

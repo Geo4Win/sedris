@@ -1,0 +1,288 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+   <TITLE>P4V2 - Section 2</TITLE>
+   <META NAME="Author" CONTENT="SAIC">
+<link rel="stylesheet" type="text/css" href="../../styles/SDK_SEDRIS.css">
+</HEAD>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border=2 class="doc_set_header">
+<tr><th class="doc_set_header">
+<big><big>
+The SEDRIS Data Representation Model
+</big></big>
+<br><font color="#ffffff">
+Section 2 - THE DATA REPRESENTATION MODEL
+</font>
+</th></tr>
+</table>
+
+<table class="doc_set_toc">
+<tr>
+<th class="doc_set_toc_outline_number"><a name="21">2.1</a></th>
+<th class="doc_set_toc_outline_description">Overview</th>
+</tr>
+
+<tr><th class="doc_set_toc_outline_number"></th>
+<td class="doc_set_toc_outline_description"><p>
+One of the major objectives of SEDRIS is to provide a mechanism for
+unambiguous environmental data interchanges.  To accomplish this
+objective, SEDRIS developed a data representation model (DRM)
+encompassing all the data requirements of synthetic environments
+used in every type of simulation application.  The data contained
+in the SEDRIS DRM covers every environmental domain  -
+terrain, ocean, atmosphere and space.  Prior to SEDRIS, projects
+attempting to provide an environmental data interchange mechanism
+focused on development of a format for the interchange medium.
+Unfortunately, a format-focused approach led to ambiguous data,
+since the underlying meaning and relationships of the data could not
+be captured with just a description of the data's format.  The
+SEDRIS DRM provides not only a clear description of the data, but also
+defines the relationships between the data that are critical to
+ensuring correct interpretation by users.
+</p></td></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="22">2.2</a></th>
+<th class="doc_set_toc_outline_description">
+What Is a Data Representation Model?
+</th>
+</tr>
+
+<tr><th class="doc_set_toc_outline_number"></th>
+<td class="doc_set_toc_outline_description"><p>
+A <I>data representation model (DRM)</I> is a description used to provide
+identification of all data elements within a system, including their
+attributes and the logical relationships between data elements.  In
+object-oriented terminology, this is viewed as a class hierarchy, and
+described through a graphics-based design tool
+(<I>see</I> <a href="#23">Section 2.3</a>).  Each major type of data
+with important or explicit relationships is captured to show its
+logical relationship to other types of data.  A DRM is <B><I>not</I></B> an
+implementation of a database, but a depiction of the types of data
+within the system. The SEDRIS DRM is described by an associated
+data dictionary (<I>see</I> <a href="#25">Section 2.5</a>) that
+provides information about each type of data, its attributes,
+and its logical relationships. SEDRIS also employs a set of
+&quot;constraints&quot; (<I>see</I> <a href="#26">Section 2.6</a> and
+<a href="constraints/index.htm">Appendix B</a>) that place restrictions on
+the practical use of specific elements of the DRM.
+</p><p>
+The DRM consists of a set of classes, together with supporting
+primitive data structures.  The classes express the organizational structure of
+the data being described - that is, its data representation - while the
+primitive data structures (also called <I>data types</I>) define the
+fundamental data elements that are used to specify the classes.  The
+DRM also specifies the formal relationships between classes.  All this
+information (i.e., classes, fields, and relationships) can be thought of
+as a specialized language with its own grammar.  This specialized language
+serves to minimize differences of interpretation in the DRM.
+</p></td></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="23">2.3</a></th>
+<th class="doc_set_toc_outline_description">
+Unified Modeling Language (UML) Notation
+</th>
+</tr>
+
+<tr><th class="doc_set_toc_outline_number"></th>
+<td class="doc_set_toc_outline_description"><p>
+The SEDRIS DRM uses a specific notation to provide a shorthand method to
+depict the information necessary to describe the data elements, their
+attributes, and the logical relationships between data elements.  This
+notation allows graphical presentation of the DRM in a clear manner,
+while also providing a means to capture fully the design of
+the data.  The DRM is a representational scheme, not a format,
+although a DRM can be easily mapped to a format, and in fact has one -
+the SEDRIS Transmittal Format (STF).
+</p><p>
+The SEDRIS DRM is described using an extended form of
+Unified Modeling Language (UML) notation.  For the most part, the notation
+is UML.  The UML notation follows the object-oriented methodology for
+organizing data. The main extensions to UML used by SEDRIS are that
+1) abstract classes are shaded, 2) fields of classes are not normally
+shown on SEDRIS class diagrams.
+</p><p>
+The SEDRIS DRM diagrams are provided in <a href="p4v2-g.htm">Appendix G</a>.
+The current versions of both the DRM diagrams and the DRM notation are
+available for on-line viewing or may be downloaded for local use from the
+SEDRIS web site (<a href="http://www.sedris.org">www.sedris.org</a>).
+</p></td></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="24">2.4</a></th>
+<th class="doc_set_toc_outline_description">
+Data Representation Modeling Technique
+</th>
+</tr>
+
+<tr><th class="doc_set_toc_outline_number"></th>
+<td class="doc_set_toc_outline_description"><p>
+Classes in an object-oriented data model (rather than a DRM) are an
+abstraction of real-world &quot;things&quot; found in the problem domain, and
+are described using real-world terminology.  Using this modeling concept, one
+might expect to see such classes as <I>Tree</I>, <I>Tank</I>, and
+<I>Building</I> in the SEDRIS DRM, if it were a data model rather than
+a data representation model.  However, that is not the case; the problem
+domain of SEDRIS is the <I>representation</I> of the real-world environment.
+This representation is accomplished through the use of DRM constructs
+with the ability to specify the data necessary to produce both visual and
+non-visual representations of environments.  Consequently, one set
+of classes in the SEDRIS DRM is the family of &quot;Geometry&quot;
+classes, such as
+<a href="classes/Point.htm">&lt;Point&gt;</a>,
+<a href="classes/Line.htm">&lt;Line&gt;</a>, and
+<a href="classes/Polygon.htm">&lt;Polygon&gt;</a>,
+which provide information that can be used to render a
+visual scene.
+</p><p>
+Consider, for example, a road. One data provider, concerned with
+renderable geometry, might represent a road as a collection of
+texture-mapped polygons, and would therefore represent the road as
+a collection of <a href="classes/Polygon.htm">&lt;Polygon&gt;</a>
+instances in SEDRIS, where the entire collection is tagged with a
+<a href="classes/ClassificationData.htm">&lt;Classification Data&gt;</a>
+identifying it as a road. However, the data thus provided by the
+road's visual representation, while suited to rendering the
+road in a visual scene, is not suited for data providers whose
+applications are required to recognize a road and make decisions
+based on its presence in the environment. For example, where
+does the road begin and end? What other roads, if any, cross it
+and where are the crossings?
+</p><p>
+<I>Topology</I> information provides connectivity and adjacency information
+in an environment, and is represented explicitly in SEDRIS by topology
+classes. To represent a road as a &quot;thing&quot; with associated
+topological information, a data provider can represent it as a
+<a href="classes/FeatureRepresentation.htm">&lt;Feature Representation&gt;</a>,
+which by definition has associated topological information. A data provider
+might choose to represent the road in this example as a
+<a href="classes/LinearFeature.htm">&lt;Linear Feature&gt;</a>,
+where each segment of the road is a separate
+<a href="classes/FeatureTopology.htm">&lt;Feature Topology&gt;</a>
+instance, in this case,
+a <a href="classes/FeatureEdge.htm">&lt;Feature Edge&gt;</a> instance.
+Again, the &lt;Linear Feature&gt; would
+be identified as a road by the presence of appropriate
+<a href="classes/ClassificationData.htm">&lt;Classification Data&gt;</a>.
+The topology relationships assist the reasoning models by providing explicit
+information, instead of performing calculations to derive the information.
+</p><p>
+If a data provider wished to provide both representations, indicating
+that they corresponded to the same &quot;thing&quot;, this would be
+done by providing both representations and joining them with an
+association relationship to indicate that each is an alternate
+representation of the other.
+</p></td></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="25">2.5</a></th>
+<th class="doc_set_toc_outline_description">
+SEDRIS Data Dictionary
+</th>
+</tr>
+
+<tr><th class="doc_set_toc_outline_number"></th>
+<td class="doc_set_toc_outline_description"><p>
+The SEDRIS DRM is described by an associated data dictionary that defines
+each class, its fields, and the formal relationships between classes. Because
+the DRM is so densely populated, the class fields are <B><I>not</I></B>
+presented in the DRM diagrams / illustrations.  The class fields are
+documented in the data dictionary.  (The omission of the class fields from
+the DRM diagrams is a deviation from the UML notation.)
+</p><p>
+The data dictionary documents all DRM classes.  Each class' entry is
+considered a &quot;term&quot; in the dictionary.  Each term
+(representing a class of data) is described using a standard notation
+(see below).  The data dictionary is
+divided into many hypertext files, designed to be used interactively
+through an Internet web browser.  There is also a plain text version
+available for printing (500+ pages).  Each class within the
+data dictionary is linked to the primary DRM diagram on which it
+appears, followed by any other pages on which the class is
+referenced. The current version of the SEDRIS data dictionary is
+available for on-line viewing or may be downloaded for local use from
+the SEDRIS web site (<a href="http://www.sedris.org">www.sedris.org</a>).
+</p></p>
+A standard class entry in the SEDRIS data dictionary
+contains one or more of the following items of information, in
+the order shown.  Not all items of information are provided
+for every class; which are provided depends on the nature of the
+individual class.
+</p>
+
+<ul>
+<li> Class Name
+<li> Superclass</li>
+<li> Subclasses</li>
+<li> Definition</li>
+<li> Primary Page in DRM Diagram</li>
+<li> Secondary Pages in DRM Diagram</li>
+<li> Example</li>
+<li> FAQs</li>
+<li> Constraints</li>
+<li> Associated to (one-way) (inherited) </li>
+<li> Associated to (one-way)</li>
+<li> Associated by (one-way) (inherited) </li>
+<li> Associated by (one-way)</li>
+<li> Associated with (two-way) (inherited)</li>
+<li> Associated with (two-way)</li>
+<li> Composed of (two-way) (inherited)</li>
+<li> Composed of (two-way)</li>
+<li> Composed of (two-way metadata) (inherited)</li>
+<li> Composed of (two-way metadata)</li>
+<li> Component of (two-way)</li>
+<li> Field Elements</li>
+<li> Notes</li>
+</ul>
+</td></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="26">2.6</a></th>
+<th class="doc_set_toc_outline_description">
+SEDRIS Constraints
+</th>
+</tr>
+
+<tr><th class="doc_set_toc_outline_number"></th>
+<td class="doc_set_toc_outline_description"><p>
+The SEDRIS constraints express semantic restrictions on the use of
+the DRM and the application programmer's interface (API).
+The current version of the SEDRIS constraints is provided in
+<a href="constraints/index.htm">Appendix B</a>, and is available for
+on-line viewing or may be
+downloaded for local use from the SEDRIS web site
+(<a href="http://www.sedris.org">www.sedris.org</a>).
+</p></td></tr>
+</table>
+</div>
+
+<p>
+<HR>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a></strong>,
+<strong><a href="index.htm">Table of Contents</a></strong>
+<br><br>
+
+<div class="CenterDiv">
+<table class="doc_set_header">
+<tr><td>
+<table class="doc_set_header">
+<tr><td class="doc_set_footer" align="left">
+Last updated: July 1, 2011
+</td>
+<td class="doc_set_footer" align="right">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td>
+</tr>
+</table>
+</td></tr>
+</table></div>
+</BODY>
+</HTML>

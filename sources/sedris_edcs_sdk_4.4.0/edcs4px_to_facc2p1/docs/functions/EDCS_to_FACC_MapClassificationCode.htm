@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<title>EDCS to FACC MapClassificationCode</title>
+<link rel="stylesheet" href="../../../docs/styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div align="center">
+<table border="2" class="doc_set_header">
+<tr><th class="doc_set_header">
+<big><big>EDCS Reference Manual</big></big>
+<br>
+<font color="#ffffff">
+Concept Mapping from EDCS 4.4 to FACC 2.1
+<!-- EDCS SDK Release 4.4.0 -->
+<br>
+Functions
+<br>
+EDCS to FACC MapClassificationCode
+</font>
+</th></tr>
+</table></div>
+
+<!-- EDCS 4.4 to FACC 2.1 Mapping SDK Release 4.4.0.0 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan="4">extern <a href="../../../docs/types/EDCS_Status_Code.htm">EDCS_Status_Code</a></td></tr>
+<tr><td class="CFunction" colspan="4">EDCS_to_FACC_MapClassificationCode</td></tr>
+<tr><td class="CFunction">(</td>
+<tr><td class="CFunction"></td><td class="CFunction">EDCS_Classification_Code</td> <td class="CFunction"> </td><td class="CFunction"></td><td class="CFunction"><a NAME="ec_code_in">ec_code_in</a>,</td><td class="CFunction"> <a href="#Notes_ec_code_in">(notes)</a></td></tr>
+<tr><td class="CFunction">const</td><td class="CFunction"><a HREF="../types/FACC_Feature_Mapping_Structure.htm">FACC_Feature_Mapping_Structure</a></td> <td class="CFunction">*</td><td class="CFunction">*</td><td class="CFunction"><a NAME="mapping_info_out_ptr">mapping_info_out_ptr</a></td><td class="CFunction"> <a href="#Notes_mapping_info_out_ptr">(notes)</a></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<P>
+Retrieves FACC 2.1 mapping information for the given EDCS Classification Code.
+</P>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<a href="../../../docs/types/EDCS_Status_Code.htm#EDCS_SC_SUCCESS">
+ EDCS_SC_SUCCESS</a>
+</td><td class="Status">
+and a handle to the requested mapping information is copied into
+<a href="#mapping_info_out_ptr">*mapping_info_out_ptr</a>, if valid
+parameters were passed in.
+</td></tr>
+<tr><td class="Status">
+<a href="../../../docs/types/EDCS_Status_Code.htm#EDCS_SC_NULL_REQUIRED_PARAMETER">
+ EDCS_SC_NULL_REQUIRED_PARAMETER</a>
+</td><td class="Status">
+and <a href="#mapping_info_out_ptr">*mapping_info_out_ptr</a>
+is left unaltered, if
+<a href="#mapping_info_out_ptr">*mapping_info_out_ptr</a> was NULL.
+</td></tr>
+<tr><td class="Status">
+<a href="../../../docs/types/EDCS_Status_Code.htm#EDCS_SC_OTHER_FAILURE">
+ EDCS_SC_OTHER_FAILURE</a>
+</td><td class="Status">
+and <a href="#mapping_info_out_ptr">*mapping_info_out_ptr</a>
+is left unaltered, if the mapping library has not been initialized with
+<a href="EDCS_to_FACC_InitMappingInfo.htm">EDCS_to_FACC_InitMappingInfo()</a>.
+</td></tr>
+<tr><td class="Status">
+<a href="../../../docs/types/EDCS_Status_Code.htm#EDCS_SC_INVALID_CODE">
+ EDCS_SC_INVALID_CODE</a>
+</td><td class="Status">
+and <a href="#mapping_info_out_ptr">*mapping_info_out_ptr</a> is set to
+NULL, if <a href="#ec_code_in">ec_code_in</a> does not correspond to a
+valid EDCS 4.4 Classification.
+</td></tr>
+</table>
+<HR><h2>Parameters Notes</h2>
+<br>
+<h4><a href="#ec_code_in" name="Notes_ec_code_in">ec_code_in</a></h4>
+ the EDCS 4.4 Classification whose FACC mapping information is
+    being retrieved
+<br>
+<h4><a href="#mapping_info_out_ptr" name="Notes_mapping_info_out_ptr">mapping_info_out_ptr</a></h4>
+ pointer to a pointer variable in the user's
+    memory space where a handle to the mapping information will be
+    copied
+<P>
+<HR>
+<P>
+<strong>Prev:</strong> <a href="EDCS_to_FACC_MapAttributeWithValue.htm">EDCS_to_FACC_MapAttributeWithValue</a>.
+<strong>Next:</strong> <a href="EDCS_to_FACC_PrintFACCValueType.htm">EDCS_to_FACC_PrintFACCValueType</a>.
+<strong>Up:</strong><a href="../edcs4px_facc2p1.htm#Functions">Function Index</a>.
+<br><br>
+<table class="doc_set_header">
+<tr><td>
+<table class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="left" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

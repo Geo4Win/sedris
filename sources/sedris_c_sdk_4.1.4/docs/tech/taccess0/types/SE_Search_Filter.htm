@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE_Search_Filter</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Types
+</font>
+<br>
+<font color="#ffffff">
+SE_Search_Filter
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<PRE>
+/*
+ * TYPEDEF: SE_Search_Filter
+ *
+ *   Pointer to a search filter.  The definition of a search filter is
+ *   hidden by the implementation of this API.  The user of this API simply
+ *   passes in and receives back an SE_Search_Filter for functions
+ *   that deal with search filters.
+ *
+ *    A search filter is an opaque data type, created by calling
+ *    SE_CreateSearchFilter(), which provides a set of rules that are used
+ *    by iterators to filter objects so that only objects that pass the
+ *    rules will be returned to the user.
+ *
+ *    Search filters have the following characteristics:
+ *
+ *    1. A search filter must be created by SE_CreateSearchFilter() before
+ *       it is used.
+ *    2. To use a search filter after it has been defined, pass the search
+ *       filter to an iterator when initializing the iterator.
+ *    3. Search filters can be freed at any time; a search filter does *NOT*
+ *       need to stay in existence until the iterator(s) that depend on that
+ *       filter are freed. (An iterator retains a copy of any search filter
+ *       used to initialize that iterator).
+ *    4. A search filter must be freed by SE_FreeSearchFilter() after the
+ *       user is done with it.
+ *
+ *    See also SE_CreateSearchFilter(), SE_FreeSearchFilter().
+ */
+</PRE><span class="Code">
+typedef void *SE_Search_Filter;
+</span>
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SE_Search_Dimension.htm">SE_Search_Dimension</a>.
+<strong>Next:</strong> <a href="SE_Search_Rule.htm">SE_Search_Rule</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

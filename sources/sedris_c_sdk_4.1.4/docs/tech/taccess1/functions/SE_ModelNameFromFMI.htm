@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE ModelNameFromFMI</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX B - Transmittal Access Level 1 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+SE ModelNameFromFMI
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../../taccess0/types/SE_Status_Code.htm">SE_Status_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SE_ModelNameFromFMI</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../../taccess0/types/SE_Object.htm">SE_Object</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"> </td><td class="CFunction"><a name="object_in"></a>object_in,</td><td class="CFunction"><sup><A href="#Notes_object_in">1</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../../taccess0/types/SE_Store.htm">SE_Store</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"> </td><td class="CFunction"><a name="store_in"></a>store_in,</td><td class="CFunction"><sup><A href="#Notes_store_in">2</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">const&nbsp;</td><td class="CFunction"><a href="../../drm/types/SE_String.htm">SE_String</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction">*</td><td class="CFunction"><a name="result_out_ptr"></a>result_out_ptr</td><td class="CFunction"><sup><A href="#Notes_result_out_ptr">3</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+  Given a <A href="../../drm/classes/FeatureModelInstance.htm">&lt;Feature Model Instance&gt;</A>,
+  retrieves the name of the <A href="../../drm/classes/Model.htm">&lt;Model&gt;</A> that contains
+  the <A href="../../drm/classes/FeatureModel.htm">&lt;Feature Model&gt;</A> being instanced.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../../taccess0/types/SE_Status_Code.htm#SE_STATCODE_SUCCESS">SE_STATCODE_SUCCESS</A>
+</td><td class="Status">
+ and the output parameters are set appropriately, if
+ valid parameters were passed in and all operations succeeded.
+</td></tr>
+<tr><td class="Status">
+<A href="../../taccess0/types/SE_Status_Code.htm#SE_STATCODE_UNRESOLVED_INPUT_OBJECT">SE_STATCODE_UNRESOLVED_INPUT_OBJECT</A>
+</td><td class="Status">
+ and no changes are made if <A href="#object_in">object_in</A>
+ is unresolved.
+</td></tr>
+<tr><td class="Status">
+<A href="../../taccess0/types/SE_Status_Code.htm#SE_STATCODE_NO_OBJECT">SE_STATCODE_NO_OBJECT</A>
+</td><td class="Status">
+ and no changes are made if
+<OL>
+<LI><A href="#object_in">object_in</A> isn't associated to
+ a <A href="../../drm/classes/FeatureModel.htm">&lt;Feature Model&gt;</A> instance, or
+</LI>
+<LI>the <A href="../../drm/classes/FeatureModel.htm">&lt;Feature Model&gt;</A> instance isn't a component of
+ a <A href="../../drm/classes/Model.htm">&lt;Model&gt;</A> instance.
+</LI>
+</OL>
+</td></tr>
+<tr><td class="Status">
+<A href="../../taccess0/types/SE_Status_Code.htm#SE_STATCODE_UNRESOLVED_OUTPUT_OBJECT">SE_STATCODE_UNRESOLVED_OUTPUT_OBJECT</A>
+</td><td class="Status">
+ and no changes are made if any unresolved intermediate object is
+ encountered that cannot be resolved.
+</td></tr>
+<tr><td class="Status">
+ <A href="../../taccess0/types/SE_Status_Code.htm#SE_STATCODE_C_STORE_INVALID">SE_STATCODE_C_STORE_INVALID</A>
+</td><td class="Status">
+ set if <A href="#store_in">store_in</A> is not a handle to
+ a valid <A href="../../taccess0/types/SE_Store.htm">SE_Store</A>.
+</td></tr>
+<tr><td class="Status">
+<A href="../../taccess0/types/SE_Status_Code.htm#SE_STATCODE_INACTIONABLE_FAILURE">SE_STATCODE_INACTIONABLE_FAILURE</A>
+</td><td class="Status">
+ and no changes are made if the fields of the
+ <A href="../../drm/classes/Model.htm">&lt;Model&gt;</A> instance cannot be retrieved.
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#object_in" name="Notes_object_in">1</a></sup>
+ &lt;Feature Model Instance&gt; whose &lt;Model&gt; we're identifying
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#store_in" name="Notes_store_in">2</a></sup>
+ store to manage the memory being retrieved
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#result_out_ptr" name="Notes_result_out_ptr">3</a></sup>
+ pointer to a handle to the name being retrieved
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SE_ImageNameFromImageMappingFunction.htm">SE_ImageNameFromImageMappingFunction</a>.
+<strong>Next:</strong> <a href="SE_ModelNameFromGMI.htm">SE_ModelNameFromGMI</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

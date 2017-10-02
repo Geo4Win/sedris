@@ -1,0 +1,279 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Light Rendering Properties Control Link</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Light Rendering Properties Control Link
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Light Rendering Properties Control Link</h2>
+<h3>Superclass - <a href="ControlLink.htm">&lt;Control Link&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class is a specialized
+ <A href="ControlLink.htm">&lt;Control Link&gt;</A> instance providing the connection
+ between one or more
+ <A href="LightRenderingProperties.htm">&lt;Light Rendering Properties&gt;</A>
+ instances and the <A href="Expression.htm">&lt;Expression&gt;</A> instances that are
+ used to determine whether the target
+ <A href="LightRenderingProperties.htm">&lt;Light Rendering Properties&gt;</A>
+ instances are active and/or their
+ <A href="LightRenderingProperties.htm#candela_value">candela_value</A>
+ field values are varying.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet17.pdf"><strong>17</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet21.pdf"><strong>21</strong></A>
+</LI>
+</UL>
+
+<h3>Example</h3>
+<OL>
+<LI><P>
+ Consider a flight simulator database containing an area of terrain
+ representing a city as seen from the air. Some of the
+ <A href="Polygon.htm">&lt;Polygon&gt;</A> instances of this terrain representation
+ have <A href="LightRenderingProperties.htm">&lt;Light Rendering Properties&gt;</A> instances with
+ <A href="TwinklingLightBehaviour.htm">&lt;Twinkling Light Behaviour&gt;</A>
+ components, representing city lights. These
+ <A href="LightRenderingProperties.htm">&lt;Light Rendering Properties&gt;</A> instances share a
+ <A href="LightRenderingPropertiesControlLink.htm">&lt;Light Rendering Properties Control Link&gt;</A>
+ component that turns them on and off
+ depending on the time of day (on at dusk, off at dawn).
+</P></LI>
+<LI><P>
+ Consider a runway, bordered on each side by a <A href="Line.htm">&lt;Line&gt;</A>
+ instance representing the runway lights. Each <A href="Line.htm">&lt;Line&gt;</A>
+ instance has a
+ <A href="LightRenderingProperties.htm">&lt;Light Rendering Properties&gt;</A>
+ component with a
+ <A href="StrobingLightBehaviour.htm">&lt;Strobing Light Behaviour&gt;</A>
+ component, and a
+ <A href="LightRenderingPropertiesControlLink.htm">&lt;Light Rendering Properties Control Link&gt;</A>
+ component that turns the lights
+ on and off depending on the time of day (on at dusk, off at dawn).
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ What does a
+ <A href="LightRenderingPropertiesControlLink.htm">&lt;Light Rendering Properties Control Link&gt;</A>
+ instance control?
+</B></DT>
+<DD><P>
+ A <A href="LightRenderingPropertiesControlLink.htm">&lt;Light Rendering Properties Control Link&gt;</A>
+ instance controls whether the associated
+ <A href="LightRenderingProperties.htm">&lt;Light Rendering Properties&gt;</A>
+ instances are on or off, and the
+ <A href="LightRenderingProperties.htm#candela_value">candela_value</A>
+ of the
+ <A href="LightRenderingProperties.htm">&lt;Light Rendering Properties&gt;</A>
+ instances.
+</P></DD>
+<DT><B>
+ Can a
+ <A href="LightRenderingPropertiesControlLink.htm">&lt;Light Rendering Properties Control Link&gt;</A>
+ instance be used to change the
+ <A href="LightRenderingBehaviour.htm">&lt;Light Rendering Behaviour&gt;</A>
+ components of the
+ <A href="LightRenderingProperties.htm">&lt;Light Rendering Properties&gt;</A>
+ instances?
+</B></DT>
+<DD><P>
+ No. The links to the
+ <A href="LightRenderingBehaviour.htm">&lt;Light Rendering Behaviour&gt;</A>
+ instances are associations within the transmittal, and associations
+ cannot be changed dynamically.
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ControlLinkConstraints.htm">&lt;&lt;Control Link Constraints&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Composed of (two-way) (inherited)</h3>
+<UL>
+<li>one or more {ordered} <a href="Expression.htm">&lt;Expression&gt;</a> instances</li>
+</UL>
+<h3>Component of (two-way)</h3>
+<UL>
+<li>one or more <a href="LightRenderingProperties.htm">&lt;Light Rendering Properties&gt;</a> instances</li>
+</UL>
+
+<h2><a name="inherited_field">Inherited Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_String.htm">SE_String</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="description">description</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_description">1</A></sup></p></td>
+</tr>
+</table>
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="active_expression_index">active_expression_index</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_active_expression_index">2</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="candela_value_expression_index">candela_value_expression_index</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_candela_value_expression_index">3</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="lower_candela_value_index">lower_candela_value_index</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_lower_candela_value_index">4</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="upper_candela_value_index">upper_candela_value_index</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_upper_candela_value_index">5</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Fields Notes</h3>
+<h4><a href="#description" name="Notes_description">description</a></h4>
+<P>
+ The <A href="#description">description</A> field
+ specifies a text description of the purpose of the
+ <A href="ControlLink.htm">&lt;Control Link&gt;</A> instance.
+</P>
+<h4><a href="#active_expression_index" name="Notes_active_expression_index">active_expression_index</a></h4>
+<P>
+ The <A href="#active_expression_index">active_expression_index</A> field
+ specifies which <A href="Expression.htm">&lt;Expression&gt;</A> component,
+ if any, specifies the
+ <A href="LightRenderingProperties.htm#active_light_value">active_light_value</A>
+ of the target
+ <A href="LightRenderingProperties.htm">&lt;Light Rendering Properties&gt;</A>
+ instances. If
+ <A href="#active_expression_index">active_expression_index</A> is zero (0), the
+ <A href="LightRenderingProperties.htm#active_light_value">active_light_value</A>
+ field values of the target instances
+ are not controlled. Otherwise, the value is a one-based index into the
+ ordered aggregation of <A href="Expression.htm">&lt;Expression&gt;</A> instances.
+</P>
+<h4><a href="#candela_value_expression_index" name="Notes_candela_value_expression_index">candela_value_expression_index</a></h4>
+<P>
+ The <A href="#candela_value_expression_index">candela_value_expression_index</A>
+ field specifies which <A href="Expression.htm">&lt;Expression&gt;</A> component,
+ if any, specifies the
+ <A href="LightRenderingProperties.htm#candela_value">candela_value</A>
+ of the target
+ <A href="LightRenderingProperties.htm">&lt;Light Rendering Properties&gt;</A>
+ instances. If
+ <A href="#candela_value_expression_index">candela_value_expression_index</A>
+ is zero (0), the
+ <A href="LightRenderingProperties.htm#candela_value">candela_value</A>
+ field values of the target instances are not controlled. Otherwise,
+ the value is a one-based index into the ordered aggregation of
+ <A href="Expression.htm">&lt;Expression&gt;</A> instances.
+</P>
+<h4><a href="#lower_candela_value_index" name="Notes_lower_candela_value_index">lower_candela_value_index</a></h4>
+<P>
+ The
+ <A href="#lower_candela_value_index">lower_candela_value_index</A>
+ field specifies which <A href="Expression.htm">&lt;Expression&gt;</A> component,
+ if any, specifies the lower limit of the
+ <A href="LightRenderingProperties.htm#candela_value">candela_value</A>
+ of the target
+ <A href="LightRenderingProperties.htm">&lt;Light Rendering Properties&gt;</A>
+ instances. If
+ <A href="#lower_candela_value_index">lower_candela_value_index</A>
+ is zero (0), no lower limit is
+ specified. Otherwise, the value is a one-based index into the
+ ordered aggregation of <A href="Expression.htm">&lt;Expression&gt;</A> instances.
+</P><P class=Note>
+NOTE 1&nbsp;  If
+ <A href="#candela_value_expression_index">candela_value_expression_index</A>
+ is zero, the
+ <A href="LightRenderingProperties.htm#candela_value">candela_value</A>
+ field values of the target instances are not controlled, so the
+ <A href="#lower_candela_value_index">lower_candela_value_index</A>
+ value is also zero.
+</P>
+<h4><a href="#upper_candela_value_index" name="Notes_upper_candela_value_index">upper_candela_value_index</a></h4>
+<P>
+ The
+ <A href="#upper_candela_value_index">upper_candela_value_index</A>
+ field specifies which <A href="Expression.htm">&lt;Expression&gt;</A> component,
+ if any, specifies the upper limit of the
+ <A href="LightRenderingProperties.htm#candela_value">candela_value</A>
+ of the target
+ <A href="LightRenderingProperties.htm">&lt;Light Rendering Properties&gt;</A>
+ instances. If
+ <A href="#upper_candela_value_index">upper_candela_value_index</A>
+ is zero (0), no upper limit is
+ specified. Otherwise, the value is a one-based index into the
+ ordered aggregation of <A href="Expression.htm">&lt;Expression&gt;</A> instances.
+</P><P class=Note>
+NOTE 2&nbsp;  If
+ <A href="#candela_value_expression_index">candela_value_expression_index</A>
+ is zero, the
+ <A href="LightRenderingProperties.htm#candela_value">candela_value</A>
+ field values of the target instances are not
+ controlled, so the
+ <A href="#upper_candela_value_index">upper_candela_value_index</A>
+ value is also zero.
+</p>
+
+<hr>
+<strong>Prev:</strong> <A href="LightRenderingProperties.htm">Light Rendering Properties</A>.
+<strong>Next:</strong> <A href="LightSource.htm">Light Source</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

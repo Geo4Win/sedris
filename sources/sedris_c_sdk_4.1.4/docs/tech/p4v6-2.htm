@@ -1,0 +1,344 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>P4V6 - Section 2</title>
+<META name="Author" CONTENT="Science Applications International Corporation">
+<link rel="stylesheet" type="text/css" href="../styles/SDK_SEDRIS.css">
+</head>
+<body>
+
+<a name="Top" id="Top"></a>
+
+<div class="CenterDiv">
+<table border=2 class="doc_set_header">
+<tr>
+<th class="doc_set_header">
+<big><big>Data Tables Technical Guide</big></big>
+<br />
+<font color="#ffffff">
+Section 2 - BACKGROUND AND MOTIVATION
+</font>
+</th>
+</tr>
+</table></div>
+
+<table class="doc_set_toc">
+<tr>
+<th class="doc_set_toc_outline_number"><a name="21" id="21">2.1</a></th>
+<th class="doc_set_toc_outline_description">A Simple Grid Model</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"></th>
+<td class="doc_set_toc_outline_description"><p>
+A large body of environmental data exists in the form of
+<I>Property Grids</I>. We use the term 'Property Grid' here to mean
+homogeneous attributed data (properties) associated with a
+spatial location grid.  An example is a DTED data set giving
+terrain elevation in a regular latitude / longitude (Geodetic) grid.
+Examples from the meteorological and oceanographic community (METOC)
+include Bathymetry (ocean bottom depths) in regular latitude /
+longitude (Geodetic) grids, and air temperature, humidity and other
+characteristics at a given altitude in a latitude/longitude grid.
+</p><p>
+This information could be represented in the SEDRIS Data Representation Model
+as an aggregate of <a href="drm/classes/Point.htm">&lt;Points&gt;</a>
+each with a set of
+<a href="drm/classes/PropertyValue.htm">&lt;Property Value&gt;</a>
+components providing the attributed data for
+the given location.  However, considerable storage economy can be
+gained by exploiting the regular grid structure of the grid locations.
+For example, if a grid consists of two-dimensional rectangular cells,
+then the locations of all these cells can be specified by:
+</p>
+<ol>
+<li>the location of the center of one reference cell;
+</li>
+<li>the row and column directions (orientations);
+</li>
+<li>the row and column indices of the reference cell;
+</li>
+<li>the number of rows and columns;
+</li>
+<li>the length and width of the cells.
+</li>
+</ol>
+A large number of locations can thus be specified very concisely.  Once
+the locations are specified, cell data without location information can
+be stored in one sequential block. (Locations are associated with their
+corresponding sequential positions in the block by row / column
+indexing.)
+</td></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="22" id="22">2.2</a></th>
+<th class="doc_set_toc_outline_description">
+Coordinate Representations and the Preservation of
+&quot;Griddedness&quot;
+</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"></th>
+<td class="doc_set_toc_outline_description"><p>
+There are several tacit assumptions in the simple grid model described
+in the previous section, with important implications for the
+SEDRIS Data Representation Model.
+</p><p>
+The most fundamental of these assumptions is the notion of specifying
+a location. In a simulation and modeling context, locations are
+specified as coordinates relative to a chosen spatial reference frame (SRF).
+The spatial reference frame is a given in many simulation systems;
+however, the inter-operability objectives of SEDRIS require SEDRIS to
+support several spatial reference frames. A SEDRIS transmittal
+explicitly specifies the spatial reference frame within in which
+locations are defined as part of the transmittal.
+One objective of the API is to make the transmittal appear independent
+of the SRF choice (an SRF-free representation).
+A SEDRIS user can select his preferred SRF, and the
+SEDRIS API will provide transmittal data relative to the user's
+SRF.  This SRF transparency is
+possible for individual locations because there are invertible
+coordinate transformations between any pair of allowed SEDRIS
+SRFs (for further details, see <b>Part 4, Volume 11:
+Spatial Reference Model</b>).
+This SRF transparency breaks down for gridded locations because,
+in general, the coordinate transformations do not preserve coordinate length.
+For example, a grid of locations specified by Geodetic latitude and longitude
+will not be a grid when the locations are mapped onto a coordinate system
+which preserves distance, and vice versa. (e.g.: One degree of longitude
+does not have a fixed length in metres).  This is an important issue for
+most METOC databases, which are gridded in latitude/longitude coordinates.
+In other words, the &quot;griddedness&quot; of a set of locations
+is not generally preserved after a spatial reference frame transformation.
+Since &quot;griddedness&quot;
+is coordinate system dependent, the information in the simple model (1)-(5)
+above must be supplemented by the identification of the underlying
+coordinate system:
+</p>
+<ol start="6">
+<li>grid spatial reference frame specification.</li>
+</ol>
+This explicit specification of the spatial reference frame exposes the
+ambiguity of (1) and (2), which, with (5), must be clarified by changing:
+<ol>
+<li>the location of the center of one reference cell;</li>
+<li>the row and column directions (orientations);</li>
+</ol>
+and
+<ol start="5">
+<li>the length and width of the cells.</li>
+</ol>
+
+to:
+<br />
+(1') the location in world coordinates of the center of one reference cell;
+<br />
+(2') the row and column directions (orientations) relative to world coordinates; and
+<br />
+(5') the length and width of the cells in grid spatial reference frame units.
+</td></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="23" id="23">2.3</a></th>
+<th class="doc_set_toc_outline_description">
+Data Types and Special Values
+</th></tr>
+
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description">
+Another tacit assumption of the simple grid model (1)-(5) is that
+row and column indices are sufficient to access associated data from
+a data block.  In fact, proper retrieval and interpretation requires
+the stored memory size of the data and a specification of the units
+of measurement.  If each grid location has several associated data
+items (e.g.: both temperature and humidity) then the order as well
+as the item identification are required.  This information for each
+item, identity, storage size, and units provided in an ordered list
+will be referred to as the property grid signature.</p>
+<ol start="7">
+<li>signature</li>
+</ol>
+The information in modified items (1')-(7) specifies the grid locations
+and the method of extracting data; only (7) deals with the
+interpretation of the data.  Implicit in that interpretation is the
+assumption that each cell contains usable data.  In fact, large area
+grids are likely to contain cells that are invalid for some reason.
+This is typical of METOC databases in which ocean data is gridded in
+large grids that cover landmasses and areas of insufficient data.
+The Oceanographic and Atmospheric Master Library (OAML),
+for example, deals with this problem by flagging cell-specific
+special conditions with special value data records.  In the case of
+most OAML databases, special data record values are specified only
+in supporting documentation.  Users of gridded data are less likely
+to use invalid data if these special values are explicitly
+identified in a standard way.  Indeed, if special values are
+represented in a standard way, then extraction methods using the
+API could enforce the exclusion of data from invalid cells.  OAML
+uses two types of special value record to flag invalid cells: one
+flags an &quot;over land&quot; cell and the other flags
+&quot;no data.&quot; It is conceivable that other gridded databases
+might have more than two useful flag conditions, and they may apply
+separately to each item in the signature.  The SEDRIS
+Data Representation Model should therefore provide additional signature
+characteristic values (with interpretation) on an item by item basis.
+We therefore add to the list:
+<ol start="8">
+<li>signature item special characteristics.</li>
+</ol>
+</td></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="24" id="24">2.4</a></th>
+<th class="doc_set_toc_outline_description">
+    Irregular and Other Axes
+</th></tr>
+
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+Modified items (1')-(8) provide information that is useful or necessary
+for the representation of a two dimensional uniform grid of data in a
+SEDRIS Data Representation Model.  This model can be generalized in
+several ways.  The grid is called uniform because, as indicated in (5'),
+each cell is the same size.  One generalization is to allow geometric
+uniformity; that is uniform on a logarithmic scale.
+</p><p>
+Another generalization is to define a non-uniform grid as one for which
+the row or column cell-length depends on the row or column index.  In
+other words, an R row by C column grid of locations can be specified
+by C positions on the row direction axis and R positions on the column
+directions axis.  While this requires more storage information than
+(5'), we still have the efficiency of axis locations specifying grid
+locations.
+</p><p>
+Another generalization of a property grid is to dimensions other than
+two.  For example, air temperature, humidity, etc. can be specified
+in a three-dimensional volume grid, with elevation as the third
+dimension.  Similarly, measurement in one dimension such as
+atmospheric soundings measured in altitude only at a specific
+latitude / longitude.
+</p><p>
+These generalities can be achieved by defining an
+<a href="drm/classes/Axis.htm">&lt;Axis&gt;</a>
+class in the SEDRIS DRM that contains the characteristics of each
+axis including (4) and (5').  Thus we have replaced:
+<br />
+(4) the number of row and columns;
+<br />
+(5') the length and width of the cells in grid coordinate system units;
+<br />
+with
+<br />
+(9) an ordered list of axes.
+</p></td></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="25" id="25">2.5</a></th>
+<th class="doc_set_toc_outline_description">
+    Generalization to Property Tables
+</th></tr>
+
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+Property tables are (multi-dimensional) arrays of property data.
+They can be thought of as labeled tabulated data.  If we now drop
+the implicit requirement of <b>spatial</b> grids and <b>spatial</b>
+axes that are in geographic units, and allow a variety of axis
+units (metric axes) and even allow enumeration types (nominal axes),
+then the relaxed requirements can encompass property table
+data structures.  The row (and columns) of the array are either
+indexed by numeric values or labeled by enumeration values.  The
+tables are not limited to three dimensions.  In the next section,
+we define <a href="drm/classes/RegularAxis.htm">&lt;Regular Axis&gt;</a>,
+<a href="drm/classes/IrregularAxis.htm">&lt;Irregular Axis&gt;</a>, and
+<a href="drm/classes/EnumerationAxis.htm">&lt;Enumeration Axis&gt;</a>,
+and <a href="drm/classes/IntervalAxis.htm">&lt;Interval Axis&gt;</a> to
+deal with these axis generalizations.   In dropping spatial requirements, a
+property table retains requirements (7) the signature,
+(8) signature item special characteristics, and (9) an ordered list of
+(generalized) axes.
+</p></td></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="26" id="26">2.6</a></th>
+<th class="doc_set_toc_outline_description">
+    Other Generalizations
+</th></tr>
+
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+The grid signature list allows a set of simple values to be associated
+with each grid location.  However, some grids are vector or data table
+valued.  For example, a 2-D surface grid might have at each grid
+location table of radar absorptivity indexed by wavelength and
+incidence angle.  If each grid location table uses the same wavelength
+and incidence angle values then wavelength and angle can be used as
+two additional (non-spatial) axes to achieve additional storage
+efficiency.  In this case, we have both spatial and non-spatial axes
+indexing property data which is a function of both grid location and
+other (non-spatial axis) parameters.
+</p><p>
+Another table valued case to consider is one in which there are many
+grid locations sharing a smaller number of distinct tables.  In this
+case, we need only to index the tables and store a table index at
+each location.
+</p></td></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="27" id="27">2.7</a></th>
+<th class="doc_set_toc_outline_description">
+    Summary
+</th></tr>
+
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+This section has introduced some criteria and requirements for
+property grids and more generally, property tables.  The modified
+criteria (1'-3, 6-9) motivate the definition of
+<a href="drm/classes/Axis.htm">&lt;Axis&gt;</a> classes
+for axes, <a href="drm/classes/TablePropertyDescription.htm">
+&lt;Table Property Description&gt;</a> class for cell signatures,
+and the <a href="drm/classes/DataTable.htm">&lt;Data Table&gt;</a>
+class and its specializations such as
+<a href="drm/classes/PropertyGrid.htm">&lt;Property Grid&gt;</a>
+and <a href="drm/classes/PropertyTable.htm">&lt;Property Table&gt;</a>.
+</p><p>
+As can be seen, a data table requires a signature (7,8), and an
+ordered list of axes (9).  By adding location and
+spatial reference frame information (1-3,5,6) a data table
+specializes to a property grid.  Using these concepts, the following
+sections will define the DRM classes
+used to realize these notions.
+</p>
+</td></tr>
+</table>
+
+<hr>
+<p>
+Return to:
+<strong><a href="#Top">Top of this Page</a></strong>,
+<strong><a href="p4v6.htm">Table of Contents</a></strong>
+</p>
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><td>
+<table class="doc_set_header">
+<tr><td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td>
+</tr>
+</table>
+</td></tr>
+</table>
+</div>
+</body>
+</html>

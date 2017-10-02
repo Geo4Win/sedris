@@ -1,0 +1,216 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Process Step</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Process Step
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Process Step</h2>
+<h3>Superclass - <a href="SEDRISAbstractBase.htm">&lt;SEDRIS Abstract Base&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies information about
+ an event in the creation process for the data specified
+ by the scope.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet20.pdf"><strong>20</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+This class appears on only one page of the DRM class diagram.
+<h3>Example</h3>
+<OL>
+<LI><P>
+ A <A href="ProcessStep.htm">&lt;Process Step&gt;</A> instance describes the filtering of
+ feature data based on feature coding schemes used in GIS applications.
+</P></LI>
+<LI><P>
+ A <A href="ProcessStep.htm">&lt;Process Step&gt;</A> instance specifies the rules by which
+ feature data is polygonalized.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ What is the purpose of this class?
+</B></DT>
+<DD><P>
+ This class provides a mechanism for documenting the processes used in
+ environmental database generation.  In conjunction with the
+ <A href="Source.htm">&lt;Source&gt;</A> class, this class can be used to construct
+ a network-like description of the database generation process, consisting
+ of processing steps linked by their input and output data.  This class
+ allows the date and time that each process was performed to be recorded,
+ as well as a point of contact for each processing step.  Each
+ <A href="ProcessStep.htm">&lt;Process Step&gt;</A> instance can be associated with
+ a collection of <A href="Source.htm">&lt;Source&gt;</A> instances, each of which is
+ labeled as being either an input or an output.  Thus each
+ <A href="ProcessStep.htm">&lt;Process Step&gt;</A> instance may use
+ multiple inputs and produce multiple outputs.  At a minimum, the overall
+ database generation process (such as SOF ATS) should be identified.
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ConstraintsOnAssociates.htm">&lt;&lt;Constraints On Associates&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/DistinctLinkObjects.htm">&lt;&lt;Distinct Link Objects&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/MandatoryMetadata.htm">&lt;&lt;Mandatory Metadata&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Associated to (one-way)</h3>
+<UL>
+<li>zero or more <a href="Source.htm">&lt;Source&gt;</a> instances, each through the use of an <a href="InOut.htm">&lt;In Out&gt;</a> link object<sup><A href="#Notes_asn_toSource" name="asn_toSource">1</A></sup></li>
+</UL>
+
+<h3>Composed of (two-way)</h3>
+<UL>
+<li>one <a href="AbsoluteTime.htm">&lt;Absolute Time&gt;</a> instance<sup><A href="#Notes_cmp_Absolute_Time" name="cmp_Absolute_Time">2</A></sup></li>
+</UL>
+
+<h3>Composed of (two-way metadata)</h3>
+<UL>
+<li>zero or more <a href="ResponsibleParty.htm">&lt;Responsible Party&gt;</a> instances, each through the use of a <a href="RoleData.htm">&lt;Role Data&gt;</a> link object<sup><A href="#Notes_cmp_Responsible_Party" name="cmp_Responsible_Party">3</A></sup></li>
+</UL>
+
+<h3>Component of (two-way)</h3>
+<UL>
+<li>one <a href="Lineage.htm">&lt;Lineage&gt;</a> instance</li>
+</UL>
+
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_String.htm">SE_String</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="description">description</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_description">4</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_String.htm">SE_String</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="rationale">rationale</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_rationale">5</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Associated to Notes</h3>
+<br>
+<h4><a href="#asn_toSource" name="Notes_asn_toSource">Source</a></h4>
+ For a given <A href="Source.htm">&lt;Source&gt;</A> instance to
+ which the <A href="ProcessStep.htm">&lt;Process Step&gt;</A>
+ instance is associated, the following hold:
+<OL type='a'>
+<LI>If the <A href="InOut.htm#input">input</A> field of the
+ given <A href="InOut.htm">&lt;In Out&gt;</A> instance is
+ <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A>, the
+ <A href="Source.htm">&lt;Source&gt;</A> instance represents environmental data
+ used in the event represented by the
+ <A href="ProcessStep.htm">&lt;Process Step&gt;</A> instance.
+</LI>
+<LI>If the <A href="InOut.htm#input">input</A> field of the
+ given <A href="InOut.htm">&lt;In Out&gt;</A> instance is
+ <A href="../types/SE_Boolean.htm#SE_FALSE">SE_FALSE</A>, the
+ <A href="Source.htm">&lt;Source&gt;</A> instance represents
+ intermediate environmental data that is:
+ <OL type='1'>
+ <LI>significant in the opinion of the data producer,
+ </LI>
+ <LI>generated in the processing step represented by
+     the <A href="ProcessStep.htm">&lt;Process Step&gt;</A> instance,
+     and
+</LI>
+   <LI>used in later processing steps.
+</LI>
+   </OL>
+</LI>
+</OL>
+<h3>Composed of Notes</h3>
+<br>
+<h4><a href="#cmp_Absolute_Time" name="Notes_cmp_Absolute_Time">Absolute_Time</a></h4>
+ The <A href="AbsoluteTime.htm">&lt;Absolute Time&gt;</A> component
+ specifies the date and time (or range of date and time)
+ on or over which the event represented by the
+ <A href="ProcessStep.htm">&lt;Process Step&gt;</A> instance occurred.
+</P>
+<br>
+<h4><a href="#cmp_Responsible_Party" name="Notes_cmp_Responsible_Party">Responsible_Party</a></h4>
+ If provided, these
+ <A href="ResponsibleParty.htm">&lt;Responsible Party&gt;</A> instances
+ provide identification of, and means of communication with,
+ person(s) and organization(s) associated with the
+ <A href="ProcessStep.htm">&lt;Process Step&gt;</A> instance.
+</P>
+<h3>Fields Notes</h3>
+<h4><a href="#description" name="Notes_description">description</a></h4>
+<P>
+ The <A href="#description">description</A>
+ field specifies an explanation of the event,
+ including related parameters or tolerances.
+</P>
+<h4><a href="#rationale" name="Notes_rationale">rationale</a></h4>
+<P>
+ The <A href="#rationale">rationale</A>
+ field states the requirement or purpose
+ for the <A href="ProcessStep.htm">&lt;Process Step&gt;</A> instance.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="PrimitiveSummaryItem.htm">Primitive Summary Item</A>.
+<strong>Next:</strong> <A href="Property.htm">Property</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

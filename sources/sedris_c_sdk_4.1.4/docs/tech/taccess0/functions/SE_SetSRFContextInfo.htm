@@ -1,0 +1,159 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE SetSRFContextInfo</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+SE SetSRFContextInfo
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../types/SE_Return_Code.htm">SE_Return_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SE_SetSRFContextInfo</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../../drm/types/SE_SRF_Context_Info.htm">SE_SRF_Context_Info</a>&nbsp;</td> <td class="CFunction"><a name="new_srf_context_info"></a>new_srf_context_info</td><td class="CFunction"><sup><A href="#Notes_new_srf_context_info">1</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+  Sets the spatial reference frame (SRF) that will be used to represent all
+  <A href="../../drm/classes/Location.htm">&lt;Location&gt;</A> instances returned <EM>after</EM> this
+  function is called.  This function has no effect on
+  <A href="../../drm/classes/Location.htm">&lt;Location&gt;</A> instances that have already been
+  returned to the user before this function was called. See the Spatial
+  Reference Model (SRM) for details on the various SRFs supported by SEDRIS.
+</P><P>
+  The SRF used for returning <A href="../../drm/classes/Location.htm">&lt;Location&gt;</A> instances can
+  be changed as often
+  as the user desires.  After changing to any particular SRF, if the user
+  wants to return to the 'default' state where coordinates are returned in
+  the SRF in which they were originally stored in the transmittal,
+  then call the
+ <A href="SE_UseDefaultSRFContextInfo.htm">SE_UseDefaultSRFContextInfo()</A>
+ function.
+</P><P>
+  <STRONG>SPECIAL EXCEPTION</STRONG>:
+</P><P>
+  If coordinates are defined as Local Space Rectangular (LSR) or 2D Local
+  Space Rectangular (LSR2) coordinates, then they will always be returned
+  as LSR/LSR2 coordinates, regardless of the values passed to
+  <A href="SE_SetSRFContextInfo.htm">SE_SetSRFContextInfo()</A>. LSR/LSR2
+  coordinates are only converted
+  into another spatial reference frame if they are instanced into the scope
+  of another SRF via a model instance with a
+  <A href="../../drm/classes/WorldTransformation.htm">&lt;World Transformation&gt;</A>.  If a
+  <A href="../../drm/classes/Model.htm">&lt;Model&gt;</A> has been so instanced, and if that instance
+  was traversed to reach the 'current' <A href="../../drm/classes/Location.htm">&lt;Location&gt;</A>
+  instance, and if this API was instructed to
+  transform coordinates when going through transformations, then and only
+  then will LSR/LSR2 coordinates be transformed into the current scoping
+  SRF.  See the various initialize iterator functions for details on how to
+  instruct this API on whether to transform coordinates when going through
+  transformations.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A>
+</td><td class="Status">
+ and the SRF parameters are set.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A>
+</td><td class="Status">
+ and the status code is set appropriately if the call failed.
+</td></tr>
+</table>
+
+<h3>Status Codes</h3>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A> is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_SUCCESS">SE_STATCODE_SUCCESS</A>
+</td><td class="Status">
+ and the current retrieval SRF is set to the SRF specified by
+ <A href="#new_srf_context_info">new_srf_context_info</A>, if a
+ valid parameter was passed in.
+</td></tr>
+</table>
+</P><P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+ <A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A> is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_INACTIONABLE_FAILURE">SE_STATCODE_INACTIONABLE_FAILURE</A>
+</td><td class="Status">
+ set if
+<OL>
+<LI><A href="#new_srf_context_info">new_srf_context_info</A> failed
+ to specify a legal SRF within SEDRIS, or
+</LI>
+<LI>the parameters for the specified SRF were not legal for that SRF.
+</LI>
+</OL>
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#new_srf_context_info" name="Notes_new_srf_context_info">1</a></sup>
+ specifies the new SRF and the necessary SRF
+    parameters for the selected SRF, if any.  Some SRFs don't need
+    parameters, and have a 'place-holder' field, &quot;ignore_na&quot;.  See
+    the SRM and the definition of SRM_SRF_Parameters for more
+    details.
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SE_SetRootObject.htm">SE_SetRootObject</a>.
+<strong>Next:</strong> <a href="SE_SetSecondErrorMessage.htm">SE_SetSecondErrorMessage</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Legal Time Ranges</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX B - Constraints
+</font>
+<br>
+<font color="#ffffff">
+Legal Time Ranges
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h3>Definition</h3>
+<OL type='a'>
+<LI><P>
+ For an <A href="../classes/AbsoluteTime.htm">&lt;Absolute Time&gt;</A> instance,
+ (when hour, minutes, and/or seconds exist)
+</P>
+<OL type='1'>
+<LI><P>
+ hour shall be between 0 and 23 inclusive.
+</P></LI>
+<LI><P>
+ minutes shall be between 0 and 59 inclusive.
+</P></LI>
+<LI><P>
+ seconds shall be between 0 and 60; that
+ is, 0.0 &lt;= seconds &lt; 60.0.
+</P></LI>
+</OL>
+</LI>
+<LI><P>
+ For <A href="../classes/AbsoluteTimeInterval.htm">&lt;Absolute Time Interval&gt;</A>
+ instances and
+ <A href="../classes/RelativeTime.htm">&lt;Relative Time&gt;</A> instances,
+</P>
+<OL type='1'>
+<LI><P>
+ delta_hours shall be between 0 and 23 inclusive.
+</P></LI>
+<LI><P>
+ delta_minutes shall be between 0 and 59 inclusive.
+</P></LI>
+<LI><P>
+ delta_seconds shall be between 0 and 60, that is, 0 &lt;= seconds &lt; 60.0.
+</P></LI>
+</OL>
+</LI>
+<LI><P>
+ For a <A href="../classes/RelativeTimeInterval.htm">&lt;Relative Time Interval&gt;</A> instance,
+</P>
+<OL type='1'>
+<LI><P>
+ <A href="../classes/RelativeTimeInterval.htm#delta_start_hours">delta_start_hours</A>
+ shall be between 0 and 23 inclusive, and
+ <A href="../classes/RelativeTimeInterval.htm#delta_stop_hours">delta_stop_hours</A>
+ shall be between 0 and 23 inclusive.
+</P></LI>
+<LI><P>
+<A href="../classes/RelativeTimeInterval.htm#delta_start_minutes">delta_start_minutes</A>
+ and
+ <A href="../classes/RelativeTimeInterval.htm#delta_stop_minutes">delta_stop_minutes</A>
+ shall each be between 0 and 59 inclusive.
+</P></LI>
+<LI><P>
+ <A href="../classes/RelativeTimeInterval.htm#delta_start_seconds">delta_start_seconds</A>
+ and
+ <A href="../classes/RelativeTimeInterval.htm#delta_stop_seconds">delta_stop_seconds</A>
+ shall each be between 0 and 60;
+ that is, 0 &lt;= <span class="Code">seconds</span> &lt; 60.0.
+</P></LI>
+</OL>
+</OL>
+
+<h3>Rationale</h3>
+<P>
+ Any values for hour greater
+ than 23 should be expressed in days.
+</P><P>
+ Any values for minutes greater
+ than 59 should be expressed in hours.
+</P><P>
+ Any values for seconds greater than or
+ equal to 60 should be expressed in minutes.
+</P>
+<h3>Example</h3>
+<OL>
+<LI><P>
+ To specify a date of 31 December 1999 with
+ an <A href="../classes/AbsoluteTime.htm">&lt;Absolute Time&gt;</A> instance,
+</P>
+<TABLE BORDER=0>
+<TR>
+<TD>
+<A href="../classes/AbsoluteTime.htm#time_value">time_value</A>.<A href="../types/SE_Time_Value.htm#configuration">configuration</A>
+</TD>
+<TD>
+<A href="../types/SE_Time_Configuration.htm#SE_TIMECFG_DATE_YMD">SE_TIMECFG_DATE_YMD</A>
+</TD></TR>
+<TR>
+<TD>
+<A href="../classes/AbsoluteTime.htm#time_value">time_value</A>.<A href="../types/SE_Time_Value.htm#value">value</A>.
+<A href="../types/SE_Time_Value.htm#ymd">ymd</A>.<A href="../types/SE_Time_YMD_Value.htm#year">year</A>
+</TD>
+<TD>1999</TD>
+</TR>
+<TR>
+<TD>
+<A href="../classes/AbsoluteTime.htm#time_value">time_value</A>.<A href="../types/SE_Time_Value.htm#value">value</A>.
+<A href="../types/SE_Time_Value.htm#ymd">ymd</A>.<A href="../types/SE_Time_YMD_Value.htm#month">month</A>
+</TD>
+<TD><A href="../types/SE_Month.htm#SE_MONTH_DECEMBER">SE_MONTH_DECEMBER</A></TD>
+</TR>
+<TR>
+<TD>
+<A href="../classes/AbsoluteTime.htm#time_value">time_value</A>.<A href="../types/SE_Time_Value.htm#value">value</A>.
+<A href="../types/SE_Time_Value.htm#ymd">ymd</A>.<A href="../types/SE_Time_YMD_Value.htm#day">day</A>
+</TD>
+<TD>31</TD>
+</TR>
+</TABLE>
+</LI>
+</OL>
+
+<h3>FAQs</h3>
+<p>
+No FAQs supplied.
+</p>
+
+<hr>
+<strong>Prev:</strong> <A href="InheritanceRuleForLocation.htm">Inheritance Rule For Location</A>.
+<strong>Next:</strong> <A href="LinearGeometryStructure.htm">Linear Geometry Structure</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

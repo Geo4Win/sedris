@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE_Iterator</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Types
+</font>
+<br>
+<font color="#ffffff">
+SE_Iterator
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<PRE>
+/*
+ * TYPEDEF: SE_Iterator
+ *
+ *   Pointer to an iterator. The definition of an iterator is hidden by the
+ *   implementation of this API.  The user of this API simply passes in
+ *   and receives back an SE_Iterator for functions that deal with
+ *   iterators.
+ *
+ *   An iterator allows a user to step through a collection of objects
+ *   related to the iterator's start object, where the elements of
+ *   the collection satisfy the conditions used to initialize the
+ *   iterator. (For instance, an iterator may be initialized with a
+ *   search filter.)
+ *
+ *   The relationship of the start object to the objects in the collection
+ *   depends on which function was used to initialize the iterator.
+ *
+ *   Iterators in SEDRIS have the following characteristics:
+ *
+ *   1. All SEDRIS iterators are external iterators; that is, the user
+ *      controls the iterator, and is responsible for freeing anything
+ *      retrieved from the iterator.
+ *   2. An iterator must be created by an initialize-iterator function
+ *      before it is used.
+ *   3. An iterator must be freed by SE_FreeIterator() after the
+ *      user is done with it.
+ *
+ *   See the initialize-iterator functions for more details (for example,
+ *   SE_InitializeAggregateIterator(), SE_InitializeAssociateIterator(),
+ *   SE_InitializeComponentIterator()), as well as SE_GetNextObject(),
+ *   SE_GetRemainingObjectsList(), and SE_FreeIterator().
+ *
+ *   See _Design Patterns: Elements of Reusable Object-Oriented
+ *   Software_, by Erich Gamma et. al., Addison-Wesley 1995, 1st
+ *   edition for a detailed discussion of the iterator behavioral
+ *   pattern and external iterators.
+ */
+</PRE><span class="Code">
+typedef void *SE_Iterator;
+</span>
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SE_Index_Range.htm">SE_Index_Range</a>.
+<strong>Next:</strong> <a href="SE_ITR_Behaviour.htm">SE_ITR_Behaviour</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

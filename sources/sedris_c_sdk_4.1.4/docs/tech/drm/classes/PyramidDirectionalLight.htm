@@ -1,0 +1,264 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Pyramid Directional Light</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Pyramid Directional Light
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Pyramid Directional Light</h2>
+<h3>Superclass - <a href="DirectionalLightBehaviour.htm">&lt;Directional Light Behaviour&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies a light, the intensity
+ of which varies depending on the observer's position relative
+ to the light's location, direction, and pyramid-shaped lobe.
+</P><P>
+ If a secondary colour exists, it is seen outside the lobe.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet21.pdf"><strong>21</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+This class appears on only one page of the DRM class diagram.
+<h3>Example</h3>
+<OL>
+<LI><P>
+ Consider a light represented by a DRM object <span class="ConstructName">L</span> with a
+ <A href="LightRenderingProperties.htm">&lt;Light Rendering Properties&gt;</A> component having a
+ <A href="PyramidDirectionalLight.htm">&lt;Pyramid Directional Light&gt;</A> component of its own.
+ The primary colour of the light is represented by a
+ <A href="ColourIndex.htm">&lt;Colour Index&gt;</A> component of <span class="ConstructName">L</span> that has
+ <A href="Colour.htm#colour_mapping">colour_mapping</A> =
+ { <A href="../types/SE_Colour_Mapping.htm#Primary_Light_Rendering_Behaviour">Primary_Light_Rendering_Behaviour</A> } and
+ <A href="ColourIndex.htm#intensity_level">intensity_level</A> =
+ 0.9, and which also has a secondary colour.
+ The <A href="#minimum_colour_intensity">minimum_colour_intensity</A>
+ is 0.0. The
+ <A href="#use_full_intensity">use_full_intensity</A> flag is
+ <A href="../types/SE_Boolean.htm#SE_FALSE">SE_FALSE</A>.
+ The <A href="LobeData.htm">&lt;Lobe Data&gt;</A> component has
+ <A href="LobeData.htm#horizontal_width">horizontal_width</A>
+ = 1.04 radians and
+ <A href="LobeData.htm#vertical_width">vertical_width</A> =
+ 1.04 radians.
+</P><BLOCKQUOTE><P>
+ The following equation computes the final intensity:
+</P><P>
+ final intensity =
+ <A href="#minimum_colour_intensity">minimum_colour_intensity</A> +<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  ((((width / 2.0) - radians_away_from_direction_vector)
+       /<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ (width / 2.0)) &times;<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ (full_intensity -
+<A href="#minimum_colour_intensity">minimum_colour_intensity</A>))
+</P></BLOCKQUOTE><P>
+ At 0.177 radians
+ (approximately 10 degrees) from the
+ <A href="../types/SE_Reference_Vector_Type.htm#SE_REFVEC_LIGHT_DIRECTION">SE_REFVEC_LIGHT_DIRECTION</A>
+ vector in the horizontal direction, the final intensity is
+</P><BLOCKQUOTE><P>
+ 0.6 =
+    0.0 +
+ ((((60.0 / 2.0) -
+ 10.0) /
+ (60.0 / 2.0)) &times;
+ (0.9 - 0.0))
+</P></BLOCKQUOTE><P>
+ At 0.6195 radians
+ (approximately 35 degrees) from the
+ <A href="../types/SE_Reference_Vector_Type.htm#SE_REFVEC_LIGHT_DIRECTION">SE_REFVEC_LIGHT_DIRECTION</A>
+ vector in the horizontal direction, the final intensity is
+ 1.0 (using the secondary colour),
+ because this lies outside the lobe.
+</P></LI>
+<LI><P>
+ Consider a light represented by a DRM object <span class="ConstructName">L</span> with a
+ <A href="LightRenderingProperties.htm">&lt;Light Rendering Properties&gt;</A> component having a
+ <A href="PyramidDirectionalLight.htm">&lt;Pyramid Directional Light&gt;</A> component of its own.
+ The primary colour of the light is represented by
+ an <A href="InlineColour.htm">&lt;Inline Colour&gt;</A> instance, so that the
+ full intensity is 1.0. The
+ <A href="#minimum_colour_intensity">minimum_colour_intensity</A>
+ is 0.2.
+ The <A href="#use_full_intensity">use_full_intensity</A> flag is
+ <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A>.
+ The <A href="LobeData.htm#horizontal_width">horizontal_width</A>
+ of the <A href="LobeData.htm">&lt;Lobe Data&gt;</A> component is
+ 0.354 (approximately 20 degrees) and the
+ <A href="LobeData.htm#vertical_width">vertical_width</A> is
+ 0.354.
+</P><P>
+ Lying on the
+ <A href="../types/SE_Reference_Vector_Type.htm#SE_REFVEC_LIGHT_DIRECTION">SE_REFVEC_LIGHT_DIRECTION</A>
+ vector (that is, at 0 radians), the
+ final intensity is 1.0.
+</P><P>
+ At 0.177 radians
+ (approximately 10 degrees) from the
+ <A href="../types/SE_Reference_Vector_Type.htm#SE_REFVEC_LIGHT_DIRECTION">SE_REFVEC_LIGHT_DIRECTION</A>
+ vector in the horizontal
+ direction, the final intensity is 0.2, since
+ this position is outside the lobe.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<p>
+No FAQs supplied.
+</p>
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/InheritanceRuleForLocation.htm">&lt;&lt;Inheritance Rule For Location&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Composed of (two-way) (inherited)</h3>
+<UL>
+<li>one <a href="LobeData.htm">&lt;Lobe Data&gt;</a> instance<sup><A href="#Notes_cmp_Lobe_Data" name="cmp_Lobe_Data">1</A></sup></li>
+<li>one <a href="Location.htm">&lt;Location&gt;</a> instance</li>
+</UL>
+<h3>Component of (two-way) (inherited)</h3>
+<UL>
+<li>one or more <a href="LightRenderingProperties.htm">&lt;Light Rendering Properties&gt;</a> instances</li>
+</UL>
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Boolean.htm">SE_Boolean</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="use_full_intensity">use_full_intensity</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_use_full_intensity">2</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Long_Float.htm">SE_Long_Float</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="minimum_colour_intensity">minimum_colour_intensity</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_minimum_colour_intensity">3</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Boolean.htm">SE_Boolean</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="invisible_behind">invisible_behind</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_invisible_behind">4</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Composed of Notes</h3>
+<br>
+<h4><a href="#cmp_Lobe_Data" name="Notes_cmp_Lobe_Data">Lobe_Data</a></h4>
+ The <A href="LobeData.htm">&lt;Lobe Data&gt;</A> component
+ specifies the lobe shape.
+</P>
+<h3>Fields Notes</h3>
+<h4><a href="#use_full_intensity" name="Notes_use_full_intensity">use_full_intensity</a></h4>
+<P>
+ If <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A>,
+ the <A href="#use_full_intensity">use_full_intensity</A> field
+ specifies that the full intensity of the light is shown in the
+ pyramid shaped area. Otherwise, the intensity of the light
+ decreases (towards the
+ <A href="#minimum_colour_intensity">minimum_colour_intensity</A>
+ value) as one moves away from the
+ <A href="../types/SE_Reference_Vector_Type.htm#SE_REFVEC_LIGHT_DIRECTION">SE_REFVEC_LIGHT_DIRECTION</A>
+ vector.
+</P>
+<h4><a href="#minimum_colour_intensity" name="Notes_minimum_colour_intensity">minimum_colour_intensity</a></h4>
+<P>
+ The <A href="#minimum_colour_intensity">minimum_colour_intensity</A>
+ field's value is used in conjunction with the primary colour's full
+ intensity value. If the primary colour is a
+ <A href="ColourIndex.htm">&lt;Colour Index&gt;</A> instance, the
+ full intensity is specified by its
+ <A href="ColourIndex.htm#intensity_level">intensity_level</A> field. If
+ the primary colour is
+ an <A href="InlineColour.htm">&lt;Inline Colour&gt;</A> instance, the full intensity
+ is 1.0.
+</P><P>
+ A location in the direct path of the
+ <A href="LobeData.htm">&lt;Lobe Data&gt;</A> instance's
+ <A href="../types/SE_Reference_Vector_Type.htm#SE_REFVEC_LIGHT_DIRECTION">SE_REFVEC_LIGHT_DIRECTION</A>
+ vector receives the full intensity value. If
+ <A href="#use_full_intensity">use_full_intensity</A> is
+ <A href="../types/SE_Boolean.htm#SE_FALSE">SE_FALSE</A>,
+ the intensity decreases with increasing distance from the
+ <A href="../types/SE_Reference_Vector_Type.htm#SE_REFVEC_LIGHT_DIRECTION">SE_REFVEC_LIGHT_DIRECTION</A>
+ vector, until the boundary specified by the
+ <A href="LobeData.htm#horizontal_width">horizontal_width</A> and
+ <A href="LobeData.htm#vertical_width">vertical_width</A> of the
+ <A href="LobeData.htm">&lt;Lobe Data&gt;</A> instance is reached. Outside the lobe,
+ the intensity is
+ <A href="#minimum_colour_intensity">minimum_colour_intensity</A>.
+ If the
+ <A href="#minimum_colour_intensity">minimum_colour_intensity</A>
+ value is 0.0, the
+ secondary colour (if present) shall be seen outside the
+ lobe at full intensity. If no secondary colour is present, nothing
+ shall be visible outside the lobe.
+</P>
+<h4><a href="#invisible_behind" name="Notes_invisible_behind">invisible_behind</a></h4>
+<P>
+ If the value of the
+ <A href="#invisible_behind">invisible_behind</A> field
+ is <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A>,
+ the directional light is invisible when
+ viewed from behind the plane of the directional light.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="PseudoCodeFunction.htm">Pseudo Code Function</A>.
+<strong>Next:</strong> <A href="QuadrantData.htm">Quadrant Data</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

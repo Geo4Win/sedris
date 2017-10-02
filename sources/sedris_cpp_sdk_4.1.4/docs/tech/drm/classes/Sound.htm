@@ -1,0 +1,239 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Sound</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Sound
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Sound</h2>
+<h3>Superclass - <a href="SEDRISAbstractBase.htm">&lt;SEDRIS Abstract Base&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies a digital representation
+ of an acoustic phenomenon.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet22.pdf"><strong>22</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet10.pdf"><strong>10</strong></A>
+</LI>
+</UL>
+
+<h3>Example</h3>
+<OL>
+<LI><P>
+ A <A href="Sound.htm">&lt;Sound&gt;</A> instance represents the sound of a siren that
+ can be used by different <A href="Model.htm">&lt;Model&gt;</A> instances representing
+ environmental objects such as ambulances, fire engines, or police
+ vehicles.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ How can a data provider reference a <A href="Sound.htm">&lt;Sound&gt;</A> instance
+ in a transmittal?
+</B></DT>
+<DD><P>
+ See <A href="SoundInstance.htm">&lt;Sound Instance&gt;</A>.
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Associated by (one-way)</h3>
+<UL>
+<li>zero or more <a href="SoundInstance.htm">&lt;Sound Instance&gt;</a> instances</li>
+</UL>
+
+<h3>Composed of (two-way)</h3>
+<UL>
+<li>zero or one <a href="ClassificationData.htm">&lt;Classification Data&gt;</a> instance<sup><A href="#Notes_cmp_Classification_Data" name="cmp_Classification_Data">1</A></sup></li>
+<li>zero or one <a href="Lineage.htm">&lt;Lineage&gt;</a> instance<sup><A href="#Notes_cmp_Lineage" name="cmp_Lineage">2</A></sup></li>
+</UL>
+
+<h3>Composed of (two-way metadata)</h3>
+<UL>
+<li>zero or one <a href="Identification.htm">&lt;Identification&gt;</a> instance<sup><A href="#Notes_cmp_Identification" name="cmp_Identification">3</A></sup></li>
+</UL>
+
+<h3>Component of (two-way)</h3>
+<UL>
+<li>one <a href="SoundLibrary.htm">&lt;Sound Library&gt;</a> instance</li>
+</UL>
+
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_String.htm">SE_String</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="name">name</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_name">4</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Sound_Format.htm">SE_Sound_Format</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="sound_format">sound_format</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_sound_format">5</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_URN.htm">SE_URN</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="sound_urn">sound_urn</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_sound_urn">6</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Float.htm">SE_Float</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="duration">duration</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_duration">7</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Float.htm">SE_Float</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="sampling_rate">sampling_rate</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_sampling_rate">8</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Byte_Positive.htm">SE_Byte_Positive</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="bits_per_sample">bits_per_sample</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_bits_per_sample">9</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Byte_Positive.htm">SE_Byte_Positive</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="channel_count">channel_count</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_channel_count">10</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_String.htm">SE_String</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="method">method</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_method">11</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Composed of Notes</h3>
+<br>
+<h4><a href="#cmp_Classification_Data" name="Notes_cmp_Classification_Data">Classification_Data</a></h4>
+ If provided, the <A href="ClassificationData.htm">&lt;Classification Data&gt;</A> component
+ identifies the phenomenon represented by the
+ <A href="Sound.htm">&lt;Sound&gt;</A> instance.
+</P>
+<br>
+<h4><a href="#cmp_Identification" name="Notes_cmp_Identification">Identification</a></h4>
+ If provided, the <A href="Identification.htm">&lt;Identification&gt;</A>
+ component may be used to provide a more detailed description
+ than that specified by the <A href="#name">name</A> field.
+</P>
+<br>
+<h4><a href="#cmp_Lineage" name="Notes_cmp_Lineage">Lineage</a></h4>
+ If provided, the <A href="Lineage.htm">&lt;Lineage&gt;</A> component specifies either
+ information about the events and/or source data
+ used in constructing the
+ <A href="Sound.htm">&lt;Sound&gt;</A> instance or
+ lack of knowledge about lineage.
+</P>
+<h3>Fields Notes</h3>
+<h4><a href="#name" name="Notes_name">name</a></h4>
+<P>
+ The <A href="#name">name</A> field specifies a
+ meaningful short name.
+</P>
+<h4><a href="#sound_format" name="Notes_sound_format">sound_format</a></h4>
+<P>
+ The <A href="#sound_format">sound_format</A> field
+ specifies the sound format of the resource
+ (see Annex C, 3 <i>Sound_Format references</i>).
+</P>
+<h4><a href="#sound_urn" name="Notes_sound_urn">sound_urn</a></h4>
+<P>
+ The <A href="#sound_urn">sound_urn</A> field specifies a
+ SEDRIS sound URN as defined in <A href="../types/SE_URN.htm">SE_URN</A>.
+</P>
+<h4><a href="#duration" name="Notes_duration">duration</a></h4>
+<P>
+ The <A href="#duration">duration</A> field specifies
+ the length of the sound clip in seconds.
+</P>
+<h4><a href="#sampling_rate" name="Notes_sampling_rate">sampling_rate</a></h4>
+<P>
+ The <A href="#sampling_rate">sampling_rate</A> field
+ specifies the number of samples per second (<I>e.g.</I>,
+ a standard Compact Disc has a sampling of 44.1 kHz, which
+ is a sampling rate of 44100).
+</P>
+<h4><a href="#bits_per_sample" name="Notes_bits_per_sample">bits_per_sample</a></h4>
+<P>
+ The <A href="#bits_per_sample">bits_per_sample</A> field
+ is also called
+ <I>sample size</I> or <I>quantization</I>
+ (<I>e.g.</I>, a standard Compact Disc has 16 bits per sample).
+</P>
+<h4><a href="#channel_count" name="Notes_channel_count">channel_count</a></h4>
+<P>
+ The <A href="#channel_count">channel_count</A> field
+ specifies the number of sound channels.
+</P><P class=Note>
+NOTE&nbsp; 
+ A <A href="#channel_count">channel_count</A> of
+ 1 = monophonic and 2 = stereophonic.
+</p>
+<h4><a href="#method" name="Notes_method">method</a></h4>
+<P>
+ The <A href="#method">method</A> field specifies the
+ encoding scheme and compression scheme used, if any.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="SME3DLocation.htm">SME 3D Location</A>.
+<strong>Next:</strong> <A href="SoundInstance.htm">Sound Instance</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

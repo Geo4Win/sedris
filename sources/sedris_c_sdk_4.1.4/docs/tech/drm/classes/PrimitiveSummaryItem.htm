@@ -1,0 +1,232 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Primitive Summary Item</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Primitive Summary Item
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Primitive Summary Item</h2>
+<h3>Superclass - <a href="BaseSummaryItem.htm">&lt;Base Summary Item&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies a common pattern of
+ primitive objects that appear in the scope being summarized,
+ which may be either a <A href="Model.htm">&lt;Model&gt;</A> instance or
+ an <A href="EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instance. A
+ <A href="PrimitiveSummaryItem.htm">&lt;Primitive Summary Item&gt;</A> instance represents one or more
+ instances of the class specified by its
+ <A href="#drm_class">drm_class</A> field
+ that conform to the specified pattern.
+</P><P>
+ A <A href="PrimitiveSummaryItem.htm">&lt;Primitive Summary Item&gt;</A> instance may represent only
+ instances of <A href="PrimitiveGeometry.htm">&lt;Primitive Geometry&gt;</A>, the
+ <A href="PrimitiveFeature.htm">&lt;Primitive Feature&gt;</A>,
+ and the classes that may appear in their component
+ trees. <A href="PrimitiveSummaryItem.htm">&lt;Primitive Summary Item&gt;</A> instances are combined
+ to form a hierarchy mirroring that of the primitive instances that
+ they represent such that the summary is a compressed form of the
+ actual hierarchy.
+</P><P>
+ Since a <A href="PrimitiveSummaryItem.htm">&lt;Primitive Summary Item&gt;</A> instance may represent
+ many instances of the primitive that it summarizes, it has a
+ <A href="#multiplicity">multiplicity</A> field, indicating how many
+ instances of the pattern it represents.
+ Note that all instances represented by a
+ <A href="PrimitiveSummaryItem.htm">&lt;Primitive Summary Item&gt;</A> instance shall conform exactly to
+ that pattern, up to the point where the summary's pattern ceases to
+ provide specifics.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet20.pdf"><strong>20</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet01.pdf"><strong>1</strong></A>
+</LI>
+<LI><A href="sheet02.pdf"><strong>2</strong></A>
+</LI>
+</UL>
+
+<h3>Example</h3>
+<OL>
+<LI><P>
+ Summary of a common <A href="Polygon.htm">&lt;Polygon&gt;</A> instance structure pattern
+ within a <A href="Model.htm">&lt;Model&gt;</A> instance.
+</P><P>
+ In this case, the pattern indicates that a data consumer can expect
+ to see triangles. Other patterns can be present. As depicted in
+ <a href="#Figure40">Figure 40</a>, the <A href="Model.htm">&lt;Model&gt;</A> instance
+ contains not only triangles, but other types of
+ <A href="Polygon.htm">&lt;Polygon&gt;</A> instances, such as quadrilaterals and
+ even five-sided <A href="Polygon.htm">&lt;Polygon&gt;</A> instances. The
+ <A href="PrimitiveSummaryItem.htm">&lt;Primitive Summary Item&gt;</A> instances
+ indicate common patterns and are not enumerating
+ all the patterns that are present.
+</P>
+<DIV align="center">
+<p>
+<A name="Figure40"></A>
+<IMG SRC="../Images/PSum_Ex1.png" ALT="Primitive Summary, Example 1">
+</p>
+<p class=FigureCaption>Figure 40 &#8212; &lt;DRM Primitive Summary Item&gt; example</p>
+</DIV>
+</LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ Consider an <A href="EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instance <span class="ConstructName">E</span>
+ with a <A href="PrimitiveSummaryItem.htm">&lt;Primitive Summary Item&gt;</A> component, specifying a
+ pattern of usage for instances of a given class.
+ Does this mean that <EM>all</EM> instances of that class in
+ the scope of <span class="ConstructName">E</span> shall comply with the specified pattern?
+</B></DT>
+<DD><P>
+ No; it only indicates that the specified pattern is very common
+ within the scope of <span class="ConstructName">E</span>.
+</P><P>
+ Consider an <A href="EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instance <span class="ConstructName">E</span>
+ with a <A href="PrimitiveSummaryItem.htm">&lt;Primitive Summary Item&gt;</A> component describing a
+ texture-mapped triangular <A href="Polygon.htm">&lt;Polygon&gt;</A> instance - that is, a
+ <A href="Polygon.htm">&lt;Polygon&gt;</A> instance with
+ an <A href="ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</A> component and
+ three <A href="Vertex.htm">&lt;Vertex&gt;</A> components. All that this means is that
+ <A href="Polygon.htm">&lt;Polygon&gt;</A> instances of that description are common
+ in the scope of <span class="ConstructName">E</span>.
+</P></DD>
+<DT><B>
+ Can the usage of a given class be simultaneously and unambiguously
+ summarized by a
+ <A href="DRMClassSummaryItem.htm">&lt;DRM Class Summary Item&gt;</A> instance and a
+ <A href="PrimitiveSummaryItem.htm">&lt;Primitive Summary Item&gt;</A> instance in the same scope?
+</B></DT>
+<DD><P>
+ Yes, because the <A href="DRMClassSummaryItem.htm">&lt;DRM Class Summary Item&gt;</A> class and
+ the <A href="PrimitiveSummaryItem.htm">&lt;Primitive Summary Item&gt;</A> class
+ summarize different aspects of usage.
+ The <A href="DRMClassSummaryItem.htm">&lt;DRM Class Summary Item&gt;</A> class
+ summarizes the <EM>presence</EM> of instances of the specified class,
+ while the <A href="PrimitiveSummaryItem.htm">&lt;Primitive Summary Item&gt;</A> class
+ represents common <EM>patterns</EM> of DRM objects in which
+ instances of the specified class appear.
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/PrimitiveSummaryItemConstraints.htm">&lt;&lt;Primitive Summary Item Constraints&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Composed of (two-way)</h3>
+<UL>
+<li>zero or more <a href="PrimitiveSummaryItem.htm">&lt;Primitive Summary Item&gt;</a> instances</li>
+</UL>
+
+<h3>Composed of (two-way metadata) (inherited)</h3>
+<UL>
+<li>zero or more <a href="EDCSUseSummaryItem.htm">&lt;EDCS Use Summary Item&gt;</a> instances<sup><A href="#Notes_cmp_EDCS_Use_Summary_Item" name="cmp_EDCS_Use_Summary_Item">1</A></sup></li>
+</UL>
+<h3>Component of (two-way)</h3>
+<UL>
+<li>zero or one <a href="EnvironmentRoot.htm">&lt;Environment Root&gt;</a> instance</li>
+<li>zero or one <a href="Model.htm">&lt;Model&gt;</a> instance</li>
+<li>zero or more <a href="PrimitiveSummaryItem.htm">&lt;Primitive Summary Item&gt;</a> instances</li>
+</UL>
+
+<h2><a name="inherited_field">Inherited Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_DRM_Class.htm">SE_DRM_Class</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="drm_class">drm_class</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_drm_class">2</A></sup></p></td>
+</tr>
+</table>
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="multiplicity">multiplicity</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_multiplicity">3</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Composed of Notes</h3>
+<br>
+<h4><a href="#cmp_EDCS_Use_Summary_Item" name="Notes_cmp_EDCS_Use_Summary_Item">EDCS_Use_Summary_Item</a></h4>
+ If present, the list of
+ <A href="EDCSUseSummaryItem.htm">&lt;EDCS Use Summary Item&gt;</A> components
+ of a <A href="BaseSummaryItem.htm">&lt;Base Summary Item&gt;</A> instance
+ summarize EDCS usage by instances
+ of the class specified by
+ <A href="#drm_class">drm_class</A> that occur
+ somewhere in the scope being summarized.
+</P>
+<h3>Fields Notes</h3>
+<h4><a href="#drm_class" name="Notes_drm_class">drm_class</a></h4>
+<P>
+ The <A href="#drm_class">drm_class</A>
+ field indicates the DRM class of the DRM object(s)
+ represented by the
+ <A href="BaseSummaryItem.htm">&lt;Base Summary Item&gt;</A> instance.
+</P>
+<h4><a href="#multiplicity" name="Notes_multiplicity">multiplicity</a></h4>
+<P>
+ The <A href="#multiplicity">multiplicity</A> field indicates
+ the number of identical instances represented.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="PrimitiveGeometry.htm">Primitive Geometry</A>.
+<strong>Next:</strong> <A href="ProcessStep.htm">Process Step</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

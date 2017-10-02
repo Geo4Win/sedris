@@ -1,0 +1,382 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE_Polygon_Flag</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX C - Types
+</font>
+<br>
+<font color="#ffffff">
+SE_Polygon_Flag
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<PRE>
+/*
+ * SET: SE_Polygon_Flag
+ *
+ *   These flags are used to indicate the state or use of a
+ *   polygon, and are used as values to include or for inclusion
+ *   in a set.
+ */
+</PRE>
+<span class="Code">typedef union
+<br>
+{
+<br>
+SE_Integer_Unsigned member;
+<br>
+struct
+<br>
+{</span>
+<br>
+<table class="CFunctionPrototype">
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a> : 1&nbsp;</td>
+            <td class="CFunction"><a
+            name="Backdrop_Ground"></a>Backdrop_Ground;</td><td class="CFunction"><sup><A href="#Notes_Backdrop_Ground">1</A></sup></td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a> : 1&nbsp;</td>
+            <td class="CFunction"><a name="Backdrop_Sky"></a>Backdrop_Sky;</td><td class="CFunction"><sup><A href="#Notes_Backdrop_Sky">2</A></sup></td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a> : 1&nbsp;</td>
+            <td class="CFunction"><a
+            name="Clutter_Enhanced"></a>Clutter_Enhanced;</td><td class="CFunction"><sup><A href="#Notes_Clutter_Enhanced">3</A></sup></td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a> : 1&nbsp;</td>
+            <td class="CFunction"><a name="Collidible"></a>Collidible;</td><td class="CFunction"><sup><A href="#Notes_Collidible">4</A></sup></td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a> : 1&nbsp;</td>
+            <td class="CFunction"><a name="Concave"></a>Concave;</td><td class="CFunction"><sup><A href="#Notes_Concave">5</A></sup></td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a> : 1&nbsp;</td>
+            <td class="CFunction"><a name="Cut"></a>Cut;</td><td class="CFunction"><sup><A href="#Notes_Cut">6</A></sup></td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a> : 1&nbsp;</td>
+            <td class="CFunction"><a name="Cut_Imagery"></a>Cut_Imagery;</td><td class="CFunction"><sup><A href="#Notes_Cut_Imagery">7</A></sup></td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a> : 1&nbsp;</td>
+            <td class="CFunction"><a name="Decal"></a>Decal;</td><td class="CFunction"><sup><A href="#Notes_Decal">8</A></sup></td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a> : 1&nbsp;</td>
+            <td class="CFunction"><a name="Dont_Drape"></a>Dont_Drape;</td><td class="CFunction"><sup><A href="#Notes_Dont_Drape">9</A></sup></td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a> : 1&nbsp;</td>
+            <td class="CFunction"><a
+            name="Enable_Feature_Size_Blending"></a>Enable_Feature_Size_Blending;</td><td class="CFunction"><sup><A href="#Notes_Enable_Feature_Size_Blending">10</A></sup></td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a> : 1&nbsp;</td>
+            <td class="CFunction"><a
+            name="Enable_Fractal"></a>Enable_Fractal;</td><td class="CFunction"><sup><A href="#Notes_Enable_Fractal">11</A></sup></td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a> : 1&nbsp;</td>
+            <td class="CFunction"><a
+            name="Enable_Polygon_Range_Blending"></a>Enable_Polygon_Range_Blending;</td><td class="CFunction"><sup><A href="#Notes_Enable_Polygon_Range_Blending">12</A></sup></td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a> : 1&nbsp;</td>
+            <td class="CFunction"><a name="Footprint"></a>Footprint;</td><td class="CFunction"><sup><A href="#Notes_Footprint">13</A></sup></td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a> : 1&nbsp;</td>
+            <td class="CFunction"><a name="Hat_Test"></a>Hat_Test;</td><td class="CFunction"><sup><A href="#Notes_Hat_Test">14</A></sup></td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a> : 1&nbsp;</td>
+            <td class="CFunction"><a name="Inactive"></a>Inactive;</td><td class="CFunction"><sup><A href="#Notes_Inactive">15</A></sup></td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a> : 1&nbsp;</td>
+            <td class="CFunction"><a name="Invisible"></a>Invisible;</td><td class="CFunction"><sup><A href="#Notes_Invisible">16</A></sup></td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a> : 1&nbsp;</td>
+            <td class="CFunction"><a
+            name="Laser_Range_Finding"></a>Laser_Range_Finding;</td><td class="CFunction"><sup><A href="#Notes_Laser_Range_Finding">17</A></sup></td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a> : 1&nbsp;</td>
+            <td class="CFunction"><a
+            name="Moon_Reflection"></a>Moon_Reflection;</td><td class="CFunction"><sup><A href="#Notes_Moon_Reflection">18</A></sup></td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a> : 1&nbsp;</td>
+            <td class="CFunction"><a name="Opaque_Top"></a>Opaque_Top;</td><td class="CFunction"><sup><A href="#Notes_Opaque_Top">19</A></sup></td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a> : 1&nbsp;</td>
+            <td class="CFunction"><a
+            name="Projectile_Collidible"></a>Projectile_Collidible;</td><td class="CFunction"><sup><A href="#Notes_Projectile_Collidible">20</A></sup></td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a> : 1&nbsp;</td>
+            <td class="CFunction"><a name="Raised"></a>Raised;</td><td class="CFunction"><sup><A href="#Notes_Raised">21</A></sup></td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a> : 1&nbsp;</td>
+            <td class="CFunction"><a name="Reflective"></a>Reflective;</td><td class="CFunction"><sup><A href="#Notes_Reflective">22</A></sup></td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a> : 1&nbsp;</td>
+            <td class="CFunction"><a name="Shadow"></a>Shadow;</td><td class="CFunction"><sup><A href="#Notes_Shadow">23</A></sup></td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a> : 1&nbsp;</td>
+            <td class="CFunction"><a
+            name="Sun_Illuminated"></a>Sun_Illuminated;</td><td class="CFunction"><sup><A href="#Notes_Sun_Illuminated">24</A></sup></td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a> : 1&nbsp;</td>
+            <td class="CFunction"><a name="Terrain"></a>Terrain;</td><td class="CFunction"><sup><A href="#Notes_Terrain">25</A></sup></td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a> : 1&nbsp;</td>
+            <td class="CFunction"><a
+            name="Visible_Floor"></a>Visible_Floor;</td><td class="CFunction"><sup><A href="#Notes_Visible_Floor">26</A></sup></td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a> : 1&nbsp;</td>
+            <td class="CFunction"><a
+            name="Visible_Interior"></a>Visible_Interior;</td><td class="CFunction"><sup><A href="#Notes_Visible_Interior">27</A></sup></td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a> : 1&nbsp;</td>
+            <td class="CFunction"><a
+            name="Visible_Perimeter"></a>Visible_Perimeter;</td><td class="CFunction"><sup><A href="#Notes_Visible_Perimeter">28</A></sup></td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a> : 1&nbsp;</td>
+            <td class="CFunction"><a
+            name="Waterbody_Surface"></a>Waterbody_Surface;</td><td class="CFunction"><sup><A href="#Notes_Waterbody_Surface">29</A></sup></td></tr>
+</table>
+<span class="Code">
+    } member;
+} SE_Polygon_Flag;</span>
+<br>
+<HR>
+<h2>Field Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#Backdrop_Ground" name="Notes_Backdrop_Ground">1</a></sup>
+ Indicates that the given &lt;Polygon&gt; instance is the
+ default &quot;ground&quot; backdrop.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#Backdrop_Sky" name="Notes_Backdrop_Sky">2</a></sup>
+ Indicates that the given &lt;Polygon&gt; instance is the
+ default &quot;sky&quot; backdrop.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#Clutter_Enhanced" name="Notes_Clutter_Enhanced">3</a></sup>
+ Indicates that the given &lt;Polygon&gt; instance has algorithmically
+ scattered model instances on it.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#Collidible" name="Notes_Collidible">4</a></sup>
+ Indicates that the given &lt;Polygon&gt; instance is used for
+ collision detection.  If an environmental object collides
+ with the environmental object represented by the given
+ &lt;Polygon&gt; instance, a collision state is set.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#Concave" name="Notes_Concave">5</a></sup>
+ Indicates whether the given &lt;Polygon&gt; instance is concave.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#Cut" name="Notes_Cut">6</a></sup>
+ Indicates that the given &lt;Polygon&gt; instance was cut below the
+ terrain surface. Such &lt;Polygon&gt; instances are normally derived
+ from &lt;Linear Feature&gt; instances corresponding to environmental
+ objects such as roads and rivers.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#Cut_Imagery" name="Notes_Cut_Imagery">7</a></sup>
+ Indicates that the given &lt;Polygon&gt; instance is to be used to
+ cut geospecific imagery into the cultural features.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#Decal" name="Notes_Decal">8</a></sup>
+ Indicates that the given &lt;Polygon&gt; instance shall always be
+ given rendering priority above any other coplanar &lt;Polygon&gt;
+ instance. When set to TRUE, this flag supercedes the index
+ value in any applicable &lt;Rendering Priority Level&gt; instance.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#Dont_Drape" name="Notes_Dont_Drape">9</a></sup>
+ For conforming &lt;Polygon&gt; instances (&lt;Polygon&gt; instances with all
+ &lt;LSR 2D Location&gt; instances), a &lt;Polygon&gt; instance usually drapes
+ across the terrain, breaking into multiple polygons if the draped
+ polygon crosses terrain facets.  If this flag is set, the
+ given &lt;Polygon&gt; instance is not draped and does not break at
+ terrain facets. Instead, terrain facets are ignored.  The given
+ &lt;Polygon&gt; instance is simply defined by the locations of its
+ conformed &lt;Vertex&gt; components.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#Enable_Feature_Size_Blending" name="Notes_Enable_Feature_Size_Blending">10</a></sup>
+ This flag indicates whether feature based blending is enabled.
+ All &lt;Polygon&gt; instances that have this flag set will blend
+ (geometry and texture) simultaneously based on the size
+ (radius) of the original feature that the &lt;Polygon&gt; instances
+ were derived from.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#Enable_Fractal" name="Notes_Enable_Fractal">11</a></sup>
+ This flag exists to allow the face of the given &lt;Polygon&gt;
+ instance to fractalize in real-time, and is provided for
+ use in applications such as representing sea states.
+
+ This flag indicates that the shape of the given &lt;Polygon&gt;
+ may change at run-time. One example in which this might
+ be used is for a &lt;Polygon&gt; instance representing part of
+ the surface of a body of water, such as a sea. In such
+ an example, the colour might also change if different colour
+ textures were being used for the surface. For 3D
+ representations of a sea surface that changes with
+ (for instance) EAC_BEAUFORT_WIND_SCALE, the colour of a
+ &lt;Polygon&gt; instance may tend more towards white as the sea
+ gets rougher.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#Enable_Polygon_Range_Blending" name="Notes_Enable_Polygon_Range_Blending">12</a></sup>
+ This flag indicates whether range ring blending is enabled.
+ All &lt;Polygon&gt; instances that have this flag set will blend
+ (geometry and texture) at the same range (distance).
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#Footprint" name="Notes_Footprint">13</a></sup>
+ Indicates that the given &lt;Polygon&gt; instance is a footprint
+ for other geometry.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#Hat_Test" name="Notes_Hat_Test">14</a></sup>
+ Indicates that the given &lt;Polygon&gt; instance P may be used to
+ measure the vertical height of an object A that is positioned
+ directly above P such that the &quot;height above terrain&quot; (HAT)
+ of A is taken to be its height above P.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#Inactive" name="Notes_Inactive">15</a></sup>
+ Indicates that the given &lt;Polygon&gt; instance is inactive,
+ or not used.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#Invisible" name="Notes_Invisible">16</a></sup>
+ Indicates that the given &lt;Polygon&gt; instance is invisible,
+ or not seen.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#Laser_Range_Finding" name="Notes_Laser_Range_Finding">17</a></sup>
+ Indicates that the given &lt;Polygon&gt; instance is used for
+ horizontal tests for computer image generator (CIG)
+ applications. This flag is analogous to HAT_TEST, where
+ HAT_TEST is used for tests in the vertical direction and
+ LASER_RANGE_FINDING is used for tests in the
+ horizontal direction.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#Moon_Reflection" name="Notes_Moon_Reflection">18</a></sup>
+ Indicates that the moon's reflection is to be
+ generated upon the given &lt;Polygon&gt; instance.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#Opaque_Top" name="Notes_Opaque_Top">19</a></sup>
+ This flag is used with the RAISED flag, indicating that
+ the given &lt;Polygon&gt; instance has been raised, such that
+ it now forms part of a polyhedron, such that the
+ top of the polyhedron is opaque.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#Projectile_Collidible" name="Notes_Projectile_Collidible">20</a></sup>
+ Indicates that the given &lt;Polygon&gt; instance is used for
+ projectile collision detection.  If an environmental object
+ corresponding to a projectile collides with the environmental
+ object represented by the given &lt;Polygon&gt; instance, a
+ projectile collision state is set.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#Raised" name="Notes_Raised">21</a></sup>
+ Indicates that the given &lt;Polygon&gt; instance was a filling polygon
+ above the terrain surface. Such &lt;Polygon&gt; instances are normally
+ derived from &lt;Linear Feature&gt; instances corresponding to
+ environmental objects such as roads.
+
+ This flag also indicates that the given &lt;Polygon&gt; instance was
+ raised above the surrounding terrain surface. Such &lt;Polygon&gt;
+ instances are normally derived from &lt;Areal Feature&gt; instances
+ corresponding to environmental objects such as forest canopies.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#Reflective" name="Notes_Reflective">22</a></sup>
+ This flag indicates that the given &lt;Polygon&gt; instance
+ reflects light that is shown on it.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#Shadow" name="Notes_Shadow">23</a></sup>
+ Indicates that the given &lt;Polygon&gt; instance is in a shadow.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#Sun_Illuminated" name="Notes_Sun_Illuminated">24</a></sup>
+ Indicates that the given &lt;Polygon&gt; instance is illuminated
+ depending on the position of the sun.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#Terrain" name="Notes_Terrain">25</a></sup>
+ Indicates that the given &lt;Polygon&gt; instance is a
+ &quot;terrain polygon&quot;.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#Visible_Floor" name="Notes_Visible_Floor">26</a></sup>
+ This flag is used with the RAISED flag, indicating that
+ the given &lt;Polygon&gt; instance has been raised, such that
+ it now forms part of a polyhedron, such that the
+ floor of the polyhedron is visible.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#Visible_Interior" name="Notes_Visible_Interior">27</a></sup>
+ This flag is used with the RAISED flag, indicating that
+ the given &lt;Polygon&gt; instance has been raised, such that
+ it now forms part of a polyhedron, such that the
+ interior wall of the polyhedron is visible.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#Visible_Perimeter" name="Notes_Visible_Perimeter">28</a></sup>
+ This flag is used with the RAISED flag, indicating that
+ the given &lt;Polygon&gt; instance has been raised, such that
+ it now forms part of a polyhedron, such that the
+ perimeter wall of the polyhedron is visible.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#Waterbody_Surface" name="Notes_Waterbody_Surface">29</a></sup>
+ Indicates that the given &lt;Polygon&gt; instance represents
+ water, such that other &lt;Polygon&gt; instances representing
+ an ECC_WATERBODY_FLOOR exist below the given &lt;Polygon&gt;
+ instance.
+</p>
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SE_Point_Light_Display_Type.htm">SE_Point_Light_Display_Type</a>.
+<strong>Next:</strong> <a href="SE_Predef_Func_Arg_Structure.htm">SE_Predef_Func_Arg_Structure</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

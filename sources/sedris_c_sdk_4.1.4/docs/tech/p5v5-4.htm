@@ -1,0 +1,907 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<title>P5V5 - Section 4 - VIEWING AND CONTROLLING MODELS IN THE MODEL VIEWER</title>
+<META name="Author" CONTENT="Science Applications International Corporation">
+<link rel="stylesheet" type="text/css" href="../styles/SDK_SEDRIS.css">
+</HEAD>
+<BODY>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table class="doc_set_header">
+<tr>
+<th class="doc_set_header">
+<big><big>Model Viewer Technical Guide</big></big>
+<br>
+<font color="#ffffff">
+Section 4 - VIEWING AND CONTROLLING MODELS IN THE MODEL VIEWER
+</font>
+</th>
+</tr>
+</table></div>
+
+<table class="doc_set_toc">
+<tr>
+<th class="doc_set_toc_outline_number"><a name="41">4.1</a></th>
+<th class="doc_set_toc_outline_description">
+Controlling the View</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">&nbsp;</th>
+<td class="doc_set_toc_outline_description">
+<table class="doc_set_toc">
+<tr>
+<th class="doc_set_toc_outline_number"><a name="411">4.1.1</a></th>
+<th class="doc_set_toc_outline_description">Introduction</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">&nbsp;</th>
+<td class="doc_set_toc_outline_description"><p>
+The Model Viewer 3D view window can be moved, resized, minimized, and
+maximized. When the 3D view window is selected, the images and models
+can be selected, viewed, and controlled via keyboard commands and mouse
+movements. For a frame of reference, the 3D view window has a
+background colour (the default is light blue), and shows the
+Local Space Rectangular U, V, and W axes as lines. The axis lines meet
+at the origin (0, 0, 0).
+</p><p>
+The Model Viewer always faces the origin and cannot turn away from
+it, but as described later in this section, the current item being
+viewed can be rotated as desired, and the virtual camera can be
+zoomed in or out. Models being displayed use the origin indicated
+by the axis lines as their local origin.
+If the geometry of a <a href="drm/classes/Model.htm">&lt;Model&gt;</a>
+is not located near the origin of its SRF
+(and thus, not near the Model Viewer's
+origin), it may be out of the field of view and only visible by
+zooming out. By default, the Model Viewer assumes that each root
+<a href="drm/classes/Model.htm">&lt;Model&gt;</a>
+is constructed close to the origin and is relatively small,
+leaving it to the user to adjust the zoom and other viewing
+controls as desired if this is not the case.
+</p></td>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="412">4.1.2</a></th>
+<th class="doc_set_toc_outline_description">Background Colour</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">&nbsp;</th>
+<td class="doc_set_toc_outline_description"><p>
+The background colour can be modified, as shown in the following
+table.
+</p>
+<table border="1" cellpadding="3">
+<tr><th>KEY</th> <th>EFFECT</th></tr>
+<tr><td>Q</td>
+<td>Increase red in the background colour.</td>
+</tr>
+
+<tr><td>W</td>
+<td>Increase green in the background colour.</td>
+</tr>
+
+<tr><td>E</td>
+<td>Increase blue in the background colour.</td>
+</tr>
+
+<tr><td>Z</td>
+<td>Decrease red in the background colour.</td>
+</tr>
+
+<tr><td>X</td>
+<td>Decrease green in the background colour.</td>
+</tr>
+
+<tr><td>C</td>
+<td>Decrease blue in the background colour.</td>
+</tr>
+</tr>
+</table>
+</td>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="413">4.1.3</a></th>
+<th class="doc_set_toc_outline_description">Orientation</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">&nbsp;</th>
+<td class="doc_set_toc_outline_description"><p>
+The orientation of the model / image can be controlled for
+ease of viewing, as shown in the following table.
+</p>
+<table border="1" cellpadding="3">
+<tr><th>KEY</th> <th>EFFECT</th></tr>
+<tr><td>F9</td>
+<td>Increase the rotation about the z axis.</td>
+</tr>
+
+<tr><td>&lt;shift&gt; F9</td>
+<td>Decrease the rotation about the z axis.</td>
+</tr>
+
+<tr><td>F10</td>
+<td>Increase the inclination.</td>
+</tr>
+
+<tr><td>&lt;shift&gt; F10</td>
+<td>Decrease the inclination.</td>
+</tr>
+
+<tr><td>F11</td>
+<td>Increase the twist.</td>
+</tr>
+
+<tr><td>&lt;shift&gt; F11</td>
+<td>Decrease the twist.</td>
+</tr>
+
+<tr><td>R</td>
+<td>Reset the view to the original view.</td>
+</tr>
+</table>
+</td>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="414">4.1.4</a></th>
+<th class="doc_set_toc_outline_description">Distance</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">&nbsp;</th>
+<td class="doc_set_toc_outline_description"><p>
+The distance of the virtual &quot;camera&quot; from the
+model / image can be controlled for
+ease of viewing, as shown in the following table.
+</p>
+<table border="1" cellpadding="3">
+<tr><th>KEY</th> <th>EFFECT</th></tr>
+<tr><td>F7</td>
+<td>Zoom out, move away from the image / model.</td>
+</tr>
+
+<tr><td>F8</td>
+<td>Zoom in, move closer to the image / model.</td>
+</tr>
+</table>
+</td>
+</tr> <!-- end 4.1.4 -->
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="415">4.1.5</a></th>
+<th class="doc_set_toc_outline_description">Display Mode</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">&nbsp;</th>
+<td class="doc_set_toc_outline_description"><p>
+The display mode of the geometry in a model can be controlled
+by the user, as shown in the following table. The display mode
+can be set to fill, wireframe, or outline mode.
+</p><p>
+<em>Fill</em> mode displays geometry with colours and / or
+textures, that is, filled in.
+</p><p>
+<em>Wireframe</em> mode displays only the edges of geometry,
+outlined in the colour of the geometry. For example, for a
+<a href="drm/classes/Polygon.htm">&lt;Polygon&gt;</a> instance, the
+boundary lines connecting the vertices would be shown, but
+the interior of the <a href="drm/classes/Polygon.htm">&lt;Polygon&gt;</a>
+instance would not be shown.
+</p><p>
+<em>Outline</em> mode displays the geometry with colours and
+textures filled in, outlined in black.
+</p>
+<table border="1" cellpadding="3">
+<tr><th>KEY</th> <th>EFFECT</th></tr>
+<tr><td>A</td>
+<td>Cycle through display modes: fill, wireframe, and outline.</td>
+</tr>
+</table>
+</td>
+</tr> <!-- end 4.1.5 -->
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="416">4.1.6</a></th>
+<th class="doc_set_toc_outline_description">Texture Blending</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">&nbsp;</th>
+<td class="doc_set_toc_outline_description"><p>
+The rendering of blended textured geometry can be toggled, as
+shown in the following table.
+</p>
+<table border="1" cellpadding="3">
+<tr><th>KEY</th> <th>EFFECT</th></tr>
+<tr><td>b</td>
+<td>Enable / disable rendering of blended textured geometry.</td>
+</tr>
+</table>
+</td>
+</tr> <!-- end 4.1.6 -->
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="417">4.1.7</a></th>
+<th class="doc_set_toc_outline_description">Texture Enabling / Disabling</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">&nbsp;</th>
+<td class="doc_set_toc_outline_description"><p>
+The geometry of models can be shown with or without texture
+mapping turned on. If texture mapping is turned off, only the
+colour information, if any, of the geometry is used for rendering.
+</p>
+<table border="1" cellpadding="3">
+<tr><th>KEY</th> <th>EFFECT</th></tr>
+<tr><td>F12</td>
+<td>Enable / disable rendering of textured geometry.</td>
+</tr>
+</table>
+</td>
+</tr> <!-- end 4.1.7 -->
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="418">4.1.8</a></th>
+<th class="doc_set_toc_outline_description">Display List Enabling / Disabling</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">&nbsp;</th>
+<td class="doc_set_toc_outline_description"><p>
+Depending on the hardware and underlying OpenGL implementation
+available, the user may wish to enable or disable the internal
+use of OpenGL display lists by Model Viewer. The usage of such
+lists will be noticeable only under some conditions, depending
+on whether textures are displayed and whether parts of the
+model being displayed are moving.
+</p><p>
+This option is provided in case it will allow the user to
+speed up rendering on a particular platform.
+</p>
+<table border="1" cellpadding="3">
+<tr><th>KEY</th> <th>EFFECT</th></tr>
+<tr><td>D</td>
+<td>Enable / disable use of OpenGL display lists.</td>
+</tr>
+</table>
+</td>
+</tr> <!-- end 4.1.8 -->
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="419">4.1.9</a></th>
+<th class="doc_set_toc_outline_description">
+Toggle between Image and Model Views</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">&nbsp;</th>
+<td class="doc_set_toc_outline_description"><p>
+The user can toggle between viewing the textures from the
+<a href="drm/classes/ImageLibrary.htm">&lt;Image Library&gt;</a>
+instance of the input transmittal, if one is present, and the models from the
+<a href="drm/classes/ModelLibrary.htm">&lt;Model Library&gt;</a> instance.
+By default, the textures are displayed in sequence as they are
+initially loaded by the application, which then automatically
+puts itself into model viewing mode after all the models are
+loaded.
+</p><p>
+If the user invoked Model Viewer initially by turning off either
+textures or models, then the toggle command will have no effect.
+</p>
+<table border="1" cellpadding="3">
+<tr><th>KEY</th> <th>EFFECT</th></tr>
+<tr><td>T</td>
+<td>Toggle between viewing images and models.</td>
+</tr>
+</table>
+</td>
+</tr> <!-- end 4.1.9 -->
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="4110">4.1.10</a></th>
+<th class="doc_set_toc_outline_description">
+Texture Rendering Speed</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">&nbsp;</th>
+<td class="doc_set_toc_outline_description"><p>
+The user can control the quality of texture rendering, as shown
+in the next table, allowing the user to trade rendering quality
+for rendering speed.
+</p>
+<table border="1" cellpadding="3">
+<tr><th>KEY</th> <th>EFFECT</th></tr>
+<tr><td>F</td>
+<td>Render faster, by using blocker textures on geometry.</td>
+</tr>
+<tr><td>S</td>
+<td>Render slower, using smoother textures on geometry.</td>
+</tr>
+</table>
+</td>
+</tr> <!-- end 4.1.10 -->
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="4111">4.1.11</a></th>
+<th class="doc_set_toc_outline_description">
+Step Through Images / Models</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">&nbsp;</th>
+<td class="doc_set_toc_outline_description"><p>
+The user can step through the images (if the application is in
+image display mode) or models (if the application is in model
+display mode), as shown in the following table. (The toggle
+command for switching between modes is covered earlier in this
+section.)
+</p><p>
+Note that this does not display every model in the given
+<a href="drm/classes/ModelLibrary.htm">&lt;Model Library&gt;</a>
+instance,
+but only the models that can be instanced as free-standing
+objects; that is, the models which have a
+<a href="drm/classes/Model.htm#model_reference_type">model_reference_type</a>
+of either
+<a href="drm/types/SE_Model_Reference_Type.htm#SE_MODREFTYP_ROOT">SE_MODREFTYP_ROOT</a>
+or
+<a href="drm/types/SE_Model_Reference_Type.htm#SE_MODREFTYP_ROOT_AND_COMPONENT">SE_MODREFTYP_ROOT_AND_COMPONENT</a>.
+</p>
+<table border="1" cellpadding="3">
+<tr><th>KEY</th> <th>EFFECT</th></tr>
+<tr><td>L</td>
+<td>Go to next root model.</td>
+</tr>
+<tr><td>H</td>
+<td>Go to previous root model.</td>
+</tr>
+<tr><td>J</td>
+<td>Go to next image or model.</td>
+</tr>
+<tr><td>K</td>
+<td>Go to previous image or model.</td>
+</tr>
+</table>
+</td>
+</tr> <!-- end 4.1.11 -->
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="4112">4.1.12</a></th>
+<th class="doc_set_toc_outline_description">Lighting</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">&nbsp;</th>
+<td class="doc_set_toc_outline_description"><p>
+The light source and its characteristics can be controlled
+as shown in the following table.
+</p>
+<table border="1" cellpadding="3">
+<tr><th>KEY</th> <th>EFFECT</th></tr>
+<tr><td>F3</td>
+<td>Toggle lighting.</td>
+</tr>
+<tr><td>M</td>
+<td>(when supported) Brighten the ambient (infinite) light.</td>
+</tr>
+<tr><td>N</td>
+<td>(when supported) Darken the ambient (infinite) light.</td>
+</tr>
+<tr><td>V</td>
+<td>Toggle spotlight.</td>
+</tr>
+<tr><td>G</td>
+<td>(when supported) Toggle infinite eye-point vs. actual
+    eye-point for lighting calculations. Currently only
+    the default infinite eye-point is supported.</td>
+</tr>
+<tr><td>O</td>
+<td>(when supported) Toggle between inaccurate
+    double-sided lighting vs. accurate double-sided
+    lighting. Currently only the default (2-sided lighting
+    off) is supported.</td>
+</tr>
+<tr><td>F4</td>
+<td>Toggle shading (flat vs. smooth); the default is flat.
+    Note that this has no visible effect yet, because
+    Model Viewer does not yet support coloured vertices,
+    although OpenGL and SEDRIS both support them.
+</td>
+</tr>
+</table>
+</td>
+</tr> <!-- end 4.1.12 -->
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="4113">4.1.13</a></th>
+<th class="doc_set_toc_outline_description">Print</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">&nbsp;</th>
+<td class="doc_set_toc_outline_description"><p>
+When in model viewing mode, Model Viewer can print out the
+data structure of the current model and current viewing
+parameters, as shown in the following table.
+</p>
+<table border="1" cellpadding="3">
+<tr><th>KEY</th> <th>EFFECT</th></tr>
+<tr><td>P</td>
+<td>Print out the data structure of the current model
+    and viewing parameters to the text window used
+    to invoke Model Viewer.</td>
+</tr>
+</table>
+</td>
+</tr> <!-- end 4.1.13 -->
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="4114">4.1.14</a></th>
+<th class="doc_set_toc_outline_description">Quit</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">&nbsp;</th>
+<td class="doc_set_toc_outline_description"><p>
+To exit the Model Viewer application, press the &lt;escape&gt;
+key.
+</p></td>
+</tr> <!-- end 4.1.14 -->
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="4115">4.1.15</a></th>
+<th class="doc_set_toc_outline_description">Bounding Volume</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">&nbsp;</th>
+<td class="doc_set_toc_outline_description"><p>
+The bounding volume view for models and their individual components can be
+toggle, as shown in the following table.
+</p>
+<table border="1" cellpadding="3">
+<tr><th>KEY</th> <th>EFFECT</th></tr>
+<tr><td>E</td>
+<td>Toggle drawing bounding volumes.</td>
+</tr>
+</table>
+</td>
+</tr> <!-- end 4.1.15 -->
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="4116">4.1.16</a></th>
+<th class="doc_set_toc_outline_description">Back Face Culling</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">&nbsp;</th>
+<td class="doc_set_toc_outline_description"><p>
+The back face culling can be toggled, as shown in the following table.
+</p>
+<table border="1" cellpadding="3">
+<tr><th>KEY</th> <th>EFFECT</th></tr>
+<tr><td>B</td>
+<td>Toggle back face culling.</td>
+</tr>
+</table>
+</td>
+</tr> <!-- end 4.1.16 -->
+</table>
+</td>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="42">4.2</a></th>
+<th class="doc_set_toc_outline_description">Controlling the Model</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">&nbsp;</th>
+<td class="doc_set_toc_outline_description">
+<table class="doc_set_toc">
+<tr>
+<th class="doc_set_toc_outline_number"><a name="421">4.2.1</a></th>
+<th class="doc_set_toc_outline_description">Moving Articulated Parts</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">&nbsp;</th>
+<td class="doc_set_toc_outline_description"><p>
+Models with articulated parts can be animated, and the animation can
+be controlled by the user, as shown in the following table.
+</p></td>
+
+<tr>
+<th class="doc_set_toc_outline_number">&nbsp;</th>
+<td class="doc_set_toc_outline_description">
+<table border="1" cellpadding="3">
+<tr><th>KEY</th> <th>EFFECT</th></tr>
+<tr><td>F5</td>
+   <td>Decrease rotational speed of all parts.</td>
+</tr>
+
+<tr><td>F6</td>
+   <td>Increase rotational speed of all parts.</td>
+</tr>
+</table>
+</td>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="422">4.2.2</a></th>
+<th class="doc_set_toc_outline_description">State Control</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">&nbsp;</th>
+<td class="doc_set_toc_outline_description"><p>
+Models containing
+<a href="drm/classes/StateRelatedGeometry.htm">
+&lt;State Related Geometry&gt;</a> can
+be controlled by the user, as shown in the following table.
+</p></td>
+
+<tr>
+<th class="doc_set_toc_outline_number">&nbsp;</th>
+<td class="doc_set_toc_outline_description">
+<table border="1" cellpadding="3">
+<tr><th>KEY</th> <th>EFFECT</th></tr>
+<tr><td>I</td>
+<td>Cycle one value up for the current state of the current model.
+</td>
+</tr>
+
+<tr><td>U</td>
+<td>Cycle one value down for the current state of the current
+    model.
+</td>
+</tr>
+
+<tr><td>Y</td>
+<td>Cycle through the states that can be changed in the current
+    model.
+</td>
+</tr>
+</table>
+</td>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="423">4.2.3</a></th>
+<th class="doc_set_toc_outline_description">Level of Detail</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">&nbsp;</th>
+<td class="doc_set_toc_outline_description"><p>
+Models containing
+<a href="drm/classes/LODRelatedGeometry.htm">&lt;LOD Related Geometry&gt;</a>
+instances can be controlled by the user, as shown in the following table.
+</p>
+<table border="1" cellpadding="3">
+<tr><th>KEY</th> <th>EFFECT</th></tr>
+<tr><td>F1</td>
+<td>Change to a lower (i.e., closer, more detailed) level of detail.
+</td>
+</tr>
+
+<tr><td>F2</td>
+<td>
+Change to a higher (i.e., more distant, less detailed) level of detail.
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="43">4.3</a></th>
+<th class="doc_set_toc_outline_description">Summary of Keyboard Commands</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">&nbsp;</th>
+<td class="doc_set_toc_outline_description">
+<table border="1" cellpadding="3">
+<tr> <th>KEY</th> <th>EFFECT</th></tr>
+
+<tr>
+<td>A</td>
+<td>Cycle through display modes: fill, wireframe, and outline
+</td>
+</tr>
+
+<tr>
+<td>B</td>
+<td>Enable / disable rendering of blended textured geometry
+</td>
+</tr>
+
+<tr>
+<td>C</td>
+<td>Decrease blue in the background colour
+</td>
+</tr>
+
+<tr>
+<td>D</td>
+<td>Enable / disable use of OpenGL display lists
+</td>
+
+<tr>
+<td>E</td>
+<td>Increase blue in the background colour
+</td>
+</tr>
+
+<tr>
+<td>&lt;esc&gt;</td>
+<td>Quit the Model Viewer application
+</td>
+</tr>
+
+<tr>
+<td>F</td>
+<td>Render faster, in exchange for blockier textures on geometry
+</td>
+</tr>
+
+<tr>
+<td>G</td>
+<td>(when supported)
+   Toggle infinite eyepoint vs. actual eyepoint lighting calculations
+   (default is infinite)
+</td>
+</tr>
+</tr>
+
+<tr>
+<td>H</td>
+<td>Go to previous root model
+</td>
+</tr>
+
+<tr>
+<td>I</td>
+<td>Cycle one value up for the current state of the current model
+</td>
+</tr>
+
+<tr>
+<td>J</td>
+<td>Go to next image or model
+</td>
+</tr>
+
+<tr>
+<td>K</td>
+<td>Go to previous image or model
+</td>
+</tr>
+
+<tr>
+<td>L</td>
+<td>Go to next root model
+</td>
+</tr>
+
+<tr>
+<td>M</td>
+<td>(when supported) Brighten the ambient (infinite) light
+</td>
+</tr>
+
+<tr>
+<td>N</td>
+<td>(when supported) Darken the ambient (infinite) light
+</td>
+</tr>
+
+<tr>
+<td>O</td>
+<td>(when supported) Toggle between inaccurate double-sided lighting
+   vs. accurate double-sided lighting<br>
+   (default = inaccurate = 2-sided lighting off)
+</td>
+</tr>
+
+<tr>
+<td>P</td>
+<td>Print out the data structure of the current model and viewing
+   parameters to the text window.
+</td>
+</tr>
+
+<tr>
+<td>Q</td>
+<td>Increase red in the background colour.
+</td>
+</tr>
+
+<tr>
+<td>R</td>
+<td>Reset the view to the original view.
+</td>
+</tr>
+
+<tr>
+<td>S</td>
+<td>Render slower, but smoother textures on geometry.
+</td>
+</tr>
+
+<tr>
+<td>T</td>
+<td>Toggle between images and models.
+</td>
+</tr>
+
+<tr>
+<td>U</td>
+<td>Cycle one value down for the current state of the current model.
+</td>
+</tr>
+
+<tr>
+<td>V</td>
+<td>(when supported) Toggle spot-light on and off.
+</td>
+</tr>
+
+<tr>
+<td>W</td>
+<td>Increase green in the background colour.
+</td>
+</tr>
+
+<tr>
+<td>X</td>
+<td>Decrease green in the background colour.
+</td>
+</tr>
+
+<tr>
+<td>Y</td>
+<td>Cycle through the kinds of states that can be changed in the
+   current model.
+</td>
+</tr>
+
+<tr>
+<td>Z</td>
+<td>Decrease red in the background colour.
+</td>
+</tr>
+
+<tr>
+<td>F1</td>
+<td>Change to a lower (i.e., closer, more detailed) level of detail.
+</td>
+</tr>
+
+<tr>
+<td>F2</td>
+<td>Change to a higher (i.e., more distant, less detailed) level of detail.
+</td>
+</tr>
+
+<tr>
+<td>F3</td>
+<td>Toggle lighting on and off.
+</td>
+</tr>
+
+<tr>
+<td>F4</td>
+<td>Toggle shading (flat vs. smooth, default is flat).
+</td>
+</tr>
+
+<tr>
+<td>F5</td>
+<td>Decrease rotational speed of all parts.
+</td>
+</tr>
+
+<tr>
+<td>F6</td>
+<td>Increase rotational speed of all parts.
+</td>
+</tr>
+
+<tr>
+<td>F7</td>
+<td>Zoom out, move away from the image / model.
+</td>
+</tr>
+
+<tr>
+<td>F8</td>
+<td>Zoom in, move closer to the image / model.
+</td>
+</tr>
+
+<tr>
+<td>F9</td>
+<td>Increase the rotation about the z axis.
+</td>
+</tr>
+
+<tr>
+<td>&lt;shift&gt; F9</td>
+<td>Decrease the rotation about the z axis.
+</td>
+</tr>
+
+<tr>
+<td>F10</td>
+<td>Increase the inclination.
+</td>
+</tr>
+
+<tr>
+<td>&lt;shift&gt; F10</td>
+<td>Decrease the inclination.
+</td>
+</tr>
+
+<tr>
+<td>F11</td>
+<td>Increase the twist.
+</td>
+</tr>
+
+<tr>
+<td>&lt;shift&gt; F11</td>
+<td>Decrease the twist.
+</td>
+</tr>
+
+<tr>
+<td>F12</td>
+<td>Enable / disable rendering of textured geometry.
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<p>
+<HR>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a></strong>,
+<strong><a href="p5v5.htm">Table of Contents</a></strong>
+<br><br>
+<div class="CenterDiv">
+<table class="doc_set_header">
+<tr><td>
+<table class="doc_set_header">
+<tr><td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td>
+</tr>
+</table>
+</td></tr>
+</table>
+</div>
+</BODY>
+</HTML>

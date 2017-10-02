@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>EDCS_Integer_Value</title>
+<link rel="stylesheet" href="../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>EDCS Reference Manual</big></big>
+<br>
+<!-- EDCS spec. 4.4 -->
+<font color="#ffffff">
+Types
+</font>
+<br>
+<font color="#ffffff">
+EDCS_Integer_Value
+</font>
+</th></tr>
+</table></div>
+
+<!-- EDCS SDK Release 4.4.0 -->
+
+<PRE>
+/*
+ * STRUCT: EDCS_Integer_Value
+ *
+ *   This data type is the structured EDCS representation type that
+ *   represents either a single value or an interval of values of
+ *   EDCS attribute value type INTEGER.
+ */
+</PRE>
+<span class="Code">typedef struct 
+<br>
+{</span>
+<br>
+<table class="CFunctionPrototype">
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="EDCS_Numeric_Value_Type.htm">EDCS_Numeric_Value_Type</a></td>
+        <td class="CFunction"><a
+        name="numeric_value_type"></a>numeric_value_type;</td></tr>
+<tr> <td class="CFunction">   </td><td class="CFunction">union</td></tr>
+<tr> <td class="CFunction">   </td><td class="CFunction">{</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="EDCS_Integer.htm">EDCS_Integer</a></td>
+            <td class="CFunction"><a name="single_value"></a>single_value;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="EDCS_Integer_Interval.htm">EDCS_Integer_Interval</a></td>
+            <td class="CFunction"><a
+            name="open_interval"></a>open_interval;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="EDCS_Integer_Interval.htm">EDCS_Integer_Interval</a></td>
+            <td class="CFunction"><a
+            name="ge_lt_interval"></a>ge_lt_interval;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="EDCS_Integer_Interval.htm">EDCS_Integer_Interval</a></td>
+            <td class="CFunction"><a
+            name="gt_le_interval"></a>gt_le_interval;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="EDCS_Integer_Interval.htm">EDCS_Integer_Interval</a></td>
+            <td class="CFunction"><a
+            name="closed_interval"></a>closed_interval;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="EDCS_Integer.htm">EDCS_Integer</a></td>
+            <td class="CFunction"><a
+            name="gt_semi_interval"></a>gt_semi_interval;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="EDCS_Integer.htm">EDCS_Integer</a></td>
+            <td class="CFunction"><a
+            name="ge_semi_interval"></a>ge_semi_interval;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="EDCS_Integer.htm">EDCS_Integer</a></td>
+            <td class="CFunction"><a
+            name="lt_semi_interval"></a>lt_semi_interval;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="EDCS_Integer.htm">EDCS_Integer</a></td>
+            <td class="CFunction"><a
+            name="le_semi_interval"></a>le_semi_interval;</td></tr>
+<tr><td class="CFunction"></td> <td class="CFunction">} <a
+        name="value"></a>value;</td></tr>
+</table>
+<span class="Code">
+} EDCS_Integer_Value;</span>
+<br>
+
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="EDCS_Integer_Interval.htm">EDCS_Integer_Interval</a>.
+<strong>Next:</strong> <a href="EDCS_ISO_3166_Entry.htm">EDCS_ISO_3166_Entry</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Non Empty Environment Root Instance</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX B - Constraints
+</font>
+<br>
+<font color="#ffffff">
+Non Empty Environment Root Instance
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h3>Definition</h3>
+<P>
+ An <A href="../classes/EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instance shall have either a
+ <A href="../classes/FeatureHierarchy.htm">&lt;Feature Hierarchy&gt;</A> component, a
+ <A href="../classes/GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> component,
+ or both.
+</P>
+
+<h3>Rationale</h3>
+<P>
+ An <A href="../classes/EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instance is optional in a transmittal,
+ but a &quot;vacuous&quot; <A href="../classes/EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instance
+ is not permitted. The DRM notation cannot enforce an &quot;or&quot;
+ aggregation.  Consequently, this constraint is required.
+</P>
+<h3>Example</h3>
+<p>
+No example supplied.
+</p>
+<h3>FAQs</h3>
+<p>
+No FAQs supplied.
+</p>
+
+<hr>
+<strong>Prev:</strong> <A href="NonCyclicAggregations.htm">Non Cyclic Aggregations</A>.
+<strong>Next:</strong> <A href="NonEmptyModelInstance.htm">Non Empty Model Instance</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

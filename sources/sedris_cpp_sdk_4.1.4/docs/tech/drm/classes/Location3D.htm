@@ -1,0 +1,242 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Location 3D</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Location 3D
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Abstract Class Name: Location 3D</h2>
+<h3>Superclass - <a href="Location.htm">&lt;Location&gt;</a></h3>
+<h3>Subclasses</h3>
+<UL>
+<LI>
+<a href="CC3DLocation.htm">&lt;CC 3D Location&gt;</a> 
+</LI>
+<LI>
+<a href="CD3DLocation.htm">&lt;CD 3D Location&gt;</a> 
+</LI>
+<LI>
+<a href="CM3DLocation.htm">&lt;CM 3D Location&gt;</a> 
+</LI>
+<LI>
+<a href="ECAugmented3DLocation.htm">&lt;EC Augmented 3D Location&gt;</a> 
+</LI>
+<LI>
+<a href="EI3DLocation.htm">&lt;EI 3D Location&gt;</a> 
+</LI>
+<LI>
+<a href="HAEC3DLocation.htm">&lt;HAEC 3D Location&gt;</a> 
+</LI>
+<LI>
+<a href="HEEC3DLocation.htm">&lt;HEEC 3D Location&gt;</a> 
+</LI>
+<LI>
+<a href="HEEQ3DLocation.htm">&lt;HEEQ 3D Location&gt;</a> 
+</LI>
+<LI>
+<a href="LCCAugmented3DLocation.htm">&lt;LCC Augmented 3D Location&gt;</a> 
+</LI>
+<LI>
+<a href="LCE3DLocation.htm">&lt;LCE 3D Location&gt;</a> 
+</LI>
+<LI>
+<a href="LSR3DLocation.htm">&lt;LSR 3D Location&gt;</a> 
+</LI>
+<LI>
+<a href="LTSAS3DLocation.htm">&lt;LTSAS 3D Location&gt;</a> 
+</LI>
+<LI>
+<a href="LTSC3DLocation.htm">&lt;LTSC 3D Location&gt;</a> 
+</LI>
+<LI>
+<a href="LTSE3DLocation.htm">&lt;LTSE 3D Location&gt;</a> 
+</LI>
+<LI>
+<a href="MAugmented3DLocation.htm">&lt;M Augmented 3D Location&gt;</a> 
+</LI>
+<LI>
+<a href="OMSAugmented3DLocation.htm">&lt;OMS Augmented 3D Location&gt;</a> 
+</LI>
+<LI>
+<a href="PD3DLocation.htm">&lt;PD 3D Location&gt;</a> 
+</LI>
+<LI>
+<a href="PSAugmented3DLocation.htm">&lt;PS Augmented 3D Location&gt;</a> 
+</LI>
+<LI>
+<a href="SEC3DLocation.htm">&lt;SEC 3D Location&gt;</a> 
+</LI>
+<LI>
+<a href="SEQ3DLocation.htm">&lt;SEQ 3D Location&gt;</a> 
+</LI>
+<LI>
+<a href="SMD3DLocation.htm">&lt;SMD 3D Location&gt;</a> 
+</LI>
+<LI>
+<a href="SME3DLocation.htm">&lt;SME 3D Location&gt;</a> 
+</LI>
+<LI>
+<a href="TMAugmented3DLocation.htm">&lt;TM Augmented 3D Location&gt;</a> 
+</LI>
+</UL>
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies linear or angular quantities
+ that designate the position of a point in a 3D SRF.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet15.pdf"><strong>15</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet02.pdf"><strong>2</strong></A>
+</LI>
+<LI><A href="sheet04.pdf"><strong>4</strong></A>
+</LI>
+<LI><A href="sheet05.pdf"><strong>5</strong></A>
+</LI>
+<LI><A href="sheet07.pdf"><strong>7</strong></A>
+</LI>
+<LI><A href="sheet09.pdf"><strong>9</strong></A>
+</LI>
+<LI><A href="sheet21.pdf"><strong>21</strong></A>
+</LI>
+<LI><A href="sheet22.pdf"><strong>22</strong></A>
+</LI>
+<LI><A href="sheet23.pdf"><strong>23</strong></A>
+</LI>
+</UL>
+
+<h3>Example</h3>
+<OL>
+<LI><P>
+ A <A href="PointFeature.htm">&lt;Point Feature&gt;</A> instance representing a
+ bridge is associated with a <A href="FeatureNode.htm">&lt;Feature Node&gt;</A>
+ instance. The location of that
+ <A href="FeatureNode.htm">&lt;Feature Node&gt;</A> instance in the
+ currently scoped SRF is represented by a
+ <A href="Location3D.htm">&lt;Location 3D&gt;</A> component.
+</P></LI>
+<LI><P>
+ The location of a <A href="Vertex.htm">&lt;Vertex&gt;</A> component (point) of a
+ <A href="Polygon.htm">&lt;Polygon&gt;</A> instance in a <A href="Model.htm">&lt;Model&gt;</A>
+ instance representing a tank is associated with
+ a <A href="GeometryNode.htm">&lt;Geometry Node&gt;</A> instance.
+ The location of that <A href="GeometryNode.htm">&lt;Geometry Node&gt;</A> instance
+ in the local SRF of the tank <A href="Model.htm">&lt;Model&gt;</A> instance is
+ represented by the
+ <A href="Location3D.htm">&lt;Location 3D&gt;</A> component of the
+ <A href="Vertex.htm">&lt;Vertex&gt;</A> instance.
+</P></LI>
+</OL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/EnvironmentRootSRF.htm">&lt;&lt;Environment Root SRF&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ImageAnchorSRF.htm">&lt;&lt;Image Anchor SRF&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/InheritanceRuleForLocation.htm">&lt;&lt;Inheritance Rule For Location&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ModelSRF.htm">&lt;&lt;Model SRF&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Component of (two-way) (inherited)</h3>
+<UL>
+<li>zero or more <a href="Arc.htm">&lt;Arc&gt;</a> instances</li>
+<li>zero or more <a href="CameraPoint.htm">&lt;Camera Point&gt;</a> instances</li>
+<li>zero or more <a href="DirectionalLightBehaviour.htm">&lt;Directional Light Behaviour&gt;</a> instances</li>
+<li>zero or one <a href="DistanceLODData.htm">&lt;Distance LOD Data&gt;</a> instance</li>
+<li>zero or more <a href="Ellipse.htm">&lt;Ellipse&gt;</a> instances</li>
+<li>zero or more <a href="FeatureEdge.htm">&lt;Feature Edge&gt;</a> instances</li>
+<li>zero or more <a href="FeatureFace.htm">&lt;Feature Face&gt;</a> instances</li>
+<li>zero or one <a href="FeatureNode.htm">&lt;Feature Node&gt;</a> instance</li>
+<li>zero or more <a href="ImageAnchor.htm">&lt;Image Anchor&gt;</a> instances</li>
+<li>zero or more <a href="Label.htm">&lt;Label&gt;</a> instances</li>
+<li>zero or more <a href="PerimeterData.htm">&lt;Perimeter Data&gt;</a> instances</li>
+<li>zero or more <a href="Point.htm">&lt;Point&gt;</a> instances</li>
+<li>zero or more <a href="PropertyGridHookPoint.htm">&lt;Property Grid Hook Point&gt;</a> instances</li>
+<li>zero or one <a href="ReferenceOrigin.htm">&lt;Reference Origin&gt;</a> instance</li>
+<li>zero or more <a href="ReferenceVector.htm">&lt;Reference Vector&gt;</a> instances</li>
+<li>zero or more <a href="SpatialExtent.htm">&lt;Spatial Extent&gt;</a> instances</li>
+<li>zero or more <a href="SpatialIndexRelatedFeatureTopology.htm">&lt;Spatial Index Related Feature Topology&gt;</a> instances</li>
+<li>zero or more <a href="SpatialIndexRelatedFeatures.htm">&lt;Spatial Index Related Features&gt;</a> instances</li>
+<li>zero or more <a href="SpatialIndexRelatedGeometry.htm">&lt;Spatial Index Related Geometry&gt;</a> instances</li>
+<li>zero or more <a href="SpatialIndexRelatedGeometryTopology.htm">&lt;Spatial Index Related Geometry Topology&gt;</a> instances</li>
+<li>zero or more <a href="TackPoint.htm">&lt;Tack Point&gt;</a> instances</li>
+<li>zero or more <a href="Vertex.htm">&lt;Vertex&gt;</a> instances</li>
+<li>zero or more <a href="World3x3.htm">&lt;World 3x3&gt;</a> instances</li>
+<li>zero or more <a href="WorldTransformation.htm">&lt;World Transformation&gt;</a> instances</li>
+</UL>
+<h3>Component of (two-way)</h3>
+<UL>
+<li>zero or one <a href="AttachmentPoint.htm">&lt;Attachment Point&gt;</a> instance</li>
+<li>zero or more <a href="BasePositionalLight.htm">&lt;Base Positional Light&gt;</a> instances</li>
+<li>zero or one <a href="ContactPoint.htm">&lt;Contact Point&gt;</a> instance</li>
+<li>zero or more <a href="EnclosingVolume.htm">&lt;Enclosing Volume&gt;</a> instances</li>
+<li>zero or more <a href="GeometricCentre.htm">&lt;Geometric Centre&gt;</a> instances</li>
+<li>zero or more <a href="SeparatingPlane.htm">&lt;Separating Plane&gt;</a> instances</li>
+<li>zero or more <a href="SoundInstance.htm">&lt;Sound Instance&gt;</a> instances</li>
+<li>zero or more <a href="StampBehaviour.htm">&lt;Stamp Behaviour&gt;</a> instances</li>
+<li>zero or more <a href="VolumeLightBehaviour.htm">&lt;Volume Light Behaviour&gt;</a> instances</li>
+<li>zero or more <a href="VolumeLODData.htm">&lt;Volume LOD Data&gt;</a> instances</li>
+<li>zero or more <a href="VolumeObject.htm">&lt;Volume Object&gt;</a> instances</li>
+</UL>
+
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+
+<hr>
+<strong>Prev:</strong> <A href="Location2D.htm">Location 2D</A>.
+<strong>Next:</strong> <A href="LocationSurface.htm">Location Surface</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

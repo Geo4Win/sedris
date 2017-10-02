@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE_Search_Bounds</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Types
+</font>
+<br>
+<font color="#ffffff">
+SE_Search_Bounds
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<PRE>
+/*
+ * STRUCT: SE_Search_Bounds
+ *
+ *   Boundary values that are passed to SE_CreateSpatialSearchBoundary(). The
+ *   minimum point and maximum point must be in the same spatial reference
+ *   frame (SRF); specifically, the current user-set SRF when the
+ *   SE_Search_Bounds is passed to SE_CreateSpatialSearchBoundary().
+ */
+</PRE>
+<span class="Code">typedef struct 
+<br>
+{</span>
+<br>
+<table class="CFunctionPrototype">
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../srm/types/SRM_Coordinate.htm">SRM_Coordinate</a></td>
+        <td class="CFunction"><a name="minimum_point"></a>minimum_point;</td><td class="CFunction"><sup><A href="#Notes_minimum_point">1</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../srm/types/SRM_Coordinate.htm">SRM_Coordinate</a></td>
+        <td class="CFunction"><a name="maximum_point"></a>maximum_point;</td><td class="CFunction"><sup><A href="#Notes_maximum_point">2</A></sup></td></tr>
+</table>
+<span class="Code">
+} SE_Search_Bounds;</span>
+<br>
+
+<br>
+<HR>
+<H2>Field Notes</H2>
+<h4><a href="#minimum_point" name="Notes_minimum_point">minimum_point</a></h4>
+<P>
+ Specifies the minimum value defining the range of each
+ coordinate; infinite values are allowed.
+</P><P>
+ The southwest corner of the bounding area, if 2D, or the
+ lower southwest corner of the bounding volume, if 3D.
+</P>
+<h4><a href="#maximum_point" name="Notes_maximum_point">maximum_point</a></h4>
+<P>
+ Specifies the maximum value defining the range of each
+ coordinate; infinite values are allowed.
+</P><P>
+ The northeast corner of the bounding area, if 2D, or the
+ upper northeast corner of the bounding volume, if 3D.
+</P>
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SE_Search_Boundary.htm">SE_Search_Boundary</a>.
+<strong>Next:</strong> <a href="SE_Search_Bounds_Closure.htm">SE_Search_Bounds_Closure</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

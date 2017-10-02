@@ -1,0 +1,392 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Keywords</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Keywords
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Keywords</h2>
+<h3>Superclass - <a href="SEDRISAbstractBase.htm">&lt;SEDRIS Abstract Base&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies a set of keywords that
+ apply to the environmental data, along with their type and
+ reference source. The keywords are provided in
+ an <A href="../bibliography.htm#I19115">ISO 19115</A> compatible form.
+ The environmental data refers to the object tree rooted at the
+ aggregate of the <A href="Keywords.htm">&lt;Keywords&gt;</A> instance.
+ If a <A href="Keywords.htm">&lt;Keywords&gt;</A> instance is shared by multiple
+ aggregate objects, the environmental data refers to the
+ collection of object trees rooted at its various aggregates.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet20.pdf"><strong>20</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+This class appears on only one page of the DRM class diagram.
+<h3>Example</h3>
+<OL>
+<LI><P>
+ Consider a <A href="Model.htm">&lt;Model&gt;</A> instance representing a Sopwith Camel aircraft,
+ such that the <A href="Model.htm">&lt;Model&gt;</A> instance contains
+ an <A href="Identification.htm">&lt;Identification&gt;</A> instance with a
+ <A href="Keywords.htm">&lt;Keywords&gt;</A> component specified in
+ U.S. English, in order to support keyword searches on the
+ type of aircraft. The <A href="Keywords.htm">&lt;Keywords&gt;</A> component has
+ the following structure:
+<BR><BR>
+<TABLE>
+<TR>
+<TD>
+  <B><A href="Keywords.htm">&lt;Keywords&gt;</A></B>
+</TD>
+  <TD>&nbsp;</TD>
+</TR>
+<TR><TD>
+<A href="#keyword_count">keyword_count</A>
+</TD>
+<TD><span class="Code">1</span></TD>
+</TR>
+<TR><TD>
+<A href="#keyword_array">keyword_array[0]</A>
+</TD>
+<TD>
+{<span class="Code"><a href="../constants/SE_LOCALE_DEFAULT.htm">SE_LOCALE_DEFAULT</a>, 13, &quot;Sopwith Camel&quot;</span>}
+</TD>
+</TR>
+<TR><TD>
+<A href="#type">type</A></TD>
+<TD>
+<A href="../types/SE_MD_KeywordTypeCode.htm#SE_MD_KEYTYPCOD_THEME">SE_MD_KEYTYPCOD_THEME</A>
+</TD>
+</TR>
+</TABLE>
+</LI>
+<LI><P>
+ Consider a transmittal containing terrain environmental data
+ representing roads and lakes located at Reykjavik, Iceland.
+ The source environmental data has an <A href="../bibliography.htm#I19115">ISO 19115</A>
+ metadata record containing keyword information for the entire
+ transmittal.
+</P><P>
+ The following <A href="Keywords.htm">&lt;Keywords&gt;</A> instances, defined in U.S. English,
+ are attached to the <A href="Identification.htm">&lt;Identification&gt;</A> component of the
+ <A href="TransmittalRoot.htm">&lt;Transmittal Root&gt;</A> instance to transmit this information as
+ follows.
+</P><P>
+ The <A href="Keywords.htm">&lt;Keywords&gt;</A> instance for place information has
+ the following field values:
+</P>
+<TABLE>
+<TR><TD>
+ <A href="#keyword_count">keyword_count</A>
+</TD>
+<TD><span class="Code">
+ 2
+</span></TD>
+</TR>
+<TR><TD>
+ <A href="#keyword_array">keyword_array[0]</A></TD>
+<TD>
+{<span class="Code"><a href="../constants/SE_LOCALE_DEFAULT.htm">SE_LOCALE_DEFAULT</a>, 9, &quot;Reykjavik&quot;</span>}
+</TD></TR>
+<TR><TD>
+ <A href="#keyword_array">keyword_array[1]</A></TD>
+<TD>
+{<span class="Code"><a href="../constants/SE_LOCALE_DEFAULT.htm">SE_LOCALE_DEFAULT</a>, 7, &quot;Iceland&quot;</span>}
+</TD></TR>
+<TR><TD>
+ <A href="#type">type</A></TD>
+<TD>
+ <A href="../types/SE_MD_KeywordTypeCode.htm#SE_MD_KEYTYPCOD_PLACE">SE_MD_KEYTYPCOD_PLACE</A>
+</TD></TR>
+</TABLE>
+<P>
+ This <A href="Keywords.htm">&lt;Keywords&gt;</A> instance has a <A href="Citation.htm">&lt;Citation&gt;</A> component
+ with the following field values:
+</P>
+<TABLE>
+<TR><TD>
+ <A href="Citation.htm#title">title</A></TD>
+<TD>
+{<span class="Code"><a href="../constants/SE_LOCALE_DEFAULT.htm">SE_LOCALE_DEFAULT</a>, 22, &quot;MEL_Location_Thesaurus&quot;</span>}
+</TD></TR>
+<TR><TD>
+ <A href="Citation.htm#edition">edition</A></TD>
+<TD>
+{ empty_string }
+</TD></TR>
+<TR><TD>
+ <A href="Citation.htm#series_name">series_name</A></TD>
+<TD>
+{ empty_string }
+</TD></TR>
+<TR><TD>
+ <A href="Citation.htm#issue_identification">issue_identification</A></TD>
+<TD>
+{ empty_string }
+</TD></TR>
+<TR><TD>
+ <A href="Citation.htm#other_citation_details">other_citation_details</A></TD>
+<TD>
+{ empty_string }
+</TD></TR>
+</TABLE>
+<P>
+ The <A href="Citation.htm">&lt;Citation&gt;</A> component has a
+ <A href="ResponsibleParty.htm">&lt;Responsible Party&gt;</A> component identifying the
+ party responsible for MEL thesauri through a
+ <A href="RoleData.htm">&lt;Role Data&gt;</A> link object with
+ <A href="RoleData.htm#role">role</A> =
+<A href="../types/SE_CI_RoleCode.htm#SE_ROLECOD_POINT_OF_CONTACT">SE_ROLECOD_POINT_OF_CONTACT</A>
+ and containing the following data:
+</P>
+<TABLE>
+<TR>
+<TD>
+ <A href="ResponsibleParty.htm#individual_name">individual_name</A>
+</TD>
+<TD>
+{ empty_string }
+</TD></TR>
+<TR>
+<TD>
+ <A href="ResponsibleParty.htm#organization_name">organization_name</A>
+</TD>
+<TD>
+{<span class="Code"><a href="../constants/SE_LOCALE_DEFAULT.htm">SE_LOCALE_DEFAULT</a>, 28, &quot;Master Environmental Library&quot;</span>}
+</TD></TR>
+<TR>
+<TD>
+ <A href="ResponsibleParty.htm#position_name">position_name</A>
+</TD>
+<TD>
+{ empty_string }
+</TD></TR>
+<TR>
+<TD>
+ <A href="ResponsibleParty.htm#contact_information">contact_information</A>
+</TD>
+<TD>
+ (for MEL thesauri)
+</TD></TR>
+</TABLE>
+<P>
+ The <A href="Keywords.htm">&lt;Keywords&gt;</A> instance for theme information has
+ the following field values:
+</P>
+<TABLE>
+<TR><TD>
+ <A href="#keyword_count">keyword_count</A></TD>
+ <TD>2
+</TD></TR>
+<TR><TD>
+ <A href="#keyword_array">keyword_array[0]</A></TD>
+ <TD>
+{<a href="../constants/SE_LOCALE_DEFAULT.htm">SE_LOCALE_DEFAULT</a>, 11, &quot;Cartography&quot;}
+</TD></TR>
+<TR><TD>
+ <A href="#keyword_array">keyword_array[1]</A></TD>
+<TD>
+{<a href="../constants/SE_LOCALE_DEFAULT.htm">SE_LOCALE_DEFAULT</a>, 7, &quot;Mapping&quot;}
+</TD></TR>
+<TR><TD>
+ <A href="#type">type</A></TD>
+ <TD>
+ <A href="../types/SE_MD_KeywordTypeCode.htm#SE_MD_KEYTYPCOD_THEME">SE_MD_KEYTYPCOD_THEME</A>
+</TD></TR>
+</TABLE>
+<P>
+ This <A href="Keywords.htm">&lt;Keywords&gt;</A> instance has a <A href="Citation.htm">&lt;Citation&gt;</A> component
+ with the following field values:
+</P>
+<TABLE>
+<TR><TD>
+ <A href="Citation.htm#title">title</A></TD>
+<TD>
+{<a href="../constants/SE_LOCALE_DEFAULT.htm">SE_LOCALE_DEFAULT</a>, 42,
+ &quot;MEL_Scientific-Engineering_Field_Thesaurus&quot;}
+</TD></TR>
+<TR><TD>
+    <A href="Citation.htm#edition">edition</A></TD>
+<TD>
+ { empty_string }
+</TD></TR>
+<TR><TD>
+    <A href="Citation.htm#series_name">series_name</A></TD>
+<TD>
+ { empty_string }
+</TD></TR>
+<TR><TD>
+ <A href="Citation.htm#issue_identification">issue_identification</A></TD>
+<TD>
+ { empty_string }
+</TD></TR>
+<TR><TD>
+ <A href="Citation.htm#other_citation_details">other_citation_details</A></TD>
+<TD>
+ { empty_string }
+</TD></TR>
+</TABLE>
+<P>
+ This <A href="Citation.htm">&lt;Citation&gt;</A> component has a
+ <A href="ResponsibleParty.htm">&lt;Responsible Party&gt;</A> component identifying the
+ party responsible for MEL thesauri (shared with the
+ <A href="Citation.htm">&lt;Citation&gt;</A> component for the place
+ <A href="Keywords.htm">&lt;Keywords&gt;</A> instance).
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ What is the purpose of this class?
+</B></DT>
+<DD><P>
+ This DRM class provides a mechanism for specifying
+ <A href="../bibliography.htm#I19115">ISO 19115</A>-compliant keywords, which can be used to
+ search a repository (such as MEL) for transmittals
+ that address specified real-world objects,
+ spatial locations, or time periods. This allows a
+ potential user to identify and select those
+ transmittals that meet their requirements,
+ without having to actually obtain and examine the
+ transmittals themselves.
+</P></DD>
+<DT><B>
+ Consider a data provider who has keywords to populate
+ a <A href="Keywords.htm">&lt;Keywords&gt;</A> instance, but is
+ unable to determine which
+ <A href="../types/SE_MD_KeywordTypeCode.htm">SE_MD_KeywordTypeCode</A>
+ should be used to classify the keywords. What
+ procedure is suggested for such a data provider?
+</B></DT>
+<DD><P>
+ If no more appropriate
+ <A href="../types/SE_MD_KeywordTypeCode.htm">SE_MD_KeywordTypeCode</A>s
+ can be determined,
+ <A href="../types/SE_MD_KeywordTypeCode.htm#SE_MD_KEYTYPCOD_THEME">SE_MD_KEYTYPCOD_THEME</A>
+ is suggested.
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/MandatoryMetadata.htm">&lt;&lt;Mandatory Metadata&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Composed of (two-way metadata)</h3>
+<UL>
+<li>zero or one <a href="Citation.htm">&lt;Citation&gt;</a> instance<sup><A href="#Notes_cmp_Citation" name="cmp_Citation">1</A></sup></li>
+</UL>
+
+<h3>Component of (two-way)</h3>
+<UL>
+<li>one or more <a href="Identification.htm">&lt;Identification&gt;</a> instances</li>
+</UL>
+
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Short_Integer_Positive.htm">SE_Short_Integer_Positive</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="keyword_count">keyword_count</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_keyword_count">2</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_String.htm">SE_String</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="keyword_array">keyword_array</a>[];</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_keyword_array">3</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_MD_KeywordTypeCode.htm">SE_MD_KeywordTypeCode</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="type">type</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_type">4</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Composed of Notes</h3>
+<br>
+<h4><a href="#cmp_Citation" name="Notes_cmp_Citation">Citation</a></h4>
+ If provided, the <A href="Citation.htm">&lt;Citation&gt;</A> component
+ identifies the formally registered
+ thesaurus (or a similar authoritative source of keywords)
+ from which the entries of <A href="#keyword_array">keyword_array</A>
+ were drawn.
+</P>
+<h3>Fields Notes</h3>
+<h4><a href="#keyword_count" name="Notes_keyword_count">keyword_count</a></h4>
+<P>
+ The <A href="#keyword_count">keyword_count</A> field
+ specifies the number of entries in
+ <A href="#keyword_array">keyword_array</A>.
+</P>
+<h4><a href="#keyword_array" name="Notes_keyword_array">keyword_array</a></h4>
+<P>
+ Each entry of the
+ <A href="#keyword_array">keyword_array</A> field
+ is a commonly used word or a formalized word or phrase used
+ to describe the subject.
+</P>
+<h4><a href="#type" name="Notes_type">type</a></h4>
+<P>
+ The <A href="#type">type</A> field specifies the
+ subject matter used to group similar keywords in the
+ <A href="Keywords.htm">&lt;Keywords&gt;</A> instance.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="IrregularAxis.htm">Irregular Axis</A>.
+<strong>Next:</strong> <A href="Label.htm">Label</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

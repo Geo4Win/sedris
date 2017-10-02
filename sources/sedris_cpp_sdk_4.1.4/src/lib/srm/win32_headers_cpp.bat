@@ -1,0 +1,36 @@
+mkdir include
+REM copy src\include\*.* include
+copy src\include\LocalSpaceAzimuthal.h include
+copy src\include\BaseSRF.h include
+copy src\include\Celestiocentric.h include
+copy src\include\Celestiodetic.h include
+copy src\include\Celestiomagnetic.h include
+copy src\include\Coord.h include
+copy src\include\Direction.h include
+copy src\include\EquatorialInertial.h include
+copy src\include\EquidistantCylindrical.h include
+copy src\include\Exception.h include
+copy src\include\HeliosphericAriesEcliptic.h include
+copy src\include\HeliosphericEarthEcliptic.h include
+copy src\include\HeliosphericEarthEquatorial.h include
+copy src\include\LambertConformalConic.h include
+copy src\include\LococentricEuclidean3D.h include
+copy src\include\LocalSpaceRectangular2D.h include
+copy src\include\LocalSpaceRectangular3D.h include
+copy src\include\LocalTangentSpaceAzimuthalSpherical.h include
+copy src\include\LocalTangentSpaceCylindrical.h include
+copy src\include\LocalTangentSpaceEuclidean.h include
+copy src\include\Mercator.h include
+copy src\include\ObliqueMercatorSpherical.h include
+copy src\include\Orientation.h include
+copy src\include\LocalSpacePolar.h include
+copy src\include\Planetodetic.h include
+copy src\include\PolarStereographic.h include
+copy src\include\SolarEcliptic.h include
+copy src\include\SolarEquatorial.h include
+copy src\include\SolarMagneticEcliptic.h include
+copy src\include\SolarMagneticDipole.h include
+copy src\include\TransverseMercator.h include
+copy src\include\srf_all.h include
+copy src\include\srm_types.h include
+copy src\include\srm_stds.h include

@@ -1,0 +1,156 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE GetContextTransformation</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+SE GetContextTransformation
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../types/SE_Return_Code.htm">SE_Return_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SE_GetContextTransformation</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/SE_Object.htm">SE_Object</a>&nbsp;</td> <td class="CFunction"><a name="transformed_object"></a>transformed_object,</td><td class="CFunction"><sup><A href="#Notes_transformed_object">1</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../../srm/types/SRM_Matrix_4x4.htm">SRM_Matrix_4x4</a>&nbsp;</td> <td class="CFunction"><a name="matrix"></a>matrix</td><td class="CFunction"><sup><A href="#Notes_matrix">2</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+ Retrieves a copy of the currently effective composition of
+ <A href="../../drm/classes/Transformation.htm">&lt;Transformation&gt;</A> instances that apply to
+ <A href="#transformed_object">transformed_object</A>.
+ This is the accumulation of all transformations for one of two
+ possible cases as described below.
+</P><P>
+ In the first case, the accumulated transformation is from the
+ <A href="../../drm/classes/EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instance down to
+ <A href="#transformed_object">transformed_object</A>,
+ including any transformation components directly aggregated by
+ that DRM object. If
+ <A href="#transformed_object">transformed_object</A>, or
+ any of the DRM objects between it and its
+ <A href="../../drm/classes/EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instance, are referenced as a
+ component from another transmittal and that transmittal is open,
+ the accumulation is from the other transmittal's
+ <A href="../../drm/classes/EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instance. Otherwise, the
+ accumulation is from the
+ <A href="../../drm/classes/EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instance within
+ <A href="#transformed_object">transformed_object</A>'s own
+ transmittal.
+</P><P>
+ In the second case, the accumulated transformation is from the
+ <A href="../../drm/classes/Model.htm">&lt;Model&gt;</A> instance down to
+ <A href="#transformed_object">transformed_object</A>,
+ including any <A href="../../drm/classes/Transformation.htm">&lt;Transformation&gt;</A> components aggregated
+ directly by that DRM object.
+</P><P>
+ If no matrices were accumulated by
+ <A href="#transformed_object">transformed_object</A>, the
+ identity matrix shall be returned.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A>
+</td><td class="Status">
+ and the requested transformation is returned, if valid parameters
+ were passed in and all operations succeeded.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A>
+</td><td class="Status">
+ and the status code is set appropriately if the call failed.
+</td></tr>
+</table>
+
+<h3>Status Codes</h3>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A> is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_SUCCESS">SE_STATCODE_SUCCESS</A>
+</td><td class="Status">
+ set if valid parameters were passed in.
+</td></tr>
+</table>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A> is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_UNRESOLVED_INPUT_OBJECT">SE_STATCODE_UNRESOLVED_INPUT_OBJECT</A>
+</td><td class="Status">
+ set if <A href="#transformed_object">transformed_object</A> is unresolved.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_INACTIONABLE_FAILURE">SE_STATCODE_INACTIONABLE_FAILURE</A>
+</td><td class="Status">
+ set if the call fails for any other reason.
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#transformed_object" name="Notes_transformed_object">1</a></sup>
+ the object whose effective transformation is desired.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#matrix" name="Notes_matrix">2</a></sup>
+ a pointer to a 4x4 matrix in the user's memory space
+    where the given object's effective transformation will be copied.
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SE_GetComponent.htm">SE_GetComponent</a>.
+<strong>Next:</strong> <a href="SE_GetDRMClass.htm">SE_GetDRMClass</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

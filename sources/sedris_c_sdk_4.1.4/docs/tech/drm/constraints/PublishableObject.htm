@@ -1,0 +1,267 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Publishable Object</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX B - Constraints
+</font>
+<br>
+<font color="#ffffff">
+Publishable Object
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h3>Definition</h3>
+<P>
+ Note that where this constraint specifies that "instances"
+ of an abstract class may be published, the instances of
+ all concrete classes descended from that abstract class
+ may be published.
+</P>
+<OL type='a'>
+<LI><P>
+ Instances of the following classes may be published.
+</P>
+<UL>
+ <LI><A href="../classes/AggregateFeature.htm">&lt;Aggregate Feature&gt;</A>
+</LI>
+ <LI><A href="../classes/AggregateGeometry.htm">&lt;Aggregate Geometry&gt;</A>
+</LI>
+ <LI><A href="../classes/ColourTableGroup.htm">&lt;Colour Table Group&gt;</A>
+</LI>
+ <LI><A href="../classes/EnvironmentRoot.htm">&lt;Environment Root&gt;</A>
+</LI>
+ <LI><A href="../classes/FeatureModel.htm">&lt;Feature Model&gt;</A>
+</LI>
+ <LI><A href="../classes/FeatureTopology.htm">&lt;Feature Topology&gt;</A>
+</LI>
+ <LI><A href="../classes/FeatureTopologyHierarchy.htm">&lt;Feature Topology Hierarchy&gt;</A>
+</LI>
+ <LI><A href="../classes/GeometryModel.htm">&lt;Geometry Model&gt;</A>
+</LI>
+ <LI><A href="../classes/GeometryTopology.htm">&lt;Geometry Topology&gt;</A>
+</LI>
+ <LI><A href="../classes/GeometryTopologyHierarchy.htm">&lt;Geometry Topology Hierarchy&gt;</A>
+</LI>
+ <LI><A href="../classes/Image.htm">&lt;Image&gt;</A>
+</LI>
+ <LI><A href="../classes/Library.htm">&lt;Library&gt;</A>
+</LI>
+ <LI><A href="../classes/Model.htm">&lt;Model&gt;</A>
+</LI>
+ <LI><A href="../classes/PropertyGridHookPoint.htm">&lt;Property Grid Hook Point&gt;</A>
+</LI>
+ <LI><A href="../classes/PropertySetTableGroup.htm">&lt;Property Set Table Group&gt;</A>
+</LI>
+ <LI><A href="../classes/PropertyTable.htm">&lt;Property Table&gt;</A>
+</LI>
+ <LI><A href="../classes/SeparatingPlaneRelations.htm">&lt;Separating Plane Relations&gt;</A>
+</LI>
+ <LI><A href="../classes/Sound.htm">&lt;Sound&gt;</A>
+</LI>
+ <LI><A href="../classes/Symbol.htm">&lt;Symbol&gt;</A>
+</LI>
+ </UL>
+</LI>
+<LI>Instances of the following classes may be published,
+    where they serve the role of link objects.
+ <UL>
+ <LI><A href="../classes/BaseAssociationData.htm">&lt;Base Association Data&gt;</A>
+</LI>
+ <LI><A href="../classes/BaseLODData.htm">&lt;Base LOD Data&gt;</A>
+</LI>
+ <LI><A href="../classes/ClassificationData.htm">&lt;Classification Data&gt;</A>
+</LI>
+ <LI><A href="../classes/HierarchyData.htm">&lt;Hierarchy Data&gt;</A>
+</LI>
+ <LI><A href="../classes/OctantData.htm">&lt;Octant Data&gt;</A>
+</LI>
+ <LI><A href="../classes/QuadrantData.htm">&lt;Quadrant Data&gt;</A>
+</LI>
+ <LI><A href="../classes/PerimeterData.htm">&lt;Perimeter Data&gt;</A>
+</LI>
+ <LI><A href="../classes/SeparatingPlaneData.htm">&lt;Separating Plane Data&gt;</A>
+</LI>
+ <LI><A href="../classes/SpatialIndexData.htm">&lt;Spatial Index Data&gt;</A>
+</LI>
+ <LI><A href="../classes/StateData.htm">&lt;State Data&gt;</A>
+</LI>
+ <LI><A href="../classes/TimeConstraintsData.htm">&lt;Time Constraints Data&gt;</A>
+</LI>
+ </UL>
+</LI>
+<LI>An instance of a class not covered by 1 or 2 above
+    shall not be published.
+</LI>
+</OL>
+
+<h3>Rationale</h3>
+<OL type='1'>
+<LI><P>
+ <A href="../classes/EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instances
+ and <A href="../classes/Library.htm">&lt;Library&gt;</A> instances are desired for ITR.
+</P></LI>
+<LI><P>
+ The DRM objects organized by <A href="../classes/Library.htm">&lt;Library&gt;</A>
+ instances are desired for ITR.
+</P>
+<OL type='a'>
+<LI><P>
+ Within a <A href="../classes/DataTableLibrary.htm">&lt;Data Table Library&gt;</A> instance,
+ only <A href="../classes/PropertyTable.htm">&lt;Property Table&gt;</A> instances
+ may be referenced by
+ <A href="../classes/PropertyTableReference.htm">&lt;Property Table Reference&gt;</A> instances.
+</P><P>
+ <A href="../classes/MeshFaceTable.htm">&lt;Mesh Face Table&gt;</A> instances are
+ bound to specific <A href="../classes/FiniteElementMesh.htm">&lt;Finite Element Mesh&gt;</A>
+ instances, and do not appear within a
+ <A href="../classes/DataTableLibrary.htm">&lt;Data Table Library&gt;</A>.
+</P></LI>
+<LI><P>
+ The remaining classes for which instances are referenced within
+ <A href="../classes/Library.htm">&lt;Library&gt;</A> instances are
+</P>
+<UL>
+<LI>
+<A href="../classes/ColourTableGroup.htm">&lt;Colour Table Group&gt;</A>
+ - referenced by <A href="../classes/ColourIndex.htm">&lt;Colour Index&gt;</A>
+</LI>
+<LI>
+<A href="../classes/FeatureModel.htm">&lt;Feature Model&gt;</A>
+ - referenced by
+ <A href="../classes/FeatureModelInstance.htm">&lt;Feature Model Instance&gt;</A>
+</LI>
+<LI>
+<A href="../classes/GeometryModel.htm">&lt;Geometry Model&gt;</A>
+ - referenced by
+ <A href="../classes/GeometryModelInstance.htm">&lt;Geometry Model Instance&gt;</A>
+</LI>
+<LI>
+<A href="../classes/Image.htm">&lt;Image&gt;</A> - referenced by
+ <A href="../classes/ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</A>
+</LI>
+<LI>
+<A href="../classes/PropertySetTableGroup.htm">&lt;Property Set Table Group&gt;</A>
+ - referenced by
+ <A href="../classes/PropertySetIndex.htm">&lt;Property Set Index&gt;</A>
+</LI>
+<LI>
+<A href="../classes/Sound.htm">&lt;Sound&gt;</A> - referenced by
+<A href="../classes/SoundInstance.htm">&lt;Sound Instance&gt;</A>
+</LI>
+<LI>
+<A href="../classes/Symbol.htm">&lt;Symbol&gt;</A> - referenced by
+<A href="../classes/Label.htm">&lt;Label&gt;</A>
+</LI>
+</UL>
+</LI>
+</OL>
+<LI><P>
+ <A href="../classes/FeatureTopology.htm">&lt;Feature Topology&gt;</A> and
+ <A href="../classes/GeometryTopology.htm">&lt;Geometry Topology&gt;</A> instances
+ are used to build topology hierarchies, and may be referenced
+ in multiple places under cross-tile topology. When used in
+ ITR, their link objects must also be published to form valid
+ relationships.
+</P></LI>
+<LI><P>
+ The various concrete subclasses under
+ <A href="../classes/AggregateFeature.htm">&lt;Aggregate Feature&gt;</A> are desired
+ for ITR, and are used to build feature hierarchies. When used
+ in ITR, their link objects must also be published to form
+ valid relationships. Similar reasoning holds for the subclasses
+ of <A href="../classes/AggregateGeometry.htm">&lt;Aggregate Geometry&gt;</A>, with the
+ addition of
+ <A href="../classes/SeparatingPlaneRelations.htm">&lt;Separating Plane Relations&gt;</A>
+ and <A href="../classes/SeparatingPlaneData.htm">&lt;Separating Plane Data&gt;</A> for
+ <A href="../classes/SeparatingPlaneRelatedGeometry.htm">&lt;Separating Plane Related Geometry&gt;</A>.
+</P></LI>
+</OL>
+<h3>Example</h3>
+<OL>
+<LI><P>
+ Consider a <A href="../classes/Model.htm">&lt;Model&gt;</A> instance <span class="ConstructName">A</span> with a
+ <A href="../classes/GeometryModel.htm">&lt;Geometry Model&gt;</A> component <span class="ConstructName">GM_A</span> in
+ transmittal <span class="ConstructName">T_A</span>, such that the data provider
+ creating transmittal <span class="ConstructName">T_B</span> wishes to create a
+ <A href="../classes/GeometryModelInstance.htm">&lt;Geometry Model Instance&gt;</A> instance <span class="ConstructName">GMI_B</span>
+ in <span class="ConstructName">T_B</span> that references <span class="ConstructName">GM_A</span>.
+</P><P>
+ Since <span class="ConstructName">GMI_B</span> will reside in transmittal
+ <span class="ConstructName">T_B</span> and <span class="ConstructName">GM_A</span> is in
+ <span class="ConstructName">T_A</span>, an inter-transmittal reference (ITR) is
+ needed to create the association from <span class="ConstructName">GMI_B</span> to
+ <span class="ConstructName">GM_A</span>, so data provider <span class="ConstructName">B</span>
+ can create the relationship only if data provider <span class="ConstructName">A</span>
+ published <span class="ConstructName">GM_A</span>. Since <A href="../classes/GeometryModel.htm">&lt;Geometry Model&gt;</A>
+ is on the list of classes for which instances may be published, the
+ remainder of the issue is a matter for negotiation with data provider
+ <span class="ConstructName">A</span> to publish <span class="ConstructName">GM_A</span> when
+ creating transmittal <span class="ConstructName">T_A</span>.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ Why aren't <A href="../classes/UnionOfFeatures.htm">&lt;Union Of Features&gt;</A>
+ and the other subclasses of
+ <A href="../classes/AggregateFeature.htm">&lt;Aggregate Feature&gt;</A> on the list
+ of classes for which instances may be published?
+</B></DT>
+<DD><P>
+ Please re-read the constraint; instances of concrete classes
+ descended from <A href="../classes/AggregateFeature.htm">&lt;Aggregate Feature&gt;</A>
+ <B>are</B> permitted to be published.
+</P></DD>
+<DT><B>
+ Why isn't
+ <A href="../classes/UnionOfGeometryHierarchy.htm">&lt;Union Of Geometry Hierarchy&gt;</A>
+ on the list of classes for which instances may be published?
+</B></DT>
+<DD><P>
+ It <B>is</B> on the list of classes, since it is a subclass
+ of <A href="../classes/UnionOfGeometry.htm">&lt;Union Of Geometry&gt;</A>,
+ which in turn is a subclass of
+ <A href="../classes/AggregateGeometry.htm">&lt;Aggregate Geometry&gt;</A>.
+</P></DD>
+</DL>
+
+
+<hr>
+<strong>Prev:</strong> <A href="PropertySetTableSize.htm">Property Set Table Size</A>.
+<strong>Next:</strong> <A href="QuadrantRelatedOrganizingPrinciple.htm">Quadrant Related Organizing Principle</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

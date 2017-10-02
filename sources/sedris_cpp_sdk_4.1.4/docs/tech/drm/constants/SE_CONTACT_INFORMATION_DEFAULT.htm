@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE_CONTACT_INFORMATION_DEFAULT</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX C - Constants
+</font>
+<br>
+<font color="#ffffff">
+SE_CONTACT_INFORMATION_DEFAULT
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<table>
+<tr><td><pre>
+/*
+ * GLOBAL VARIABLE: SE_CONTACT_INFORMATION_DEFAULT
+ *
+ *   Pre-initialized global variable containing the default values for an
+ *   <a href="../types/SE_Contact_Information.htm">SE_Contact_Information</a> variable.
+ */
+const <a href="../types/SE_Contact_Information.htm">SE_Contact_Information</a>
+SE_CONTACT_INFORMATION_DEFAULT</pre></td></tr>
+<tr><td>phone.voice_count</td> <td>0</td></tr>
+<tr><td>phone.voice</td> <td>NULL</td></tr>
+<tr><td>phone.facsimile_count</td> <td>0</td></tr>
+<tr><td>phone.facsimile</td> <td>NULL</td></tr>
+<tr><td>phone.tdd_tty_count</td> <td>0</td></tr>
+<tr><td>phone.tdd_tty</td> <td>NULL</td></tr>
+<tr><td>address.delivery_point_count</td> <td>0</td></tr>
+<tr><td>address.delivery_point</td> <td>NULL</td></tr>
+<tr><td>address.city.locale.language</td> <td>{'e', 'n'}</td></tr>
+<tr><td>address.city.locale.country</td> <td>{'u', 's', 'a'}</td></tr>
+<tr><td>address.city.length</td> <td>0</td></tr>
+<tr><td>address.city.characters</td> <td>(SE_Character *)&se_empty_string</td></tr>
+<tr><td>address.administrative_area.locale.language</td> <td>{'e', 'n'}</td></tr>
+<tr><td>address.administrative_area.locale.country</td> <td>{'u', 's', 'a'}</td></tr>
+<tr><td>address.administrative_area.length</td> <td>0</td></tr>
+<tr><td>address.administrative_area.characters</td> <td>(SE_Character *)&se_empty_string</td></tr>
+<tr><td>address.postal_code.locale.language</td> <td>{'e', 'n'}</td></tr>
+<tr><td>address.postal_code.locale.country</td> <td>{'u', 's', 'a'}</td></tr>
+<tr><td>address.postal_code.length</td> <td>0</td></tr>
+<tr><td>address.postal_code.characters</td> <td>(SE_Character *)&se_empty_string</td></tr>
+<tr><td>address.country</td> <td>{'u', 's', 'a'}</td></tr>
+<tr><td>address.email_address_count</td> <td>0</td></tr>
+<tr><td>address.email_address</td> <td>NULL</td></tr>
+<tr><td>online_resource.linkage.length</td> <td>0</td></tr>
+<tr><td>online_resource.linkage.characters</td> <td>(SE_Character *)&se_empty_string</td></tr>
+<tr><td>online_resource.protocol.locale.language</td> <td>{'e', 'n'}</td></tr>
+<tr><td>online_resource.protocol.locale.country</td> <td>{'u', 's', 'a'}</td></tr>
+<tr><td>online_resource.protocol.length</td> <td>0</td></tr>
+<tr><td>online_resource.protocol.characters</td> <td>(SE_Character *)&se_empty_string</td></tr>
+<tr><td>online_resource.application_profile.locale.language</td> <td>{'e', 'n'}</td></tr>
+<tr><td>online_resource.application_profile.locale.country</td> <td>{'u', 's', 'a'}</td></tr>
+<tr><td>online_resource.application_profile.length</td> <td>0</td></tr>
+<tr><td>online_resource.application_profile.characters</td> <td>(SE_Character *)&se_empty_string</td></tr>
+<tr><td>online_resource.name.locale.language</td> <td>{'e', 'n'}</td></tr>
+<tr><td>online_resource.name.locale.country</td> <td>{'u', 's', 'a'}</td></tr>
+<tr><td>online_resource.name.length</td> <td>0</td></tr>
+<tr><td>online_resource.name.characters</td> <td>(SE_Character *)&se_empty_string</td></tr>
+<tr><td>online_resource.description.locale.language</td> <td>{'e', 'n'}</td></tr>
+<tr><td>online_resource.description.locale.country</td> <td>{'u', 's', 'a'}</td></tr>
+<tr><td>online_resource.description.length</td> <td>0</td></tr>
+<tr><td>online_resource.description.characters</td> <td>(SE_Character *)&se_empty_string</td></tr>
+<tr><td>online_resource.function</td> <td>SE_CIOLFCOD_DOWNLOAD</td></tr>
+<tr><td>hours_of_service.locale.language</td> <td>{'e', 'n'}</td></tr>
+<tr><td>hours_of_service.locale.country</td> <td>{'u', 's', 'a'}</td></tr>
+<tr><td>hours_of_service.length</td> <td>0</td></tr>
+<tr><td>hours_of_service.characters</td> <td>(SE_Character *)&se_empty_string</td></tr>
+<tr><td>contact_instructions.locale.language</td> <td>{'e', 'n'}</td></tr>
+<tr><td>contact_instructions.locale.country</td> <td>{'u', 's', 'a'}</td></tr>
+<tr><td>contact_instructions.length</td> <td>0</td></tr>
+<tr><td>contact_instructions.characters</td> <td>(SE_Character *)&se_empty_string</td></tr>
+</table>
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SE_CONFORMAL_BEHAVIOUR_DEFAULT.htm">SE_CONFORMAL_BEHAVIOUR_DEFAULT</a>.
+<strong>Next:</strong> <a href="SE_CONTINUOUS_LOD_RELATED_GEOMETRY_DEFAULT.htm">SE_CONTINUOUS_LOD_RELATED_GEOMETRY_DEFAULT</a>.
+<br>
+<hr>
+<br>
+<font color="#ff0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a></strong>,
+<strong><a href="index.htm">Constant Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

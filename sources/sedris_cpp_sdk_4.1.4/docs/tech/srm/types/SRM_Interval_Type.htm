@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SRM_Interval_Type</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SRM Reference Manual</big></big>
+<br>
+<!-- SRM spec. 4.1 -->
+<font color="#ffffff">
+Types
+</font>
+<br>
+<font color="#ffffff">
+SRM_Interval_Type
+</font>
+</th></tr>
+</table></div>
+
+<!-- SRM SDK Release 4.1.4 -->
+
+<PRE>
+/*!
+ * ENUM: SRM_Interval_Type
+ *
+ *  This data type is used to specify coordinate component intervals in the
+ *  SetValidRegion, SetExtendedValidRegion, GetValidRegion, and
+ *  GetExtendedValidRegion methods of class BaseSRF3D and in the
+ *  SetValidGeodeticRegion and GetExtendedValidGeodeticRegion methods of
+ *  class BaseSRFMapProjection.
+ */
+</PRE>
+<span class="Code">typedef enum
+<br>
+{
+</span>
+
+<table class="CFunctionPrototype">
+    <tr><td class="CFunction"></td><td class="CFunction"><a name="SRM_IVLTYP_OPEN_INTERVAL"></a>SRM_IVLTYP_OPEN_INTERVAL,</td><td class="CFunction"><sup><A href="#Notes_SRM_IVLTYP_OPEN_INTERVAL">1</A></sup></td></tr>
+    <tr><td class="CFunction"></td><td class="CFunction"><a name="SRM_IVLTYP_GE_LT_INTERVAL"></a>SRM_IVLTYP_GE_LT_INTERVAL,</td><td class="CFunction"><sup><A href="#Notes_SRM_IVLTYP_GE_LT_INTERVAL">2</A></sup></td></tr>
+    <tr><td class="CFunction"></td><td class="CFunction"><a name="SRM_IVLTYP_GT_LE_INTERVAL"></a>SRM_IVLTYP_GT_LE_INTERVAL,</td><td class="CFunction"><sup><A href="#Notes_SRM_IVLTYP_GT_LE_INTERVAL">3</A></sup></td></tr>
+    <tr><td class="CFunction"></td><td class="CFunction"><a name="SRM_IVLTYP_CLOSED_INTERVAL"></a>SRM_IVLTYP_CLOSED_INTERVAL,</td><td class="CFunction"><sup><A href="#Notes_SRM_IVLTYP_CLOSED_INTERVAL">4</A></sup></td></tr>
+    <tr><td class="CFunction"></td><td class="CFunction"><a name="SRM_IVLTYP_GT_SEMI_INTERVAL"></a>SRM_IVLTYP_GT_SEMI_INTERVAL,</td><td class="CFunction"><sup><A href="#Notes_SRM_IVLTYP_GT_SEMI_INTERVAL">5</A></sup></td></tr>
+    <tr><td class="CFunction"></td><td class="CFunction"><a name="SRM_IVLTYP_GE_SEMI_INTERVAL"></a>SRM_IVLTYP_GE_SEMI_INTERVAL,</td><td class="CFunction"><sup><A href="#Notes_SRM_IVLTYP_GE_SEMI_INTERVAL">6</A></sup></td></tr>
+    <tr><td class="CFunction"></td><td class="CFunction"><a name="SRM_IVLTYP_LT_SEMI_INTERVAL"></a>SRM_IVLTYP_LT_SEMI_INTERVAL,</td><td class="CFunction"><sup><A href="#Notes_SRM_IVLTYP_LT_SEMI_INTERVAL">7</A></sup></td></tr>
+    <tr><td class="CFunction"></td><td class="CFunction"><a name="SRM_IVLTYP_LE_SEMI_INTERVAL"></a>SRM_IVLTYP_LE_SEMI_INTERVAL,</td><td class="CFunction"><sup><A href="#Notes_SRM_IVLTYP_LE_SEMI_INTERVAL">8</A></sup></td></tr>
+    <tr><td class="CFunction"></td><td class="CFunction"><a name="SRM_IVLTYP_UNBOUNDED"></a>SRM_IVLTYP_UNBOUNDED</td><td class="CFunction"><sup><A href="#Notes_SRM_IVLTYP_UNBOUNDED">9</A></sup></td></tr>
+</table>
+<span class="Code">
+} SRM_Interval_Type;
+</span>
+<br>
+<br>
+<hr>
+<h2>Enumerant Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#SRM_IVLTYP_OPEN_INTERVAL" name="Notes_SRM_IVLTYP_OPEN_INTERVAL">1</a></sup>
+ The bounded open interval (a, b).
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#SRM_IVLTYP_GE_LT_INTERVAL" name="Notes_SRM_IVLTYP_GE_LT_INTERVAL">2</a></sup>
+ The bounded interval [a, b).
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#SRM_IVLTYP_GT_LE_INTERVAL" name="Notes_SRM_IVLTYP_GT_LE_INTERVAL">3</a></sup>
+ The bounded interval (a, b].
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#SRM_IVLTYP_CLOSED_INTERVAL" name="Notes_SRM_IVLTYP_CLOSED_INTERVAL">4</a></sup>
+ The bounded interval [a, b].
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#SRM_IVLTYP_GT_SEMI_INTERVAL" name="Notes_SRM_IVLTYP_GT_SEMI_INTERVAL">5</a></sup>
+ The unbounded interval (a, +infinity).
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#SRM_IVLTYP_GE_SEMI_INTERVAL" name="Notes_SRM_IVLTYP_GE_SEMI_INTERVAL">6</a></sup>
+ The unbounded interval [a, +infinity).
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#SRM_IVLTYP_LT_SEMI_INTERVAL" name="Notes_SRM_IVLTYP_LT_SEMI_INTERVAL">7</a></sup>
+ The unbounded interval (-infinity, b).
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#SRM_IVLTYP_LE_SEMI_INTERVAL" name="Notes_SRM_IVLTYP_LE_SEMI_INTERVAL">8</a></sup>
+ The unbounded interval (-infinity, b].
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#SRM_IVLTYP_UNBOUNDED" name="Notes_SRM_IVLTYP_UNBOUNDED">9</a></sup>
+ All values (-infinity, +infinity).
+</p>
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SRM_Integer_Unsigned.htm">SRM_Integer_Unsigned</a>.
+<strong>Next:</strong> <a href="SRM_LCC_Parameters.htm">SRM_LCC_Parameters</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

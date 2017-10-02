@@ -1,0 +1,231 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<HTML>
+<HEAD>
+<TITLE>SEDRIS SDK - Reference Manual</TITLE>
+<link rel="stylesheet" type="text/css" href="../styles/SDK_SEDRIS.css">
+</HEAD>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border=2 class="doc_set_header">
+<tr><th>
+<big><big>
+Reference Manual
+</big></big>
+<br><font color="#FFFFFF">
+SEDRIS C++ SDK Release 4.1.4
+</font>
+</th></tr>
+</table>
+</div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<p>
+<ol>
+<li><a href="#intro">Introduction</a>
+<br><br></li>
+<li>Data Representation Model (DRM)
+<table border=0>
+  <tr><td><a href="drm/index.htm">
+    The SEDRIS Data Representation Model</a></td>
+    <td align=left>(Part 4, Volume 2 of the SEDRIS Documentation Set)</td>
+  </tr>
+  <tr><td><a href="drm/classes/index.htm">DRM Classes</a></td>
+    <td align=left>(Part 4, Volume 2, Appendix A)</td>
+  </tr>
+  <tr><td><a href="drm/types/index.htm">DRM Types</a></td>
+    <td align=left>(Part 4, Volume 2, Appendix C)</td>
+  </tr>
+  <tr><td><a href="drm/functions/index.htm">DRM Functions</a></td>
+    <td align=left>(Part 4, Volume 2, Appendix D)</td>
+  </tr>
+  <tr><td><a href="drm/p4v3.htm">DRM Examples</a></td>
+    <td align=left>(Part 4, Volume 3 of the SEDRIS Documentation Set)</td>
+  </tr>
+</table>
+</LI><br>
+<li><a href="../../src/lib/edcs/docs/edcs.htm">
+    Environmental Data Coding Specification (EDCS)</a>
+</LI><br><br>
+<li>Spatial Reference Model (SRM) Users' Guide<br>
+    <ol>
+      <li><a href="../../src/lib/srm/docs/srm_c_users_guide.htm">For C API</a>
+      <li><a href="../../src/lib/srm/docs/srm_cpp_users_guide.htm">For C++ API</a>
+    </ol>
+    Spatial Reference Model API<br>
+    <ol>
+      <li><a href="../../src/lib/srm/docs/srm_c_api/index.htm">For C API</a>
+      <li><a href="../../src/lib/srm/docs/srm_cpp_api/index.htm">For C++ API</a>
+    </ol>
+   <a href="srm/index.htm">
+    Spatial Reference Model - Functions and Types as used by DRM</a>
+</LI><br><br>
+<li><a href="p4v17.htm">SEDRIS Reference Manual</a>
+    (Part 4, Volume 17 of the SEDRIS Documentation Set)
+<table border=0>
+  <tr><td><a href="taccess0/index.htm">Transmittal Access Level 0 C API</a></td>
+      <td align=left>(Appendix A of the SEDRIS Reference Manual)</td>
+  </tr>
+  <tr><td><a href="taccess1/index.htm">Transmittal Access Level 1 C API</a></td>
+      <td align=left>(Appendix B of the SEDRIS Reference Manual)</td>
+  </tr>
+  <tr><td><a href="taccess0_util/index.htm">
+          Transmittal Access Level 0 C API Auxiliary Functions</a></td>
+      <td align=left>(Appendix C of the SEDRIS Reference Manual)</td>
+  </tr>
+  <tr><td><a href="taccess/index.htm">
+          Transmittal Access C++ API</a></td>
+      <td align=left>&nbsp;</td>
+  </tr>
+</table>
+</LI><br>
+  <li>Other Technical Guides
+<table border=0>
+<tr><td><a href="p4v13.htm">
+        How to Extract Data from SEDRIS Transmittals</a></td>
+    <td align=left>(Part 4, Volume 13 of the SEDRIS Documentation Set)</td>
+</tr>
+<tr><td><a href="p4v14.htm">How to Produce SEDRIS Transmittals</a></td>
+    <td align=left>(Part 4, Volume 14 of the SEDRIS Documentation Set)</td>
+</tr>
+<tr><td><a href="p4v4.htm">Topology Technical Guide</a></td>
+    <td align=left>(Part 4, Volume 4 of the SEDRIS Documentation Set)</td>
+</tr>
+<tr><td><a href="p4v5.htm">Control Link Technical Guide</a></td>
+    <td align=left>(Part 4, Volume 5 of the SEDRIS Documentation Set)</td>
+</tr>
+<tr><td><a href="p4v6.htm">Data Tables Technical Guide</a></td>
+    <td align=left>(Part 4, Volume 6 of the SEDRIS Documentation Set)</td>
+</tr>
+<tr><td><a href="p4v8.htm">Images and Colour Models Technical Guide</a></td>
+    <td align=left>(Part 4, Volume 8 of the SEDRIS Documentation Set)</td>
+</tr>
+<tr><td><a href="drm/p4v9.htm">
+        Attribute Inheritance and Context Technical Guide
+        </a></td>
+    <td align=left>(Part 4, Volume 9 of the SEDRIS Documentation Set)</td>
+</tr>
+</table>
+   </LI><br>
+  <li>User Guides to Applications
+<table border=0>
+<tr><td><a href="p5v2.htm">Checker User's Guide</a></td>
+    <td align=left>(Part 5, Volume 2 of the SEDRIS Documentation Set)</td>
+</tr>
+<tr><td><a href="p5v3.htm">Depth User's Guide</a></td>
+    <td align=left>(Part 5, Volume 3 of the SEDRIS Documentation Set)</td>
+</tr>
+<tr><td><a href="p5v5.htm">Model Viewer User's Guide</a></td>
+    <td align=left>(Part 5, Volume 5 of the SEDRIS Documentation Set)</td>
+</tr>
+</table>
+   </LI>
+</ol>
+
+<h3><a name="intro">Introduction</a></h3>
+<blockquote>
+<p>
+This document is a reference manual that deals with the standard SEDRIS
+functions, as well as critical data structures. The parameters associated
+with each function are detailed, and the resultant processing is described.
+</p><p>
+For general information about this release, where to obtain it, and items
+that require specific attention, see the
+<a href="../index.htm">Release Notes</a>.
+</p><p>
+For help, comments, and bug reports please send email to
+<a href="mailto:help@sedris.org">help@sedris.org</a>. If you are an 
+associate, please use
+<a href="mailto:se-coders@sedris.org">se-coders@sedris.org</a>.
+
+<p>
+The SEDRIS Technology Components are:
+<dl>
+    <dt><b><a href="drm/index.htm">Data Representation Model (DRM)</a></b></dt>
+    <dd>
+Through the use of the data representation model, users of 
+SEDRIS can describe and articulate their
+environmental data clearly, while at the same time using 
+the same representation model to understand
+data from other users unambiguously.  The SEDRIS DRM is an 
+object-oriented data representation
+model, and provides a unified method for describing all 
+data elements, and their logical
+relationships, needed to express environmental data in a 
+seamless manner across all environmental
+domains.
+    </dd><br><br>
+    <dt><b><a href="../../src/lib/edcs/docs/edcs.htm">
+           Environmental Data Coding Specification (EDCS)</a></b></dt>
+    <dd>
+The concepts embodied by SEDRIS often require indicating 
+information about the data in a SEDRIS
+transmittal. This information is provided in the form of 
+classifications of the data, and attributes
+defining properties of the data.  The EDCS defines the 
+allowed classifications and attributes, and
+also provides a mechanism for specifying new 
+classifications and attributes. Since attributes have
+data associated with them, the EDCS also defines codes for 
+indicating the units of measure in which
+an attribute value is specified, and codes for indicating 
+the meanings of enumerated values.
+    </dd><br><br>
+    <dt><b><a href="../../src/lib/srm/docs/srm_ref_manual.htm">
+           Spatial Reference Model (SRM)</a></b></dt>
+    <dd>
+The geospatial concepts used within SEDRIS are defined by 
+the SRM. This includes not only the formal
+definitions of the various spatial reference frames, but 
+also the coordinate systems used within
+them and the reference objects to which they are attached.  
+The SRM also provides standard
+functionality for converting geospatial positions from one 
+spatial reference frame to another.
+    </dd><br><br>
+    <dt><b><a href="taccess0/index.htm">
+    Transmittal Access Application Programmer's Interface (API)</a></b></dt>
+    <dd>
+SEDRIS provides a standard API to manipulate SEDRIS 
+transmittals.  The API allows users of SEDRIS to
+ignore media and implementation details by abstracting 
+SEDRIS data through the API.  The API
+provides transmittal manipulation capabilities through 
+object retrieval, creation, and modification
+functionality.
+    </dd><br><br>
+    </dd>
+    <dt><b>SEDRIS Transmittal Format (STF)</b></dt>
+    <dd>
+    Provides users of SEDRIS, both data consumers and data providers,
+    with a means of cross-platform interchange by
+    supplying a universally specified external storage format.
+    </dd>
+  </dl>
+</blockquote>
+<hr>
+<font color="#FF0000">Return to:</font>
+    <b><a href="#Top">Top of this Page</a></b>
+<br><br>
+
+<div class="CenterDiv">
+<table class="doc_set_header">
+<tr><td>
+<table class="doc_set_header">
+<tr><td class="doc_set_header" align="left"><small>
+Last updated: July 1, 2011
+</small></td>
+<td class="doc_set_header" align="right"><small>
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</small></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</div>
+</BODY>
+</HTML>

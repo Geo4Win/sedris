@@ -1,0 +1,171 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>LSR Transformation</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+LSR Transformation
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: LSR Transformation</h2>
+<h3>Superclass - <a href="Transformation.htm">&lt;Transformation&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class is a
+ <A href="Transformation.htm">&lt;Transformation&gt;</A> instance, specified by
+ a 4 &times; 4 matrix, used to transform a DRM object defined in one
+ LSR SRF into another LSR SRF when the original SRF does not have
+ <A href="LSR2DLocation.htm">&lt;LSR 2D Location&gt;</A> instances
+ that are maintained as conforming points. (If the original
+ SRF does have conforming points that are maintained, a
+ <A href="WorldTransformation.htm">&lt;World Transformation&gt;</A> instance
+ shall be used instead.)
+</P><P class=Note>
+NOTE&nbsp; 
+ The 4 &times; 4 matrix may be explicitly specified as a
+ <A href="Local4x4.htm">&lt;Local 4x4&gt;</A> component and/or implicitly by a series of
+ <A href="LSRTransformationStep.htm">&lt;LSR Transformation Step&gt;</A> components, as long as
+ <a href="../constraints/LSRTransformationComponents.htm">&lt;&lt;LSR Transformation Components&gt;&gt;</a>
+ is obeyed.
+</p>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet07.pdf"><strong>7</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet02.pdf"><strong>2</strong></A>
+</LI>
+<LI><A href="sheet04.pdf"><strong>4</strong></A>
+</LI>
+<LI><A href="sheet06.pdf"><strong>6</strong></A>
+</LI>
+</UL>
+
+<h3>Example</h3>
+<OL>
+<LI><P>
+ Let <span class="ConstructName">V</span> be a <A href="Model.htm">&lt;Model&gt;</A> instance
+ classified as <A href="../../../../src/lib/edcs/docs/dictionary/ECC_G.htm#ECC_GROUND_VEHICLE">ECC_GROUND_VEHICLE</A>, such that
+ <span class="ConstructName">V</span> represents a ground vehicle with four wheels.
+ Let <span class="ConstructName">W</span> be another <A href="Model.htm">&lt;Model&gt;</A> instance,
+ where <span class="ConstructName">W</span> represents one such wheel, and
+ <span class="ConstructName">V</span> and <span class="ConstructName">W</span> are specified in
+ identical 3D LSR SRFs.
+</P><P>
+ Rather than <span class="ConstructName">V</span> specifying the geometry of a
+ wheel four times, once for each instance of such a wheel,
+ <span class="ConstructName">V</span> contains
+ <A href="GeometryModelInstance.htm">&lt;Geometry Model Instance&gt;</A> instances that reference
+ <span class="ConstructName">W</span>, once for each wheel, where a given
+ <A href="GeometryModelInstance.htm">&lt;Geometry Model Instance&gt;</A> instance has
+ an <A href="LSRTransformation.htm">&lt;LSR Transformation&gt;</A> component specifying how to
+ transform that instance of the wheel model to position and orient
+ it on the appropriate axle of <span class="ConstructName">V</span>.
+</P></LI>
+<LI><P>
+ The <A href="Translation.htm">&lt;Translation&gt;</A> instances,
+ <A href="Rotation.htm">&lt;Rotation&gt;</A> instances, and
+ <A href="Scale.htm">&lt;Scale&gt;</A> instances applied to a gun barrel
+ when modelled into a tank turret.
+</P></LI>
+<LI><P>
+ Let <span class="ConstructName">S</span> be a <A href="Model.htm">&lt;Model&gt;</A> instance
+ representing a sidewinder missile, where <span class="ConstructName">S</span>
+ is specified in an LSR 3D SRF and <span class="ConstructName">S</span> is
+ represented within that SRF standing vertically on its fins.
+</P><P>
+ Suppose that <span class="ConstructName">S</span> is a component of a
+ <A href="ModelLibrary.htm">&lt;Model Library&gt;</A> instance within which the
+ data provider specifies that all geometric representations
+ of <A href="Model.htm">&lt;Model&gt;</A> instances are being given a horizontal rather
+ than a vertical orientation. To make <span class="ConstructName">S</span>
+ consistent with the <A href="ModelLibrary.htm">&lt;Model Library&gt;</A> instance,
+ the <A href="GeometryModel.htm">&lt;Geometry Model&gt;</A> instance of
+ <span class="ConstructName">S</span> contains
+ an <A href="LSRTransformation.htm">&lt;LSR Transformation&gt;</A> component
+ that specifies an appropriate <A href="Rotation.htm">&lt;Rotation&gt;</A> instance
+ that, if applied, results in the desired orientation.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<p>
+No FAQs supplied.
+</p>
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/LSRTransformationComponents.htm">&lt;&lt;LSR Transformation Components&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Composed of (two-way)</h3>
+<UL>
+<li>zero or one <a href="Local4x4.htm">&lt;Local 4x4&gt;</a> instance</li>
+<li>zero or more {ordered} <a href="LSRTransformationStep.htm">&lt;LSR Transformation Step&gt;</a> instances</li>
+</UL>
+
+<h3>Component of (two-way) (inherited)</h3>
+<UL>
+<li>zero or more <a href="FeatureModelInstance.htm">&lt;Feature Model Instance&gt;</a> instances</li>
+<li>zero or more <a href="GeometryModelInstance.htm">&lt;Geometry Model Instance&gt;</a> instances</li>
+</UL>
+<h3>Component of (two-way)</h3>
+<UL>
+<li>zero or more <a href="AggregateGeometry.htm">&lt;Aggregate Geometry&gt;</a> instances</li>
+<li>zero or one <a href="GeometryModel.htm">&lt;Geometry Model&gt;</a> instance</li>
+<li>zero or more <a href="PropertyGridHookPoint.htm">&lt;Property Grid Hook Point&gt;</a> instances</li>
+</UL>
+
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+
+<hr>
+<strong>Prev:</strong> <A href="LSR3DLocationControlLink.htm">LSR 3D Location Control Link</A>.
+<strong>Next:</strong> <A href="LSRTransformationStep.htm">LSR Transformation Step</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

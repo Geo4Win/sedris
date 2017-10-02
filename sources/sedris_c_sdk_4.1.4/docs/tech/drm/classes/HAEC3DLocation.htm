@@ -1,0 +1,164 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>HAEC 3D Location</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+HAEC 3D Location
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: HAEC 3D Location</h2>
+<h3>Superclass - <a href="Location3D.htm">&lt;Location 3D&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies a coordinate for an SRF
+ based on the Heliospheric Aries Ecliptic SRFT.
+</P><P>
+ See <I>8.5.16 Heliospheric Aries ecliptic SRFT</I> of
+ <A href="../bibliography.htm#I18026">ISO/IEC 18026</A> for a complete definition.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet15.pdf"><strong>15</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+This class appears on only one page of the DRM class diagram.
+<h3>Example</h3>
+<OL>
+<LI><P>
+ An SRF derived from the Heliospheric Aries Ecliptic 3D SRFT is
+ used in the space science community in the study of Sun related
+ phenomena.
+</P></LI>
+<LI><P>
+ An SRF derived from the Heliospheric Aries Ecliptic 3D SRFT is
+ convenient SRF for specifying the positions of spacecraft and of
+ the planets.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<p>
+No FAQs supplied.
+</p>
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/EnvironmentRootSRF.htm">&lt;&lt;Environment Root SRF&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ImageAnchorSRF.htm">&lt;&lt;Image Anchor SRF&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/InheritanceRuleForLocation.htm">&lt;&lt;Inheritance Rule For Location&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ModelSRF.htm">&lt;&lt;Model SRF&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Component of (two-way) (inherited)</h3>
+<UL>
+<li>zero or more <a href="Arc.htm">&lt;Arc&gt;</a> instances</li>
+<li>zero or more <a href="CameraPoint.htm">&lt;Camera Point&gt;</a> instances</li>
+<li>zero or more <a href="DirectionalLightBehaviour.htm">&lt;Directional Light Behaviour&gt;</a> instances</li>
+<li>zero or one <a href="DistanceLODData.htm">&lt;Distance LOD Data&gt;</a> instance</li>
+<li>zero or more <a href="Ellipse.htm">&lt;Ellipse&gt;</a> instances</li>
+<li>zero or more <a href="FeatureEdge.htm">&lt;Feature Edge&gt;</a> instances</li>
+<li>zero or more <a href="FeatureFace.htm">&lt;Feature Face&gt;</a> instances</li>
+<li>zero or one <a href="FeatureNode.htm">&lt;Feature Node&gt;</a> instance</li>
+<li>zero or more <a href="ImageAnchor.htm">&lt;Image Anchor&gt;</a> instances</li>
+<li>zero or more <a href="Label.htm">&lt;Label&gt;</a> instances</li>
+<li>zero or more <a href="PerimeterData.htm">&lt;Perimeter Data&gt;</a> instances</li>
+<li>zero or more <a href="Point.htm">&lt;Point&gt;</a> instances</li>
+<li>zero or more <a href="PropertyGridHookPoint.htm">&lt;Property Grid Hook Point&gt;</a> instances</li>
+<li>zero or one <a href="ReferenceOrigin.htm">&lt;Reference Origin&gt;</a> instance</li>
+<li>zero or more <a href="ReferenceVector.htm">&lt;Reference Vector&gt;</a> instances</li>
+<li>zero or more <a href="SpatialExtent.htm">&lt;Spatial Extent&gt;</a> instances</li>
+<li>zero or more <a href="SpatialIndexRelatedFeatureTopology.htm">&lt;Spatial Index Related Feature Topology&gt;</a> instances</li>
+<li>zero or more <a href="SpatialIndexRelatedFeatures.htm">&lt;Spatial Index Related Features&gt;</a> instances</li>
+<li>zero or more <a href="SpatialIndexRelatedGeometry.htm">&lt;Spatial Index Related Geometry&gt;</a> instances</li>
+<li>zero or more <a href="SpatialIndexRelatedGeometryTopology.htm">&lt;Spatial Index Related Geometry Topology&gt;</a> instances</li>
+<li>zero or more <a href="TackPoint.htm">&lt;Tack Point&gt;</a> instances</li>
+<li>zero or more <a href="Vertex.htm">&lt;Vertex&gt;</a> instances</li>
+<li>zero or more <a href="World3x3.htm">&lt;World 3x3&gt;</a> instances</li>
+<li>zero or more <a href="WorldTransformation.htm">&lt;World Transformation&gt;</a> instances</li>
+<li>zero or one <a href="AttachmentPoint.htm">&lt;Attachment Point&gt;</a> instance</li>
+<li>zero or more <a href="BasePositionalLight.htm">&lt;Base Positional Light&gt;</a> instances</li>
+<li>zero or one <a href="ContactPoint.htm">&lt;Contact Point&gt;</a> instance</li>
+<li>zero or more <a href="EnclosingVolume.htm">&lt;Enclosing Volume&gt;</a> instances</li>
+<li>zero or more <a href="GeometricCentre.htm">&lt;Geometric Centre&gt;</a> instances</li>
+<li>zero or more <a href="SeparatingPlane.htm">&lt;Separating Plane&gt;</a> instances</li>
+<li>zero or more <a href="SoundInstance.htm">&lt;Sound Instance&gt;</a> instances</li>
+<li>zero or more <a href="StampBehaviour.htm">&lt;Stamp Behaviour&gt;</a> instances</li>
+<li>zero or more <a href="VolumeLightBehaviour.htm">&lt;Volume Light Behaviour&gt;</a> instances</li>
+<li>zero or more <a href="VolumeLODData.htm">&lt;Volume LOD Data&gt;</a> instances</li>
+<li>zero or more <a href="VolumeObject.htm">&lt;Volume Object&gt;</a> instances</li>
+</UL>
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../../srm/types/SRM_Spherical_3D_Coordinate.htm">SRM_Spherical_3D_Coordinate</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="coordinate">coordinate</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_coordinate">1</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Fields Notes</h3>
+<h4><a href="#coordinate" name="Notes_coordinate">coordinate</a></h4>
+<P>
+ The <A href="#coordinate">coordinate</A> field
+ specifies the set of coordinate-component values.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="GridOverlap.htm">Grid Overlap</A>.
+<strong>Next:</strong> <A href="HEEC3DLocation.htm">HEEC 3D Location</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

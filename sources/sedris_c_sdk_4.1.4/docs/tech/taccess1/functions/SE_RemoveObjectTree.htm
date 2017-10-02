@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE RemoveObjectTree</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX B - Transmittal Access Level 1 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+SE RemoveObjectTree
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../../taccess0/types/SE_Status_Code.htm">SE_Status_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SE_RemoveObjectTree</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../../taccess0/types/SE_Object.htm">SE_Object</a>&nbsp;</td> <td class="CFunction"><a name="start_object"></a>start_object</td><td class="CFunction"><sup><A href="#Notes_start_object">1</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+  Starts at the given start_object and recursively calls
+  <A href="SE_RemoveObjectAndLinks.htm">SE_RemoveObjectAndLinks()</A>
+  on all objects below the start_object.
+</P><P>
+ <STRONG>NOTE</STRONG>:
+ Will only remove objects within the start_object's transmittal
+  since continuing removal across ITR boundaries into other transmittals
+  would involve deleting published objects. As this would change the
+  transmittal's interface in a non-backwards compatible manner, it would
+  also require a change to the transmittal's name.
+</P><P>
+  The transmittal whose object is to be edited must be
+  explicitly opened in UPDATE mode for this operation to succeed.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../../taccess0/types/SE_Status_Code.htm#SE_STATCODE_SUCCESS">SE_STATCODE_SUCCESS</A>
+</td><td class="Status">
+ and the entire tree rooted at <A href="#start_object">start_object</A>
+ is deleted, if a valid parameter was passed in and all
+ operations succeeded.
+</td></tr>
+<tr><td class="Status">
+<A href="../../taccess0/types/SE_Status_Code.htm#SE_STATCODE_UNRESOLVED_INPUT_OBJECT">SE_STATCODE_UNRESOLVED_INPUT_OBJECT</A>
+</td><td class="Status">
+ and no changes are made, if <A href="#start_object">start_object</A>
+ is unresolved.
+</td></tr>
+<tr><td class="Status">
+<A href="../../taccess0/types/SE_Status_Code.htm#SE_STATCODE_UNRESOLVED_OUTPUT_OBJECT">SE_STATCODE_UNRESOLVED_OUTPUT_OBJECT</A>
+</td><td class="Status">
+ and no changes are made, if any objects in the tree are unresolved.
+</td></tr>
+<tr><td class="Status">
+<A href="../../taccess0/types/SE_Status_Code.htm#SE_STATCODE_DIFFERENT_TRANSMITTAL">SE_STATCODE_DIFFERENT_TRANSMITTAL</A>
+</td><td class="Status">
+ and no changes are made, if part of the object tree is in a
+ different transmittal than <A href="#start_object">start_object</A>.
+</td></tr>
+<tr><td class="Status">
+<A href="../../taccess0/types/SE_Status_Code.htm#SE_STATCODE_INVALID_ACCESS_MODE">SE_STATCODE_INVALID_ACCESS_MODE</A>
+</td><td class="Status">
+ and no changes are made, if start_object is in a transmittal that is
+ open in <A href="../../taccess0/types/SE_Access_Mode.htm#SE_AM_READ_ONLY">SE_AM_READ_ONLY</A> mode.
+</td></tr>
+<tr><td class="Status">
+<A href="../../taccess0/types/SE_Status_Code.htm#SE_STATCODE_INACTIONABLE_FAILURE">SE_STATCODE_INACTIONABLE_FAILURE</A>
+</td><td class="Status">
+ and no changes are made, if
+<OL>
+ <LI> start_object is a <A href="../../drm/classes/TransmittalRoot.htm">&lt;Transmittal Root&gt;</A>.
+ (If you really want to
+      do this, just delete the transmittal files.)
+</LI>
+ <LI> the API implementation specified does not provide the necessary
+      underlying functions in its shared library, and dynamic binding
+      is specified at compile time.
+</LI>
+</OL>
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#start_object" name="Notes_start_object">1</a></sup>
+ object at which is rooted the component tree to be removed from the
+ transmittal
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SE_RemoveObjectAndLinks.htm">SE_RemoveObjectAndLinks</a>.
+<strong>Next:</strong> <a href="SE_SetErrorHandlers.htm">SE_SetErrorHandlers</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

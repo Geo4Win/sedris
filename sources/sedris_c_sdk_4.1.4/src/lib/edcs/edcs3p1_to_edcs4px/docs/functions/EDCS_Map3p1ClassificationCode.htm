@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>EDCS Map3p1ClassificationCode</title>
+<link rel="stylesheet" href="../../../docs/styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>EDCS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+Concept Mapping from EDCS 3.1 to EDCS 4.x
+<!-- EDCS spec. 4.4 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+EDCS Map3p1ClassificationCode
+</font>
+</th></tr>
+</table></div>
+
+<!-- EDCS SDK Release 4.4.0 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../../../docs/types/EDCS_Status_Code.htm">EDCS_Status_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">EDCS_Map3p1ClassificationCode</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../../../docs/types/EDCS_Integer.htm">EDCS_Integer</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"> </td><td class="CFunction"><a name="ec_3p1_code_in"></a>ec_3p1_code_in,</td><td class="CFunction"><sup><A href="#Notes_ec_3p1_code_in">1</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">const&nbsp;</td><td class="CFunction"><a href="../types/EDCS_3p1_4px_Class_Mapping_Structure.htm">EDCS_3p1_4px_Class_Mapping_Structure</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction">*</td><td class="CFunction"><a name="mapping_info_out_ptr"></a>mapping_info_out_ptr</td><td class="CFunction"><sup><A href="#Notes_mapping_info_out_ptr">2</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+ Retrieves forward mapping information for the given code representing
+ an EDCS 3.1 classification code.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../../../docs/types/EDCS_Status_Code.htm#EDCS_SC_SUCCESS">EDCS_SC_SUCCESS</A>
+</td><td class="Status">
+ and a handle to the requested mapping information is copied into
+ *<A href="#mapping_info_out_ptr">mapping_info_out_ptr</A>,
+ if valid parameters were passed in.
+</td></tr>
+<tr><td class="Status">
+ <A href="../../../docs/types/EDCS_Status_Code.htm#EDCS_SC_NULL_REQUIRED_PARAMETER">EDCS_SC_NULL_REQUIRED_PARAMETER</A>
+</td><td class="Status">
+ and *<A href="#mapping_info_out_ptr">mapping_info_out_ptr</A>
+ is left unaltered, if
+ <A href="#mapping_info_out_ptr">mapping_info_out_ptr</A> was NULL.
+</td></tr>
+<tr><td class="Status">
+ <A href="../../../docs/types/EDCS_Status_Code.htm#EDCS_SC_INVALID_INPUT_CODE">EDCS_SC_INVALID_INPUT_CODE</A>
+</td><td class="Status">
+ and *<A href="#mapping_info_out_ptr">mapping_info_out_ptr</A> is
+ set to NULL, if *<A href="#ec_3p1_code_in">ec_3p1_code_in</A>
+ does not correspond to a valid EDCS 3.1 EC.
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#ec_3p1_code_in" name="Notes_ec_3p1_code_in">1</a></sup>
+ the EDCS 3.1 classification code whose mapping
+    information is being retrieved.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#mapping_info_out_ptr" name="Notes_mapping_info_out_ptr">2</a></sup>
+ pointer to a pointer variable in the user's
+    memory space where a handle to the mapping information will be
+    copied.
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="EDCS_Map3p1CharacteristicLabel.htm">EDCS_Map3p1CharacteristicLabel</a>.
+<strong>Next:</strong> <a href="EDCS_Map3p1ClassificationLabel.htm">EDCS_Map3p1ClassificationLabel</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

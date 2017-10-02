@@ -1,0 +1,162 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE SetTransmittalName</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+SE SetTransmittalName
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../types/SE_Return_Code.htm">SE_Return_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SE_SetTransmittalName</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../types/SE_Transmittal.htm">SE_Transmittal</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="transmittal"></a>transmittal,</td><td class="CFunction"><sup><A href="#Notes_transmittal">1</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">const&nbsp;</td><td class="CFunction"><a href="../../drm/types/SE_URN.htm">SE_URN</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="new_transmittal_name"></a>new_transmittal_name</td><td class="CFunction"><sup><A href="#Notes_new_transmittal_name">2</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+  Given the transmittal specified by
+ <A href="#transmittal">transmittal</A>, this function replaces
+  the formal transmittal name associated with the transmittal to that
+  specified by
+ <A href="#new_transmittal_name">new_transmittal_name</A>.
+  This function can be used to supply
+  the first name for a transmittal opened using
+<A href="SE_OpenTransmittalByLocation.htm">SE_OpenTransmittalByLocation()</A>,
+ or to modify the name of a transmittal
+ that was previously named or opened using
+<A href="SE_OpenTransmittalByName.htm">SE_OpenTransmittalByName()</A>.
+</P><P>
+  Details on the format of the transmittal name may be found under
+  <A href="SE_ResolveTransmittalName.htm">SE_ResolveTransmittalName()</A>.
+</P><P>
+  CAUTION:
+  While setting the transmittal name is desirable in many cases, care should
+  be taken when invoking this function.  The API is not responsible for
+  managing configuration and changing control for the transmittal being
+  modified.  Calling this function will permanently change the transmittal
+  name associated with the file containing the transmittal.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A>
+</td><td class="Status">
+ and the transmittal name is set.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A>
+</td><td class="Status">
+ and the status code is set appropriately if the call failed.
+</td></tr>
+</table>
+
+<h3>Status Codes</h3>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A> is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_SUCCESS">SE_STATCODE_SUCCESS</A>
+</td><td class="Status">
+ set if valid parameters were passed in and the transmittal name
+ was successfully set.
+</td></tr>
+</table>
+</P><P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A> is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_INVALID_TRANSMITTAL_NAME">SE_STATCODE_INVALID_TRANSMITTAL_NAME</A>
+</td><td class="Status">
+ set if the <A href="#new_transmittal_name">new_transmittal_name</A>
+ parameter did not specify a name that was valid according to the
+ formal SEDRIS namespace. See the comment in the
+ <A href="SE_ResolveTransmittalName.htm">SE_ResolveTransmittalName()</A>
+ function description about the nature of the validation done.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_INVALID_ACCESS_MODE">SE_STATCODE_INVALID_ACCESS_MODE</A>
+</td><td class="Status">
+ set if <A href="#transmittal">transmittal</A> was opened
+ in read-only mode.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_INACTIONABLE_FAILURE">SE_STATCODE_INACTIONABLE_FAILURE</A>
+</td><td class="Status">
+ set if the call fails for any other reason.
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#transmittal" name="Notes_transmittal">1</a></sup>
+ handle to the transmittal for which the name should
+    be set.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#new_transmittal_name" name="Notes_new_transmittal_name">2</a></sup>
+ a pointer to character array specifying a valid
+    transmittal name in the formal SEDRIS namespace.  This parameter is
+    validated only based upon the structured format of the name string.
+    That is, the sub-fields within the string are only checked for proper
+    structure (character set, delimiters, etc.) and are NOT checked for
+    consistency with namespace delegation rules, and proper use of
+    transmittal versioning.
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SE_SetSpecificCallback.htm">SE_SetSpecificCallback</a>.
+<strong>Next:</strong> <a href="SE_SetUserData.htm">SE_SetUserData</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

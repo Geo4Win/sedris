@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Literal</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Literal
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Literal</h2>
+<h3>Superclass - <a href="Expression.htm">&lt;Expression&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class is an <A href="Expression.htm">&lt;Expression&gt;</A>
+ instance that specifies a constant value.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet16.pdf"><strong>16</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+This class appears on only one page of the DRM class diagram.
+<h3>Example</h3>
+<p>
+ See the examples of the subclasses of
+ <A href="ControlLink.htm">&lt;Control Link&gt;</A>.
+
+</p>
+<h3>FAQs</h3>
+<p>
+No FAQs supplied.
+</p>
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/NonCyclicAggregations.htm">&lt;&lt;Non Cyclic Aggregations&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Component of (two-way) (inherited)</h3>
+<UL>
+<li>zero or more <a href="ControlLink.htm">&lt;Control Link&gt;</a> instances</li>
+<li>zero or more <a href="FeatureModelInstance.htm">&lt;Feature Model Instance&gt;</a> instances, each through the use of a <a href="ModelInstanceTemplateIndex.htm">&lt;Model Instance Template Index&gt;</a> link object</li>
+<li>zero or more <a href="Function.htm">&lt;Function&gt;</a> instances</li>
+<li>zero or more <a href="GeometryModelInstance.htm">&lt;Geometry Model Instance&gt;</a> instances, each through the use of a <a href="ModelInstanceTemplateIndex.htm">&lt;Model Instance Template Index&gt;</a> link object</li>
+</UL>
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Single_Value.htm">SE_Single_Value</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="value">value</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_value">1</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Fields Notes</h3>
+<h4><a href="#value" name="Notes_value">value</a></h4>
+<P>
+ The <A href="#value">value</A> field specifies the actual
+ data value expressed by the
+ <A href="Literal.htm">&lt;Literal&gt;</A> instance.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="LinearGeometry.htm">Linear Geometry</A>.
+<strong>Next:</strong> <A href="LobeData.htm">Lobe Data</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

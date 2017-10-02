@@ -1,0 +1,170 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Rotation</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Rotation
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Rotation</h2>
+<h3>Superclass - <a href="LSRTransformationStep.htm">&lt;LSR Transformation Step&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies a rotation of the given angle
+ about the specified axis, in the direction determined by the right-hand
+ rule.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet07.pdf"><strong>7</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+This class appears on only one page of the DRM class diagram.
+<h3>Example</h3>
+<OL>
+<LI><P>
+ A <A href="Rotation.htm">&lt;Rotation&gt;</A> instance specifies a rotation of
+ 2.567 radians
+ (approximately 145 degrees) about the u axis.
+</P></LI>
+<LI><P>
+ A <A href="Rotation.htm">&lt;Rotation&gt;</A> instance specifies a rotation of
+ -0.681 radians
+ (approximately -38.5 degrees) about the w axis.
+</P></LI>
+<LI><P>
+ A <A href="Rotation.htm">&lt;Rotation&gt;</A> instance specifies a rotation of
+ 1.717 radians
+ (approximately 97.0 degrees) about the v axis.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ How can a data provider specify a rotation about a point other
+ than the origin?
+</B></DT>
+<DD><P>
+ To specify a rotation about a point other than the origin of the
+ given LSR SRF for a given
+ <A href="LSRTransformation.htm">&lt;LSR Transformation&gt;</A> instance,
+ the data provider precedes the given
+ <A href="Rotation.htm">&lt;Rotation&gt;</A> instance by a
+ <A href="Translation.htm">&lt;Translation&gt;</A> instance that translates to the
+ desired rotation point.
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Composed of (two-way) (inherited)</h3>
+<UL>
+<li>zero or one <a href="ReferenceVector.htm">&lt;Reference Vector&gt;</a> instance<sup><A href="#Notes_cmp_Reference_Vector" name="cmp_Reference_Vector">1</A></sup></li>
+</UL>
+<h3>Composed of (two-way)</h3>
+<UL>
+<li>zero or one <a href="RotationControlLink.htm">&lt;Rotation Control Link&gt;</a> instance</li>
+</UL>
+
+<h3>Component of (two-way) (inherited)</h3>
+<UL>
+<li>zero or one <a href="LSRTransformation.htm">&lt;LSR Transformation&gt;</a> instance</li>
+</UL>
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_LSR_Transformation_Axis.htm">SE_LSR_Transformation_Axis</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="axis">axis</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_axis">2</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Long_Float.htm">SE_Long_Float</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="angle">angle</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_angle">3</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Composed of Notes</h3>
+<br>
+<h4><a href="#cmp_Reference_Vector" name="Notes_cmp_Reference_Vector">Reference_Vector</a></h4>
+ If specified, this <A href="ReferenceVector.htm">&lt;Reference Vector&gt;</A> instance shall have
+ <A href="ReferenceVector.htm#vector_type">vector_type</A> =
+ <A href="../types/SE_Reference_Vector_Type.htm#SE_REFVEC_LSR_TRANSFORMATION_AXIS">SE_REFVEC_LSR_TRANSFORMATION_AXIS</A>.
+</P>
+<h3>Fields Notes</h3>
+<h4><a href="#axis" name="Notes_axis">axis</a></h4>
+<P>
+ The <A href="#axis">axis</A> field specifies which axis
+ to rotate around: U, V, W, or a
+ <A href="ReferenceVector.htm">&lt;Reference Vector&gt;</A>
+ instance.
+</P><P class=Note>
+NOTE&nbsp; 
+ <A href="../types/SE_LSR_Transformation_Axis.htm#SE_LSRAXIS_ALL">SE_LSRAXIS_ALL</A>
+ is not a valid value for a <A href="Rotation.htm">&lt;Rotation&gt;</A> instance.
+</p>
+<h4><a href="#angle" name="Notes_angle">angle</a></h4>
+<P>
+ The <A href="#angle">angle</A> field specifies the
+ angle of rotation, measured counterclockwise about the given
+ axis, in radians. For a <A href="Rotation.htm">&lt;Rotation&gt;</A> instance
+ with a <A href="RotationControlLink.htm">&lt;Rotation Control Link&gt;</A> component <span class="ConstructName">X</span>,
+ the value of the <A href="#angle">angle</A> field is
+ obtained from <span class="ConstructName">X</span>.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="RotatingLightBehaviour.htm">Rotating Light Behaviour</A>.
+<strong>Next:</strong> <A href="RotationControlLink.htm">Rotation Control Link</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE_Colour_Mapping</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX C - Types
+</font>
+<br>
+<font color="#ffffff">
+SE_Colour_Mapping
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<PRE>
+/*
+ * SET: SE_Colour_Mapping
+ *
+ *   This data type specifies how the given &lt;Colour&gt; instance is applied
+ *   to the objects that reference it.
+ *
+ *   1. &quot;Front&quot; and &quot;back&quot; refer to which side of the object (usually a
+ *      &lt;Polygon&gt; instance) is being coloured.
+ *
+ *   2. A &quot;primary colour&quot; is the main colour of the object, when the
+ *      appearance of the object is not affected by texture maps or viewing
+ *      distance (that is, distance from the observer to the object).
+ *
+ *      Note that the alpha of an &lt;Image&gt; instance (if any), and/or the
+ *      alpha of a &lt;Colour&gt; instance (a.k.a. the &lt;Translucency&gt; component
+ *      of the &lt;Colour&gt; instance) are not affected by anything other
+ *      than the primary colour, even when an image blend colour is present.
+ *
+ *   3. A &quot;distance blend colour&quot; is used to model the distortion of colour
+ *      due to distance from the viewer. (For instance, mountains in the
+ *      distance appear to be tinted blue, an effect that increases with
+ *      increasing distance as long as the mountains are still visible.)
+ *
+ *      This is applicable mainly to objects organized by distance from
+ *      the viewer - that is, by &lt;Distance LOD Data&gt; link objects -
+ *      in level-of-detail aggregations, since the distance that the object
+ *      is visible shall be finite. The equation to determine the desired
+ *      component of the final displayed colour is
+ *            C = PCC*((x-y)/y) + DBCC*(x/y)
+ *      where
+ *          x    is the distance to the object
+ *          y    is the total distance that the object is visible
+ *          PCC  is the colour of the PRIMARY_COLOUR &lt;Colour&gt; component
+ *          DBCC is the colour of the DISTANCE_BLEND_COLOUR &lt;Colour&gt; component
+ *
+ *      Distance blend colour dominates more as viewing distance increases,
+ *      while primary colour dominates more as viewing distance decreases.
+ *
+ *   4. An &quot;image blend colour&quot; helps determine the appearance of an object
+ *      that has both 1) a &lt;Colour&gt; component and 2) an &lt;Image Mapping Function&gt;
+ *      component, the image_mapping_method of which is set to blending.
+ *      a) If the &lt;Image&gt; instance is an intensity &lt;Image&gt; instance (that is,
+ *         LUMINANCE is part of its signature),  the intensity map is used to
+ *         modulate between the PRIMARY_COLOUR and IMAGE_BLEND_COLOUR, based
+ *         on the values of the texels in the &lt;Image&gt; instance. That is, for
+ *         an &lt;Image&gt; instance with a LUMINANCE or LUMINANCE_AND_ALPHA
+ *         image_signature, the image blend and primary colours are linearly
+ *         combined with the &lt;Image&gt; instance's luminance and its inverse to
+ *         determine the displayed luminance. Where the &lt;Image&gt; instance is
+ *         bright, its colour combined with that of the DRM object's
+ *         Image Blend Colour will dominate. Where the &lt;Image&gt; instance is
+ *         dark, the object's Primary Colour will dominate.
+ *      b) If the &lt;Image&gt; instance is a 123COLOUR &lt;Image&gt; instance or some
+ *         variation thereof, the first, second, and third colour components
+ *         of each texel are linearly interpolated between the PRIMARY_COLOUR
+ *         and the IMAGE_BLEND_COLOUR. That is, for an &lt;Image&gt; instance with
+ *         image_signature = 123COLOUR or 123COLOUR_ALPHA, the image blend
+ *         and primary colours are linearly combined with the &lt;Image&gt;
+ *         instance's colour and its inverse to determine the displayed
+ *         colour. Where the &lt;Image&gt; instance is bright, its colour combined
+ *         with that of the DRM object's image blend colour will dominate.
+ *         Where the &lt;Image&gt; instance is dark, the object's primary colour
+ *         will dominate.
+ *
+ *      See also SE_Image_Mapping_Method for further discussion of blending.
+ */
+</PRE>
+<span class="Code">typedef union
+<br>
+{
+<br>
+SE_Integer_Unsigned member;
+<br>
+struct
+<br>
+{</span>
+<br>
+<table class="CFunctionPrototype">
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a> : 1&nbsp;</td>
+            <td class="CFunction"><a
+            name="Front_Primary"></a>Front_Primary;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a> : 1&nbsp;</td>
+            <td class="CFunction"><a
+            name="Front_Distance_Blend"></a>Front_Distance_Blend;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a> : 1&nbsp;</td>
+            <td class="CFunction"><a
+            name="Front_Image_Blend"></a>Front_Image_Blend;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a> : 1&nbsp;</td>
+            <td class="CFunction"><a name="Back_Primary"></a>Back_Primary;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a> : 1&nbsp;</td>
+            <td class="CFunction"><a
+            name="Back_Distance_Blend"></a>Back_Distance_Blend;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a> : 1&nbsp;</td>
+            <td class="CFunction"><a
+            name="Back_Image_Blend"></a>Back_Image_Blend;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a> : 1&nbsp;</td>
+            <td class="CFunction"><a
+            name="Primary_Light_Rendering_Behaviour"></a>Primary_Light_Rendering_Behaviour;</td><td class="CFunction"><sup><A href="#Notes_Primary_Light_Rendering_Behaviour">1</A></sup></td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a> : 1&nbsp;</td>
+            <td class="CFunction"><a
+            name="Secondary_Light_Rendering_Behaviour"></a>Secondary_Light_Rendering_Behaviour;</td><td class="CFunction"><sup><A href="#Notes_Secondary_Light_Rendering_Behaviour">2</A></sup></td></tr>
+</table>
+<span class="Code">
+    } member;
+} SE_Colour_Mapping;</span>
+<br>
+<HR>
+<h2>Field Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#Primary_Light_Rendering_Behaviour" name="Notes_Primary_Light_Rendering_Behaviour">1</a></sup>
+ The primary colour of the &lt;Light Rendering Behaviour&gt; component(s)
+ of the &lt;Light Rendering Properties&gt; component of a DRM object.
+ It cannot be combined with any other colour mapping.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#Secondary_Light_Rendering_Behaviour" name="Notes_Secondary_Light_Rendering_Behaviour">2</a></sup>
+ The secondary colour of the &lt;Light Rendering Behaviour&gt; component(s)
+ of the &lt;Light Rendering Properties&gt; component of a DRM object.
+ It cannot be combined with any other colour mapping.
+</p>
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SE_Colour_Data.htm">SE_Colour_Data</a>.
+<strong>Next:</strong> <a href="SE_Colour_Model.htm">SE_Colour_Model</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

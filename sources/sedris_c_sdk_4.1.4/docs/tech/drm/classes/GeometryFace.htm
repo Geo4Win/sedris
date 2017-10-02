@@ -1,0 +1,159 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Geometry Face</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Geometry Face
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Geometry Face</h2>
+<h3>Superclass - <a href="GeometryTopology.htm">&lt;Geometry Topology&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class is used to represent a geometric region,
+ the external boundary of which is specified by an ordered sequence of
+ three or more associated <A href="GeometryEdge.htm">&lt;Geometry Edge&gt;</A> instances.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet13.pdf"><strong>13</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet05.pdf"><strong>5</strong></A>
+</LI>
+</UL>
+
+<h3>Example</h3>
+<OL>
+<LI><P>
+ Consider a forest canopy represented by a set of
+ <A href="Polygon.htm">&lt;Polygon&gt;</A> instances. The topology of the upper surface of the
+ canopy may be represented by a set of
+ <A href="GeometryFace.htm">&lt;Geometry Face&gt;</A> instances, each corresponding to the boundary
+ of one of the <A href="Polygon.htm">&lt;Polygon&gt;</A> instances.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<p>
+No FAQs supplied.
+</p>
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ConstraintsOnAssociates.htm">&lt;&lt;Constraints On Associates&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ContainedNodeConstraints.htm">&lt;&lt;Contained Node Constraints&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/FeatureEdgeConstraints.htm">&lt;&lt;Feature Edge Constraints&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/VolumeShellFaceConsistency.htm">&lt;&lt;Volume Shell Face Consistency&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Associated with (two-way)</h3>
+<UL>
+<li>3 or more {ordered} <a href="GeometryEdge.htm">&lt;Geometry Edge&gt;</a> instances, each through the use of an <a href="EdgeDirection.htm">&lt;Edge Direction&gt;</a> link object<sup><A href="#Notes_asn_biGeometry_Edge" name="asn_biGeometry_Edge">1</A></sup></li>
+<li>zero or more <a href="GeometryNode.htm">&lt;Geometry Node&gt;</a> instances<sup><A href="#Notes_asn_biGeometry_Node" name="asn_biGeometry_Node">2</A></sup></li>
+<li>a bounded set of 0..2 {ordered} <a href="GeometryVolume.htm">&lt;Geometry Volume&gt;</a> instances, each through the use of a <a href="FaceDirection.htm">&lt;Face Direction&gt;</a> link object<sup><A href="#Notes_asn_biGeometry_Volume" name="asn_biGeometry_Volume">3</A></sup></li>
+<li>zero or more <a href="Polygon.htm">&lt;Polygon&gt;</a> instances<sup><A href="#Notes_asn_biPolygon" name="asn_biPolygon">4</A></sup></li>
+</UL>
+
+<h3>Component of (two-way) (inherited)</h3>
+<UL>
+<li>one or more <a href="UnionOfGeometryTopology.htm">&lt;Union Of Geometry Topology&gt;</a> instances</li>
+</UL>
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<hr>
+<h2>Notes</h2>
+<h3>Associated with Notes</h3>
+<br>
+<h4><a href="#asn_biGeometry_Edge" name="Notes_asn_biGeometry_Edge">Geometry_Edge</a></h4>
+ These <A href="GeometryEdge.htm">&lt;Geometry Edge&gt;</A> instances specify the
+ border of the <A href="GeometryFace.htm">&lt;Geometry Face&gt;</A> instance.
+</P>
+<br>
+<h4><a href="#asn_biGeometry_Node" name="Notes_asn_biGeometry_Node">Geometry_Node</a></h4>
+ For level 3 topology or higher, any
+ <A href="GeometryNode.htm">&lt;Geometry Node&gt;</A> instances
+ contained within the boundary of a
+ <A href="GeometryFace.htm">&lt;Geometry Face&gt;</A> instance
+ have an association relationship with that
+ <A href="GeometryFace.htm">&lt;Geometry Face&gt;</A>
+ instance to indicate the relationship.
+ For topology of less than level 3, the association relationship
+ between <A href="GeometryFace.htm">&lt;Geometry Face&gt;</A> instances
+ and <A href="GeometryNode.htm">&lt;Geometry Node&gt;</A> instances has
+ the same meaning, but data providers are not required to
+ supply the information.
+</P>
+<br>
+<h4><a href="#asn_biGeometry_Volume" name="Notes_asn_biGeometry_Volume">Geometry_Volume</a></h4>
+ If present, these <A href="GeometryVolume.htm">&lt;Geometry Volume&gt;</A> instances (if any
+ exist) are those bounded by the
+ <A href="GeometryFace.htm">&lt;Geometry Face&gt;</A> instance, possibly one for each side
+ of the <A href="GeometryFace.htm">&lt;Geometry Face&gt;</A> instance.
+</P>
+<br>
+<h4><a href="#asn_biPolygon" name="Notes_asn_biPolygon">Polygon</a></h4>
+ The <A href="GeometryFace.htm">&lt;Geometry Face&gt;</A> instance corresponds to the
+ geometric region bounded by each <A href="Polygon.htm">&lt;Polygon&gt;</A> instance.
+ Where multiple <A href="Polygon.htm">&lt;Polygon&gt;</A> instances are associated with
+ the <A href="GeometryFace.htm">&lt;Geometry Face&gt;</A> instance, each
+ <A href="Polygon.htm">&lt;Polygon&gt;</A> instance represents the same geometric region
+ and shall be collocated with a common external boundary.
+
+<hr>
+<strong>Prev:</strong> <A href="GeometryEdge.htm">Geometry Edge</A>.
+<strong>Next:</strong> <A href="GeometryHierarchy.htm">Geometry Hierarchy</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

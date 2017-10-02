@@ -1,0 +1,210 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE GetMeshFaceTableData</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+SE GetMeshFaceTableData
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../types/SE_Return_Code.htm">SE_Return_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SE_GetMeshFaceTableData</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/SE_Object.htm">SE_Object</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"> </td><td class="CFunction"><a name="mesh_face_table_object"></a>mesh_face_table_object,</td><td class="CFunction"><sup><A href="#Notes_mesh_face_table_object">1</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../../drm/types/SE_Boolean.htm">SE_Boolean</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"> </td><td class="CFunction"><a name="get_adjacent_face_table_data"></a>get_adjacent_face_table_data,</td><td class="CFunction"><sup><A href="#Notes_get_adjacent_face_table_data">2</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../../drm/types/SE_Integer_Positive.htm">SE_Integer_Positive</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"> </td><td class="CFunction"><a name="start_face"></a>start_face,</td><td class="CFunction"> </td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../../drm/types/SE_Integer_Positive.htm">SE_Integer_Positive</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"> </td><td class="CFunction"><a name="number_faces"></a>number_faces,</td><td class="CFunction"> </td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/SE_Store.htm">SE_Store</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"> </td><td class="CFunction"><a name="store_in"></a>store_in,</td><td class="CFunction"><sup><A href="#Notes_store_in">3</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../../drm/types/SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction">*</td><td class="CFunction"><a name="mesh_face_table_data"></a>mesh_face_table_data,</td><td class="CFunction"><sup><A href="#Notes_mesh_face_table_data">4</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../../drm/types/SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction">*</td><td class="CFunction"><a name="adjacent_face_table_data"></a>adjacent_face_table_data</td><td class="CFunction"><sup><A href="#Notes_adjacent_face_table_data">5</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+ Given the <A href="../../drm/classes/MeshFaceTable.htm">&lt;Mesh Face Table&gt;</A> instance specified by
+ <A href="#mesh_face_table_object">mesh_face_table_object</A>,
+ this function returns the face definition data for the selected
+ faces in <A href="#mesh_face_table_data">mesh_face_table_data</A>.
+ The selected faces are specified by the
+ <A href="#start_face">start_face</A> and
+ <A href="#number_faces">number_faces</A> parameters.
+</P><P>
+ In addition, if
+ <A href="#get_adjacent_face_table_data">get_adjacent_face_table_data</A>
+ has value <A href="../../drm/types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A>, the
+ <A href="#adjacent_face_table_data">adjacent_face_table_data</A>
+ parameter returns the adjacent face information from the adjacent face
+ table for the selected faces. If
+ <A href="#get_adjacent_face_table_data">get_adjacent_face_table_data</A>
+ has value <A href="../../drm/types/SE_Boolean.htm#SE_FALSE">SE_FALSE</A>, the
+ <A href="#adjacent_face_table_data">adjacent_face_table_data</A>
+ parameter is not modified.
+</P><P>
+ The array dimension specified by
+ <A href="../../drm/classes/MeshFaceTable.htm#maximum_vertices_per_face">maximum_vertices_per_face</A>
+ is obtained from that field of
+ <A href="#mesh_face_table_object">mesh_face_table_object</A>.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A>
+</td><td class="Status">
+ and the requested data is returned.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A>
+</td><td class="Status">
+ and the status code is set appropriately if the call failed.
+</td></tr>
+</table>
+
+<h3>Status Codes</h3>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A> is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_SUCCESS">SE_STATCODE_SUCCESS</A>
+</td><td class="Status">
+ set if valid parameters were passed in and all operations succeeded.
+</td></tr>
+</table>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A> is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_UNRESOLVED_INPUT_OBJECT">SE_STATCODE_UNRESOLVED_INPUT_OBJECT</A>
+</td><td class="Status">
+ and no changes are made if
+ <A href="#mesh_face_table_object">mesh_face_table_object</A>
+ is a handle to an unresolved DRM object.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_DELETED_OBJECT">SE_STATCODE_DELETED_OBJECT</A>
+</td><td class="Status">
+ and no changes are made if
+ <A href="#mesh_face_table_object">mesh_face_table_object</A>
+ is a handle to a DRM object that has been removed from the
+ transmittal in which it resided.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_C_STORE_INVALID">SE_STATCODE_C_STORE_INVALID</A>
+</td><td class="Status">
+and no changes are made if <A href="#store_in">store_in</A>
+ is not a handle to a valid <A href="../types/SE_Store.htm">SE_Store</A>.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_OUT_OF_MEMORY">SE_STATCODE_OUT_OF_MEMORY</A>
+</td><td class="Status">
+ and no changes are made if sufficient
+ memory could not be allocated.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_INACTIONABLE_FAILURE">SE_STATCODE_INACTIONABLE_FAILURE</A>
+</td><td class="Status">
+ and no changes are made if
+<UL>
+<LI><A href="#mesh_face_table_data">mesh_face_table_data</A> is NULL
+</LI>
+<LI><A href="#get_adjacent_face_table_data">get_adjacent_face_table_data</A>
+ is <A href="../../drm/types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A>,
+<A href="#mesh_face_table_object">mesh_face_table_object</A>
+    has such information, and
+<A href="#adjacent_face_table_data">adjacent_face_table_data</A>
+is NULL
+</LI>
+<LI>the function failed for any other reason.
+</LI>
+</UL>
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#mesh_face_table_object" name="Notes_mesh_face_table_object">1</a></sup>
+ specifies a &lt;Mesh Face Table&gt; instance
+    from which the face definition data is to be retrieved
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#get_adjacent_face_table_data" name="Notes_get_adjacent_face_table_data">2</a></sup>
+ specifies whether the
+    adjacent_face_table_data parameter is to be populated
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#store_in" name="Notes_store_in">3</a></sup>
+ a handle to a store; the API allocates memory for the
+    requested data within this store.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#mesh_face_table_data" name="Notes_mesh_face_table_data">4</a></sup>
+ an array of
+    [number_faces][maximum_vertices_per_face] dimensions,
+    where maximum_vertices_per_face is obtained from the
+    fields of mesh_face_table_object
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#adjacent_face_table_data" name="Notes_adjacent_face_table_data">5</a></sup>
+ if requested, an array of
+ [number_faces][maximum_vertices_per_face] dimensions, where
+ maximum_vertices_per_face is obtained from the fields of
+ mesh_face_table_object
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SE_GetLastFunctionStatus.htm">SE_GetLastFunctionStatus</a>.
+<strong>Next:</strong> <a href="SE_GetNextObject.htm">SE_GetNextObject</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

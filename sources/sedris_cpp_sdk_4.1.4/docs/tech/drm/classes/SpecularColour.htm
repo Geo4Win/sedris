@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Specular Colour</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Specular Colour
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Specular Colour</h2>
+<h3>Superclass - <a href="SEDRISAbstractBase.htm">&lt;SEDRIS Abstract Base&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies the specular reflectance component
+ of a <A href="PrimitiveColour.htm">&lt;Primitive Colour&gt;</A> instance.
+ Specular reflectance is the highlight effect on smooth surfaces
+ when they are illuminated due to light reflected from the illuminated
+ surface. The colour of this component of the lighting equation depends
+ largely on the colour of the light source.
+</P><P>
+ A <A href="SpecularColour.htm">&lt;Specular Colour&gt;</A> instance depends on both
+ the angle from the lit environmental object to the light source and
+ the angle from the lit environmental object to the observer.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet14.pdf"><strong>14</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet21.pdf"><strong>21</strong></A>
+</LI>
+</UL>
+
+<h3>Example</h3>
+<p>
+ See the <A href="PrimitiveColour.htm">&lt;Primitive Colour&gt;</A> class for examples.
+
+</p>
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ What is the <A href="ColourShininess.htm">&lt;Colour Shininess&gt;</A> component
+ used for?
+</B></DT>
+<DD><P>
+ <A href="ColourShininess.htm">&lt;Colour Shininess&gt;</A> acts as an exponent
+ in the lighting equation to determine how shiny the colour appears depending
+ on the angle between the lines to the observer and the light source.
+</P></DD>
+<BR>
+<DT><B>
+ Where can users find out more about specular reflection?
+</B></DT>
+<DD><P>
+ See 16.1.4 Specular Reflection <A href="../bibliography.htm#FOLEY">[Foley]</A>,
+ and Chapter 5 &quot;Lighting&quot; <A href="../bibliography.htm#OPENGL">[OPENGL]</A>.
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Composed of (two-way)</h3>
+<UL>
+<li>one <a href="ColourData.htm">&lt;Colour Data&gt;</a> instance</li>
+<li>zero or one <a href="ColourShininess.htm">&lt;Colour Shininess&gt;</a> instance</li>
+</UL>
+
+<h3>Component of (two-way)</h3>
+<UL>
+<li>zero or one <a href="LightSource.htm">&lt;Light Source&gt;</a> instance</li>
+<li>zero or one <a href="PrimitiveColour.htm">&lt;Primitive Colour&gt;</a> instance</li>
+</UL>
+
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+
+<hr>
+<strong>Prev:</strong> <A href="SpatialResolutionLODData.htm">Spatial Resolution LOD Data</A>.
+<strong>Next:</strong> <A href="SphericalVolumeExtent.htm">Spherical Volume Extent</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

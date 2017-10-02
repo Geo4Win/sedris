@@ -1,0 +1,4629 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<head><title>Migration Guide for SRM</title>
+<link rel="stylesheet" type="text/css" href="../../styles/SDK_SEDRIS.css">
+</HEAD>
+
+<!-- SRM spec. 4.1 -->
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table class="doc_set_header">
+<tr><th align="center">
+<big><big>
+MIGRATION GUIDE
+</big></big>
+<br><font color="#FFFFFF">
+SRM
+</font>
+</th></tr>
+</table>
+</div>
+<p>
+Please note that all SRM source files carry, as part of
+their leader comment information, comments that specify
+the SRM release to which they correspond.
+</p>
+<ol type='I'>
+<li><a href="#Type">Type Changes</a>
+</li>
+<li><a href="#Function">Function Changes</a>
+</li>
+</ol>
+<hr>
+<br>
+<p>
+The <font color="#008000">marked</font> items indicate areas that can
+be handled by the name change script.
+</p>
+<a name="Type"></a>
+<ol type='I'>
+<li><p>Type Changes.
+<ol>
+<li><p><font color="#008000">SRM_Axis_Direction maps to SRM_Axis_Direction.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SRM_AX_DIR_POS_PRIMARY_AXIS</font></td>
+    <td><font color="#008000">SRM_AXDIR_POSITIVE_PRIMARY_AXIS</font></td></tr>
+<tr><td><font color="#008000">SRM_AX_DIR_POS_SECONDARY_AXIS</font></td>
+    <td><font color="#008000">SRM_AXDIR_POSITIVE_SECONDARY_AXIS</font></td></tr>
+<tr><td><font color="#008000">SRM_AX_DIR_POS_TERTIARY_AXIS</font></td>
+    <td><font color="#008000">SRM_AXDIR_POSITIVE_TERTIARY_AXIS</font></td></tr>
+<tr><td><font color="#008000">SRM_AX_DIR_NEG_PRIMARY_AXIS</font></td>
+    <td><font color="#008000">SRM_AXDIR_NEGATIVE_PRIMARY_AXIS</font></td></tr>
+<tr><td><font color="#008000">SRM_AX_DIR_NEG_SECONDARY_AXIS</font></td>
+    <td><font color="#008000">SRM_AXDIR_NEGATIVE_SECONDARY_AXIS</font></td></tr>
+<tr><td><font color="#008000">SRM_AX_DIR_NEG_TERTIARY_AXIS</font></td>
+    <td><font color="#008000">SRM_AXDIR_NEGATIVE_TERTIARY_AXIS</font></td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SRM_AZ_2D_Coordinate maps to SRM_LSA_2D_Coordinate.</font>
+</p></li>
+<li><p><font color="#008000">SRM_Coord maps to SRM_Coordinate.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>coordinate_code</td> <td>spatial_coord_code</td></tr>
+<tr><td>coordinate.az_2d</td> <td>coordinate.lsa_2d</td></tr>
+<tr><td>coordinate.om_aug_3d</td> <td>coordinate.oms_aug_3d</td></tr>
+<tr><td>coordinate.om_surface</td> <td>coordinate.oms_surface</td></tr>
+<tr><td>coordinate.polar_2d</td> <td>coordinate.lsp_2d</td></tr>
+<tr><td>coordinate.sm_3d</td> <td>coordinate.smd_3d</td></tr>
+<tr><td>coordinate.sms_3d</td> <td>coordinate.sme_3d</td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SRM_Coordinate_Code maps to SRM_Spatial_Coordinate_Code.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SRM_COORD_CODE_AZ_2D</font></td>
+    <td><font color="#008000">SRM_SPACOORDCOD_LSA_2D</font></td></tr>
+<tr><td><font color="#008000">SRM_COORD_CODE_CC_3D</font></td>
+    <td><font color="#008000">SRM_SPACOORDCOD_CC_3D</font></td></tr>
+<tr><td><font color="#008000">SRM_COORD_CODE_CD_3D</font></td>
+    <td><font color="#008000">SRM_SPACOORDCOD_CD_3D</font></td></tr>
+<tr><td><font color="#008000">SRM_COORD_CODE_CD_SURFACE</font></td>
+    <td><font color="#008000">SRM_SPACOORDCOD_CD_SURFACE</font></td></tr>
+<tr><td><font color="#008000">SRM_COORD_CODE_CM_3D</font></td>
+    <td><font color="#008000">SRM_SPACOORDCOD_CM_3D</font></td></tr>
+<tr><td><font color="#008000">SRM_COORD_CODE_EC_AUGMENTED_3D</font></td>
+    <td><font color="#008000">SRM_SPACOORDCOD_EC_AUGMENTED_3D</font></td></tr>
+<tr><td><font color="#008000">SRM_COORD_CODE_EC_SURFACE</font></td>
+    <td><font color="#008000">SRM_SPACOORDCOD_EC_SURFACE</font></td></tr>
+<tr><td><font color="#008000">SRM_COORD_CODE_EI_3D</font></td>
+    <td><font color="#008000">SRM_SPACOORDCOD_EI_3D</font></td></tr>
+<tr><td><font color="#008000">SRM_COORD_CODE_HAEC_3D</font></td>
+    <td><font color="#008000">SRM_SPACOORDCOD_HAEC_3D</font></td></tr>
+<tr><td><font color="#008000">SRM_COORD_CODE_HEEC_3D</font></td>
+    <td><font color="#008000">SRM_SPACOORDCOD_HEEC_3D</font></td></tr>
+<tr><td><font color="#008000">SRM_COORD_CODE_HEEQ_3D</font></td>
+    <td><font color="#008000">SRM_SPACOORDCOD_HEEQ_3D</font></td></tr>
+<tr><td><font color="#008000">SRM_COORD_CODE_LCC_AUGMENTED_3D</font></td>
+    <td><font color="#008000">SRM_SPACOORDCOD_LCC_AUGMENTED_3D</font></td></tr>
+<tr><td><font color="#008000">SRM_COORD_CODE_LCC_SURFACE</font></td>
+    <td><font color="#008000">SRM_SPACOORDCOD_LCC_SURFACE</font></td></tr>
+<tr><td><font color="#008000">SRM_COORD_CODE_LSR_2D</font></td>
+    <td><font color="#008000">SRM_SPACOORDCOD_LSR_2D</font></td></tr>
+<tr><td><font color="#008000">SRM_COORD_CODE_LSR_3D</font></td>
+    <td><font color="#008000">SRM_SPACOORDCOD_LSR_3D</font></td></tr>
+<tr><td><font color="#008000">SRM_COORD_CODE_LTSAS_3D</font></td>
+    <td><font color="#008000">SRM_SPACOORDCOD_LTSAS_3D</font></td></tr>
+<tr><td><font color="#008000">SRM_COORD_CODE_LTSAS_SURFACE</font></td>
+    <td><font color="#008000">SRM_SPACOORDCOD_LTSAS_SURFACE</font></td></tr>
+<tr><td><font color="#008000">SRM_COORD_CODE_LTSC_3D</font></td>
+    <td><font color="#008000">SRM_SPACOORDCOD_LTSC_3D</font></td></tr>
+<tr><td><font color="#008000">SRM_COORD_CODE_LTSC_SURFACE</font></td>
+    <td><font color="#008000">SRM_SPACOORDCOD_LTSC_SURFACE</font></td></tr>
+<tr><td><font color="#008000">SRM_COORD_CODE_LTSE_3D</font></td>
+    <td><font color="#008000">SRM_SPACOORDCOD_LTSE_3D</font></td></tr>
+<tr><td><font color="#008000">SRM_COORD_CODE_LTSE_SURFACE</font></td>
+    <td><font color="#008000">SRM_SPACOORDCOD_LTSE_SURFACE</font></td></tr>
+<tr><td><font color="#008000">SRM_COORD_CODE_M_AUGMENTED_3D</font></td>
+    <td><font color="#008000">SRM_SPACOORDCOD_M_AUGMENTED_3D</font></td></tr>
+<tr><td><font color="#008000">SRM_COORD_CODE_M_SURFACE</font></td>
+    <td><font color="#008000">SRM_SPACOORDCOD_M_SURFACE</font></td></tr>
+<tr><td><font color="#008000">SRM_COORD_CODE_OM_AUGMENTED_3D</font></td>
+    <td><font color="#008000">SRM_SPACOORDCOD_OMS_AUGMENTED_3D</font></td></tr>
+<tr><td><font color="#008000">SRM_COORD_CODE_OM_SURFACE</font></td>
+    <td><font color="#008000">SRM_SPACOORDCOD_OMS_SURFACE</font></td></tr>
+<tr><td><font color="#008000">SRM_COORD_CODE_POLAR_2D</font></td>
+    <td><font color="#008000">SRM_SPACOORDCOD_LSP_2D</font></td></tr>
+<tr><td><font color="#008000">SRM_COORD_CODE_PS_AUGMENTED_3D</font></td>
+    <td><font color="#008000">SRM_SPACOORDCOD_PS_AUGMENTED_3D</font></td></tr>
+<tr><td><font color="#008000">SRM_COORD_CODE_PS_SURFACE</font></td>
+    <td><font color="#008000">SRM_SPACOORDCOD_PS_SURFACE</font></td></tr>
+<tr><td><font color="#008000">SRM_COORD_CODE_SEC_3D</font></td>
+    <td><font color="#008000">SRM_SPACOORDCOD_SEC_3D</font></td></tr>
+<tr><td><font color="#008000">SRM_COORD_CODE_SEQ_3D</font></td>
+    <td><font color="#008000">SRM_SPACOORDCOD_SEQ_3D</font></td></tr>
+<tr><td><font color="#008000">SRM_COORD_CODE_SM_3D</font></td>
+    <td><font color="#008000">SRM_SPACOORDCOD_SMD_3D</font></td></tr>
+<tr><td><font color="#008000">SRM_COORD_CODE_SMS_3D</font></td>
+    <td><font color="#008000">SRM_SPACOORDCOD_SME_3D</font></td></tr>
+<tr><td><font color="#008000">SRM_COORD_CODE_TM_AUGMENTED_3D</font></td>
+    <td><font color="#008000">SRM_SPACOORDCOD_TM_AUGMENTED_3D</font></td></tr>
+<tr><td><font color="#008000">SRM_COORD_CODE_TM_SURFACE</font></td>
+    <td><font color="#008000">SRM_SPACOORDCOD_TM_SURFACE</font></td></tr>
+<tr><td><font color="#008000">SRM_COORD_CODE_PD_3D</font></td>
+    <td><font color="#008000">SRM_SPACOORDCOD_PD_3D</font></td></tr>
+<tr><td><font color="#008000">SRM_COORD_CODE_PD_SURFACE</font></td>
+    <td><font color="#008000">SRM_SPACOORDCOD_PD_SURFACE</font></td></tr>
+<tr><td><font color="#008000">SRM_COORD_CODE_LCE_3D</font></td>
+    <td><font color="#008000">SRM_SPACOORDCOD_LCE_3D</font></td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SRM_Coordinate_Valid_Region maps to SRM_Coordinate_Valid_Region.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SRM_COORD_REGION_VALID</font></td>
+    <td><font color="#008000">SRM_COORDVALRGN_VALID</font></td></tr>
+<tr><td><font color="#008000">SRM_COORD_REGION_EXTENDED_VALID</font></td>
+    <td><font color="#008000">SRM_COORDVALRGN_EXTENDED_VALID</font></td></tr>
+<tr><td><font color="#008000">SRM_COORD_REGION_DEFINED</font></td>
+    <td><font color="#008000">SRM_COORDVALRGN_DEFINED</font></td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SRM_CS_Code maps to SRM_CS_Code.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SRM_CS_UNDEFINED</font></td>
+    <td><font color="#008000">SRM_CSCOD_UNSPECIFIED</font></td></tr>
+<tr><td><font color="#008000">SRM_CS_EUCLIDEAN_3D</font></td>
+    <td><font color="#008000">SRM_CSCOD_EUCLIDEAN_3D</font></td></tr>
+<tr><td><font color="#008000">SRM_CS_LOCOCENTRIC_EUCLIDEAN_3D</font></td>
+    <td><font color="#008000">SRM_CSCOD_LOCOCENTRIC_EUCLIDEAN_3D</font></td></tr>
+<tr><td><font color="#008000">SRM_CS_SPHERICAL</font></td>
+    <td><font color="#008000">SRM_CSCOD_SPHERICAL</font></td></tr>
+<tr><td><font color="#008000">SRM_CS_LOCOCENTRIC_SPHERICAL</font></td>
+    <td><font color="#008000">SRM_CSCOD_LOCOCENTRIC_SPHERICAL</font></td></tr>
+<tr><td><font color="#008000">SRM_CS_AZIMUTHAL_SPHERICAL</font></td>
+    <td><font color="#008000">SRM_CSCOD_AZIMUTHAL_SPHERICAL</font></td></tr>
+<tr><td><font color="#008000">SRM_CS_LOCOCENTRIC_AZIMUTHAL_SPHERICAL</font></td>
+    <td><font color="#008000">SRM_CSCOD_LOCOCENTRIC_AZIMUTHAL_SPHERICAL</font></td></tr>
+<tr><td><font color="#008000">SRM_CS_GEODETIC</font></td>
+    <td><font color="#008000">SRM_CSCOD_GEODETIC</font></td></tr>
+<tr><td><font color="#008000">SRM_CS_PLANETODETIC</font></td>
+    <td><font color="#008000">SRM_CSCOD_PLANETODETIC</font></td></tr>
+<tr><td><font color="#008000">SRM_CS_CYLINDRICAL</font></td>
+    <td><font color="#008000">SRM_CSCOD_CYLINDRICAL</font></td></tr>
+<tr><td><font color="#008000">SRM_CS_LOCOCENTRIC_CYLINDRICAL</font></td>
+    <td><font color="#008000">SRM_CSCOD_LOCOCENTRIC_CYLINDRICAL</font></td></tr>
+<tr><td><font color="#008000">SRM_CS_MERCATOR</font></td>
+    <td><font color="#008000">SRM_CSCOD_MERCATOR</font></td></tr>
+<tr><td><font color="#008000">SRM_CS_OBLIQUE_MERCATOR_SPHERICAL</font></td>
+    <td><font color="#008000">SRM_CSCOD_OBLIQUE_MERCATOR_SPHERICAL</font></td></tr>
+<tr><td><font color="#008000">SRM_CS_TRANSVERSE_MERCATOR</font></td>
+    <td><font color="#008000">SRM_CSCOD_TRANSVERSE_MERCATOR</font></td></tr>
+<tr><td><font color="#008000">SRM_CS_LAMBERT_CONFORMAL_CONIC</font></td>
+    <td><font color="#008000">SRM_CSCOD_LAMBERT_CONFORMAL_CONIC</font></td></tr>
+<tr><td><font color="#008000">SRM_CS_POLAR_STEREOGRAPHIC</font></td>
+    <td><font color="#008000">SRM_CSCOD_POLAR_STEREOGRAPHIC</font></td></tr>
+<tr><td><font color="#008000">SRM_CS_EQUIDISTANT_CYLINDRICAL</font></td>
+    <td><font color="#008000">SRM_CSCOD_EQUIDISTANT_CYLINDRICAL</font></td></tr>
+<tr><td><font color="#008000">SRM_CS_SURFACE_GEODETIC</font></td>
+    <td><font color="#008000">SRM_CSCOD_SURFACE_GEODETIC</font></td></tr>
+<tr><td><font color="#008000">SRM_CS_SURFACE_PLANETODETIC</font></td>
+    <td><font color="#008000">SRM_CSCOD_SURFACE_PLANETODETIC</font></td></tr>
+<tr><td><font color="#008000">SRM_CS_LOCOCENTRIC_SURFACE_EUCLIDEAN</font></td>
+    <td><font color="#008000">SRM_CSCOD_LOCOCENTRIC_SURFACE_EUCLIDEAN</font></td></tr>
+<tr><td><font color="#008000">SRM_CS_LOCOCENTRIC_SURFACE_AZIMUTHAL</font></td>
+    <td><font color="#008000">SRM_CSCOD_LOCOCENTRIC_SURFACE_AZIMUTHAL</font></td></tr>
+<tr><td><font color="#008000">SRM_CS_LOCOCENTRIC_SURFACE_POLAR</font></td>
+    <td><font color="#008000">SRM_CSCOD_LOCOCENTRIC_SURFACE_POLAR</font></td></tr>
+<tr><td><font color="#008000">SRM_CS_EUCLIDEAN_2D</font></td>
+    <td><font color="#008000">SRM_CSCOD_EUCLIDEAN_2D</font></td></tr>
+<tr><td><font color="#008000">SRM_CS_LOCOCENTRIC_EUCLIDEAN_2D</font></td>
+    <td><font color="#008000">SRM_CSCOD_LOCOCENTRIC_EUCLIDEAN_2D</font></td></tr>
+<tr><td><font color="#008000">SRM_CS_AZIMUTHAL</font></td>
+    <td><font color="#008000">SRM_CSCOD_AZIMUTHAL</font></td></tr>
+<tr><td><font color="#008000">SRM_CS_LOCOCENTRIC_AZIMUTHAL</font></td>
+    <td><font color="#008000">SRM_CSCOD_LOCOCENTRIC_AZIMUTHAL</font></td></tr>
+<tr><td><font color="#008000">SRM_CS_POLAR</font></td>
+    <td><font color="#008000">SRM_CSCOD_POLAR</font></td></tr>
+<tr><td><font color="#008000">SRM_CS_LOCOCENTRIC_POLAR</font></td>
+    <td><font color="#008000">SRM_CSCOD_LOCOCENTRIC_POLAR</font></td></tr>
+<tr><td><font color="#008000">SRM_CS_EUCLIDEAN_1D</font></td>
+    <td><font color="#008000">SRM_CSCOD_EUCLIDEAN_1D</font></td></tr>
+</table>
+<br><br></li>
+<li><p>SRM_EC_Parameters
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>standard_latitude</td> <td>(none)</td></tr>
+</table>
+<br><br></li>
+<li><p>SRM_EC_SRF_Parameters split into multiple targets.
+</p>
+<ol type='a'>
+<li><p>SRM_EC_SRF_Parameters maps to SRM_EC_Parameters.
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>orm_params</td> <td>(none)</td></tr>
+<tr><td>SRM_EC_Parameters ec_params</td> <td>SRM_EC_Parameters</td></tr>
+</table>
+<br><br></li>
+<li><p>SRM_EC_SRF_Parameters maps to SRM_ORM_Code.
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>SRM_ORM_Parameters orm_params</td> <td>SRM_ORM_Code</td></tr>
+<tr><td>ec_params</td> <td>(none)</td></tr>
+</table>
+<br><br></li>
+<li><p>SRM_EC_SRF_Parameters maps to SRM_RT_Code.
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>SRM_ORM_Parameters orm_params</td> <td>SRM_RT_Code</td></tr>
+<tr><td>ec_params</td> <td>(none)</td></tr>
+</table>
+<br><br></li>
+</ol>
+</li>
+<li><p>SRM_HSR_Code merged with SRM_ORM_Code
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>SRM_ORM_Code</th>
+<th>Old</th>
+<th>SRM_RT_Code</th>
+</tr>
+<tr><td>SRM_ORM_UNDEFINED</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_ABSTRACT_2D</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_ABSTRACT_2D</td>
+<td>SRM_HSR_ABSTRACT_2D_IDENTITY</td>
+<td>SRM_RTCOD_ABSTRACT_2D_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_ABSTRACT_3D</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_ABSTRACT_3D</td>
+<td>SRM_HSR_ABSTRACT_3D_IDENTITY</td>
+<td>SRM_RTCOD_ABSTRACT_3D_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_ADINDAN_1991</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_ADINDAN_1991</td>
+<td>SRM_HSR_ADINDAN_1991_BURKINA_FASO</td>
+<td>SRM_RTCOD_ADINDAN_1991_BURKINA_FASO</td>
+</tr>
+<tr><td>SRM_ORM_ADINDAN_1991</td>
+<td>SRM_HSR_ADINDAN_1991_CAMEROON</td>
+<td>SRM_RTCOD_ADINDAN_1991_CAMEROON</td>
+</tr>
+<tr><td>SRM_ORM_ADINDAN_1991</td>
+<td>SRM_HSR_ADINDAN_1991_ETHIOPIA</td>
+<td>SRM_RTCOD_ADINDAN_1991_ETHIOPIA</td>
+</tr>
+<tr><td>SRM_ORM_ADINDAN_1991</td>
+<td>SRM_HSR_ADINDAN_1991_MALI</td>
+<td>SRM_RTCOD_ADINDAN_1991_MALI</td>
+</tr>
+<tr><td>SRM_ORM_ADINDAN_1991</td>
+<td>SRM_HSR_ADINDAN_1991_MEAN_SOLUTION</td>
+<td>SRM_RTCOD_ADINDAN_1991_MEAN_SOLUTION</td>
+</tr>
+<tr><td>SRM_ORM_ADINDAN_1991</td>
+<td>SRM_HSR_ADINDAN_1991_SENEGAL</td>
+<td>SRM_RTCOD_ADINDAN_1991_SENEGAL</td>
+</tr>
+<tr><td>SRM_ORM_ADINDAN_1991</td>
+<td>SRM_HSR_ADINDAN_1991_SUDAN</td>
+<td>SRM_RTCOD_ADINDAN_1991_SUDAN</td>
+</tr>
+<tr><td>SRM_ORM_ADRASTEA_2000</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_ADRASTEA_2000</td>
+<td>SRM_HSR_ADRASTEA_2000_IDENTITY</td>
+<td>SRM_RTCOD_ADRASTEA_2000_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_AFGOOYE_1987</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_AFGOOYE_1987</td>
+<td>SRM_HSR_AFGOOYE_1987_SOMALIA</td>
+<td>SRM_RTCOD_AFGOOYE_1987_SOMALIA</td>
+</tr>
+<tr><td>SRM_ORM_AIN_EL_ABD_1970</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_AIN_EL_ABD_1970</td>
+<td>SRM_HSR_AIN_EL_ABD_1970_BAHRAIN_ISLAND</td>
+<td>SRM_RTCOD_AIN_EL_ABD_1970_BAHRAIN_ISLAND</td>
+</tr>
+<tr><td>SRM_ORM_AIN_EL_ABD_1970</td>
+<td>SRM_HSR_AIN_EL_ABD_1970_SAUDI_ARABIA</td>
+<td>SRM_RTCOD_AIN_EL_ABD_1970_SAUDI_ARABIA</td>
+</tr>
+<tr><td>SRM_ORM_AMALTHEA_2000</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_AMALTHEA_2000</td>
+<td>SRM_HSR_AMALTHEA_2000_IDENTITY</td>
+<td>SRM_RTCOD_AMALTHEA_2000_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_AMERICAN_SAMOA_1962</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_AMERICAN_SAMOA_1962</td>
+<td>SRM_HSR_AMERICAN_SAMOA_1962_AMERICAN_SAMOA_ISLANDS</td>
+<td>SRM_RTCOD_AMERICAN_SAMOA_1962_AMERICAN_SAMOA_ISLANDS</td>
+</tr>
+<tr><td>SRM_ORM_AMERSFOORT_1885_1903</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_ANNA_1_1965</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_ANNA_1_1965</td>
+<td>SRM_HSR_ANNA_1_1965_COCOS_ISLANDS</td>
+<td>SRM_RTCOD_ANNA_1_1965_COCOS_ISLANDS</td>
+</tr>
+<tr><td>SRM_ORM_ANTIGUA_1943</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_ANTIGUA_1943</td>
+<td>SRM_HSR_ANTIGUA_1943_ANTIGUA_LEEWARD_ISLANDS</td>
+<td>SRM_RTCOD_ANTIGUA_1943_ANTIGUA_LEEWARD_ISLANDS</td>
+</tr>
+<tr><td>SRM_ORM_ARC_1950</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_ARC_1950</td>
+<td>SRM_HSR_ARC_1950_BOTSWANA</td>
+<td>SRM_RTCOD_ARC_1950_BOTSWANA</td>
+</tr>
+<tr><td>SRM_ORM_ARC_1950</td>
+<td>SRM_HSR_ARC_1950_BURUNDI</td>
+<td>SRM_RTCOD_ARC_1950_BURUNDI</td>
+</tr>
+<tr><td>SRM_ORM_ARC_1950</td>
+<td>SRM_HSR_ARC_1950_LESOTHO</td>
+<td>SRM_RTCOD_ARC_1950_LESOTHO</td>
+</tr>
+<tr><td>SRM_ORM_ARC_1950</td>
+<td>SRM_HSR_ARC_1950_MALAWI</td>
+<td>SRM_RTCOD_ARC_1950_MALAWI</td>
+</tr>
+<tr><td>SRM_ORM_ARC_1950</td>
+<td>SRM_HSR_ARC_1950_MEAN_SOLUTION</td>
+<td>SRM_RTCOD_ARC_1950_MEAN_SOLUTION</td>
+</tr>
+<tr><td>SRM_ORM_ARC_1950</td>
+<td>SRM_HSR_ARC_1950_SWAZILAND</td>
+<td>SRM_RTCOD_ARC_1950_SWAZILAND</td>
+</tr>
+<tr><td>SRM_ORM_ARC_1950</td>
+<td>SRM_HSR_ARC_1950_ZAIRE</td>
+<td>SRM_RTCOD_ARC_1950_ZAIRE</td>
+</tr>
+<tr><td>SRM_ORM_ARC_1950</td>
+<td>SRM_HSR_ARC_1950_ZAMBIA</td>
+<td>SRM_RTCOD_ARC_1950_ZAMBIA</td>
+</tr>
+<tr><td>SRM_ORM_ARC_1950</td>
+<td>SRM_HSR_ARC_1950_3_ZIMBABWE</td>
+<td>SRM_RTCOD_ARC_1950_3_ZIMBABWE</td>
+</tr>
+<tr><td>SRM_ORM_ARC_1960</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_ARC_1960</td>
+<td>SRM_HSR_ARC_1960_3_KENYA</td>
+<td>SRM_RTCOD_ARC_1960_3_KENYA</td>
+</tr>
+<tr><td>SRM_ORM_ARC_1960</td>
+<td>SRM_HSR_ARC_1960_MEAN_SOLUTION</td>
+<td>SRM_RTCOD_ARC_1960_MEAN_SOLUTION</td>
+</tr>
+<tr><td>SRM_ORM_ARC_1960</td>
+<td>SRM_HSR_ARC_1960_TANZANIA</td>
+<td>SRM_RTCOD_ARC_1960_TANZANIA</td>
+</tr>
+<tr><td>SRM_ORM_ARIEL_1988</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_ARIEL_1988</td>
+<td>SRM_HSR_ARIEL_1988_IDENTITY</td>
+<td>SRM_RTCOD_ARIEL_1988_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_ASCENSION_1958</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_ASCENSION_1958</td>
+<td>SRM_HSR_ASCENSION_1958_ASCENSION_ISLAND</td>
+<td>SRM_RTCOD_ASCENSION_1958_ASCENSION_ISLAND</td>
+</tr>
+<tr><td>SRM_ORM_ATLAS_1988</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_ATLAS_1988</td>
+<td>SRM_HSR_ATLAS_1988_IDENTITY</td>
+<td>SRM_RTCOD_ATLAS_1988_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_AUSTRALIAN_GEOD_1966</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_AUSTRALIAN_GEOD_1966</td>
+<td>SRM_HSR_AUSTRALIAN_GEOD_1966_AUSTRALIA_TASMANIA</td>
+<td>SRM_RTCOD_AUSTRALIAN_GEOD_1966_AUSTRALIA_TASMANIA</td>
+</tr>
+<tr><td>SRM_ORM_AUSTRALIAN_GEOD_1984</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_AUSTRALIAN_GEOD_1984</td>
+<td>SRM_HSR_AUSTRALIAN_GEOD_1984_3_AUSTRALIA_TASMANIA</td>
+<td>SRM_RTCOD_AUSTRALIAN_GEOD_1984_3_AUSTRALIA_TASMANIA</td>
+</tr>
+<tr><td>SRM_ORM_AUSTRALIAN_GEOD_1984</td>
+<td>SRM_HSR_AUSTRALIAN_GEOD_1984_7_AUSTRALIA_TASMANIA</td>
+<td>SRM_RTCOD_AUSTRALIAN_GEOD_1984_7_AUSTRALIA_TASMANIA</td>
+</tr>
+<tr><td>SRM_ORM_AYABELLE_LIGHTHOUSE_1991</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_AYABELLE_LIGHTHOUSE_1991</td>
+<td>SRM_HSR_AYABELLE_LGTHS_1991_DJIBOUTI</td>
+<td>SRM_RTCOD_AYABELLE_LIGHTHOUSE_1991_DJIBOUTI</td>
+</tr>
+<tr><td>SRM_ORM_BEACON_E_1945</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_BEACON_E_1945</td>
+<td>SRM_HSR_BEACON_E_1945_IWO_JIMA_ISLAND</td>
+<td>SRM_RTCOD_BEACON_E_1945_IWO_JIMA_ISLAND</td>
+</tr>
+<tr><td>SRM_ORM_BELGIUM_1972</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_BELINDA_1988</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_BELINDA_1988</td>
+<td>SRM_HSR_BELINDA_1988_IDENTITY</td>
+<td>SRM_RTCOD_BELINDA_1988_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_BELLEVUE_IGN_1987</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_BELLEVUE_IGN_1987</td>
+<td>SRM_HSR_BELLEVUE_IGN_1987_EFATE_ERROMANGO_ISLANDS</td>
+<td>SRM_RTCOD_BELLEVUE_IGN_1987_EFATE_ERROMANGO_ISLANDS</td>
+</tr>
+<tr><td>SRM_ORM_BERMUDA_1957</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_BERMUDA_1957</td>
+<td>SRM_HSR_BERMUDA_1957_BERMUDA</td>
+<td>SRM_RTCOD_BERMUDA_1957_BERMUDA</td>
+</tr>
+<tr><td>SRM_ORM_BERN_1898</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_BERN_1898_PM_BERN</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_BIANCA_1988</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_BIANCA_1988</td>
+<td>SRM_HSR_BIANCA_1988_IDENTITY</td>
+<td>SRM_RTCOD_BIANCA_1988_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_BISSAU_1991</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_BISSAU_1991</td>
+<td>SRM_HSR_BISSAU_1991_GUINEA_BISSAU</td>
+<td>SRM_RTCOD_BISSAU_1991_GUINEA_BISSAU</td>
+</tr>
+<tr><td>SRM_ORM_BOGOTA_OBS_1987</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_BOGOTA_OBS_1987</td>
+<td>SRM_HSR_BOG_OBS_1987_COLUMBIA</td>
+<td>SRM_RTCOD_BOGOTA_OBS_1987_COLOMBIA</td>
+</tr>
+<tr><td>SRM_ORM_BOGOTA_OBS_1987_PM_BOGOTA</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_BOGOTA_OBS_1987_PM_BOGOTA</td>
+<td>SRM_HSR_BOG_OBS_1987_PM_BOG_COLUMBIA</td>
+<td>SRM_RTCOD_BOGOTA_OBS_1987_PM_BOGOTA_COLOMBIA</td>
+</tr>
+<tr><td>SRM_ORM_BUKIT_RIMPAH_1987</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_BUKIT_RIMPAH_1987</td>
+<td>SRM_HSR_BUKIT_RIMPAH_1987_BANGKA_BELITUNG_ISLANDS</td>
+<td>SRM_RTCOD_BUKIT_RIMPAH_1987_BANGKA_BELITUNG_ISLANDS</td>
+</tr>
+<tr><td>SRM_ORM_CALLISTO_2000</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_CALLISTO_2000</td>
+<td>SRM_HSR_CALLISTO_2000_IDENTITY</td>
+<td>SRM_RTCOD_CALLISTO_2000_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_CALYPSO_1988</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_CALYPSO_1988</td>
+<td>SRM_HSR_CALYPSO_1988_IDENTITY</td>
+<td>SRM_RTCOD_CALYPSO_1988_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_CAMP_AREA_1987</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_CAMP_AREA_1987</td>
+<td>SRM_HSR_CAMP_AREA_1987_MCMURDO_CAMP</td>
+<td>SRM_RTCOD_CAMP_AREA_1987_MCMURDO_CAMP</td>
+</tr>
+<tr><td>SRM_ORM_CAMPO_INCHAUSPE_1969</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_CAMPO_INCHAUSPE_1969</td>
+<td>SRM_HSR_CAMPO_INCHAUSPE_1969_ARGENTINA</td>
+<td>SRM_RTCOD_CAMPO_INCHAUSPE_1969_ARGENTINA</td>
+</tr>
+<tr><td>SRM_ORM_CANTON_1966</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_CANTON_1966</td>
+<td>SRM_HSR_CANTON_1966_PHOENIX_ISLANDS</td>
+<td>SRM_RTCOD_CANTON_1966_PHOENIX_ISLANDS</td>
+</tr>
+<tr><td>SRM_ORM_CAPE_1987</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_CAPE_1987</td>
+<td>SRM_HSR_CAPE_1987_SOUTH_AFRICA</td>
+<td>SRM_RTCOD_CAPE_1987_SOUTH_AFRICA</td>
+</tr>
+<tr><td>SRM_ORM_CAPE_CANAVERAL_1991</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_CAPE_CANAVERAL_1991</td>
+<td>SRM_HSR_CAPE_CANAVERAL_1991_MEAN_SOLUTION</td>
+<td>SRM_RTCOD_CAPE_CANAVERAL_1991_MEAN_SOLUTION</td>
+</tr>
+<tr><td>SRM_ORM_CARTHAGE_1987</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_CARTHAGE_1987</td>
+<td>SRM_HSR_CARTHAGE_1987_TUNISIA</td>
+<td>SRM_RTCOD_CARTHAGE_1987_TUNISIA</td>
+</tr>
+<tr><td>SRM_ORM_CHARON_1991</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_CHARON_1991</td>
+<td>SRM_HSR_CHARON_1991_IDENTITY</td>
+<td>SRM_RTCOD_CHARON_1991_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_CHATHAM_1971</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_CHATHAM_1971</td>
+<td>SRM_HSR_CHATHAM_1971_CHATHAM_ISLANDS</td>
+<td>SRM_RTCOD_CHATHAM_1971_CHATHAM_ISLANDS</td>
+</tr>
+<tr><td>SRM_ORM_CHUA_1987</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_CHUA_1987</td>
+<td>SRM_HSR_CHUA_1987_PARAGUAY</td>
+<td>SRM_RTCOD_CHUA_1987_PARAGUAY</td>
+</tr>
+<tr><td>SRM_ORM_COAMPS_1998</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_COAMPS_1998</td>
+<td>SRM_HSR_COAMPS_1998_IDENTITY_BY_DEFAULT</td>
+<td>SRM_RTCOD_COAMPS_1998_IDENTITY_BY_DEFAULT</td>
+</tr>
+<tr><td>SRM_ORM_CORDELIA_1988</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_CORDELIA_1988</td>
+<td>SRM_HSR_CORDELIA_1988_IDENTITY</td>
+<td>SRM_RTCOD_CORDELIA_1988_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_CORREGO_ALEGRE_1987</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_CORREGO_ALEGRE_1987</td>
+<td>SRM_HSR_CORREGO_ALEGRE_1987_BRAZIL</td>
+<td>SRM_RTCOD_CORREGO_ALEGRE_1987_BRAZIL</td>
+</tr>
+<tr><td>SRM_ORM_CRESSIDA_1988</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_CRESSIDA_1988</td>
+<td>SRM_HSR_CRESSIDA_1988_IDENTITY</td>
+<td>SRM_RTCOD_CRESSIDA_1988_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_CYPRUS_1935</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_DABOLA_1991</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_DABOLA_1991</td>
+<td>SRM_HSR_DABOLA_1991_GUINEA</td>
+<td>SRM_RTCOD_DABOLA_1991_GUINEA</td>
+</tr>
+<tr><td>SRM_ORM_DECEPTION_1993</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_DECEPTION_1993</td>
+<td>SRM_HSR_DECEPTION_1993_DECEPTION_ISLAND</td>
+<td>SRM_RTCOD_DECEPTION_1993_DECEPTION_ISLAND</td>
+</tr>
+<tr><td>SRM_ORM_DEIMOS_1988</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_DEIMOS_1988</td>
+<td>SRM_HSR_DEIMOS_1988_IDENTITY</td>
+<td>SRM_RTCOD_DEIMOS_1988_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_DESDEMONA_1988</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_DESDEMONA_1988</td>
+<td>SRM_HSR_DESDEMONA_1988_IDENTITY</td>
+<td>SRM_RTCOD_DESDEMONA_1988_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_DESPINA_1991</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_DESPINA_1991</td>
+<td>SRM_HSR_DESPINA_1991_IDENTITY</td>
+<td>SRM_RTCOD_DESPINA_1991_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_DIONE_1982</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_DIONE_1982</td>
+<td>SRM_HSR_DIONE_1982_IDENTITY</td>
+<td>SRM_RTCOD_DIONE_1982_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_DJAKARTA_1987</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_DJAKARTA_1987</td>
+<td>SRM_HSR_DJK_1987_SUMATRA</td>
+<td>SRM_RTCOD_DJAKARTA_1987_SUMATRA</td>
+</tr>
+<tr><td>SRM_ORM_DJAKARTA_1987_PM_DJAKARTA</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_DJAKARTA_1987_PM_DJAKARTA</td>
+<td>SRM_HSR_DJK_1987_PM_DJK_SUMATRA</td>
+<td>SRM_RTCOD_DJAKARTA_1987_PM_DJAKARTA_SUMATRA</td>
+</tr>
+<tr><td>SRM_ORM_DOS_1968</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_DOS_1968</td>
+<td>SRM_HSR_DOS_1968_GIZO_ISLAND</td>
+<td>SRM_RTCOD_DOS_1968_GIZO_ISLAND</td>
+</tr>
+<tr><td>SRM_ORM_DOS_71_4_1987</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_EARTH_INERTIAL_ARIES_1950</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_EARTH_INERTIAL_ARIES_TRUE_OF_DATE</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_EARTH_INERTIAL_J2000R0</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_EARTH_SOLAR_ECLIPTIC</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_EARTH_SOLAR_EQUATORIAL</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_EARTH_SOLAR_MAG_DIPOLE</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_EARTH_SOLAR_MAGNETOSPHERIC</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_EASTER_1967</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_EASTER_1967</td>
+<td>SRM_HSR_EASTER_1967_EASTER_ISLAND</td>
+<td>SRM_RTCOD_EASTER_1967_EASTER_ISLAND</td>
+</tr>
+<tr><td>SRM_ORM_ENCELADUS_1994</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_ENCELADUS_1994</td>
+<td>SRM_HSR_ENCELADUS_1994_IDENTITY</td>
+<td>SRM_RTCOD_ENCELADUS_1994_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_EPIMETHEUS_1988</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_EPIMETHEUS_1988</td>
+<td>SRM_HSR_EPIMETHEUS_1988_IDENTITY</td>
+<td>SRM_RTCOD_EPIMETHEUS_1988_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_EROS_2000</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_EROS_2000</td>
+<td>SRM_HSR_EROS_2000_IDENTITY</td>
+<td>SRM_RTCOD_EROS_2000_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_ESTONIA_1937</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_ESTONIA_1937</td>
+<td>SRM_HSR_ESTONIA_1937_ESTONIA</td>
+<td>SRM_RTCOD_ESTONIA_1937_ESTONIA</td>
+</tr>
+<tr><td>SRM_ORM_ETRS_1989</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_ETRS_1989</td>
+<td>SRM_HSR_ETRS_1989_IDENTITY_BY_MEASUREMENT</td>
+<td>SRM_RTCOD_ETRS_1989_IDENTITY_BY_MEASUREMENT</td>
+</tr>
+<tr><td>SRM_ORM_EUROPA_2000</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_EUROPA_2000</td>
+<td>SRM_HSR_EUROPA_2000_IDENTITY</td>
+<td>SRM_RTCOD_EUROPA_2000_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_EUROPE_1950</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_EUROPE_1950</td>
+<td>SRM_HSR_EUROPE_1950_CHANNEL_ISLANDS</td>
+<td>SRM_RTCOD_EUROPE_1950_CHANNEL_ISLANDS</td>
+</tr>
+<tr><td>SRM_ORM_EUROPE_1950</td>
+<td>SRM_HSR_EUROPE_1950_3_CYPRUS</td>
+<td>SRM_RTCOD_EUROPE_1950_3_CYPRUS</td>
+</tr>
+<tr><td>SRM_ORM_EUROPE_1950</td>
+<td>SRM_HSR_EUROPE_1950_EGYPT</td>
+<td>SRM_RTCOD_EUROPE_1950_EGYPT</td>
+</tr>
+<tr><td>SRM_ORM_EUROPE_1950</td>
+<td>SRM_HSR_EUROPE_1950_ENGLAND_SCOTLAND</td>
+<td>SRM_RTCOD_EUROPE_1950_ENGLAND_SCOTLAND</td>
+</tr>
+<tr><td>SRM_ORM_EUROPE_1950</td>
+<td>SRM_HSR_EUROPE_1950_GREECE</td>
+<td>SRM_RTCOD_EUROPE_1950_GREECE</td>
+</tr>
+<tr><td>SRM_ORM_EUROPE_1950</td>
+<td>SRM_HSR_EUROPE_1950_IRAN</td>
+<td>SRM_RTCOD_EUROPE_1950_IRAN</td>
+</tr>
+<tr><td>SRM_ORM_EUROPE_1950</td>
+<td>SRM_HSR_EUROPE_1950_IRAQ</td>
+<td>SRM_RTCOD_EUROPE_1950_IRAQ</td>
+</tr>
+<tr><td>SRM_ORM_EUROPE_1950</td>
+<td>SRM_HSR_EUROPE_1950_IRELAND</td>
+<td>SRM_RTCOD_EUROPE_1950_IRELAND</td>
+</tr>
+<tr><td>SRM_ORM_EUROPE_1950</td>
+<td>SRM_HSR_EUROPE_1950_MALTA</td>
+<td>SRM_RTCOD_EUROPE_1950_MALTA</td>
+</tr>
+<tr><td>SRM_ORM_EUROPE_1950</td>
+<td>SRM_HSR_EUROPE_1950_MEAN_SOLUTION</td>
+<td>SRM_RTCOD_EUROPE_1950_MEAN_SOLUTION</td>
+</tr>
+<tr><td>SRM_ORM_EUROPE_1950</td>
+<td>SRM_HSR_EUROPE_1950_NORWAY</td>
+<td>SRM_RTCOD_EUROPE_1950_NORWAY</td>
+</tr>
+<tr><td>SRM_ORM_EUROPE_1950</td>
+<td>SRM_HSR_EUROPE_1950_PORTUGAL_SPAIN</td>
+<td>SRM_RTCOD_EUROPE_1950_PORTUGAL_SPAIN</td>
+</tr>
+<tr><td>SRM_ORM_EUROPE_1950</td>
+<td>SRM_HSR_EUROPE_1950_SARDINIA</td>
+<td>SRM_RTCOD_EUROPE_1950_SARDINIA</td>
+</tr>
+<tr><td>SRM_ORM_EUROPE_1950</td>
+<td>SRM_HSR_EUROPE_1950_SICILY</td>
+<td>SRM_RTCOD_EUROPE_1950_SICILY</td>
+</tr>
+<tr><td>SRM_ORM_EUROPE_1950</td>
+<td>SRM_HSR_EUROPE_1950_TUNISIA</td>
+<td>SRM_RTCOD_EUROPE_1950_TUNISIA</td>
+</tr>
+<tr><td>SRM_ORM_EUROPE_1950</td>
+<td>SRM_HSR_EUROPE_1950_W_EUROPE_MEAN_SOLUTION</td>
+<td>SRM_RTCOD_EUROPE_1950_W_EUROPE_MEAN_SOLUTION</td>
+</tr>
+<tr><td>SRM_ORM_EUROPE_1979</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_EUROPE_1979</td>
+<td>SRM_HSR_EUROPE_1979_MEAN_SOLUTION</td>
+<td>SRM_RTCOD_EUROPE_1979_MEAN_SOLUTION</td>
+</tr>
+<tr><td>SRM_ORM_FAHUD_1987</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_FAHUD_1987</td>
+<td>SRM_HSR_FAHUD_1987_3_OMAN</td>
+<td>SRM_RTCOD_FAHUD_1987_3_OMAN</td>
+</tr>
+<tr><td>SRM_ORM_FAHUD_1987</td>
+<td>SRM_HSR_FAHUD_1987_7_OMAN</td>
+<td>SRM_RTCOD_FAHUD_1987_7_OMAN</td>
+</tr>
+<tr><td>SRM_ORM_FORT_THOMAS_1955</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_FORT_THOMAS_1955</td>
+<td>SRM_HSR_FORT_THOMAS_1955_ST_KITTS_NEVIS_LEEWARD_ISLANDS</td>
+<td>SRM_RTCOD_FORT_THOMAS_1955_ST_KITTS_NEVIS_LEEWARD_ISLANDS</td>
+</tr>
+<tr><td>SRM_ORM_GALATEA_1991</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_GALATEA_1991</td>
+<td>SRM_HSR_GALATEA_1991_IDENTITY</td>
+<td>SRM_RTCOD_GALATEA_1991_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_GAN_1970</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_GAN_1970</td>
+<td>SRM_HSR_GAN_1970_MALDIVES</td>
+<td>SRM_RTCOD_GAN_1970_MALDIVES</td>
+</tr>
+<tr><td>SRM_ORM_GANYMEDE_2000</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_GANYMEDE_2000</td>
+<td>SRM_HSR_GANYMEDE_2000_IDENTITY</td>
+<td>SRM_RTCOD_GANYMEDE_2000_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_GANYMEDE_MAGNETIC_2000</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_GASPRA_1991</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_GASPRA_1991</td>
+<td>SRM_HSR_GASPRA_1991_IDENTITY</td>
+<td>SRM_RTCOD_GASPRA_1991_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_GDA_1994</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_GDA_1994</td>
+<td>SRM_HSR_GDA_1994_IDENTITY_BY_MEASUREMENT</td>
+<td>SRM_RTCOD_GDA_1994_IDENTITY_BY_MEASUREMENT</td>
+</tr>
+<tr><td>SRM_ORM_GEODETIC_DATUM_1949</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_GEODETIC_DATUM_1949</td>
+<td>SRM_HSR_GEODETIC_DATUM_1949_3_NEW_ZEALAND</td>
+<td>SRM_RTCOD_GEODETIC_DATUM_1949_3_NEW_ZEALAND</td>
+</tr>
+<tr><td>SRM_ORM_GEODETIC_DATUM_1949</td>
+<td>SRM_HSR_GEODETIC_DATUM_1949_7_NEW_ZEALAND</td>
+<td>SRM_RTCOD_GEODETIC_DATUM_1949_7_NEW_ZEALAND</td>
+</tr>
+<tr><td>SRM_ORM_GEOMAGNETIC_1945</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_GEOMAGNETIC_1945</td>
+<td>SRM_HSR_GEOMAGNETIC_1945_DGRF</td>
+<td>SRM_RTCOD_GEOMAGNETIC_1945_DGRF</td>
+</tr>
+<tr><td>SRM_ORM_GEOMAGNETIC_1950</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_GEOMAGNETIC_1950</td>
+<td>SRM_HSR_GEOMAGNETIC_1950_DGRF</td>
+<td>SRM_RTCOD_GEOMAGNETIC_1950_DGRF</td>
+</tr>
+<tr><td>SRM_ORM_GEOMAGNETIC_1955</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_GEOMAGNETIC_1955</td>
+<td>SRM_HSR_GEOMAGNETIC_1955_DGRF</td>
+<td>SRM_RTCOD_GEOMAGNETIC_1955_DGRF</td>
+</tr>
+<tr><td>SRM_ORM_GEOMAGNETIC_1960</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_GEOMAGNETIC_1960</td>
+<td>SRM_HSR_GEOMAGNETIC_1960_DGRF</td>
+<td>SRM_RTCOD_GEOMAGNETIC_1960_DGRF</td>
+</tr>
+<tr><td>SRM_ORM_GEOMAGNETIC_1965</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_GEOMAGNETIC_1965</td>
+<td>SRM_HSR_GEOMAGNETIC_1965_DGRF</td>
+<td>SRM_RTCOD_GEOMAGNETIC_1965_DGRF</td>
+</tr>
+<tr><td>SRM_ORM_GEOMAGNETIC_1970</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_GEOMAGNETIC_1970</td>
+<td>SRM_HSR_GEOMAGNETIC_1970_DGRF</td>
+<td>SRM_RTCOD_GEOMAGNETIC_1970_DGRF</td>
+</tr>
+<tr><td>SRM_ORM_GEOMAGNETIC_1975</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_GEOMAGNETIC_1975</td>
+<td>SRM_HSR_GEOMAGNETIC_1975_DGRF</td>
+<td>SRM_RTCOD_GEOMAGNETIC_1975_DGRF</td>
+</tr>
+<tr><td>SRM_ORM_GEOMAGNETIC_1980</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_GEOMAGNETIC_1980</td>
+<td>SRM_HSR_GEOMAGNETIC_1980_DGRF</td>
+<td>SRM_RTCOD_GEOMAGNETIC_1980_DGRF</td>
+</tr>
+<tr><td>SRM_ORM_GEOMAGNETIC_1985</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_GEOMAGNETIC_1985</td>
+<td>SRM_HSR_GEOMAGNETIC_1985_DGRF</td>
+<td>SRM_RTCOD_GEOMAGNETIC_1985_DGRF</td>
+</tr>
+<tr><td>SRM_ORM_GEOMAGNETIC_1990</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_GEOMAGNETIC_1990</td>
+<td>SRM_HSR_GEOMAGNETIC_1990_DGRF</td>
+<td>SRM_RTCOD_GEOMAGNETIC_1990_DGRF</td>
+</tr>
+<tr><td>SRM_ORM_GEOMAGNETIC_1995</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_GEOMAGNETIC_1995</td>
+<td>SRM_HSR_GEOMAGNETIC_1995_IGRF</td>
+<td>SRM_RTCOD_GEOMAGNETIC_1995_IGRF</td>
+</tr>
+<tr><td>SRM_ORM_GEOMAGNETIC_2000</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_GEOMAGNETIC_2000</td>
+<td>SRM_HSR_GEOMAGNETIC_2000_IGRF</td>
+<td>SRM_RTCOD_GEOMAGNETIC_2000_IGRF</td>
+</tr>
+<tr><td>SRM_ORM_GGRS_1987</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_GRACIOSA_BASE_SW_1948</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_GRACIOSA_BASE_SW_1948</td>
+<td>SRM_HSR_GRACIOSA_BASE_SW_1948_CENTRAL_AZORES</td>
+<td>SRM_RTCOD_GRACIOSA_BASE_SW_1948_CENTRAL_AZORES</td>
+</tr>
+<tr><td>SRM_ORM_GUAM_1963</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_GUAM_1963</td>
+<td>SRM_HSR_GUAM_1963_GUAM</td>
+<td>SRM_RTCOD_GUAM_1963_GUAM</td>
+</tr>
+<tr><td>SRM_ORM_GUNONG_SEGARA_1987</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_GUNONG_SEGARA_1987</td>
+<td>SRM_HSR_GUNONG_SEGARA_1987_KALIMANTAN_ISLAND</td>
+<td>SRM_RTCOD_GUNONG_SEGARA_1987_KALIMANTAN_ISLAND</td>
+</tr>
+<tr><td>SRM_ORM_GUX_1_1987</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_GUX_1_1987</td>
+<td>SRM_HSR_GUX_1_1987_GUADALCANAL_ISLAND</td>
+<td>SRM_RTCOD_GUX_1_1987_GUADALCANAL_ISLAND</td>
+</tr>
+<tr><td>SRM_ORM_HARTEBEESTHOCK_1994</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_HELENE_1992</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_HELENE_1992</td>
+<td>SRM_HSR_HELENE_1992_IDENTITY</td>
+<td>SRM_RTCOD_HELENE_1992_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_HELIO_ARIES_ECLIPTIC_J2000R0</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_HELIO_ARIES_ECLIPTIC_TRUE_OF_DATE</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_HELIO_EARTH_ECLIPTIC</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_HELIO_EARTH_EQUATORIAL</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_HERAT_NORTH_1987</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_HERAT_NORTH_1987</td>
+<td>SRM_HSR_HERAT_NORTH_1987_AFGHANISTAN</td>
+<td>SRM_RTCOD_HERAT_NORTH_1987_AFGHANISTAN</td>
+</tr>
+<tr><td>SRM_ORM_HERMANNSKOGEL_1871</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_HERMANNSKOGEL_1871</td>
+<td>SRM_HSR_HERMANNSKOGEL_1871_3_YUGOSLAVIA</td>
+<td>SRM_RTCOD_HERMANNSKOGEL_1871_3_YUGOSLAVIA</td>
+</tr>
+<tr><td>SRM_ORM_HJORSEY_1955</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_HJORSEY_1955</td>
+<td>SRM_HSR_HJORSEY_1955_ICELAND</td>
+<td>SRM_RTCOD_HJORSEY_1955_ICELAND</td>
+</tr>
+<tr><td>SRM_ORM_HONG_KONG_1963</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_HONG_KONG_1963</td>
+<td>SRM_HSR_HONG_KONG_1963_HONG_KONG</td>
+<td>SRM_RTCOD_HONG_KONG_1963_HONG_KONG</td>
+</tr>
+<tr><td>SRM_ORM_HONG_KONG_1980</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_HU_TZU_SHAN_1991</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_HU_TZU_SHAN_1991</td>
+<td>SRM_HSR_HU_TZU_SHAN_1991_TAIWAN</td>
+<td>SRM_RTCOD_HU_TZU_SHAN_1991_TAIWAN</td>
+</tr>
+<tr><td>SRM_ORM_HUNGARIAN_1972</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_IAPETUS_1988</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_IAPETUS_1988</td>
+<td>SRM_HSR_IAPETUS_1988_IDENTITY</td>
+<td>SRM_RTCOD_IAPETUS_1988_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_IDA_1991</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_IDA_1991</td>
+<td>SRM_HSR_IDA_1991_IDENTITY</td>
+<td>SRM_RTCOD_IDA_1991_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_INDIAN_1916</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_INDIAN_1916</td>
+<td>SRM_HSR_INDIAN_1916_3_BANGLADESH</td>
+<td>SRM_RTCOD_INDIAN_1916_3_BANGLADESH</td>
+</tr>
+<tr><td>SRM_ORM_INDIAN_1916</td>
+<td>SRM_HSR_INDIAN_1916_7_BANGLADESH</td>
+<td>SRM_RTCOD_INDIAN_1916_7_BANGLADESH</td>
+</tr>
+<tr><td>SRM_ORM_INDIAN_1954</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_INDIAN_1954</td>
+<td>SRM_HSR_INDIAN_1954_THAILAND</td>
+<td>SRM_RTCOD_INDIAN_1954_THAILAND</td>
+</tr>
+<tr><td>SRM_ORM_INDIAN_1956</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_INDIAN_1956</td>
+<td>SRM_HSR_INDIAN_1956_INDIA_NEPAL</td>
+<td>SRM_RTCOD_INDIAN_1956_INDIA_NEPAL</td>
+</tr>
+<tr><td>SRM_ORM_INDIAN_1960</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_INDIAN_1960</td>
+<td>SRM_HSR_INDIAN_1960_CON_SON_ISLAND</td>
+<td>SRM_RTCOD_INDIAN_1960_CON_SON_ISLAND</td>
+</tr>
+<tr><td>SRM_ORM_INDIAN_1960</td>
+<td>SRM_HSR_INDIAN_1960_VIETNAM_16_N</td>
+<td>SRM_RTCOD_INDIAN_1960_VIETNAM_16_N</td>
+</tr>
+<tr><td>SRM_ORM_INDIAN_1962</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_INDIAN_1962</td>
+<td>SRM_HSR_INDIAN_1962_PAKISTAN</td>
+<td>SRM_RTCOD_INDIAN_1962_PAKISTAN</td>
+</tr>
+<tr><td>SRM_ORM_INDIAN_1975</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_INDIAN_1975</td>
+<td>SRM_HSR_INDIAN_1975_1991_THAILAND</td>
+<td>SRM_RTCOD_INDIAN_1975_1991_THAILAND</td>
+</tr>
+<tr><td>SRM_ORM_INDIAN_1975</td>
+<td>SRM_HSR_INDIAN_1975_1997_THAILAND</td>
+<td>SRM_RTCOD_INDIAN_1975_1997_THAILAND</td>
+</tr>
+<tr><td>SRM_ORM_INDONESIAN_1974</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_INDONESIAN_1974</td>
+<td>SRM_HSR_INDONESIAN_1974_INDONESIA</td>
+<td>SRM_RTCOD_INDONESIAN_1974_INDONESIA</td>
+</tr>
+<tr><td>SRM_ORM_IO_2000</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_IO_2000</td>
+<td>SRM_HSR_IO_2000_IDENTITY</td>
+<td>SRM_RTCOD_IO_2000_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_IRAQ_KUWAIT_BNDRY_1992</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_IRELAND_1965</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_IRELAND_1965</td>
+<td>SRM_HSR_IRELAND_1965_3_IRELAND</td>
+<td>SRM_RTCOD_IRELAND_1965_3_IRELAND</td>
+</tr>
+<tr><td>SRM_ORM_IRELAND_1965</td>
+<td>SRM_HSR_IRELAND_1965_7_IRELAND</td>
+<td>SRM_RTCOD_IRELAND_1965_7_IRELAND</td>
+</tr>
+<tr><td>SRM_ORM_ISTS_061_1968</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_ISTS_061_1968</td>
+<td>SRM_HSR_ISTS_061_1968_SOUTH_GEORGIA_ISLAND</td>
+<td>SRM_RTCOD_ISTS_061_1968_SOUTH_GEORGIA_ISLAND</td>
+</tr>
+<tr><td>SRM_ORM_ISTS_073_1969</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_ISTS_073_1969</td>
+<td>SRM_HSR_ISTS_073_1969_DIEGO_GARCIA</td>
+<td>SRM_RTCOD_ISTS_073_1969_DIEGO_GARCIA</td>
+</tr>
+<tr><td>SRM_ORM_JANUS_1988</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_JANUS_1988</td>
+<td>SRM_HSR_JANUS_1988_IDENTITY</td>
+<td>SRM_RTCOD_JANUS_1988_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_JGD_2000</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_JGD_2000</td>
+<td>SRM_HSR_JGD_2000_IDENTITY_BY_MEASUREMENT</td>
+<td>SRM_RTCOD_JGD_2000_IDENTITY_BY_MEASUREMENT</td>
+</tr>
+<tr><td>SRM_ORM_JOHNSTON_1961</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_JOHNSTON_1961</td>
+<td>SRM_HSR_JOHNSTON_1961_JOHNSTON_ISLAND</td>
+<td>SRM_RTCOD_JOHNSTON_1961_JOHNSTON_ISLAND</td>
+</tr>
+<tr><td>SRM_ORM_JULIET_1988</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_JULIET_1988</td>
+<td>SRM_HSR_JULIET_1988_IDENTITY</td>
+<td>SRM_RTCOD_JULIET_1988_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_JUPITER_1988</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_JUPITER_1988</td>
+<td>SRM_HSR_JUPITER_1988_IDENTITY</td>
+<td>SRM_RTCOD_JUPITER_1988_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_JUPITER_INERTIAL</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_JUPITER_MAGNETIC_1992</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_JUPITER_MAGNETIC_1992</td>
+<td>SRM_HSR_JUPITER_MAGNETIC_1992_VOYAGER</td>
+<td>SRM_RTCOD_JUPITER_MAGNETIC_1993_VOYAGER</td>
+</tr>
+<tr><td>SRM_ORM_JUPITER_SOLAR_ECLIPTIC</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_JUPITER_SOLAR_EQUATORIAL</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_JUPITER_SOLAR_MAG_DIPOLE</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_JUPITER_SOLAR_MAG_ECLIPTIC</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_KANDAWALA_1987</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_KANDAWALA_1987</td>
+<td>SRM_HSR_KANDAWALA_1987_3_SRI_LANKA</td>
+<td>SRM_RTCOD_KANDAWALA_1987_3_SRI_LANKA</td>
+</tr>
+<tr><td>SRM_ORM_KERGUELEN_1949</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_KERGUELEN_1949</td>
+<td>SRM_HSR_KERGUELEN_1949_KERGUELEN_ISLAND</td>
+<td>SRM_RTCOD_KERGUELEN_1949_KERGUELEN_ISLAND</td>
+</tr>
+<tr><td>SRM_ORM_KERTAU_1948</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_KERTAU_1948</td>
+<td>SRM_HSR_KERTAU_1948_3_W_MALAYSIA_SINGAPORE</td>
+<td>SRM_RTCOD_KERTAU_1948_3_W_MALAYSIA_SINGAPORE</td>
+</tr>
+<tr><td>SRM_ORM_KOREAN_GEODETIC_1995</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_KOREAN_GEODETIC_1995</td>
+<td>SRM_HSR_KOREAN_GEODETIC_1995_SOUTH_KOREA</td>
+<td>SRM_RTCOD_KOREAN_GEODETIC_1995_SOUTH_KOREA</td>
+</tr>
+<tr><td>SRM_ORM_KUSAIE_1951</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_KUSAIE_1951</td>
+<td>SRM_HSR_KUSAIE_1951_CAROLINE_ISLANDS</td>
+<td>SRM_RTCOD_KUSAIE_1951_CAROLINE_ISLANDS</td>
+</tr>
+<tr><td>SRM_ORM_LANDESVERMESSUNG_1995</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_LARISSA_1991</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_LARISSA_1991</td>
+<td>SRM_HSR_LARISSA_1991_IDENTITY</td>
+<td>SRM_RTCOD_LARISSA_1991_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_LC5_1961</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_LC5_1961</td>
+<td>SRM_HSR_LC5_1961_CAYMAN_BRAC_ISLAND</td>
+<td>SRM_RTCOD_LC5_1961_CAYMAN_BRAC_ISLAND</td>
+</tr>
+<tr><td>SRM_ORM_LEIGON_1991</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_LEIGON_1991</td>
+<td>SRM_HSR_LEIGON_1991_3_GHANA</td>
+<td>SRM_RTCOD_LEIGON_1991_3_GHANA</td>
+</tr>
+<tr><td>SRM_ORM_LEIGON_1991</td>
+<td>SRM_HSR_LEIGON_1991_7_GHANA</td>
+<td>SRM_RTCOD_LEIGON_1991_7_GHANA</td>
+</tr>
+<tr><td>SRM_ORM_LIBERIA_1964</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_LIBERIA_1964</td>
+<td>SRM_HSR_LIBERIA_1964_LIBERIA</td>
+<td>SRM_RTCOD_LIBERIA_1964_LIBERIA</td>
+</tr>
+<tr><td>SRM_ORM_LISBON_D73</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_LKS_1994</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_LUZON_1987</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_LUZON_1987</td>
+<td>SRM_HSR_LUZON_1987_MINDANAO_ISLAND</td>
+<td>SRM_RTCOD_LUZON_1987_MINDANAO_ISLAND</td>
+</tr>
+<tr><td>SRM_ORM_LUZON_1987</td>
+<td>SRM_HSR_LUZON_1987_PHILIPPINES_EXCLUDING_MINDANAO_ISLAND</td>
+<td>SRM_RTCOD_LUZON_1987_PHILIPPINES_EXCLUDING_MINDANAO_ISLAND</td>
+</tr>
+<tr><td>SRM_ORM_M_PORALOKO_1991</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_M_PORALOKO_1991</td>
+<td>SRM_HSR_M_PORALOKO_1991_GABON</td>
+<td>SRM_RTCOD_M_PORALOKO_1991_GABON</td>
+</tr>
+<tr><td>SRM_ORM_MAHE_1971</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_MAHE_1971</td>
+<td>SRM_HSR_MAHE_1971_MAHE_ISLAND</td>
+<td>SRM_RTCOD_MAHE_1971_MAHE_ISLAND</td>
+</tr>
+<tr><td>SRM_ORM_MARCUS_STATION_1952</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_MARCUS_STATION_1952</td>
+<td>SRM_HSR_MARCUS_STATION_1952_MARCUS_ISLANDS</td>
+<td>SRM_RTCOD_MARCUS_STATION_1952_MARCUS_ISLANDS</td>
+</tr>
+<tr><td>SRM_ORM_MARS_2000</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_MARS_2000</td>
+<td>SRM_HSR_MARS_2000_IDENTITY</td>
+<td>SRM_RTCOD_MARS_2000_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_MARS_INERTIAL</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_MARS_SPHERE_2000</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_MARS_SPHERE_2000</td>
+<td>SRM_HSR_MARS_SPHERE_2000_GLOBAL</td>
+<td>SRM_RTCOD_MARS_SPHERE_2000_GLOBAL</td>
+</tr>
+<tr><td>SRM_ORM_MASS_1999</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_MASS_1999</td>
+<td>SRM_HSR_MASS_1999_IDENTITY_BY_DEFAULT</td>
+<td>SRM_RTCOD_MASS_1999_IDENTITY_BY_DEFAULT</td>
+</tr>
+<tr><td>SRM_ORM_MASSAWA_1987</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_MASSAWA_1987</td>
+<td>SRM_HSR_MASSAWA_1987_ERITREA_ETHIOPIA</td>
+<td>SRM_RTCOD_MASSAWA_1987_ERITREA_ETHIOPIA</td>
+</tr>
+<tr><td>SRM_ORM_MERCHICH_1987</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_MERCHICH_1987</td>
+<td>SRM_HSR_MERCHICH_1987_MOROCCO</td>
+<td>SRM_RTCOD_MERCHICH_1987_MOROCCO</td>
+</tr>
+<tr><td>SRM_ORM_MERCURY_1988</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_MERCURY_1988</td>
+<td>SRM_HSR_MERCURY_1988_IDENTITY</td>
+<td>SRM_RTCOD_MERCURY_1988_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_MERCURY_INERTIAL</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_METIS_2000</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_METIS_2000</td>
+<td>SRM_HSR_METIS_2000_IDENTITY</td>
+<td>SRM_RTCOD_METIS_2000_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_MIDWAY_1961</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_MIDWAY_1961</td>
+<td>SRM_HSR_MIDWAY_1961_MIDWAY_ISLANDS</td>
+<td>SRM_RTCOD_MIDWAY_1961_MIDWAY_ISLANDS</td>
+</tr>
+<tr><td>SRM_ORM_MIMAS_1994</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_MIMAS_1994</td>
+<td>SRM_HSR_MIMAS_1994_IDENTITY</td>
+<td>SRM_RTCOD_MIMAS_1994_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_MINNA_1991</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_MINNA_1991</td>
+<td>SRM_HSR_MINNA_1991_CAMEROON</td>
+<td>SRM_RTCOD_MINNA_1991_CAMEROON</td>
+</tr>
+<tr><td>SRM_ORM_MINNA_1991</td>
+<td>SRM_HSR_MINNA_1991_NIGERIA</td>
+<td>SRM_RTCOD_MINNA_1991_NIGERIA</td>
+</tr>
+<tr><td>SRM_ORM_MIRANDA_1988</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_MIRANDA_1988</td>
+<td>SRM_HSR_MIRANDA_1988_IDENTITY</td>
+<td>SRM_RTCOD_MIRANDA_1988_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_MM5_1997</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_MM5_1997</td>
+<td>SRM_HSR_MM5_1997_IDENTITY_BY_DEFAULT</td>
+<td>SRM_RTCOD_MM5_1997_IDENTITY_BY_DEFAULT</td>
+</tr>
+<tr><td>SRM_ORM_MODTRAN_MIDLATITUDE_N_1989</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_MODTRAN_MIDLATITUDE_N_1989</td>
+<td>SRM_HSR_MODTRAN_MLAT_N_1989_IDENTITY_BY_DEFAULT</td>
+<td>SRM_RTCOD_MODTRAN_MIDLATITUDE_N_1989_IDENTITY_BY_DEFAULT</td>
+</tr>
+<tr><td>SRM_ORM_MODTRAN_MIDLATITUDE_S_1989</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_MODTRAN_MIDLATITUDE_S_1989</td>
+<td>SRM_HSR_MODTRAN_MLAT_S_1989_IDENTITY_BY_DEFAULT</td>
+<td>SRM_RTCOD_MODTRAN_MIDLATITUDE_S_1989_IDENTITY_BY_DEFAULT</td>
+</tr>
+<tr><td>SRM_ORM_MODTRAN_SUBARCTIC_N_1989</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_MODTRAN_SUBARCTIC_N_1989</td>
+<td>SRM_HSR_MODTRAN_SARC_N_1989_IDENTITY_BY_DEFAULT</td>
+<td>SRM_RTCOD_MODTRAN_SUBARCTIC_N_1989_IDENTITY_BY_DEFAULT</td>
+</tr>
+<tr><td>SRM_ORM_MODTRAN_SUBARCTIC_S_1989</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_MODTRAN_SUBARCTIC_S_1989</td>
+<td>SRM_HSR_MODTRAN_SARC_S_1989_IDENTITY_BY_DEFAULT</td>
+<td>SRM_RTCOD_MODTRAN_SUBARCTIC_S_1989_IDENTITY_BY_DEFAULT</td>
+</tr>
+<tr><td>SRM_ORM_MODTRAN_TROPICAL_1989</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_MODTRAN_TROPICAL_1989</td>
+<td>SRM_HSR_MODTRAN_TROPICAL_1989_IDENTITY_BY_DEFAULT</td>
+<td>SRM_RTCOD_MODTRAN_TROPICAL_1989_IDENTITY_BY_DEFAULT</td>
+</tr>
+<tr><td>SRM_ORM_MONTSERRAT_1958</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_MONTSERRAT_1958</td>
+<td>SRM_HSR_MONTSERRAT_1958_MONTSERRAT_LEEWARD_ISLANDS</td>
+<td>SRM_RTCOD_MONTSERRAT_1958_MONTSERRAT_LEEWARD_ISLANDS</td>
+</tr>
+<tr><td>SRM_ORM_MOON_1991</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_MOON_1991</td>
+<td>SRM_HSR_MOON_1991_IDENTITY</td>
+<td>SRM_RTCOD_MOON_1991_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_MULTIGEN_FLAT_EARTH_1989</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_MULTIGEN_FLAT_EARTH_1989</td>
+<td>SRM_HSR_MG_FLAT_EARTH_1989_IDENTITY_BY_DEFAULT</td>
+<td>SRM_RTCOD_MULTIGEN_FLAT_EARTH_1989_IDENTITY_BY_DEFAULT</td>
+</tr>
+<tr><td>SRM_ORM_N_AM_1927</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_N_AM_1927</td>
+<td>SRM_HSR_N_AM_1927_ALASKA_EXCLUDING_ALEUTIAN_ISLANDS</td>
+<td>SRM_RTCOD_N_AM_1927_ALASKA_EXCLUDING_ALEUTIAN_ISLANDS</td>
+</tr>
+<tr><td>SRM_ORM_N_AM_1927</td>
+<td>SRM_HSR_N_AM_1927_ALBERTA_BRITISH_COLUMBIA</td>
+<td>SRM_RTCOD_N_AM_1927_ALBERTA_BRITISH_COLUMBIA</td>
+</tr>
+<tr><td>SRM_ORM_N_AM_1927</td>
+<td>SRM_HSR_N_AM_1927_BAHAMAS_EXCLUDING_SAN_SALVADOR_ISLAND</td>
+<td>SRM_RTCOD_N_AM_1927_BAHAMAS_EXCLUDING_SAN_SALVADOR_ISLAND</td>
+</tr>
+<tr><td>SRM_ORM_N_AM_1927</td>
+<td>SRM_HSR_N_AM_1927_CANADA</td>
+<td>SRM_RTCOD_N_AM_1927_CANADA</td>
+</tr>
+<tr><td>SRM_ORM_N_AM_1927</td>
+<td>SRM_HSR_N_AM_1927_CANAL_ZONE</td>
+<td>SRM_RTCOD_N_AM_1927_CANAL_ZONE</td>
+</tr>
+<tr><td>SRM_ORM_N_AM_1927</td>
+<td>SRM_HSR_N_AM_1927_CARIBBEAN</td>
+<td>SRM_RTCOD_N_AM_1927_CARIBBEAN</td>
+</tr>
+<tr><td>SRM_ORM_N_AM_1927</td>
+<td>SRM_HSR_N_AM_1927_CENTRAL_AMERICA</td>
+<td>SRM_RTCOD_N_AM_1927_CENTRAL_AMERICA</td>
+</tr>
+<tr><td>SRM_ORM_N_AM_1927</td>
+<td>SRM_HSR_N_AM_1927_CONTINENTAL_US</td>
+<td>SRM_RTCOD_N_AM_1927_CONTINENTAL_US</td>
+</tr>
+<tr><td>SRM_ORM_N_AM_1927</td>
+<td>SRM_HSR_N_AM_1927_CUBA</td>
+<td>SRM_RTCOD_N_AM_1927_CUBA</td>
+</tr>
+<tr><td>SRM_ORM_N_AM_1927</td>
+<td>SRM_HSR_N_AM_1927_EAST_ALEUTIAN_ISLANDS</td>
+<td>SRM_RTCOD_N_AM_1927_EAST_ALEUTIAN_ISLANDS</td>
+</tr>
+<tr><td>SRM_ORM_N_AM_1927</td>
+<td>SRM_HSR_N_AM_1927_EASTERN_CANADA</td>
+<td>SRM_RTCOD_N_AM_1927_EASTERN_CANADA</td>
+</tr>
+<tr><td>SRM_ORM_N_AM_1927</td>
+<td>SRM_HSR_N_AM_1927_EASTERN_US</td>
+<td>SRM_RTCOD_N_AM_1927_EASTERN_US</td>
+</tr>
+<tr><td>SRM_ORM_N_AM_1927</td>
+<td>SRM_HSR_N_AM_1927_HAYES_PENINSULA</td>
+<td>SRM_RTCOD_N_AM_1927_HAYES_PENINSULA</td>
+</tr>
+<tr><td>SRM_ORM_N_AM_1927</td>
+<td>SRM_HSR_N_AM_1927_MANITOBA_ONTARIO</td>
+<td>SRM_RTCOD_N_AM_1927_MANITOBA_ONTARIO</td>
+</tr>
+<tr><td>SRM_ORM_N_AM_1927</td>
+<td>SRM_HSR_N_AM_1927_MEXICO</td>
+<td>SRM_RTCOD_N_AM_1927_MEXICO</td>
+</tr>
+<tr><td>SRM_ORM_N_AM_1927</td>
+<td>SRM_HSR_N_AM_1927_NORTHWEST_TERRITORIES_SASKATCHEWAN</td>
+<td>SRM_RTCOD_N_AM_1927_NORTHWEST_TERRITORIES_SASKATCHEWAN</td>
+</tr>
+<tr><td>SRM_ORM_N_AM_1927</td>
+<td>SRM_HSR_N_AM_1927_SAN_SALVADOR_ISLAND</td>
+<td>SRM_RTCOD_N_AM_1927_SAN_SALVADOR_ISLAND</td>
+</tr>
+<tr><td>SRM_ORM_N_AM_1927</td>
+<td>SRM_HSR_N_AM_1927_WEST_ALEUTIAN_ISLANDS</td>
+<td>SRM_RTCOD_N_AM_1927_WEST_ALEUTIAN_ISLANDS</td>
+</tr>
+<tr><td>SRM_ORM_N_AM_1927</td>
+<td>SRM_HSR_N_AM_1927_WESTERN_US</td>
+<td>SRM_RTCOD_N_AM_1927_WESTERN_US</td>
+</tr>
+<tr><td>SRM_ORM_N_AM_1927</td>
+<td>SRM_HSR_N_AM_1927_YUKON</td>
+<td>SRM_RTCOD_N_AM_1927_YUKON</td>
+</tr>
+<tr><td>SRM_ORM_N_AM_1983</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_N_AM_1983</td>
+<td>SRM_HSR_N_AM_1983_ALASKA_EXCLUDING_ALEUTIAN_ISLANDS</td>
+<td>SRM_RTCOD_N_AM_1983_ALASKA_EXCLUDING_ALEUTIAN_ISLANDS</td>
+</tr>
+<tr><td>SRM_ORM_N_AM_1983</td>
+<td>SRM_HSR_N_AM_1983_ALEUTIAN_ISLANDS</td>
+<td>SRM_RTCOD_N_AM_1983_ALEUTIAN_ISLANDS</td>
+</tr>
+<tr><td>SRM_ORM_N_AM_1983</td>
+<td>SRM_HSR_N_AM_1983_CANADA</td>
+<td>SRM_RTCOD_N_AM_1983_CANADA</td>
+</tr>
+<tr><td>SRM_ORM_N_AM_1983</td>
+<td>SRM_HSR_N_AM_1983_CONTINENTAL_US</td>
+<td>SRM_RTCOD_N_AM_1983_CONTINENTAL_US</td>
+</tr>
+<tr><td>SRM_ORM_N_AM_1983</td>
+<td>SRM_HSR_N_AM_1983_HAWAII</td>
+<td>SRM_RTCOD_N_AM_1983_HAWAII</td>
+</tr>
+<tr><td>SRM_ORM_N_AM_1983</td>
+<td>SRM_HSR_N_AM_1983_MEXICO_CENTRAL_AMERICA</td>
+<td>SRM_RTCOD_N_AM_1983_MEXICO_CENTRAL_AMERICA</td>
+</tr>
+<tr><td>SRM_ORM_N_SAHARA_1959</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_N_SAHARA_1959</td>
+<td>SRM_HSR_N_SAHARA_1959_ALGERIA</td>
+<td>SRM_RTCOD_N_SAHARA_1959_ALGERIA</td>
+</tr>
+<tr><td>SRM_ORM_NAHRWAN_1987</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_NAHRWAN_1987</td>
+<td>SRM_HSR_NAHRWAN_1987_MASIRAH_ISLAND</td>
+<td>SRM_RTCOD_NAHRWAN_1987_MASIRAH_ISLAND</td>
+</tr>
+<tr><td>SRM_ORM_NAHRWAN_1987</td>
+<td>SRM_HSR_NAHRWAN_1987_SAUDI_ARABIA</td>
+<td>SRM_RTCOD_NAHRWAN_1987_SAUDI_ARABIA</td>
+</tr>
+<tr><td>SRM_ORM_NAHRWAN_1987</td>
+<td>SRM_HSR_NAHRWAN_1987_UNITED_ARAB_EMIRATES</td>
+<td>SRM_RTCOD_NAHRWAN_1987_UNITED_ARAB_EMIRATES</td>
+</tr>
+<tr><td>SRM_ORM_NAIAD_1991</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_NAIAD_1991</td>
+<td>SRM_HSR_NAIAD_1991_IDENTITY</td>
+<td>SRM_RTCOD_NAIAD_1991_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_NAPARIMA_1991</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_NAPARIMA_1991</td>
+<td>SRM_HSR_NAPARIMA_1991_TRINIDAD_TOBAGO</td>
+<td>SRM_RTCOD_NAPARIMA_1991_TRINIDAD_TOBAGO</td>
+</tr>
+<tr><td>SRM_ORM_NEPTUNE_1991</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_NEPTUNE_1991</td>
+<td>SRM_HSR_NEPTUNE_1991_IDENTITY</td>
+<td>SRM_RTCOD_NEPTUNE_1991_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_NEPTUNE_INERTIAL</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_NEPTUNE_MAGNETIC_1993</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_NEPTUNE_MAGNETIC_1993</td>
+<td>SRM_HSR_NEPTUNE_MAGNETIC_1993_VOYAGER</td>
+<td>SRM_RTCOD_NEPTUNE_MAGNETIC_1993_VOYAGER</td>
+</tr>
+<tr><td>SRM_ORM_NOGAPS_1988</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_NOGAPS_1988</td>
+<td>SRM_HSR_NOGAPS_1988_IDENTITY_BY_DEFAULT</td>
+<td>SRM_RTCOD_NOGAPS_1988_IDENTITY_BY_DEFAULT</td>
+</tr>
+<tr><td>SRM_ORM_NTF_1896</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_NTF_1896</td>
+<td>SRM_HSR_NTF_1896_FRANCE</td>
+<td>SRM_RTCOD_NTF_1896_FRANCE</td>
+</tr>
+<tr><td>SRM_ORM_NTF_1896_PM_PARIS</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_NTF_1896_PM_PARIS</td>
+<td>SRM_HSR_NTF_1896_PM_PARIS_FRANCE</td>
+<td>SRM_RTCOD_NTF_1896_PM_PARIS_FRANCE</td>
+</tr>
+<tr><td>SRM_ORM_OBERON_1988</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_OBERON_1988</td>
+<td>SRM_HSR_OBERON_1988_IDENTITY</td>
+<td>SRM_RTCOD_OBERON_1988_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_OBSERV_METEORO_1939</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_OBSERV_METEORO_1939</td>
+<td>SRM_HSR_OBSERV_METEORO_1939_CORVO_FLORES_ISLANDS</td>
+<td>SRM_RTCOD_OBSERV_METEORO_1939_CORVO_FLORES_ISLANDS</td>
+</tr>
+<tr><td>SRM_ORM_OLD_EGYPTIAN_1907</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_OLD_EGYPTIAN_1907</td>
+<td>SRM_HSR_OLD_EGYPTIAN_1907_EGYPT</td>
+<td>SRM_RTCOD_OLD_EGYPTIAN_1907_EGYPT</td>
+</tr>
+<tr><td>SRM_ORM_OLD_HAW_CLARKE_1987</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_OLD_HAW_CLARKE_1987</td>
+<td>SRM_HSR_OLD_HAW_CLARKE_1987_HAWAII</td>
+<td>SRM_RTCOD_OLD_HAWAIIAN_CLARKE_1987_HAWAII</td>
+</tr>
+<tr><td>SRM_ORM_OLD_HAW_CLARKE_1987</td>
+<td>SRM_HSR_OLD_HAW_CLARKE_1987_KAUAI</td>
+<td>SRM_RTCOD_OLD_HAWAIIAN_CLARKE_1987_KAUAI</td>
+</tr>
+<tr><td>SRM_ORM_OLD_HAW_CLARKE_1987</td>
+<td>SRM_HSR_OLD_HAW_CLARKE_1987_MAUI</td>
+<td>SRM_RTCOD_OLD_HAWAIIAN_CLARKE_1987_MAUI</td>
+</tr>
+<tr><td>SRM_ORM_OLD_HAW_CLARKE_1987</td>
+<td>SRM_HSR_OLD_HAW_CLARKE_1987_MEAN_SOLUTION</td>
+<td>SRM_RTCOD_OLD_HAWAIIAN_CLARKE_1987_MEAN_SOLUTION</td>
+</tr>
+<tr><td>SRM_ORM_OLD_HAW_CLARKE_1987</td>
+<td>SRM_HSR_OLD_HAW_CLARKE_1987_OAHU</td>
+<td>SRM_RTCOD_OLD_HAWAIIAN_CLARKE_1987_OAHU</td>
+</tr>
+<tr><td>SRM_ORM_OLD_HAW_INT_1987</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_OLD_HAW_INT_1987</td>
+<td>SRM_HSR_OLD_HAW_INT_1987_HAWAII</td>
+<td>SRM_RTCOD_OLD_HAWAIIAN_INT_1987_HAWAII</td>
+</tr>
+<tr><td>SRM_ORM_OLD_HAW_INT_1987</td>
+<td>SRM_HSR_OLD_HAW_INT_1987_KAUAI</td>
+<td>SRM_RTCOD_OLD_HAWAIIAN_INT_1987_KAUAI</td>
+</tr>
+<tr><td>SRM_ORM_OLD_HAW_INT_1987</td>
+<td>SRM_HSR_OLD_HAW_INT_1987_MAUI</td>
+<td>SRM_RTCOD_OLD_HAWAIIAN_INT_1987_MAUI</td>
+</tr>
+<tr><td>SRM_ORM_OLD_HAW_INT_1987</td>
+<td>SRM_HSR_OLD_HAW_INT_1987_MEAN_SOLUTION</td>
+<td>SRM_RTCOD_OLD_HAWAIIAN_INT_1987_MEAN_SOLUTION</td>
+</tr>
+<tr><td>SRM_ORM_OLD_HAW_INT_1987</td>
+<td>SRM_HSR_OLD_HAW_INT_1987_OAHU</td>
+<td>SRM_RTCOD_OLD_HAWAIIAN_INT_1987_OAHU</td>
+</tr>
+<tr><td>SRM_ORM_OPHELIA_1988</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_OPHELIA_1988</td>
+<td>SRM_HSR_OPHELIA_1988_IDENTITY</td>
+<td>SRM_RTCOD_OPHELIA_1988_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_OSGB_1936</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_OSGB_1936</td>
+<td>SRM_HSR_OSGB_1936_ENGLAND</td>
+<td>SRM_RTCOD_OSGB_1936_ENGLAND</td>
+</tr>
+<tr><td>SRM_ORM_OSGB_1936</td>
+<td>SRM_HSR_OSGB_1936_ENGLAND_ISLE_OF_MAN_WALES</td>
+<td>SRM_RTCOD_OSGB_1936_ENGLAND_ISLE_OF_MAN_WALES</td>
+</tr>
+<tr><td>SRM_ORM_OSGB_1936</td>
+<td>SRM_HSR_OSGB_1936_7_GREAT_BRITAIN</td>
+<td>SRM_RTCOD_OSGB_1936_7_GREAT_BRITAIN</td>
+</tr>
+<tr><td>SRM_ORM_OSGB_1936</td>
+<td>SRM_HSR_OSGB_1936_3_MEAN_SOLUTION</td>
+<td>SRM_RTCOD_OSGB_1936_3_MEAN_SOLUTION</td>
+</tr>
+<tr><td>SRM_ORM_OSGB_1936</td>
+<td>SRM_HSR_OSGB_1936_SCOTLAND_SHETLAND_ISLANDS</td>
+<td>SRM_RTCOD_OSGB_1936_SCOTLAND_SHETLAND_ISLANDS</td>
+</tr>
+<tr><td>SRM_ORM_OSGB_1936</td>
+<td>SRM_HSR_OSGB_1936_WALES</td>
+<td>SRM_RTCOD_OSGB_1936_WALES</td>
+</tr>
+<tr><td>SRM_ORM_PALESTINE_1928</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_PAN_1991</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_PAN_1991</td>
+<td>SRM_HSR_PAN_1991_IDENTITY</td>
+<td>SRM_RTCOD_PAN_1991_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_PANDORA_1988</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_PANDORA_1988</td>
+<td>SRM_HSR_PANDORA_1988_IDENTITY</td>
+<td>SRM_RTCOD_PANDORA_1988_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_PHOBOS_1988</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_PHOBOS_1988</td>
+<td>SRM_HSR_PHOBOS_1988_IDENTITY</td>
+<td>SRM_RTCOD_PHOBOS_1988_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_PHOEBE_1988</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_PHOEBE_1988</td>
+<td>SRM_HSR_PHOEBE_1988_IDENTITY</td>
+<td>SRM_RTCOD_PHOEBE_1988_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_PICO_DE_LAS_NIEVES_1987</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_PICO_DE_LAS_NIEVES_1987</td>
+<td>SRM_HSR_PICO_NIEVES_1987_CANARY_ISLANDS</td>
+<td>SRM_RTCOD_PICO_DE_LAS_NIEVES_1987_CANARY_ISLANDS</td>
+</tr>
+<tr><td>SRM_ORM_PITCAIRN_1967</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_PITCAIRN_1967</td>
+<td>SRM_HSR_PITCAIRN_1967_PITCAIRN_ISLAND</td>
+<td>SRM_RTCOD_PITCAIRN_1967_PITCAIRN_ISLAND</td>
+</tr>
+<tr><td>SRM_ORM_PLUTO_1994</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_PLUTO_1994</td>
+<td>SRM_HSR_PLUTO_1994_IDENTITY</td>
+<td>SRM_RTCOD_PLUTO_1994_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_PLUTO_INERTIAL</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_POINT_58_1991</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_POINT_58_1991</td>
+<td>SRM_HSR_POINT_58_1991_MEAN_SOLUTION</td>
+<td>SRM_RTCOD_POINT_58_1991_MEAN_SOLUTION</td>
+</tr>
+<tr><td>SRM_ORM_POINTE_NOIRE_1948</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_POINTE_NOIRE_1948</td>
+<td>SRM_HSR_POINTE_NOIRE_1948_CONGO</td>
+<td>SRM_RTCOD_POINTE_NOIRE_1948_CONGO</td>
+</tr>
+<tr><td>SRM_ORM_PORTIA_1988</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_PORTIA_1988</td>
+<td>SRM_HSR_PORTIA_1988_IDENTITY</td>
+<td>SRM_RTCOD_PORTIA_1988_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_PORTO_SANTO_1936</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_PORTO_SANTO_1936</td>
+<td>SRM_HSR_PORTO_SANTO_1936_PORTO_SANTO_MADEIRA_ISLANDS</td>
+<td>SRM_RTCOD_PORTO_SANTO_1936_PORTO_SANTO_MADEIRA_ISLANDS</td>
+</tr>
+<tr><td>SRM_ORM_PROMETHEUS_1988</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_PROMETHEUS_1988</td>
+<td>SRM_HSR_PROMETHEUS_1988_IDENTITY</td>
+<td>SRM_RTCOD_PROMETHEUS_1988_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_PROTEUS_1991</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_PROTEUS_1991</td>
+<td>SRM_HSR_PROTEUS_1991_IDENTITY</td>
+<td>SRM_RTCOD_PROTEUS_1991_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_PROV_S_AM_1956</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_PROV_S_AM_1956</td>
+<td>SRM_HSR_PROV_S_AM_1956_BOLIVIA</td>
+<td>SRM_RTCOD_PROV_S_AM_1956_BOLIVIA</td>
+</tr>
+<tr><td>SRM_ORM_PROV_S_AM_1956</td>
+<td>SRM_HSR_PROV_S_AM_1956_COLOMBIA</td>
+<td>SRM_RTCOD_PROV_S_AM_1956_COLOMBIA</td>
+</tr>
+<tr><td>SRM_ORM_PROV_S_AM_1956</td>
+<td>SRM_HSR_PROV_S_AM_1956_ECUADOR</td>
+<td>SRM_RTCOD_PROV_S_AM_1956_ECUADOR</td>
+</tr>
+<tr><td>SRM_ORM_PROV_S_AM_1956</td>
+<td>SRM_HSR_PROV_S_AM_1956_GUYANA</td>
+<td>SRM_RTCOD_PROV_S_AM_1956_GUYANA</td>
+</tr>
+<tr><td>SRM_ORM_PROV_S_AM_1956</td>
+<td>SRM_HSR_PROV_S_AM_1956_MEAN_SOLUTION</td>
+<td>SRM_RTCOD_PROV_S_AM_1956_MEAN_SOLUTION</td>
+</tr>
+<tr><td>SRM_ORM_PROV_S_AM_1956</td>
+<td>SRM_HSR_PROV_S_AM_1956_N_CHILE_19_S</td>
+<td>SRM_RTCOD_PROV_S_AM_1956_N_CHILE_19_S</td>
+</tr>
+<tr><td>SRM_ORM_PROV_S_AM_1956</td>
+<td>SRM_HSR_PROV_S_AM_1956_PERU</td>
+<td>SRM_RTCOD_PROV_S_AM_1956_PERU</td>
+</tr>
+<tr><td>SRM_ORM_PROV_S_AM_1956</td>
+<td>SRM_HSR_PROV_S_AM_1956_S_CHILE_43_S</td>
+<td>SRM_RTCOD_PROV_S_AM_1956_S_CHILE_43_S</td>
+</tr>
+<tr><td>SRM_ORM_PROV_S_AM_1956</td>
+<td>SRM_HSR_PROV_S_AM_1956_3_VENEZUELA</td>
+<td>SRM_RTCOD_PROV_S_AM_1956_3_VENEZUELA</td>
+</tr>
+<tr><td>SRM_ORM_PROV_S_AM_1956</td>
+<td>SRM_HSR_PROV_S_AM_1956_7_VENEZUELA</td>
+<td>SRM_RTCOD_PROV_S_AM_1956_7_VENEZUELA</td>
+</tr>
+<tr><td>SRM_ORM_PROV_S_CHILEAN_1963</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_PROV_S_CHILEAN_1963</td>
+<td>SRM_HSR_PROV_S_CHILEAN_1963_SOUTH_CHILE</td>
+<td>SRM_RTCOD_PROV_S_CHILEAN_1963_SOUTH_CHILE</td>
+</tr>
+<tr><td>SRM_ORM_PUCK_1988</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_PUCK_1988</td>
+<td>SRM_HSR_PUCK_1988_IDENTITY</td>
+<td>SRM_RTCOD_PUCK_1988_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_PUERTO_RICO_1987</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_PUERTO_RICO_1987</td>
+<td>SRM_HSR_PUERTO_RICO_1987_PUERTO_RICO_VIRGIN_ISLANDS</td>
+<td>SRM_RTCOD_PUERTO_RICO_1987_PUERTO_RICO_VIRGIN_ISLANDS</td>
+</tr>
+<tr><td>SRM_ORM_PULKOVO_1942</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_PULKOVO_1942</td>
+<td>SRM_HSR_PULKOVO_1942_RUSSIA</td>
+<td>SRM_RTCOD_PULKOVO_1942_RUSSIA</td>
+</tr>
+<tr><td>SRM_ORM_QATAR_NATIONAL_1974</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_QATAR_NATIONAL_1974</td>
+<td>SRM_HSR_QATAR_NATIONAL_1974_3_QATAR</td>
+<td>SRM_RTCOD_QATAR_NATIONAL_1974_3_QATAR</td>
+</tr>
+<tr><td>SRM_ORM_QATAR_NATIONAL_1995</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_QORNOQ_1987</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_QORNOQ_1987</td>
+<td>SRM_HSR_QORNOQ_1987_SOUTH_GREENLAND</td>
+<td>SRM_RTCOD_QORNOQ_1987_SOUTH_GREENLAND</td>
+</tr>
+<tr><td>SRM_ORM_REUNION_1947</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_REUNION_1947</td>
+<td>SRM_HSR_REUNION_1947_MASCARENE_ISLANDS</td>
+<td>SRM_RTCOD_REUNION_1947_MASCARENE_ISLANDS</td>
+</tr>
+<tr><td>SRM_ORM_RGF_1993</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_RGF_1993</td>
+<td>SRM_HSR_RGF_1993_IDENTITY_BY_MEASUREMENT</td>
+<td>SRM_RTCOD_RGF_1993_IDENTITY_BY_MEASUREMENT</td>
+</tr>
+<tr><td>SRM_ORM_RHEA_1988</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_RHEA_1988</td>
+<td>SRM_HSR_RHEA_1988_IDENTITY</td>
+<td>SRM_RTCOD_RHEA_1988_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_ROME_1940</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_ROME_1940</td>
+<td>SRM_HSR_ROME_1940_SARDINIA</td>
+<td>SRM_RTCOD_ROME_1940_SARDINIA</td>
+</tr>
+<tr><td>SRM_ORM_ROME_1940_PM_ROME</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_ROME_1940_PM_ROME</td>
+<td>SRM_HSR_ROME_1940_PM_ROME_SARDINIA</td>
+<td>SRM_RTCOD_ROME_1940_PM_ROME_SARDINIA</td>
+</tr>
+<tr><td>SRM_ORM_ROSALIND_1988</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_ROSALIND_1988</td>
+<td>SRM_HSR_ROSALIND_1988_IDENTITY</td>
+<td>SRM_RTCOD_ROSALIND_1988_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_RT_1990</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_RT_1990_PM_STOCKHOLM</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_S_AM_1969</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_S_AM_1969</td>
+<td>SRM_HSR_S_AM_1969_ARGENTINA</td>
+<td>SRM_RTCOD_S_AM_1969_ARGENTINA</td>
+</tr>
+<tr><td>SRM_ORM_S_AM_1969</td>
+<td>SRM_HSR_S_AM_1969_BALTRA_GALAPAGOS_ISLANDS</td>
+<td>SRM_RTCOD_S_AM_1969_BALTRA_GALAPAGOS_ISLANDS</td>
+</tr>
+<tr><td>SRM_ORM_S_AM_1969</td>
+<td>SRM_HSR_S_AM_1969_BOLIVIA</td>
+<td>SRM_RTCOD_S_AM_1969_BOLIVIA</td>
+</tr>
+<tr><td>SRM_ORM_S_AM_1969</td>
+<td>SRM_HSR_S_AM_1969_BRAZIL</td>
+<td>SRM_RTCOD_S_AM_1969_BRAZIL</td>
+</tr>
+<tr><td>SRM_ORM_S_AM_1969</td>
+<td>SRM_HSR_S_AM_1969_CHILE</td>
+<td>SRM_RTCOD_S_AM_1969_CHILE</td>
+</tr>
+<tr><td>SRM_ORM_S_AM_1969</td>
+<td>SRM_HSR_S_AM_1969_COLOMBIA</td>
+<td>SRM_RTCOD_S_AM_1969_COLOMBIA</td>
+</tr>
+<tr><td>SRM_ORM_S_AM_1969</td>
+<td>SRM_HSR_S_AM_1969_ECUADOR_EXCLUDING_GALAPAGOS_ISLANDS</td>
+<td>SRM_RTCOD_S_AM_1969_ECUADOR_EXCLUDING_GALAPAGOS_ISLANDS</td>
+</tr>
+<tr><td>SRM_ORM_S_AM_1969</td>
+<td>SRM_HSR_S_AM_1969_GUYANA</td>
+<td>SRM_RTCOD_S_AM_1969_GUYANA</td>
+</tr>
+<tr><td>SRM_ORM_S_AM_1969</td>
+<td>SRM_HSR_S_AM_1969_MEAN_SOLUTION</td>
+<td>SRM_RTCOD_S_AM_1969_MEAN_SOLUTION</td>
+</tr>
+<tr><td>SRM_ORM_S_AM_1969</td>
+<td>SRM_HSR_S_AM_1969_PARAGUAY</td>
+<td>SRM_RTCOD_S_AM_1969_PARAGUAY</td>
+</tr>
+<tr><td>SRM_ORM_S_AM_1969</td>
+<td>SRM_HSR_S_AM_1969_PERU</td>
+<td>SRM_RTCOD_S_AM_1969_PERU</td>
+</tr>
+<tr><td>SRM_ORM_S_AM_1969</td>
+<td>SRM_HSR_S_AM_1969_TRINIDAD_TOBAGO</td>
+<td>SRM_RTCOD_S_AM_1969_TRINIDAD_TOBAGO</td>
+</tr>
+<tr><td>SRM_ORM_S_AM_1969</td>
+<td>SRM_HSR_S_AM_1969_VENEZUELA</td>
+<td>SRM_RTCOD_S_AM_1969_VENEZUELA</td>
+</tr>
+<tr><td>SRM_ORM_S_ASIA_1987</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_S_ASIA_1987</td>
+<td>SRM_HSR_S_ASIA_1987_SINGAPORE</td>
+<td>SRM_RTCOD_S_ASIA_1987_SINGAPORE</td>
+</tr>
+<tr><td>SRM_ORM_S_JTSK_1993</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_S_JTSK_1993</td>
+<td>SRM_HSR_S_JTSK_1993_CZECH_REP</td>
+<td>SRM_RTCOD_S_JTSK_1993_CZECH_REP</td>
+</tr>
+<tr><td>SRM_ORM_S_JTSK_1993</td>
+<td>SRM_HSR_S_JTSK_1993_CZECH_REP_SLOVAKIA</td>
+<td>SRM_RTCOD_S_JTSK_1993_CZECH_REP_SLOVAKIA</td>
+</tr>
+<tr><td>SRM_ORM_S42_PULKOVO</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_S42_PULKOVO</td>
+<td>SRM_HSR_S42_PULKOVO_ALBANIA</td>
+<td>SRM_RTCOD_S42_PULKOVO_ALBANIA</td>
+</tr>
+<tr><td>SRM_ORM_S42_PULKOVO</td>
+<td>SRM_HSR_S42_PULKOVO_CZECH_REPUBLIC_SLOVAKIA</td>
+<td>SRM_RTCOD_S42_PULKOVO_CZECH_REPUBLIC_SLOVAKIA</td>
+</tr>
+<tr><td>SRM_ORM_S42_PULKOVO</td>
+<td>SRM_HSR_S42_PULKOVO_HUNGARY</td>
+<td>SRM_RTCOD_S42_PULKOVO_HUNGARY</td>
+</tr>
+<tr><td>SRM_ORM_S42_PULKOVO</td>
+<td>SRM_HSR_S42_PULKOVO_KAZAKHSTAN</td>
+<td>SRM_RTCOD_S42_PULKOVO_KAZAKHSTAN</td>
+</tr>
+<tr><td>SRM_ORM_S42_PULKOVO</td>
+<td>SRM_HSR_S42_PULKOVO_LATVIA</td>
+<td>SRM_RTCOD_S42_PULKOVO_LATVIA</td>
+</tr>
+<tr><td>SRM_ORM_S42_PULKOVO</td>
+<td>SRM_HSR_S42_PULKOVO_3_POLAND</td>
+<td>SRM_RTCOD_S42_PULKOVO_3_POLAND</td>
+</tr>
+<tr><td>SRM_ORM_S42_PULKOVO</td>
+<td>SRM_HSR_S42_PULKOVO_G_ROMANIA</td>
+<td>SRM_RTCOD_S42_PULKOVO_G_ROMANIA</td>
+</tr>
+<tr><td>SRM_ORM_SANTO_DOS_1965</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_SANTO_DOS_1965</td>
+<td>SRM_HSR_SANTO_DOS_1965_ESPIRITO_SANTO_ISLAND</td>
+<td>SRM_RTCOD_SANTO_DOS_1965_ESPIRITO_SANTO_ISLAND</td>
+</tr>
+<tr><td>SRM_ORM_SAO_BRAZ_1987</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_SAO_BRAZ_1987</td>
+<td>SRM_HSR_SAO_BRAZ_1987_SAO_MIGUEL_SANTA_MARIA_ISLANDS</td>
+<td>SRM_RTCOD_SAO_BRAZ_1987_SAO_MIGUEL_SANTA_MARIA_ISLANDS</td>
+</tr>
+<tr><td>SRM_ORM_SAPPER_HILL_1943</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_SAPPER_HILL_1943</td>
+<td>SRM_HSR_SAPPER_HILL_1943_3_E_FALKLAND_ISLANDS</td>
+<td>SRM_RTCOD_SAPPER_HILL_1943_3_E_FALKLAND_ISLANDS</td>
+</tr>
+<tr><td>SRM_ORM_SATURN_1988</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_SATURN_1988</td>
+<td>SRM_HSR_SATURN_1988_IDENTITY</td>
+<td>SRM_RTCOD_SATURN_1988_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_SATURN_INERTIAL</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_SATURN_MAGNETIC_1993</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_SATURN_MAGNETIC_1993</td>
+<td>SRM_HSR_SATURN_MAGNETIC_1993_VOYAGER</td>
+<td>SRM_RTCOD_SATURN_MAGNETIC_1993_VOYAGER</td>
+</tr>
+<tr><td>SRM_ORM_SCHWARZECK_1991</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_SCHWARZECK_1991</td>
+<td>SRM_HSR_SCHWARZECK_1991_NAMIBIA</td>
+<td>SRM_RTCOD_SCHWARZECK_1991_NAMIBIA</td>
+</tr>
+<tr><td>SRM_ORM_SELVAGEM_GRANDE_1938</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_SELVAGEM_GRANDE_1938</td>
+<td>SRM_HSR_SELVAGEM_GRANDE_1938_SALVAGE_ISLANDS</td>
+<td>SRM_RTCOD_SELVAGEM_GRANDE_1938_SALVAGE_ISLANDS</td>
+</tr>
+<tr><td>SRM_ORM_SIERRA_LEONE_1960</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_SIERRA_LEONE_1960</td>
+<td>SRM_HSR_SIERRA_LEONE_1960_SIERRA_LEONE</td>
+<td>SRM_RTCOD_SIERRA_LEONE_1960_SIERRA_LEONE</td>
+</tr>
+<tr><td>SRM_ORM_SIRGAS_2000</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_SIRGAS_2000</td>
+<td>SRM_HSR_SIRGAS_2000_IDENTITY_BY_MEASUREMENT</td>
+<td>SRM_RTCOD_SIRGAS_2000_IDENTITY_BY_MEASUREMENT</td>
+</tr>
+<tr><td>SRM_ORM_SOUTHEAST_1943</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_SOVIET_GEODETIC_1985</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_SOVIET_GEODETIC_1990</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_SUN_1992</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_SUN_1992</td>
+<td>SRM_HSR_SUN_1992_IDENTITY</td>
+<td>SRM_RTCOD_SUN_1992_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_TAN_OBS_1925</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_TAN_OBS_1925</td>
+<td>SRM_HSR_TAN_OBS_1925_3_MADAGASCAR</td>
+<td>SRM_RTCOD_TANANARIVE_OBS_1925_3_MADAGASCAR</td>
+</tr>
+<tr><td>SRM_ORM_TAN_OBS_1925_PM_PARIS</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_TAN_OBS_1925_PM_PARIS</td>
+<td>SRM_HSR_TAN_OBS_1925_PM_PARIS_3_MADAGASCAR</td>
+<td>SRM_RTCOD_TANANARIVE_OBS_1925_PM_PARIS_3_MADAGASCAR</td>
+</tr>
+<tr><td>SRM_ORM_TELESTO_1988</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_TELESTO_1988</td>
+<td>SRM_HSR_TELESTO_1988_IDENTITY</td>
+<td>SRM_RTCOD_TELESTO_1988_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_TERN_1961</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_TERN_1961</td>
+<td>SRM_HSR_TERN_1961_TERN_ISLAND</td>
+<td>SRM_RTCOD_TERN_1961_TERN_ISLAND</td>
+</tr>
+<tr><td>SRM_ORM_TETHYS_1991</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_TETHYS_1991</td>
+<td>SRM_HSR_TETHYS_1991_IDENTITY</td>
+<td>SRM_RTCOD_TETHYS_1991_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_THALASSA_1991</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_THALASSA_1991</td>
+<td>SRM_HSR_THALASSA_1991_IDENTITY</td>
+<td>SRM_RTCOD_THALASSA_1991_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_THEBE_2000</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_THEBE_2000</td>
+<td>SRM_HSR_THEBE_2000_IDENTITY</td>
+<td>SRM_RTCOD_THEBE_2000_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_TIM_BESSEL_1948</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_TIM_BESSEL_ADJ_1968</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_TIM_EV_1948</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_TIM_EV_1948</td>
+<td>SRM_HSR_TIM_EV_1948_3_BRUNEI_E_MALAYSIA</td>
+<td>SRM_RTCOD_TIMBALAI_EVEREST_1948_3_BRUNEI_E_MALAYSIA</td>
+</tr>
+<tr><td>SRM_ORM_TIM_EV_1948</td>
+<td>SRM_HSR_TIM_EV_1948_7_BRUNEI_E_MALAYSIA</td>
+<td>SRM_RTCOD_TIMBALAI_EVEREST_1948_7_BRUNEI_E_MALAYSIA</td>
+</tr>
+<tr><td>SRM_ORM_TIM_EV_ADJ_1968</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_TITAN_1982</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_TITAN_1982</td>
+<td>SRM_HSR_TITAN_1982_IDENTITY</td>
+<td>SRM_RTCOD_TITAN_1982_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_TITANIA_1988</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_TITANIA_1988</td>
+<td>SRM_HSR_TITANIA_1988_IDENTITY</td>
+<td>SRM_RTCOD_TITANIA_1988_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_TOKYO_1991</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_TOKYO_1991</td>
+<td>SRM_HSR_TOKYO_1991_JAPAN</td>
+<td>SRM_RTCOD_TOKYO_1991_JAPAN</td>
+</tr>
+<tr><td>SRM_ORM_TOKYO_1991</td>
+<td>SRM_HSR_TOKYO_1991_MEAN_SOLUTION</td>
+<td>SRM_RTCOD_TOKYO_1991_MEAN_SOLUTION</td>
+</tr>
+<tr><td>SRM_ORM_TOKYO_1991</td>
+<td>SRM_HSR_TOKYO_1991_OKINAWA</td>
+<td>SRM_RTCOD_TOKYO_1991_OKINAWA</td>
+</tr>
+<tr><td>SRM_ORM_TOKYO_1991</td>
+<td>SRM_HSR_TOKYO_1991_1991_SOUTH_KOREA</td>
+<td>SRM_RTCOD_TOKYO_1991_1991_SOUTH_KOREA</td>
+</tr>
+<tr><td>SRM_ORM_TOKYO_1991</td>
+<td>SRM_HSR_TOKYO_1991_1997_SOUTH_KOREA</td>
+<td>SRM_RTCOD_TOKYO_1991_1997_SOUTH_KOREA</td>
+</tr>
+<tr><td>SRM_ORM_TRISTAN_1968</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_TRISTAN_1968</td>
+<td>SRM_HSR_TRISTAN_1968_TRISTAN_DA_CUHNA</td>
+<td>SRM_RTCOD_TRISTAN_1968_TRISTAN_DA_CUNHA</td>
+</tr>
+<tr><td>SRM_ORM_TRITON_1991</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_TRITON_1991</td>
+<td>SRM_HSR_TRITON_1991_IDENTITY</td>
+<td>SRM_RTCOD_TRITON_1991_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_UMBRIEL_1988</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_UMBRIEL_1988</td>
+<td>SRM_HSR_UMBRIEL_1988_IDENTITY</td>
+<td>SRM_RTCOD_UMBRIEL_1988_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_URANUS_1988</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_URANUS_1988</td>
+<td>SRM_HSR_URANUS_1988_IDENTITY</td>
+<td>SRM_RTCOD_URANUS_1988_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_URANUS_INERTIAL</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_URANUS_MAGNETIC_1993</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_URANUS_MAGNETIC_1993</td>
+<td>SRM_HSR_URANUS_MAGNETIC_1993_VOYAGER</td>
+<td>SRM_RTCOD_URANUS_MAGNETIC_1993_VOYAGER</td>
+</tr>
+<tr><td>SRM_ORM_VENUS_1991</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_VENUS_1991</td>
+<td>SRM_HSR_VENUS_1991_IDENTITY</td>
+<td>SRM_RTCOD_VENUS_1991_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_VENUS_INERTIAL</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_VITI_LEVU_1916</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_VITI_LEVU_1916</td>
+<td>SRM_HSR_VITI_LEVU_1916_VITI_LEVU_ISLANDS</td>
+<td>SRM_RTCOD_VITI_LEVU_1916_VITI_LEVU_ISLANDS</td>
+</tr>
+<tr><td>SRM_ORM_VOIROL_1874</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_VOIROL_1874</td>
+<td>SRM_HSR_VOIROL_1874_ALGERIA</td>
+<td>SRM_RTCOD_VOIROL_1874_ALGERIA</td>
+</tr>
+<tr><td>SRM_ORM_VOIROL_1874_PM_PARIS</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_VOIROL_1874_PM_PARIS</td>
+<td>SRM_HSR_VOIROL_1874_PM_PARIS_ALGERIA</td>
+<td>SRM_RTCOD_VOIROL_1874_PM_PARIS_ALGERIA</td>
+</tr>
+<tr><td>SRM_ORM_VOIROL_1960</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_VOIROL_1960</td>
+<td>SRM_HSR_VOIROL_1960_ALGERIA</td>
+<td>SRM_RTCOD_VOIROL_1960_ALGERIA</td>
+</tr>
+<tr><td>SRM_ORM_VOIROL_1960_PM_PARIS</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_VOIROL_1960_PM_PARIS</td>
+<td>SRM_HSR_VOIROL_1960_PM_PARIS_ALGERIA</td>
+<td>SRM_RTCOD_VOIROL_1960_PM_PARIS_ALGERIA</td>
+</tr>
+<tr><td>SRM_ORM_WAKE_1952</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_WAKE_1952</td>
+<td>SRM_HSR_WAKE_1952_WAKE_ATOLL</td>
+<td>SRM_RTCOD_WAKE_1952_WAKE_ATOLL</td>
+</tr>
+<tr><td>SRM_ORM_WAKE_ENIWETOK_1960</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_WAKE_ENIWETOK_1960</td>
+<td>SRM_HSR_WAKE_ENIWETOK_1960_MARSHALL_ISLANDS</td>
+<td>SRM_RTCOD_WAKE_ENIWETOK_1960_MARSHALL_ISLANDS</td>
+</tr>
+<tr><td>SRM_ORM_WGS_1972</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_WGS_1972</td>
+<td>SRM_HSR_WGS_1972_GLOBAL</td>
+<td>SRM_RTCOD_WGS_1972_GLOBAL</td>
+</tr>
+<tr><td>SRM_ORM_WGS_1984</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_WGS_1984</td>
+<td>SRM_HSR_WGS_1984_IDENTITY</td>
+<td>SRM_RTCOD_WGS_1984_IDENTITY</td>
+</tr>
+<tr><td>SRM_ORM_YACARE_1987</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_YACARE_1987</td>
+<td>SRM_HSR_YACARE_1987_URUGUAY</td>
+<td>SRM_RTCOD_YACARE_1987_URUGUAY</td>
+</tr>
+<tr><td>SRM_ORM_ZANDERIJ_1987</td>
+<td>SRM_HSR_UNDEFINED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_ORM_ZANDERIJ_1987</td>
+<td>SRM_HSR_ZANDERIJ_1987_SURINAME</td>
+<td>SRM_RTCOD_ZANDERIJ_1987_SURINAME</td>
+</tr>
+</table>
+</table>
+</li>
+<li><p><font color="#008000">SRM_Interval maps to SRM_Interval_Type.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SRM_INTERVAL_OPEN</font></td>
+    <td><font color="#008000">SRM_IVLTYP_OPEN_INTERVAL</font></td></tr>
+<tr><td><font color="#008000">SRM_INTERVAL_GE_LT</font></td>
+    <td><font color="#008000">SRM_IVLTYP_GE_LT_INTERVAL</font></td></tr>
+<tr><td><font color="#008000">SRM_INTERVAL_GT_LE</font></td>
+    <td><font color="#008000">SRM_IVLTYP_GT_LE_INTERVAL</font></td></tr>
+<tr><td><font color="#008000">SRM_INTERVAL_CLOSED</font></td>
+    <td><font color="#008000">SRM_IVLTYP_CLOSED_INTERVAL</font></td></tr>
+<tr><td><font color="#008000">SRM_INTERVAL_GT_SEMI</font></td>
+    <td><font color="#008000">SRM_IVLTYP_GT_SEMI_INTERVAL</font></td></tr>
+<tr><td><font color="#008000">SRM_INTERVAL_GE_SEMI</font></td>
+    <td><font color="#008000">SRM_IVLTYP_GE_SEMI_INTERVAL</font></td></tr>
+<tr><td><font color="#008000">SRM_INTERVAL_LT_SEMI</font></td>
+    <td><font color="#008000">SRM_IVLTYP_LT_SEMI_INTERVAL</font></td></tr>
+<tr><td><font color="#008000">SRM_INTERVAL_LE_SEMI</font></td>
+    <td><font color="#008000">SRM_IVLTYP_LE_SEMI_INTERVAL</font></td></tr>
+<tr><td><font color="#008000">SRM_INTERVAL_UNBOUNDED</font></td>
+    <td><font color="#008000">SRM_IVLTYP_UNBOUNDED</font></td></tr>
+</table>
+<br><br></li>
+<li><p>SRM_LCC_SRF_Parameters split into multiple targets.
+</p>
+<ol type='a'>
+<li><p>SRM_LCC_SRF_Parameters maps to SRM_LCC_Parameters.
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>orm_params</td> <td>(none)</td></tr>
+<tr><td>SRM_LCC_Parameters lcc_params</td> <td>SRM_LCC_Parameters</td></tr>
+</table>
+<br><br></li>
+<li><p>SRM_LCC_SRF_Parameters maps to SRM_ORM_Code.
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>SRM_ORM_Parameters orm_params</td> <td>SRM_ORM_Code</td></tr>
+<tr><td>lcc_params</td> <td>(none)</td></tr>
+</table>
+<br><br></li>
+<li><p>SRM_LCC_SRF_Parameters maps to SRM_RT_Code.
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>SRM_ORM_Parameters orm_params</td> <td>SRM_RT_Code</td></tr>
+<tr><td>lcc_params</td> <td>(none)</td></tr>
+</table>
+<br><br></li>
+</ol>
+</li>
+<li><p>SRM_LCE_3D_Parameters
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td> q[3]</td> <td>SRM_Vector_3D lococentre</td></tr>
+<tr><td> r[3]</td> <td>SRM_Vector_3D primary_axis</td></tr>
+<tr><td> s[3]</td> <td>SRM_Vector_3D secondary_axis</td></tr>
+</table>
+<br><br></li>
+<li><p>SRM_LCE_3D_SRF_Parameters split into multiple targets.
+</p>
+<ol type='a'>
+<li><p>SRM_LCE_3D_SRF_Parameters maps to SRM_LCE_3D_Parameters.
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>orm_params</td> <td>(none)</td></tr>
+<tr><td>SRM_LCE_3D_Parameters lce_3d_params</td> <td>SRM_LCE_3D_Parameters</td></tr>
+</table>
+<br><br></li>
+<li><p>SRM_LCE_3D_SRF_Parameters maps to SRM_ORM_Code.
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>SRM_ORM_Parameters orm_params</td> <td>SRM_ORM_Code</td></tr>
+<tr><td>lce_3d_params</td> <td>(none)</td></tr>
+</table>
+<br><br></li>
+<li><p>SRM_LCE_3D_SRF_Parameters maps to SRM_RT_Code.
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>SRM_ORM_Parameters orm_params</td> <td>SRM_RT_Code</td></tr>
+<tr><td>lce_3d_params</td> <td>(none)</td></tr>
+</table>
+<br><br></li>
+</ol>
+</li>
+<li><p>SRM_LSR_2D_SRF_Parameters split into multiple targets.
+</p>
+<ol type='a'>
+<li><p>SRM_LSR_2D_SRF_Parameters maps to SRM_LSR_2D_Parameters.
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>orm_params</td> <td>(none)</td></tr>
+<tr><td>SRM_LSR_2D_Parameters lsr_2d_params</td> <td>SRM_LSR_2D_Parameters</td></tr>
+</table>
+<br><br></li>
+<li><p>SRM_LSR_2D_SRF_Parameters maps to SRM_ORM_Code.
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>SRM_ORM_Parameters orm_params</td> <td>SRM_ORM_Code</td></tr>
+<tr><td>lsr_2d_params</td> <td>(none)</td></tr>
+</table>
+<br><br></li>
+<li><p>SRM_LSR_2D_SRF_Parameters maps to SRM_RT_Code.
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>SRM_ORM_Parameters orm_params</td> <td>SRM_RT_Code</td></tr>
+<tr><td>lsr_2d_params</td> <td>(none)</td></tr>
+</table>
+<br><br></li>
+</ol>
+</li>
+<li><p>SRM_LSR_3D_SRF_Parameters split into multiple targets.
+</p>
+<ol type='a'>
+<li><p>SRM_LSR_3D_SRF_Parameters maps to SRM_LSR_3D_Parameters.
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>orm_params</td> <td>(none)</td></tr>
+<tr><td>SRM_LSR_3D_Parameters lsr_3d_params</td> <td>SRM_LSR_3D_Parameters</td></tr>
+</table>
+<br><br></li>
+<li><p>SRM_LSR_3D_SRF_Parameters maps to SRM_ORM_Code.
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>SRM_ORM_Parameters orm_params</td> <td>SRM_ORM_Code</td></tr>
+<tr><td>lsr_3d_params</td> <td>(none)</td></tr>
+</table>
+<br><br></li>
+<li><p>SRM_LSR_3D_SRF_Parameters maps to SRM_RT_Code.
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>SRM_ORM_Parameters orm_params</td> <td>SRM_RT_Code</td></tr>
+<tr><td>lsr_3d_params</td> <td>(none)</td></tr>
+</table>
+<br><br></li>
+</ol>
+</li>
+<li><p><font color="#008000">SRM_LT_Parameters maps to SRM_Local_Tangent_Parameters.</font>
+</p></li>
+<li><p>SRM_LT_SRF_Parameters split into multiple targets.
+</p>
+<ol type='a'>
+<li><p>SRM_LT_SRF_Parameters maps to SRM_Local_Tangent_Parameters.
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>orm_params</td> <td>(none)</td></tr>
+<tr><td>SRM_LT_Parameters lt_params</td> <td>SRM_Local_Tangent_Parameters</td></tr>
+</table>
+<br><br></li>
+<li><p>SRM_LT_SRF_Parameters maps to SRM_ORM_Code.
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>SRM_ORM_Parameters orm_params</td> <td>SRM_ORM_Code</td></tr>
+<tr><td>lt_params</td> <td>(none)</td></tr>
+</table>
+<br><br></li>
+<li><p>SRM_LT_SRF_Parameters maps to SRM_RT_Code.
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>SRM_ORM_Parameters orm_params</td> <td>SRM_RT_Code</td></tr>
+<tr><td>lt_params</td> <td>(none)</td></tr>
+</table>
+<br><br></li>
+</ol>
+</li>
+<li><p>SRM_LTSE_SRF_Parameters split into multiple targets.
+</p>
+<ol type='a'>
+<li><p>SRM_LTSE_SRF_Parameters maps to SRM_LTSE_Parameters.
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>orm_params</td> <td>(none)</td></tr>
+<tr><td>SRM_LTSE_Parameters ltse_params</td> <td>SRM_LTSE_Parameters</td></tr>
+</table>
+<br><br></li>
+<li><p>SRM_LTSE_SRF_Parameters maps to SRM_ORM_Code.
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>SRM_ORM_Parameters orm_params</td> <td>SRM_ORM_Code</td></tr>
+<tr><td>ltse_params</td> <td>(none)</td></tr>
+</table>
+<br><br></li>
+<li><p>SRM_LTSE_SRF_Parameters maps to SRM_RT_Code.
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>SRM_ORM_Parameters orm_params</td> <td>SRM_RT_Code</td></tr>
+<tr><td>ltse_params</td> <td>(none)</td></tr>
+</table>
+<br><br></li>
+</ol>
+</li>
+<li><p>SRM_Mercator_Parameters split into multiple targets.
+</p>
+<ol type='a'>
+<li><p>SRM_Mercator_Parameters maps to SRM_M_Parameters.
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>origin_latitude</td> <td>(none)</td></tr>
+</table>
+<br><br></li>
+<li><p>SRM_Mercator_Parameters maps to SRM_TM_Parameters.
+</p></li>
+</ol>
+</li>
+<li><p>SRM_Mercator_SRF_Parameters split into multiple targets.
+</p>
+<ol type='a'>
+<li><p>SRM_Mercator_SRF_Parameters maps to SRM_M_Parameters.
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>orm_params</td> <td>(none)</td></tr>
+<tr><td>SRM_Mercator_Parameters mercator_params</td> <td>SRM_M_Parameters</td></tr>
+</table>
+<br><br></li>
+<li><p>SRM_Mercator_SRF_Parameters maps to SRM_ORM_Code.
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>SRM_ORM_Parameters orm_params</td> <td>SRM_ORM_Code</td></tr>
+<tr><td>mercator_params</td> <td>(none)</td></tr>
+</table>
+<br><br></li>
+<li><p>SRM_Mercator_SRF_Parameters maps to SRM_RT_Code.
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>SRM_ORM_Parameters orm_params</td> <td>SRM_RT_Code</td></tr>
+<tr><td>mercator_params</td> <td>(none)</td></tr>
+</table>
+<br><br></li>
+</ol>
+</li>
+<li><p><font color="#008000">SRM_OM_Parameters maps to SRM_Oblique_Mercator_Parameters.</font>
+</p></li>
+<li><p>SRM_OM_SRF_Parameters split into multiple targets.
+</p>
+<ol type='a'>
+<li><p>SRM_OM_SRF_Parameters maps to SRM_Oblique_Mercator_Parameters.
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>orm_params</td> <td>(none)</td></tr>
+<tr><td>SRM_OM_Parameters om_params</td> <td>SRM_Oblique_Mercator_Parameters</td></tr>
+</table>
+<br><br></li>
+<li><p>SRM_OM_SRF_Parameters maps to SRM_ORM_Code.
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>SRM_ORM_Parameters orm_params</td> <td>SRM_ORM_Code</td></tr>
+<tr><td>om_params</td> <td>(none)</td></tr>
+</table>
+<br><br></li>
+<li><p>SRM_OM_SRF_Parameters maps to SRM_RT_Code.
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>SRM_ORM_Parameters orm_params</td> <td>SRM_RT_Code</td></tr>
+<tr><td>om_params</td> <td>(none)</td></tr>
+</table>
+<br><br></li>
+</ol>
+</li>
+<li><p><font color="#008000">SRM_ORM_Code maps to SRM_ORM_Code.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SRM_ORM_UNDEFINED</font></td>
+    <td><font color="#008000">SRM_ORMCOD_UNSPECIFIED</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_ABSTRACT_2D</font></td>
+    <td><font color="#008000">SRM_ORMCOD_ABSTRACT_2D</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_ABSTRACT_3D</font></td>
+    <td><font color="#008000">SRM_ORMCOD_ABSTRACT_3D</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_ADINDAN_1991</font></td>
+    <td><font color="#008000">SRM_ORMCOD_ADINDAN_1991</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_ADRASTEA_2000</font></td>
+    <td><font color="#008000">SRM_ORMCOD_ADRASTEA_2000</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_AFGOOYE_1987</font></td>
+    <td><font color="#008000">SRM_ORMCOD_AFGOOYE_1987</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_AIN_EL_ABD_1970</font></td>
+    <td><font color="#008000">SRM_ORMCOD_AIN_EL_ABD_1970</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_AMALTHEA_2000</font></td>
+    <td><font color="#008000">SRM_ORMCOD_AMALTHEA_2000</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_AMERICAN_SAMOA_1962</font></td>
+    <td><font color="#008000">SRM_ORMCOD_AMERICAN_SAMOA_1962</font></td></tr>
+<tr><td>SRM_ORM_AMERSFOORT_1885_1903</td><td>&nbsp;</td></tr>
+<tr><td><font color="#008000">SRM_ORM_ANNA_1_1965</font></td>
+    <td><font color="#008000">SRM_ORMCOD_ANNA_1_1965</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_ANTIGUA_1943</font></td>
+    <td><font color="#008000">SRM_ORMCOD_ANTIGUA_1943</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_ARC_1950</font></td>
+    <td><font color="#008000">SRM_ORMCOD_ARC_1950</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_ARC_1960</font></td>
+    <td><font color="#008000">SRM_ORMCOD_ARC_1960</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_ARIEL_1988</font></td>
+    <td><font color="#008000">SRM_ORMCOD_ARIEL_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_ASCENSION_1958</font></td>
+    <td><font color="#008000">SRM_ORMCOD_ASCENSION_1958</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_ATLAS_1988</font></td>
+    <td><font color="#008000">SRM_ORMCOD_ATLAS_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_AUSTRALIAN_GEOD_1966</font></td>
+    <td><font color="#008000">SRM_ORMCOD_AUSTRALIAN_GEOD_1966</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_AUSTRALIAN_GEOD_1984</font></td>
+    <td><font color="#008000">SRM_ORMCOD_AUSTRALIAN_GEOD_1984</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_AYABELLE_LIGHTHOUSE_1991</font></td>
+    <td><font color="#008000">SRM_ORMCOD_AYABELLE_LIGHTHOUSE_1991</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_BEACON_E_1945</font></td>
+    <td><font color="#008000">SRM_ORMCOD_BEACON_E_1945</font></td></tr>
+<tr><td>SRM_ORM_BELGIUM_1972</td><td>&nbsp;</td></tr>
+<tr><td><font color="#008000">SRM_ORM_BELINDA_1988</font></td>
+    <td><font color="#008000">SRM_ORMCOD_BELINDA_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_BELLEVUE_IGN_1987</font></td>
+    <td><font color="#008000">SRM_ORMCOD_BELLEVUE_IGN_1987</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_BERMUDA_1957</font></td>
+    <td><font color="#008000">SRM_ORMCOD_BERMUDA_1957</font></td></tr>
+<tr><td>SRM_ORM_BERN_1898</td><td>&nbsp;</td></tr>
+<tr><td>SRM_ORM_BERN_1898_PM_BERN</td><td>&nbsp;</td></tr>
+<tr><td><font color="#008000">SRM_ORM_BIANCA_1988</font></td>
+    <td><font color="#008000">SRM_ORMCOD_BIANCA_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_BISSAU_1991</font></td>
+    <td><font color="#008000">SRM_ORMCOD_BISSAU_1991</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_BOGOTA_OBS_1987</font></td>
+    <td><font color="#008000">SRM_ORMCOD_BOGOTA_OBS_1987</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_BOGOTA_OBS_1987_PM_BOGOTA</font></td>
+    <td><font color="#008000">SRM_ORMCOD_BOGOTA_OBS_1987_PM_BOGOTA</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_BUKIT_RIMPAH_1987</font></td>
+    <td><font color="#008000">SRM_ORMCOD_BUKIT_RIMPAH_1987</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_CALLISTO_2000</font></td>
+    <td><font color="#008000">SRM_ORMCOD_CALLISTO_2000</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_CALYPSO_1988</font></td>
+    <td><font color="#008000">SRM_ORMCOD_CALYPSO_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_CAMP_AREA_1987</font></td>
+    <td><font color="#008000">SRM_ORMCOD_CAMP_AREA_1987</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_CAMPO_INCHAUSPE_1969</font></td>
+    <td><font color="#008000">SRM_ORMCOD_CAMPO_INCHAUSPE_1969</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_CANTON_1966</font></td>
+    <td><font color="#008000">SRM_ORMCOD_CANTON_1966</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_CAPE_1987</font></td>
+    <td><font color="#008000">SRM_ORMCOD_CAPE_1987</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_CAPE_CANAVERAL_1991</font></td>
+    <td><font color="#008000">SRM_ORMCOD_CAPE_CANAVERAL_1991</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_CARTHAGE_1987</font></td>
+    <td><font color="#008000">SRM_ORMCOD_CARTHAGE_1987</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_CHARON_1991</font></td>
+    <td><font color="#008000">SRM_ORMCOD_CHARON_1991</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_CHATHAM_1971</font></td>
+    <td><font color="#008000">SRM_ORMCOD_CHATHAM_1971</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_CHUA_1987</font></td>
+    <td><font color="#008000">SRM_ORMCOD_CHUA_1987</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_COAMPS_1998</font></td>
+    <td><font color="#008000">SRM_ORMCOD_COAMPS_1998</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_CORDELIA_1988</font></td>
+    <td><font color="#008000">SRM_ORMCOD_CORDELIA_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_CORREGO_ALEGRE_1987</font></td>
+    <td><font color="#008000">SRM_ORMCOD_CORREGO_ALEGRE_1987</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_CRESSIDA_1988</font></td>
+    <td><font color="#008000">SRM_ORMCOD_CRESSIDA_1988</font></td></tr>
+<tr><td>SRM_ORM_CYPRUS_1935</td><td>&nbsp;</td></tr>
+<tr><td><font color="#008000">SRM_ORM_DABOLA_1991</font></td>
+    <td><font color="#008000">SRM_ORMCOD_DABOLA_1991</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_DECEPTION_1993</font></td>
+    <td><font color="#008000">SRM_ORMCOD_DECEPTION_1993</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_DEIMOS_1988</font></td>
+    <td><font color="#008000">SRM_ORMCOD_DEIMOS_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_DESDEMONA_1988</font></td>
+    <td><font color="#008000">SRM_ORMCOD_DESDEMONA_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_DESPINA_1991</font></td>
+    <td><font color="#008000">SRM_ORMCOD_DESPINA_1991</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_DIONE_1982</font></td>
+    <td><font color="#008000">SRM_ORMCOD_DIONE_1982</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_DJAKARTA_1987</font></td>
+    <td><font color="#008000">SRM_ORMCOD_DJAKARTA_1987</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_DJAKARTA_1987_PM_DJAKARTA</font></td>
+    <td><font color="#008000">SRM_ORMCOD_DJAKARTA_1987_PM_DJAKARTA</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_DOS_1968</font></td>
+    <td><font color="#008000">SRM_ORMCOD_DOS_1968</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_DOS_71_4_1987</font></td>
+    <td><font color="#008000">SRM_ORMCOD_DOS_71_4_1987</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_EARTH_INERTIAL_ARIES_1950</font></td>
+    <td><font color="#008000">SRM_ORMCOD_EARTH_INERTIAL_ARIES_1950</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_EARTH_INERTIAL_ARIES_TRUE_OF_DATE</font></td>
+    <td><font color="#008000">SRM_ORMCOD_EARTH_INERTIAL_ARIES_TRUE_OF_DATE</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_EARTH_INERTIAL_J2000R0</font></td>
+    <td><font color="#008000">SRM_ORMCOD_EARTH_INERTIAL_J2000R0</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_EARTH_SOLAR_ECLIPTIC</font></td>
+    <td><font color="#008000">SRM_ORMCOD_EARTH_SOLAR_ECLIPTIC</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_EARTH_SOLAR_EQUATORIAL</font></td>
+    <td><font color="#008000">SRM_ORMCOD_EARTH_SOLAR_EQUATORIAL</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_EARTH_SOLAR_MAG_DIPOLE</font></td>
+    <td><font color="#008000">SRM_ORMCOD_EARTH_SOLAR_MAG_DIPOLE</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_EARTH_SOLAR_MAGNETOSPHERIC</font></td>
+    <td><font color="#008000">SRM_ORMCOD_EARTH_SOLAR_MAGNETOSPHERIC</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_EASTER_1967</font></td>
+    <td><font color="#008000">SRM_ORMCOD_EASTER_1967</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_ENCELADUS_1994</font></td>
+    <td><font color="#008000">SRM_ORMCOD_ENCELADUS_1994</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_EPIMETHEUS_1988</font></td>
+    <td><font color="#008000">SRM_ORMCOD_EPIMETHEUS_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_EROS_2000</font></td>
+    <td><font color="#008000">SRM_ORMCOD_EROS_2000</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_ESTONIA_1937</font></td>
+    <td><font color="#008000">SRM_ORMCOD_ESTONIA_1937</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_ETRS_1989</font></td>
+    <td><font color="#008000">SRM_ORMCOD_ETRS_1989</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_EUROPA_2000</font></td>
+    <td><font color="#008000">SRM_ORMCOD_EUROPA_2000</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_EUROPE_1950</font></td>
+    <td><font color="#008000">SRM_ORMCOD_EUROPE_1950</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_EUROPE_1979</font></td>
+    <td><font color="#008000">SRM_ORMCOD_EUROPE_1979</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_FAHUD_1987</font></td>
+    <td><font color="#008000">SRM_ORMCOD_FAHUD_1987</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_FORT_THOMAS_1955</font></td>
+    <td><font color="#008000">SRM_ORMCOD_FORT_THOMAS_1955</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_GALATEA_1991</font></td>
+    <td><font color="#008000">SRM_ORMCOD_GALATEA_1991</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_GAN_1970</font></td>
+    <td><font color="#008000">SRM_ORMCOD_GAN_1970</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_GANYMEDE_2000</font></td>
+    <td><font color="#008000">SRM_ORMCOD_GANYMEDE_2000</font></td></tr>
+<tr><td>SRM_ORM_GANYMEDE_MAGNETIC_2000</td><td>&nbsp;</td></tr>
+<tr><td><font color="#008000">SRM_ORM_GASPRA_1991</font></td>
+    <td><font color="#008000">SRM_ORMCOD_GASPRA_1991</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_GDA_1994</font></td>
+    <td><font color="#008000">SRM_ORMCOD_GDA_1994</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_GEODETIC_DATUM_1949</font></td>
+    <td><font color="#008000">SRM_ORMCOD_GEODETIC_DATUM_1949</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_GEOMAGNETIC_1945</font></td>
+    <td><font color="#008000">SRM_ORMCOD_GEOMAGNETIC_1945</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_GEOMAGNETIC_1950</font></td>
+    <td><font color="#008000">SRM_ORMCOD_GEOMAGNETIC_1950</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_GEOMAGNETIC_1955</font></td>
+    <td><font color="#008000">SRM_ORMCOD_GEOMAGNETIC_1955</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_GEOMAGNETIC_1960</font></td>
+    <td><font color="#008000">SRM_ORMCOD_GEOMAGNETIC_1960</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_GEOMAGNETIC_1965</font></td>
+    <td><font color="#008000">SRM_ORMCOD_GEOMAGNETIC_1965</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_GEOMAGNETIC_1970</font></td>
+    <td><font color="#008000">SRM_ORMCOD_GEOMAGNETIC_1970</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_GEOMAGNETIC_1975</font></td>
+    <td><font color="#008000">SRM_ORMCOD_GEOMAGNETIC_1975</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_GEOMAGNETIC_1980</font></td>
+    <td><font color="#008000">SRM_ORMCOD_GEOMAGNETIC_1980</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_GEOMAGNETIC_1985</font></td>
+    <td><font color="#008000">SRM_ORMCOD_GEOMAGNETIC_1985</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_GEOMAGNETIC_1990</font></td>
+    <td><font color="#008000">SRM_ORMCOD_GEOMAGNETIC_1990</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_GEOMAGNETIC_1995</font></td>
+    <td><font color="#008000">SRM_ORMCOD_GEOMAGNETIC_1995</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_GEOMAGNETIC_2000</font></td>
+    <td><font color="#008000">SRM_ORMCOD_GEOMAGNETIC_2000</font></td></tr>
+<tr><td>SRM_ORM_GGRS_1987</td><td>&nbsp;</td></tr>
+<tr><td><font color="#008000">SRM_ORM_GRACIOSA_BASE_SW_1948</font></td>
+    <td><font color="#008000">SRM_ORMCOD_GRACIOSA_BASE_SW_1948</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_GUAM_1963</font></td>
+    <td><font color="#008000">SRM_ORMCOD_GUAM_1963</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_GUNONG_SEGARA_1987</font></td>
+    <td><font color="#008000">SRM_ORMCOD_GUNONG_SEGARA_1987</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_GUX_1_1987</font></td>
+    <td><font color="#008000">SRM_ORMCOD_GUX_1_1987</font></td></tr>
+<tr><td>SRM_ORM_HARTEBEESTHOCK_1994</td><td>&nbsp;</td></tr>
+<tr><td><font color="#008000">SRM_ORM_HELENE_1992</font></td>
+    <td><font color="#008000">SRM_ORMCOD_HELENE_1992</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_HELIO_ARIES_ECLIPTIC_J2000R0</font></td>
+    <td><font color="#008000">SRM_ORMCOD_HELIO_ARIES_ECLIPTIC_J2000R0</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_HELIO_ARIES_ECLIPTIC_TRUE_OF_DATE</font></td>
+    <td><font color="#008000">SRM_ORMCOD_HELIO_ARIES_ECLIPTIC_TRUE_OF_DATE</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_HELIO_EARTH_ECLIPTIC</font></td>
+    <td><font color="#008000">SRM_ORMCOD_HELIO_EARTH_ECLIPTIC</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_HELIO_EARTH_EQUATORIAL</font></td>
+    <td><font color="#008000">SRM_ORMCOD_HELIO_EARTH_EQUATORIAL</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_HERAT_NORTH_1987</font></td>
+    <td><font color="#008000">SRM_ORMCOD_HERAT_NORTH_1987</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_HERMANNSKOGEL_1871</font></td>
+    <td><font color="#008000">SRM_ORMCOD_HERMANNSKOGEL_1871</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_HJORSEY_1955</font></td>
+    <td><font color="#008000">SRM_ORMCOD_HJORSEY_1955</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_HONG_KONG_1963</font></td>
+    <td><font color="#008000">SRM_ORMCOD_HONG_KONG_1963</font></td></tr>
+<tr><td>SRM_ORM_HONG_KONG_1980</td><td>&nbsp;</td></tr>
+<tr><td><font color="#008000">SRM_ORM_HU_TZU_SHAN_1991</font></td>
+    <td><font color="#008000">SRM_ORMCOD_HU_TZU_SHAN_1991</font></td></tr>
+<tr><td>SRM_ORM_HUNGARIAN_1972</td><td>&nbsp;</td></tr>
+<tr><td><font color="#008000">SRM_ORM_IAPETUS_1988</font></td>
+    <td><font color="#008000">SRM_ORMCOD_IAPETUS_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_IDA_1991</font></td>
+    <td><font color="#008000">SRM_ORMCOD_IDA_1991</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_INDIAN_1916</font></td>
+    <td><font color="#008000">SRM_ORMCOD_INDIAN_1916</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_INDIAN_1954</font></td>
+    <td><font color="#008000">SRM_ORMCOD_INDIAN_1954</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_INDIAN_1956</font></td>
+    <td><font color="#008000">SRM_ORMCOD_INDIAN_1956</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_INDIAN_1960</font></td>
+    <td><font color="#008000">SRM_ORMCOD_INDIAN_1960</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_INDIAN_1962</font></td>
+    <td><font color="#008000">SRM_ORMCOD_INDIAN_1962</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_INDIAN_1975</font></td>
+    <td><font color="#008000">SRM_ORMCOD_INDIAN_1975</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_INDONESIAN_1974</font></td>
+    <td><font color="#008000">SRM_ORMCOD_INDONESIAN_1974</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_IO_2000</font></td>
+    <td><font color="#008000">SRM_ORMCOD_IO_2000</font></td></tr>
+<tr><td>SRM_ORM_IRAQ_KUWAIT_BNDRY_1992</td><td>&nbsp;</td></tr>
+<tr><td><font color="#008000">SRM_ORM_IRELAND_1965</font></td>
+    <td><font color="#008000">SRM_ORMCOD_IRELAND_1965</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_ISTS_061_1968</font></td>
+    <td><font color="#008000">SRM_ORMCOD_ISTS_061_1968</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_ISTS_073_1969</font></td>
+    <td><font color="#008000">SRM_ORMCOD_ISTS_073_1969</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_JANUS_1988</font></td>
+    <td><font color="#008000">SRM_ORMCOD_JANUS_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_JGD_2000</font></td>
+    <td><font color="#008000">SRM_ORMCOD_JGD_2000</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_JOHNSTON_1961</font></td>
+    <td><font color="#008000">SRM_ORMCOD_JOHNSTON_1961</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_JULIET_1988</font></td>
+    <td><font color="#008000">SRM_ORMCOD_JULIET_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_JUPITER_1988</font></td>
+    <td><font color="#008000">SRM_ORMCOD_JUPITER_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_JUPITER_INERTIAL</font></td>
+    <td><font color="#008000">SRM_ORMCOD_JUPITER_INERTIAL</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_JUPITER_MAGNETIC_1992</font></td>
+    <td><font color="#008000">SRM_ORMCOD_JUPITER_MAGNETIC_1993</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_JUPITER_SOLAR_ECLIPTIC</font></td>
+    <td><font color="#008000">SRM_ORMCOD_JUPITER_SOLAR_ECLIPTIC</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_JUPITER_SOLAR_EQUATORIAL</font></td>
+    <td><font color="#008000">SRM_ORMCOD_JUPITER_SOLAR_EQUATORIAL</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_JUPITER_SOLAR_MAG_DIPOLE</font></td>
+    <td><font color="#008000">SRM_ORMCOD_JUPITER_SOLAR_MAG_DIPOLE</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_JUPITER_SOLAR_MAG_ECLIPTIC</font></td>
+    <td><font color="#008000">SRM_ORMCOD_JUPITER_SOLAR_MAG_ECLIPTIC</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_KANDAWALA_1987</font></td>
+    <td><font color="#008000">SRM_ORMCOD_KANDAWALA_1987</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_KERGUELEN_1949</font></td>
+    <td><font color="#008000">SRM_ORMCOD_KERGUELEN_1949</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_KERTAU_1948</font></td>
+    <td><font color="#008000">SRM_ORMCOD_KERTAU_1948</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_KOREAN_GEODETIC_1995</font></td>
+    <td><font color="#008000">SRM_ORMCOD_KOREAN_GEODETIC_1995</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_KUSAIE_1951</font></td>
+    <td><font color="#008000">SRM_ORMCOD_KUSAIE_1951</font></td></tr>
+<tr><td>SRM_ORM_LANDESVERMESSUNG_1995</td><td>&nbsp;</td></tr>
+<tr><td><font color="#008000">SRM_ORM_LARISSA_1991</font></td>
+    <td><font color="#008000">SRM_ORMCOD_LARISSA_1991</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_LC5_1961</font></td>
+    <td><font color="#008000">SRM_ORMCOD_LC5_1961</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_LEIGON_1991</font></td>
+    <td><font color="#008000">SRM_ORMCOD_LEIGON_1991</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_LIBERIA_1964</font></td>
+    <td><font color="#008000">SRM_ORMCOD_LIBERIA_1964</font></td></tr>
+<tr><td>SRM_ORM_LISBON_D73</td><td>&nbsp;</td></tr>
+<tr><td>SRM_ORM_LKS_1994</td><td>&nbsp;</td></tr>
+<tr><td><font color="#008000">SRM_ORM_LUZON_1987</font></td>
+    <td><font color="#008000">SRM_ORMCOD_LUZON_1987</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_M_PORALOKO_1991</font></td>
+    <td><font color="#008000">SRM_ORMCOD_M_PORALOKO_1991</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_MAHE_1971</font></td>
+    <td><font color="#008000">SRM_ORMCOD_MAHE_1971</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_MARCUS_STATION_1952</font></td>
+    <td><font color="#008000">SRM_ORMCOD_MARCUS_STATION_1952</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_MARS_2000</font></td>
+    <td><font color="#008000">SRM_ORMCOD_MARS_2000</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_MARS_INERTIAL</font></td>
+    <td><font color="#008000">SRM_ORMCOD_MARS_INERTIAL</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_MARS_SPHERE_2000</font></td>
+    <td><font color="#008000">SRM_ORMCOD_MARS_SPHERE_2000</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_MASS_1999</font></td>
+    <td><font color="#008000">SRM_ORMCOD_MASS_1999</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_MASSAWA_1987</font></td>
+    <td><font color="#008000">SRM_ORMCOD_MASSAWA_1987</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_MERCHICH_1987</font></td>
+    <td><font color="#008000">SRM_ORMCOD_MERCHICH_1987</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_MERCURY_1988</font></td>
+    <td><font color="#008000">SRM_ORMCOD_MERCURY_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_MERCURY_INERTIAL</font></td>
+    <td><font color="#008000">SRM_ORMCOD_MERCURY_INERTIAL</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_METIS_2000</font></td>
+    <td><font color="#008000">SRM_ORMCOD_METIS_2000</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_MIDWAY_1961</font></td>
+    <td><font color="#008000">SRM_ORMCOD_MIDWAY_1961</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_MIMAS_1994</font></td>
+    <td><font color="#008000">SRM_ORMCOD_MIMAS_1994</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_MINNA_1991</font></td>
+    <td><font color="#008000">SRM_ORMCOD_MINNA_1991</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_MIRANDA_1988</font></td>
+    <td><font color="#008000">SRM_ORMCOD_MIRANDA_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_MM5_1997</font></td>
+    <td><font color="#008000">SRM_ORMCOD_MM5_1997</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_MODTRAN_MIDLATITUDE_N_1989</font></td>
+    <td><font color="#008000">SRM_ORMCOD_MODTRAN_MIDLATITUDE_N_1989</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_MODTRAN_MIDLATITUDE_S_1989</font></td>
+    <td><font color="#008000">SRM_ORMCOD_MODTRAN_MIDLATITUDE_S_1989</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_MODTRAN_SUBARCTIC_N_1989</font></td>
+    <td><font color="#008000">SRM_ORMCOD_MODTRAN_SUBARCTIC_N_1989</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_MODTRAN_SUBARCTIC_S_1989</font></td>
+    <td><font color="#008000">SRM_ORMCOD_MODTRAN_SUBARCTIC_S_1989</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_MODTRAN_TROPICAL_1989</font></td>
+    <td><font color="#008000">SRM_ORMCOD_MODTRAN_TROPICAL_1989</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_MONTSERRAT_1958</font></td>
+    <td><font color="#008000">SRM_ORMCOD_MONTSERRAT_1958</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_MOON_1991</font></td>
+    <td><font color="#008000">SRM_ORMCOD_MOON_1991</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_MULTIGEN_FLAT_EARTH_1989</font></td>
+    <td><font color="#008000">SRM_ORMCOD_MULTIGEN_FLAT_EARTH_1989</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_N_AM_1927</font></td>
+    <td><font color="#008000">SRM_ORMCOD_N_AM_1927</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_N_AM_1983</font></td>
+    <td><font color="#008000">SRM_ORMCOD_N_AM_1983</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_N_SAHARA_1959</font></td>
+    <td><font color="#008000">SRM_ORMCOD_N_SAHARA_1959</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_NAHRWAN_1987</font></td>
+    <td><font color="#008000">SRM_ORMCOD_NAHRWAN_1987</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_NAIAD_1991</font></td>
+    <td><font color="#008000">SRM_ORMCOD_NAIAD_1991</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_NAPARIMA_1991</font></td>
+    <td><font color="#008000">SRM_ORMCOD_NAPARIMA_1991</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_NEPTUNE_1991</font></td>
+    <td><font color="#008000">SRM_ORMCOD_NEPTUNE_1991</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_NEPTUNE_INERTIAL</font></td>
+    <td><font color="#008000">SRM_ORMCOD_NEPTUNE_INERTIAL</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_NEPTUNE_MAGNETIC_1993</font></td>
+    <td><font color="#008000">SRM_ORMCOD_NEPTUNE_MAGNETIC_1993</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_NOGAPS_1988</font></td>
+    <td><font color="#008000">SRM_ORMCOD_NOGAPS_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_NTF_1896</font></td>
+    <td><font color="#008000">SRM_ORMCOD_NTF_1896</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_NTF_1896_PM_PARIS</font></td>
+    <td><font color="#008000">SRM_ORMCOD_NTF_1896_PM_PARIS</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_OBERON_1988</font></td>
+    <td><font color="#008000">SRM_ORMCOD_OBERON_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_OBSERV_METEORO_1939</font></td>
+    <td><font color="#008000">SRM_ORMCOD_OBSERV_METEORO_1939</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_OLD_EGYPTIAN_1907</font></td>
+    <td><font color="#008000">SRM_ORMCOD_OLD_EGYPTIAN_1907</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_OLD_HAW_CLARKE_1987</font></td>
+    <td><font color="#008000">SRM_ORMCOD_OLD_HAWAIIAN_CLARKE_1987</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_OLD_HAW_INT_1987</font></td>
+    <td><font color="#008000">SRM_ORMCOD_OLD_HAWAIIAN_INT_1987</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_OPHELIA_1988</font></td>
+    <td><font color="#008000">SRM_ORMCOD_OPHELIA_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_OSGB_1936</font></td>
+    <td><font color="#008000">SRM_ORMCOD_OSGB_1936</font></td></tr>
+<tr><td>SRM_ORM_PALESTINE_1928</td><td>&nbsp;</td></tr>
+<tr><td><font color="#008000">SRM_ORM_PAN_1991</font></td>
+    <td><font color="#008000">SRM_ORMCOD_PAN_1991</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_PANDORA_1988</font></td>
+    <td><font color="#008000">SRM_ORMCOD_PANDORA_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_PHOBOS_1988</font></td>
+    <td><font color="#008000">SRM_ORMCOD_PHOBOS_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_PHOEBE_1988</font></td>
+    <td><font color="#008000">SRM_ORMCOD_PHOEBE_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_PICO_DE_LAS_NIEVES_1987</font></td>
+    <td><font color="#008000">SRM_ORMCOD_PICO_DE_LAS_NIEVES_1987</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_PITCAIRN_1967</font></td>
+    <td><font color="#008000">SRM_ORMCOD_PITCAIRN_1967</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_PLUTO_1994</font></td>
+    <td><font color="#008000">SRM_ORMCOD_PLUTO_1994</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_PLUTO_INERTIAL</font></td>
+    <td><font color="#008000">SRM_ORMCOD_PLUTO_INERTIAL</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_POINT_58_1991</font></td>
+    <td><font color="#008000">SRM_ORMCOD_POINT_58_1991</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_POINTE_NOIRE_1948</font></td>
+    <td><font color="#008000">SRM_ORMCOD_POINTE_NOIRE_1948</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_PORTIA_1988</font></td>
+    <td><font color="#008000">SRM_ORMCOD_PORTIA_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_PORTO_SANTO_1936</font></td>
+    <td><font color="#008000">SRM_ORMCOD_PORTO_SANTO_1936</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_PROMETHEUS_1988</font></td>
+    <td><font color="#008000">SRM_ORMCOD_PROMETHEUS_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_PROTEUS_1991</font></td>
+    <td><font color="#008000">SRM_ORMCOD_PROTEUS_1991</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_PROV_S_AM_1956</font></td>
+    <td><font color="#008000">SRM_ORMCOD_PROV_S_AM_1956</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_PROV_S_CHILEAN_1963</font></td>
+    <td><font color="#008000">SRM_ORMCOD_PROV_S_CHILEAN_1963</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_PUCK_1988</font></td>
+    <td><font color="#008000">SRM_ORMCOD_PUCK_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_PUERTO_RICO_1987</font></td>
+    <td><font color="#008000">SRM_ORMCOD_PUERTO_RICO_1987</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_PULKOVO_1942</font></td>
+    <td><font color="#008000">SRM_ORMCOD_PULKOVO_1942</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_QATAR_NATIONAL_1974</font></td>
+    <td><font color="#008000">SRM_ORMCOD_QATAR_NATIONAL_1974</font></td></tr>
+<tr><td>SRM_ORM_QATAR_NATIONAL_1995</td><td>&nbsp;</td></tr>
+<tr><td><font color="#008000">SRM_ORM_QORNOQ_1987</font></td>
+    <td><font color="#008000">SRM_ORMCOD_QORNOQ_1987</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_REUNION_1947</font></td>
+    <td><font color="#008000">SRM_ORMCOD_REUNION_1947</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_RGF_1993</font></td>
+    <td><font color="#008000">SRM_ORMCOD_RGF_1993</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_RHEA_1988</font></td>
+    <td><font color="#008000">SRM_ORMCOD_RHEA_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_ROME_1940</font></td>
+    <td><font color="#008000">SRM_ORMCOD_ROME_1940</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_ROME_1940_PM_ROME</font></td>
+    <td><font color="#008000">SRM_ORMCOD_ROME_1940_PM_ROME</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_ROSALIND_1988</font></td>
+    <td><font color="#008000">SRM_ORMCOD_ROSALIND_1988</font></td></tr>
+<tr><td>SRM_ORM_RT_1990</td><td>&nbsp;</td></tr>
+<tr><td>SRM_ORM_RT_1990_PM_STOCKHOLM</td><td>&nbsp;</td></tr>
+<tr><td><font color="#008000">SRM_ORM_S_AM_1969</font></td>
+    <td><font color="#008000">SRM_ORMCOD_S_AM_1969</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_S_ASIA_1987</font></td>
+    <td><font color="#008000">SRM_ORMCOD_S_ASIA_1987</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_S_JTSK_1993</font></td>
+    <td><font color="#008000">SRM_ORMCOD_S_JTSK_1993</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_S42_PULKOVO</font></td>
+    <td><font color="#008000">SRM_ORMCOD_S42_PULKOVO</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_SANTO_DOS_1965</font></td>
+    <td><font color="#008000">SRM_ORMCOD_SANTO_DOS_1965</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_SAO_BRAZ_1987</font></td>
+    <td><font color="#008000">SRM_ORMCOD_SAO_BRAZ_1987</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_SAPPER_HILL_1943</font></td>
+    <td><font color="#008000">SRM_ORMCOD_SAPPER_HILL_1943</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_SATURN_1988</font></td>
+    <td><font color="#008000">SRM_ORMCOD_SATURN_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_SATURN_INERTIAL</font></td>
+    <td><font color="#008000">SRM_ORMCOD_SATURN_INERTIAL</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_SATURN_MAGNETIC_1993</font></td>
+    <td><font color="#008000">SRM_ORMCOD_SATURN_MAGNETIC_1993</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_SCHWARZECK_1991</font></td>
+    <td><font color="#008000">SRM_ORMCOD_SCHWARZECK_1991</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_SELVAGEM_GRANDE_1938</font></td>
+    <td><font color="#008000">SRM_ORMCOD_SELVAGEM_GRANDE_1938</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_SIERRA_LEONE_1960</font></td>
+    <td><font color="#008000">SRM_ORMCOD_SIERRA_LEONE_1960</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_SIRGAS_2000</font></td>
+    <td><font color="#008000">SRM_ORMCOD_SIRGAS_2000</font></td></tr>
+<tr><td>SRM_ORM_SOUTHEAST_1943</td><td>&nbsp;</td></tr>
+<tr><td>SRM_ORM_SOVIET_GEODETIC_1985</td><td>&nbsp;</td></tr>
+<tr><td>SRM_ORM_SOVIET_GEODETIC_1990</td><td>&nbsp;</td></tr>
+<tr><td><font color="#008000">SRM_ORM_SUN_1992</font></td>
+    <td><font color="#008000">SRM_ORMCOD_SUN_1992</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_TAN_OBS_1925</font></td>
+    <td><font color="#008000">SRM_ORMCOD_TANANARIVE_OBS_1925</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_TAN_OBS_1925_PM_PARIS</font></td>
+    <td><font color="#008000">SRM_ORMCOD_TANANARIVE_OBS_1925_PM_PARIS</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_TELESTO_1988</font></td>
+    <td><font color="#008000">SRM_ORMCOD_TELESTO_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_TERN_1961</font></td>
+    <td><font color="#008000">SRM_ORMCOD_TERN_1961</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_TETHYS_1991</font></td>
+    <td><font color="#008000">SRM_ORMCOD_TETHYS_1991</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_THALASSA_1991</font></td>
+    <td><font color="#008000">SRM_ORMCOD_THALASSA_1991</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_THEBE_2000</font></td>
+    <td><font color="#008000">SRM_ORMCOD_THEBE_2000</font></td></tr>
+<tr><td>SRM_ORM_TIM_BESSEL_1948</td><td>&nbsp;</td></tr>
+<tr><td>SRM_ORM_TIM_BESSEL_ADJ_1968</td><td>&nbsp;</td></tr>
+<tr><td><font color="#008000">SRM_ORM_TIM_EV_1948</font></td>
+    <td><font color="#008000">SRM_ORMCOD_TIMBALAI_EVEREST_1948</font></td></tr>
+<tr><td>SRM_ORM_TIM_EV_ADJ_1968</td><td>&nbsp;</td></tr>
+<tr><td><font color="#008000">SRM_ORM_TITAN_1982</font></td>
+    <td><font color="#008000">SRM_ORMCOD_TITAN_1982</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_TITANIA_1988</font></td>
+    <td><font color="#008000">SRM_ORMCOD_TITANIA_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_TOKYO_1991</font></td>
+    <td><font color="#008000">SRM_ORMCOD_TOKYO_1991</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_TRISTAN_1968</font></td>
+    <td><font color="#008000">SRM_ORMCOD_TRISTAN_1968</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_TRITON_1991</font></td>
+    <td><font color="#008000">SRM_ORMCOD_TRITON_1991</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_UMBRIEL_1988</font></td>
+    <td><font color="#008000">SRM_ORMCOD_UMBRIEL_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_URANUS_1988</font></td>
+    <td><font color="#008000">SRM_ORMCOD_URANUS_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_URANUS_INERTIAL</font></td>
+    <td><font color="#008000">SRM_ORMCOD_URANUS_INERTIAL</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_URANUS_MAGNETIC_1993</font></td>
+    <td><font color="#008000">SRM_ORMCOD_URANUS_MAGNETIC_1993</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_VENUS_1991</font></td>
+    <td><font color="#008000">SRM_ORMCOD_VENUS_1991</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_VENUS_INERTIAL</font></td>
+    <td><font color="#008000">SRM_ORMCOD_VENUS_INERTIAL</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_VITI_LEVU_1916</font></td>
+    <td><font color="#008000">SRM_ORMCOD_VITI_LEVU_1916</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_VOIROL_1874</font></td>
+    <td><font color="#008000">SRM_ORMCOD_VOIROL_1874</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_VOIROL_1874_PM_PARIS</font></td>
+    <td><font color="#008000">SRM_ORMCOD_VOIROL_1874_PM_PARIS</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_VOIROL_1960</font></td>
+    <td><font color="#008000">SRM_ORMCOD_VOIROL_1960</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_VOIROL_1960_PM_PARIS</font></td>
+    <td><font color="#008000">SRM_ORMCOD_VOIROL_1960_PM_PARIS</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_WAKE_1952</font></td>
+    <td><font color="#008000">SRM_ORMCOD_WAKE_1952</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_WAKE_ENIWETOK_1960</font></td>
+    <td><font color="#008000">SRM_ORMCOD_WAKE_ENIWETOK_1960</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_WGS_1972</font></td>
+    <td><font color="#008000">SRM_ORMCOD_WGS_1972</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_WGS_1984</font></td>
+    <td><font color="#008000">SRM_ORMCOD_WGS_1984</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_YACARE_1987</font></td>
+    <td><font color="#008000">SRM_ORMCOD_YACARE_1987</font></td></tr>
+<tr><td><font color="#008000">SRM_ORM_ZANDERIJ_1987</font></td>
+    <td><font color="#008000">SRM_ORMCOD_ZANDERIJ_1987</font></td></tr>
+</table>
+<br><br></li>
+<li><p>SRM_ORM_Parameters split into multiple targets.
+</p>
+<ol type='a'>
+<li><p>SRM_ORM_Parameters maps to SRM_ORM_Code.
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>SRM_ORM_Code orm_code</td> <td>SRM_ORM_Code</td></tr>
+<tr><td>hsr_code</td> <td>(none)</td></tr>
+</table>
+<br><br></li>
+<li><p>SRM_ORM_Parameters maps to SRM_RT_Code.
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>orm_code</td> <td>(none)</td></tr>
+<tr><td>hsr_code</td> <td>(merged into )</td></tr>
+</table>
+<br><br></li>
+</ol>
+</li>
+<li><p><font color="#008000">SRM_ORMT_Code maps to SRM_ORMT_Code.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SRM_ORMT_UNDEFINED</font></td>
+    <td><font color="#008000">SRM_ORMTCOD_UNSPECIFIED</font></td></tr>
+<tr><td><font color="#008000">SRM_ORMT_BI_AXIS_ORIGIN_2D</font></td>
+    <td><font color="#008000">SRM_ORMTCOD_BI_AXIS_ORIGIN_2D</font></td></tr>
+<tr><td><font color="#008000">SRM_ORMT_SPHERE</font></td>
+    <td><font color="#008000">SRM_ORMTCOD_SPHERE</font></td></tr>
+<tr><td><font color="#008000">SRM_ORMT_OBLATE_ELLIPSOID</font></td>
+    <td><font color="#008000">SRM_ORMTCOD_OBLATE_ELLIPSOID</font></td></tr>
+<tr><td><font color="#008000">SRM_ORMT_PROLATE_ELLIPSOID</font></td>
+    <td><font color="#008000">SRM_ORMTCOD_PROLATE_ELLIPSOID</font></td></tr>
+<tr><td><font color="#008000">SRM_ORMT_TRI_AXIAL_ELLIPSOID</font></td>
+    <td><font color="#008000">SRM_ORMTCOD_TRI_AXIAL_ELLIPSOID</font></td></tr>
+<tr><td><font color="#008000">SRM_ORMT_BI_AXIS_ORIGIN_3D</font></td>
+    <td><font color="#008000">SRM_ORMTCOD_BI_AXIS_ORIGIN_3D</font></td></tr>
+<tr><td><font color="#008000">SRM_ORMT_TRI_PLANE</font></td>
+    <td><font color="#008000">SRM_ORMTCOD_TRI_PLANE</font></td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SRM_Polar_2D_Coordinate maps to SRM_LSP_2D_Coordinate.</font>
+</p></li>
+<li><p><font color="#008000">SRM_Polar_Aspect maps to SRM_Polar_Aspect.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SRM_POLAR_ASPECT_NORTH</font></td>
+    <td><font color="#008000">SRM_PLRASP_NORTH</font></td></tr>
+<tr><td><font color="#008000">SRM_POLAR_ASPECT_SOUTH</font></td>
+    <td><font color="#008000">SRM_PLRASP_SOUTH</font></td></tr>
+</table>
+<br><br></li>
+<li><p>SRM_PS_Parameters
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>true_scale_latitude</td> <td>(none)</td></tr>
+<tr><td>true_scale</td> <td>central_scale</td></tr>
+</table>
+<br><br></li>
+<li><p>SRM_PS_SRF_Parameters split into multiple targets.
+</p>
+<ol type='a'>
+<li><p>SRM_PS_SRF_Parameters maps to SRM_PS_Parameters.
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>orm_params</td> <td>(none)</td></tr>
+<tr><td>SRM_PS_Parameters ps_params</td> <td>SRM_PS_Parameters</td></tr>
+</table>
+<br><br></li>
+<li><p>SRM_PS_SRF_Parameters maps to SRM_ORM_Code.
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>SRM_ORM_Parameters orm_params</td> <td>SRM_ORM_Code</td></tr>
+<tr><td>ps_params</td> <td>(none)</td></tr>
+</table>
+<br><br></li>
+<li><p>SRM_PS_SRF_Parameters maps to SRM_RT_Code.
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>SRM_ORM_Parameters orm_params</td> <td>SRM_RT_Code</td></tr>
+<tr><td>ps_params</td> <td>(none)</td></tr>
+</table>
+<br><br></li>
+</ol>
+</li>
+<li><p><font color="#008000">SRM_RD_Code maps to SRM_RD_Code.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>SRM_RD_UNDEFINED</td><td>&nbsp;</td></tr>
+<tr><td><font color="#008000">SRM_RD_ORIGIN_2D</font></td>
+    <td><font color="#008000">SRM_RDCOD_ORIGIN_2D</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_X_UNIT_POINT_2D</font></td>
+    <td><font color="#008000">SRM_RDCOD_X_UNIT_POINT_2D</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_Y_UNIT_POINT_2D</font></td>
+    <td><font color="#008000">SRM_RDCOD_Y_UNIT_POINT_2D</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_ORIGIN_3D</font></td>
+    <td><font color="#008000">SRM_RDCOD_ORIGIN_3D</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_X_UNIT_POINT_3D</font></td>
+    <td><font color="#008000">SRM_RDCOD_X_UNIT_POINT_3D</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_Y_UNIT_POINT_3D</font></td>
+    <td><font color="#008000">SRM_RDCOD_Y_UNIT_POINT_3D</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_Z_UNIT_POINT_3D</font></td>
+    <td><font color="#008000">SRM_RDCOD_Z_UNIT_POINT_3D</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_X_AXIS_2D</font></td>
+    <td><font color="#008000">SRM_RDCOD_X_AXIS_2D</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_Y_AXIS_2D</font></td>
+    <td><font color="#008000">SRM_RDCOD_Y_AXIS_2D</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_X_AXIS_3D</font></td>
+    <td><font color="#008000">SRM_RDCOD_X_AXIS_3D</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_Y_AXIS_3D</font></td>
+    <td><font color="#008000">SRM_RDCOD_Y_AXIS_3D</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_Z_AXIS_3D</font></td>
+    <td><font color="#008000">SRM_RDCOD_Z_AXIS_3D</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_XY_PLANE_3D</font></td>
+    <td><font color="#008000">SRM_RDCOD_XY_PLANE_3D</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_XZ_PLANE_3D</font></td>
+    <td><font color="#008000">SRM_RDCOD_XZ_PLANE_3D</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_YZ_PLANE_3D</font></td>
+    <td><font color="#008000">SRM_RDCOD_YZ_PLANE_3D</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_ADRASTEA_2000</font></td>
+    <td><font color="#008000">SRM_RDCOD_ADRASTEA_2000</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_AIRY_1830</font></td>
+    <td><font color="#008000">SRM_RDCOD_AIRY_1830</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_AMALTHEA_2000</font></td>
+    <td><font color="#008000">SRM_RDCOD_AMALTHEA_2000</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_ANANKE_1988</font></td>
+    <td><font color="#008000">SRM_RDCOD_ANANKE_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_APL_4R5_1968</font></td>
+    <td><font color="#008000">SRM_RDCOD_APL_4R5_1968</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_ARIEL_1988</font></td>
+    <td><font color="#008000">SRM_RDCOD_ARIEL_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_ATLAS_1988</font></td>
+    <td><font color="#008000">SRM_RDCOD_ATLAS_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_AUSTRALIAN_NATIONAL_1966</font></td>
+    <td><font color="#008000">SRM_RDCOD_AUSTRALIAN_NATIONAL_1966</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_AVERAGE_TERRESTRIAL_1977</font></td>
+    <td><font color="#008000">SRM_RDCOD_AVERAGE_TERRESTRIAL_1977</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_BELINDA_1988</font></td>
+    <td><font color="#008000">SRM_RDCOD_BELINDA_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_BESSEL_1841_ETHIOPIA</font></td>
+    <td><font color="#008000">SRM_RDCOD_BESSEL_1841_ETHIOPIA</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_BESSEL_1841_NAMIBIA</font></td>
+    <td><font color="#008000">SRM_RDCOD_BESSEL_1841_NAMIBIA</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_BIANCA_1988</font></td>
+    <td><font color="#008000">SRM_RDCOD_BIANCA_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_CALLISTO_2000</font></td>
+    <td><font color="#008000">SRM_RDCOD_CALLISTO_2000</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_CALYPSO_1988</font></td>
+    <td><font color="#008000">SRM_RDCOD_CALYPSO_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_CARME_1988</font></td>
+    <td><font color="#008000">SRM_RDCOD_CARME_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_CHARON_1991</font></td>
+    <td><font color="#008000">SRM_RDCOD_CHARON_1991</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_CLARKE_1858</font></td>
+    <td><font color="#008000">SRM_RDCOD_CLARKE_1858</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_CLARKE_1858_MODIFIED</font></td>
+    <td><font color="#008000">SRM_RDCOD_CLARKE_1858_MODIFIED</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_CLARKE_1866</font></td>
+    <td><font color="#008000">SRM_RDCOD_CLARKE_1866</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_CLARKE_1880</font></td>
+    <td><font color="#008000">SRM_RDCOD_CLARKE_1880</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_CLARKE_1880_CAPE</font></td>
+    <td><font color="#008000">SRM_RDCOD_CLARKE_1880_CAPE</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_CLARKE_1880_FIJI</font></td>
+    <td><font color="#008000">SRM_RDCOD_CLARKE_1880_FIJI</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_CLARKE_1880_IGN</font></td>
+    <td><font color="#008000">SRM_RDCOD_CLARKE_1880_IGN</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_CLARKE_1880_PALESTINE</font></td>
+    <td><font color="#008000">SRM_RDCOD_CLARKE_1880_PALESTINE</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_CLARKE_1880_SYRIA</font></td>
+    <td><font color="#008000">SRM_RDCOD_CLARKE_1880_SYRIA</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_COAMPS_1998</font></td>
+    <td><font color="#008000">SRM_RDCOD_COAMPS_1998</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_CORDELIA_1988</font></td>
+    <td><font color="#008000">SRM_RDCOD_CORDELIA_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_CRESSIDA_1988</font></td>
+    <td><font color="#008000">SRM_RDCOD_CRESSIDA_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_DANISH_1876</font></td>
+    <td><font color="#008000">SRM_RDCOD_DANISH_1876</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_DEIMOS_1988</font></td>
+    <td><font color="#008000">SRM_RDCOD_DEIMOS_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_DELAMBRE_1810</font></td>
+    <td><font color="#008000">SRM_RDCOD_DELAMBRE_1810</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_DESDEMONA_1988</font></td>
+    <td><font color="#008000">SRM_RDCOD_DESDEMONA_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_DESPINA_1991</font></td>
+    <td><font color="#008000">SRM_RDCOD_DESPINA_1991</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_DIONE_1982</font></td>
+    <td><font color="#008000">SRM_RDCOD_DIONE_1982</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_ELARA_1988</font></td>
+    <td><font color="#008000">SRM_RDCOD_ELARA_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_ENCELADUS_1994</font></td>
+    <td><font color="#008000">SRM_RDCOD_ENCELADUS_1994</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_EPIMETHEUS_1988</font></td>
+    <td><font color="#008000">SRM_RDCOD_EPIMETHEUS_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_EROS_2000</font></td>
+    <td><font color="#008000">SRM_RDCOD_EROS_2000</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_EUROPA_2000</font></td>
+    <td><font color="#008000">SRM_RDCOD_EUROPA_2000</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_EVEREST_ADJ_1937</font></td>
+    <td><font color="#008000">SRM_RDCOD_EVEREST_ADJ_1937</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_EVEREST_1948</font></td>
+    <td><font color="#008000">SRM_RDCOD_EVEREST_1948</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_EVEREST_1956</font></td>
+    <td><font color="#008000">SRM_RDCOD_EVEREST_1956</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_EVEREST_REVISED_1962</font></td>
+    <td><font color="#008000">SRM_RDCOD_EVEREST_REVISED_1962</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_EVEREST_1969</font></td>
+    <td><font color="#008000">SRM_RDCOD_EVEREST_1969</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_EVEREST_BRUNEI_1967</font></td>
+    <td><font color="#008000">SRM_RDCOD_EVEREST_BRUNEI_1967</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_FISCHER_1960</font></td>
+    <td><font color="#008000">SRM_RDCOD_FISCHER_1960</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_FISCHER_1968</font></td>
+    <td><font color="#008000">SRM_RDCOD_FISCHER_1968</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_GALATEA_1991</font></td>
+    <td><font color="#008000">SRM_RDCOD_GALATEA_1991</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_GANYMEDE_2000</font></td>
+    <td><font color="#008000">SRM_RDCOD_GANYMEDE_2000</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_GASPRA_1991</font></td>
+    <td><font color="#008000">SRM_RDCOD_GASPRA_1991</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_GRS_1967</font></td>
+    <td><font color="#008000">SRM_RDCOD_GRS_1967</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_GRS_1980</font></td>
+    <td><font color="#008000">SRM_RDCOD_GRS_1980</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_HELENE_1992</font></td>
+    <td><font color="#008000">SRM_RDCOD_HELENE_1992</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_HELMERT_1906</font></td>
+    <td><font color="#008000">SRM_RDCOD_HELMERT_1906</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_HIMALIA_1988</font></td>
+    <td><font color="#008000">SRM_RDCOD_HIMALIA_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_HOUGH_1960</font></td>
+    <td><font color="#008000">SRM_RDCOD_HOUGH_1960</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_HYPERION_2000</font></td>
+    <td><font color="#008000">SRM_RDCOD_HYPERION_2000</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_IAG_1975</font></td>
+    <td><font color="#008000">SRM_RDCOD_IAG_1975</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_IAPETUS_1988</font></td>
+    <td><font color="#008000">SRM_RDCOD_IAPETUS_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_IDA_1991</font></td>
+    <td><font color="#008000">SRM_RDCOD_IDA_1991</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_INDONESIAN_1974</font></td>
+    <td><font color="#008000">SRM_RDCOD_INDONESIAN_1974</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_INTERNATIONAL_1924</font></td>
+    <td><font color="#008000">SRM_RDCOD_INTERNATIONAL_1924</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_IO_2000</font></td>
+    <td><font color="#008000">SRM_RDCOD_IO_2000</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_JANUS_1988</font></td>
+    <td><font color="#008000">SRM_RDCOD_JANUS_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_JULIET_1988</font></td>
+    <td><font color="#008000">SRM_RDCOD_JULIET_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_JUPITER_1988</font></td>
+    <td><font color="#008000">SRM_RDCOD_JUPITER_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_KLEOPATRA_2000</font></td>
+    <td><font color="#008000">SRM_RDCOD_KLEOPATRA_2000</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_KRASSOVSKY_1940</font></td>
+    <td><font color="#008000">SRM_RDCOD_KRASSOVSKY_1940</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_KRAYENHOFF_1827</font></td>
+    <td><font color="#008000">SRM_RDCOD_KRAYENHOFF_1827</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_LARISSA_1991</font></td>
+    <td><font color="#008000">SRM_RDCOD_LARISSA_1991</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_LEDA_1988</font></td>
+    <td><font color="#008000">SRM_RDCOD_LEDA_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_LYSITHEA_1988</font></td>
+    <td><font color="#008000">SRM_RDCOD_LYSITHEA_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_MARS_2000</font></td>
+    <td><font color="#008000">SRM_RDCOD_MARS_2000</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_MARS_SPHERE_2000</font></td>
+    <td><font color="#008000">SRM_RDCOD_MARS_SPHERE_2000</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_MASS_1999</font></td>
+    <td><font color="#008000">SRM_RDCOD_MASS_1999</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_MERCURY_1988</font></td>
+    <td><font color="#008000">SRM_RDCOD_MERCURY_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_METIS_2000</font></td>
+    <td><font color="#008000">SRM_RDCOD_METIS_2000</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_MIMAS_1994</font></td>
+    <td><font color="#008000">SRM_RDCOD_MIMAS_1994</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_MIRANDA_1988</font></td>
+    <td><font color="#008000">SRM_RDCOD_MIRANDA_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_MM5_1997</font></td>
+    <td><font color="#008000">SRM_RDCOD_MM5_1997</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_MODIFIED_AIRY_1849</font></td>
+    <td><font color="#008000">SRM_RDCOD_MODIFIED_AIRY_1849</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_MODIFIED_FISCHER_1960</font></td>
+    <td><font color="#008000">SRM_RDCOD_MODIFIED_FISCHER_1960</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_MODTRAN_MIDLATITUDE_1989</font></td>
+    <td><font color="#008000">SRM_RDCOD_MODTRAN_MIDLATITUDE_1989</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_MODTRAN_SUBARCTIC_1989</font></td>
+    <td><font color="#008000">SRM_RDCOD_MODTRAN_SUBARCTIC_1989</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_MODTRAN_TROPICAL_1989</font></td>
+    <td><font color="#008000">SRM_RDCOD_MODTRAN_TROPICAL_1989</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_MOON_1991</font></td>
+    <td><font color="#008000">SRM_RDCOD_MOON_1991</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_MULTIGEN_FLAT_EARTH_1989</font></td>
+    <td><font color="#008000">SRM_RDCOD_MULTIGEN_FLAT_EARTH_1989</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_NAIAD_1991</font></td>
+    <td><font color="#008000">SRM_RDCOD_NAIAD_1991</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_NEPTUNE_1991</font></td>
+    <td><font color="#008000">SRM_RDCOD_NEPTUNE_1991</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_NEREID_1991</font></td>
+    <td><font color="#008000">SRM_RDCOD_NEREID_1991</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_NOGAPS_1988</font></td>
+    <td><font color="#008000">SRM_RDCOD_NOGAPS_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_OBERON_1988</font></td>
+    <td><font color="#008000">SRM_RDCOD_OBERON_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_OPHELIA_1988</font></td>
+    <td><font color="#008000">SRM_RDCOD_OPHELIA_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_PAN_1991</font></td>
+    <td><font color="#008000">SRM_RDCOD_PAN_1991</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_PANDORA_1988</font></td>
+    <td><font color="#008000">SRM_RDCOD_PANDORA_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_PASIPHAE_1988</font></td>
+    <td><font color="#008000">SRM_RDCOD_PASIPHAE_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_PHOBOS_1988</font></td>
+    <td><font color="#008000">SRM_RDCOD_PHOBOS_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_PHOEBE_1988</font></td>
+    <td><font color="#008000">SRM_RDCOD_PHOEBE_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_PLESSIS_MODIFIED_1817</font></td>
+    <td><font color="#008000">SRM_RDCOD_PLESSIS_MODIFIED_1817</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_PLUTO_1994</font></td>
+    <td><font color="#008000">SRM_RDCOD_PLUTO_1994</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_PORTIA_1988</font></td>
+    <td><font color="#008000">SRM_RDCOD_PORTIA_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_PROMETHEUS_1988</font></td>
+    <td><font color="#008000">SRM_RDCOD_PROMETHEUS_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_PROTEUS_1991</font></td>
+    <td><font color="#008000">SRM_RDCOD_PROTEUS_1991</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_PUCK_1988</font></td>
+    <td><font color="#008000">SRM_RDCOD_PUCK_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_RHEA_1988</font></td>
+    <td><font color="#008000">SRM_RDCOD_RHEA_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_ROSALIND_1988</font></td>
+    <td><font color="#008000">SRM_RDCOD_ROSALIND_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_SATURN_1988</font></td>
+    <td><font color="#008000">SRM_RDCOD_SATURN_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_SINOPE_1988</font></td>
+    <td><font color="#008000">SRM_RDCOD_SINOPE_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_SOUTH_AMERICAN_1969</font></td>
+    <td><font color="#008000">SRM_RDCOD_SOUTH_AMERICAN_1969</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_SOVIET_GEODETIC_1985</font></td>
+    <td><font color="#008000">SRM_RDCOD_SOVIET_GEODETIC_1985</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_SOVIET_GEODETIC_1990</font></td>
+    <td><font color="#008000">SRM_RDCOD_SOVIET_GEODETIC_1990</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_STRUVE_1860</font></td>
+    <td><font color="#008000">SRM_RDCOD_STRUVE_1860</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_SUN_1992</font></td>
+    <td><font color="#008000">SRM_RDCOD_SUN_1992</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_TELESTO_1988</font></td>
+    <td><font color="#008000">SRM_RDCOD_TELESTO_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_TETHYS_1991</font></td>
+    <td><font color="#008000">SRM_RDCOD_TETHYS_1991</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_THALASSA_1991</font></td>
+    <td><font color="#008000">SRM_RDCOD_THALASSA_1991</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_THEBE_2000</font></td>
+    <td><font color="#008000">SRM_RDCOD_THEBE_2000</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_TITAN_1982</font></td>
+    <td><font color="#008000">SRM_RDCOD_TITAN_1982</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_TITANIA_1988</font></td>
+    <td><font color="#008000">SRM_RDCOD_TITANIA_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_TRITON_1991</font></td>
+    <td><font color="#008000">SRM_RDCOD_TRITON_1991</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_UMBRIEL_1988</font></td>
+    <td><font color="#008000">SRM_RDCOD_UMBRIEL_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_URANUS_1988</font></td>
+    <td><font color="#008000">SRM_RDCOD_URANUS_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_VENUS_1991</font></td>
+    <td><font color="#008000">SRM_RDCOD_VENUS_1991</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_WALBECK_AMS_1963</font></td>
+    <td><font color="#008000">SRM_RDCOD_WALBECK_AMS_1963</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_WALBECK_PLANHEFT_1942</font></td>
+    <td><font color="#008000">SRM_RDCOD_WALBECK_PLANHEFT_1942</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_WAR_OFFICE_1924</font></td>
+    <td><font color="#008000">SRM_RDCOD_WAR_OFFICE_1924</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_WGS_1960</font></td>
+    <td><font color="#008000">SRM_RDCOD_WGS_1960</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_WGS_1966</font></td>
+    <td><font color="#008000">SRM_RDCOD_WGS_1966</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_WGS_1984</font></td>
+    <td><font color="#008000">SRM_RDCOD_WGS_1984</font></td></tr>
+<tr><td><font color="#008000">SRM_RD_WGS_1972</font></td>
+    <td><font color="#008000">SRM_RDCOD_WGS_1972</font></td></tr>
+</table>
+<br><br></li>
+<li><p>SRM_SRF_Code split into SRM_SRF_Code,
+SRM_RT_Code.
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th>
+<th>SRM_SRF_Code</th>
+<th>SRM_RT_Code</th>
+</tr>
+<tr><td>SRM_SRF_UNDEFINED</td>
+<td>SRM_SRFCOD_UNSPECIFIED</td>
+<td>SRM_RTCOD_UNSPECIFIED</td>
+</tr>
+<tr><td>SRM_SRF_BRITISH_NATIONAL_GRID</td>
+<td>SRM_SRFCOD_BRITISH_NATIONAL_GRID_AIRY</td>
+<td>SRM_RTCOD_OSGB_1936_ENGLAND</td>
+</tr>
+<tr><td>SRM_SRF_DELAWARE_SPCS_1983</td>
+<td>SRM_SRFCOD_DELAWARE_SPCS_1983</td>
+<td>SRM_RTCOD_N_AM_1983_CONTINENTAL_US</td>
+</tr>
+<tr><td>SRM_SRF_GEOCENTRIC_DATUM_AUSTRALIA_1994</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>SRM_SRF_GEOCENTRIC_WGS_1984</td>
+<td>SRM_SRFCOD_GEOCENTRIC_WGS_1984</td>
+<td>SRM_RTCOD_WGS_1984_IDENTITY</td>
+</tr>
+<tr><td>SRM_SRF_GEODETIC_AUSTRALIA_1984</td>
+<td>SRM_SRFCOD_GEODETIC_AUSTRALIA_1984</td>
+<td>SRM_RTCOD_AUSTRALIAN_GEOD_1984_7_AUSTRALIA_TASMANIA</td>
+</tr>
+<tr><td>SRM_SRF_GEODETIC_EUROPE_1950</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>SRM_SRF_GEODETIC_N_AMERICAN_1983</td>
+<td>SRM_SRFCOD_GEODETIC_N_AMERICAN_1983</td>
+<td>SRM_RTCOD_N_AM_1983_CONTINENTAL_US</td>
+</tr>
+<tr><td>SRM_SRF_GEODETIC_WGS_1984</td>
+<td>SRM_SRFCOD_GEODETIC_WGS_1984</td>
+<td>SRM_RTCOD_WGS_1984_IDENTITY</td>
+</tr>
+<tr><td>SRM_SRF_IRISH_GRID_1965</td>
+<td>SRM_SRFCOD_IRISH_GRID_1965</td>
+<td>SRM_RTCOD_IRELAND_1965_3_IRELAND</td>
+</tr>
+<tr><td>SRM_SRF_IRISH_TRANSVERSE_MERCATOR_1989</td>
+<td>SRM_SRFCOD_IRISH_TRANSVERSE_MERCATOR_1989</td>
+<td>SRM_RTCOD_ETRS_1989_IDENTITY_BY_MEASUREMENT</td>
+</tr>
+<tr><td>SRM_SRF_LAMBERT_1993</td>
+<td>SRM_SRFCOD_LAMBERT_93</td>
+<td>SRM_RTCOD_RGF_1993_IDENTITY_BY_MEASUREMENT</td>
+</tr>
+<tr><td>SRM_SRF_LAMBERT_II_WIDE</td>
+<td>SRM_SRFCOD_LAMBERT_II_WIDE</td>
+<td>SRM_RTCOD_NTF_1896_PM_PARIS_FRANCE</td>
+</tr>
+<tr><td>SRM_SRF_MARS_PLANETOCENTRIC_2000</td>
+<td>SRM_SRFCOD_MARS_PLANETOCENTRIC_2000</td>
+<td>SRM_RTCOD_MARS_SPHERE_2000_GLOBAL</td>
+</tr>
+<tr><td>SRM_SRF_MARS_PLANETOGRAPHIC_2000</td>
+<td>SRM_SRFCOD_MARS_PLANETOGRAPHIC_2000</td>
+<td>SRM_RTCOD_MARS_2000_IDENTITY</td>
+</tr>
+<tr><td>SRM_SRF_MARYLAND_SPCS_1983</td>
+<td>SRM_SRFCOD_MARYLAND_SPCS_1983</td>
+<td>SRM_RTCOD_N_AM_1983_CONTINENTAL_US</td>
+</tr>
+</table>
+</li>
+<li><p>SRM_SRF_Parameters_Info
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>srf_params_info</td> <td>split into: value, rt_code</td></tr>
+<tr><td>srf_params_info.srf_template</td> <td>split into: value.srf_template, rt_code</td></tr>
+<tr><td>srf_params_info.srf_set</td> <td>split into: value.srf_set, rt_code</td></tr>
+<tr><td>srf_params_info.srf_instance</td> <td>split into: value.srf_instance, rt_code</td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SRM_SRF_Parameters_Info_Code maps to SRM_SRF_Parameters_Info_Code.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SRM_SRFPI_TEMPLATE</font></td>
+    <td><font color="#008000">SRM_SRFPARAMINFCOD_TEMPLATE</font></td></tr>
+<tr><td><font color="#008000">SRM_SRFPI_SET</font></td>
+    <td><font color="#008000">SRM_SRFPARAMINFCOD_SET</font></td></tr>
+<tr><td><font color="#008000">SRM_SRFPI_INSTANCE</font></td>
+    <td><font color="#008000">SRM_SRFPARAMINFCOD_INSTANCE</font></td></tr>
+</table>
+<br><br></li>
+<li><p>SRM_SRF_Set_Info split into multiple targets.
+</p>
+<ol type='a'>
+<li><p>SRM_SRF_Set_Info maps to SRM_SRFS_Info.
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>orm_params</td> <td>orm_code</td></tr>
+<tr><td>set_code</td> <td>(merged into srfs_code_info)</td></tr>
+<tr><td>member_code</td> <td>(merged into srfs_code_info)</td></tr>
+</table>
+<br><br></li>
+<li><p>SRM_SRF_Set_Info maps to SRM_RT_Code.
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>SRM_ORM_Parameters orm_params</td> <td>SRM_RT_Code</td></tr>
+<tr><td>set_code</td> <td>(none)</td></tr>
+<tr><td>member_code</td> <td>(none)</td></tr>
+</table>
+<br><br></li>
+</ol>
+</li>
+<li><p>SRM_SRF_Template_Parameters split into multiple targets.
+</p>
+<ol type='a'>
+<li><p>SRM_SRF_Template_Parameters maps to SRM_SRFT_Parameters.
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>parameters</td> <td>split into: parameters, orm_code</td></tr>
+<tr><td>parameters.cc_srf_params</td> <td>split into: orm_code</td></tr>
+<tr><td>parameters.lsr_3d_srf_params</td> <td>split into: parameters.lsr_3d_srf_parameters, orm_code</td></tr>
+<tr><td>parameters.cd_srf_params</td> <td>split into: orm_code</td></tr>
+<tr><td>parameters.pd_srf_params</td> <td>split into: orm_code</td></tr>
+<tr><td>parameters.ltse_srf_params</td> <td>split into: parameters.ltse_srf_parameters, orm_code</td></tr>
+<tr><td>parameters.ltsas_srf_params</td> <td>split into: parameters.ltsas_srf_parameters, orm_code</td></tr>
+<tr><td>parameters.ltsc_srf_params</td> <td>split into: parameters.ltsc_srf_parameters, orm_code</td></tr>
+<tr><td>parameters.cm_srf_params</td> <td>split into: orm_code</td></tr>
+<tr><td>parameters.ei_srf_params</td> <td>split into: orm_code</td></tr>
+<tr><td>parameters.sec_srf_params</td> <td>split into: orm_code</td></tr>
+<tr><td>parameters.seq_srf_params</td> <td>split into: orm_code</td></tr>
+<tr><td>parameters.sms_srf_params</td> <td>split into: orm_code</td></tr>
+<tr><td>parameters.sm_srf_params</td> <td>split into: orm_code</td></tr>
+<tr><td>parameters.haec_srf_params</td> <td>split into: orm_code</td></tr>
+<tr><td>parameters.heec_srf_params</td> <td>split into: orm_code</td></tr>
+<tr><td>parameters.heeq_srf_params</td> <td>split into: orm_code</td></tr>
+<tr><td>parameters.m_srf_params</td> <td>split into: parameters.m_srf_parameters, orm_code</td></tr>
+<tr><td>parameters.om_srf_params</td> <td>split into: parameters.oms_srf_parameters, orm_code</td></tr>
+<tr><td>parameters.tm_srf_params</td> <td>split into: parameters.tm_srf_parameters, orm_code</td></tr>
+<tr><td>parameters.lcc_srf_params</td> <td>split into: parameters.lcc_srf_parameters, orm_code</td></tr>
+<tr><td>parameters.ps_srf_params</td> <td>split into: parameters.ps_srf_parameters, orm_code</td></tr>
+<tr><td>parameters.ec_srf_params</td> <td>split into: parameters.ec_srf_parameters, orm_code</td></tr>
+<tr><td>parameters.lsr_2d_srf_params</td> <td>split into: parameters.lsr_2d_srf_parameters, orm_code</td></tr>
+<tr><td>parameters.az_srf_params</td> <td>split into: orm_code</td></tr>
+<tr><td>parameters.polar_srf_params</td> <td>split into: orm_code</td></tr>
+<tr><td>parameters.lce_3d_srf_params</td> <td>split into: parameters.lce_3d_srf_parameters, orm_code</td></tr>
+</table>
+<br><br></li>
+<li><p>SRM_SRF_Template_Parameters maps to SRM_RT_Code.
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>template_code</td> <td>(none)</td></tr>
+<tr><td>[union] parameters</td> <td>SRM_RT_Code</td></tr>
+<tr><td>SRM_ORM_Parameters parameters.cc_srf_params</td> <td>SRM_RT_Code</td></tr>
+<tr><td>SRM_LSR_3D_SRF_Parameters parameters.lsr_3d_srf_params</td> <td>SRM_RT_Code</td></tr>
+<tr><td>SRM_ORM_Parameters parameters.cd_srf_params</td> <td>SRM_RT_Code</td></tr>
+<tr><td>SRM_ORM_Parameters parameters.pd_srf_params</td> <td>SRM_RT_Code</td></tr>
+<tr><td>SRM_LTSE_SRF_Parameters parameters.ltse_srf_params</td> <td>SRM_RT_Code</td></tr>
+<tr><td>SRM_LT_SRF_Parameters parameters.ltsas_srf_params</td> <td>SRM_RT_Code</td></tr>
+<tr><td>SRM_LT_SRF_Parameters parameters.ltsc_srf_params</td> <td>SRM_RT_Code</td></tr>
+<tr><td>SRM_ORM_Parameters parameters.cm_srf_params</td> <td>SRM_RT_Code</td></tr>
+<tr><td>SRM_ORM_Parameters parameters.ei_srf_params</td> <td>SRM_RT_Code</td></tr>
+<tr><td>SRM_ORM_Parameters parameters.sec_srf_params</td> <td>SRM_RT_Code</td></tr>
+<tr><td>SRM_ORM_Parameters parameters.seq_srf_params</td> <td>SRM_RT_Code</td></tr>
+<tr><td>SRM_ORM_Parameters parameters.sms_srf_params</td> <td>SRM_RT_Code</td></tr>
+<tr><td>SRM_ORM_Parameters parameters.sm_srf_params</td> <td>SRM_RT_Code</td></tr>
+<tr><td>SRM_ORM_Parameters parameters.haec_srf_params</td> <td>SRM_RT_Code</td></tr>
+<tr><td>SRM_ORM_Parameters parameters.heec_srf_params</td> <td>SRM_RT_Code</td></tr>
+<tr><td>SRM_ORM_Parameters parameters.heeq_srf_params</td> <td>SRM_RT_Code</td></tr>
+<tr><td>SRM_Mercator_SRF_Parameters parameters.m_srf_params</td> <td>SRM_RT_Code</td></tr>
+<tr><td>SRM_OM_SRF_Parameters parameters.om_srf_params</td> <td>SRM_RT_Code</td></tr>
+<tr><td>SRM_Mercator_SRF_Parameters parameters.tm_srf_params</td> <td>SRM_RT_Code</td></tr>
+<tr><td>SRM_LCC_SRF_Parameters parameters.lcc_srf_params</td> <td>SRM_RT_Code</td></tr>
+<tr><td>SRM_PS_SRF_Parameters parameters.ps_srf_params</td> <td>SRM_RT_Code</td></tr>
+<tr><td>SRM_EC_SRF_Parameters parameters.ec_srf_params</td> <td>SRM_RT_Code</td></tr>
+<tr><td>SRM_LSR_2D_SRF_Parameters parameters.lsr_2d_srf_params</td> <td>SRM_RT_Code</td></tr>
+<tr><td>SRM_ORM_Parameters parameters.az_srf_params</td> <td>SRM_RT_Code</td></tr>
+<tr><td>SRM_ORM_Parameters parameters.polar_srf_params</td> <td>SRM_RT_Code</td></tr>
+<tr><td>SRM_LCE_3D_SRF_Parameters parameters.lce_3d_srf_params</td> <td>SRM_RT_Code</td></tr>
+</table>
+<br><br></li>
+</ol>
+</li>
+<li><p><font color="#008000">SRM_SRFS_Code maps to SRM_SRFS_Code.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SRM_SRFS_UNDEFINED</font></td>
+    <td><font color="#008000">SRM_SRFSCOD_UNSPECIFIED</font></td></tr>
+<tr><td><font color="#008000">SRM_SRFS_ALABAMA_SPCS</font></td>
+    <td><font color="#008000">SRM_SRFSCOD_ALABAMA_SPCS</font></td></tr>
+<tr><td><font color="#008000">SRM_SRFS_GTRS_GLOBAL_COORDINATE_SYSTEM</font></td>
+    <td><font color="#008000">SRM_SRFSCOD_GTRS_GLOBAL_COORDINATE_SYSTEM</font></td></tr>
+<tr><td><font color="#008000">SRM_SRFS_JAPAN_RECTANGULAR_PLANE_COORDINATE_SYSTEM</font></td>
+    <td><font color="#008000">SRM_SRFSCOD_JAPAN_RECTANGULAR_PLANE_CS</font></td></tr>
+<tr><td><font color="#008000">SRM_SRFS_LAMBERT_NTF</font></td>
+    <td><font color="#008000">SRM_SRFSCOD_LAMBERT_NTF</font></td></tr>
+<tr><td><font color="#008000">SRM_SRFS_UNIVERSAL_POLAR_STEREOGRAPHIC</font></td>
+    <td><font color="#008000">SRM_SRFSCOD_UNIVERSAL_POLAR_STEREOGRAPHIC</font></td></tr>
+<tr><td><font color="#008000">SRM_SRFS_UNIVERSAL_TRANSVERSE_MERCATOR</font></td>
+    <td><font color="#008000">SRM_SRFSCOD_UNIVERSAL_TRANSVERSE_MERCATOR</font></td></tr>
+<tr><td><font color="#008000">SRM_SRFS_WISCONSIN_SPCS</font></td>
+    <td><font color="#008000">SRM_SRFSCOD_WISCONSIN_SPCS</font></td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SRM_SRFT_Code maps to SRM_SRFT_Code.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SRM_SRFT_CELESTIOCENTRIC</font></td>
+    <td><font color="#008000">SRM_SRFTCOD_CELESTIOCENTRIC</font></td></tr>
+<tr><td><font color="#008000">SRM_SRFT_LOCAL_SPACE_RECT_3D</font></td>
+    <td><font color="#008000">SRM_SRFTCOD_LOCAL_SPACE_RECTANGULAR_3D</font></td></tr>
+<tr><td><font color="#008000">SRM_SRFT_CELESTIODETIC</font></td>
+    <td><font color="#008000">SRM_SRFTCOD_CELESTIODETIC</font></td></tr>
+<tr><td><font color="#008000">SRM_SRFT_PLANETODETIC</font></td>
+    <td><font color="#008000">SRM_SRFTCOD_PLANETODETIC</font></td></tr>
+<tr><td><font color="#008000">SRM_SRFT_LOCAL_TANGENT_SPACE_EUCLIDEAN</font></td>
+    <td><font color="#008000">SRM_SRFTCOD_LOCAL_TANGENT_SPACE_EUCLIDEAN</font></td></tr>
+<tr><td><font color="#008000">SRM_SRFT_LOCAL_TANGENT_SPACE_AZIMUTHAL_SPHERICAL</font></td>
+    <td><font color="#008000">SRM_SRFTCOD_LOCAL_TANGENT_SPACE_AZIMUTHAL_SPHERICAL</font></td></tr>
+<tr><td><font color="#008000">SRM_SRFT_LOCAL_TANGENT_SPACE_CYLINDRICAL</font></td>
+    <td><font color="#008000">SRM_SRFTCOD_LOCAL_TANGENT_SPACE_CYLINDRICAL</font></td></tr>
+<tr><td><font color="#008000">SRM_SRFT_CELESTIOMAGNETIC</font></td>
+    <td><font color="#008000">SRM_SRFTCOD_CELESTIOMAGNETIC</font></td></tr>
+<tr><td><font color="#008000">SRM_SRFT_EQUATORIAL_INERTIAL</font></td>
+    <td><font color="#008000">SRM_SRFTCOD_EQUATORIAL_INERTIAL</font></td></tr>
+<tr><td><font color="#008000">SRM_SRFT_SOLAR_ECLIPTIC</font></td>
+    <td><font color="#008000">SRM_SRFTCOD_SOLAR_ECLIPTIC</font></td></tr>
+<tr><td><font color="#008000">SRM_SRFT_SOLAR_EQUATORIAL</font></td>
+    <td><font color="#008000">SRM_SRFTCOD_SOLAR_EQUATORIAL</font></td></tr>
+<tr><td><font color="#008000">SRM_SRFT_SOLAR_MAGNETIC_ECLIPTIC</font></td>
+    <td><font color="#008000">SRM_SRFTCOD_SOLAR_MAGNETIC_ECLIPTIC</font></td></tr>
+<tr><td><font color="#008000">SRM_SRFT_SOLAR_MAGNETIC_DIPOLE</font></td>
+    <td><font color="#008000">SRM_SRFTCOD_SOLAR_MAGNETIC_DIPOLE</font></td></tr>
+<tr><td><font color="#008000">SRM_SRFT_HELIOSPHERIC_ARIES_ECLIPTIC</font></td>
+    <td><font color="#008000">SRM_SRFTCOD_HELIOSPHERIC_ARIES_ECLIPTIC</font></td></tr>
+<tr><td><font color="#008000">SRM_SRFT_HELIOSPHERIC_EARTH_ECLIPTIC</font></td>
+    <td><font color="#008000">SRM_SRFTCOD_HELIOSPHERIC_EARTH_ECLIPTIC</font></td></tr>
+<tr><td><font color="#008000">SRM_SRFT_HELIOSPHERIC_EARTH_EQUATORIAL</font></td>
+    <td><font color="#008000">SRM_SRFTCOD_HELIOSPHERIC_EARTH_EQUATORIAL</font></td></tr>
+<tr><td><font color="#008000">SRM_SRFT_MERCATOR</font></td>
+    <td><font color="#008000">SRM_SRFTCOD_MERCATOR</font></td></tr>
+<tr><td><font color="#008000">SRM_SRFT_OBLIQUE_MERCATOR_SPHERICAL</font></td>
+    <td><font color="#008000">SRM_SRFTCOD_OBLIQUE_MERCATOR_SPHERICAL</font></td></tr>
+<tr><td><font color="#008000">SRM_SRFT_TRANSVERSE_MERCATOR</font></td>
+    <td><font color="#008000">SRM_SRFTCOD_TRANSVERSE_MERCATOR</font></td></tr>
+<tr><td><font color="#008000">SRM_SRFT_LAMBERT_CONFORMAL_CONIC</font></td>
+    <td><font color="#008000">SRM_SRFTCOD_LAMBERT_CONFORMAL_CONIC</font></td></tr>
+<tr><td><font color="#008000">SRM_SRFT_POLAR_STEREOGRAPHIC</font></td>
+    <td><font color="#008000">SRM_SRFTCOD_POLAR_STEREOGRAPHIC</font></td></tr>
+<tr><td><font color="#008000">SRM_SRFT_EQUIDISTANT_CYLINDRICAL</font></td>
+    <td><font color="#008000">SRM_SRFTCOD_EQUIDISTANT_CYLINDRICAL</font></td></tr>
+<tr><td><font color="#008000">SRM_SRFT_LOCAL_SPACE_RECT_2D</font></td>
+    <td><font color="#008000">SRM_SRFTCOD_LOCAL_SPACE_RECTANGULAR_2D</font></td></tr>
+<tr><td><font color="#008000">SRM_SRFT_LOCAL_SPACE_AZIMUTHAL</font></td>
+    <td><font color="#008000">SRM_SRFTCOD_LOCAL_SPACE_AZIMUTHAL_2D</font></td></tr>
+<tr><td><font color="#008000">SRM_SRFT_LOCAL_SPACE_POLAR</font></td>
+    <td><font color="#008000">SRM_SRFTCOD_LOCAL_SPACE_POLAR_2D</font></td></tr>
+<tr><td><font color="#008000">SRM_SRFT_LOCOCENTRIC_EUCLIDEAN_3D</font></td>
+    <td><font color="#008000">SRM_SRFTCOD_LOCOCENTRIC_EUCLIDEAN_3D</font></td></tr>
+</table>
+<br><br></li>
+<li><p>SRM_SSM_Code merged with SRM_SRFS_Code
+</p>
+<ol type='a'>
+<li>SRM_SRFSM_Alabama_SPCS_Code
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>SRM_SRFS_Code</th>
+<th>Old</th>
+<th>SRM_SRFSM_Alabama_SPCS_Code</th>
+</tr>
+<tr><td>SRM_SRFS_ALABAMA_SPCS</td>
+<td>SRM_SSM_ALABAMA_SPCS_WEST_ZONE</td>
+<td>SRM_SRFSMALCOD_WEST_ZONE</td>
+</tr>
+<tr><td>SRM_SRFS_ALABAMA_SPCS</td>
+<td>SRM_SSM_ALABAMA_SPCS_EAST_ZONE</td>
+<td>SRM_SRFSMALCOD_EAST_ZONE</td>
+</tr>
+</table>
+<br><br></li>
+
+<li>SRM_SRFSM_Japan_Rectangular_Plane_CS_Code
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>SRM_SRFS_Code</th>
+<th>Old</th>
+<th>SRM_SRFSM_Japan_Rectangular_Plane_CS_Code</th>
+</tr>
+<tr><td>SRM_SRFS_JAPAN_RECTANGULAR_PLANE_COORDINATE_SYSTEM</td>
+<td>SRM_SSM_JAPAN_PLANE_SY_I</td>
+<td>SRM_SRFSMJPRPCSCOD_ZONE_I</td>
+</tr>
+<tr><td>SRM_SRFS_JAPAN_RECTANGULAR_PLANE_COORDINATE_SYSTEM</td>
+<td>SRM_SSM_JAPAN_PLANE_SY_II</td>
+<td>SRM_SRFSMJPRPCSCOD_ZONE_II</td>
+</tr>
+<tr><td>SRM_SRFS_JAPAN_RECTANGULAR_PLANE_COORDINATE_SYSTEM</td>
+<td>SRM_SSM_JAPAN_PLANE_SY_III</td>
+<td>SRM_SRFSMJPRPCSCOD_ZONE_III</td>
+</tr>
+<tr><td>SRM_SRFS_JAPAN_RECTANGULAR_PLANE_COORDINATE_SYSTEM</td>
+<td>SRM_SSM_JAPAN_PLANE_SY_IV</td>
+<td>SRM_SRFSMJPRPCSCOD_ZONE_IV</td>
+</tr>
+<tr><td>SRM_SRFS_JAPAN_RECTANGULAR_PLANE_COORDINATE_SYSTEM</td>
+<td>SRM_SSM_JAPAN_PLANE_SY_V</td>
+<td>SRM_SRFSMJPRPCSCOD_ZONE_V</td>
+</tr>
+<tr><td>SRM_SRFS_JAPAN_RECTANGULAR_PLANE_COORDINATE_SYSTEM</td>
+<td>SRM_SSM_JAPAN_PLANE_SY_VI</td>
+<td>SRM_SRFSMJPRPCSCOD_ZONE_VI</td>
+</tr>
+<tr><td>SRM_SRFS_JAPAN_RECTANGULAR_PLANE_COORDINATE_SYSTEM</td>
+<td>SRM_SSM_JAPAN_PLANE_SY_VII</td>
+<td>SRM_SRFSMJPRPCSCOD_ZONE_VII</td>
+</tr>
+<tr><td>SRM_SRFS_JAPAN_RECTANGULAR_PLANE_COORDINATE_SYSTEM</td>
+<td>SRM_SSM_JAPAN_PLANE_SY_VIII</td>
+<td>SRM_SRFSMJPRPCSCOD_ZONE_VIII</td>
+</tr>
+<tr><td>SRM_SRFS_JAPAN_RECTANGULAR_PLANE_COORDINATE_SYSTEM</td>
+<td>SRM_SSM_JAPAN_PLANE_SY_IX</td>
+<td>SRM_SRFSMJPRPCSCOD_ZONE_IX</td>
+</tr>
+<tr><td>SRM_SRFS_JAPAN_RECTANGULAR_PLANE_COORDINATE_SYSTEM</td>
+<td>SRM_SSM_JAPAN_PLANE_SY_X</td>
+<td>SRM_SRFSMJPRPCSCOD_ZONE_X</td>
+</tr>
+<tr><td>SRM_SRFS_JAPAN_RECTANGULAR_PLANE_COORDINATE_SYSTEM</td>
+<td>SRM_SSM_JAPAN_PLANE_SY_XI</td>
+<td>SRM_SRFSMJPRPCSCOD_ZONE_XI</td>
+</tr>
+<tr><td>SRM_SRFS_JAPAN_RECTANGULAR_PLANE_COORDINATE_SYSTEM</td>
+<td>SRM_SSM_JAPAN_PLANE_SY_XII</td>
+<td>SRM_SRFSMJPRPCSCOD_ZONE_XII</td>
+</tr>
+<tr><td>SRM_SRFS_JAPAN_RECTANGULAR_PLANE_COORDINATE_SYSTEM</td>
+<td>SRM_SSM_JAPAN_PLANE_SY_XIII</td>
+<td>SRM_SRFSMJPRPCSCOD_ZONE_XIII</td>
+</tr>
+<tr><td>SRM_SRFS_JAPAN_RECTANGULAR_PLANE_COORDINATE_SYSTEM</td>
+<td>SRM_SSM_JAPAN_PLANE_SY_XIV</td>
+<td>SRM_SRFSMJPRPCSCOD_ZONE_XIV</td>
+</tr>
+<tr><td>SRM_SRFS_JAPAN_RECTANGULAR_PLANE_COORDINATE_SYSTEM</td>
+<td>SRM_SSM_JAPAN_PLANE_SY_XV</td>
+<td>SRM_SRFSMJPRPCSCOD_ZONE_XV</td>
+</tr>
+<tr><td>SRM_SRFS_JAPAN_RECTANGULAR_PLANE_COORDINATE_SYSTEM</td>
+<td>SRM_SSM_JAPAN_PLANE_SY_XVI</td>
+<td>SRM_SRFSMJPRPCSCOD_ZONE_XVI</td>
+</tr>
+<tr><td>SRM_SRFS_JAPAN_RECTANGULAR_PLANE_COORDINATE_SYSTEM</td>
+<td>SRM_SSM_JAPAN_PLANE_SY_XVII</td>
+<td>SRM_SRFSMJPRPCSCOD_ZONE_XVII</td>
+</tr>
+<tr><td>SRM_SRFS_JAPAN_RECTANGULAR_PLANE_COORDINATE_SYSTEM</td>
+<td>SRM_SSM_JAPAN_PLANE_SY_XVIII</td>
+<td>SRM_SRFSMJPRPCSCOD_ZONE_XVIII</td>
+</tr>
+<tr><td>SRM_SRFS_JAPAN_RECTANGULAR_PLANE_COORDINATE_SYSTEM</td>
+<td>SRM_SSM_JAPAN_PLANE_SY_XIX</td>
+<td>SRM_SRFSMJPRPCSCOD_ZONE_XIX</td>
+</tr>
+</table>
+<br><br></li>
+
+<li>SRM_SRFSM_Lambert_NTF_Code
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>SRM_SRFS_Code</th>
+<th>Old</th>
+<th>SRM_SRFSM_Lambert_NTF_Code</th>
+</tr>
+<tr><td>SRM_SRFS_LAMBERT_NTF</td>
+<td>SRM_SSM_LAMBERT_NTF_ZONE_I</td>
+<td>SRM_SRFSMLAMNTFCOD_ZONE_I</td>
+</tr>
+<tr><td>SRM_SRFS_LAMBERT_NTF</td>
+<td>SRM_SSM_LAMBERT_NTF_ZONE_II</td>
+<td>SRM_SRFSMLAMNTFCOD_ZONE_II</td>
+</tr>
+<tr><td>SRM_SRFS_LAMBERT_NTF</td>
+<td>SRM_SSM_LAMBERT_NTF_ZONE_III</td>
+<td>SRM_SRFSMLAMNTFCOD_ZONE_III</td>
+</tr>
+<tr><td>SRM_SRFS_LAMBERT_NTF</td>
+<td>SRM_SSM_LAMBERT_NTF_ZONE_IV</td>
+<td>SRM_SRFSMLAMNTFCOD_ZONE_IV</td>
+</tr>
+</table>
+<br><br></li>
+
+<li>SRM_SRFSM_UPS_Code
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>SRM_SRFS_Code</th>
+<th>Old</th>
+<th>SRM_SRFSM_UPS_Code</th>
+</tr>
+<tr><td>SRM_SRFS_UNIVERSAL_POLAR_STEREOGRAPHIC</td>
+<td>SRM_SSM_UPS_NORTHERN_POLE</td>
+<td>SRM_SRFSMUPSCOD_NORTHERN_POLE</td>
+</tr>
+<tr><td>SRM_SRFS_UNIVERSAL_POLAR_STEREOGRAPHIC</td>
+<td>SRM_SSM_UPS_SOUTHERN_POLE</td>
+<td>SRM_SRFSMUPSCOD_SOUTHERN_POLE</td>
+</tr>
+</table>
+<br><br></li>
+
+<li>SRM_SRFSM_UTM_Code
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>SRM_SRFS_Code</th>
+<th>Old</th>
+<th>SRM_SRFSM_UTM_Code</th>
+</tr>
+<tr><td>SRM_SRFS_UNDEFINED</td>
+<td>SRM_SSM_UTM_ZONE_1_NORTHERN_HEMISPHERE</td>
+<td>SRM_SRFSMUTMCOD_ZONE_1_NORTHERN_HEMISPHERE</td>
+</tr>
+<tr><td>SRM_SRFS_ALABAMA_SPCS</td>
+<td>SRM_SSM_UTM_ZONE_2_NORTHERN_HEMISPHERE</td>
+<td>SRM_SRFSMUTMCOD_ZONE_1_NORTHERN_HEMISPHERE</td>
+</tr>
+<tr><td>SRM_SRFS_GTRS_GLOBAL_COORDINATE_SYSTEM</td>
+<td>SRM_SSM_UTM_ZONE_3_NORTHERN_HEMISPHERE</td>
+<td>SRM_SRFSMUTMCOD_ZONE_1_NORTHERN_HEMISPHERE</td>
+</tr>
+<tr><td>SRM_SRFS_JAPAN_RECTANGULAR_PLANE_COORDINATE_SYSTEM</td>
+<td>SRM_SSM_UTM_ZONE_4_NORTHERN_HEMISPHERE</td>
+<td>SRM_SRFSMUTMCOD_ZONE_1_NORTHERN_HEMISPHERE</td>
+</tr>
+<tr><td>SRM_SRFS_LAMBERT_NTF</td>
+<td>SRM_SSM_UTM_ZONE_5_NORTHERN_HEMISPHERE</td>
+<td>SRM_SRFSMUTMCOD_ZONE_1_NORTHERN_HEMISPHERE</td>
+</tr>
+<tr><td>SRM_SRFS_UNIVERSAL_POLAR_STEREOGRAPHIC</td>
+<td>SRM_SSM_UTM_ZONE_6_NORTHERN_HEMISPHERE</td>
+<td>SRM_SRFSMUTMCOD_ZONE_1_NORTHERN_HEMISPHERE</td>
+</tr>
+<tr><td>SRM_SRFS_UNIVERSAL_TRANSVERSE_MERCATOR</td>
+<td>SRM_SSM_UTM_ZONE_7_NORTHERN_HEMISPHERE</td>
+<td>SRM_SRFSMUTMCOD_ZONE_1_NORTHERN_HEMISPHERE</td>
+</tr>
+<tr><td>SRM_SRFS_WISCONSIN_SPCS</td>
+<td>SRM_SSM_UTM_ZONE_8_NORTHERN_HEMISPHERE</td>
+<td>SRM_SRFSMUTMCOD_ZONE_1_NORTHERN_HEMISPHERE</td>
+</tr>
+</table>
+<br><br></li>
+
+<li>SRM_SRFSM_Wisconsin_SPCS_Code
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>SRM_SRFS_Code</th>
+<th>Old</th>
+<th>SRM_SRFSM_Wisconsin_SPCS_Code</th>
+</tr>
+<tr><td>SRM_SRFS_WISCONSIN_SPCS</td>
+<td>SRM_SSM_WISCONSIN_SPCS_SOUTH_ZONE</td>
+<td>SRM_SRFSMWNSPCSCOD_SOUTH_ZONE</td>
+</tr>
+<tr><td>SRM_SRFS_WISCONSIN_SPCS</td>
+<td>SRM_SSM_WISCONSIN_SPCS_CENTRAL_ZONE</td>
+<td>SRM_SRFSMWNSPCSCOD_CENTRAL_ZONE</td>
+</tr>
+<tr><td>SRM_SRFS_WISCONSIN_SPCS</td>
+<td>SRM_SSM_WISCONSIN_SPCS_NORTH_ZONE</td>
+<td>SRM_SRFSMWNSPCSCOD_NORTH_ZONE</td>
+</tr>
+</table>
+<br><br></li>
+</ol>
+</li>
+<li><p><font color="#008000">SRM_Status_Code maps to SRM_Status_Code.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SRM_STAT_CODE_SUCCESS</font></td>
+    <td><font color="#008000">SRM_STATCOD_SUCCESS</font></td></tr>
+<tr><td><font color="#008000">SRM_STAT_CODE_INVALID_SRF</font></td>
+    <td><font color="#008000">SRM_STATCOD_INVALID_SRF</font></td></tr>
+<tr><td><font color="#008000">SRM_STAT_CODE_INVALID_SOURCE_SRF</font></td>
+    <td><font color="#008000">SRM_STATCOD_INVALID_SOURCE_SRF</font></td></tr>
+<tr><td>SRM_STAT_CODE_INVALID_TARGET_SRF</td><td>&nbsp;</td></tr>
+<tr><td><font color="#008000">SRM_STAT_CODE_INVALID_SOURCE_COORDINATE</font></td>
+    <td><font color="#008000">SRM_STATCOD_INVALID_SOURCE_COORDINATE</font></td></tr>
+<tr><td><font color="#008000">SRM_STAT_CODE_INVALID_TARGET_COORDINATE</font></td>
+    <td><font color="#008000">SRM_STATCOD_INVALID_TARGET_COORDINATE</font></td></tr>
+<tr><td><font color="#008000">SRM_STAT_CODE_INVALID_SOURCE_DIRECTION</font></td>
+    <td><font color="#008000">SRM_STATCOD_INVALID_SOURCE_DIRECTION</font></td></tr>
+<tr><td><font color="#008000">SRM_STAT_CODE_INVALID_INPUT</font></td>
+    <td><font color="#008000">SRM_STATCOD_INVALID_INPUT</font></td></tr>
+<tr><td><font color="#008000">SRM_STAT_CODE_INVALID_CODE</font></td>
+    <td><font color="#008000">SRM_STATCOD_INVALID_CODE</font></td></tr>
+<tr><td><font color="#008000">SRM_STAT_CODE_CREATION_FAILURE</font></td>
+    <td><font color="#008000">SRM_STATCOD_CREATION_FAILURE</font></td></tr>
+<tr><td><font color="#008000">SRM_STAT_CODE_DESTRUCTION_FAILURE</font></td>
+    <td><font color="#008000">SRM_STATCOD_DESTRUCTION_FAILURE</font></td></tr>
+<tr><td><font color="#008000">SRM_STAT_CODE_OPERATION_UNSUPPORTED</font></td>
+    <td><font color="#008000">SRM_STATCOD_OPERATION_UNSUPPORTED</font></td></tr>
+<tr><td><font color="#008000">SRM_STAT_CODE_FLOATING_OVERFLOW</font></td>
+    <td><font color="#008000">SRM_STATCOD_FLOATING_OVERFLOW</font></td></tr>
+<tr><td><font color="#008000">SRM_STAT_CODE_FLOATING_UNDERFLOW</font></td>
+    <td><font color="#008000">SRM_STATCOD_FLOATING_UNDERFLOW</font></td></tr>
+<tr><td><font color="#008000">SRM_STAT_CODE_FLOATING_POINT_ERROR</font></td>
+    <td><font color="#008000">SRM_STATCOD_FLOATING_POINT_ERROR</font></td></tr>
+<tr><td><font color="#008000">SRM_STAT_CODE_INVALID_TARGET_DIRECTION</font></td>
+    <td><font color="#008000">SRM_STATCOD_INVALID_TARGET_DIRECTION</font></td></tr>
+<tr><td><font color="#008000">SRM_STAT_CODE_INVALID_SOURCE_ORIENTATION</font></td>
+    <td><font color="#008000">SRM_STATCOD_INVALID_SOURCE_ORIENTATION</font></td></tr>
+<tr><td><font color="#008000">SRM_STAT_CODE_INVALID_TARGET_ORIENTATION</font></td>
+    <td><font color="#008000">SRM_STATCOD_INVALID_TARGET_ORIENTATION</font></td></tr>
+<tr><td><font color="#008000">SRM_STAT_CODE_NOT_IMPLEMENTED</font></td>
+    <td><font color="#008000">SRM_STATCOD_NOT_IMPLEMENTED</font></td></tr>
+<tr><td><font color="#008000">SRM_STAT_CODE_INACTIONABLE</font></td>
+    <td><font color="#008000">SRM_STATCOD_INACTIONABLE</font></td></tr>
+<tr><td><font color="#008000">SRM_STAT_CODE_OUT_OF_MEMORY</font></td>
+    <td><font color="#008000">SRM_STATCOD_MEMORY_ALLOCATION_ERROR</font></td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SRM_VOS_Code maps to SRM_DSS_Code.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SRM_VOS_UNDEFINED</font></td>
+    <td><font color="#008000">SRM_DSSCOD_UNSPECIFIED</font></td></tr>
+<tr><td><font color="#008000">SRM_VOS_EGM96_GEOID</font></td>
+    <td><font color="#008000">SRM_DSSCOD_EGM96_GEOID</font></td></tr>
+<tr><td><font color="#008000">SRM_VOS_IGLD_1955</font></td>
+    <td><font color="#008000">SRM_DSSCOD_IGLD_1955</font></td></tr>
+<tr><td><font color="#008000">SRM_VOS_IGLD_1985</font></td>
+    <td><font color="#008000">SRM_DSSCOD_IGLD_1985</font></td></tr>
+<tr><td><font color="#008000">SRM_VOS_MSL</font></td>
+    <td><font color="#008000">SRM_DSSCOD_MSL</font></td></tr>
+<tr><td><font color="#008000">SRM_VOS_NAVD_1988</font></td>
+    <td><font color="#008000">SRM_DSSCOD_NAVD_1988</font></td></tr>
+<tr><td><font color="#008000">SRM_VOS_NGVD_1929</font></td>
+    <td><font color="#008000">SRM_DSSCOD_NGVD_1929</font></td></tr>
+<tr><td><font color="#008000">SRM_VOS_OSGM_2002</font></td>
+    <td><font color="#008000">SRM_DSSCOD_OSGM_2002</font></td></tr>
+<tr><td><font color="#008000">SRM_VOS_WGS84_ELLIPSOID</font></td>
+    <td><font color="#008000">SRM_DSSCOD_WGS84_ELLIPSOID</font></td></tr>
+<tr><td><font color="#008000">SRM_VOS_WGS84_GEOID</font></td>
+    <td><font color="#008000">SRM_DSSCOD_EGM84_GEOID</font></td></tr>
+</table>
+<br><br></li>
+</ol>
+</li>
+<li><p><a name="Function">Function Changes</a>
+</p>
+<table border=1>
+<tr><th>Old</th> <th>New</th></tr>
+<tr>
+<td>SRM_PrintAZ2DCoordinate</td>
+<td><a href="../../tech/srm/functions/SRM_PrintLSA2DCoordinate.htm">SRM_PrintLSA2DCoordinate</a></td>
+</tr>
+<tr>
+<td>SRM_PrintCoord</td>
+<td><a href="../../tech/srm/functions/SRM_PrintCoordinate.htm">SRM_PrintCoordinate</a></td>
+</tr>
+<tr>
+<td>SRM_PrintCoordinateCode</td>
+<td><a href="../../tech/srm/functions/SRM_PrintSpatialCoordinateCode.htm">SRM_PrintSpatialCoordinateCode</a></td>
+</tr>
+<tr>
+<td>SRM_PrintHSRCode</td>
+<td><a href="../../tech/srm/functions/SRM_PrintRTCode.htm">SRM_PrintRTCode</a></td>
+</tr>
+<tr>
+<td>SRM_PrintInterval</td>
+<td><a href="../../tech/srm/functions/SRM_PrintIntervalType.htm">SRM_PrintIntervalType</a></td>
+</tr>
+<tr>
+<td>SRM_PrintLTParameters</td>
+<td><a href="../../tech/srm/functions/SRM_PrintLocalTangentParameters.htm">SRM_PrintLocalTangentParameters</a></td>
+</tr>
+<tr>
+<td>SRM_PrintOMParameters</td>
+<td><a href="../../tech/srm/functions/SRM_PrintObliqueMercatorParameters.htm">SRM_PrintObliqueMercatorParameters</a></td>
+</tr>
+<tr>
+<td>SRM_PrintPolar2DCoordinate</td>
+<td><a href="../../tech/srm/functions/SRM_PrintLSP2DCoordinate.htm">SRM_PrintLSP2DCoordinate</a></td>
+</tr>
+<tr>
+<td>SRM_PrintSRFSetInfo</td>
+<td><a href="../../tech/srm/functions/SRM_PrintSRFSInfo.htm">SRM_PrintSRFSInfo</a></td>
+</tr>
+<tr>
+<td>SRM_PrintVOSCode</td>
+<td><a href="../../tech/srm/functions/SRM_PrintDSSCode.htm">SRM_PrintDSSCode</a></td>
+</tr>
+<tr>
+<td>SRM_NaturalRegion</td>
+<td>&nbsp;
+</td>
+</tr>
+<tr>
+<td>SRM_ValidAZ2DCoordinate</td>
+<td><a href="../../tech/srm/functions/SRM_ValidLSA2DCoordinate.htm">SRM_ValidLSA2DCoordinate</a></td>
+</tr>
+<tr>
+<td>SRM_ValidCoord</td>
+<td><a href="../../tech/srm/functions/SRM_ValidCoordinate.htm">SRM_ValidCoordinate</a></td>
+</tr>
+<tr>
+<td>SRM_ValidCoordinateCode</td>
+<td><a href="../../tech/srm/functions/SRM_ValidSpatialCoordinateCode.htm">SRM_ValidSpatialCoordinateCode</a></td>
+</tr>
+<tr>
+<td>SRM_ValidHSRCode</td>
+<td><a href="../../tech/srm/functions/SRM_ValidRTCode.htm">SRM_ValidRTCode</a></td>
+</tr>
+<tr>
+<td>SRM_ValidInterval</td>
+<td><a href="../../tech/srm/functions/SRM_ValidIntervalType.htm">SRM_ValidIntervalType</a></td>
+</tr>
+<tr>
+<td>SRM_ValidLTParameters</td>
+<td><a href="../../tech/srm/functions/SRM_ValidLocalTangentParameters.htm">SRM_ValidLocalTangentParameters</a></td>
+</tr>
+<tr>
+<td>SRM_ValidOMParameters</td>
+<td><a href="../../tech/srm/functions/SRM_ValidObliqueMercatorParameters.htm">SRM_ValidObliqueMercatorParameters</a></td>
+</tr>
+<tr>
+<td>SRM_ValidPolar2DCoordinate</td>
+<td><a href="../../tech/srm/functions/SRM_ValidLSP2DCoordinate.htm">SRM_ValidLSP2DCoordinate</a></td>
+</tr>
+<tr>
+<td>SRM_ValidSRFSetInfo</td>
+<td><a href="../../tech/srm/functions/SRM_ValidSRFSInfo.htm">SRM_ValidSRFSInfo</a></td>
+</tr>
+<tr>
+<td>SRM_ValidVOSCode</td>
+<td><a href="../../tech/srm/functions/SRM_ValidDSSCode.htm">SRM_ValidDSSCode</a></td>
+</tr>
+</table>
+</li>
+</ol>
+<hr>
+Questions or comments should be directed to: help@sedris.org
+<br><br>
+<table class="doc_set_header">
+<tr><td>
+<table class="doc_set_header">
+<tr>
+<td align="left"><small><font color="#00ffff">
+Last updated: July 1, 2011
+</small></td>
+<td align="right"><small><font color="#00ffff">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</small></td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</HTML>

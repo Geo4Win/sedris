@@ -1,0 +1,193 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE GetTransmittalVersionInformation</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+SE GetTransmittalVersionInformation
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../types/SE_Return_Code.htm">SE_Return_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SE_GetTransmittalVersionInformation</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/SE_Transmittal.htm">SE_Transmittal</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="transmittal"></a>transmittal,</td><td class="CFunction"><sup><A href="#Notes_transmittal">1</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../../drm/types/SE_Short_Integer_Positive.htm">SE_Short_Integer_Positive</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="major_DRM_version"></a>major_DRM_version,</td><td class="CFunction"><sup><A href="#Notes_major_DRM_version">2</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../../drm/types/SE_Byte_Unsigned.htm">SE_Byte_Unsigned</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="minor_DRM_version"></a>minor_DRM_version,</td><td class="CFunction"><sup><A href="#Notes_minor_DRM_version">3</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../../drm/types/SE_Character.htm">SE_Character</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="interim_DRM_version"></a>interim_DRM_version,</td><td class="CFunction"><sup><A href="#Notes_interim_DRM_version">4</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../../drm/types/SE_Short_Integer_Positive.htm">SE_Short_Integer_Positive</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="major_EDCS_version"></a>major_EDCS_version,</td><td class="CFunction"><sup><A href="#Notes_major_EDCS_version">5</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../../drm/types/SE_Byte_Unsigned.htm">SE_Byte_Unsigned</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="minor_EDCS_version"></a>minor_EDCS_version,</td><td class="CFunction"><sup><A href="#Notes_minor_EDCS_version">6</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../../drm/types/SE_Character.htm">SE_Character</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="interim_EDCS_version"></a>interim_EDCS_version,</td><td class="CFunction"><sup><A href="#Notes_interim_EDCS_version">7</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../../drm/types/SE_Short_Integer_Positive.htm">SE_Short_Integer_Positive</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="major_SRM_version"></a>major_SRM_version,</td><td class="CFunction"><sup><A href="#Notes_major_SRM_version">8</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../../drm/types/SE_Byte_Unsigned.htm">SE_Byte_Unsigned</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="minor_SRM_version"></a>minor_SRM_version,</td><td class="CFunction"><sup><A href="#Notes_minor_SRM_version">9</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../../drm/types/SE_Character.htm">SE_Character</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="interim_SRM_version"></a>interim_SRM_version</td><td class="CFunction"><sup><A href="#Notes_interim_SRM_version">10</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+  This function returns the versions of the implementations of the
+  DRM, EDCS, and SRM used to define the given transmittal.
+</P><P>
+  Major versions are specified by an integer that is incremented
+  whenever large changes are made to the implementation.
+</P><P>
+  Minor versions are specified by an integer that is incremented
+  whenever any small changes are made to the implementation.
+</P><P>
+  Interim versions are specified using a lower case letter that
+  is incremented whenever a new interim version of the
+  implementation is released.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A>
+</td><td class="Status">
+ and the transmittal version information is returned.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A>
+</td><td class="Status">
+ and the status code is set appropriately if the call failed.
+</td></tr>
+</table>
+
+<h3>Status Codes</h3>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A> is returned:</B>
+</P><P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_SUCCESS">SE_STATCODE_SUCCESS</A>
+</td><td class="Status">
+ set if valid parameters were passed in and all operations succeeded.
+</td></tr>
+</table>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A> is returned:</B>
+</P><P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_INACTIONABLE_FAILURE">SE_STATCODE_INACTIONABLE_FAILURE</A>
+</td><td class="Status">
+ set if the call fails for any reason.
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#transmittal" name="Notes_transmittal">1</a></sup>
+ the transmittal whose version information is being obtained
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#major_DRM_version" name="Notes_major_DRM_version">2</a></sup>
+ a pointer to a SE_Short_Integer_Positive in the user's memory
+    space that will be set to an integer value greater than or equal to 1
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#minor_DRM_version" name="Notes_minor_DRM_version">3</a></sup>
+ a pointer to a SE_Byte_Unsigned in the user's memory
+    space that will be set to an integer value between 0 and 99, inclusive
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#interim_DRM_version" name="Notes_interim_DRM_version">4</a></sup>
+ a pointer to an SE_Character in the user's memory
+    space that will be set to a value between 'a' and 'z' inclusive.
+    If it was not an interim version of the DRM, then the value will
+    be set to '\0'.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#major_EDCS_version" name="Notes_major_EDCS_version">5</a></sup>
+ a pointer to a SE_Short_Integer_Positive in the user's memory
+    space that will be set to an integer value greater than or equal to 1
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#minor_EDCS_version" name="Notes_minor_EDCS_version">6</a></sup>
+ a pointer to a SE_Byte_Unsigned in the user's memory
+    space that will be set to an integer value between 0 and 99, inclusive
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#interim_EDCS_version" name="Notes_interim_EDCS_version">7</a></sup>
+ a pointer to a SE_Character in the user's memory
+    space that will be set to a value between 'a' and 'z' inclusive.
+    If it was not an interim version of the EDCS, then the value will
+    be set to '\0'.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#major_SRM_version" name="Notes_major_SRM_version">8</a></sup>
+ a pointer to a SE_Short_Integer_Positive in the user's memory
+    space that will be set to an integer value greater than or equal to 1
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#minor_SRM_version" name="Notes_minor_SRM_version">9</a></sup>
+ a pointer to a SE_Byte_Unsigned in the user's memory
+    space that will be set to an integer value between 0 and 99, inclusive
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#interim_SRM_version" name="Notes_interim_SRM_version">10</a></sup>
+ a pointer to a SE_Character in the user's memory
+    space that will be set to a value between 'a' and 'z' inclusive.
+    If it was not an interim version of the SRM, then the value will
+    be set to '\0'.
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SE_GetTransmittalName.htm">SE_GetTransmittalName</a>.
+<strong>Next:</strong> <a href="SE_GetUniqueTransmittalID.htm">SE_GetUniqueTransmittalID</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

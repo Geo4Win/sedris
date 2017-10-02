@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Environment Root SRF</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX B - Constraints
+</font>
+<br>
+<font color="#ffffff">
+Environment Root SRF
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h3>Definition</h3>
+<P>
+ Consider a <A href="../classes/TransmittalRoot.htm">&lt;Transmittal Root&gt;</A> instance <span class="ConstructName">TR</span>
+ having one or more <A href="../classes/EnvironmentRoot.htm">&lt;Environment Root&gt;</A> components.
+</P>
+<OL type='a'>
+<LI><P>
+ For <span class="ConstructName">TR</span>, no two <A href="../classes/EnvironmentRoot.htm">&lt;Environment Root&gt;</A> components
+ may have identical
+ <A href="../classes/EnvironmentRoot.htm#srf_context_info">srf_context_info</A> field values.
+</P></LI>
+<LI><P>
+ All <A href="../classes/Location.htm">&lt;Location&gt;</A> instances appearing in the
+ component tree of a given <A href="../classes/EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instance
+ shall be specified within the SRF of that
+ <A href="../classes/EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instance,
+ unless such <A href="../classes/Location.htm">&lt;Location&gt;</A> instances fall within
+ the scope of a DRM object that specifies its own SRF, such as a
+ <A href="../classes/PropertyGrid.htm">&lt;Property Grid&gt;</A> instance or
+ <A href="../classes/ImageAnchor.htm">&lt;Image Anchor&gt;</A> instance.
+</P></LI>
+<LI><P>
+ No <A href="../classes/Location.htm">&lt;Location&gt;</A> instances in the component tree of a given
+ <A href="../classes/EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instance
+ may be invalid within that SRF; they shall be either valid
+ or extended.
+</P></LI>
+</OL>
+
+<h3>Rationale</h3>
+<P>
+ A <A href="../classes/Location.htm">&lt;Location&gt;</A> instance is not fully specified
+ unless it falls within the scope of a DRM object specifying an SRF.
+</P>
+<h3>Example</h3>
+<OL>
+<LI><P>
+ If the SRF of an <A href="../classes/EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instance
+ is AUTM, no <A href="../classes/Location.htm">&lt;Location&gt;</A> instances in the
+ component tree of that <A href="../classes/EnvironmentRoot.htm">&lt;Environment Root&gt;</A>
+ instance may be invalid in AUTM; they shall be either valid,
+ or &quot;extended&quot;.
+</P></LI>
+<LI><P>
+ Consider a transmittal spanning two consecutive UTM zones. The transmittal
+ will have two <A href="../classes/EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instances,
+ one each of the two UTM zones.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ Why does a <A href="../classes/PropertyGrid.htm">&lt;Property Grid&gt;</A> instance
+ specify its own SRF, independent of that of its
+ <A href="../classes/EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instance?
+</B></DT>
+<DD><P>
+ The griddedness of spatial positions is dependent on the properties
+ of the SRF in which they are defined. Coordinate conversions and
+ transformations are not, in general, linear, so that a set of points
+ that form a regular array of positions in one SRF may not be regular
+ in another SRF. Therefore, in order to preserve griddedness, a
+ <A href="../classes/PropertyGrid.htm">&lt;Property Grid&gt;</A> instance specifies a SRF
+ in which the data positions form a grid.
+<P></P>
+ In addition, a <A href="../classes/PropertyGrid.htm">&lt;Property Grid&gt;</A> instance
+ can exist without appearing in the component tree of any
+ <A href="../classes/EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instance
+ (<I>e.g.</I>, in the component tree of a
+ <A href="../classes/DataTableLibrary.htm">&lt;Data Table Library&gt;</A> instance).
+</P></DD>
+<DT><B>
+ Why does an <A href="../classes/ImageAnchor.htm">&lt;Image Anchor&gt;</A> instance
+ specify its own SRF, independent of that of its
+ <A href="../classes/EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instance?
+</B></DT>
+<DD><P>
+ As with the griddedness of
+ <A href="../classes/PropertyGrid.htm">&lt;Property Grid&gt;</A> instances,
+ an <A href="../classes/ImageAnchor.htm">&lt;Image Anchor&gt;</A> instance specifies an SRF
+ in which the anchor points specify the desired
+ texture mapping, so that it is preserved without distortion.
+</P><P>
+ In addition, an <A href="../classes/ImageAnchor.htm">&lt;Image Anchor&gt;</A> instance
+ may be a component of an <A href="../classes/Image.htm">&lt;Image&gt;</A> instance,
+ in which case the <A href="../classes/ImageAnchor.htm">&lt;Image Anchor&gt;</A> instance
+ does not appear in the component tree of any
+ <A href="../classes/EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instance.
+</P></DD>
+</DL>
+
+
+<hr>
+<strong>Prev:</strong> <A href="EdgesBorderingFaces.htm">Edges Bordering Faces</A>.
+<strong>Next:</strong> <A href="FaceDirectionLevels03.htm">Face Direction Levels 0 3</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

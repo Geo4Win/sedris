@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>EDCS Map3p1EnumerantCode</title>
+<link rel="stylesheet" href="../../../docs/styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>EDCS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+Concept Mapping from EDCS 3.1 to EDCS 4.x
+<!-- EDCS spec. 4.4 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+EDCS Map3p1EnumerantCode
+</font>
+</th></tr>
+</table></div>
+
+<!-- EDCS SDK Release 4.4.0 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../../../docs/types/EDCS_Status_Code.htm">EDCS_Status_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">EDCS_Map3p1EnumerantCode</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../../../docs/types/EDCS_Integer.htm">EDCS_Integer</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"> </td><td class="CFunction"><a name="ea_3p1_code_in"></a>ea_3p1_code_in,</td><td class="CFunction"><sup><A href="#Notes_ea_3p1_code_in">1</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../../../docs/types/EDCS_Integer.htm">EDCS_Integer</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"> </td><td class="CFunction"><a name="ee_3p1_code_in"></a>ee_3p1_code_in,</td><td class="CFunction"><sup><A href="#Notes_ee_3p1_code_in">2</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">const&nbsp;</td><td class="CFunction"><a href="../types/EDCS_3p1_4px_Enumerant_Mapping_Structure.htm">EDCS_3p1_4px_Enumerant_Mapping_Structure</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction">*</td><td class="CFunction"><a name="mapping_info_out_ptr"></a>mapping_info_out_ptr</td><td class="CFunction"><sup><A href="#Notes_mapping_info_out_ptr">3</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+ Retrieves forward mapping information for the given EDCS 3.1 EA and
+ EDCS 3.1 EE.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../../../docs/types/EDCS_Status_Code.htm#EDCS_SC_SUCCESS">EDCS_SC_SUCCESS</A>
+</td><td class="Status">
+ and a handle to the requested mapping information is copied into
+<A href="#mapping_info_out_ptr">*mapping_info_out_ptr</A>,
+ if valid parameters were passed in.
+</td></tr>
+<tr><td class="Status">
+<A href="../../../docs/types/EDCS_Status_Code.htm#EDCS_SC_NULL_REQUIRED_PARAMETER">EDCS_SC_NULL_REQUIRED_PARAMETER</A>
+</td><td class="Status">
+ and <A href="#mapping_info_out_ptr">*mapping_info_out_ptr</A>
+ is left unaltered, if
+<A href="#mapping_info_out_ptr">mapping_info_out_ptr</A> was NULL.
+</td></tr>
+<tr><td class="Status">
+<A href="../../../docs/types/EDCS_Status_Code.htm#EDCS_SC_INVALID_INPUT_CODE">EDCS_SC_INVALID_INPUT_CODE</A>
+</td><td class="Status">
+ and <A href="#mapping_info_out_ptr">*mapping_info_out_ptr</A>
+ is set to NULL, if
+<A href="#ea_3p1_code_in">ea_3p1_code_in</A>
+ does not correspond to a valid EDCS 3.1 EA or if the given
+<A href="#ee_3p1_code_in">ee_3p1_code_in</A> is not valid
+ for the given EDCS 3.1 EA.
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#ea_3p1_code_in" name="Notes_ea_3p1_code_in">1</a></sup>
+ the EDCS 3.1 attribute code that the enumerant code
+    given in ee_3p1_code_in applies to.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#ee_3p1_code_in" name="Notes_ee_3p1_code_in">2</a></sup>
+ the EDCS 3.1 enumerant code whose forward mapping
+    information is being retrieved.  Must be a valid enumerant for the
+    EDCS 3.1 attribute denoted by ea_3p1_code_in.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#mapping_info_out_ptr" name="Notes_mapping_info_out_ptr">3</a></sup>
+ pointer to a pointer variable in the user's
+    memory space where a handle to the mapping information will be
+    copied
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="EDCS_Map3p1ClassificationLabel.htm">EDCS_Map3p1ClassificationLabel</a>.
+<strong>Next:</strong> <a href="EDCS_Map3p1EnumerantLabel.htm">EDCS_Map3p1EnumerantLabel</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

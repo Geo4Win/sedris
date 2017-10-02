@@ -1,0 +1,160 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Geometry Edge</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Geometry Edge
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Geometry Edge</h2>
+<h3>Superclass - <a href="GeometryTopology.htm">&lt;Geometry Topology&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class is a one-dimensional
+ <A href="GeometryTopology.htm">&lt;Geometry Topology&gt;</A> instance consisting of two ordered
+ <A href="GeometryNode.htm">&lt;Geometry Node&gt;</A> instances that specify a line segment.
+ The orientation of a <A href="GeometryEdge.htm">&lt;Geometry Edge&gt;</A> instance is defined by
+ the order of its starting <A href="GeometryNode.htm">&lt;Geometry Node&gt;</A> instance and ending
+ <A href="GeometryNode.htm">&lt;Geometry Node&gt;</A> instance.
+</P><P>
+ A <A href="GeometryEdge.htm">&lt;Geometry Edge&gt;</A> instance is used to represent
+ the location of a segment of
+ one or more <A href="LinearGeometry.htm">&lt;Linear Geometry&gt;</A> instances and/or
+ a boundary of one or more
+ <A href="GeometryFace.htm">&lt;Geometry Face&gt;</A> instances.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet13.pdf"><strong>13</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet05.pdf"><strong>5</strong></A>
+</LI>
+</UL>
+
+<h3>Example</h3>
+<OL>
+<LI><P>
+ A <A href="Line.htm">&lt;Line&gt;</A> instance that represents the lighting of
+ a runway consists of two <A href="GeometryEdge.htm">&lt;Geometry Edge&gt;</A>
+ instances, representing the lights on each side of the runway.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<p>
+No FAQs supplied.
+</p>
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ConstraintsOnAssociates.htm">&lt;&lt;Constraints On Associates&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/EdgesBorderingFaces.htm">&lt;&lt;Edges Bordering Faces&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/FeatureEdgeConstraints.htm">&lt;&lt;Feature Edge Constraints&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ValidNodeEdgeRelationships.htm">&lt;&lt;Valid Node Edge Relationships&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Associated with (two-way)</h3>
+<UL>
+<li>zero or more {ordered} <a href="GeometryFace.htm">&lt;Geometry Face&gt;</a> instances, each through the use of an <a href="EdgeDirection.htm">&lt;Edge Direction&gt;</a> link object<sup><A href="#Notes_asn_biGeometry_Face" name="asn_biGeometry_Face">1</A></sup></li>
+<li>exactly 2 {ordered} <a href="GeometryNode.htm">&lt;Geometry Node&gt;</a> instances, each through the use of an <a href="EdgeDirection.htm">&lt;Edge Direction&gt;</a> link object<sup><A href="#Notes_asn_biGeometry_Node" name="asn_biGeometry_Node">2</A></sup></li>
+<li>zero or more <a href="GeometryVolume.htm">&lt;Geometry Volume&gt;</a> instances<sup><A href="#Notes_asn_biGeometry_Volume" name="asn_biGeometry_Volume">3</A></sup></li>
+<li>zero or more <a href="LinearGeometry.htm">&lt;Linear Geometry&gt;</a> instances, each through the use of an <a href="EdgeDirection.htm">&lt;Edge Direction&gt;</a> link object</li>
+</UL>
+
+<h3>Component of (two-way) (inherited)</h3>
+<UL>
+<li>one or more <a href="UnionOfGeometryTopology.htm">&lt;Union Of Geometry Topology&gt;</a> instances</li>
+</UL>
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<hr>
+<h2>Notes</h2>
+<h3>Associated with Notes</h3>
+<br>
+<h4><a href="#asn_biGeometry_Face" name="Notes_asn_biGeometry_Face">Geometry_Face</a></h4>
+ If present, these <A href="GeometryFace.htm">&lt;Geometry Face&gt;</A>
+ instances (if any exist) are those bordered by the
+ <A href="GeometryEdge.htm">&lt;Geometry Edge&gt;</A> instance, ordered
+ counterclockwise when looking along the
+ <A href="GeometryEdge.htm">&lt;Geometry Edge&gt;</A> instance.
+ The converse of this relationship is that between
+ <A href="GeometryFace.htm">&lt;Geometry Face&gt;</A> instances and
+ <A href="GeometryEdge.htm">&lt;Geometry Edge&gt;</A> instances.
+</P>
+<br>
+<h4><a href="#asn_biGeometry_Node" name="Notes_asn_biGeometry_Node">Geometry_Node</a></h4>
+ This association specifies that the
+ <A href="GeometryEdge.htm">&lt;Geometry Edge&gt;</A> instance is
+ bounded by these two
+ <A href="GeometryNode.htm">&lt;Geometry Node&gt;</A> instances.
+ The first <A href="GeometryNode.htm">&lt;Geometry Node&gt;</A> instance
+ is the starting node of the
+ <A href="GeometryEdge.htm">&lt;Geometry Edge&gt;</A> instance, while the
+ second <A href="GeometryNode.htm">&lt;Geometry Node&gt;</A> instance
+ is the ending node.
+</P>
+<br>
+<h4><a href="#asn_biGeometry_Volume" name="Notes_asn_biGeometry_Volume">Geometry_Volume</a></h4>
+ These <A href="GeometryVolume.htm">&lt;Geometry Volume&gt;</A> instances
+ are those that contain the <A href="GeometryEdge.htm">&lt;Geometry Edge&gt;</A>
+ instance.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="GeometricCentre.htm">Geometric Centre</A>.
+<strong>Next:</strong> <A href="GeometryFace.htm">Geometry Face</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

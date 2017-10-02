@@ -1,0 +1,248 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Constraints On Components</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX B - Constraints
+</font>
+<br>
+<font color="#ffffff">
+Constraints On Components
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h3>Definition</h3>
+<P>
+ DRM objects are constrained in taking component DRM objects as
+ follows.
+</P>
+<OL type='a'>
+<LI><P>
+ Let <span class="ConstructName">M</span> be a <A href="../classes/Model.htm">&lt;Model&gt;</A> instance.
+</P>
+<OL type='1'>
+<LI><P>
+ Let <span class="ConstructName">T</span> be a <A href="../classes/PropertyTable.htm">&lt;Property Table&gt;</A> instance.
+ If <span class="ConstructName">T</span> appears in the component tree of
+ <span class="ConstructName">M</span>, <span class="ConstructName">T</span> shall not appear in the
+ component tree of a <A href="../classes/DataTableLibrary.htm">&lt;Data Table Library&gt;</A> instance.
+</P></LI>
+<LI><P>
+ Let <span class="ConstructName">X</span> be a <A href="../classes/PropertyGrid.htm">&lt;Property Grid&gt;</A> instance
+ that is not a component of a <A href="../classes/DataTableLibrary.htm">&lt;Data Table Library&gt;</A> instance,
+ where <span class="ConstructName">X</span> appears in the component tree of
+ <span class="ConstructName">M</span>.
+</P>
+<OL type='i'>
+<LI><P>
+ <span class="ConstructName">X</span> shall not appear in the component tree of
+ a <A href="../classes/Model.htm">&lt;Model&gt;</A> instance other than <span class="ConstructName">M</span>.
+</P></LI>
+<LI><P>
+ <span class="ConstructName">X</span> shall not appear in the component tree of
+ an <A href="../classes/EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instance.
+</P></LI>
+</OL>
+</LI>
+<LI><P>
+ Let <span class="ConstructName">V</span> be a <A href="../classes/Variable.htm">&lt;Variable&gt;</A> instance, where
+ <span class="ConstructName">V</span> appears in the component tree of
+ <span class="ConstructName">M</span>.
+</P>
+<OL type='i'>
+<LI><P>
+ <span class="ConstructName">V</span> shall not appear in the component tree of
+ a <A href="../classes/Model.htm">&lt;Model&gt;</A> instance other than <span class="ConstructName">M</span>.
+</P></LI>
+<LI><P>
+ <span class="ConstructName">V</span> shall not appear in the component tree of
+ an <A href="../classes/EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instance.
+</P></LI>
+<LI><P>
+ <span class="ConstructName">M</span> shall have an <A href="../classes/InterfaceTemplate.htm">&lt;Interface Template&gt;</A>
+ component, which shall comply with <a href="ConstraintsOnAssociates.htm">&lt;&lt;Constraints On Associates&gt;&gt;</a>.
+</P></LI>
+</OL>
+</LI>
+<LI><P>
+ Let <span class="ConstructName">X</span> be an instance of a class other than
+ <A href="../classes/PropertyGrid.htm">&lt;Property Grid&gt;</A>, <A href="../classes/Symbol.htm">&lt;Symbol&gt;</A>, or <A href="../classes/Variable.htm">&lt;Variable&gt;</A>,
+ where <span class="ConstructName">X</span> appears in the component tree of
+ <span class="ConstructName">M</span>.
+</P>
+<OL type='i'>
+<LI><P>
+ <span class="ConstructName">X</span> shall not appear in the component tree of
+ a <A href="../classes/Model.htm">&lt;Model&gt;</A> instance other than M.
+</P></LI>
+<LI><P>
+ <span class="ConstructName">X</span> shall not appear in the component tree of
+ an <A href="../classes/EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instance.
+</P></LI>
+</OL>
+</LI>
+</OL>
+</LI>
+<LI><P>
+ Let <span class="ConstructName">R</span> be an <A href="../classes/EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instance.
+</P>
+<OL type='1'>
+<LI><P>
+ Let <span class="ConstructName">T</span> be a <A href="../classes/PropertyTable.htm">&lt;Property Table&gt;</A> instance.
+ If <span class="ConstructName">T</span> appears in the component tree of
+ <span class="ConstructName">R</span>, <span class="ConstructName">T</span> shall not appear in the
+ component tree of a <A href="../classes/DataTableLibrary.htm">&lt;Data Table Library&gt;</A> instance.
+</P></LI>
+<LI><P>
+ Let <span class="ConstructName">X</span> be a <A href="../classes/PropertyGrid.htm">&lt;Property Grid&gt;</A> instance
+ that is not a component of a <A href="../classes/DataTableLibrary.htm">&lt;Data Table Library&gt;</A> instance,
+ where <span class="ConstructName">X</span> appears in the component tree of
+ <span class="ConstructName">R</span>.
+</P>
+<OL type='i'>
+<LI><P>
+ <span class="ConstructName">X</span> shall not appear in the component tree of
+ an <A href="../classes/EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instance other than <span class="ConstructName">R</span>.
+</P></LI>
+<LI><P>
+ <span class="ConstructName">X</span> shall not appear in the component tree of
+ a <A href="../classes/Model.htm">&lt;Model&gt;</A> instance.
+</P></LI>
+</OL>
+</LI>
+<LI><P>
+ Let <span class="ConstructName">V</span> be a <A href="../classes/Variable.htm">&lt;Variable&gt;</A> instance, where
+ <span class="ConstructName">V</span> appears in the component tree of
+ <span class="ConstructName">R</span>.
+</P>
+<OL type='i'>
+<LI><P>
+ <span class="ConstructName">V</span> shall not appear in the component tree of
+ a <A href="../classes/Model.htm">&lt;Model&gt;</A> instance.
+</P></LI>
+<LI><P>
+ <span class="ConstructName">V</span> shall not appear in the component tree of
+ an <A href="../classes/EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instance
+ other than <span class="ConstructName">R</span>.
+</P></LI>
+<LI><P>
+ <span class="ConstructName">R</span> shall have
+ an <A href="../classes/InterfaceTemplate.htm">&lt;Interface Template&gt;</A> component, which shall comply with
+ <a href="ConstraintsOnAssociates.htm">&lt;&lt;Constraints On Associates&gt;&gt;</a>.
+</P></LI>
+</OL>
+</LI>
+<LI><P>
+ Let <span class="ConstructName">X</span> be an instance of a class other than
+ <A href="../classes/PropertyGrid.htm">&lt;Property Grid&gt;</A>, <A href="../classes/Symbol.htm">&lt;Symbol&gt;</A>, or <A href="../classes/Variable.htm">&lt;Variable&gt;</A>,
+ where <span class="ConstructName">X</span> appears in the component tree of
+ <span class="ConstructName">R</span>.
+</P>
+<OL type='i'>
+<LI><P>
+ <span class="ConstructName">X</span> shall not appear in the component tree of a
+ <A href="../classes/Model.htm">&lt;Model&gt;</A> instance.
+</P></LI>
+<LI><P>
+ If <span class="ConstructName">X</span> appears in the component tree of another
+ <A href="../classes/EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instance <span class="ConstructName">R2</span>, the
+ <A href="../classes/EnvironmentRoot.htm#srf_context_info">srf_context_info</A>
+ of <span class="ConstructName">R2</span> shall match that of <span class="ConstructName">R</span>.
+</P></LI>
+</OL>
+</LI>
+</OL>
+</LI>
+</OL>
+
+<h3>Rationale</h3>
+<P>
+ Why would a generic <A href="../classes/Model.htm">&lt;Model&gt;</A> instance use pieces of the terrain?
+ If the <A href="../classes/Model.htm">&lt;Model&gt;</A> instance is intended to be instanced as part of
+ the terrain of an <A href="../classes/EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instance,
+ <A href="../classes/EnvironmentRoot.htm">&lt;Environment Root&gt;</A> should instantiate the
+ <A href="../classes/Model.htm">&lt;Model&gt;</A> instance, not duplicate parts of it.
+</P><P>
+ If a <A href="../classes/Model.htm">&lt;Model&gt;</A> instance or
+ an <A href="../classes/EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instance needs to instantiate
+ another <A href="../classes/Model.htm">&lt;Model&gt;</A> instance M, use a
+ <A href="../classes/FeatureModelInstance.htm">&lt;Feature Model Instance&gt;</A> instance or
+ <A href="../classes/GeometryModelInstance.htm">&lt;Geometry Model Instance&gt;</A> instance. If only a
+ portion of <span class="ConstructName">M</span> is desired for reuse, that
+ portion should be a <A href="../classes/Model.htm">&lt;Model&gt;</A> instance of its own.
+</P>
+<h3>Example</h3>
+<OL>
+<LI><P>
+ If a <A href="../classes/Polygon.htm">&lt;Polygon&gt;</A> instance is within the
+ component tree of
+ an <A href="../classes/EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instance, no
+ <A href="../classes/Model.htm">&lt;Model&gt;</A> instance can use the
+ <A href="../classes/Polygon.htm">&lt;Polygon&gt;</A> instance.
+</P></LI>
+<LI><P>
+ If a <A href="../classes/Polygon.htm">&lt;Polygon&gt;</A> instance is within the
+ component tree of a <A href="../classes/Model.htm">&lt;Model&gt;</A> instance,
+ no <A href="../classes/EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instance
+ can use the <A href="../classes/Polygon.htm">&lt;Polygon&gt;</A> instance directly. The
+ component tree of a <A href="../classes/Model.htm">&lt;Model&gt;</A> instance can be
+ accessed only through
+ <A href="../classes/GeometryModelInstance.htm">&lt;Geometry Model Instance&gt;</A> instances
+ and/or <A href="../classes/FeatureModelInstance.htm">&lt;Feature Model Instance&gt;</A>
+ instances.
+</P></LI>
+<LI><P>
+ If a <A href="../classes/Polygon.htm">&lt;Polygon&gt;</A> instance is within the
+ component tree of a <A href="../classes/Model.htm">&lt;Model&gt;</A> instance, no
+ other <A href="../classes/Model.htm">&lt;Model&gt;</A> instance can use that
+ <A href="../classes/Polygon.htm">&lt;Polygon&gt;</A> instance directly. The
+ component tree of a <A href="../classes/Model.htm">&lt;Model&gt;</A> instance
+ can be accessed only through
+ <A href="../classes/GeometryModelInstance.htm">&lt;Geometry Model Instance&gt;</A> instances
+ and/or <A href="../classes/FeatureModelInstance.htm">&lt;Feature Model Instance&gt;</A>
+ instances.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<p>
+No FAQs supplied.
+</p>
+
+<hr>
+<strong>Prev:</strong> <A href="ConstraintsOnAssociates.htm">Constraints On Associates</A>.
+<strong>Next:</strong> <A href="ContainedEdgeConstraints.htm">Contained Edge Constraints</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

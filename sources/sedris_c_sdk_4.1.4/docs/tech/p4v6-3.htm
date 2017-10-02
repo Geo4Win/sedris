@@ -1,0 +1,958 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>P4V6 - Section 3</title>
+<META name="Author" CONTENT="Science Applications International Corporation">
+<link rel="stylesheet" type="text/css" href="../styles/SDK_SEDRIS.css">
+</head>
+<body>
+
+<div align="center">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>
+Data Tables Technical Guide
+</big></big>
+<br />
+<font color="#ffffff">
+Section 3 - DATA REPRESENTATION MODEL DEFINITIONS
+</font>
+</th></tr>
+</table>
+</div>
+
+<a name="Top" id="Top"></a>
+
+<table class="doc_set_toc">
+<tr>
+<th class="doc_set_toc_outline_number"><a name="31" id="31">3.1</a></th>
+<th class="doc_set_toc_outline_description">
+    <a href="drm/classes/DataTable.htm">&lt;Data Tables&gt;</a></th>
+</tr>
+
+<tr><td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+The abstract <a href="drm/classes/DataTable.htm">&lt;Data Table&gt;</a>
+class (shown conceptually in figure 3-1) defines an N dimensional array
+of data cells.  The dimension N is determined by the number of ordered
+<a href="drm/classes/Axis.htm">&lt;Axis&gt;</a>
+objects aggregated as components by a given
+<a href="drm/classes/DataTable.htm">&lt;Data Table&gt;</a>.
+Each <a href="drm/classes/Axis.htm">&lt;Axis&gt;</a>
+component determines the number of cell ranks
+in its coordinate dimension. Consequently, a
+<a href="drm/classes/DataTable.htm">&lt;Data Table&gt;</a>
+with two axes of size m and n will have m * n cells.  A
+<a href="drm/classes/DataTable.htm">&lt;Data Table&gt;</a> also aggregates an
+ordered list of
+<a href="drm/classes/TablePropertyDescription.htm">&lt;Table Property Description&gt;</a>
+components.  This list
+constitutes the signature of the table.  Each cell contains as many
+data items (properties) as there are
+<a href="drm/classes/TablePropertyDescription.htm">&lt;Table Property Description&gt;</a>
+components in the signature.  These
+<a href="drm/classes/TablePropertyDescription.htm">&lt;Table Property Description&gt;</a>
+components describe each data item: its meaning, the units of measure,
+and the storage type
+(<a href="../../src/lib/edcs/docs/types/EDCS_Integer.htm">EDCS_Integer</a>,
+ <a href="../../src/lib/edcs/docs/types/EDCS_Long_Float.htm">EDCS_Long_Float</a>,
+and so on).
+However, the dimensions and signature do not fully describe the
+intended meaning of the
+<a href="drm/classes/DataTable.htm">&lt;Data Table&gt;</a>.
+For that, a
+<a href="drm/classes/ClassificationData.htm">&lt;Classification Data&gt;</a>
+instance is provided as a component of each
+<a href="drm/classes/DataTable.htm">&lt;Data Table&gt;</a> instance.
+<p><center>
+<img src="images/p4v6_fig_3_1.png" alt="Figure 3-1 The <Data Table> Class">
+</center>
+<br /><br />
+NOTE: We use the term &quot;conceptual diagram&quot; to denote those
+parts of the SEDRIS Data Representation Model class diagram that are
+relevant to the concept under discussion.  See Appendix A of
+<b><a href="drm/classes/index.htm">Part 4, Volume 17</a>:
+<I>SEDRIS Reference Manual</I></b>
+for full class diagrams.
+Also note that the conceptual diagrams display class fields for
+convenience.
+</p><p>
+The &lt;Classification Data&gt; identifies the nature of the table and its
+likely signature. (See <b><a href="../../src/lib/edcs/docs/edcs.htm">
+Part 4, Volume 10</a>: <I>EDCS Reference Manual</I></b>).  During
+SEDRIS transmittal data extraction, this information can be used in
+search filters.
+(See <b><a href="p4v13.htm">Part 4, Volume 13</a>:
+<I>How to Extract Data from SEDRIS Transmittals</I></b>).
+</p><p>
+The abstract diagram shown in Figure 3-1 will be refined in later
+sections. For example, several classes are derived from the abstract
+<a href="drm/classes/DataTable.htm">&lt;Data Table&gt;</a> class:
+<a href="drm/classes/PropertyGrid.htm">&lt;Property Grid&gt;</a>,
+<a href="drm/classes/PropertyTable.htm">&lt;Property Table&gt;</a>,
+and <a href="drm/classes/MeshFaceTable.htm">&lt;Mesh Face Table&gt;</a>.
+This conceptual diagram will change in later sections to reflect these
+and other refinements.
+</p><p>
+It is important to note that once data has been stored in a
+<a href="drm/classes/DataTable.htm">&lt;Data Table&gt;</a> instance, the data
+type and number of axes cannot be changed without invalidating the data
+stored in the table. If the structure must be changed, it is typically
+best to create a new <a href="drm/classes/DataTable.htm">&lt;Data Table&gt;</a>
+instance with the desired structure, then migrate existing data from the old
+<a href="drm/classes/DataTable.htm">&lt;Data Table&gt;</a> instance to the
+new one.
+</p>
+</td></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="32" id="32">3.2</a></th>
+<th class="doc_set_toc_outline_description">
+The <a href="drm/classes/PropertyGrid.htm">&lt;Property Grid&gt;</a> Class</th>
+</tr>
+
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+The <a href="drm/classes/DataTable.htm">&lt;Data Table&gt;</a> class defines an
+array of data cells.  In general, these cells have no meaningful location in
+space.  If the cells do correspond to gridded locations in space, then some
+of the axes must be spatial.  The <a href="drm/classes/PropertyGrid.htm">
+&lt;Property Grid&gt;</a> class is used for <a href="drm/classes/DataTable.htm">
+&lt;Data Tables&gt;</a> that include at least one spatial
+axis.  As discussed in Section 2, we must
+<ol>
+   <li>specify the spatial reference frame that preserves the
+       &quot;griddedness&quot; of the cells,</li>
+   <li>orient and locate one cell in space, and</li>
+   <li>identify which <a href="drm/classes/Axis.htm">&lt;Axis&gt;</a>
+       components are the spatial axes.</li>
+</ol>
+</p><p>
+In an analog to a
+<a href="drm/classes/GeometryModel.htm">&lt;Geometry Model&gt;</a>
+instance, which is referenced at a spatial location using a
+<a href="drm/classes/GeometryModelInstance.htm">
+&lt;Geometry Model Instance&gt;</a> that provides a
+<a href="drm/classes/Transformation.htm">&lt;Transformation&gt;</a>,
+the DRM provides the
+<a href="drm/classes/PropertyGridHookPoint.htm">
+&lt;Property Grid Hook Point&gt;</a> class, a subclass of
+<a href="drm/classes/GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</a>,
+to tie a <a href="drm/classes/PropertyGrid.htm">&lt;Property Grid&gt;</a> instance
+to a spatial location within the geometric context in which it is to
+be referenced. A <a href="drm/classes/PropertyGridHookPoint.htm">
+&lt;Property Grid Hook Point&gt;</a> instance specifies
+the spatial location as a <a href="drm/classes/Location.htm">&lt;Location&gt;</a>
+component, while a <a href="drm/classes/PropertyGrid.htm">
+&lt;Property Grid&gt;</a> instance specifies which of its cells corresponds
+to that location.
+</p><p>
+The conceptual diagram is presented in Figure 3-2.
+</p><p>
+<center>
+<img src="images/p4v6_fig_3_2.png" alt="Figure 3-2 The <Property Grid> Class">
+</center>
+</p><p>
+<a href="drm/classes/PropertyGrid.htm">&lt;Property Grid&gt;</a> has several
+fields in addition to those inherited from <a href="drm/classes/DataTable.htm">
+&lt;Data Table&gt;</a>, namely,
+<a href="drm/classes/PropertyGrid.htm#spatial_axes_count">spatial_axes_count</a>,
+<a href="drm/classes/PropertyGrid.htm#location_index">location_index</a>,
+<a href="drm/classes/PropertyGrid.htm#srf_context_info">srf_context_info</a>,
+and <a href="drm/classes/PropertyGrid.htm#data_present">data_present</a>.
+</p><p>
+Note that a <a href="drm/classes/PropertyGrid.htm">&lt;Property Grid&gt;</a>
+instance specifies its own SRF.  This may or may not match the SRF in which
+the <a href="drm/classes/PropertyGrid.htm">&lt;Property Grid&gt;</a>
+is instanced. The
+<a href="drm/classes/PropertyGrid.htm#spatial_axes_count">
+spatial_axes_count</a> shall correspond to the
+<a href="drm/classes/PropertyGrid.htm">&lt;Property Grid&gt;</a>'s
+own SRF, rather than that of whatever context instances the
+<a href="drm/classes/PropertyGrid.htm">&lt;Property Grid&gt;</a>. The
+<a href="drm/classes/PropertyGrid.htm#spatial_axes_count">spatial_axes_count</a>
+field specifies which of the ordered <a href="drm/classes/Axis.htm">
+&lt;Axis&gt;</a> components of a given
+<a href="drm/classes/PropertyGrid.htm">&lt;Property Grid&gt;</a>
+are spatial, in accordance with the
+<a href="drm/constraints/SpatialAxisConstraints.htm">
+&lt;&lt;Spatial Axis Constraints&gt;&gt;</a>.
+</p><p>
+For example, if a <a href="drm/classes/PropertyGrid.htm">&lt;Property Grid&gt;</a>
+specifies its
+<a href="drm/classes/PropertyGrid.htm#srf_context_info">srf_context_info</a>
+as Augmented Mercator (AM), then there can be no
+more than one &quot;x&quot; axis, &quot;y&quot; axis, or elevation /
+&quot;z&quot; axis.
+</p><p>
+The cell corresponding to the
+<a href="drm/classes/PropertyGridHookPoint.htm">&lt;Property Grid Hook Point&gt;</a>'s
+<a href="drm/classes/Location.htm">&lt;Location&gt;</a> has indices
+on the 3 or fewer spatial axes specified by
+<a href="drm/classes/PropertyGrid.htm#location_index">location_index[3]</a>.
+Notice that
+<a href="drm/classes/PropertyGrid.htm#location_index">location_index</a>
+is not required to specify a point that actually
+lies within the boundaries of the grid. This allows several neighbouring
+<a href="drm/classes/PropertyGrid.htm">&lt;Property Grid&gt;</a> instances to
+be offset from the same <a href="drm/classes/PropertyGridHookPoint.htm">
+&lt;Property Grid Hook Point&gt;</a>, if desired.
+</p><p>
+In relation to Section 1, <a href="drm/classes/PropertyGridHookPoint.htm">
+&lt;Property Grid Hook Point&gt;</a> provides (1'), the location of one
+reference cell. The <a href="drm/classes/PropertyGrid.htm#srf_info">
+srf_info</a> field generalizes requirements (2'), (3), and (6), while
+the  <a href="drm/classes/Axis.htm">&lt;Axis&gt;</a> and
+<a href="drm/classes/TablePropertyDescription.htm">
+&lt;Table Property Description&gt;</a> components correspond to (9) and (7).
+</p><p>
+Note that a <a href="drm/classes/PropertyGrid.htm">&lt;Property Grid&gt;</a>
+can aggregate other <a href="drm/classes/DataTable.htm">&lt;Data Table&gt;</a>
+instances as ordered components. This allows a cell signature item to
+reference (by index) a component <a href="drm/classes/PropertyGrid.htm">
+&lt;Property Grid&gt;</a> or
+<a href="drm/classes/PropertyTable.htm">&lt;Property Table&gt;</a>, as well as a
+<a href="drm/classes/PropertyGrid.htm"> &lt;Property Grid&gt;</a> or
+<a href="drm/classes/PropertyTable.htm">&lt;Property Table&gt;</a> in a
+<a href="drm/classes/DataTableLibrary.htm">&lt;Data Table Library&gt;</a>.
+A referenced <a href="drm/classes/PropertyGrid.htm">&lt;Property Grid&gt;</a> is
+located using the spatial location of the cell that references it
+as the location corresponding to its
+<a href="drm/classes/PropertyGrid.htm#location_index">location_index</a>. The
+topic of nested <a href="drm/classes/PropertyGrid.htm">&lt;Property Grid&gt;</a>
+instances will be treated in more detail below.
+</p>
+</td></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="33" id="33">3.3</a></th>
+<th class="doc_set_toc_outline_description">
+The <a href="drm/classes/PropertyTable.htm">&lt;Property Table&gt;</a> Class</th>
+</tr>
+
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+The <a href="drm/classes/PropertyTable.htm">&lt;Property Table&gt;</a> class
+is used to store tabular data that requires no spatial axes (such data
+is stored in <a href="drm/classes/PropertyGrid.htm">&lt;Property Grid&gt;</a>
+instances). A <a href="drm/classes/PropertyTable.htm">&lt;Property Table&gt;</a>
+may aggregate other <a href="drm/classes/PropertyTable.htm">
+&lt;Property Table&gt;</a> instances as ordered components,
+which are then referenced in the cells of the table by component index.
+<a href="drm/classes/PropertyGrid.htm">&lt;Property Grid&gt;</a> instances
+cannot be referenced in this way by a <a href="drm/classes/PropertyTable.htm">
+&lt;Property Table&gt;</a>, because the <a href="drm/classes/PropertyTable.htm">
+&lt;Property Table&gt;</a> provides no spatial location to tie the
+<a href="drm/classes/PropertyGrid.htm">&lt;Property Grid&gt;</a>'s
+<a href="drm/classes/PropertyGrid.htm#location_index">location_index</a> to
+the instancing spatial reference frame.
+<p></p>
+Figure 3-3 is the conceptual diagram for the
+<a href="drm/classes/PropertyTable.htm">&lt;Property Table&gt;</a> class.
+<p></p>
+<center>
+<img src="images/p4v6_fig_3_3.png" alt="Figure 3-3 The <Property Table> Class">
+</center>
+</p>
+</td></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="34" id="34">3.4</a></th>
+<th class="doc_set_toc_outline_description">
+The <a href="drm/classes/MeshFaceTable.htm">
+    &lt;Mesh Face Table&gt;</a> Class</th>
+</tr>
+
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+The <a href="drm/classes/MeshFaceTable.htm">&lt;Mesh Face Table&gt;</a>
+class is used exclusively with the <a href="drm/classes/FiniteElementMesh.htm">
+&lt;Finite Element Mesh&gt;</a> class, which is discussed in section 4.
+</p></td></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="35" id="35">3.5</a></th>
+<th class="doc_set_toc_outline_description">
+    <a href="drm/classes/Property.htm">&lt;Property&gt;</a> and
+    <a href="drm/classes/TablePropertyDescription.htm">
+    &lt;Table Property Description&gt;</a></th>
+</tr>
+
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+Attributed data is used throughout the DRM. To fully specify a data value,
+its meaning and storage type are required; if it is a numeric value, a
+scaled unit of measure is also required. Consequently, the data signature
+of a <a href="drm/classes/DataTable.htm">&lt;Data Table&gt;</a> cell needs
+this information for each data item.
+</p><p>
+The abstract class <a href="drm/classes/Property.htm">&lt;Property&gt;</a>
+abstracts the common fields for property values and signature items. It
+specifies the meaning of the property being represented by an
+<a href="drm/types/SE_Element_Type.htm">SE_Element_Type</a> field,
+<a href="drm/classes/Property.htm#meaning">meaning</a>, and specifies
+the corresponding scaled unit of measure as
+<a href="drm/classes/Property.htm#value_unit">value_unit</a> and
+<a href="drm/classes/Property.htm#value_scale">value_scale</a>. An
+SE_Element_Type field value may represent an
+<a href="drm/types/SE_Index_Code.htm">SE_Index_Code</a>,
+<a href="drm/types/SE_Variable_Code.htm">SE_Variable_Code</a>, or an
+<a href="../../src/lib/edcs/docs/types/EDCS_Attribute_Code.htm">
+EDCS_Attribute_Code</a> (EAC).
+EACs are by far the most common. EDCS Attribute Codes, Unit Codes, and
+Scale Codes are specified as part of the Environmental Data Coding
+Specification (EDCS); see <a href="../../src/lib/edcs/docs/edcs.htm">
+<b>Part 4, Volume 10</b></a> <I>EDCS Reference Manual</I> for details.
+</p><p>
+<a href="drm/classes/Property.htm">&lt;Property&gt;</a> has three concrete
+subclasses: <a href="drm/classes/PropertyValue.htm">&lt;Property Value&gt;</a>,
+<a href="drm/classes/TablePropertyDescription.htm">
+&lt;Table Property Description&gt;</a>, and
+<a href="drm/classes/PropertyDescription.htm">&lt;Property Description&gt;</a>,
+each of which serves a slightly different purpose and provides different
+functionality.
+</p><p>
+<a href="drm/classes/PropertyValue.htm">&lt;Property Value&gt;</a>
+serves to specify a single data value, with its meaning and unit
+of measure. Consequently, it has a
+<a href="drm/classes/PropertyValue.htm#value">value</a> field, in
+addition to the fields inherited from <a href="drm/classes/Property.htm">
+&lt;Property&gt;</a>. The value
+is a tagged union, wherein the tag specifies the storage type, and
+the union member stores the value itself. A <a href="drm/classes/PropertyValue.htm">
+&lt;Property Value&gt;</a> may also have
+<a href="drm/classes/PropertyCharacteristic.htm">&lt;Property Characteristic&gt;</a>
+components, but these are more commonly used by the other subclasses of
+<a href="drm/classes/Property.htm">&lt;Property&gt;</a>, and are discussed
+later in this section.
+</p><p>
+<a href="drm/classes/TablePropertyDescription.htm">
+&lt;Table Property Description&gt;</a> represents a signature item
+in a <a href="drm/classes/DataTable.htm">&lt;Data Table&gt;</a>. Since the
+values are stored in the cells of a <a href="drm/classes/DataTable.htm">
+&lt;Data Table&gt;</a> instance, it does not have a value field. On
+the other hand, all the cells corresponding to a given
+<a href="drm/classes/TablePropertyDescription.htm">
+&lt;Table Property Description&gt;</a> have the same storage type, so
+the most practical approach is to record the storage type for a
+given signature item once, in the fields of the
+<a href="drm/classes/TablePropertyDescription.htm">
+&lt;Table Property Description&gt;</a>, rather than replicating it
+for each cell corresponding to that signature item. Consequently,
+<a href="drm/classes/TablePropertyDescription.htm">
+&lt;Table Property Description&gt;</a> has a
+<a href="drm/classes/TablePropertyDescription.htm#value_type">value_type</a>
+field, in addition to the fields inherited from <a href="drm/classes/Property.htm">
+&lt;Property&gt;</a>.
+</p><p>
+As noted in previous sections of this document, a
+<a href="drm/classes/DataTable.htm">&lt;Data Table&gt;</a>
+cell may reference other <a href="drm/classes/DataTable.htm">&lt;Data Table&gt;</a>
+instances, if they are components of the referencing
+<a href="drm/classes/DataTable.htm">&lt;Data Table&gt;</a>
+instance or if they reside in a <a href="drm/classes/DataTableLibrary.htm">
+&lt;Data Table Library&gt;</a>. To reference
+another table in this manner, the meaning field of the applicable
+<a href="drm/classes/TablePropertyDescription.htm">
+&lt;Table Property Description&gt;</a> in the referencing table is set to
+the appropriate <a href="drm/types/SE_Index_Code.htm">SE_Index_Code</a>,
+while each of the referencing table's cells for that signature item contains
+an index number. Consider a reference to the Kth ordered component
+<a href="drm/classes/DataTable.htm">&lt;Data Table&gt;</a>. The meaning of the
+<a href="drm/classes/TablePropertyDescription.htm">
+&lt;Table Property Description&gt;</a>
+is { <a href="drm/types/SE_Element_Type_Code.htm#SE_ELEMTYPCOD_INDEX">
+SE_ELEMTYPCOD_INDEX</a>,
+<a href="drm/types/SE_Index_Code.htm#SE_IDXCODE_DATA_TABLE_COMPONENT">
+SE_IDXCODE_DATA_TABLE_COMPONENT</a> }, while the referencing cell
+contains the appropriate index value. Other index code meanings are handled
+in a similar fashion.
+</p><p>
+If the DRM allowed only one signature item in any given
+<a href="drm/classes/DataTable.htm">&lt;Data Table&gt;</a>
+instance to reference a component or library table, then the index value
+would simply be the index of the table within the specified list. However,
+the DRM grants more flexibility than that. Note that a
+<a href="drm/classes/TablePropertyDescription.htm">
+&lt;Table Property Description&gt;</a> contains a field that has not been
+discussed up to this point:
+<a href="drm/classes/TablePropertyDescription.htm#component_data_table_ecc">
+component_data_table_ecc</a>, and an optional ordered list of
+<a href="drm/classes/PropertyValue.htm">&lt;Property Value&gt;</a> components
+that exist to qualify the
+<a href="drm/classes/TablePropertyDescription.htm#component_data_table_ecc">
+component_data_table_ecc</a>, if one is specified. This allows the
+provider of a <a href="drm/classes/DataTable.htm">&lt;Data Table&gt;</a> to
+reference, not the Kth component <a href="drm/classes/DataTable.htm">
+&lt;Data Table&gt;</a>, but the jth component <a href="drm/classes/DataTable.htm">
+&lt;Data Table&gt;</a> that matches the given qualified ECC.
+</p><p>
+As noted earlier in this section, sometimes a given signature item
+requires the specification of special values, such as sentinel values,
+or the data provider wishes to provide extra information, such as
+maximum value, minimum value, or measurement error.
+</p><p>
+<a href="drm/classes/PropertyDescription.htm">&lt;Property Description&gt;</a>
+serves to provide context within the scope of an
+<a href="drm/classes/AggregateFeature.htm">&lt;Aggregate Feature&gt;</a> or
+<a href="drm/classes/AggregateGeometry.htm">&lt;Aggregate Geometry&gt;</a>
+for all <a href="drm/classes/PropertyValue.htm">&lt;Property Value&gt;</a>
+instances falling within its scope, in one of two ways.
+</p><p>
+A &lt;Property Description&gt; may have qualifying
+<a href="drm/classes/PropertyValue.htm">&lt;Property Value&gt;</a>
+components, which then apply to all <a href="drm/classes/PropertyValue.htm">
+&lt;Property Value&gt;</a> instances within that scope that have matching
+<a href="drm/classes/PropertyValue.htm#meaning">meaning</a> field values.
+For example, in an <a href="drm/classes/AggregateGeometry.htm">
+&lt;Aggregate Geometry&gt;</a> containing many <a href="drm/classes/Polygon.htm">
+&lt;Polygon&gt;</a> instances that specify different emissivity values,
+the aggregate can contain a single <a href="drm/classes/PropertyDescription.htm">
+&lt;Property Description&gt;</a>
+component specifying the electromagnetic band.
+</p><p>
+A <a href="drm/classes/PropertyDescription.htm">&lt;Property Description&gt;</a>
+may also have <a href="drm/classes/PropertyCharacteristic.htm">
+&lt;Property Characteristic&gt;</a> components, specifying special information,
+such as maximum value or minimum value.
+</p></td></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="36" id="36">3.6</a></th>
+<th class="doc_set_toc_outline_description"><a href="drm/classes/Axis.htm">&lt;Axis&gt;</a>
+    and Its Subclasses</th>
+</tr>
+
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description">
+<table class="doc_set_toc">
+<tr>
+<th class="doc_set_toc_outline_number"><a name="361" id="361">3.6.1</a></th>
+<th class="doc_set_toc_outline_description">The <a href="drm/classes/Axis.htm">&lt;Axis&gt;</a> Class</th>
+</tr>
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+The <a href="drm/classes/Axis.htm">&lt;Axis&gt;</a> class abstracts the
+common characteristics of its concrete subclasses; each
+<a href="drm/classes/Axis.htm">&lt;Axis&gt;</a>
+instance specifies a meaning (the <a href="drm/classes/Axis.htm#axis_type">
+axis_type</a>, a scaled unit of measure (the
+<a href="drm/classes/Axis.htm#value_unit">axis_unit</a> and
+<a href="drm/classes/Axis.htm#value_scale">axis_scale</a>),
+and a count for the number of tic marks on the axis (the
+<a href="drm/classes/Axis.htm#axis_value_count">axis_value_count</a>).
+</p></td></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="362" id="362">3.6.2</a></th>
+<th class="doc_set_toc_outline_description">The <a href="drm/classes/RegularAxis.htm">
+    &lt;Regular Axis&gt;</a> Class</th>
+</tr>
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+The <a href="drm/classes/RegularAxis.htm">&lt;Regular Axis&gt;</a> class
+is used to specify numerical axes that have a constant spacing between
+the axis values (which are called <em>tick marks</em>). To specify
+these regularly spaced values, a &lt;Regular Axis&gt; needs to specify
+the starting value (its <a href="drm/classes/RegularAxis.htm#first_value">
+first_value</a> field), the type of spacing being used
+(<a href="drm/classes/RegularAxis.htm#spacing_type">spacing_type</a>),
+and the spacing itself (<a href="drm/classes/RegularAxis.htm#spacing">
+spacing</a>).
+</p><p>
+The notion of equal spacing applies to both arithmetic and geometric
+spacing. If <a href="drm/types/SE_Spacing_Type.htm#SE_SPACTYP_ARITHMETIC">
+SE_SPACTYP_ARITHMETIC</a> is specified, then the kth tick mark value
+is
+</p><p>
+tick(k) = first_value + (k * spacing)
+</p><p>
+If <a href="drm/types/SE_Spacing_Type.htm#SE_SPACTYP_GEOMETRIC">
+SE_SPACTYP_GEOMETRIC</a> is specified, then the kth tick mark value is
+</p><p>
+tick(k) = first_value * (spacing<SUP>K</SUP>)
+</p><p>
+When a <a href="drm/classes/RegularAxis.htm">&lt;Regular Axis&gt;</a> is
+used to represent a continuous value, such as a spatial coordinate, it is
+often useful to interpolate between axis tick marks in order to estimate
+data values for points that fall between grid points. For example, a data
+consumer may wish to resample the data in a
+<a href="drm/classes/PropertyGrid.htm">&lt;Property Grid&gt;</a> to fit a
+grid specified in a different spatial reference frame. However, the
+appropriate interpolation method is data dependent. Differing interpolation
+techniques produce incompatible results, which is contrary to SEDRIS'
+interoperability objectives. Even simplistic techniques, such as linear
+interpolation, are inappropriate for certain kinds of environmental data,
+for instance, some kinds of oceanographic data. To allow a data consumer to
+perform data interpolation correctly, for the purpose of resampling or any
+other reason, the necessary interpolation method shall be provided with the data,
+by means of the <a href="drm/classes/RegularAxis.htm#interpolation_type">
+interpolation_type</a> field of <a href="drm/classes/RegularAxis.htm">
+&lt;Regular Axis&gt;</a>.
+</p><p>
+The currently supported interpolation methods are specified by
+the enumerants of
+<a href="drm/types/SE_Interpolation_Type.htm">SE_Interpolation_Type</a>.
+</p><p>
+Data specified by non-spatial <a href="drm/classes/Axis.htm">&lt;Axis&gt;</a>
+instances may never require interpolation. In these cases, the data provider
+specifies
+<a href="drm/types/SE_Interpolation_Type.htm#SE_INTERPOLATION_TYP_DISALLOWED">
+SE_INTERPOLATION_TYP_DISALLOWED</a>. Spatial axes are not permitted to
+disallow interpolation, although a data provider may indicate that a
+preferred interpolation method is not supplied.
+</p>
+</td></tr>
+
+<tr><th class="doc_set_toc_outline_number"><a name="363" id="363">3.6.3</a></th>
+    <th class="doc_set_toc_outline_description">The <a href="drm/classes/IrregularAxis.htm">
+    &lt;Irregular Axis&gt;</a> Class</th>
+</tr>
+
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+The essential difference between <a href="drm/classes/RegularAxis.htm">
+&lt;Regular Axis&gt;</a> and <a href="drm/classes/IrregularAxis.htm">
+&lt;Irregular Axis&gt;</a> - that one uses regular spacing to specify
+its tick marks and the other does not - results in certain differences
+in the fields required by <a href="drm/classes/IrregularAxis.htm">
+&lt;Irregular Axis&gt;</a>. Since the spacing is not regular, neither
+a spacing value nor a spacing type is specified, and the tick marks
+are not left to be computed by the consumer; instead, the tick
+mark values are provided explicitly in the
+<a href="drm/classes/IrregularAxis.htm#axis_value_array">axis_value_array</a>
+field of the class, the size of which is specified by
+<a href="drm/classes/IrregularAxis.htm#axis_value_count">axis_value_count<a/>.
+</p><p>
+Note that the <a href="drm/classes/IrregularAxis.htm">&lt;Irregular Axis&gt;<a/>
+class has an interpolation_type field just as the
+<a href="drm/classes/RegularAxis.htm">&lt;Regular Axis&gt;</a> class does.
+</p><p>
+If a <a href="drm/classes/IrregularAxis.htm">&lt;Irregular Axis&gt;<a/>
+is used to represent a spatial <a href="drm/classes/Axis.htm">&lt;Axis&gt;</a>
+within a <a href="drm/classes/PropertyGrid.htm">&lt;Property Grid&gt;</a>,
+the values within <a href="drm/classes/IrregularAxis.htm#axis_value_array">
+axis_value_array</a> are all offsets from the location corresponding to the
+<a href="drm/classes/PropertyGrid.htm#location_index">location_index</a> of the grid.
+That is, if the axis is the ith spatial axis of a grid, and a is
+the corresponding coordinate value of the location cell, then
+the kth tick coordinate value is
+</p><p>
+<div align="center"><font face="Courier New">
+a + axis_value_array[k]
+</font></div>
+</p><p>
+where k ranges from zero (0) to
+<a href="drm/classes/IrregularAxis.htm#axis_value_count">axis_value_count</a> -1.
+</p><p>
+In particular, there is no offset at the location cell tick
+</p><p>
+<div align="center"><font face="Courier New">
+axis_value_array[location_index[i]] = 0.0
+</font></div>
+</p><p>
+Because there are only <a href="drm/classes/IrregularAxis.htm#axis_value_count">
+axis_value_count</a> - 1 intervals determined by this array, there is no
+&quot;last&quot; interval. In particular, the non-existent last interval has
+neither middle nor upper point, so axis alignment for an
+<a href="drm/classes/IrregularAxis.htm">&lt;Irregular Axis&gt;</a> is always
+<a href="drm/types/SE_Axis_Alignment.htm#SE_AXALGN_LOWER">
+SE_AXALGN_LOWER</a>.
+</p><p>
+As specified by the <a href="drm/constraints/GeneralAxisConstraints.htm">
+&lt;&lt;General Axis Constraints&gt;&gt;</a> constraint, the values in
+<a href="drm/classes/IrregularAxis.htm#axis_value_array">axis_value_array</a>
+shall be unique and monotonic to avoid ambiguity.
+</p></td></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="364" id="364">3.6.4</a></th>
+<th class="doc_set_toc_outline_description">The <a href="drm/classes/EnumerationAxis.htm">
+    &lt;Enumeration Axis&gt;</a> Class</th>
+</tr>
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+An <a href="drm/classes/EnumerationAxis.htm">&lt;Enumeration Axis&gt;</a>
+instance is contrained to specify an axis_type corresponding to
+an EDCS Attribute Code that is bound to a set of
+<a href="../../src/lib/edcs/docs/types/EDCS_Enumerant_Code.htm">EDCS_Enumerant_Code</a>s,
+from which its tick marks are supplied as its
+<a href="drm/classes/EnumerationAxis.htm#axis_value_array">axis_value_array</a>.
+</p></td></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="365" id="365">3.6.5</a></th>
+<th class="doc_set_toc_outline_description">The <a href="drm/classes/IntervalAxis.htm">
+    &lt;Interval Axis&gt;</a> Class</th>
+</tr>
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+An <a href="drm/classes/IntervalAxis.htm">&lt;Interval Axis&gt;</a>
+instance specifies an interval for each axis value. Each entry in
+its <a href="drm/classes/IntervalAxis.htm#axis_interval_value_array">
+axis_interval_value_array</a> field is required to be bound to
+an interval storage type.
+</p></td></tr>
+</table>
+</td></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="37" id="37">3.7</a></th>
+<th class="doc_set_toc_outline_description">Other <a href="drm/classes/DataTable.htm">
+    &lt;Data Table&gt;</a>-related Classes</th>
+</tr>
+
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description">
+<table class="doc_set_toc">
+<tr>
+<th class="doc_set_toc_outline_number"><a name="371" id="371">3.7.1</a></th>
+<th class="doc_set_toc_outline_description">Overview</th>
+</tr>
+
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+Several classes other than those already discussed either used or
+are needed by the <a href="drm/classes/DataTable.htm">&lt;Data Table&gt;</a>
+class or one of its subclasses. The
+<a href="drm/classes/FiniteElementMesh.htm">&lt;Finite Element Mesh&gt;</a>
+class will be discussed in <a href="p4v6-6.htm">section 6</a>,
+while the others are discussed in the remainder of this section.
+</p></td></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="372" id="372">3.7.2</a></th>
+<th class="doc_set_toc_outline_description">The <a href="drm/classes/DataTableLibrary.htm">
+    &lt;Data Table Library&gt;</a> Class</th>
+</tr>
+
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+<a href="drm/classes/DataTableLibrary.htm">&lt;Data Table Library&gt;</a>
+is a subclass of <a href="drm/classes/Library.htm">&lt;Library&gt;</a>
+that exists to organize <a href="drm/classes/DataTable.htm">&lt;Data Table&gt;</a>
+instances so that they can be referenced by objects within a transmittal.
+This is useful when two or more objects reference the same &lt;Data Table&gt;
+instance, because placing it in a <a href="drm/classes/DataTableLibrary.htm">
+&lt;Data Table Library&gt;</a> makes the
+reuse of the instance explicit (<I>c.f.</I> Object Reuse in
+<b><a href="p4v14.htm">Part 4, Volume 14</a>:
+How to Produce SEDRIS Transmittals</b>).
+</p><p>
+Note that while syntactically, any <a href="drm/classes/DataTable.htm">
+&lt;Data Table&gt;</a> instance may belong to a
+<a href="drm/classes/DataTableLibrary.htm">&lt;Data Table Library&gt;</a>,
+semantically <a href="drm/classes/MeshFaceTable.htm">&lt;Mesh Face Table&gt;</a>
+instances do not do so, since this would violate the
+<a href="drm/constraints/ConstraintsOnComponents.htm">
+&lt;&lt;Constraints On Components&gt;&gt;</a> constraint. By contrast,
+any <a href="drm/classes/PropertyTable.htm">&lt;Property Table&gt;</a>
+that is referenced by a <a href="drm/classes/PropertyTableReference.htm">
+&lt;Property Table Reference&gt;</a> (see below) is <em>required</em> to
+belong to a <a href="drm/classes/DataTableLibrary.htm">
+&lt;Data Table Library&gt;</a>.
+</p></td></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="373" id="373">3.7.3</a></th>
+<th class="doc_set_toc_outline_description">The <a href="drm/classes/PropertyTableReference.htm">
+    &lt;Property Table Reference&gt;</a> Class</th>
+</tr>
+
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+The <a href="drm/classes/PropertyTableReference.htm">
+&lt;Property Table Reference&gt;</a> class exists to provide a mechanism
+for a <a href="drm/classes/FeatureRepresentation.htm">
+&lt;Feature Representation&gt;</a> or
+<a href="drm/classes/GeometryRepresentation.htm">&gt;Geometry Representation&gt;</a>
+instance to reference an N-1 dimensional 'slice' or (hyper-plane) of a
+N-dimensional <a href="drm/classes/PropertyTable.htm">&lt;Property Table&gt;</a>
+residing in a <a href="drm/classes/DataTableLibrary.htm">
+&lt;Data Table Library&gt;</a>. A <a href="drm/classes/PropertyTableReference.htm">
+&lt;Property Table Reference&gt;</a>
+can be thought of as a &quot;lookup entry&quot; into a particular
+<a href="drm/classes/PropertyTable.htm">&lt;Property Table&gt;</a> row or column,
+and has 2 fields: <a href="drm/classes/PropertyTableReference.htm#axis_type">
+axis_type</a> and <a href="drm/classes/PropertyTableReference.htm#index_on_axis">
+index_on_axis</a>. The <a href="drm/classes/PropertyTableReference.htm#axis_type">
+axis_type</a> field matches 1 <a href="drm/classes/Axis.htm">&lt;Axis&gt;</a> of
+the target <a href="drm/classes/PropertyTable.htm">&lt;Property Table&gt;</a>, while
+the <a href="drm/classes/PropertyTableReference.htm#index_on_axis">index_on_axis</a>
+field value indicates where on the <a href="drm/classes/Axis.htm">&lt;Axis&gt;</a>
+the reference enters the table.
+</p></td></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="374" id="374">3.7.4</a></th>
+<th class="doc_set_toc_outline_description">The <a href="drm/classes/PropertyGridHookPoint.htm">
+    &lt;Property Grid Hook Point&gt;</a> Class</th>
+</tr>
+
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+A <a href="drm/classes/PropertyGrid.htm">&lt;Property Grid&gt;</a> instance
+requires the presence of an associated <a href="drm/classes/Location.htm">
+&lt;Location&gt;</a> to serve as the origin for its spatial axes. This may be
+specified in two ways.
+</p>
+<ol>
+<li><p>A data cell in a non-library <a href="drm/classes/PropertyGrid.htm">
+   &lt;Property Grid&gt;</a> may have an implicit location, specified indirectly
+   (as in, the <a href="drm/classes/PropertyGrid.htm">&lt;Property Grid&gt;</a>
+   is an explicit component of a larger grid), or
+</p></li>
+<li><p>A <a href="drm/classes/PropertyGridHookPoint.htm">
+   &lt;Property Grid Hook Point&gt;</a> provides the
+   <a href="drm/classes/Location.htm">&lt;Location&gt;</a>.
+</p></li>
+</ol>
+<p>
+<a href="drm/classes/PropertyGridHookPoint.htm">&lt;Property Grid Hook Point&gt;</a>
+is used to &quot;instance&quot; a <a href="drm/classes/PropertyGrid.htm">
+&lt;Property Grid&gt;</a> into the context of some geometry, since
+<a href="drm/classes/PropertyGridHookPoint.htm">&lt;Property Grid Hook Point&gt;</a>
+is itself a subclass of <a href="drm/classes/GeometryHierarchy.htm">
+&lt;Geometry Hierarchy&gt;</a>. Specifically, the <a href="drm/classes/Location.htm">
+&lt;Location&gt;</a> component of a <a href="drm/classes/PropertyGridHookPoint.htm">
+&lt;Property Grid Hook Point&gt;</a> (PGHP) instance serves as the origin of the
+spatial axes of each of the component <a href="drm/classes/PropertyGrid.htm">
+&lt;Property Grid&gt;</a> instances of the PGHP.
+</p><p>
+Note that if a <a href="drm/classes/PropertyGridHookPoint.htm">
+&lt;Property Grid Hook Point&gt;</a> appears in an LSR
+spatial reference frame, it may use an <a href="drm/classes/LSRTransformation.htm">
+&lt;LSR Transformation&gt;</a> component to orient and / or scale its
+<a href="drm/classes/PropertyGrid.htm">&lt;Property Grid&gt;</a>
+components in the context within which it appears. For example,
+consider a <a href="drm/classes/Model.htm">&lt;Model&gt;</a> of a sea mount that
+is built from a 2-dimensional rectilinear elevation grid. This
+<a href="drm/classes/Model.htm">&lt;Model&gt;</a> can be instanced by several
+<a href="drm/classes/GeometryModelInstance.htm">&lt;Geometry Model Instance&gt;</a>,
+each of which provides different locations and inputs to the
+<a href="drm/classes/LSRTransformation.htm">&lt;LSR Transformation&gt;</a> to
+vary the scale and orientation.
+<!-- $$$ Berner: could use an example like a grid parallel to a river bank -->
+</p></td></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="375" id="375">3.7.5</a></th>
+<th class="doc_set_toc_outline_description">The <a href="drm/classes/GridOverlap.htm">
+    &lt;Grid Overlap&gt;</a> Class</th>
+</tr>
+
+<tr><td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+It is possible and allowable for more than one
+<a href="drm/classes/PropertyGrid.htm">&lt;Property Grid&gt;</a>
+instance of the same classification to cover the same location
+and to contain matching <a href="drm/classes/TablePropertyDescription.htm">
+&lt;Table Property Description&gt;</a> instances, which leads to a potential
+ambiguity. If a point in space is contained in a cell from each of two
+<a href="drm/classes/PropertyGrid.htm">&lt;Property Grid&gt;</a> instances,
+both of which share a signature item, which of the two values for that
+item should be used for the point?
+</p><p>
+In some cases the ambiguity may be resolved by the surrounding
+geometry hierarchy. For example, if the two <a href="drm/classes/PropertyGrid.htm">
+&lt;Property Grid&gt;</a> instances belong to distinct branches of a time-related or
+state-related aggregation, the context provides enough information
+to distinguish them. However, when no other information is
+available to prevent ambiguity, the <a href="drm/classes/GridOverlap.htm">
+&lt;Grid Overlap&gt;</a> class exists to allow a transmittal provider
+to express how a consumer is intended to calculate the property
+value intended at each location, thus resolving the ambiguity.
+That is, the <a href="drm/classes/GridOverlap.htm">&lt;Grid Overlap&gt;</a>
+class provides information on how to resolve data ambiguities arising at
+a location lying within a grid cell of 2 or more
+<a href="drm/classes/PropertyGrid.htm">&lt;Property Grid&gt;</a>s of the
+same classification that cannot be resolved by any other means.
+</p><p>
+A &lt;Grid Overlap&gt; instance is a component of the
+<a href="drm/classes/PropertyGrid.htm">&lt;Property Grid&gt;</a>
+instance to which it applies. <a href="drm/classes/GridOverlap.htm">
+&lt;Grid Overlap&gt;</a> provides 3 fields:
+<a href="drm/classes/GridOverlap.htm#overlay_group">overlay_group</a>,
+<a href="drm/classes/GridOverlap.htm#priority">priority</a>, and
+<a href="drm/classes/GridOverlap.htm#operation">operation</a>.
+</p><p>
+Resolution of overlapping grids occurs only within an overlay group.
+The resolution process is performed on data from
+<a href="drm/classes/PropertyGrid.htm">&lt;Property Grid&gt;</a>
+cells that contain a given location in the overlapped area,
+beginning by selecting the first overlay group that includes all the
+relevant grids.
+</p>
+<ol>
+<li><STRONG>Step 1</STRONG>: Start with priority = 0.<br />
+<p>
+Each overlay group shall have exactly 1 <a href="drm/classes/GridOverlap.htm">
+&lt;Grid Overlap&gt;</a> with priority = 0; the operation for priority = 0
+shall be <a href="drm/types/SE_Grid_Overlap_Operator.htm#SE_GROVLOP_BASE">
+SE_GROVLOP_BASE</a>. Extract cell data from the
+<a href="drm/classes/PropertyGrid.htm">&&lt;Property Grid&gt;</a> that has this
+<a href="drm/classes/GridOverlap.htm">&lt;Grid Overlap&gt;</a> as a component
+to set the current data, because the <a href="drm/classes/PropertyGrid.htm">
+&lt;Property Grid&gt;</a> for this overlap shall overlap the other grids in
+the given overlay group.
+</p></li>
+<li><STRONG>Step 2</STRONG>: Find the next priority among the grids
+   in the group that cover the point in question.
+<br />
+<p>
+Priorities within an overlay group shall be unique, although they
+need not be consecutive. Extract the cell data from the
+<a href="drm/classes/PropertyGrid.htm">&lt;Property Grid&gt;</a>
+of which this <a href="drm/classes/GridOverlap.htm">&lt;Grid Overlap&gt;</a>
+is a component, and perform the operation indicated by its
+<a href="drm/classes/GridOverlap.htm">&lt;Grid Overlap&gt;</a> between it and the
+current data to obtain the new current data as input for the next step.
+For example, a REPLACE operation replaces the current data with the
+given data, while ADD and AVERAGE (which shall only be provided for
+numeric data) are self-explanatory. Note that the MERGE operation
+is classification-dependent, using methods documented in metadata or
+otherwise outside the scope of this document (e.g. methods specific
+to the domain of oceanography).
+</p></li>
+<li><STRONG>Step 3</STRONG>: Look for the next priority. If found,
+go to step 2; otherwise, use the current data.
+</li>
+</ol>
+<p>
+As an example, consider 5 <a href="drm/classes/PropertyGrid.htm">
+&lt;Property Grid&gt;</a> instances with 2 spatial dimensions of the same
+type and signature, as laid out in the figure, wherein the grids have
+<a href="drm/classes/GridOverlap.htm">&lt;Grid Overlap&gt;</a> components
+as in the following table.
+</p>
+<div align="center"><table border=1>
+<tr>
+<th></th>
+<th>Component</th>
+<th colspan=3>overlay_group</th>
+<th>priority</th>
+<th>operation</th>
+</tr>
+<tr><th align="left" rowspan=2>Grid A</th>
+<td align="center">1</td>
+<td align="center">1</td> <td>&nbsp;</td> <td>&nbsp;</td>
+<td align="center">0</td>
+<td><a href="drm/types/SE_Grid_Overlap_Operator.htm#SE_GROVLOP_BASE">SE_GROVLOP_BASE</a></td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td>&nbsp;</td> <td align="center">2</td> <td>&nbsp;</td>
+<td align="center">0</td>
+<td><a href="drm/types/SE_Grid_Overlap_Operator.htm#SE_GROVLOP_BASE">SE_GROVLOP_BASE</a>
+</td>
+</tr>
+<tr><th align="left" rowspan=2>Grid B</th>
+<td align="center">1</td>
+<td align="center">1</td> <td>&nbsp;</td> <td>&nbsp;</td>
+<td align="center">5</td>
+<td>
+<a href="drm/types/SE_Grid_Overlap_Operator.htm#SE_GROVLOP_REPLACE">SE_GROVLOP_REPLACE</a></td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td>&nbsp;</td> <td>&nbsp;</td> <td align="center">3</td>
+<td align="center">0</td>
+<td><a href="drm/types/SE_Grid_Overlap_Operator.htm#SE_GROVLOP_BASE">SE_GROVLOP_BASE</a>
+</td>
+</tr>
+<tr><th align="left">Grid C</th>
+<td align="center">1</td>
+<td>&nbsp;</td> <td align="center">2</td> <td>&nbsp;</td>
+<td align="center">5</td>
+<td>
+<a href="drm/types/SE_Grid_Overlap_Operator.htm#SE_GROVLOP_REPLACE">SE_GROVLOP_REPLACE</a></td>
+</tr>
+<tr><th align="left" rowspan=2>Grid D</th>
+<td align="center">1</td>
+<td align="center">1</td> <td>&nbsp;</td> <td>&nbsp;</td>
+<td align="center">10</td>
+<td>
+<a href="drm/types/SE_Grid_Overlap_Operator.htm#SE_GROVLOP_REPLACE">SE_GROVLOP_REPLACE</a></td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td>&nbsp;</td> <td align="center">2</td> <td>&nbsp;</td>
+<td align="center">10</td>
+<td>
+<a href="drm/types/SE_Grid_Overlap_Operator.htm#SE_GROVLOP_REPLACE">SE_GROVLOP_REPLACE</a></td>
+</tr>
+<tr><th align="left">Grid E</th>
+<td align="center">1</td>
+<td>&nbsp;</td> <td>&nbsp;</td> <td align="center">3</td>
+<td align="center">5</td>
+<td>
+<a href="drm/types/SE_Grid_Overlap_Operator.htm#SE_GROVLOP_AVERAGE">SE_GROVLOP_AVERAGE</a>
+</td>
+</tr>
+</table>
+</div>
+<p>
+Now consider point 1, which lies in the intersection of grids A, C, and D.
+These three grids belong to overlay group 2. Starting with priority zero
+(0), grid A's data is taken as the current data. Since the next priority
+in group 2 is 5, replace the current data with grid C's data. The last
+priority in group 2 is 10, so replace the current data with grid D's
+data.
+</p><p>
+Consider point 2, which lies in the intersection of grids A and D. Both
+grids belong to overlay groups 1 and 2. Since the rule is to use the
+first qualifying group, overlay group 1 is used, and starting with
+priority 0, grid A's data is taken as the current data. The next
+priority in overlay group 1 among grids that cover point 2 is 10
+from group D, so grid D's data replaces the current data. Note that
+while grid B has priority 5 for this overlay group, it does not
+cover point 2, so it is not applicable.
+</p><p>
+As a final example, consider point 3, which lies in the intersection of
+grids B and E, both of which belong to overlay group 3. Starting with
+priority zero, grid B's data is taken as the current data. Since the
+next priority in the overlay group is 5, grid E's data is then averaged
+with the current data.
+</p></td></tr>
+</table>
+</td></tr>
+</table>
+<hr>
+<font color="#ff0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a></strong>,
+<strong><a href="p4v6.htm">Table of Contents</a></strong>
+<br /><br />
+
+<div align="center">
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr><td class="doc_set_footer" align="left">
+Last updated: July 1, 2011
+</td>
+<td class="doc_set_footer" align="right">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td>
+</tr>
+</table>
+</td></tr>
+</table>
+</div>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE_Animation_Select_Parameters</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Types
+</font>
+<br>
+<font color="#ffffff">
+SE_Animation_Select_Parameters
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<PRE>
+/*
+ * STRUCT: SE_Animation_Select_Parameters
+ *
+ *   This data type specifies which branches to traverse from
+ *   an &lt;Animation Related Geometry&gt; instance when encountered by a
+ *   component iterator.
+ *
+ *   Each branch of an &lt;Animation Related Geometry&gt; instance is considered
+ *   to be a frame of the animation. The frames are ordered, and this
+ *   ordering is used to implicitly number the frames from 1 to N.
+ *   The animation_ranges_array is an array of beginning_frames and
+ *   ending_frames.  For each range specified, the frames from that
+ *   range's beginning_frame to that range's ending_frame will be
+ *   traversed.
+ *
+ *   The entries in animation_ranges_array shall be distinct.
+ */
+</PRE>
+<span class="Code">typedef struct 
+<br>
+{</span>
+<br>
+<table class="CFunctionPrototype">
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../drm/types/SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a></td>
+        <td class="CFunction"><a name="ranges_count"></a>ranges_count;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Animation_Range.htm">SE_Animation_Range</a></td>
+        <td class="CFunction">*<a
+        name="animation_ranges_array"></a>animation_ranges_array;</td></tr>
+</table>
+<span class="Code">
+} SE_Animation_Select_Parameters;</span>
+<br>
+
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SE_Animation_Range.htm">SE_Animation_Range</a>.
+<strong>Next:</strong> <a href="SE_API_Function.htm">SE_API_Function</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

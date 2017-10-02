@@ -1,0 +1,704 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>SEDRIS SDK - Build Kit</title>
+</head>
+<body bgcolor="#ffffff">
+
+<div align="center">
+<h1><a name="top">Build Kit</a></h1>
+</div><div align="center">
+<h3>
+SEDRIS C++ SDK Release 4.1.4
+</h3>
+<h3>
+July 1, 2011
+</h3>
+</div>
+
+<ol>
+<li><a href="#intro">Introduction</a></li>
+<li><a href="#platform">Supported Platforms And Compilers</a></li>
+<li><a href="#reqmts">Build Requirements</a></li>
+<li><a href="#options">Build Options and Commands</a></li>
+<li><a href="#compiling">Compiling</a></li>
+<li><a href="#testing">Running Core Applications / Testing the Build</a></li>
+<li><a href="#libs">Using the Libraries</a></li>
+<li><a href="#problems">Problems with the Build</a></li>
+<li><a href="#recom">Recommended Reading</a></li>
+<li><a href="#bugs">Bug Reports and Feedback</a></li>
+<li><a href="#webpages">Web Pages</a></li>
+</ol>
+<br>
+
+<h3><a name="intro">Introduction</a></h3>
+<blockquote><p>
+This page covers instructions on how to compile this SEDRIS SDK. In addition,
+it provides steps that can be used to verify that the compilation completed
+successfully.
+</p><p>
+<b>NOTE:</b> This document is intended for those users who are building the
+SEDRIS libraries from the source code distributions. Pre-compiled (binary)
+distributions for both static and dynamic linking for all supported platforms
+are available for download from the
+<a href="http://www.sedris.org">SEDRIS Web Site</a>.
+</p><p>
+The SEDRIS SDK includes other SDKs as part of its distribution. If you need to
+work with those SDKs as separate components, see the Release Notes for the
+included SDKs:
+</p>
+<ul>
+<li><a href="../src/lib/edcs/docs/index.htm">EDCS SDK</a></li>
+<li><a href="../src/lib/srm/docs/index.htm">SRM SDK</a></li>
+</ul>
+
+<p>
+For general information about this release, where to obtain it, and items
+that require specific attention, see the <a href="index.htm">Release Notes</a>.
+</p><p>
+For help, comments, and bug reports please send email to
+<a href="mailto:help@sedris.org">help@sedris.org</a>. If you are an associate,
+please use <a href="mailto:se-coders@sedris.org">se-coders@sedris.org</a>.
+</p><p>
+Return to: <a href="#top">Top</a>
+</p></blockquote>
+
+<h3><a name="platform">Supported Platforms And Compilers</a></h3>
+<blockquote><p>
+If you require SEDRIS support on other platforms or compilers, you can send
+email to <a href="mailto:se-scrccb@sedris.org">se-scrccb@sedris.org</a>
+stating the specific platform, operating system, and C/C++ compiler
+requirements. The SEDRIS project will try to accommodate your requests
+as much as possible.
+</p>
+
+<div align="center">
+<table border="1" width="80%" cellpadding="3">
+<tr>
+<th bgcolor="#e0e0e0">Platform</th>
+<th bgcolor="#e0e0e0">Compiler</th>
+</tr>
+<tr>
+<td align="center">Linux<br>
+(RH9 with kernel 2.4.20-8<br>and FC4 with kernel 2.6)</td>
+<td>
+<ul>
+<li>GCC 3.2.2, 4.0.1, 4.3.4</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td align="center">Windows 98/Me/NT/2000/XP</td>
+<td>
+<ul>
+<li>Microsoft Visual C++ 6.0, .NET 2003, 2005, 2008, 2010
+<li>Cygwin 1.5, 1.6, 1.7 w/GCC 3.2.2, 4.0.1, 4.3.4</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td align="center">Irix 6.5 (n32 only)</td>
+<td>
+<ul>
+<li>MipsPro 7.2 (n32 only)</li>
+<li>GCC 3.2.2</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td align="center">SunOS 5.6</td>
+<td>
+<ul>
+<li>SC 5.2 - Forte (without optimization)
+(<b>requires compiler patches: 105591-09, 106327-11,
+   106300-12, 106950-16, and 104631-07</b>)</li>
+<li>GCC 3.2.2</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td align="center">SunOS 5.7</td>
+<td>
+<ul>
+<li>SC 5.2 - Forte (without optimization) (<b>requires compiler patches:
+105591-09, 106327-11, 106300-12, 106950-16, and 104631-07</b>)</li>
+<li>GCC 3.2.2</li>
+</ul>
+</td>
+</tr>
+</table>
+</div>
+
+<p>Return to: <a href="#top">Top</a></p>
+</blockquote>
+<br>
+
+<h3><a name="reqmts">Build Requirements</a></h3>
+<blockquote><p>
+The SEDRIS software will compile and work &quot;out-of-the-box&quot; on all
+supported systems. However, your particular system may have different
+libraries or different versions of the <i>make</i> utility and compiler
+versions, so read the following sections carefully to verify your system.
+</p><p>
+To compile and run the Model Viewer application included in this release
+you will need the following libraries installed:
+</p>
+<ul>
+<li><a href="http://www.opengl.org">OpenGL</a> or
+<a href="http://www.mesa3d.org">Mesa</a> (a viable replacement for OpenGL),
+a 3D graphics rendering API, version 1.1 and above.</li>
+<li>GLUT, a toolkit that simplifies the development of cross platform OpenGL
+applications, version 3.7 and above (see
+<a href="http://www.opengl.org/resources/libraries/glut/">GLUT at OpenGL</a>
+for downloads in binary form for compatible platforms and for installation
+instructions, or alternatively get the binaries from
+<a href="http://www.xmission.com/~nate/glut.html">Nate Robins GLUT port</a>
+page).</li>
+</ul>
+
+<p>
+The build requirements for Unix and Win32 environments are:
+</p>
+<dl>
+<dt><b>Unix</b></dt>
+<dd><p>
+The SDK Build Environment for Unix requires the use of the GNU
+&quot;make&quot; utility (the &quot;gmake&quot; program) version 3.78.1
+or higher, older versions will not work. GNU &quot;make&quot; is freely
+available under the GNU General Public License and may be downloaded via several
+<a href="http://www.gnu.org/order/ftp.html">mirror sites</a>. You can verify
+your availability of &quot;make&quot; and its version by just executing the
+command &quot;make -v&quot;. If you get a &quot;command not found&quot;
+error, you may need to install it.
+</p><p>
+You will also need the OpenGL and GLUT libraries to build the Model Viewer
+tool. There are binary distributions of these libraries available for most
+operating systems, so follow the instructions provided in those distributions.
+Typically, this will involve installing the headers under your compiler's
+&quot;include/GL&quot; directory (e.g. &quot;/usr/include/GL&quot;), libraries
+under your linker's &quot;lib&quot; directory (e.g. &quot;/usr/lib&quot;),
+and the runtime libraries under a directory accessible by the
+&quot;LD_LIBRARY_PATH&quot; variable (e.g. &quot;/usr/lib&quot;).
+</p></dd>
+
+<dt><b>Win32</b></dt>
+<dd><p>
+The SDK Build Environments for Win32 are based on Microsoft Visual Studio
+editions with Visual C++. Workspace files (&quot;*.dsw&quot;) are available
+for Visual Studio 6.0, and solution files (&quot;*.sln&quot;) for
+Visual Studio .NET 2003, 2005, 2008, and 2010 (an upgrade process will be
+triggered for the 2005, 2008, and 2010 versions; use default upgrade options
+if prompted).
+</p><p>
+A default installation of Microsoft Visual Studio should be sufficient to
+successfully build all the SDK libraries and applications. The only exception
+is the Model Viewer tool, which requires that the OpenGL and GLUT libraries be
+installed. The OpenGL headers and libraries should have been installed by
+default when you installed Visual Studio, and your Windows system should
+also have all the OpenGL runtime libraries you will need.
+</p><p>
+The GLUT distributions include the headers, libraries, and DLLs. Install the
+header files in the Visual C++ installation &quot;include&quot; sub-directory
+(&quot;VC98\include\GL&quot;, &quot;VC7\include\GL&quot;, or
+&quot;VC\include\GL&quot; depending on your version), the libraries in the
+&quot;lib&quot; sub-directory, and the runtime libraries &quot;glut.dll&quot;
+and &quot;glut32.dll&quot; in your Windows &quot;system&quot; directory
+(typically &quot;C:\Windows\System&quot; or &quot;C:\Windows\System32&quot;).
+</p></dd>
+</dl>
+
+<p>
+Return to: <a href="#top">Top</a>
+</p></blockquote>
+
+<h3><a name="options">Build Options and Commands</a></h3>
+<blockquote><p>
+The following is a list of the most common build environment variables and
+commands for the SDK Build Environment for Unix. The options for the
+SDK Build Environment for Win32 are controlled from the Visual C++ IDE
+interface.
+</p><p>
+The default settings are marked with an asterisk &quot;*&quot; and in
+<b>bold</b>. Also note that you can use &quot;YES&quot;, &quot;TRUE&quot;,
+&quot;ON&quot;, and &quot;1&quot; to signify an &quot;active&quot; state,
+and &quot;NO&quot;, &quot;FALSE&quot;, &quot;OFF&quot;, and &quot;0&quot;
+to signify a &quot;non-active&quot; state (you can use all lower or all
+upper case letters - no mixed case).
+</p>
+<div align="center">
+<table border="1" width="80%" cellpadding="3">
+<tr>
+<th bgcolor="#e0e0e0">Variable</th>
+<th bgcolor="#e0e0e0">Valid Settings</th>
+<th bgcolor="#e0e0e0">Description</th>
+</tr>
+<tr>
+<td align="center">BUILD_MODE</td>
+<td align="center"><b>OPT*</b>, STD, DEBUG, PROF</td>
+<td>Compile mode: optimized, standard, debug, or profiling. (Default is optimized)</td>
+</tr>
+<tr>
+<td align="center">BIND_STATIC</td>
+<td align="center">YES, <b>NO*</b></td>
+<td>Static linking. (Default is dynamic linking)</td>
+</tr>
+<tr>
+<td align="center">USE_GNU</td>
+<td align="center">YES, <b>NO*</b></td>
+<td>Use gcc/g++. ('YES' is the default for Linux)</td>
+</tr>
+<tr>
+<td align="center">VERBOSE</td>
+<td align="center">YES, <b>NO*</b></td>
+<td>Verbosity Level. ('YES' causes an increased amount of information to be printed)</td>
+</tr>
+</table>
+</div>
+
+<p>
+The following is a list of the most common build environment commands for
+Unix:
+</p>
+<div align="center">
+<table border="1" width="80%" cellpadding="3">
+<tr>
+<th bgcolor="#e0e0e0">Command</th>
+<th bgcolor="#e0e0e0">Description</th>
+</tr>
+<tr>
+<td align="center">make env</td>
+<td>Displays the current build settings.</td>
+</tr>
+<tr>
+<td align="center">make</td>
+<td>Builds software contained in the current directory and installs to
+&quot;[root]/lib/platform&quot;
+or &quot;[root]/bin/platform&quot; directory.</td>
+</tr>
+<tr>
+<td align="center">make clean</td>
+<td>Deletes compiled software from current directory.</td>
+</tr>
+<tr>
+<td align="center">make realclean </td>
+<td>Deletes compiled software from &quot;[root]/lib/platform&quot; and
+&quot;[root]/bin/platform&quot; directory. Also performs a &quot;make clean&quot;
+of current directory and removes headers from the &quot;include&quot; directory.</td>
+</tr>
+<tr>
+<td align="center">make distclean</td>
+<td>Only operates on the entire release from the &quot;[root]&quot; directory.
+Removes all &quot;.objects&quot; and &quot;.depends&quot; directories, the
+&quot;lib&quot; and &quot;bin&quot; directories, and removes all header files
+from the &quot;include&quot; directory, returning the entire release to its
+original &quot;pristine&quot; state. Note that a sharing violation may occur
+if the command tries to delete files that you are currently using (like one of
+the SDK applications still running).</td>
+</tr>
+</table>
+</div>
+
+<p>
+Return to: <a href="#top">Top</a>
+</p></blockquote>
+
+<h3><a name="compiling">Compiling</a></h3>
+<blockquote><p>
+Compiling the libraries and applications on all supported platforms requires
+only a few simple steps. In the following sections, the &quot;[root]&quot;
+directory is where you extracted the SDK source code.
+</p>
+
+<dl>
+<dt><b>Unix</b></dt>
+<dd><p>
+A &quot;make&quot; command in the &quot;[root]&quot; directory will recursively
+go through the SDK directory structure and build all libraries and applications
+provided with the distribution using the default settings. For this release,
+the default settings are:</p>
+<ul>
+<li>BUILD_MODE=OPT</li>
+<li>BIND_STATIC=no</li>
+<li>USE_GNU=false (set to true under Linux by default)</li>
+<li>USE_MESA=no</li>
+</ul>
+<p>These settings will compile the release using optimization and dynamic linking.</p>
+</dd>
+
+<dt><b>Win32</b></dt>
+<dd>
+<p>Follow these steps to build all the SDK libraries and applications:</p>
+<ol>
+<li>From Windows Explorer, locate and run (i.e. double click) the
+&quot;win32_headers.bat&quot; file in the &quot;[root]&quot; directory
+of your installation. This step creates the top &quot;include&quot; directory
+with all the header files for the technology components.</li>
+<li>If you want to compile the SDK using Dynamic linking (i.e. linking against
+DLLs), open the &quot;vcpp_dynamic.dsw&quot; project workspace file for
+VC++ 6.0, or open the &quot;vcpp_dynamic.sln&quot; solution file for
+VC++ .NET 2003, 2005, 2008, or 2010. For Static linking, open the
+&quot;vcpp_static.dsw&quot; file or &quot;vcpp_static.sln&quot; file instead.
+</li>
+<li>From the Visual C++ IDE, select &quot;all_sdk&quot; as your &quot;Active Project&quot;
+and &quot;Release&quot; or &quot;Debug&quot; for your &quot;Active Configuration&quot;.
+For example, to compile in &quot;Release&quot; mode, choose &quot;Build-&gt;Set Active Configuration...&quot;
+and select the &quot;all_sdk - Win32 Release&quot; entry.</li>
+<li>From the &quot;Build&quot; menu, choose &quot;Rebuild All&quot;.</li>
+</ol>
+<p><b>Notes:</b></p>
+<ul>
+<li>If you will be switching between the Static and Dynamic project workspaces, make
+sure to use the &quot;Rebuild All&quot; command so that the previous compilation files are
+deleted.</li>
+<li>You can build individual applications by making them the current &quot;Active
+Project&quot; (&quot;Project-&gt;Set Active Project&quot; menu), and choosing &quot;Rebuild All&quot;.</li>
+<li>If you open a project solution file in Visual Studio 2005, 2008, or 2010, an upgrade process will be
+triggered automatically; accept the default options (if prompted) to produce an updated project and
+proceed with the build normally.</li>
+</ul>
+</dd>
+</dl>
+
+<p>If you have any errors or warnings  reported by the build process,
+see <a href="#problems">Problems with the Build</a>.</p>
+<p>Return to: <a href="#top">Top</a></p>
+</blockquote>
+<br>
+
+<h3><a name="testing">Running Core Applications / Testing the Build</a></h3>
+<blockquote>
+<p>In order to run the included applications, you will need to
+add, to your current path, the paths where the libraries are. (if compiled &quot;dynamic&quot;) </p>
+<dl>
+<dt><b>Unix</b></dt>
+<dd>
+<p>The names of the application and library directories can be retrieved by executing the command
+&quot;make env&quot;. Look for the lines containing &quot;EXE_DIR&quot; and &quot;LIB_DIR&quot;. For example, you can
+use the command &quot;make env | grep _DIR&quot; to list all the directories specified by the build
+environment. You can also do an &quot;ls&quot; in the &quot;[root]/bin&quot; and &quot;[root]/lib&quot; directories (and
+their subdirectories) to find where the applications or libraries reside. For example, on
+a Linux system, the path to the executable applications might be &quot;[root]/bin/linux-2.4.20-8-i386/OPT&quot;.
+You will need to add this application directory to your &quot;PATH&quot; environment variable, and similarly the
+libraries directory to your &quot;LD_LIBRARY_PATH&quot; directory. For example, to add the previous Linux
+executable applications path in a Bash shell, you can use</p>
+<pre>
+&nbsp;&nbsp;&gt; export&nbsp;PATH=$PATH:[root]/bin/linux-2.4.20-8-i386/OPT
+</pre>
+<p>for the bin directory and,</p>
+<pre>
+&nbsp;&nbsp;&gt; export&nbsp;LD_LIBRARY_PATH=$LD_LIBRARY_PATH:[root]/lib/linux-2.4.20-8-i386/OPT
+</pre>
+<p>for the lib directory. Remember to replace &quot;[root]&quot;
+with the path where you installed the SEDRIS package.</p>
+</dd>
+
+<dt><b>Win32</b></dt>
+<dd>
+<p>The executable applications reside in the &quot;[root]\bin\Release&quot; or &quot;[root]\bin\Debug&quot;
+depending on build mode. Similarly, the libraries reside in either &quot;[root]\lib\Release&quot;
+or &quot;[root]\lib\Debug&quot;. From a DOS Prompt, add these directories to the &quot;PATH&quot; environment
+variable by using the command &quot;set PATH=[root]\bin\Release;[root]\lib\Release;%PATH%&quot;
+(or use &quot;Debug&quot; instead of &quot;Release&quot; if you compiled in &quot;Debug&quot; mode).
+Remember to replace &quot;[root]&quot; with the path where you installed the SEDRIS package.</p>
+
+<p>An alternative to setting the &quot;PATH&quot; environment variable from the DOS Prompt is
+to use the System Properties in Control Panel to globally change the &quot;PATH&quot;
+variable. A limitation of this approach is that doing this could prevent
+multiple SEDRIS SDK installation/application versions to properly operate within the same system.</p>
+</dd>
+</dl>
+
+<p>You are now ready to try one of the SEDRIS applications. From the &quot;[root]&quot; directory,
+execute the command</p>
+<ul>
+   <li>in Unix: &quot;depth transmittals/test.stf&quot;</li>
+   <li>in Win32: &quot;depth transmittals\test.stf&quot;</li>
+</ul>
+<p>This will run the <a href="tools/depth.htm">Depth Tool</a> on the transmittal &quot;test.stf&quot;.
+You should see a quick scroll of object classes and a final couple of lines looking like:</p>
+<pre>
+              1       Transmittal Summary
+              1       Union of Geometry Hierarchy
+              2       Union of Primitive Geometry
+             27       Vertex
+      Total object count = 114
+</pre>
+<p>If you see something like what is shown above, you have successfully
+compiled the SEDRIS SDK!</p>
+<p>To learn more about the applications included in the SEDRIS SDK and sample
+runs, see the <a href="tools/index.htm">Tools And Utilities</a> page.</p>
+
+<p>More information on runtime issues is available in the
+<a href="index.htm#runtime">Release Notes</a> page.</p>
+
+<p>Return to: <a href="#top">Top</a></p>
+</blockquote>
+<br>
+
+<h3><a name="libs">Using the Libraries</a></h3>
+<blockquote>
+<p>This section describes the steps needed to link your software against the
+libraries produced by this SDK. Applications and/or libraries that use this SDK
+will need to refer to the &quot;[root]/include&quot; directory for compilation, and the
+libraries in the &quot;[root]/lib&quot; subdirectories for linking. The examples that follow
+create an application called &quot;myapp&quot; which you can use as a starting point
+for your own development.</p>
+
+<p>The library your applications will need to link against for the SEDRIS SDK is
+called &quot;libsedris.a&quot; in Unix, and &quot;sedris.lib&quot; for the C SDK or
+&quot;sedris_cpp.lib&quot; for the C++ SDK in Win32 environments.</p>
+
+<dl>
+<dt><b>Unix</b></dt>
+<dd>
+<p>The Unix Build Environment uses standard Makefiles and &quot;include&quot; files that
+specify the process for compiling and linking the applications and libraries.
+The following steps show how to integrate an application into the build
+environment. If you want to create an application in another directory, you
+will need to change the relative paths as appropriate.</p>
+<ol>
+<li>From a Unix shell, create a new directory called &quot;myapp&quot; under &quot;[root]/src/apps&quot;.</li>
+<li>Create a &quot;Makefile&quot; file in the &quot;myapp&quot; directory with the following lines:
+<pre>DEPTH =  ../../..
+
+include $(DEPTH)/src/templates/setup.mk
+
+include localdefs.mk
+
+BUILD_OPTIONS =  \
+	BUILD_MODE=$(BUILD_MODE) \
+	BIND_STATIC=$(BIND_STATIC) \
+	USE_GNU=$(USE_GNU) \
+	USE_MIPSPRO72=$(USE_MIPSPRO72) \
+	USE_MIPSPRO73=$(USE_MIPSPRO73) \
+	USE_SC40=$(USE_SC40) \
+	USE_SC50=$(USE_SC50) \
+	VERBOSE=$(VERBOSE) \
+	USE_DEPEND=$(USE_DEPEND) \
+	API_IMPL=$(API_IMPL)
+
+all:
+	@($(MAKE) $(MAKE_NO_PRINT) -C $(DEPTH) $(BUILD_OPTIONS) \
+	dir_targets app_$(APPNAME))
+
+clean::
+	@($(MAKE) $(MAKE_NO_PRINT) -C $(DEPTH) $(BUILD_OPTIONS) \
+	dir_targets clean_app_$(APPNAME)_tgt)
+
+realclean::
+	@($(MAKE) $(MAKE_NO_PRINT) -C $(DEPTH) $(BUILD_OPTIONS) \
+	dir_targets realclean_app_$(APPNAME)_tgt)
+
+header_targets:
+
+lib_targets:
+
+app_targets:
+</pre>
+   </li>
+   <li>Create a &quot;localdefs.mk&quot; file in the &quot;myapp&quot; directory with the following lines:
+<pre>
+include $(DEPTH)/src/templates/cleanup_macros.mk
+
+DIR_PATH := src/apps/myapp
+APPNAME := myapp
+
+C_SOURCES := myapp.c
+
+CXX_SOURCES :=
+
+REQUIRED_LIBS := $(SEDRIS_CORE_LIBS)
+
+LOCAL_INCLUDES := -I$(INC_DIR)
+
+include $(DEPTH)/src/templates/localtargets.mk
+</pre>
+   </li>
+   <li>Put your &quot;myapp.c&quot; source code file into the &quot;myapp&quot; directory.</li>
+   <li>You should now be able to run the &quot;make&quot; command from the &quot;[root]&quot; directory
+       and have your application compiled and linked against the SDK libraries.</li>
+</ol>
+<p>&nbsp;</p>
+</dd>
+
+<dt><b>Win32 Application</b></dt>
+<dd>
+<p>To compile your own applications from the Win32 Build Environment, use one of
+the provided applications as a model for your project files (the &quot;.dsp&quot; files),
+edit them as needed, insert them into the appropriate workspace
+(either &quot;vcpp_dynamic.dsw&quot; or &quot;vcpp_static.dsw&quot;) by using the VC++ menu command
+&quot;Project-&gt;Insert Project Into Workspace...&quot;, and set the project dependencies
+as done for the other applications. As an alternative, you can create the project
+from scratch directly from the SDK workspace. The following steps show you exactly
+how to do this.</p>
+
+<p>The following steps create an application to be linked dynamically against
+the SDK libraries. The application will be created in the &quot;[root]/src/apps&quot;
+directory. If you want to create an application in another directory, you will need
+to change the relative paths as appropriate.</p>
+
+<p>Note: The following examples are written for the VC++ 6.0 compiler, but the techniques
+for later VC++ versions are similar.</p>
+
+<ol>
+   <li>Open the &quot;vcpp_dynamic.dsw&quot; file.</li>
+   <li>Select &quot;Project-&gt;Add To Project-&gt;New...&quot;.</li>
+   <li>Choose the &quot;Projects&quot; tab in the &quot;New&quot; dialog, and select &quot;Win32
+       Console Application&quot;.</li>
+   <li>In the &quot;Location:&quot; box, click the &quot;...&quot; button and navigate to
+       the &quot;[root]/src/apps&quot; directory, and click the &quot;OK&quot; button.</li>
+   <li>In the &quot;Project name:&quot; box, enter &quot;myapp&quot;.</li>
+   <li>Verify the &quot;Add to current workspace&quot; choice is selected, and click
+       the &quot;OK&quot; button</li>
+   <li>In the next dialog, leave the selection to &quot;An empty project&quot;, click
+       the &quot;Finish&quot; button, and the &quot;OK&quot; button in the next dialog.</li>
+   <li>Your new project is now in the workspace, and it should be &quot;bolded&quot; indicating it is
+       the current project. If it is not, use the &quot;Project-&gt;Set Active Project&quot; menu to make
+       it active.</li>
+   <li>Choose &quot;Project-&gt;Add To Project-&gt;Files...&quot;, and add your source code files to it.</li>
+   <li>Choose &quot;Project-&gt;Settings...&quot;, select the &quot;myapp&quot; project on the left side of the
+       &quot;Project Settings&quot; dialog, and choose &quot;Win32 Release&quot; for the
+       &quot;Settings For:&quot; drop down menu on the top left of the dialog.</li>
+   <li>In the &quot;General&quot; tab, enter &quot;../../../bin/Release&quot; in the &quot;Output
+       files:&quot; box.</li>
+   <li>In the &quot;C/C++&quot; tab, choose &quot;Code Generation&quot; in the &quot;Category:&quot;
+       drop down menu, and choose &quot;Multithreaded DLL&quot; in the &quot;Use run-time
+       library:&quot; drop down menu.</li>
+   <li>Now choose &quot;Win32 Debug&quot; for the &quot;Settings For:&quot; drop down menu.</li>
+   <li>In the &quot;C/C++&quot; tab, choose &quot;Code Generation&quot; in the &quot;Category:&quot;
+       drop down menu, and choose &quot;Debug Multithreaded DLL&quot; in the &quot;Use run-time
+       library:&quot; drop down menu.</li>
+   <li>In the &quot;General&quot; tab, enter &quot;../../../bin/Debug&quot; in the
+       &quot;Output files:&quot; box.</li>
+   <li>Now choose &quot;All Configurations&quot; for the &quot;Settings For:&quot; drop down menu.</li>
+   <li>In the &quot;C/C++&quot; tab, choose &quot;Preprocessor&quot; in the &quot;Category:&quot;
+       drop down menu, and enter &quot;../../../include&quot; in the &quot;Additional include
+       directories:&quot; box.</li>
+   <li>Click the &quot;OK&quot; button in the &quot;Project Settings&quot; dialog.</li>
+   <li>Choose &quot;Project-&gt;Dependencies...&quot;, and select &quot;myapp&quot; in the &quot;Select
+       project to modify:&quot; drop down menu.</li>
+   <li>Click the box beside the &quot;sedris&quot; entry in the &quot;Dependent on the following
+       project(s):&quot; scroll list so that a check mark is inside it, and click the &quot;OK&quot;
+       button.</li>
+   <li>You should now be able to build your project by pressing the &quot;F7&quot; key or from the
+       menu by choosing &quot;Build-&gt;Build myapp.exe&quot;.</li>
+   <li>The executable will be located in the &quot;[root]\bin\Release&quot; or &quot;[root]\bin\Debug&quot;
+       directory depending on your build mode.</li>
+</ol>
+
+<p>To create a project for static linking, see the settings for those applications
+in the static workspace and set the preprocessor definition</p>
+<pre>EXPORT_DLL=&quot;&quot; for VC++ 6.0 or EXPORT_DLL= for later versions</pre>
+in the &quot;Preprocessor definitions&quot; options for your project. You can do this from
+the VC++ IDE using the following steps:
+<ol>
+   <li>Open your project and choose &quot;Project-&gt;Settings...&quot;.</li>
+   <li>Select &quot;All Configurations&quot; in the &quot;Settings For:&quot; drop down menu.</li>
+   <li>Select your application project on the left part of the dialog.</li>
+   <li>In the &quot;C/C++&quot; tab, select &quot;General&quot; in the &quot;Category:&quot;
+       drop down menu.</li>
+   <li>In the &quot;Preprocessor definitions:&quot;, enter the following at the end of
+       all other entries:
+       <blockquote><pre>,EXPORT_DLL=&quot;&quot;</pre></blockquote></li>
+   <li>Click &quot;OK&quot; and build your project using &quot;Build-&gt;Rebuild All&quot;.</li>
+</ol>
+<p>&nbsp;</p>
+</dd>
+
+<dt><b>Win32 Library</b></dt>
+<dd>
+<p>If you are linking your own libraries against this SDK library,
+you will need to set a preprocessor definition in your project files or &quot;unresolved&quot;
+errors will appear when linking. From the Visual C++ IDE, use the following steps:</p>
+<ol>
+   <li>Open your project and choose &quot;Project-&gt;Settings...&quot;.</li>
+   <li>Select &quot;All Configurations&quot; in the &quot;Settings For:&quot; drop down menu.</li>
+   <li>Select your library project on the left part of the dialog.</li>
+   <li>In the &quot;C/C++&quot; tab, select &quot;General&quot; in the &quot;Category:&quot;
+       drop down menu.</li>
+   <li>In the &quot;Preprocessor definitions:&quot; entry box, enter the following at the end of
+       all other entries:
+       <blockquote><pre>,EXPORT_DLL=&quot;__declspec(dllimport)&quot;</pre></blockquote>
+       if linking your libraries against this SDK built dynamically, or
+       <blockquote><pre>,EXPORT_DLL=&quot;&quot;</pre></blockquote>
+       if linking your libraries against this SDK built statically.</li>
+   <li>Click &quot;OK&quot; and build your project using &quot;Build-&gt;Rebuild All&quot;.</li>
+</ol>
+</dd>
+</dl>
+
+<p>To run your application, follow the same steps as described in
+<a href="#testing">Testing the Build</a>.</p>
+
+<p>Return to: <a href="#top">Top</a></p>
+</blockquote>
+<br>
+
+
+<h3><a name="problems">Problems with the Build</a></h3>
+<blockquote>
+<dl>
+  <dt><b>Why am I having errors using &quot;make&quot; in Unix?</b></dt>
+  <dd><p>Check that you are using the proper &quot;make&quot;.
+      See <a href="#reqmts">Build Requirements</a>.</p></dd>
+  <dt><b>How do I get the release back to its pristine start condition?</b></dt>
+  <dd><p>Run the &quot;make distclean&quot; command (&quot;Build-&gt;Clean&quot; in Win32)
+       to remove the created subdirectories, as well as their contents.</p></dd>
+  <dt><b>In Win32, I compiled &quot;dynamic&quot; and now I am trying to build
+      &quot;static&quot; but I am getting some errors. What's wrong?</b></dt>
+  <dd><p>Make sure you use the &quot;Build-&gt;Rebuild All&quot; command from the VC++ menu so that the older compilation files are rebuilt.</p></dd>
+  <dt><b>In Win32, I am linking my own libraries or static application against the SDK and I get
+      &quot;unresolved references&quot; errors. What's wrong?</b></dt>
+  <dd><p>You may need to set some of the preprocessor definitions as explained in
+      <a href="#libs">Using the Libraries</a>.</p></dd>
+  <dt><b>I can't compile the Model Viewer because of an error saying something about &quot;GLUT&quot;.</b></dt>
+  <dd><p>The Model Viewer requires the GLUT headers and libraries to be installed in your system. See the
+      <a href="#reqmts">Build Requirements</a> section for more information.</p></dd>
+</dl>
+
+<p>Return to: <a href="#top">Top</a></p>
+</blockquote>
+<br>
+
+<h3><a name="recom">Recommended Reading</a></h3>
+<blockquote>
+<ul>
+   <li><a href="tools/index.htm">Tools And Utilities</a></li>
+   <li><a href="tech/index.htm">SEDRIS SDK Reference Manual</a></li>
+   <li><a href="fixes.htm">Fixes And Limitations</a></li>
+   <li><a href="migration/4.0.x_to_4.1/index.htm">Migration Guide</a></li>
+</ul>
+
+<p>Return to: <a href="#top">Top</a></p>
+</blockquote>
+<br>
+
+<h3><a name="bugs">Bug Reports and Feedback</a></h3>
+<blockquote>
+<p>For help, comments, and bug reports please send email to
+<a href="mailto:help@sedris.org">help@sedris.org</a>. If you are an associate, please use
+<a href="mailto:se-coders@sedris.org">se-coders@sedris.org</a>.</p>
+<p>Return to: <a href="#top">Top</a></p>
+</blockquote>
+<br>
+
+<h3><a name="webpages">Web Pages</a></h3>
+<blockquote>
+<p>These links require Internet access.</p>
+<ul>
+   <li><a href="http://www.sedris.org/">SEDRIS (www.sedris.org)</a></li>
+   <li><a href="http://www.sedris.org/dwn4trpl.htm">SEDRIS SDK Download</a></li>
+   <li><a href="http://tools.sedris.org/">SEDRIS Tools</a></li>
+   <li><a href="http://www.sedris.org/pro_trpl.htm">SEDRIS Documents</a></li>
+</ul>
+<p>Return to: <a href="#top">Top</a></p>
+</blockquote>
+<br>
+
+<p>
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</p>
+
+</body>
+</html>

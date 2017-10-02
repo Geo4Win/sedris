@@ -1,0 +1,229 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Non Empty Model Instance</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX B - Constraints
+</font>
+<br>
+<font color="#ffffff">
+Non Empty Model Instance
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h3>Definition</h3>
+<OL type='a'>
+<LI><P>
+ All <A href="../classes/Model.htm">&lt;Model&gt;</A> instances shall have either
+ a <A href="../classes/FeatureModel.htm">&lt;Feature Model&gt;</A> component, a
+ <A href="../classes/GeometryModel.htm">&lt;Geometry Model&gt;</A> component, or both.
+</P></LI>
+<LI><P>
+ A <A href="../classes/Model.htm">&lt;Model&gt;</A> instance is permitted to have
+ an &quot;empty&quot;
+ <A href="../classes/GeometryModel.htm">&lt;Geometry Model&gt;</A> component, that is, a
+ <A href="../classes/GeometryModel.htm">&lt;Geometry Model&gt;</A> component without a
+ <A href="../classes/GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> component,
+ only if
+</P>
+<OL type='1'>
+<LI><P>
+ The <A href="../classes/Model.htm">&lt;Model&gt;</A> instance either does not have a
+ <A href="../classes/FeatureModel.htm">&lt;Feature Model&gt;</A> component, or its
+ <A href="../classes/FeatureModel.htm">&lt;Feature Model&gt;</A> component is
+ &quot;empty&quot;.
+</P></LI>
+<LI><P>
+ The <A href="../classes/Model.htm">&lt;Model&gt;</A> instance has a
+ <A href="../classes/ClassificationData.htm">&lt;Classification Data&gt;</A> component
+ with <A href="../classes/ClassificationData.htm#tag">tag</A> =
+ <A href="../../../../src/lib/edcs/docs/dictionary/ECC_O.htm#ECC_OBJECT">ECC_OBJECT</A>.
+</P></LI>
+<LI><P>
+ The <A href="../classes/Model.htm">&lt;Model&gt;</A> instance is tagged as
+ <A href="../types/SE_Model_Reference_Type.htm#SE_MODREFTYP_ROOT_AND_COMPONENT">SE_MODREFTYP_ROOT_AND_COMPONENT</A>
+ so that it can be instanced
+ within <A href="../classes/EnvironmentRoot.htm">&lt;Environment Root&gt;</A> scopes as
+ well as other <A href="../classes/Model.htm">&lt;Model&gt;</A> instances, and
+</P></LI>
+<LI><P>
+ The &quot;empty&quot; <A href="../classes/GeometryModel.htm">&lt;Geometry Model&gt;</A>
+ instance has no
+ <A href="../classes/AttachmentPoint.htm">&lt;Attachment Point&gt;</A> component,
+ <A href="../classes/ContactPoint.htm">&lt;Contact Point&gt;</A> component, or
+ <A href="../classes/LSRTransformation.htm">&lt;LSR Transformation&gt;</A> component,
+ since these components require the presence of a
+ <A href="../classes/GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> component.
+</P></LI>
+</OL>
+</LI>
+<LI><P>
+ A <A href="../classes/Model.htm">&lt;Model&gt;</A> instance is permitted to have
+ an &quot;empty&quot; <A href="../classes/FeatureModel.htm">&lt;Feature Model&gt;</A> component,
+ that is,
+ a <A href="../classes/FeatureModel.htm">&lt;Feature Model&gt;</A> component without a
+ <A href="../classes/FeatureHierarchy.htm">&lt;Feature Hierarchy&gt;</A> component, only if
+<OL type='1'>
+<LI><P>
+ The <A href="../classes/Model.htm">&lt;Model&gt;</A> instance either does not have a
+ <A href="../classes/GeometryModel.htm">&lt;Geometry Model&gt;</A> component, or its
+ <A href="../classes/GeometryModel.htm">&lt;Geometry Model&gt;</A> component is empty.
+</P></LI>
+<LI><P>
+ The <A href="../classes/Model.htm">&lt;Model&gt;</A> instance has a
+ <A href="../classes/ClassificationData.htm">&lt;Classification Data&gt;</A> component
+ with <A href="../classes/ClassificationData.htm#tag">tag</A> =
+ <A href="../../../../src/lib/edcs/docs/dictionary/ECC_O.htm#ECC_OBJECT">ECC_OBJECT</A>.
+</P></LI>
+<LI><P>
+ The <A href="../classes/Model.htm">&lt;Model&gt;</A> instance is tagged as
+ <A href="../types/SE_Model_Reference_Type.htm#SE_MODREFTYP_ROOT_AND_COMPONENT">SE_MODREFTYP_ROOT_AND_COMPONENT</A>
+ so that it can be instanced
+ within <A href="../classes/EnvironmentRoot.htm">&lt;Environment Root&gt;</A>
+ scopes as well as other <A href="../classes/Model.htm">&lt;Model&gt;</A> instances.
+</P></LI>
+</OL>
+</LI>
+<LI><P>
+ No <A href="../classes/Model.htm">&lt;Model&gt;</A> instance other than a properly constructed
+ &quot;empty&quot; <A href="../classes/Model.htm">&lt;Model&gt;</A> instance is permitted to have
+ a <A href="../classes/ClassificationData.htm">&lt;Classification Data&gt;</A> component
+ with <A href="../classes/ClassificationData.htm#tag">tag</A> =
+ <A href="../../../../src/lib/edcs/docs/dictionary/ECC_O.htm#ECC_OBJECT">ECC_OBJECT</A>.
+</P></LI>
+</OL>
+
+<h3>Rationale</h3>
+<P>
+ The DRM notation cannot enforce an &quot;or&quot; aggregation.
+ Consequently, this constraint is required.
+</P><P>
+ Allowing a <A href="../classes/FeatureModel.htm">&lt;Feature Model&gt;</A> to be empty
+ permits a <A href="../classes/FeatureModelInstance.htm">&lt;Feature Model Instance&gt;</A>
+ to associate to an &quot;empty&quot;
+ <A href="../classes/FeatureModel.htm">&lt;Feature Model&gt;</A>. The semantic restrictions
+ on &quot;empty&quot; models will only have to be performed at the
+ model level, rather than at model instance objects all over the
+ transmittal.
+</P><P>
+ Allowing a <A href="../classes/GeometryModel.htm">&lt;Geometry Model&gt;</A> to be empty
+ permits a <A href="../classes/GeometryModelInstance.htm">&lt;Geometry Model Instance&gt;</A>
+ to associate to an &quot;empty&quot;
+ <A href="../classes/GeometryModel.htm">&lt;Geometry Model&gt;</A>.
+ The semantic restrictions on &quot;empty&quot; models will only have
+ to be performed at the model level,
+ rather than at model instance objects all over the transmittal.
+</P>
+<h3>Example</h3>
+<p>
+No example supplied.
+</p>
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ How do these restrictions ensure that an &quot;empty&quot;
+ <A href="../classes/Model.htm">&lt;Model&gt;</A> can be distinguished from, <I>e.g.</I>,
+ an ordinary <A href="../classes/Model.htm">&lt;Model&gt;</A> retrieved
+ while ignoring ITR referenences?
+</B></DT>
+<DD><P>
+ An &quot;empty&quot; <A href="../classes/Model.htm">&lt;Model&gt;</A> shall have the required
+ <A href="../classes/ClassificationData.htm">&lt;Classification Data&gt;</A> component
+ with <A href="../classes/ClassificationData.htm#tag">tag</A> = <A href="../../../../src/lib/edcs/docs/dictionary/ECC_O.htm#ECC_OBJECT">ECC_OBJECT</A>.
+ Since its components, and
+ their component hierarchies are required to be stored
+ in the same transmittal, ITR references are not a concern.
+</P></DD>
+<DT><B>
+ Consider a data provider who when creating a
+ <A href="../classes/ModelLibrary.htm">&lt;Model Library&gt;</A> instance does not know in advance
+ whether an empty <A href="../classes/GeometryModel.htm">&lt;Geometry Model&gt;</A> instance
+ will be needed. The data provider does not want to produce
+ an &quot;empty&quot; <A href="../classes/Model.htm">&lt;Model&gt;</A> instance if it will not be
+ needed; if it is needed, the data provider would prefer to make it the
+ last <A href="../classes/Model.htm">&lt;Model&gt;</A> component of the
+ <A href="../classes/ModelLibrary.htm">&lt;Model Library&gt;</A> instance. How can
+ forward references be created to an &quot;empty&quot;
+ <A href="../classes/Model.htm">&lt;Model&gt;</A> instance?
+</B></DT>
+<DD><P>
+ This question has more than one possible answer. One
+ approach would be the following.
+</P>
+<LI>
+ Begin producing models for your model library.
+ When you encounter a place in the <A href="../classes/Model.htm">&lt;Model&gt;</A> instance
+ where you need
+ a <A href="../classes/GeometryModelInstance.htm">&lt;Geometry Model Instance&gt;</A> instance
+ instance of the empty <A href="../classes/Model.htm">&lt;Model&gt;</A> instance,
+<OL type='a'>
+<LI>
+ create the <A href="../classes/GeometryModelInstance.htm">&lt;Geometry Model Instance&gt;</A>
+ instance.
+</LI>
+<LI>
+ check a flag on whether you've created the
+ empty <A href="../classes/Model.htm">&lt;Model&gt;</A> instance; if not, create
+ it and set the flag.
+</LI>
+<LI>
+ create the association from the <A href="../classes/GeometryModelInstance.htm">&lt;Geometry Model Instance&gt;</A>
+ instance to the empty <A href="../classes/Model.htm">&lt;Model&gt;</A> instance's
+ <A href="../classes/GeometryModel.htm">&lt;Geometry Model&gt;</A> component.
+</LI>
+</OL>
+<LI>
+ Check the flag to see if the empty <A href="../classes/Model.htm">&lt;Model&gt;</A>
+ instance is being used, when you have created the last non-empty
+ <A href="../classes/Model.htm">&lt;Model&gt;</A> instance and added it to your
+ <A href="../classes/ModelLibrary.htm">&lt;Model Library&gt;</A> instance. If the empty
+ <A href="../classes/Model.htm">&lt;Model&gt;</A> instance is needed, add it to the
+ the <A href="../classes/ModelLibrary.htm">&lt;Model Library&gt;</A> instance as a component.
+</LI>
+</OL>
+<P>
+ A similar procedure would work if the references to the
+ empty <A href="../classes/Model.htm">&lt;Model&gt;</A> instance were needed in the scope of
+ an <A href="../classes/EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instance rather
+ than in other <A href="../classes/Model.htm">&lt;Model&gt;</A> instances.
+</P></DD>
+</DL>
+
+
+<hr>
+<strong>Prev:</strong> <A href="NonEmptyEnvironmentRootInstance.htm">Non Empty Environment Root Instance</A>.
+<strong>Next:</strong> <A href="NonOverlappingDRMClassSummaryItemInstances.htm">Non Overlapping DRM Class Summary Item Instances</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

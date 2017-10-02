@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE_Image_Scan_Direction_Z</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX C - Types
+</font>
+<br>
+<font color="#ffffff">
+SE_Image_Scan_Direction_Z
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<PRE>
+/*
+ * ENUM: SE_Image_Scan_Direction_Z
+ *
+ *   This data type specifies the manner in which image depth is to
+ *   be scanned.
+ *
+ *                           Scan            Image Origin
+ *                           -------------------------
+ *   SE_IMAGSCANDIRZ_NONE    not applicable  not applicable
+ *   SE_IMAGSCANDIRZ_Z_BACK  top-bottom      top
+ *   SE_IMAGSCANDIRZ_Z_FRONT bottom-top      bottom
+ */
+</PRE>
+<span class="Code">typedef enum
+<br>
+{
+</span>
+
+<table class="CFunctionPrototype">
+    <tr><td class="CFunction"></td><td class="CFunction"><a name="SE_IMAGSCANDIRZ_NONE"></a>SE_IMAGSCANDIRZ_NONE,</td><td class="CFunction"><sup><A href="#Notes_SE_IMAGSCANDIRZ_NONE">1</A></sup></td></tr>
+    <tr><td class="CFunction"></td><td class="CFunction"><a name="SE_IMAGSCANDIRZ_Z_BACK"></a>SE_IMAGSCANDIRZ_Z_BACK,</td><td class="CFunction"><sup><A href="#Notes_SE_IMAGSCANDIRZ_Z_BACK">2</A></sup></td></tr>
+    <tr><td class="CFunction"></td><td class="CFunction"><a name="SE_IMAGSCANDIRZ_Z_FRONT"></a>SE_IMAGSCANDIRZ_Z_FRONT</td><td class="CFunction"><sup><A href="#Notes_SE_IMAGSCANDIRZ_Z_FRONT">3</A></sup></td></tr>
+</table>
+<span class="Code">
+} SE_Image_Scan_Direction_Z;
+</span>
+<br>
+<br>
+<hr>
+<h2>Enumerant Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#SE_IMAGSCANDIRZ_NONE" name="Notes_SE_IMAGSCANDIRZ_NONE">1</a></sup>
+ The &lt;Image&gt; instance has fewer than three dimensions,
+ so a Z scan direction is not applicable.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#SE_IMAGSCANDIRZ_Z_BACK" name="Notes_SE_IMAGSCANDIRZ_Z_BACK">2</a></sup>
+ The &lt;Image&gt; instance's origin is at the top, and the
+ Z scan direction is from top to bottom.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#SE_IMAGSCANDIRZ_Z_FRONT" name="Notes_SE_IMAGSCANDIRZ_Z_FRONT">3</a></sup>
+ The &lt;Image&gt; instance's origin is at the bottom, and the
+ Z scan direction is from bottom to top.
+</p>
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SE_Image_Scan_Direction.htm">SE_Image_Scan_Direction</a>.
+<strong>Next:</strong> <a href="SE_Image_Signature.htm">SE_Image_Signature</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

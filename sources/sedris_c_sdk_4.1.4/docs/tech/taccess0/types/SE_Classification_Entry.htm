@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE_Classification_Entry</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Types
+</font>
+<br>
+<font color="#ffffff">
+SE_Classification_Entry
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<PRE>
+/*
+ * STRUCT: SE_Classification_Entry
+ *
+ *   This data type specifies single entry in the data provided by
+ *   the SE_Classification_Parameters data type.
+ *
+ *   The qualified &lt;Classification Data&gt; instance thus represented
+ *   shall comply with the DRM's constraints for qualified
+ *   &lt;Classification Data&gt; instances.
+ */
+</PRE>
+<span class="Code">typedef struct 
+<br>
+{</span>
+<br>
+<table class="CFunctionPrototype">
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../drm/classes/ClassificationData.htm">SE_Classification_Data_Fields</a></td>
+        <td class="CFunction"><a name="class_data"></a>class_data;</td><td class="CFunction"><sup><A href="#Notes_class_data">1</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../drm/types/SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a></td>
+        <td class="CFunction"><a name="prop_val_count"></a>prop_val_count;</td><td class="CFunction"><sup><A href="#Notes_prop_val_count">2</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../drm/classes/PropertyValue.htm">SE_Property_Value_Fields</a></td>
+        <td class="CFunction">*<a
+        name="prop_val_array"></a>prop_val_array;</td><td class="CFunction"><sup><A href="#Notes_prop_val_array">3</A></sup></td></tr>
+</table>
+<span class="Code">
+} SE_Classification_Entry;</span>
+<br>
+
+<br>
+<HR>
+<H2>Field Notes</H2>
+<h4><a href="#class_data" name="Notes_class_data">class_data</a></h4>
+<P>
+ The field values that a <A href="../../drm/classes/ClassificationData.htm">&lt;Classification Data&gt;</A> instance being
+ matched against this entry shall have.
+</P>
+<h4><a href="#prop_val_count" name="Notes_prop_val_count">prop_val_count</a></h4>
+<P>
+ The number of qualifying <A href="../../drm/classes/PropertyValue.htm">&lt;Property Value&gt;</A> instances
+ that a <A href="../../drm/classes/ClassificationData.htm">&lt;Classification Data&gt;</A> instance being matched against
+ this entry shall have.
+</P>
+<h4><a href="#prop_val_array" name="Notes_prop_val_array">prop_val_array</a></h4>
+<P>
+ The field values of the qualifying <A href="../../drm/classes/PropertyValue.htm">&lt;Property Value&gt;</A> instances
+ that a <A href="../../drm/classes/ClassificationData.htm">&lt;Classification Data&gt;</A> instance being matched against
+ this entry shall have.
+</P>
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SE_Branch_Range_Matching.htm">SE_Branch_Range_Matching</a>.
+<strong>Next:</strong> <a href="SE_Classification_Parameters.htm">SE_Classification_Parameters</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

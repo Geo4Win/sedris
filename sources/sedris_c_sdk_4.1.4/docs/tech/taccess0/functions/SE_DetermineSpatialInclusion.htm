@@ -1,0 +1,232 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE DetermineSpatialInclusion</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+SE DetermineSpatialInclusion
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../types/SE_Return_Code.htm">SE_Return_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SE_DetermineSpatialInclusion</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../types/SE_Object.htm">SE_Object</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="test_object"></a>test_object,</td><td class="CFunction"><sup><A href="#Notes_test_object">1</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">const&nbsp;</td><td class="CFunction"><a href="../types/SE_Search_Bounds.htm">SE_Search_Bounds</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="search_bounds"></a>search_bounds,</td><td class="CFunction"><sup><A href="#Notes_search_bounds">2</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../types/SE_Search_Bounds_Closure.htm">SE_Search_Bounds_Closure</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="search_bounds_closure"></a>search_bounds_closure,</td><td class="CFunction"><sup><A href="#Notes_search_bounds_closure">3</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../types/SE_Search_Type.htm">SE_Search_Type</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="search_quality"></a>search_quality,</td><td class="CFunction"><sup><A href="#Notes_search_quality">4</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../types/SE_Search_Dimension.htm">SE_Search_Dimension</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="search_dimension"></a>search_dimension,</td><td class="CFunction"><sup><A href="#Notes_search_dimension">5</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../../drm/types/SE_Boolean.htm">SE_Boolean</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="object_fully_included"></a>object_fully_included,</td><td class="CFunction"><sup><A href="#Notes_object_fully_included">6</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../../drm/types/SE_Boolean.htm">SE_Boolean</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="object_partly_included"></a>object_partly_included,</td><td class="CFunction"><sup><A href="#Notes_object_partly_included">7</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../../drm/types/SE_Boolean.htm">SE_Boolean</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="object_includes_search_bounds"></a>object_includes_search_bounds</td><td class="CFunction"><sup><A href="#Notes_object_includes_search_bounds">8</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+ Determines whether a DRM object is contained within the user-specified
+ spatial area.
+ <A href="SE_DetermineSpatialInclusion.htm">SE_DetermineSpatialInclusion()</A>
+ supplements the normal method of filtering objects by spatial location,
+ i.e. the use of search boundaries with component iterators (see
+<A href="SE_CreateSpatialSearchBoundary.htm">SE_CreateSpatialSearchBoundary()
+</A>).
+</P><P>
+ While
+ <A href="SE_DetermineSpatialInclusion.htm">SE_DetermineSpatialInclusion()</A>
+ can be used with any DRM object,
+ its intended use is to find out more information about the relationship
+ of an object returned by a component iterator to the search bounds used
+ in that iterator. The canonical example is to have the component iterator
+ created with a partial inclusion choice, then to check objects for full
+ inclusion with
+<A href="SE_DetermineSpatialInclusion.htm">SE_DetermineSpatialInclusion()</A>.
+</P><P>
+ In addition to determining whether a DRM object is partly or completely
+ inside the user-defined search bounds, this function, unlike an
+ <A href="../types/SE_Search_Boundary.htm">SE_Search_Boundary</A>, will also determine
+ whether a 2- or 3-dimensional object completely includes the spatial search
+ area.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A>
+</td><td class="Status">
+ and the answers are returned within the out parameters.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A>
+</td><td class="Status">
+ and the status code is set appropriately if the call failed.
+</td></tr>
+</table>
+
+<h3>Status Codes</h3>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A> is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_SUCCESS">SE_STATCODE_SUCCESS</A>
+</td><td class="Status">
+ set if valid parameters were passed in, and the
+ relationship between the object and the boundary was determined.
+</td></tr>
+</table>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A> is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_UNRESOLVED_INPUT_OBJECT">SE_STATCODE_UNRESOLVED_INPUT_OBJECT</A>
+</td><td class="Status">
+ set if <A href="#test_object">test_object</A> is unresolved.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_UNRESOLVED_OUTPUT_OBJECT">SE_STATCODE_UNRESOLVED_OUTPUT_OBJECT</A>
+</td><td class="Status">
+ set if an unresolved object was encountered and could not be resolved.
+</td></tr>
+<tr><td class="Status">
+ <A href="../types/SE_Status_Code.htm#SE_STATCODE_C_ENUMERATION_VALUE_INVALID">SE_STATCODE_C_ENUMERATION_VALUE_INVALID</A>
+</td><td class="Status">
+ set if an invalid
+ <A href="#search_bounds_closure">search_bounds_closure</A>,
+ <A href="#search_quality">search_quality</A>, or
+ <A href="#search_dimension">search_dimension</A> was specified, or
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_INACTIONABLE_FAILURE">SE_STATCODE_INACTIONABLE_FAILURE</A>
+</td><td class="Status">
+ set if
+<OL>
+<LI> an invalid boundary was specified by the bounds parameter (e.g.,
+     the minimal and maximal points aren't in the same SRF), or
+</LI>
+<LI> the determination of the object / search area relationship couldn't
+     be made, or
+</LI>
+ <LI> the call failed for any other reason.
+</LI>
+</OL>
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#test_object" name="Notes_test_object">1</a></sup>
+ the object to test for inclusion.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#search_bounds" name="Notes_search_bounds">2</a></sup>
+ the boundary definition; defines the spatial search
+    area by ranges in each of its coordinates. If the search is 2-D, then
+    the height values are ignored. See SE_Search_Bounds for more details.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#search_bounds_closure" name="Notes_search_bounds_closure">3</a></sup>
+ determines whether the spatial search area
+    includes its boundaries. See SE_Search_Bounds_Closure for more
+    details.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#search_quality" name="Notes_search_quality">4</a></sup>
+ determines whether to use a point, bounding box, or exact
+    search. See SE_Search_Type for more details.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#search_dimension" name="Notes_search_dimension">5</a></sup>
+ whether 2D, 3D, or both kinds of objects are
+    considered. See SE_Search_Dimension for more details.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#object_fully_included" name="Notes_object_fully_included">6</a></sup>
+ a pointer to an SE_Boolean
+    variable in the user's memory space, used to indicate whether
+    the object is strictly included in the search bounds.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#object_partly_included" name="Notes_object_partly_included">7</a></sup>
+ a pointer to an SE_Boolean
+    variable in the user's memory space, used to indicate whether
+    the object's intersection with the search bounds is non-empty.
+    If NULL, no check is made for partial inclusion.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#object_includes_search_bounds" name="Notes_object_includes_search_bounds">8</a></sup>
+ a pointer to an
+    SE_Boolean variable in the user's memory space, used to indicate
+    whether the object's intersection with the search bounds is the
+    search area itself.
+
+  Note that *object_includes_search_bounds can only be true in
+  the following cases:
+  - search_dimension is set to SE_SEARCHDIM_TWO_DIMENSIONAL_OR_SURFACE
+    and the object is an aggregate containing a &lt;Feature Face&gt;,
+    &lt;Surface Geometry&gt;, &lt;Property Grid&gt;, or &lt;Volume Geometry&gt;
+
+  - search_dimension is SE_SEARCHDIM_THREE_DIMENSIONAL and the object is
+    an aggregate containing a &lt;Volume Geometry&gt; or &lt;Data Table&gt;.
+
+  Otherwise the question is meaningless (a point or linear object can't
+  contain a region).
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SE_CreateStore.htm">SE_CreateStore</a>.
+<strong>Next:</strong> <a href="SE_FreeIterator.htm">SE_FreeIterator</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE_Remaining_Objects_List</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Types
+</font>
+<br>
+<font color="#ffffff">
+SE_Remaining_Objects_List
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<PRE>
+/*
+ * STRUCT: SE_Remaining_Objects_List
+ *
+ *   Used by SE_GetRemainingObjectsList() to provide a data structure for
+ *   retrieving multiple objects from an iterator.
+ */
+</PRE>
+<span class="Code">typedef struct 
+<br>
+{</span>
+<br>
+<table class="CFunctionPrototype">
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../drm/types/SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a></td>
+        <td class="CFunction"><a name="object_count"></a>object_count;</td><td class="CFunction"><sup><A href="#Notes_object_count">1</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Object.htm">SE_Object</a></td>
+        <td class="CFunction">*<a
+        name="remaining_objects_list"></a>remaining_objects_list;</td><td class="CFunction"><sup><A href="#Notes_remaining_objects_list">2</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Object.htm">SE_Object</a></td>
+        <td class="CFunction">*<a
+        name="remaining_link_objects_list"></a>remaining_link_objects_list;</td><td class="CFunction"><sup><A href="#Notes_remaining_link_objects_list">3</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Status_Code.htm">SE_Status_Code</a></td>
+        <td class="CFunction">*<a
+        name="object_status_list"></a>object_status_list;</td><td class="CFunction"><sup><A href="#Notes_object_status_list">4</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Status_Code.htm">SE_Status_Code</a></td>
+        <td class="CFunction">*<a
+        name="link_object_status_list"></a>link_object_status_list;</td><td class="CFunction"><sup><A href="#Notes_link_object_status_list">5</A></sup></td></tr>
+</table>
+<span class="Code">
+} SE_Remaining_Objects_List;</span>
+<br>
+
+<br>
+<HR>
+<H2>Field Notes</H2>
+<h4><a href="#object_count" name="Notes_object_count">object_count</a></h4>
+<P>
+ The number of objects selected by the iterator and returned in
+ <A href="#remaining_objects_list">remaining_objects_list</A>
+ within this data structure.
+</P>
+<h4><a href="#remaining_objects_list" name="Notes_remaining_objects_list">remaining_objects_list</a></h4>
+<P>
+ A pointer to the list of objects returned; can be treated as an array.
+ The list will be <A href="#object_count">object_count</A> in length.
+ The order of the objects will be the same as the order specified
+ when the iterator was created.
+</P>
+<h4><a href="#remaining_link_objects_list" name="Notes_remaining_link_objects_list">remaining_link_objects_list</a></h4>
+<P>
+ A pointer to the list of link objects returned; can be treated as an
+ array. The list will be <A href="#object_count">object_count</A> in
+ length. The i-th object in this list is the link object that would
+ be returned by the iterator along with the i-th object in the
+ <A href="#remaining_objects_list">remaining_objects_list</A>.
+ If the i-th object
+ has no link object, then the i-th entry in this list will be NULL.
+</P>
+<h4><a href="#object_status_list" name="Notes_object_status_list">object_status_list</a></h4>
+<P>
+ An array of status codes, corresponding to the entries in
+ remaining_objects_list, and thus object_count in length. For a valid,
+ non-empty SE_Remaining_Objects_List, each entry in
+ object_status_list will be one of the following:
+</P>
+<OL>
+<LI><A href="SE_Status_Code.htm#SE_STATCODE_SUCCESS">SE_STATCODE_SUCCESS</A> - the corresponding
+ object resides in the same transmittal as the iterator's start object.
+</LI>
+<LI><A href="SE_Status_Code.htm#SE_STATCODE_DIFFERENT_TRANSMITTAL">SE_STATCODE_DIFFERENT_TRANSMITTAL</A> -
+ the corresponding object resides in a different transmittal than
+ the iterator's start object, and was successfully resolved.
+</LI>
+<LI><A href="SE_Status_Code.htm#SE_STATCODE_UNRESOLVED_OUTPUT_OBJECT">SE_STATCODE_UNRESOLVED_OUTPUT_OBJECT</A> -
+ the corresponding object resides in a different transmittal than
+ the iterator's start object, but was not successfully resolved.
+</LI>
+</OL>
+<h4><a href="#link_object_status_list" name="Notes_link_object_status_list">link_object_status_list</a></h4>
+<P>
+ An array of status codes, corresponding to the entries in
+ <A href="#remaining_link_objects_list">remaining_link_objects_list</A>,
+ and thus
+<A href="#object_count">object_count</A> in length. For a valid,
+ non-empty <A href="SE_Remaining_Objects_List.htm">SE_Remaining_Objects_List</A>, each entry in
+ <A href="#link_object_status_list">link_object_status_list</A>
+ will be one of the following:
+</P>
+<OL>
+<LI><A href="SE_Status_Code.htm#SE_STATCODE_SUCCESS">SE_STATCODE_SUCCESS</A> - the corresponding
+ link object resides in the same transmittal as the iterator's
+ start object.
+</LI>
+<LI><A href="SE_Status_Code.htm#SE_STATCODE_DIFFERENT_TRANSMITTAL">SE_STATCODE_DIFFERENT_TRANSMITTAL</A> -
+ the corresponding link object resides in a different transmittal
+ than the iterator's start object, and was successfully resolved.
+</LI>
+<LI><A href="SE_Status_Code.htm#SE_STATCODE_UNRESOLVED_OUTPUT_OBJECT">SE_STATCODE_UNRESOLVED_OUTPUT_OBJECT</A> -
+ the corresponding link object resides in a different transmittal
+ than the iterator's start object, but was not successfully resolved.
+</LI>
+<LI><A href="SE_Status_Code.htm#SE_STATCODE_NO_OBJECT">SE_STATCODE_NO_OBJECT</A> - the
+ corresponding link object is NULL, because there was no link object
+ in the data for given relationship.
+</LI>
+</OL>
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SE_Relative_To_Absolute_Time_Interval_Entry.htm">SE_Relative_To_Absolute_Time_Interval_Entry</a>.
+<strong>Next:</strong> <a href="SE_Remaining_Packed_Hierarchies_List.htm">SE_Remaining_Packed_Hierarchies_List</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>SEDRIS SDK - Fixes And Limitations</title>
+</head>
+<body bgcolor="#ffffff">
+
+<div align="center">
+<h1><a name="top" id="top">Fixes And Limitations</a></h1>
+</div><div align="center">
+<h3>
+SEDRIS C++ SDK Release 4.1.4
+</h3>
+<h3>
+July 1, 2011
+</h3>
+</div>
+
+<ol>
+<li><a href="#intro">Introduction</a></li>
+<li><a href="#fixed">Defects Fixed in this Release</a></li>
+<li><a href="#fixed_since">Defects Fixed Since Release 4.0 Through Release 4.1.3</a></li>
+<li><a href="#limitations">Known Defects and Limitations</a></li>
+</ol>
+<br>
+
+<h3><a name="intro" id="intro">Introduction</a></h3>
+<blockquote>
+<p>This document lists the bug fixes and known defects/limitations
+contained in this release.
+</p><p>
+For general information about this release, where to obtain it, and items
+that require specific attention, see the <a href="index.htm">Release Notes</a>.
+</p><p>
+For help, comments, and bug reports please send email to
+<a href="mailto:help@sedris.org">help@sedris.org</a>. If you are an associate,
+please use <a href="mailto:se-coders@sedris.org">se-coders@sedris.org</a>.
+</p><p>
+Return to: <a href="#top">Top</a>
+</p></blockquote>
+<br>
+
+<h3><a name="fixed" id="fixed">Defects Fixed in this Release</a></h3>
+<blockquote>
+<p>The following fixes and changes were implemented for this release:</p>
+<ul>
+<li>General
+<ul>
+<li>Fix a bug causing getRelationsCount() to return zero even when relations
+are actually present.</li>
+<li>Cleaner builds for many environments (elimination of warnings)</li>
+<li>Add support for Cygwin 1.6, Visual Studio 2008 and 2010</li>
+</ul>
+</li>
+<li>In DRM
+<ul>
+<li>None.</li>
+</ul>
+</li>
+</li>
+<li>In SRM
+<ul>
+<li>See the
+<a href="../src/lib/srm/docs/index.htm#upgrades">SRM SDK's Release Notes</a>
+for details.</li>
+</ul>
+</li>
+<li>In EDCS
+<ul>
+<li>See the
+<a href="../src/lib/edcs/docs/index.htm#upgrades">EDCS SDK's Release Notes</a>
+for details.</li>
+</ul>
+</li>
+<li>In Transmittal Access C API
+<ul>
+<li>None.</li>
+</ul>
+</li>
+<li>In Transmittal Access C++ API
+<ul>
+<li>Bug fix in getRelationsCount().</li>
+</ul>
+</li>
+<li>In STF
+<ul>
+<li>None.
+</li>
+</ul>
+</li>
+<li>In applications
+<ul>
+<li>Fix model_viewer crash when loading models with polygons that have an
+&lt;Image Mapping Function&gt; but for which the &lt;Vertex&gt; components
+don't specify &lt;Texture Coordinate&gt;s</li>
+
+<li>Rules_checker: the &lt;&lt;Image Mapping Functions and Texture
+  Coordinates&gt;&gt; constraint more fully tests the case where &lt;Image
+  Mapping Function&gt; instances are referenced via a &lt;Property Set
+  Index&gt; rather than by direct attachment.</li>
+</ul>
+<p>
+Return to: <a href="#top">Top</a>
+</p></blockquote>
+
+<h3><a name="fixed_since" id="fixed_since">Defects Fixed Since Release 4.0 Through Release 4.1.3</a></h3>
+<blockquote>
+<ul>
+<li>General
+<ul>
+<li>Fixed RAIF inconsistency with handling conversion of units of
+    measure when an SRF conversion was requested through the API.
+</li>
+<li>Removed references to STF_BlockOPT.cpp and STF_BlockOPT.hpp from the
+    Visual C++ .NET project files.</li>
+<li>Direct attachment is now fully supported by the API when using a
+    component iterator to resolve &lt;Colour Index&gt; instances.
+</li>
+</ul>
+</li>
+<li>In DRM
+<ul>
+<li>&lt;Geometry Face&gt;
+<ul>
+<li>Clarified that an instance must have at least 3 associated
+&lt;Geometry Edge&gt; instances.
+</li>
+<li>Fixed the &lt;Image&gt; validation for THREE_MATERIALS &lt;Image&gt;
+    instances to correctly enforce the requirements on the
+    bits_of fields.</li>
+<li>Adjusted the The &lt;&lt;Quadrant Related Organizing Principle&gt;&gt; and
+    &lt;&lt;Octant Related Organizing Principle&gt;&gt; constraints
+    to align with the ISO specification,
+    and the related validation of strict_organizing_principle
+    for &lt;Octant Related Features&gt;,
+    &lt;Octant Related Geometry&gt;,
+    &lt;Quadrant Related Features&gt;, and
+    &lt;Quadrant Related Geometry&gt; have been modified in
+    accordance with the constraints.</li>
+<li>Fixes an error in the validation of &lt;Variable&gt; instances
+ specified with SE_Variable_Code meanings.</li>
+<li>Updated SE_ConvertCoordinateToFields() so that all valid coordinate
+    types are handled.
+</li>
+<li>Updated SE_ConvertFieldsToCoordinate() so that all valid concrete
+    &lt;Location&gt; subclasses are handled.
+</li>
+</ul>
+</li>
+<li>In SRM
+<ul>
+<li>See the
+<a href="../src/lib/srm/docs/index.htm#upgrades_since">SRM SDK's Release Notes</a>
+    for details.
+</li>
+</ul>
+</li>
+<li>In EDCS
+<ul>
+<li>Added missing exported symbols for the EDCS library functions.</li>
+<li>See more fixes in
+<a href="../src/lib/edcs/docs/fixes.htm#fixed">EDCS Fixes and Limitations</a>.
+</li>
+<li>Updated Visual C++ build environment files for dynamic compilation.</li>
+</ul>
+</li>
+<li>In Transmittal Access C API
+<ul>
+<li>Performance improvements when generating large transmittals.</li>
+</ul>
+</li>
+<li>In Transmittal Access C++ API
+<ul>
+<li>Performance improvements when opening transmittals with thousands of
+ITR references.</li>
+</ul>
+</li>
+<li>In STF
+<ul>
+<li>Fixed array freeing issue in URN resolution.
+</li>
+<li>Cygwin is now explicitly recognized on the list of little endian architectures.
+</li>
+<li>Fixed a bug when updating Data Table data after the transmittal is closed.</li>
+<li>Fixed a bug when writing integer field data.</li>
+<li>Fixed a memcpy overwrite during file access.</li>
+</ul>
+</li>
+<li>In Applications
+<ul>
+<li>Core applications have a more consistent style of reporting and usage. This
+    includes specifying the implementation version of the SEDRIS SDK for which
+    they were built.</li>
+<li>Syntax Checker now fully enforces the syntactic restrictions
+    on aggregate/component relationships, including:
+<ul>
+<li>Detecting malformed composition relationships that are 1-way instead of
+    2-way.</li>
+<li>Detecting a component that belongs to an incorrect number of aggregates.
+    (e.g. a &lt;Model&gt; instance is a component of exactly one
+    &lt;Model Library&gt;), including checking ITR relationships when all
+    the relevant transmittals are accessible.</li>
+<li>Additional/improved tests for class field validation, e.g. required
+    metadata fields.</li>
+</ul>
+</li>
+<li>The rules_checker application now performs additional tests (for a fuller
+    description of which constraints are tested, see
+    P5V2 Checker User's Guide, section 2). The additional functionality
+    includes more complete testing of:
+<ul>
+<li>&lt;&lt;Presentation Domain Constraints&gt;&gt;
+</li>
+<li>&lt;&lt;Mandatory Metadata&gt;&gt;
+</li>
+<li>&lt;&lt;Image Anchor SRF&gt;&gt;
+</li>
+<li>&lt;&lt;Model SRF&gt;&gt;
+</li>
+<li>&lt;&lt;Environment Root SRF&gt;&gt;
+</li>
+<li>&lt;&lt;Polygon As Bounded Plane&gt;&gt;
+</li>
+<li>&lt;&lt;Property Characteristic Constraints&gt;&gt;
+</li>
+<li>various constraints
+      related to feature topology and geometry topology
+</li>
+<li>various contraints related to &lt;Volume Extent&gt;.</li>
+</ul>
+<li>Rules_checker's handling of detecting co-located angular coordinate
+    validation has been updated to prevent detection of false positives.
+</li>
+</li>
+<li>
+For model_viewer, fixed an issue with handling
+&lt;Animation Related Geometry&gt; instances.
+</li>
+<li>
+For rules_checker, fixed an issue with testing for improper duplicate locations
+within geometry and topology for angular coordinate systems.
+</li>
+<li>The rules_checker application also performs additional tests (for a fuller
+    description of which constraints are tested, see
+    P5V2 Checker User's Guide, section 2). The additional
+    functionality includes more complete testing of:
+<ul>
+<li>&lt;&lt;Presentation Domain Constraints&gt;&gt;
+</li>
+<li>&lt;&lt;Property Characteristic Constraints&gt;&gt;
+</li>
+<li>various constraints related to feature topology and geometry topology
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>ITR Test now produces a different transmittal as an example. The ITR
+    relationships are now associations between &lt;Geometry Model Instance&gt;
+    objects in transmittal A and &lt;Geometry Model&gt; objects in transmittals
+    B and C (as opposed to the previously invalid &lt;Model Library&gt; to
+    &lt;Model&gt; relationships).
+    If the Depth application is passed a configuration file to run with
+    &quot;follow_model_instances&quot; set to SE_TRUE, the relationships will
+    be traversed and displayed.</li>
+</ul>
+</li>
+</ul>
+<p>
+Return to: <a href="#top">Top</a>
+</p></blockquote>
+
+<h3><a name="limitations" id="limitations">Known Defects and Limitations</a></h3>
+<blockquote>
+<ul>
+<li><a href="http://tools.sedris.org/modelviewer.htm#limitations">Model Viewer Limitations</a>.</li>
+<li><a href="http://tools.sedris.org/verification_apps.htm#limitations">Rules Checker Limitations</a>.</li>
+<li>One exception to ISO SEDRIS compliance is the use of WCHAR.
+    This will be implemented in future releases.</li>
+<li>RAIF's capability of converting data between SRFs specified
+    with different DSSs (for example, between the ellipsoid and
+    MSL) is not fully supported. This will be addressed in future
+    releases.
+</li>
+<li>Documentation for the SE_Character type references UTF-8 (Unicode),
+but the API currently does not handle UTF-8 characters (internally,
+SE_Character is currently implemented using <i>char</i>).</li>
+</ul>
+
+<p>Return to: <a href="#top">Top</a></p>
+</blockquote>
+
+<p>
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</p>
+</body>
+</html>

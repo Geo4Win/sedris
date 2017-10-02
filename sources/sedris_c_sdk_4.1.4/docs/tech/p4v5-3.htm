@@ -1,0 +1,437 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>P4V5 - Section 3</TITLE>
+<META name="Author" CONTENT="SAIC">
+<link rel="stylesheet" type="text/css" href="../styles/SDK_SEDRIS.css">
+</HEAD>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th class="doc_set_header">
+<big><big>
+Control Link Technical Guide
+</big></big>
+<br>
+<FONT COLOR="#ffffff">
+Section 3 - &lt;CONTROL LINK&gt; INSTANCES AND &lt;EXPRESSION&gt; INSTANCES
+</font>
+</th>
+</tr>
+</TABLE>
+
+<table class="doc_set_toc">
+<tr>
+<th class="doc_set_toc_outline_number"><a name="31">3.1</a></th>
+<th class="doc_set_toc_outline_description">Overview</th>
+</tr>
+
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+The basic idea of control links is that the abstract class
+<a href="drm/classes/ControlLink.htm">&lt;Control Link&gt;</a>
+provides a connection between
+<a href="drm/classes/Expression.htm">&lt;Expression&gt;</a>
+trees and the fields of other SEDRIS objects, called <I>target objects</I>.
+For each class of target object, there shall be a matching, specialized
+subclass of
+<a href="drm/classes/ControlLink.htm">&lt;Control Link&gt;</a>, the
+definition of which specifies how it's ordered
+<a href="drm/classes/Expression.htm">&lt;Expression&gt;</a>
+components are used to determine the values of the fields of the
+target object (called <I>target fields</I>). The target object
+shall aggregate an instance of the specialized
+<a href="drm/classes/ControlLink.htm">&lt;Control Link&gt;</a>.
+</p><p>
+In general, a specialized
+<a href="drm/classes/ControlLink.htm">&lt;Control Link&gt;</a>
+will contain at least
+one field, called a <I>link field</I>, for each field in the target
+object. The link field is a 1-based index into the ordered list of
+<a href="drm/classes/Expression.htm">&lt;Expression&gt;</a>
+components, and is used to select the specific
+<a href="drm/classes/Expression.htm">&lt;Expression&gt;</a>
+that controls the value of the target field. The
+specialization may also contain &quot;constraint&quot; fields that
+are used to constrain the values of the target field. These constraint
+fields are indexes into the ordered list of
+<a href="drm/classes/Expression.htm">&lt;Expression&gt;</a>
+components.
+</p><p>
+<a href="drm/classes/Expression.htm">&lt;Expression&gt;</a>
+is an abstract class used to represent places in
+a transmittal where the consuming system is required to perform an
+evaluation in order to get the exact value of a target field. An
+<a href="drm/classes/Expression.htm">&lt;Expression&gt;</a>
+tree is composed of other
+<a href="drm/classes/Expression.htm">&lt;Expression&gt;</a> trees,
+nesting to an arbitrary level. Together, the set of
+<a href="drm/classes/Expression.htm">&lt;Expression&gt;</a>
+trees connected to a
+<a href="drm/classes/ControlLink.htm">&lt;Control Link&gt;</a>
+defines the desired relationship
+and behaviour of controlling inputs to values, which will be applied to
+the fields of other SEDRIS objects (called <I>target objects</I> and
+<I>target fields</I>). The application of
+<a href="drm/classes/Expression.htm">&lt;Expression&gt;</a> instances to
+target fields is defined by a specialization of the
+<a href="drm/classes/ControlLink.htm">&lt;Control Link&gt;</a>
+class, which associates the values of the
+<a href="drm/classes/Expression.htm">&lt;Expression&gt;</a> instances
+to the fields of the target object(s).
+</p><p>
+For example, the <a href="drm/classes/StateRelatedGeometry.htm">
+&lt;State Related Geometry&gt;</a> class has an optional
+relationship with the <a href="drm/classes/StateControlLink.htm">
+&lt;State Control Link&gt;</a> subclass of
+<a href="drm/classes/ControlLink.htm">&lt;Control Link&gt;</a>. This
+specialization defines which of the
+<a href="drm/classes/StateControlLink.htm">
+&lt;State Control Link&gt;</a>'s ordered
+<a href="drm/classes/Expression.htm">&lt;Expression&gt;</a> components
+are to be applied to the fields of the
+<a href="drm/classes/StateRelatedGeometry.htm">
+&lt;State Related Geometry&gt;</a>.
+</p><p>
+There are 3 subclasses of
+<a href="drm/classes/Expression.htm">&lt;Expression&gt;</a>:
+<a href="drm/classes/Literal.htm">&lt;Literal&gt;</a>,
+<a href="drm/classes/Variable.htm">&lt;Variable&gt;</a>, and
+<a href="drm/classes/Function.htm">&lt;Function&gt;</a>.
+</p></td>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="32">3.2</a></th>
+<th class="doc_set_toc_outline_description">
+The <a href="drm/classes/Literal.htm">&lt;Literal&gt;</a>
+ and <a href="drm/classes/Variable.htm">&lt;Variable&gt;</a> Classes
+</th>
+</tr>
+
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+A <a href="drm/classes/Literal.htm">&lt;Literal&gt;</a> is the
+simplest <a href="drm/classes/Expression.htm">&lt;Expression&gt;</a>;
+it is merely a constant value.
+</p><p>
+A <a href="drm/classes/Variable.htm">&lt;Variable&gt;</a> is a
+surrogate for a value that will be supplied by way of an
+<a href="drm/classes/InterfaceTemplate.htm">
+&lt;Interface Template&gt;</a>.
+<a href="drm/classes/InterfaceTemplate.htm">
+&lt;Interface Template&gt;</a> instances, which are aggregated by
+<a href="drm/classes/EnvironmentRoot.htm">&lt;Environment Root&gt;</a>
+and <a href="drm/classes/Model.htm">&lt;Model&gt;</a> instances,
+specify the &quot;hooks&quot; that may be controlled within the
+parent <a href="drm/classes/EnvironmentRoot.htm">&lt;Environment Root&gt;</a>
+or <a href="drm/classes/Model.htm">&lt;Model&gt;</a> by the consuming
+system. An <a href="drm/classes/InterfaceTemplate.htm">
+&lt;Interface Template&gt;</a> instance is associated with one
+or more <a href="drm/classes/Variable.htm">&lt;Variable&gt;</a>
+instances. <a href="drm/classes/GeometryModelInstance.htm">
+&lt;Geometry Model Instance&gt;</a>
+and <a href="drm/classes/FeatureModelInstance.htm">
+&lt;Feature Model Instance&gt;</a> aggregate 
+<a href="drm/classes/Expression.htm">&lt;Expression&gt;</a>
+components, indicating their relationship with the appropriate
+<a href="drm/classes/InterfaceTemplate.htm">&lt;Interface Template&gt;</a>
+(that of the <a href="drm/classes/Model.htm">&lt;Model&gt;</a> being
+instanced).
+</p><p>
+Essentially, a <a href="drm/classes/Variable.htm">&lt;Variable&gt;</a>
+exists to connect an <a href="drm/classes/InterfaceTemplate.htm">
+&lt;Interface Template&gt;</a> to points within 
+<a href="drm/classes/Expression.htm">&lt;Expression&gt;</a>
+where outside control may be exerted.
+</p><p>
+For a <a href="drm/classes/Variable.htm">&lt;Variable&gt;</a>
+contained within a <a href="drm/classes/Model.htm">&lt;Model&gt;</a>,
+evaluation is valid only for a specific model instance. The value is 
+determined by an <a href="drm/classes/Expression.htm">&lt;Expression&gt;</a> 
+aggregated by the specific <a href="drm/classes/FeatureModelInstance.htm">
+&lt;Feature Model Instance&gt;</a> or 
+<a href="drm/classes/GeometryModelInstance.htm">
+&lt;Geometry Model Instance&gt;</a>.
+</p><p>
+For <a href="drm/classes/Variable.htm">&lt;Variable&gt;</a>
+instances contained within an <a href="drm/classes/EnvironmentRoot.htm">
+&lt;Environment Root&gt;</a>, evaluation can only be performed within 
+the context of values that shall be supplied by the consuming system.
+</p><p>
+When the general constraints 
+<a href="drm/constraints/ConstraintsOnComponents.htm">
+&lt;&lt;Constraints On Components&gt;&gt;</a>
+and <a href="drm/constraints/ConstraintsOnAssociates.htm">
+&lt;&lt;Constraints On Associates&gt;&gt;</a>, some practical
+consequences arise. Since a <a href="drm/classes/Variable.htm">
+&lt;Variable&gt;</a> must be associated by
+an <a href="drm/classes/InterfaceTemplate.htm">&lt;Interface Template&gt;</a>
+to be syntactically valid, and a <a href="drm/classes/Variable.htm">
+&lt;Variable&gt;</a> within a <a href="drm/classes/Model.htm">
+&lt;Model&gt;</a> cannot be associated by
+any <a href="drm/classes/InterfaceTemplate.htm">&lt;Interface Template&gt;</a>
+outside that <a href="drm/classes/Model.htm">&lt;Model&gt;</a>'s
+composition tree, it follows that any <a href="drm/classes/Model.htm">
+&lt;Model&gt;</a> containing <a href="drm/classes/Variable.htm">
+&lt;Variable&gt;</a> instances must have an 
+<a href="drm/classes/InterfaceTemplate.htm">&lt;Interface Template&gt;</a>
+component. Further, a <a href="drm/classes/Model.htm">&lt;Model&gt;</a>'s 
+<a href="drm/classes/InterfaceTemplate.htm">&lt;Interface Template&gt;</a>
+associates to the <a href="drm/classes/Variable.htm">&lt;Variable&gt;</a>
+instances - and <EM>only</EM> the <a href="drm/classes/Variable.htm">
+&lt;Variable&gt;</a> instances - of that particular 
+<a href="drm/classes/Model.htm">&lt;Model&gt;</a>.
+This combination of constraints guarantees that when a model
+is instanced, the end application can determine for that instance
+what <a href="drm/classes/Variable.htm">&lt;Variable&gt;</a> 
+instances must be supplied with values
+to fully specify the model instance, and that the control system
+specified by the model's internal <a href="drm/classes/ControlLink.htm">
+&lt;Control Link&gt;</a> instances affects that 
+<a href="drm/classes/Model.htm">&lt;Model&gt;</a>, without side 
+effects on unrelated <a href="drm/classes/Model.htm">&lt;Model&gt;</a>s.
+</p><p>
+Another consequence of these constraints is that a 
+<a href="drm/classes/Variable.htm">&lt;Variable&gt;</a>
+instance cannot belong to the component tree of more than one
+&lt;Model&gt;. This is only logical - the rotation of an airplane
+propeller and that of a ceiling fan are both rotational quantities,
+but they are not driven by the same control system.
+</p><p>
+A <a href="drm/classes/Variable.htm">&lt;Variable&gt;</a> instance 
+cannot be a component of both a <a href="drm/classes/Model.htm">
+&lt;Model&gt;</a> and an <a href="drm/classes/EnvironmentRoot.htm">
+&lt;Environment Root&gt;</a>. A 
+<a href="drm/classes/Variable.htm">&lt;Variable&gt;</a>
+within a <a href="drm/classes/Model.htm">&lt;Model&gt;</a> 
+specifies a controlling variable for that
+one construct, while an environmental variable expresses a more
+'global' quantity, such as prevailing wind direction or
+air temperature.
+</p><p>
+Since a <a href="drm/classes/ControlLink.htm">&lt;Control Link&gt;</a> 
+always (in practice) uses an <a href="drm/classes/Expression.htm">
+&lt;Expression&gt;</a> containing a <a href="drm/classes/Variable.htm">
+&lt;Variable&gt;</a>, <a href="drm/classes/ControlLink.htm">
+&lt;Control Link&gt;</a> instances only appear within the context of 
+<a href="drm/classes/Model.htm">&lt;Model&gt;</a> and
+<a href="drm/classes/EnvironmentRoot.htm">&lt;Environment Root&gt;</a> 
+component trees.
+</p><p>
+The <a href="drm/classes/InterfaceTemplate.htm">&lt;Interface Template&gt;</a> 
+component of a <a href="drm/classes/Model.htm">&lt;Model&gt;</a> has
+ordered associations to every <a href="drm/classes/Variable.htm">
+&lt;Variable&gt;</a> within that <a href="drm/classes/Model.htm">
+&lt;Model&gt;</a>. This ensures that the end user does not have to 
+search the entire <a href="drm/classes/Model.htm">&lt;Model&gt;</a> to 
+find all the <a href="drm/classes/Variable.htm">&lt;Variable&gt;</a> 
+instances. The mechanism can be described by a lock-and-key analogy. An
+<a href="drm/classes/InterfaceTemplate.htm">&lt;Interface Template&gt;</a> 
+defines the 'lock' - all the <a href="drm/classes/Variable.htm">
+&lt;Variable&gt;</a> instances that must be supplied with values when 
+the <a href="drm/classes/Model.htm">&lt;Model&gt;</a>
+is instanced in a playbox. Each model instance must supply its
+own 'key' - a set of <a href="drm/classes/Expression.htm">
+&lt;Expression&gt;</a> instances to be plugged
+into that set of <a href="drm/classes/Variable.htm">&&lt;Variable&gt;</a>s.
+</p><p>
+In practice, every <a href="drm/classes/ControlLink.htm">
+&lt;Control Link&gt</a>; instance either has a
+<a href="drm/classes/Variable.htm">&lt;Variable&gt;</a> as its 
+controlling <a href="drm/classes/Expression.htm">&lt;Expression&gt;</a>, or
+a <a href="drm/classes/Function.htm">&lt;Function&gt;</a> that is in 
+turn controlled by a <a href="drm/classes/Variable.htm">&lt;Variable&gt;</a>.
+If the <a href="drm/classes/ControlLink.htm">&lt;Control Link&gt;</a> 
+value could never change state, then
+the target fields' values would be fixed, and there would be
+no need for a controlling <a href="drm/classes/Expression.htm">
+&lt;Expression&gt;</a> to be present.
+</p></td>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="33">3.3</a></th>
+<th class="doc_set_toc_outline_description">
+The <a href="drm/classes/Function.htm">&lt;Function&gt;</a> Class
+</th></tr>
+
+<tr><td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description">
+<table class="doc_set_toc">
+<tr>
+<th class="doc_set_toc_outline_number"><a name="331">3.3.1</a></th>
+<th class="doc_set_toc_outline_description">Overview</th>
+</tr>
+
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+<a href="drm/classes/Function.htm">&lt;Function&gt;</a> instances are 
+used as <a href="drm/classes/Expression.htm">&lt;Expression&gt;</a>s for
+which the value is determined by evaluating arguments and passing
+them through some function. A <a href="drm/classes/Function.htm">
+&lt;Function&gt;</a> aggregates its arguments as a set of ordered 
+<a href="drm/classes/Expression.htm">&lt;Expression&gt;</a> components,
+where the exact interpretation of each argument is defined by
+the specific function. The arguments, together with the definition
+of the function, determine the value &quot;returned&quot; by the
+<a href="drm/classes/Function.htm">&lt;Function&gt;</a>. The abstract 
+class <a href="drm/classes/Function.htm">&lt;Function&gt;</a> has 2
+concrete subclasses: <a href="drm/classes/PredefinedFunction.htm">
+&lt;Predefined Function&gt;</a> and 
+<a href="drm/classes/PseudoCodeFunction.htm">&lt;Pseudo-Code Function&gt;</a>.
+</p></td>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="332">3.3.2</a></th>
+<th class="doc_set_toc_outline_description">
+The <a href="drm/classes/PredefinedFunction.htm">&lt;Predefined Function&gt;</a> Class
+</th>
+</tr>
+
+<tr><td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+The <a href="drm/classes/PredefinedFunction.htm">
+&lt;Predefined Function&gt;</a> class specifies the function
+from the <a href="drm/types/SE_Predefined_Function.htm">
+SE_Predefined_Function</a> enumeration. These functions
+fall into various categories.
+</p>
+<UL>
+<li><STRONG><I>Mathematical Constants.</I></STRONG>
+<p>
+An example of this category is
+<a href="drm/types/SE_Predefined_Function.htm#SE_PREDEFFN_PI">SE_PREDEFFN_PI</a>.
+</p></li>
+<li><STRONG><I>Unary Mathematical Functions</I></STRONG>
+<p>
+These functions take a single argument.
+Examples of these include such trigonometric functions
+as <a href="drm/types/SE_Predefined_Function.htm#SE_PREDEFFN_SINE">sine</a> 
+and <a href="drm/types/SE_Predefined_Function.htm#SE_PREDEFFN_COSINE">cosine</a>.
+</p></li>
+<li><STRONG><I>Unary Logical Functions</I></STRONG>
+<p>
+These functions take a single argument.
+An example of this is the 
+<a href="drm/types/SE_Predefined_Function.htm#SE_PREDEFFN_NOT">NOT</a> 
+function.
+</p></li>
+<li><STRONG><I>Binary Mathematical Functions</I></STRONG>
+<p>
+These functions take two arguments.
+Examples of these include such arithmetic functions as
+<a href="drm/types/SE_Predefined_Function.htm#SE_PREDEFFN_ADD">ADDITION</a>
+and 
+<a href="drm/types/SE_Predefined_Function.htm#SE_PREDEFFN_SUBTRACT">SUBTRACTION</a>.
+</p></li>
+<li><STRONG><I>Binary Logical Functions</I></STRONG>
+<p>
+These functions take two arguments.
+Examples of these include such functions
+as <a href="drm/types/SE_Predefined_Function.htm#SE_PREDEFFN_AND">AND</a> 
+and <a href="drm/types/SE_Predefined_Function.htm#SE_PREDEFFN_OR">OR</a>.
+</p></li>
+<li><STRONG><I>Other</I></STRONG>
+<p>
+A variety of other useful functions are provided, although
+not all are currently capable of static evaluation by the
+SEDRIS API at this time. Some are applicable only at
+run-time; see <a href="drm/types/SE_Predefined_Function.htm">
+SE_Predefined_Function</a> for specifics.
+</p></li>
+</UL>
+<p>
+The number and type of arguments required for a 
+<a href="drm/types/SE_Predefined_Function.htm">&lt;Predefined Function&gt;</a>
+therefore depends upon the function. The arguments of a
+<a href="drm/types/SE_Predefined_Function.htm">&lt;Predefined Function&gt;</a> 
+are specified by attaching them as
+component <a href="drm/classes/Expression.htm">&lt;Expression&gt;</a> 
+instances to the 
+<a href="drm/types/SE_Predefined_Function.htm">&lt;Predefined Function&gt;</a>
+itself. The components of a 
+<a href="drm/types/SE_Predefined_Function.htm">&lt;Predefined Function&gt;<a/> 
+are always its arguments, and are ordered so that the assignment of each
+to its specific corresponding argument is unambiguous. A
+corollary is that functions that require no arguments have
+no components, and a further corollary is that the number of
+<a href="drm/classes/Expression.htm">&lt;Expression&gt;</a> components 
+should not exceed the number of arguments for the given function.
+</p></td>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="333">3.3.3</a></th>
+<th class="doc_set_toc_outline_description">
+The <a href="drm/classes/PseudoCodeFunction.htm">&lt;Pseudo-Code Function&gt;</a> Class
+</th>
+</tr>
+
+<tr><td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+<a href="drm/classes/PseudoCodeFunction.htm">
+&lt;Pseudo-Code Function&gt;</a> is used to represent functions that are
+too complex to use <a href="drm/classes/Expression.htm">&lt;Expression&gt;</a> 
+trees, or that require looping, branching, or other complex operations. 
+These instances contain fields that describe the desired behaviour in 
+human-readable form.
+</p><p>
+<a href="drm/classes/PseudoCodeFunction.htm">&lt;Pseudo-Code Function&gt;</a> 
+is supported for 3 reasons. First, it
+is nearly impossible to capture every possible function that could
+be used to defined the behaviour of control-linked objects. Second,
+<a href="drm/classes/Expression.htm">&lt;Expression&gt;</a> instances 
+cannot define functions that require
+looping, branching, and so on. Finally, given the first two points,
+it is recognized that many functions, while relatively simple when
+viewed as pseudo-code or code fragments, would become overly complicated
+if converted to <a href="drm/classes/Expression.htm">&lt;Expression&gt;</a> 
+trees.
+</p><p>
+The reader is asked to keep in mind that while any valid 
+<a href="drm/classes/Expression.htm">&lt;Expression&gt;</a>
+can be converted into executable code or structures that can be directly
+used by a consuming system, most systems will not use them that way.
+Currently, most consuming systems require that an 
+<a href="drm/classes/Expression.htm">&lt;Expression&gt;</a>
+be re-coded into the consuming functions. For complex functions,
+pseudo-code may be easier to convert.
+</p></td>
+</tr>
+</TABLE>
+</td></tr>
+</tr>
+</TABLE></div>
+<p>
+<HR>
+<FONT color="#FF0000">Return to:</font>
+<b><a href="#Top">Top of this Page</a></b>,
+<b><a href="p4v5.htm">Table of Contents</a></b>
+</p>
+
+<div class="CenterDiv">
+<table class="doc_set_header">
+<tr><td>
+<table class="doc_set_header">
+<tr><td class="doc_set_footer" align="left">
+Last updated: July 1, 2011
+</td>
+<td class="doc_set_footer" align="right">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td>
+</tr>
+</table>
+</td></tr>
+</table>
+</div>
+</body>
+</html>

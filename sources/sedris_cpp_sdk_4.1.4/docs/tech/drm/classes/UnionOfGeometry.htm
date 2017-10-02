@@ -1,0 +1,434 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Union Of Geometry</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Union Of Geometry
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Abstract Class Name: Union Of Geometry</h2>
+<h3>Superclass - <a href="AggregateGeometry.htm">&lt;Aggregate Geometry&gt;</a></h3>
+<h3>Subclasses</h3>
+<UL>
+<LI>
+<a href="UnionOfGeometryHierarchy.htm">&lt;Union Of Geometry Hierarchy&gt;</a> 
+</LI>
+<LI>
+<a href="UnionOfPrimitiveGeometry.htm">&lt;Union Of Primitive Geometry&gt;</a> 
+</LI>
+</UL>
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class is an aggregation of
+ <A href="GeometryRepresentation.htm">&lt;Geometry Representation&gt;</A> instances
+ specifying a standardized mechanism by which to organize the members
+ that compose the union.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet04.pdf"><strong>4</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet23.pdf"><strong>23</strong></A>
+</LI>
+</UL>
+
+<h3>Example</h3>
+<p>
+ See concrete subclasses for examples.
+
+</p>
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ Consider a data provider with a polygonal representation of the
+ outside of a house, which has four walls and four windows.
+ This particular polygonal representation was developed for a
+ non-Zbuffered system, such that the representation groups the
+ polygons in a fixed order to indicate rendering order. Assuming
+ that the polygons are all grouped together, and that the data
+ provider wishes to represent this house with a
+ <A href="Model.htm">&lt;Model&gt;</A> instance, how is the house represented?
+</B></DT>
+<DD><P>
+ The house is represented by a <A href="Model.htm">&lt;Model&gt;</A> instance
+ <span class="ConstructName">M</span>, such that <span class="ConstructName">M</span> has a
+ <A href="GeometryModel.htm">&lt;Geometry Model&gt;</A> component <span class="ConstructName">G</span> and a
+ <A href="ClassificationData.htm">&lt;Classification Data&gt;</A> component C,
+ where the <A href="ClassificationData.htm#tag">tag</A> field of C
+ has the value <A href="../../../../src/lib/edcs/docs/dictionary/ECC_H.htm#ECC_HOUSE">ECC_HOUSE</A>. <span class="ConstructName">G</span> has a
+ <A href="UnionOfPrimitiveGeometry.htm">&lt;Union Of Primitive Geometry&gt;</A> component U.
+</P><P>
+ The
+ <A href="UnionOfPrimitiveGeometry.htm#ordering_reason">ordering_reason</A>
+ field of U is set to
+ <A href="../types/SE_Ordering_Reason.htm#SE_ORDREAS_FIXED_LISTED">SE_ORDREAS_FIXED_LISTED</A>.
+ The lowest priority
+ <A href="Polygon.htm">&lt;Polygon&gt;</A> instances (the walls) are
+ specified first and the higher priority polygons (the windows)
+ are specified last.
+</P></DD>
+<DT><B>
+ What if the house in the previous example were developed
+ for a Zbuffered system?
+</B></DT>
+<DD><P>
+ The polygons would typically be grouped in layers. There
+ are two approaches that could be employed by the modeller
+ depending on how the polygons are grouped.
+</P>
+<OL>
+<LI><P>
+ If all the polygons are one-sided front-facing polygons, the
+ house could be represented by a
+ <A href="UnionOfGeometryHierarchy.htm">&lt;Union Of Geometry Hierarchy&gt;</A>
+ instance with
+ <A href="#ordering_reason">ordering_reason</A> =
+ <A href="../types/SE_Ordering_Reason.htm#SE_ORDREAS_LAYERED_HIGH_QUALITY_RENDERING">SE_ORDREAS_LAYERED_HIGH_QUALITY_RENDERING</A>
+ with two
+ components. The first component is the base layer (all the walls) and
+ the second component (the first decal layer) contains all the windows.
+ In this case, the polygons under a
+ <A href="../types/SE_Ordering_Reason.htm#SE_ORDREAS_LAYERED_HIGH_QUALITY_RENDERING">SE_ORDREAS_LAYERED_HIGH_QUALITY_RENDERING</A>
+ <A href="UnionOfGeometry.htm">&lt;Union Of Geometry&gt;</A> instance are not coplanar,
+ but the rendering priority can still be resolved.
+</P></LI>
+<LI><P>
+ If the modeller grouped the layers into coplanar unions of
+ <A href="Polygon.htm">&lt;Polygon&gt;</A> instances, the DRM structure might be
+ represented as <A href="UnionOfGeometry.htm">&lt;Union Of Geometry&gt;</A> instances
+ with four layered <A href="UnionOfGeometry.htm">&lt;Union Of Geometry&gt;</A>
+ (wall and window) lists the wall first and the window next.
+</P></LI>
+</OL>
+</DD>
+<DT><B>
+ When would a <A href="UnionOfGeometry.htm">&lt;Union Of Geometry&gt;</A> instance
+ have a <A href="ReferenceVector.htm">&lt;Reference Vector&gt;</A> component?
+</B></DT>
+<DD><P>
+ A <A href="UnionOfGeometry.htm">&lt;Union Of Geometry&gt;</A> instance U has a
+ <A href="ReferenceVector.htm">&lt;Reference Vector&gt;</A> component only when
+ U represents an environmental object, and then only when the
+ environmental object's representation supplies information appropriate
+ to such representation. An example of this is a building represented by
+ a <A href="UnionOfGeometry.htm">&lt;Union Of Geometry&gt;</A> instance, which has a
+ <A href="PropertyTable.htm">&lt;Property Table&gt;</A> component
+ of radar cross-sections, for which a
+ <A href="ReferenceVector.htm">&lt;Reference Vector&gt;</A> instance
+ is needed to establish the zero azimuth direction.
+ (See Example 1).
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ConstraintsOnComponents.htm">&lt;&lt;Constraints On Components&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/NonCyclicAggregations.htm">&lt;&lt;Non Cyclic Aggregations&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/PrecedenceofPropertySetIndex.htm">&lt;&lt;Precedence of Property Set Index&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/PropertyConstraints.htm">&lt;&lt;Property Constraints&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ConstraintsOnAssociates.htm">&lt;&lt;Constraints On Associates&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ReferenceSurfaceConstraints.htm">&lt;&lt;Reference Surface Constraints&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ColourMappingConstraints.htm">&lt;&lt;Colour Mapping Constraints&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/DistinctGeometricCentre.htm">&lt;&lt;Distinct Geometric Centre&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ImageMappingFunctionsandTextureCoordinates.htm">&lt;&lt;Image Mapping Functions and Texture Coordinates&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/PresentationDomainConstraints.htm">&lt;&lt;Presentation Domain Constraints&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ClassificationDataConstraints.htm">&lt;&lt;Classification Data Constraints&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/UnionOrganizingPrinciple.htm">&lt;&lt;Union Organizing Principle&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Associated to (one-way) (inherited)</h3>
+<UL>
+<li>zero or more <a href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</a> instances, each through the use of a <a href="BaseAssociationData.htm">&lt;Base Association Data&gt;</a> link object<sup><A href="#Notes_asn_toFeature_Representation" name="asn_toFeature_Representation">1</A></sup></li>
+<li>zero or more <a href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</a> instances, each through the use of a <a href="BaseAssociationData.htm">&lt;Base Association Data&gt;</a> link object<sup><A href="#Notes_asn_toGeometry_Hierarchy" name="asn_toGeometry_Hierarchy">2</A></sup></li>
+</UL>
+<h3>Associated by (one-way) (inherited)</h3>
+<UL>
+<li>zero or more <a href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</a> instances, each through the use of a <a href="BaseAssociationData.htm">&lt;Base Association Data&gt;</a> link object<sup><A href="#Notes_asn_fromFeature_Representation" name="asn_fromFeature_Representation">3</A></sup></li>
+<li>zero or more <a href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</a> instances, each through the use of a <a href="BaseAssociationData.htm">&lt;Base Association Data&gt;</a> link object<sup><A href="#Notes_asn_fromGeometry_Hierarchy" name="asn_fromGeometry_Hierarchy">4</A></sup></li>
+<li>zero or one <a href="HierarchySummaryItem.htm">&lt;Hierarchy Summary Item&gt;</a> instance<sup><A href="#Notes_asn_fromHierarchy_Summary_Item" name="asn_fromHierarchy_Summary_Item">5</A></sup></li>
+<li>zero or more <a href="ReferenceSurface.htm">&lt;Reference Surface&gt;</a> instances<sup><A href="#Notes_asn_fromReference_Surface" name="asn_fromReference_Surface">6</A></sup></li>
+</UL>
+<h3>Composed of (two-way) (inherited)</h3>
+<UL>
+<li>zero or one <a href="ClassificationData.htm">&lt;Classification Data&gt;</a> instance</li>
+<li>zero or more {ordered} <a href="PropertySetIndex.htm">&lt;Property Set Index&gt;</a> instances</li>
+<li>zero or more <a href="PropertyTable.htm">&lt;Property Table&gt;</a> instances</li>
+<li>zero or more <a href="PropertyTableReference.htm">&lt;Property Table Reference&gt;</a> instances</li>
+<li>zero or more <a href="PropertyValue.htm">&lt;Property Value&gt;</a> instances</li>
+<li>zero or one <a href="ReferenceSurface.htm">&lt;Reference Surface&gt;</a> instance</li>
+<li>zero or more <a href="SoundInstance.htm">&lt;Sound Instance&gt;</a> instances</li>
+<li>zero or more <a href="BaseLODData.htm">&lt;Base LOD Data&gt;</a> instances</li>
+<li>zero or one <a href="BoundingVolume.htm">&lt;Bounding Volume&gt;</a> instance</li>
+<li>zero or more <a href="CameraPoint.htm">&lt;Camera Point&gt;</a> instances</li>
+<li>zero or more <a href="CollisionVolume.htm">&lt;Collision Volume&gt;</a> instances<sup><A href="#Notes_cmp_Collision_Volume" name="cmp_Collision_Volume">7</A></sup></li>
+<li>zero or more <a href="Colour.htm">&lt;Colour&gt;</a> instances</li>
+<li>zero or one <a href="ConformalBehaviour.htm">&lt;Conformal Behaviour&gt;</a> instance</li>
+<li>a bounded set of 0..3 <a href="GeometricCentre.htm">&lt;Geometric Centre&gt;</a> instances</li>
+<li>zero or more <a href="GeometryTopologyHierarchy.htm">&lt;Geometry Topology Hierarchy&gt;</a> instances</li>
+<li>zero or more {ordered} <a href="ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</a> instances</li>
+<li>zero or one <a href="LightRenderingProperties.htm">&lt;Light Rendering Properties&gt;</a> instance</li>
+<li>zero or more <a href="LightSource.htm">&lt;Light Source&gt;</a> instances</li>
+<li>zero or one <a href="LSRTransformation.htm">&lt;LSR Transformation&gt;</a> instance<sup><A href="#Notes_cmp_LSR_Transformation" name="cmp_LSR_Transformation">8</A></sup></li>
+<li>zero or one <a href="OverloadPriorityIndex.htm">&lt;Overload Priority Index&gt;</a> instance</li>
+<li>zero or one <a href="PerimeterData.htm">&lt;Perimeter Data&gt;</a> instance</li>
+<li>zero or one <a href="PresentationDomain.htm">&lt;Presentation Domain&gt;</a> instance</li>
+<li>zero or more <a href="PropertyDescription.htm">&lt;Property Description&gt;</a> instances</li>
+<li>zero or one <a href="RenderingPriorityLevel.htm">&lt;Rendering Priority Level&gt;</a> instance</li>
+<li>zero or one <a href="RenderingProperties.htm">&lt;Rendering Properties&gt;</a> instance</li>
+<li>zero or one <a href="SpatialExtent.htm">&lt;Spatial Extent&gt;</a> instance</li>
+<li>zero or one <a href="StampBehaviour.htm">&lt;Stamp Behaviour&gt;</a> instance</li>
+</UL>
+<h3>Composed of (two-way)</h3>
+<UL>
+<li>zero or more <a href="ReferenceVector.htm">&lt;Reference Vector&gt;</a> instances</li>
+</UL>
+
+<h3>Composed of (two-way metadata) (inherited)</h3>
+<UL>
+<li>zero or one <a href="TimeConstraintsData.htm">&lt;Time Constraints Data&gt;</a> instance</li>
+<li>zero or one <a href="DataQuality.htm">&lt;Data Quality&gt;</a> instance</li>
+<li>zero or one <a href="Identification.htm">&lt;Identification&gt;</a> instance</li>
+</UL>
+<h3>Component of (two-way) (inherited)</h3>
+<UL>
+<li>zero or more <a href="AlternateHierarchyRelatedGeometry.htm">&lt;Alternate Hierarchy Related Geometry&gt;</a> instances, each through the use of a <a href="HierarchyData.htm">&lt;Hierarchy Data&gt;</a> link object</li>
+<li>zero or more <a href="AnimationRelatedGeometry.htm">&lt;Animation Related Geometry&gt;</a> instances</li>
+<li>zero or more <a href="ClassificationRelatedGeometry.htm">&lt;Classification Related Geometry&gt;</a> instances, each through the use of a <a href="ClassificationData.htm">&lt;Classification Data&gt;</a> link object</li>
+<li>zero or one <a href="EnvironmentRoot.htm">&lt;Environment Root&gt;</a> instance</li>
+<li>zero or one <a href="GeometryModel.htm">&lt;Geometry Model&gt;</a> instance</li>
+<li>zero or more <a href="LODRelatedGeometry.htm">&lt;LOD Related Geometry&gt;</a> instances, each through the use of a <a href="BaseLODData.htm">&lt;Base LOD Data&gt;</a> link object</li>
+<li>zero or more <a href="OctantRelatedGeometry.htm">&lt;Octant Related Geometry&gt;</a> instances, each through the use of an <a href="OctantData.htm">&lt;Octant Data&gt;</a> link object</li>
+<li>zero or more <a href="PerimeterRelatedGeometry.htm">&lt;Perimeter Related Geometry&gt;</a> instances, each through the use of a <a href="PerimeterData.htm">&lt;Perimeter Data&gt;</a> link object</li>
+<li>zero or more <a href="QuadrantRelatedGeometry.htm">&lt;Quadrant Related Geometry&gt;</a> instances, each through the use of a <a href="QuadrantData.htm">&lt;Quadrant Data&gt;</a> link object</li>
+<li>zero or more <a href="SeparatingPlaneRelations.htm">&lt;Separating Plane Relations&gt;</a> instances, each through the use of a <a href="SeparatingPlaneData.htm">&lt;Separating Plane Data&gt;</a> link object</li>
+<li>zero or more <a href="SpatialIndexRelatedGeometry.htm">&lt;Spatial Index Related Geometry&gt;</a> instances, each through the use of a <a href="SpatialIndexData.htm">&lt;Spatial Index Data&gt;</a> link object</li>
+<li>zero or more <a href="StateRelatedGeometry.htm">&lt;State Related Geometry&gt;</a> instances, each through the use of a <a href="StateData.htm">&lt;State Data&gt;</a> link object</li>
+<li>zero or more <a href="TimeRelatedGeometry.htm">&lt;Time Related Geometry&gt;</a> instances, each through the use of a <a href="TimeConstraintsData.htm">&lt;Time Constraints Data&gt;</a> link object</li>
+<li>zero or more <a href="UnionOfGeometryHierarchy.htm">&lt;Union Of Geometry Hierarchy&gt;</a> instances</li>
+</UL>
+<h2><a name="inherited_field">Inherited Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Boolean.htm">SE_Boolean</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="unique_descendants">unique_descendants</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_unique_descendants">9</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Boolean.htm">SE_Boolean</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="strict_organizing_principle">strict_organizing_principle</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_strict_organizing_principle">10</A></sup></p></td>
+</tr>
+</table>
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Union_Reason.htm">SE_Union_Reason</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="union_reason">union_reason</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_union_reason">11</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Ordering_Reason.htm">SE_Ordering_Reason</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="ordering_reason">ordering_reason</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_ordering_reason">12</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Associated to Notes</h3>
+<br>
+<h4><a href="#asn_toFeature_Representation" name="Notes_asn_toFeature_Representation">Feature_Representation</a></h4>
+ An association between a
+ <A href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</A>
+ instance and a
+ <A href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> instance
+ indicates that the environmental object(s) that they
+ represent have the semantic relationship indicated by
+ the <A href="BaseAssociationData.htm">&lt;Base Association Data&gt;</A>
+ link object on the association relationship.
+</P>
+<br>
+<h4><a href="#asn_toGeometry_Hierarchy" name="Notes_asn_toGeometry_Hierarchy">Geometry_Hierarchy</a></h4>
+ An association between two
+ <A href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> instances
+ indicates that the environmental object(s) that they
+ represent have the semantic relationship indicated by
+ the <A href="BaseAssociationData.htm">&lt;Base Association Data&gt;</A>
+ link object on the association relationship.
+</P>
+<h3>Associated from Notes</h3>
+<br>
+<h4><a href="#asn_fromFeature_Representation" name="Notes_asn_fromFeature_Representation">Feature_Representation</a></h4>
+ An association between a
+ <A href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</A>
+ instance and a
+ <A href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> instance
+ indicates that the environmental object(s) that they
+ represent have the semantic relationship indicated by
+ the <A href="BaseAssociationData.htm">&lt;Base Association Data&gt;</A>
+ link object on the association relationship.
+</P>
+<br>
+<h4><a href="#asn_fromGeometry_Hierarchy" name="Notes_asn_fromGeometry_Hierarchy">Geometry_Hierarchy</a></h4>
+ An association between two
+ <A href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> instances
+ indicates that the environmental object(s) that they
+ represent have the semantic relationship indicated by
+ the <A href="BaseAssociationData.htm">&lt;Base Association Data&gt;</A>
+ link object on the association relationship.
+</P>
+<br>
+<h4><a href="#asn_fromHierarchy_Summary_Item" name="Notes_asn_fromHierarchy_Summary_Item">Hierarchy_Summary_Item</a></h4>
+ An association from a
+ <A href="HierarchySummaryItem.htm">&lt;Hierarchy Summary Item&gt;</A>
+ instance to a <A href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A>
+ instance indicates that the
+ <A href="HierarchySummaryItem.htm">&lt;Hierarchy Summary Item&gt;</A> instance
+ summarizes that <A href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A>
+ instance.
+</P>
+<br>
+<h4><a href="#asn_fromReference_Surface" name="Notes_asn_fromReference_Surface">Reference_Surface</a></h4>
+ An association from a
+ <A href="ReferenceSurface.htm">&lt;Reference Surface&gt;</A> instance to a
+ <A href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> instance indicates
+ that the <A href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A>
+ instance organizes the geometric objects that specify
+ the reference surface geometry of the
+ <A href="ReferenceSurface.htm">&lt;Reference Surface&gt;</A> instance.
+</P>
+<h3>Composed of Notes</h3>
+<br>
+<h4><a href="#cmp_Collision_Volume" name="Notes_cmp_Collision_Volume">Collision_Volume</a></h4>
+ In the case where multiple
+ <A href="CollisionVolume.htm">&lt;Collision Volume&gt;</A> components are
+ specified for the
+ <A href="AggregateGeometry.htm">&lt;Aggregate Geometry&gt;</A> instance,
+ the union
+ of the volumes thus specified is used in collision detection.
+</P>
+<br>
+<h4><a href="#cmp_LSR_Transformation" name="Notes_cmp_LSR_Transformation">LSR_Transformation</a></h4>
+ An <A href="AggregateGeometry.htm">&lt;Aggregate Geometry&gt;</A> instance can have
+ an <A href="LSRTransformation.htm">&lt;LSR Transformation&gt;</A> component only when the
+ <A href="AggregateGeometry.htm">&lt;Aggregate Geometry&gt;</A> instance is within
+ the scope of an LSR 3D SRF.
+<h3>Fields Notes</h3>
+<h4><a href="#unique_descendants" name="Notes_unique_descendants">unique_descendants</a></h4>
+<P>
+ If the value of the
+ <A href="#unique_descendants">unique_descendants</A>
+ field is <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A>, each
+ descendant of this aggregation, that is, each
+ <A href="GeometryRepresentation.htm">&lt;Geometry Representation&gt;</A>
+ instance that exists in the component tree
+ rooted at the <A href="AggregateGeometry.htm">&lt;Aggregate Geometry&gt;</A>
+ instance shall be unique, in the
+ sense that it shall appear in only one branch
+ of this aggregation.
+ If <A href="#unique_descendants">unique_descendants</A>
+ is <A href="../types/SE_Boolean.htm#SE_FALSE">SE_FALSE</A>, at least one
+ <A href="GeometryRepresentation.htm">&lt;Geometry Representation&gt;</A> instance
+ appears in more than one branch of the aggregation.
+</P>
+<h4><a href="#strict_organizing_principle" name="Notes_strict_organizing_principle">strict_organizing_principle</a></h4>
+<P>
+ If the value of the
+ <A href="#strict_organizing_principle">strict_organizing_principle</A>
+ field is <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A>, each
+ branch of this aggregation
+ strictly complies with the organizing principle for its
+ particular subclass. If this value is
+ <A href="../types/SE_Boolean.htm#SE_FALSE">SE_FALSE</A>, at least
+ one branch does not strictly comply with the given
+ organizing principle. See the organizing principle constraint
+ for each specific subclass for details.
+</P>
+<h4><a href="#union_reason" name="Notes_union_reason">union_reason</a></h4>
+<P>
+ The <A href="#union_reason">union_reason</A> field
+ specifies the reason why the
+ <A href="UnionOfGeometry.htm">&lt;Union Of Geometry&gt;</A> instance
+ was created to organize its components.
+</P>
+<h4><a href="#ordering_reason" name="Notes_ordering_reason">ordering_reason</a></h4>
+<P>
+ The <A href="#ordering_reason">ordering_reason</A>
+ field specifies whether the ordering of the
+ <A href="GeometryRepresentation.htm">&lt;Geometry Representation&gt;</A> components of the
+ <A href="UnionOfGeometry.htm">&lt;Union Of Geometry&gt;</A> instance is semantically
+ significant and, if so, what that significance is.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="UnionOfFeatures.htm">Union Of Features</A>.
+<strong>Next:</strong> <A href="UnionOfGeometryHierarchy.htm">Union Of Geometry Hierarchy</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

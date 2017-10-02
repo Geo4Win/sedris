@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE_Store</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Types
+</font>
+<br>
+<font color="#ffffff">
+SE_Store
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<PRE>
+/*
+ * TYPEDEF: SE_Store
+ *
+ *   Pointer to a store object.  The definition of a store object is
+ *   hidden by the implementation of this API.  The user of this API simply
+ *   passes in and receives back an SE_Store for functions that deal
+ *   with store objects.
+ *
+ *   A store is an opaque data type, created by calling SE_CreateStore(),
+ *   which is used to provide the memory context within which the API returns
+ *   data.  The behavior of stores, and the data returned within them,
+ *   exhibits the following:
+ *
+ *   1. A store must be created by SE_CreateStore() before it is used.
+ *   2. Data returned in a store is valid until the next time the store is
+ *      used as a parameter to a function, or until the application frees
+ *      the store with SE_FreeStore().
+ *   3. Memory managed by a store is not guaranteed to be released (freed)
+ *      until the store is free with SE_FreeStore().
+ *
+ *   The implementation of the API is at liberty to decide the exact
+ *   allocation scheme.  However, applications should safely expect the
+ *   following performance characteristics:
+ *
+ *   1. Reusing an existing store should always be more efficient (both in
+ *      speed and memory requirements) than freeing a store and creating a
+ *      new one.
+ *   2. Reusing a store to return similarly sized data (for example
+ *      object fields, or portions of a &lt;Data Table&gt; instance), will
+ *      result in the most efficient use of memory space.
+ *
+ *   Use of stores in the SEDRIS API is limited to functions that return
+ *   complex data types, specifically those that involve variable, or dynamic
+ *   length data (such as strings and arrays), and other structures that
+ *   contain other pointer data types.  Atomic data types (such as
+ *   SE_Short_Integer_Unsigned, SE_Long_Float) and opaque handle types
+ *   (such as SE_Object) use pointer types and address of (&amp;) in order to
+ *   return data from the API.
+ */
+</PRE><span class="Code">
+typedef void *SE_Store;
+</span>
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SE_Status_Logger_Ptr.htm">SE_Status_Logger_Ptr</a>.
+<strong>Next:</strong> <a href="SE_Time_Entry.htm">SE_Time_Entry</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

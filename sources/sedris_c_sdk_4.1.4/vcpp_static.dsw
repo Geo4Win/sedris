@@ -1,0 +1,239 @@
+Microsoft Developer Studio Workspace File, Format Version 6.00
+# WARNING: DO NOT EDIT OR DELETE THIS WORKSPACE FILE!
+
+###############################################################################
+
+Project: "all_sdk"=.\src\all_sdk.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name depth
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name itr_test
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name rules_checker
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name stf_test
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name syntax_checker
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name model_viewer
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "depth"=.\src\apps\depth\depth.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name sedris
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "itr_test"=.\src\apps\itr_test\itr_test.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name sedris
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "lib_drm"=.\src\lib\drm\lib_drm.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "lib_edcs"=.\src\lib\edcs\src\lib\lib_edcs.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "lib_raif"=.\src\lib\api_impl\raif\lib_raif.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "lib_srm"=.\src\lib\srm\src\lib\lib_srm.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "lib_stf"=.\src\lib\api_impl\stf_api\lib_stf.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "lib_taccess"=.\src\lib\taccess0\lib_taccess.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "model_viewer"=.\src\apps\model_viewer\model_viewer.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name sedris
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "rules_checker"=.\src\apps\rules_checker\rules_checker.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name sedris
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "sedris"=.\src\lib\sedris.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name lib_drm
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name lib_edcs
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name lib_raif
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name lib_taccess
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name lib_srm
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name lib_stf
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "stf_test"=.\src\apps\stf_test\stf_test.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name sedris
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "syntax_checker"=.\src\apps\syntax_checker\syntax_checker.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name sedris
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+}}}
+
+Package=<3>
+{{{
+}}}
+
+###############################################################################
+

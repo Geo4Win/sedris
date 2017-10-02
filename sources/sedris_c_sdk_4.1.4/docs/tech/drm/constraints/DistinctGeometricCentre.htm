@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Distinct Geometric Centre</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX B - Constraints
+</font>
+<br>
+<font color="#ffffff">
+Distinct Geometric Centre
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h3>Definition</h3>
+<P>
+ If an <A href="../classes/AggregateGeometry.htm">&lt;Aggregate Geometry&gt;</A> instance specifies more than one
+ <A href="../classes/GeometricCentre.htm">&lt;Geometric Centre&gt;</A> component,
+ each shall specify a different value for its
+ <A href="../classes/GeometricCentre.htm#meaning">meaning</A> field.
+</P>
+
+<h3>Rationale</h3>
+ At any given point in time, a body cannot have more than
+ point serving as a specific <A href="../classes/GeometricCentre.htm">&lt;Geometric Centre&gt;</A>.
+<h3>Example</h3>
+<OL>
+<LI><P>
+ Let <span class="ConstructName">G</span> be the DRM object that is the root of the
+ geometric representation of a body <span class="ConstructName">B</span>, such that
+ <span class="ConstructName">G</span> has a <A href="../classes/GeometricCentre.htm">&lt;Geometric Centre&gt;</A> component
+ with <A href="../classes/GeometricCentre.htm#meaning">meaning</A> =
+ <A href="../types/SE_Geometric_Centre_Code.htm#SE_GEOMCTRCOD_CENTRE_OF_MASS">SE_GEOMCTRCOD_CENTRE_OF_MASS</A>.
+ <span class="ConstructName">G</span> cannot have another <A href="../classes/GeometricCentre.htm">&lt;Geometric Centre&gt;</A>
+ component with <A href="../classes/GeometricCentre.htm#meaning">meaning</A> =
+ <A href="../types/SE_Geometric_Centre_Code.htm#SE_GEOMCTRCOD_CENTRE_OF_MASS">SE_GEOMCTRCOD_CENTRE_OF_MASS</A>,
+ because no body <span class="ConstructName">B</span> can have two different
+ centres of mass at the same time.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<p>
+No FAQs supplied.
+</p>
+
+<hr>
+<strong>Prev:</strong> <A href="CylindricalStructure.htm">Cylindrical Structure</A>.
+<strong>Next:</strong> <A href="DistinctLinkObjects.htm">Distinct Link Objects</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

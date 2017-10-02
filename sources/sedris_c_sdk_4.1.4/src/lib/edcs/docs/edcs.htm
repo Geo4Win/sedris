@@ -1,0 +1,221 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- EDCS SDK Release 4.4.0 -->
+<!-- EDCS spec. 4.4 -->
+<html lang="en">
+<head>
+<title>EDCS Reference Manual - EDCS Home</title>
+<META content="text/html; charset=windows-1252" http-equiv="Content-Type">
+<link rel="stylesheet" type="text/css" href="styles/SDK_SEDRIS.css">
+</head>
+<body>
+<div align="center">
+<table border="2" class="doc_set_header">
+<tr><th class="doc_set_header">
+<big><big>
+EDCS Reference Manual
+</big></big>
+<br>
+<font color="#ffffff">
+Environmental Data Coding Specification (EDCS)
+</font>
+</th></tr>
+</table>
+</div>
+<a name="Top" id="Top"></a>
+
+<h3><a name="Intro" id="Intro">EDCS Version 4.3 Introduction</a></h3>
+<p>
+In order to support the unambiguous description of environmental data,
+SEDRIS specifies:
+</p>
+<ul>
+<li>
+a Data Representation Model (DRM)
+</li>
+<li>
+a Spatial Reference Model (SRM), and
+</li>
+<li>
+an Environmental Data Coding Specification (EDCS).
+</li>
+</ul>
+<p>
+While the DRM addresses how to describe &quot;environmental things&quot;
+in terms of data modeling constructs meaningful to simulation developers
+(<i>e.g.</i>, geometry, feature, image, topology, and data table), it explicitly
+avoids specifying &quot;where&quot; the &quot;environmental things&quot;
+are, and enumerating all of the &quot;environmental things&quot; that these
+data modeling constructs could be used to represent.
+</p><p>
+The SRM captures and unifies the spatial models used by SEDRIS, plus
+the many others that are not currently used but can be easily added. These
+models include inertial, quasi-inertial, geo-based, and non-geo-based (purely
+arbitrary Cartesian) systems. The SRM provides a unifying mechanism for
+specification and inclusion of any spatial reference frame and coordinate
+system. Its algorithms are designed to retain a high degree of accuracy
+during transformation and conversion operations (1mm accuracy).
+</p><p>
+The EDCS provides a mechanism to specify the environmental &quot;things&quot;
+that a particular data model construct is intended to represent. That is,
+a &quot;tree&quot; could be represented alternatively as a
+&lt;Point Feature&gt;, an &lt;Aggregate Geometry&gt;,
+a &lt;Data Table&gt;, a &lt;Model&gt;, or
+some combination of these or other DRM constructs. Which of
+these the data modeler (<i>i.e.</i>, the data provider of a SEDRIS transmittal)
+chooses is orthogonal to the semantic of the &quot;thing&quot; that is
+represented (and its location). The provision of such a &quot;thing&quot;
+in a SEDRIS transmittal must result in a shared understanding
+of &quot;what the thing is and what it potentially means&quot; to all
+applications consuming that transmittal.
+</p><p>
+For more detailed information on the EDCS, visit the following pages:
+</p>
+<ul>
+<li>EDCS Background
+<ul>
+<li><a href="edcs_purpose.htm">EDCS Purpose</a></li>
+<li><a href="edcs_overview.htm">EDCS Overview</a></li>
+<li><a href="edcs_structure.htm">EDCS Structure</a></li>
+</ul>
+</li>
+</ul>
+
+<hr>
+<h3><a name="SDK" id="SDK">EDCS Version 4.3 SDK Documentation</a></h3>
+<p>
+The following links provide additional information on the content and
+implementation of EDCS 4.3:
+</p>
+<ul>
+<li><p>
+Dictionaries:
+</p>
+<ul>
+<li>
+<a href="dictionary/ECC.htm">EDCS Classification Dictionary</a>
+</li>
+<li>
+<a href="dictionary/EAC.htm">EDCS Attribute and Enumerant Dictionaries</a>
+</li>
+<li>
+<a href="dictionary/characteristic.htm">EDCS Attribute Value Characteristic Dictionary</a>
+</li>
+<li>
+<a href="dictionary/units.htm">EDCS Unit, Scale, and Unit Equivalence Class Dictionaries</a>
+</li>
+<li>
+<a href="dictionary/groups.htm">EDCS Organization Schema and Group Dictionaries</a>
+</li>
+</ul>
+</li>
+
+<li><p>
+Constants, Functions, and Type Definitions:
+</p>
+<ul>
+<li><a href="constants/index.htm">EDCS Constants</a></li>
+<li><a href="functions/index.htm">EDCS Functions</a></li>
+<li><a href="types/index.htm">EDCS Type Definitions</a></li>
+</ul>
+</li>
+</ul>
+
+<hr>
+<h3>
+<a name="Mapping" id="Mapping">Mapping Environmental Concepts to the EDCS Version 4.3</a>
+</h3>
+<p>
+Concepts may be mapped from other environmental data coding systems to the
+EDCS Version 4.3, and vice versa. Several such mappings have been completed,
+and more are currently in development. Each consists of both a set of data files
+which declaratively specify how concepts from another environmental data
+coding system are individually expressed using concepts in the EDCS
+Version 4.3, and an associated functional API which allows application
+developers to integrate a standard implementation of those concept-to-concept
+mappings into their application.
+</p>
+<p>
+The following subsections provide additional information on these environmental concept mappings.
+</p>
+
+<h4><a name="FACC Edition 2.1 to EDCS Version 4.3" id="FACC Edition 2.1 to EDCS Version 4.3">
+1. Mapping FACC Edition 2.1 to EDCS Version 4.3</a>
+</h4>
+<p>
+<i><small>
+Documentation for this mapping, and the associated API implementation,
+will be made available as a separate package from
+<a href="http://www.sedris.org">www.sedris.org</a>.The following
+hyperlinks will not work unless you have installed the mapping API SDK.
+</small></i>
+</p>
+<ul>
+<li>
+<a href="../facc2p1_to_edcs4px/docs/facc2p1_edcs4px.htm">FACC 2.1 to EDCS 4.3 Mapping Main Page</a>
+</li>
+<li>
+<a href="../facc2p1_to_edcs4px/docs/facc2p1_edcs4px.htm#Part5">FACC 2.1 to EDCS 4.3 Mapping API</a>
+</li>
+<li>
+<a href="../facc2p1_to_edcs4px/docs/index.htm">FACC 2.1 to EDCS 4.3 Release Notes</a>
+</li>
+</ul>
+
+<h4><a name="EDCS Version 4.3 to FACC Edition 2.1" id="EDCS Version 4.3 to FACC Edition 2.1">2. Mapping EDCS Version 4.3 to FACC Edition 2.1</a>
+</h4>
+<p>
+<i><small>
+Documentation for this mapping, and the associated API implementation,
+will be made available as a separate package from
+<a href="http://www.sedris.org">www.sedris.org</a>.  The following
+hyperlinks will not work unless you have installed the mapping API SDK.
+</small></i>
+</p>
+<ul>
+<li>
+<a href="../edcs4px_to_facc2p1/docs/edcs4px_facc2p1.htm">EDCS 4.3 to FACC 2.1 Mapping Main Page</a>
+</li>
+<li>
+<a href="../edcs4px_to_facc2p1/docs/edcs4px_facc2p1.htm#Part5">EDCS 4.3 to FACC 2.1 Mapping API</a>
+</li>
+<li>
+<a href="../edcs4px_to_facc2p1/docs/index.htm">EDCS 4.3 to FACC 2.1 Release Notes</a>
+</li>
+</ul>
+
+<h4><a name="EDCS Version 3.1 to EDCS Version 4.3" id="EDCS Version 3.1 to EDCS Version 4.3">3. Mapping EDCS Version 3.1 to EDCS Version 4.3</a>
+</h4>
+<ul>
+<li>
+<a href="../edcs3p1_to_edcs4px/docs/edcs3p1_edcs4px.htm">EDCS 3.1 to EDCS 4.3 Mapping Main Page</a>
+</li>
+<li>
+<a href="../edcs3p1_to_edcs4px/docs/edcs3p1_edcs4px.htm#Part3">EDCS 3.1 to EDCS 4.3 Mapping API</a>
+</li>
+<li>
+<a href="../edcs3p1_to_edcs4px/docs/index.htm">EDCS 3.1 to EDCS 4.3 Release Notes</a>
+</li>
+</ul>
+
+<hr>
+<font color="#ff0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated:
+July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td>
+</tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

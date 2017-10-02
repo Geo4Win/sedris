@@ -1,0 +1,354 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<title>P4V5 - Control Link Technical Guide</title>
+<META name="Author" CONTENT="SAIC">
+<link rel="stylesheet" type="text/css" href="../styles/SDK_SEDRIS.css">
+</HEAD>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th class="doc_set_header">
+<big><big>
+Control Link Technical Guide
+</big></big>
+<br>
+<FONT color="#FFFFFF">
+Part 4, Volume 5 of the SEDRIS Technology Documentation Set
+</font>
+</th></tr>
+</TABLE></div>
+
+<p>
+The Control Link Technical Guide may be downloaded for local use,
+or may be viewed on-line below.
+</p><p>
+<strong><small>&lt;<a href="http://www.sedris.org/download/documentation/p4v5.zip">DOWNLOAD</a>
+&gt;</small></strong>
+</p><p>
+<HR width="100%">
+</p><p>
+<strong>TABLE OF CONTENTS</strong>
+</p>
+
+<table class="doc_set_toc">
+
+<!-- level 1 of the outline -->
+<tr><th class="doc_set_toc_outline_number">1</th>
+<th class="doc_set_toc_outline_description"><a href="p4v5-1.htm">INTRODUCTION</a></th>
+</tr>
+
+<!-- levels 1.1, 1.2, 1.3 of the outline -->
+<tr><th class="doc_set_toc_outline_number"></th>
+<th><table class="doc_set_toc">
+<tr>
+<th class="doc_set_toc_outline_number">1.1</th>
+<th class="doc_set_toc_outline_description"><a href="p4v5-1.htm#11">Overview</a></th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">1.2</th>
+<th class="doc_set_toc_outline_description"><a href="p4v5-1.htm#12">Prerequisites</a></th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">1.3</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v5-1.htm#13">For Additional Information on SEDRIS</a></th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">1.4</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v5-1.htm#14">Document Conventions and Notations</a></th>
+</tr>
+</table>
+</th>
+</tr>
+
+<!-- level 2 of the outline -->
+<tr>
+<th class="doc_set_toc_outline_number">2</th>
+<th class="doc_set_toc_outline_description"><a href="p4v5-2.htm">BACKGROUND AND MOTIVATION</a></th>
+</tr>
+
+<!-- level 3 of the outline -->
+<tr><th class="doc_set_toc_outline_number">3</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v5-3.htm">&lt;CONTROL LINK&gt; INSTANCES AND &lt;EXPRESSION&gt; INSTANCES</a>
+</th>
+</tr>
+
+<!-- levels 3.1, 3.2, 3.3 of the outline -->
+<tr><th class="doc_set_toc_outline_number"></th>
+<th class="doc_set_toc_outline_description"><table class="doc_set_toc">
+<tr>
+<th class="doc_set_toc_outline_number">3.1</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v5-3.htm#31">Overview</a>
+</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">3.2</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v5-3.htm#32">The &lt;Literal&gt; and &lt;Variable&gt; Classes</a>
+</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">3.3</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v5-3.htm#33">The &lt;Function&gt; Class</a>
+</th>
+</tr>
+
+<tr><th class="doc_set_toc_outline_number"></th>
+<th class="doc_set_toc_outline_description">
+<table class="doc_set_toc">
+<tr>
+<th class="doc_set_toc_outline_number">3.3.1</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v5-3.htm#331">Overview</a>
+</th></tr>
+
+<tr><th class="doc_set_toc_outline_number">3.3.2</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v5-3.htm#332">The &lt;Predefined Function&gt; Class</a>
+</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">3.3.3</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v5-3.htm#333">The &lt;Pseudo-Code Function&gt; Class</a>
+</th></tr>
+</table>
+</th>
+</tr>
+</table>
+</th>
+</tr>
+
+<!-- level 4 of the outline -->
+<tr>
+<th class="doc_set_toc_outline_number">4</th>
+<th class="doc_set_toc_outline_description"><a href="p4v5-4.htm">SUBCLASSES OF &lt;CONTROL LINK&gt;</a></th>
+</tr>
+
+<!-- levels 4.1, 4.2, 4.3 of the outline -->
+<tr><th></th>
+<th><table  class="doc_set_toc">
+
+<tr>
+<th class="doc_set_toc_outline_number">4.1</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v5-4.htm#41">&lt;Control Link&gt; Subclasses That Turn On and Off</a>
+</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"></th>
+<th class="doc_set_toc_outline_description">
+<table class="doc_set_toc">
+<tr><th class="doc_set_toc_outline_number">4.1.1</th>
+<th class="doc_set_toc_outline_description"><a href="p4v5-4.htm#411">&lt;Light Source Control Link&gt;</a></th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">4.1.2</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v5-4.htm#412">&lt;Light Rendering Properties Control Link&gt;</a>
+</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">4.1.3</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v5-4.htm#413">&lt;Sound Instance Control Link&gt;</a>
+</th>
+</tr>
+</TABLE>
+
+<tr>
+<th class="doc_set_toc_outline_number">4.2</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v5-4.htm#42">&lt;State Control Link&gt;</a></th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"></th>
+<th class="doc_set_toc_outline_description">
+<table class="doc_set_toc">
+<tr>
+<th class="doc_set_toc_outline_number">4.2.1</th>
+<th class="doc_set_toc_outline_description"><a href="p4v5-4.htm#421">Overview</a></th></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">4.2.2</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v5-4.htm#422">Applying &lt;State Control Link&gt; to a &lt;State Related Geometry&gt;</a>
+</th></tr>
+</TABLE>
+</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">4.3</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v5-4.htm#43">Customizing or Dynamically Changing Appearance</a>
+</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"></th>
+<th class="doc_set_toc_outline_description">
+<table class="doc_set_toc">
+<tr>
+<th class="doc_set_toc_outline_number">4.3.1</th>
+<th class="doc_set_toc_outline_description"><a href="p4v5-4.htm#431">
+&lt;Control Link&gt; Subclasses for the Subclasses of &lt;Colour Data&gt;</a>
+</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">4.3.2</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v5-4.htm#432">&lt;Translucency Control Link&gt;</a>
+</th>
+</tr>
+
+<tr><th class="doc_set_toc_outline_number">4.3.3</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v5-4.htm#433">&lt;Texture Coordinate Control Link&gt;</a>
+</th>
+</tr>
+</TABLE>
+</th></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">4.4</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v5-4.htm#44">&lt;Control Link&gt; Subclasses for Table Indices</a>
+</th>
+</tr>
+
+<tr><th></th><th>
+<table class="doc_set_toc">
+<tr><th class="doc_set_toc_outline_number">4.4.1</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v5-4.htm#441">&lt;Property Set Index Control Link&gt;</a>
+</th>
+</tr>
+
+<tr><th class="doc_set_toc_outline_number">4.4.2</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v5-4.htm#442">&lt;Colour Index Control Link&gt;</a>
+</th>
+</tr>
+
+<tr><th class="doc_set_toc_outline_number">4.4.3</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v5-4.htm#443">&lt;Property Table Reference Control Link&gt;</a>
+</th>
+</tr>
+</TABLE>
+</th></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">4.5</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v5-4.htm#45">&lt;LSR Location 3D Control Link&gt;</a>
+</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">4.6</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v5-4.htm#46">&lt;Reference Vector Control Link&gt;</a>
+</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">4.7</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v5-4.htm#47">Motion: &lt;Control Link&gt; Subclasses for Subclasses of
+&lt;LSR Transformation Step&gt;</a>
+</th>
+</tr>
+
+<tr><th class="doc_set_toc_outline_number"></th>
+<th class="doc_set_toc_outline_description">
+<table class="doc_set_toc">
+<tr>
+<th class="doc_set_toc_outline_number">4.7.1</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v5-4.htm#471">&lt;Rotation Control Link&gt;</a>
+</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">4.7.2</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v5-4.htm#472">&lt;Translation Control Link&gt;</a>
+</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">4.7.3</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v5-4.htm#473">&lt;Scale Control Link&gt;</a>
+</th>
+</tr>
+</TABLE>
+</th></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">4.8</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v5-4.htm#48">&lt;Polygon Control Link&gt;</a>
+</th>
+</tr>
+</TABLE>
+</th>
+</tr>
+
+<!-- level 5 of the outline -->
+<tr><th class="doc_set_toc_outline_number">5</th>
+<th class="doc_set_toc_outline_description"><a href="p4v5-5.htm">WHERE TO GO FROM HERE</a></th>
+</tr>
+
+<!-- level 6 of the outline -->
+<!--
+<tr><th class="doc_set_toc_outline_number">6</th>
+<th class="doc_set_toc_outline_description"><a href="p4v5-6.htm">REFERENCES</a></th>
+</tr>
+-->
+</TABLE>
+</tr>
+<p>
+<HR>
+<FONT color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a></strong>
+<br><br>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr><td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td>
+</tr>
+</TABLE>
+</td></tr>
+</TABLE></div>
+</BODY>
+</HTML>

@@ -1,0 +1,186 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head><title>Migration Guide for EDCS</title>
+<META name="Author" CONTENT="SAIC">
+<link rel="stylesheet" type="text/css" href="styles/SDK_SEDRIS.css">
+</head>
+
+<!-- EDCS spec. 4.4 -->
+<a name="Top" id="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th align="center">
+<big><big>
+MIGRATION GUIDE
+</big></big>
+<br /><font color="#ffffff">
+EDCS and EDCS API
+</font>
+</th></tr>
+</table>
+</div>
+<p>
+Please note that all EDCS source files carry, as part of
+their leader comment information, comments that specify
+the EDCS release to which they correspond.
+</p>
+<ol type='I'>
+<li><a href="#Type">Type Changes</a>
+</li>
+<li><a href="#Function">Function Changes</a>
+</li>
+</ol>
+<hr />
+<br />
+<p>
+The <font color="#008000">marked</font> items indicate areas that can
+be handled by the name change script.
+</p>
+<a name="Type" id="Type"></a>
+<ol type='I'>
+<li><p>Type Changes.
+<ol>
+<li><p>EDCS_Attribute_Value
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>u</td> <td>value</td></tr>
+<tr><td>u.characteristic_value</td> <td>(moved to component)</td></tr>
+<tr><td>u.enumerant_value</td> <td>value.enumeration_value</td></tr>
+</table>
+<br /><br /></li>
+<li><p><font color="#008000">EDCS_Attribute_Value_Type maps to EDCS_Attribute_Value_Type.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>EDCS_AVT_VALUE_CHARACTERISTIC</td><td>&nbsp;</td></tr>
+</table>
+<br /><br /></li>
+<li><p>EDCS_Count_Value
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>u</td> <td>value</td></tr>
+</table>
+<br /><br /></li>
+<li><p><font color="#008000">EDCS_Dictionary_Type maps to EDCS_Dictionary_Type.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">EDCS_DT_SCALE</font></td>
+    <td><font color="#008000">EDCS_DT_UNIT_SCALE</font></td></tr>
+</table>
+<br /><br /></li>
+<li><p>EDCS_Integer_Value
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>u</td> <td>value</td></tr>
+</table>
+<br /><br /></li>
+<li><p>EDCS_Long_Float_Value split into multiple targets.
+</p>
+<ol type='a'>
+<li><p>EDCS_Long_Float_Value
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>u</td> <td>value</td></tr>
+<tr><td>(none)</td><td>unit</td></tr>
+<tr><td>(none)</td><td>unit_scale</td></tr>
+</table>
+<br /><br /></li>
+<li><p>EDCS_Long_Float_Value maps to SE_Long_Float_Value.
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>u</td> <td>value</td></tr>
+</table>
+<br /><br /></li>
+</ol>
+</li>
+<li><p>EDCS_Real_Value split into multiple targets.
+</p>
+<ol type='a'>
+<li><p>EDCS_Real_Value
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>scale</td> <td>unit_scale</td></tr>
+<tr><td>EDCS_Long_Float_Value value</td> <td>EDCS_Long_Float value</td></tr>
+</table>
+<br /><br /></li>
+<li><p>EDCS_Real_Value maps to EDCS_Long_Float_Value.
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>scale</td> <td>unit_scale</td></tr>
+<tr><td>value</td> <td>split into: numeric_value_type, value</td></tr>
+</table>
+<br /><br /></li>
+</ol>
+</li>
+<li><p><font color="#008000">EDCS_Scale_Code maps to EDCS_Unit_Scale_Code.</font>
+</p>
+</li>
+<li><p><font color="#008000">EDCS_Scale_Dictionary_Entry maps to EDCS_Unit_Scale_Dictionary_Entry.</font>
+</p></li>
+<li><p><font color="#008000">EDCS_Status_Code maps to EDCS_Status_Code.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">EDCS_SC_INVALID_INPUT_SCALE</font></td>
+    <td><font color="#008000">EDCS_SC_INVALID_INPUT_UNIT_SCALE</font></td></tr>
+<tr><td><font color="#008000">EDCS_SC_INVALID_OUTPUT_SCALE</font></td>
+    <td><font color="#008000">EDCS_SC_INVALID_OUTPUT_UNIT_SCALE</font></td></tr>
+</table>
+<br /><br /></li>
+</ol>
+</li>
+<li><p><a name="Function" id="Function">Function Changes</a>
+</p>
+<table border="1">
+<tr><th>Old</th> <th>New</th></tr>
+<tr>
+<td>EDCS_PrintScaleCode</td>
+<td><a href="functions/EDCS_PrintUnitScaleCode.htm">EDCS_PrintUnitScaleCode</a></td>
+</tr>
+<tr>
+<td>EDCS_PrintScaleDictionaryEntry</td>
+<td><a href="functions/EDCS_PrintUnitScaleDictionaryEntry.htm">EDCS_PrintUnitScaleDictionaryEntry</a></td>
+</tr>
+<tr>
+<td>EDCS_PrintScaleLabel</td>
+<td><a href="functions/EDCS_PrintUnitScaleLabel.htm">EDCS_PrintUnitScaleLabel</a></td>
+</tr>
+<tr>
+<td>EDCS_ValidScaleCode</td>
+<td><a href="functions/EDCS_ValidUnitScaleCode.htm">EDCS_ValidUnitScaleCode</a></td>
+</tr>
+<tr>
+<td>EDCS_ValidScaleDictionaryEntry</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+</li>
+</ol>
+<hr />
+Questions or comments should be directed to: help@sedris.org
+<br /><br />
+<table class="doc_set_header">
+<tr><td>
+<table class="doc_set_header">
+<tr>
+<td align="left"><small><font color="#00ffffff">
+Last updated: July 1, 2011
+</font></small></td>
+<td align="right"><small><font color="#00ffffff">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</font></small></td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

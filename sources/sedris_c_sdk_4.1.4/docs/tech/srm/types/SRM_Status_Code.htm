@@ -1,0 +1,221 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SRM_Status_Code</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SRM Reference Manual</big></big>
+<br>
+<!-- SRM spec. 4.1 -->
+<font color="#ffffff">
+Types
+</font>
+<br>
+<font color="#ffffff">
+SRM_Status_Code
+</font>
+</th></tr>
+</table></div>
+
+<!-- SRM SDK Release 4.1.4 -->
+
+<PRE>
+/*!
+ * REGISTERABLE ENUM: SRM_Status_Code
+ *
+ *   This data type specifies the return codes used by the SRM
+ *   coordinate operations (conversion and transformation).
+ */
+</PRE><span class="Code">
+typedef <a href="SRM_Integer.htm">SRM_Integer</a> SRM_Status_Code;
+</span>
+<table>
+<tr><th>Enumerant</th> <th>Definition</th> <th>Value</th></tr>
+<tr><td class="CFunction"><a name="SRM_STATCOD_SUCCESS">SRM_STATCOD_SUCCESS</a></td>
+<td class="CFunction"><PRE>
+ Coordinate operation successful.
+</PRE></td>
+<td class="CFunction">1</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_STATCOD_INVALID_SRF">SRM_STATCOD_INVALID_SRF</a></td>
+<td class="CFunction"><PRE>
+ The spatial reference frame (SRF) parameters are wrong,
+ or the pointer is NULL.
+</PRE></td>
+<td class="CFunction">2</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_STATCOD_INVALID_SOURCE_SRF">SRM_STATCOD_INVALID_SOURCE_SRF</a></td>
+<td class="CFunction"><PRE>
+ The source spatial reference frame (SRF) parameters are wrong,
+ or the pointer is NULL.
+</PRE></td>
+<td class="CFunction">3</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_STATCOD_INVALID_SOURCE_COORDINATE">SRM_STATCOD_INVALID_SOURCE_COORDINATE</a></td>
+<td class="CFunction"><PRE>
+ The source coordinate is NULL, or invalid within the source
+ spatial reference frame (SRF).
+</PRE></td>
+<td class="CFunction">4</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_STATCOD_INVALID_TARGET_COORDINATE">SRM_STATCOD_INVALID_TARGET_COORDINATE</a></td>
+<td class="CFunction"><PRE>
+ The target coordinate is NULL, or invalid within the
+ destination SRF.
+</PRE></td>
+<td class="CFunction">5</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_STATCOD_INVALID_POINT1_COORDINATE">SRM_STATCOD_INVALID_POINT1_COORDINATE</a></td>
+<td class="CFunction"><PRE>
+ The point 1 coordinate is NULL, or invalid within the source
+ spatial reference frame (SRF).
+</PRE></td>
+<td class="CFunction">6</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_STATCOD_INVALID_POINT2_COORDINATE">SRM_STATCOD_INVALID_POINT2_COORDINATE</a></td>
+<td class="CFunction"><PRE>
+ The point 2 coordinate is NULL, or invalid within the
+ destination SRF.
+</PRE></td>
+<td class="CFunction">7</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_STATCOD_OPERATION_UNSUPPORTED">SRM_STATCOD_OPERATION_UNSUPPORTED</a></td>
+<td class="CFunction"><PRE>
+ The operation requested is not supported.
+</PRE></td>
+<td class="CFunction">8</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_STATCOD_INVALID_SOURCE_DIRECTION">SRM_STATCOD_INVALID_SOURCE_DIRECTION</a></td>
+<td class="CFunction"><PRE>
+ The source direction is NULL, or invalid.
+</PRE></td>
+<td class="CFunction">9</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_STATCOD_INVALID_TARGET_DIRECTION">SRM_STATCOD_INVALID_TARGET_DIRECTION</a></td>
+<td class="CFunction"><PRE>
+ The target direction is NULL, or invalid.
+</PRE></td>
+<td class="CFunction">10</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_STATCOD_INVALID_CODE">SRM_STATCOD_INVALID_CODE</a></td>
+<td class="CFunction"><PRE>
+ The code is NULL, or invalid.
+</PRE></td>
+<td class="CFunction">11</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_STATCOD_INVALID_INPUT">SRM_STATCOD_INVALID_INPUT</a></td>
+<td class="CFunction"><PRE>
+ The input is NULL, or invalid.
+</PRE></td>
+<td class="CFunction">12</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_STATCOD_CREATION_FAILURE">SRM_STATCOD_CREATION_FAILURE</a></td>
+<td class="CFunction"><PRE>
+ failed creation
+</PRE></td>
+<td class="CFunction">13</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_STATCOD_DESTRUCTION_FAILURE">SRM_STATCOD_DESTRUCTION_FAILURE</a></td>
+<td class="CFunction"><PRE>
+ failed destruction
+</PRE></td>
+<td class="CFunction">14</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_STATCOD_FLOATING_OVERFLOW">SRM_STATCOD_FLOATING_OVERFLOW</a></td>
+<td class="CFunction"><PRE>
+ floating overflow
+</PRE></td>
+<td class="CFunction">15</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_STATCOD_FLOATING_UNDERFLOW">SRM_STATCOD_FLOATING_UNDERFLOW</a></td>
+<td class="CFunction"><PRE>
+ floating underflow
+</PRE></td>
+<td class="CFunction">16</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_STATCOD_FLOATING_POINT_ERROR">SRM_STATCOD_FLOATING_POINT_ERROR</a></td>
+<td class="CFunction"><PRE>
+ floating point error
+</PRE></td>
+<td class="CFunction">17</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_STATCOD_MEMORY_ALLOCATION_ERROR">SRM_STATCOD_MEMORY_ALLOCATION_ERROR</a></td>
+<td class="CFunction"><PRE>
+ Unable to allocate memory
+</PRE></td>
+<td class="CFunction">18</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_STATCOD_BUFFER_OVERFLOW">SRM_STATCOD_BUFFER_OVERFLOW</a></td>
+<td class="CFunction"><PRE>
+ Buffer overflow
+</PRE></td>
+<td class="CFunction">2401</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_STATCOD_ENUMERATION_VALUE_INVALID">SRM_STATCOD_ENUMERATION_VALUE_INVALID</a></td>
+<td class="CFunction"><PRE>
+ Invalid enumeration value
+</PRE></td>
+<td class="CFunction">2402</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_STATCOD_INVALID_SOURCE_ORIENTATION">SRM_STATCOD_INVALID_SOURCE_ORIENTATION</a></td>
+<td class="CFunction"><PRE>
+ The source orientation is NULL, or invalid.
+</PRE></td>
+<td class="CFunction">-100</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_STATCOD_INVALID_TARGET_ORIENTATION">SRM_STATCOD_INVALID_TARGET_ORIENTATION</a></td>
+<td class="CFunction"><PRE>
+ The target orientation is NULL, or invalid.
+</PRE></td>
+<td class="CFunction">-101</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_STATCOD_NOT_IMPLEMENTED">SRM_STATCOD_NOT_IMPLEMENTED</a></td>
+<td class="CFunction"><PRE>
+ not implemented
+</PRE></td>
+<td class="CFunction">-102</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_STATCOD_INACTIONABLE">SRM_STATCOD_INACTIONABLE</a></td>
+<td class="CFunction"><PRE>
+ inactionable
+</PRE></td>
+<td class="CFunction">-103</td>
+</TR>
+</table>
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SRM_SRFT_Parameters.htm">SRM_SRFT_Parameters</a>.
+<strong>Next:</strong> <a href="SRM_TM_Parameters.htm">SRM_TM_Parameters</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

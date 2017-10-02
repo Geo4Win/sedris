@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+  <TITLE>P4V5 - Section 2</TITLE>
+  <META name="Author" CONTENT="Science Applications International Corporation">
+<link rel="stylesheet" type="text/css" href="../styles/SDK_SEDRIS.css">
+</HEAD>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table BORDER=2 class="doc_set_header">
+<tr><th class="doc_set_header">
+<big><big>
+Control Links Technical Guide
+</big></big>
+<br>
+<font color="#ffffff">
+Section 2 - BACKGROUND AND MOTIVATION
+</font>
+</th></tr>
+</table></div>
+<p>
+The concept of <a href="drm/classes/ControlLink.htm">&lt;Control Link&gt;</a>s
+can be applied to a wide range of problems related to representing control
+over the values of fields and states of SEDRIS objects, as well as
+representing the behaviour of such control. This overview will begin by
+discussing <a href="drm/classes/ControlLink.htm">&lt;Control Link&gt;</a>s in
+the context of the three original issues that they were originally designed to
+address. Readers are encouraged to evaluate
+<a href="drm/classes/ControlLink.htm">&lt;Control Link&gt;</a>s and consider
+how they might be used or extended to solve their own problems.
+</p><p>
+The three original issues were:
+</p>
+<ol>
+<li><p>
+Transmittals need a mechanism to allow a consuming system to
+dynamically control objects within a transmittal. The need for this
+control extends beyond extracting individual
+<a href="drm/classes/Model.htm">&lt;Model&gt;</a> instances for use as
+&quot;moving models&quot;, or objects that are moved through or
+within the parent transmittal; it includes the need to identify and
+control the state of objects that are part of the environment that
+have dynamic behaviour. Examples of these objects include:
+</p>
+<ul>
+<li> moving objects, e.g. wind socks, rotating beacons
+</li>
+<li> objects that change appearance dynamically, e.g. with changing radiance
+</li>
+<li> destructible objects, e.g. bridges, buildings
+</li>
+<li> the thermal energy of an automobile as it starts up
+</li>
+<li> tank gun and turret
+</li>
+</ul>
+</li>
+<li><p>
+Transmittals shall be able to represent how the behaviour or state of
+one object affects other objects in the transmittal. Examples of such
+objects include
+</p>
+<ul>
+<li> the relationship of the rotation of various gears in a gear system
+<li> the relationship of the tail rotor rotation to the main
+     rotor rotation on a helicopter
+</ul>
+</li>
+<li><p>
+Transmittals shall be able to represent instances of
+<a href="drm/classes/Model.htm">&lt;Model&gt;</a> instances
+ in which some of the
+     attributes of the <a href="drm/classes/Model.htm">&lt;Model&gt;</a>
+     change from instance to instance. This type of
+     <a href="drm/classes/Model.htm">&lt;Model&gt;</a> is sometimes referred to
+     as a &quot;smart instance&quot; or &quot;basis set&quot;.
+     Examples include:
+</p>
+<ul>
+<li> object clusters, e.g. trees, in which the elevation of each
+     object shall reflect the elevation of the terrain surface below
+     the object
+</li>
+<li> generic objects, e.g. houses, that may have different colours in
+     different instances
+</li>
+<li> objects (e.g. buildings, bridges) in which the vertices
+     representing polygons that &quot;touch&quot; the terrain
+     are required to conform to the terrain without distorting
+     the remaining vertices, so that the object is &quot;level&quot;
+</ul>
+</li>
+</ol>
+<p>
+<HR>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a></strong>,
+<strong><a href="p4v5.htm">Table of Contents</a></strong>
+</p>
+
+<div class="CenterDiv">
+<table class="doc_set_header">
+<tr><td>
+<table class="doc_set_header">
+<tr><td class="doc_set_footer" align="left">
+Last updated: July 1, 2011
+</td>
+<td class="doc_set_footer" align="right">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td>
+</tr>
+</table>
+</td></tr>
+</table>
+</div>
+</body>
+</html>

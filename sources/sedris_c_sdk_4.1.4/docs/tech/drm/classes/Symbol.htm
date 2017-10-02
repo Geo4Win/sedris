@@ -1,0 +1,166 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Symbol</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Symbol
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Symbol</h2>
+<h3>Superclass - <a href="Icon.htm">&lt;Icon&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies a pictograph with a
+ location and is used to identify objects on 2D maps or displays.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet10.pdf"><strong>10</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+This class appears on only one page of the DRM class diagram.
+<h3>Example</h3>
+<OL>
+<LI><P>
+ Standard symbology for a golf course and an appropriate place to draw
+ that symbol on a map are represented by a <A href="Symbol.htm">&lt;Symbol&gt;</A>
+ instance.
+</P></LI>
+<LI><P>
+ On a representation of an operational chart, the tactical overlays
+ are comprised of <A href="Symbol.htm">&lt;Symbol&gt;</A> instances representing
+ the unit and control points.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<p>
+No FAQs supplied.
+</p>
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Composed of (two-way)</h3>
+<UL>
+<li>zero or one <a href="ClassificationData.htm">&lt;Classification Data&gt;</a> instance</li>
+<li>zero or one <a href="Lineage.htm">&lt;Lineage&gt;</a> instance<sup><A href="#Notes_cmp_Lineage" name="cmp_Lineage">1</A></sup></li>
+</UL>
+
+<h3>Composed of (two-way metadata)</h3>
+<UL>
+<li>zero or one <a href="Identification.htm">&lt;Identification&gt;</a> instance<sup><A href="#Notes_cmp_Identification" name="cmp_Identification">2</A></sup></li>
+</UL>
+
+<h3>Component of (two-way) (inherited)</h3>
+<UL>
+<li>zero or more <a href="Label.htm">&lt;Label&gt;</a> instances</li>
+</UL>
+<h3>Component of (two-way)</h3>
+<UL>
+<li>one <a href="SymbolLibrary.htm">&lt;Symbol Library&gt;</a> instance</li>
+</UL>
+
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_String.htm">SE_String</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="name">name</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_name">3</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Symbol_Format.htm">SE_Symbol_Format</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="symbol_format">symbol_format</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_symbol_format">4</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_URN.htm">SE_URN</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="symbol_urn">symbol_urn</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_symbol_urn">5</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Composed of Notes</h3>
+<br>
+<h4><a href="#cmp_Identification" name="Notes_cmp_Identification">Identification</a></h4>
+ If provided, the <A href="Identification.htm">&lt;Identification&gt;</A>
+ component may be used to provide a more detailed description
+ than that specified by the <A href="#name">name</A> field.
+</P>
+<br>
+<h4><a href="#cmp_Lineage" name="Notes_cmp_Lineage">Lineage</a></h4>
+ If provided, the <A href="Lineage.htm">&lt;Lineage&gt;</A> component specifies either
+ information about the events and/or source data
+ used in constructing the <A href="Symbol.htm">&lt;Symbol&gt;</A> instance or
+ lack of knowledge about lineage.
+</P>
+<h3>Fields Notes</h3>
+<h4><a href="#name" name="Notes_name">name</a></h4>
+<P>
+ The <A href="#name">name</A> field specifies a
+ meaningful short name.
+</P>
+<h4><a href="#symbol_format" name="Notes_symbol_format">symbol_format</a></h4>
+<P>
+ The <A href="#symbol_format">symbol_format</A> field
+ specifies the symbol format of the resource
+ (see Annex C, 4 <i>Symbol_Format references</i>).
+</P>
+<h4><a href="#symbol_urn" name="Notes_symbol_urn">symbol_urn</a></h4>
+<P>
+ The <A href="#symbol_urn">symbol_urn</A> field specifies a
+ SEDRIS symbol URN (see <A href="../types/SE_URN.htm">SE_URN</A>).
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="SurfaceGeometry.htm">Surface Geometry</A>.
+<strong>Next:</strong> <A href="SymbolLibrary.htm">Symbol Library</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE ValidDataTableSignature</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX C - Transmittal Access Level 0 API Auxiliary Functions
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+SE ValidDataTableSignature
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../../taccess0/types/SE_Status_Code.htm">SE_Status_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SE_ValidDataTableSignature</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../../drm/types/SE_Integer_Positive.htm">SE_Integer_Positive</a>&nbsp;</td> <td class="CFunction"><a name="element_count"></a>element_count,</td><td class="CFunction"><sup><A href="#Notes_element_count">1</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">const&nbsp;</td><td class="CFunction"><a href="../../drm/types/SE_Integer_Positive.htm">SE_Integer_Positive</a>&nbsp;</td> <td class="CFunction"><a name="table_prop_descript_number"></a>table_prop_descript_number[]</td><td class="CFunction"><sup><A href="#Notes_table_prop_descript_number">2</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+  Checks for duplicate elements in a selected portion of a
+  <A href="../../drm/classes/DataTable.htm">&lt;Data Table&gt;</A>'s signature.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../../taccess0/types/SE_Status_Code.htm#SE_STATCODE_SUCCESS">SE_STATCODE_SUCCESS</A>
+</td><td class="Status">if valid parameters were passed in.
+</td></tr>
+<tr><td class="Status">
+<A href="../../taccess0/types/SE_Status_Code.htm#SE_STATCODE_INACTIONABLE_FAILURE">SE_STATCODE_INACTIONABLE_FAILURE</A>
+</td><td class="Status">if
+ <A href="#element_count">element_count</A>
+ is non-zero and
+ <A href="#table_prop_descript_number">table_prop_descript_number</A>
+ is NULL.
+</td></tr>
+<tr><td class="Status">
+  <A href="../../taccess0/types/SE_Status_Code.htm#SE_STATCODE_INACTIONABLE_FAILURE">SE_STATCODE_INACTIONABLE_FAILURE</A>
+</td><td class="Status">if duplicates exist.
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#element_count" name="Notes_element_count">1</a></sup>
+ the size of the following table_prop_descript_number array.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#table_prop_descript_number" name="Notes_table_prop_descript_number">2</a></sup>
+ an array of indices into the ordered list of
+    &lt;Table Property Description&gt;s aggregated by the given &lt;Data Table&gt;.
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SE_ValidCylindricalVolumeExtentEntry.htm">SE_ValidCylindricalVolumeExtentEntry</a>.
+<strong>Next:</strong> <a href="SE_ValidDataTableSubExtent.htm">SE_ValidDataTableSubExtent</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

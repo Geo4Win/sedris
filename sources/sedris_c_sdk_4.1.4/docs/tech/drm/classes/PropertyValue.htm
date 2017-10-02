@@ -1,0 +1,256 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Property Value</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Property Value
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Property Value</h2>
+<h3>Superclass - <a href="Property.htm">&lt;Property&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies a property of the attributed
+ DRM object and its value in terms of
+</P>
+<OL type='a'>
+<LI>
+ its meaning (specified using an EAC,
+ <A href="../types/SE_Index_Code.htm">SE_Index_Code</A>, or
+ <A href="../types/SE_Variable_Code.htm">SE_Variable_Code</A>),
+</LI>
+<LI>
+ its unit of measurement (such as metres),
+</LI>
+<LI>
+ and its data storage type (such as
+ <A href="../../../../src/lib/edcs/docs/types/EDCS_Integer.htm">EDCS_Integer</A>).
+</LI>
+</OL>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet06.pdf"><strong>6</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet02.pdf"><strong>2</strong></A>
+</LI>
+<LI><A href="sheet03.pdf"><strong>3</strong></A>
+</LI>
+<LI><A href="sheet08.pdf"><strong>8</strong></A>
+</LI>
+<LI><A href="sheet09.pdf"><strong>9</strong></A>
+</LI>
+<LI><A href="sheet12.pdf"><strong>12</strong></A>
+</LI>
+<LI><A href="sheet18.pdf"><strong>18</strong></A>
+</LI>
+<LI><A href="sheet19.pdf"><strong>19</strong></A>
+</LI>
+</UL>
+
+<h3>Example</h3>
+<OL>
+<LI><P>
+ The <A href="PropertyValue.htm">&lt;Property Value&gt;</A> instances of a representation of a lake
+ might include the <A href="../../../../src/lib/edcs/docs/dictionary/EAC_S.htm#EAC_SURFACE_MATERIAL_TYPE">EAC_SURFACE_MATERIAL_TYPE</A> of the lake.
+</P></LI>
+<LI><P>
+ Consider the man-made materials that can be found on any surface,
+ such as cloth, carpet, asphalt, silk, metal, and natural materials,
+ such as wood. To specify the material making up a wooden wall
+ represented by a <A href="Polygon.htm">&lt;Polygon&gt;</A> instance, the
+ data provider represents it as depicted in <a href="#Figure48">Figure 48</a>.
+</P>
+<DIV align="center">
+<p>
+<A name="Figure48"></A>
+<IMG SRC="../Images/PropertyValue_Ex1.png"
+     ALT="Property Value, Example 1">
+</p>
+<p class=FigureCaption>Figure 48 &#8212; &lt;DRM Property Value&gt; example</p>
+</DIV>
+</LI>
+<LI><P>
+ Consider an <A href="ArealFeature.htm">&lt;Areal Feature&gt;</A> instance representing
+ a surface covered with vegetation. To specify the type of vegetation,
+ the data provider gave it a <A href="PropertyValue.htm">&lt;Property Value&gt;</A>
+ component with a <A href="#meaning">meaning</A> of
+ <A href="../../../../src/lib/edcs/docs/dictionary/EAC_V.htm#EAC_VEGETATION_TYPE">EAC_VEGETATION_TYPE</A>,
+ and the value specifying the exact type of vegetation.
+</P></LI>
+<LI><P>
+ Consider an <A href="ArealFeature.htm">&lt;Areal Feature&gt;</A> instance labeled as
+ &quot;Red Field&quot;, because the surface represented has clay soil
+ present. To describe the soil composition at some point or for some
+ surface, <A href="PropertyValue.htm">&lt;Property Value&gt;</A> instances are
+ used, so a <A href="PropertyValue.htm">&lt;Property Value&gt;</A> instance of the appropriate
+ attribute is attached to the <A href="ArealFeature.htm">&lt;Areal Feature&gt;</A> instance.
+</P></LI>
+<LI><P>
+ Consider acoustic response (that is, changes to characteristics of
+ objects in response to acoustic stimuli) such as the resonant
+ frequency of a plate, response (such as echo, phase shift, absorption,
+ diffraction), or frequency.
+</P></LI>
+<LI><P>
+ Consider electromagnetic emission, that is, the emission
+ characteristics of a geometric object or feature, including
+ the electromagnetic wavelengths, amplitudes, and directionality.
+ Examples include
+<OL type='a'>
+<LI>The thermal signature of a rock at noon is described by its
+ electromagnetic emission.
+</LI>
+<LI>The headlight of a truck.
+</LI>
+</OL>
+</LI>
+<LI><P>
+ Consider electromagnetic response (that is, changes to
+ characteristics of objects in response to electromagnetic stimuli).
+ Some examples of
+ such properties include reflective and specular characteristics of a
+ surface.
+</P></LI>
+<LI><P>
+ Consider hydrology (that is, an attribute describing some aspect of
+ the flow of water at a location or on a surface). For the
+ <A href="Polygon.htm">&lt;Polygon&gt;</A> instances that represent Salmon Creek,
+ an example hydrology property represented by
+ <A href="PropertyValue.htm">&lt;Property Value&gt;</A> instances is the average
+ speed of currents in the stream bed.
+</P></LI>
+<LI><P>
+ <A href="PropertyValue.htm">&lt;Property Value&gt;</A> instances can provide
+ metrics or measurements that relate to scalar properties, such as
+ the elevation at a particular location.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<p>
+No FAQs supplied.
+</p>
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/PropertyCharacteristicConstraints.htm">&lt;&lt;Property Characteristic Constraints&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/PropertyConstraints.htm">&lt;&lt;Property Constraints&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Composed of (two-way) (inherited)</h3>
+<UL>
+<li>zero or more <a href="PropertyCharacteristic.htm">&lt;Property Characteristic&gt;</a> instances</li>
+</UL>
+<h3>Component of (two-way)</h3>
+<UL>
+<li>zero or more <a href="CameraPoint.htm">&lt;Camera Point&gt;</a> instances</li>
+<li>zero or more <a href="ClassificationData.htm">&lt;Classification Data&gt;</a> instances</li>
+<li>zero or more <a href="ConformalBehaviour.htm">&lt;Conformal Behaviour&gt;</a> instances</li>
+<li>zero or more <a href="EnvironmentalDomainSummary.htm">&lt;Environmental Domain Summary&gt;</a> instances</li>
+<li>zero or more <a href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</a> instances</li>
+<li>zero or more <a href="FeatureTopology.htm">&lt;Feature Topology&gt;</a> instances</li>
+<li>zero or more <a href="GeometryRepresentation.htm">&lt;Geometry Representation&gt;</a> instances</li>
+<li>zero or more <a href="Model.htm">&lt;Model&gt;</a> instances</li>
+<li>zero or more <a href="PropertyDescription.htm">&lt;Property Description&gt;</a> instances</li>
+<li>zero or more <a href="PropertySet.htm">&lt;Property Set&gt;</a> instances</li>
+<li>zero or more <a href="ReferenceSurface.htm">&lt;Reference Surface&gt;</a> instances</li>
+<li>zero or more <a href="TablePropertyDescription.htm">&lt;Table Property Description&gt;</a> instances</li>
+</UL>
+
+<h2><a name="inherited_field">Inherited Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Property_Code.htm">SE_Property_Code</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="meaning">meaning</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_meaning">1</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Boolean.htm">SE_Boolean</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="apply_property_inheritance">apply_property_inheritance</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_apply_property_inheritance">2</A></sup></p></td>
+</tr>
+</table>
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../../../../src/lib/edcs/docs/types/EDCS_Attribute_Value.htm">EDCS_Attribute_Value</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="value">value</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_value">3</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Fields Notes</h3>
+<h4><a href="#meaning" name="Notes_meaning">meaning</a></h4>
+<P>
+ The <A href="#meaning">meaning</A> field
+ specifies the meaning of the
+ <A href="Property.htm">&lt;Property&gt;</A> instance.
+</P>
+<h4><a href="#apply_property_inheritance" name="Notes_apply_property_inheritance">apply_property_inheritance</a></h4>
+<P>
+ If <A href="#apply_property_inheritance">apply_property_inheritance</A>
+ is <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A> for the <A href="Property.htm">&lt;Property&gt;</A> instance
+ <span class="ConstructName">P</span>, <span class="ConstructName">P</span> shall be inherited;
+ otherwise, <span class="ConstructName">P</span> shall not be inherited.
+</P>
+<h4><a href="#value" name="Notes_value">value</a></h4>
+<P>
+ The <A href="#value">value</A> field
+ specifies the value of the given property.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="PropertyTableReferenceControlLink.htm">Property Table Reference Control Link</A>.
+<strong>Next:</strong> <A href="ProximityData.htm">Proximity Data</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

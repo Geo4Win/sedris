@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE_Quadrant</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX C - Types
+</font>
+<br>
+<font color="#ffffff">
+SE_Quadrant
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<PRE>
+/*
+ * ENUM: SE_Quadrant
+ *
+ *   This data type specifies which quadrant contains the data of
+ *   interest. It is used by a &lt;Quadrant Data&gt; instance to specify
+ *   which octant is represented by the associated &lt;Feature Hierarchy&gt;
+ *   instance (for a &lt;Quadrant Related Features&gt; instance) or
+ *   &lt;Geometry Hierarchy&gt; instance (for a &lt;Quadrant Related Geometry&gt;
+ *   instance).
+ *
+ *   Quadrants an be used to specify quadtrees [SAMET].
+ */
+</PRE>
+<span class="Code">typedef enum
+<br>
+{
+</span>
+
+<table class="CFunctionPrototype">
+    <tr><td class="CFunction"></td><td class="CFunction"><a name="SE_QUADRANT_LEFT_FRONT"></a>SE_QUADRANT_LEFT_FRONT,</td><td class="CFunction"><sup><A href="#Notes_SE_QUADRANT_LEFT_FRONT">1</A></sup></td></tr>
+    <tr><td class="CFunction"></td><td class="CFunction"><a name="SE_QUADRANT_RIGHT_FRONT"></a>SE_QUADRANT_RIGHT_FRONT,</td><td class="CFunction"><sup><A href="#Notes_SE_QUADRANT_RIGHT_FRONT">2</A></sup></td></tr>
+    <tr><td class="CFunction"></td><td class="CFunction"><a name="SE_QUADRANT_LEFT_BACK"></a>SE_QUADRANT_LEFT_BACK,</td><td class="CFunction"><sup><A href="#Notes_SE_QUADRANT_LEFT_BACK">3</A></sup></td></tr>
+    <tr><td class="CFunction"></td><td class="CFunction"><a name="SE_QUADRANT_RIGHT_BACK"></a>SE_QUADRANT_RIGHT_BACK</td><td class="CFunction"><sup><A href="#Notes_SE_QUADRANT_RIGHT_BACK">4</A></sup></td></tr>
+</table>
+<span class="Code">
+} SE_Quadrant;
+</span>
+<br>
+<br>
+<hr>
+<h2>Enumerant Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#SE_QUADRANT_LEFT_FRONT" name="Notes_SE_QUADRANT_LEFT_FRONT">1</a></sup>
+ Left front quadrant.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#SE_QUADRANT_RIGHT_FRONT" name="Notes_SE_QUADRANT_RIGHT_FRONT">2</a></sup>
+ Right front quadrant.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#SE_QUADRANT_LEFT_BACK" name="Notes_SE_QUADRANT_LEFT_BACK">3</a></sup>
+ Left back quadrant.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#SE_QUADRANT_RIGHT_BACK" name="Notes_SE_QUADRANT_RIGHT_BACK">4</a></sup>
+ Right back quadrant.
+</p>
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SE_Property_Code_Type.htm">SE_Property_Code_Type</a>.
+<strong>Next:</strong> <a href="SE_Reference_Surface_Elevation_Select.htm">SE_Reference_Surface_Elevation_Select</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

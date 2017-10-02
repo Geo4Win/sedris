@@ -1,0 +1,370 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Distance LOD Data</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Distance LOD Data
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Distance LOD Data</h2>
+<h3>Superclass - <a href="BaseLODData.htm">&lt;Base LOD Data&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies a level of detail
+ described in terms of distance from the eyepoint to the
+ centre of the object.
+</P><P>
+ For each <A href="DistanceLODData.htm">&lt;Distance LOD Data&gt;</A> instance,
+ when moving the eyepoint away from the centre of the object,
+ the representation begins to appear at
+ <A href="#minimum_range">minimum_range</A>.
+ The representation gradually gets stronger until it is fully
+ visible at
+ <A href="#minimum_range">minimum_range</A> +
+ <A href="#minimum_fade_band">minimum_fade_band</A>.
+ As the eyepoint continues to move away from the centre of the object,
+ the representation gradually starts to fade out at
+ <A href="#maximum_range">maximum_range</A> -
+ <A href="#maximum_fade_band">maximum_fade_band</A>
+ until it completely disappears at
+ <A href="#maximum_range">maximum_range</A>.
+ If fade bands are specified, adjacent levels shall overlap
+ within those fade bands and not overlap any other portion
+ of the adjacent level(s).
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet09.pdf"><strong>9</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+This class appears on only one page of the DRM class diagram.
+<h3>Example</h3>
+<OL>
+<LI><P>
+ Consider a <A href="LODRelatedGeometry.htm">&lt;LOD Related Geometry&gt;</A> instance that has two
+ branches, each through a <A href="DistanceLODData.htm">&lt;Distance LOD Data&gt;</A>
+ link object as depicted in <a href="#Figure11">Figure 11</a>:
+</P>
+<DIV align="center">
+<p>
+<A name="Figure11"></A>
+<IMG SRC="../Images/DistanceLOD_Ex1.png"
+     ALT="Distance LOD Data, Example 1">
+</p>
+<p class=FigureCaption>Figure 11 &#8212; &lt;DRM Distance LOD Data&gt; example</p>
+</DIV>
+<P>
+ The first <A href="DistanceLODData.htm">&lt;Distance LOD Data&gt;</A> link object has:
+</P>
+<TABLE border=0>
+<TR>
+<TD>
+<A href="#minimum_range">minimum_range</A>
+</TD>
+<TD>100.0</TD>
+</TR>
+
+<TR>
+<TD>
+<A href="#minimum_fade_band">minimum_fade_band</A>
+</TD>
+<TD>10.0</TD>
+</TR>
+<TR>
+<TD>
+<A href="#maximum_range">maximum_range</A>
+</TD>
+<TD>200.0</TD>
+</TR>
+
+<TR>
+<TD>
+<A href="#maximum_fade_band">maximum_fade_band</A>
+</TD>
+<TD>20.0</TD>
+</TR>
+</TABLE>
+<P>
+ The second <A href="DistanceLODData.htm">&lt;Distance LOD Data&gt;</A> link object has:
+</P>
+<TABLE border=0>
+<TR>
+<TD>
+<A href="#minimum_range">minimum_range</A>
+</TD>
+<TD>200.0</TD>
+</TR>
+
+<TR>
+<TD>
+<A href="#minimum_fade_band">minimum_fade_band</A>
+</TD>
+<TD>10.0</TD>
+</TR>
+<TR>
+<TD>
+<A href="#maximum_range">maximum_range</A>
+</TD>
+<TD>1000.0</TD>
+</TR>
+
+<TR>
+<TD>
+<A href="#maximum_fade_band">maximum_fade_band</A>
+</TD>
+<TD>10.0</TD>
+</TR>
+</TABLE>
+<P>
+ If the eyepoint is moving outward and the distance reaches 90, the first
+ branch starts fading in. At a distance of 100, the first branch has totally
+ faded in. At a distance of 180 the first branch starts to fade out.
+ At a distance of 190 the second branch starts fading in. The first
+ and second branches are both seen (superimposed) between the ranges of
+ 190 and 200. At a distance of 200 the first branch is totally faded out,
+ while the second branch is the only branch seen. At a distance of 990,
+ the second branch starts fading out, and at 1000
+ it is completely faded out.
+</P></LI>
+<LI><P>
+ Consider a <A href="LODRelatedGeometry.htm">&lt;LOD Related Geometry&gt;</A>
+ instance which has two branches, each through a
+ <A href="DistanceLODData.htm">&lt;Distance LOD Data&gt;</A> link object.
+</P><P>
+ The first <A href="DistanceLODData.htm">&lt;Distance LOD Data&gt;</A> link object has:
+<TABLE border=0>
+<TR>
+<TD>
+<A href="#minimum_range">minimum_range</A>
+</TD>
+<TD>50.0</TD>
+</TR>
+
+<TR>
+<TD>
+<A href="#minimum_fade_band">minimum_fade_band</A>
+</TD>
+<TD>20.0</TD>
+</TR>
+<TR>
+<TD>
+<A href="#maximum_range">maximum_range</A>
+</TD>
+<TD>100.0</TD>
+</TR>
+
+<TR>
+<TD>
+<A href="#maximum_fade_band">maximum_fade_band</A>
+</TD>
+<TD>30.0</TD>
+</TR>
+</TABLE>
+<P>
+ The second <A href="DistanceLODData.htm">&lt;Distance LOD Data&gt;</A> link object has:
+</P>
+<TABLE border=0>
+<TR>
+<TD>
+<A href="#minimum_range">minimum_range</A>
+</TD>
+<TD>110.0</TD>
+</TR>
+
+<TR>
+<TD>
+<A href="#minimum_fade_band">minimum_fade_band</A>
+</TD>
+<TD>15.0</TD>
+</TR>
+<TR>
+<TD>
+<A href="#maximum_range">maximum_range</A>
+</TD>
+<TD>500.0</TD>
+</TR>
+
+<TR>
+<TD>
+<A href="#maximum_fade_band">maximum_fade_band</A>
+</TD>
+<TD>10.0</TD>
+</TR>
+</TABLE>
+<P>
+ If the eyepoint is moving outward and the distance reaches
+ 30, the first branch starts fading in. At a distance
+ of 50, the first branch has totally faded in. At a
+ distance of 70 the first branch starts to fade out.
+ At a distance of 95 the second branch starts fading in.
+ The first and second branches are both seen (superimposed) between
+ the ranges of 95 and 100. At a
+ distance of 100, the first branch is totally faded out,
+ while the second branch is the only branch seen, but has not completely
+ faded in. At a distance of 110 the second branch has
+ completely faded in. At a distance of 490 the second
+ branch starts fading out, and at 500 is completely
+ faded out.
+</P></LI>
+<LI><P>
+ A set of polygonal data is produced with low detail for viewing at
+ ranges greater than 3200 metres, and organized as a
+ <A href="UnionOfPrimitiveGeometry.htm">&lt;Union Of Primitive Geometry&gt;</A> instance, with a
+ <A href="DistanceLODData.htm">&lt;Distance LOD Data&gt;</A> component specifying this viewing range
+ so that the intended viewing distance at which these
+ <A href="Polygon.htm">&lt;Polygon&gt;</A> instances are to be used is provided.
+</P></LI>
+<LI><P>
+See examples for <A href="LODRelatedGeometry.htm">&lt;LOD Related Geometry&gt;</A>.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ Consider a data provider with a branch of a distance
+ level-of-detail-related organization for which
+ fade bands are not applicable. How should those fields be set?
+</B></DT>
+<DD><P>
+ If a target does not contain fade bands, the
+ <A href="#minimum_fade_band">minimum_fade_band</A> and
+ <A href="#maximum_fade_band">maximum_fade_band</A>
+ shall be set to zero (0).
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/LODRelatedOrganizingPrinciple.htm">&lt;&lt;LOD Related Organizing Principle&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Composed of (two-way)</h3>
+<UL>
+<li>zero or one <a href="Location.htm">&lt;Location&gt;</a> instance<sup><A href="#Notes_cmp_Location" name="cmp_Location">1</A></sup></li>
+</UL>
+
+<h3>Component of (two-way) (inherited)</h3>
+<UL>
+<li>zero or more <a href="AggregateFeature.htm">&lt;Aggregate Feature&gt;</a> instances</li>
+<li>zero or more <a href="AggregateGeometry.htm">&lt;Aggregate Geometry&gt;</a> instances</li>
+<li>zero or more <a href="PropertyGridHookPoint.htm">&lt;Property Grid Hook Point&gt;</a> instances</li>
+</UL>
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Long_Float.htm">SE_Long_Float</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="minimum_range">minimum_range</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_minimum_range">2</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Long_Float.htm">SE_Long_Float</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="minimum_fade_band">minimum_fade_band</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_minimum_fade_band">3</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Long_Float.htm">SE_Long_Float</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="maximum_range">maximum_range</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_maximum_range">4</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Long_Float.htm">SE_Long_Float</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="maximum_fade_band">maximum_fade_band</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_maximum_fade_band">5</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Composed of Notes</h3>
+<br>
+<h4><a href="#cmp_Location" name="Notes_cmp_Location">Location</a></h4>
+ If present, the <A href="Location.htm">&lt;Location&gt;</A> component is
+ the centre point for the LOD test.
+</P>
+<h3>Fields Notes</h3>
+<h4><a href="#minimum_range" name="Notes_minimum_range">minimum_range</a></h4>
+<P>
+ The <A href="#minimum_range">minimum_range</A> field
+ is specified in metres as the minimum distance from
+ the centre of the object.
+</P>
+<h4><a href="#minimum_fade_band" name="Notes_minimum_fade_band">minimum_fade_band</a></h4>
+<P>
+ The <A href="#minimum_fade_band">minimum_fade_band</A> field
+ is expressed in metres relative to the
+ <A href="#minimum_range">minimum_range</A> value.
+ This fade band is defined to be adjacent to the
+ <A href="#minimum_range">minimum_range</A> and further from
+ the centre of the object.
+</P>
+<h4><a href="#maximum_range" name="Notes_maximum_range">maximum_range</a></h4>
+<P>
+ The <A href="#maximum_range">maximum_range</A> field
+ is specified in metres as the maximum distance from
+ the centre of the object.
+ <a href="../constants/SE_POSITIVE_INFINITY.htm">SE_POSITIVE_INFINITY</a>
+ is a legal range value.
+</P>
+<h4><a href="#maximum_fade_band" name="Notes_maximum_fade_band">maximum_fade_band</a></h4>
+<P>
+ The <A href="#maximum_fade_band">maximum_fade_band</A> field
+ is expressed in metres relative to the
+ <A href="#maximum_range">maximum_range</A> value.
+ This fade band is defined to be adjacent to the
+ <A href="#maximum_range">maximum_range</A>
+ and closer to the centre of the object.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="DirectionalLightBehaviour.htm">Directional Light Behaviour</A>.
+<strong>Next:</strong> <A href="DRMClassSummaryItem.htm">DRM Class Summary Item</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

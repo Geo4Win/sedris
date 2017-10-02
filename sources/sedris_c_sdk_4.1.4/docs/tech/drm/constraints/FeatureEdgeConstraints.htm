@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Feature Edge Constraints</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX B - Constraints
+</font>
+<br>
+<font color="#ffffff">
+Feature Edge Constraints
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h3>Definition</h3>
+<P>
+ The following restrictions apply to <A href="../classes/FeatureEdge.htm">&lt;Feature Edge&gt;</A> instances:
+</P>
+<OL type='a'>
+<LI><P>
+ The <A href="../classes/Location.htm">&lt;Location&gt;</A> instances within a
+ <A href="../classes/FeatureEdge.htm">&lt;Feature Edge&gt;</A> instance shall be
+ distinct; that is, no two <A href="../classes/Location.htm">&lt;Location&gt;</A> instances
+ may have the same position in space.
+</P></LI>
+<LI><P>
+ At feature topology level 2 or higher, no
+ <A href="../classes/FeatureEdge.htm">&lt;Feature Edge&gt;</A> instance may intersect with or
+ overlap another <A href="../classes/FeatureEdge.htm">&lt;Feature Edge&gt;</A> instance, except
+ that they may share a common <A href="../classes/FeatureNode.htm">&lt;Feature Node&gt;</A> instance.
+</P></LI>
+<LI><P>
+ At feature topology level 3, each
+ <A href="../classes/FeatureEdge.htm">&lt;Feature Edge&gt;</A> instance forms part of the
+ boundaries of exactly two <A href="../classes/FeatureFace.htm">&lt;Feature Face&gt;</A>
+ instances.
+</P></LI>
+<LI><P>
+ At feature topology level 4, at least one
+ <A href="../classes/FeatureEdge.htm">&lt;Feature Edge&gt;</A> instance forms part of the
+ boundary of more than two <A href="../classes/FeatureFace.htm">&lt;Feature Face&gt;</A>
+ instances.
+</P></LI>
+<LI><P>
+ At feature topology level 5, if a <A href="../classes/FeatureEdge.htm">&lt;Feature Edge&gt;</A> instance
+ <span class="ConstructName">E</span> is located within a
+ <A href="../classes/FeatureVolume.htm">&lt;Feature Volume&gt;</A> instance <span class="ConstructName">V</span>,
+ <span class="ConstructName">E</span> shall associate to <span class="ConstructName">V</span>.
+</P></LI>
+</OL>
+<P>
+ The following restrictions apply to <A href="../classes/GeometryEdge.htm">&lt;Geometry Edge&gt;</A> instances:
+</P>
+<OL type='a'>
+<LI><P>
+ The <A href="../classes/GeometryNode.htm">&lt;Geometry Node&gt;</A> instances of a
+ <A href="../classes/GeometryEdge.htm">&lt;Geometry Edge&gt;</A> instance shall not have
+ the same position in space.
+</P></LI>
+<LI><P>
+ At geometry topology level 2 or higher, no
+ <A href="../classes/GeometryEdge.htm">&lt;Geometry Edge&gt;</A> instance may intersect with or
+ overlap another <A href="../classes/GeometryEdge.htm">&lt;Geometry Edge&gt;</A> instance, except
+ that they may share a common <A href="../classes/GeometryNode.htm">&lt;Geometry Node&gt;</A> instance.
+</P></LI>
+<LI><P>
+ At geometry topology level 3, each
+ <A href="../classes/GeometryEdge.htm">&lt;Geometry Edge&gt;</A> instance forms part of the
+ boundaries of exactly two <A href="../classes/GeometryFace.htm">&lt;Geometry Face&gt;</A>
+ instances.
+</P></LI>
+<LI><P>
+ At geometry topology level 4, at least one
+ <A href="../classes/GeometryEdge.htm">&lt;Geometry Edge&gt;</A> instance forms part of the
+ boundary of more than two <A href="../classes/GeometryFace.htm">&lt;Geometry Face&gt;</A>
+ instances.
+</P></LI>
+<LI><P>
+ At geometry topology level 5, if a <A href="../classes/GeometryEdge.htm">&lt;Geometry Edge&gt;</A> instance
+ <span class="ConstructName">E</span> is located within a
+ <A href="../classes/GeometryVolume.htm">&lt;Geometry Volume&gt;</A> instance <span class="ConstructName">V</span>,
+ <span class="ConstructName">E</span> shall associate to <span class="ConstructName">V</span>.
+</P></LI>
+</OL>
+
+<h3>Rationale</h3>
+<P>
+ The path defined by the sequence of line segments which connect the
+ consecutive <A href="../classes/Location.htm">&lt;Location&gt;</A> instances that make up a
+ <A href="../classes/FeatureEdge.htm">&lt;Feature Edge&gt;</A> instance shall not intersect
+ or overlap itself.
+</P>
+<h3>Example</h3>
+<p>
+No example supplied.
+</p>
+<h3>FAQs</h3>
+<p>
+No FAQs supplied.
+</p>
+
+<hr>
+<strong>Prev:</strong> <A href="FacesBorderingVolumes.htm">Faces Bordering Volumes</A>.
+<strong>Next:</strong> <A href="FiniteElementMeshStructure.htm">Finite Element Mesh Structure</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

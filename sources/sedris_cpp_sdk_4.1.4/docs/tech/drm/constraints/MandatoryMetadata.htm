@@ -1,0 +1,244 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Mandatory Metadata</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX B - Constraints
+</font>
+<br>
+<font color="#ffffff">
+Mandatory Metadata
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<h3>Definition</h3>
+<P>
+The following table lists metadata classes. When these classes are
+instanced, at least the designated fields shall be populated.
+</P>
+<TABLE border=1>
+<TR>
+<TH align=left>Metadata DRM class</TH> <TH align=left>Constraint</TH>
+</TR>
+<TR>
+<TD><A href="../classes/BrowseMedia.htm">&lt;Browse Media&gt;</A></TD>
+<TD><P>
+The <A href="../classes/BrowseMedia.htm#name">name</A> field shall specify a non-empty string.
+</P><P>
+ The <A href="../classes/BrowseMedia.htm#media_urn">media_urn</A> field shall specify a
+ valid URN.
+</P></TD></TR>
+<TR>
+<TD><A href="../classes/Citation.htm">&lt;Citation&gt;</A></TD>
+<TD><P>
+The <A href="../classes/Citation.htm#title">title</A> field shall specify a non-empty
+ string. If a <A href="../classes/Citation.htm">&lt;Citation&gt;</A> instance has multiple
+ <A href="../classes/AbsoluteTime.htm">&lt;Absolute Time&gt;</A> components, their
+ <A href="../classes/AbsoluteTime.htm#time_significance">time_significance</A>
+ field values shall be distinct.
+</P></TD></TR>
+<TR>
+<TD><A href="../classes/Identification.htm">&lt;Identification&gt;</A></TD>
+<TD><P>
+The <A href="../classes/Identification.htm#abstract">abstract</A> field shall specify
+a non-empty string.
+</P><P>
+ An <A href="../classes/Identification.htm">&lt;Identification&gt;</A> instance that is
+ a <A href="../classes/TransmittalRoot.htm">&lt;Transmittal Root&gt;</A> component shall have
+ a <A href="../classes/Citation.htm">&lt;Citation&gt;</A> component,
+ at least one <A href="../classes/Keywords.htm">&lt;Keywords&gt;</A> component,
+ at least one <A href="../classes/ResponsibleParty.htm">&lt;Responsible Party&gt;</A> component
+ through a <A href="../classes/RoleData.htm">&lt;Role Data&gt;</A> link object with
+ <A href="../classes/RoleData.htm#role">role</A> =
+<A href="../types/SE_CI_RoleCode.htm#SE_ROLECOD_POINT_OF_CONTACT">SE_ROLECOD_POINT_OF_CONTACT</A>,
+ and a <A href="../classes/SecurityConstraints.htm">&lt;Security Constraints&gt;</A> component.
+</P>
+</TD></TR>
+<TR>
+<TD><A href="../classes/Keywords.htm">&lt;Keywords&gt;</A></TD>
+<TD><P>
+ For any given <A href="../classes/Identification.htm">&lt;Identification&gt;</A> instance, the
+ <A href="../classes/Keywords.htm#type">type</A> field value of each of
+ its <A href="../classes/Keywords.htm">&lt;Keywords&gt;</A> components shall be distinct.
+ Within a given <A href="../classes/Keywords.htm">&lt;Keywords&gt;</A> instance, the entries of the
+ <A href="../classes/Keywords.htm#keyword_array">keyword_array</A> field shall be distinct.
+</P></TD>
+</TR>
+<TR>
+<TD><A href="../classes/LegalConstraints.htm">&lt;Legal Constraints&gt;</A></TD>
+<TD><P>
+ If the
+ <A href="../classes/LegalConstraints.htm#access_constraints">access_constraints</A>
+ field is set to
+ <A href="../types/SE_MD_RestrictionCode.htm#SE_MD_RESTRICTCOD_OTHER_RESTRICTIONS">SE_MD_RESTRICTCOD_OTHER_RESTRICTIONS</A>,
+ the <A href="../classes/LegalConstraints.htm#other_constraints">other_constraints</A>
+ field shall specify a non-empty string specifying what those other
+ restrictions are.
+</P><P>
+ If the <A href="../classes/LegalConstraints.htm#use_constraints">use_constraints</A>
+ field is set to
+ <A href="../types/SE_MD_RestrictionCode.htm#SE_MD_RESTRICTCOD_OTHER_RESTRICTIONS">SE_MD_RESTRICTCOD_OTHER_RESTRICTIONS</A>,
+ the <A href="../classes/LegalConstraints.htm#other_constraints">other_constraints</A>
+ field shall specify a non-empty string specifying what those other
+ restrictions are.
+</P></TD>
+</TR>
+<TR>
+<TD><A href="../classes/Lineage.htm">&lt;Lineage&gt;</A></TD>
+<TD><P>
+ A <A href="../classes/Lineage.htm">&lt;Lineage&gt;</A> instance shall specify at least one
+ of the following:
+<OL type='a'>
+<LI>
+ a <A href="../classes/ProcessStep.htm">&lt;Process Step&gt;</A> component,
+</LI>
+<LI>a <A href="../classes/Source.htm">&lt;Source&gt;</A> component, or
+</LI>
+<LI>a non-empty string within its
+<A href="../classes/Lineage.htm#statement">statement</A> field.
+</LI>
+</OL>
+</TD></TR>
+<TR>
+<TD><A href="../classes/ProcessStep.htm">&lt;Process Step&gt;</A></TD>
+<TD><P>
+ The <A href="../classes/ProcessStep.htm#description">description</A>
+ field shall specify a non-empty string.
+</P><P>
+ The <A href="../classes/AbsoluteTime.htm">&lt;Absolute Time&gt;</A> component shall have
+ <A href="../classes/AbsoluteTime.htm#time_significance">time_significance</A>
+ = <A href="../types/SE_Time_Significance.htm#SE_TIMESIGNIF_OCCURRENCE">SE_TIMESIGNIF_OCCURRENCE</A>.
+</P><P>
+ If the <A href="../classes/ProcessStep.htm">&lt;Process Step&gt;</A> instance has
+ <A href="../classes/ResponsibleParty.htm">&lt;Responsible Party&gt;</A> components, each corresponding
+ <A href="../classes/RoleData.htm">&lt;Role Data&gt;</A> link object shall specify
+ <A href="../classes/RoleData.htm#role">role</A> =
+ <A href="../types/SE_CI_RoleCode.htm#SE_ROLECOD_PROCESSOR">SE_ROLECOD_PROCESSOR</A>.
+</P>
+</TD></TR>
+<TR>
+<TD><A href="../classes/ResponsibleParty.htm">&lt;Responsible Party&gt;</A></TD>
+<TD><P>
+ Each entry within
+ <A href="../classes/ResponsibleParty.htm#contact_information">contact_information</A>.
+<A href="../types/SE_Contact_Information.htm#address">address</A>.
+<A href="../types/SE_Address.htm#email_address">email_address</A>
+ shall specify a syntactically valid email address.
+</P><P>
+ <A href="../classes/ResponsibleParty.htm#contact_information">contact_information</A>.
+<A href="../types/SE_Contact_Information.htm#online_resource">online_resource</A>.
+<A href="../types/SE_CI_OnlineResource.htm#linkage">linkage</A>
+ shall specify a syntactically valid URL.
+</P><P>
+ The <A href="../types/SE_String.htm#locale">locale</A> entry of each
+ <A href="../types/SE_String.htm">SE_String</A> field
+ shall be specified using the same country code as that specified by its
+<A href="../classes/ResponsibleParty.htm#contact_information">contact_information</A>.
+<A href="../types/SE_Contact_Information.htm#address">address</A>,
+ except that
+ <A href="../classes/ResponsibleParty.htm#contact_information">contact_information</A>.
+<A href="../types/SE_Contact_Information.htm#address">address</A>.
+<A href="../types/SE_Address.htm#email_address">email_address</A>
+ entries shall be syntactically valid email addresses
+ (with <A href="../types/SE_String.htm#locale">locale</A> values set accordingly).
+</P><P>
+ At least one of the following fields shall contain a non-empty string:
+</P>
+<OL type='a'>
+<LI><A href="../classes/ResponsibleParty.htm#individual_name">individual_name</A>,
+</LI>
+<LI><A href="../classes/ResponsibleParty.htm#position_name">position_name</A>, or
+</LI>
+<LI><A href="../classes/ResponsibleParty.htm#organization_name">organization_name</A>.
+</LI>
+</OL>
+<P>
+ For a given DRM object with two <A href="../classes/ResponsibleParty.htm">&lt;Responsible Party&gt;</A> components
+ through <A href="../classes/RoleData.htm">&lt;Role Data&gt;</A> link objects specifying
+ identical <A href="../classes/RoleData.htm#role">role</A> field values, the
+ <A href="../classes/ResponsibleParty.htm">&lt;Responsible Party&gt;</A> components shall specify distinct
+ <A href="../classes/ResponsibleParty.htm#individual_name">individual_name</A>,
+ <A href="../classes/ResponsibleParty.htm#position_name">position_name</A>, and/or
+ <A href="../classes/ResponsibleParty.htm#organization_name">organization_name</A>
+ field values.
+</P><P>
+ For a given DRM object with two <A href="../classes/ResponsibleParty.htm">&lt;Responsible Party&gt;</A>
+ components having identical
+ <A href="../classes/ResponsibleParty.htm#individual_name">individual_name</A>,
+ <A href="../classes/ResponsibleParty.htm#position_name">position_name</A>, and
+ <A href="../classes/ResponsibleParty.htm#organization_name">organization_name</A>
+ field values, the <A href="../classes/ResponsibleParty.htm">&lt;Responsible Party&gt;</A> components shall be
+ specified through <A href="../classes/RoleData.htm">&lt;Role Data&gt;</A> link objects specifying
+ distinct <A href="../classes/RoleData.htm#role">role</A> field values.
+</P>
+</TD></TR>
+<TR>
+<TD><A href="../classes/SecurityConstraints.htm">&lt;Security Constraints&gt;</A></TD>
+<TD><P>
+ If the
+ <A href="../classes/SecurityConstraints.htm#classification">classification</A> field
+ has a value other than
+ <A href="../types/SE_MD_ClassificationCode.htm#SE_MD_CLSCOD_UNCLASSIFIED">SE_MD_CLSCOD_UNCLASSIFIED</A>, the
+<A href="../classes/SecurityConstraints.htm#classification_system">classification_system</A>
+ field value shall specify a non-empty string.
+</P></TD>
+</TR>
+<TR>
+<TD><A href="../classes/Source.htm">&lt;Source&gt;</A></TD>
+<TD>
+ The <A href="../classes/Source.htm#description">description</A> field value
+ shall specify a non-empty string.
+</TD>
+</TR>
+</TABLE>
+
+<h3>Rationale</h3>
+<P>
+ This is consistent with <A href="../bibliography.htm#I19115">ISO 19115</A>.
+</P>
+<h3>Example</h3>
+<p>
+No example supplied.
+</p>
+<h3>FAQs</h3>
+<p>
+No FAQs supplied.
+</p>
+
+<hr>
+<strong>Prev:</strong> <A href="LSRTransformationComponents.htm">LSR Transformation Components</A>.
+<strong>Next:</strong> <A href="ModelReferenceTypeConstraints.htm">Model Reference Type Constraints</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>EDCS CompareCharacters</title>
+<link rel="stylesheet" href="../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>EDCS Reference Manual</big></big>
+<br>
+<!-- EDCS spec. 4.4 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+EDCS CompareCharacters
+</font>
+</th></tr>
+</table></div>
+
+<!-- EDCS SDK Release 4.4.0 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern int</td></tr>
+<tr><td class="CFunction" colspan = "4">EDCS_CompareCharacters</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1"><td class="CFunction">const&nbsp;</td><td class="CFunction"><a href="../types/EDCS_Character.htm">EDCS_Character</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="a_ptr"></a>a_ptr,</td><td class="CFunction"><sup><A href="#Notes_a_ptr">1</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">const&nbsp;</td><td class="CFunction"><a href="../types/EDCS_Character.htm">EDCS_Character</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="b_ptr"></a>b_ptr</td><td class="CFunction"><sup><A href="#Notes_b_ptr">2</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+ Compares two <A href="../types/EDCS_Character.htm">EDCS_Character</A>s, on the
+ assumption that they are defined by the same
+ <A href="../types/EDCS_Locale.htm">EDCS_Locale</A>.  This function's signature
+ is compatible with qsort.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+ -1
+</td><td class="Status">
+ if <A href="#a_ptr">*a_ptr</A> &lt; <A href="#b_ptr">*b_ptr</A>
+</td></tr>
+<tr><td class="Status">
+ 0
+</td><td class="Status">
+ if <A href="#a_ptr">*a_ptr</A> == <A href="#b_ptr">*b_ptr</A>
+</td></tr>
+<tr><td class="Status">
+ 1
+</td><td class="Status">
+ if <A href="#a_ptr">*a_ptr</A> &gt; <A href="#b_ptr">*b_ptr</A>
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#a_ptr" name="Notes_a_ptr">1</a></sup>
+ handle to 1st EDCS_Character to be compared
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#b_ptr" name="Notes_b_ptr">2</a></sup>
+ handle to 2nd EDCS_Character to be compared
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="EDCS_CompareAttributeValues.htm">EDCS_CompareAttributeValues</a>.
+<strong>Next:</strong> <a href="EDCS_CompareCountIntervals.htm">EDCS_CompareCountIntervals</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

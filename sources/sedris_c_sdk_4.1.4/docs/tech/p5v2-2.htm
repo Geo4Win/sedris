@@ -1,0 +1,867 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>P5V2 - Section 2</title>
+<META name="Author" CONTENT="SAIC">
+<link rel="stylesheet" type="text/css" href="../styles/SDK_SEDRIS.css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr>
+<th class="doc_set_header">
+<big><big>
+Checker User's Guide
+</big></big>
+<br>
+<font color="#ffffff">Section 2 - CHECKER</font>
+</th>
+</tr>
+</table>
+
+<table class="doc_set_toc">
+<tr>
+<th class="doc_set_toc_outline_number"><a name="2">2</a></th>
+<th class="doc_set_toc_outline_description">CHECKER</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">&nbsp;</th>
+<td class="doc_set_toc_outline_description"><p>
+<table border=1 cellpadding=3 cellspacing=3>
+<tr>
+<th align="center" valign="top">Constraint</th>
+
+<th align="center" valign="top">Checking</th>
+
+<th align="center" valign="top">Details</th>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/AnimationRelatedOrganizingPrinciple.htm">&lt;&lt;Animation&nbsp;Related&nbsp;Organizing&nbsp;Principle&gt;&gt;</a>
+</th>
+<td>Full</td>
+<td><p>
+Part (a) is checked by syntax_checker.
+</p><p>
+Part (b) is checked by rules_checker.
+</p></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/CharacteristicsOfPropertyTableReference.htm">&lt;&lt;Characteristics&nbsp;Of&nbsp;Property&nbsp;Table&nbsp;Reference&gt;&gt;</a>
+</th>
+<td>Full</td>
+<td><p>
+Checked by rules_checker.
+</p></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/ClassificationDataConstraints.htm">&lt;&lt;Classification&nbsp;Data&nbsp;Constraints&gt;&gt;</a>
+</th>
+<td>Partial</td>
+<td><p>
+The portions involving direct attachment and inheritance from a classification related aggregate
+are checked by rules_checker.
+</p></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/ColourMappingConstraints.htm">&lt;&lt;Colour&nbsp;Mapping&nbsp;Constraints&gt;&gt;</a>
+</th>
+<td>Partial</td>
+<td><p>
+Part (a) is checked by syntax_checker.
+</p><p>
+Parts (b), (c), and (d) are not checked.
+</p></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/ColourTableSize.htm">&lt;&lt;Colour&nbsp;Table&nbsp;Size&gt;&gt;</a>
+</th>
+<td>Full</td>
+<td>Checked by rules_checker.</td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/ConformalBehaviourConstraints.htm">&lt;&lt;Conformal&nbsp;Behaviour&nbsp;Constraints&gt;&gt;</a>
+</th>
+<td>None</td>
+<td><p>
+&nbsp;
+</p></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/ConstraintsOnAssociates.htm">&lt;&lt;Constraints&nbsp;On&nbsp;Associates&gt;&gt;</a>
+</th>
+<td>Partial</td>
+<td><p>
+Checked for
+<a href="drm/classes/InterfaceTemplate.htm">&lt;Interface Template&gt;</a>
+associations to
+<a href="drm/classes/Variable.htm">&lt;Variable&gt;</a> instances.
+</p></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/ConstraintsOnComponents.htm">&lt;&lt;Constraints&nbsp;On&nbsp;Components&gt;&gt;</a>
+</th>
+<td>None</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/ContainedEdgeConstraints.htm">&lt;&lt;Contained&nbsp;Edge&nbsp;Constraints&gt;&gt;</a>
+</th>
+<td>None</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/ContainedNodeConstraints.htm">&lt;&lt;Contained&nbsp;Node&nbsp;Constraints&gt;&gt;</a>
+</th>
+<td>Partial</td>
+<td><p>
+Part (a).2 is partially checked by rules_checker - at feature topology level 3,
+any &lt;<a href="drm/classes/FeatureNode.htm">Feature Node</a>&gt; instance
+that is not associated with an edge will be reported if it is not associated
+with a &lt;<a href="drm/classes/FeatureFace.htm">Feature Face</a>&gt; instance.
+</p></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/ContinuousLODConstraints.htm">&lt;&lt;Continuous&nbsp;LOD&nbsp;Constraints&gt;&gt;</a>
+</th>
+<td>Partial</td>
+<td><p>
+Part (a) is checked by rules_checker. Part (b) is not checked.
+</p></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/ControlLinkConstraints.htm">&lt;&lt;Control&nbsp;Link&nbsp;Constraints&gt;&gt;</a>
+</th>
+<td>Partial</td>
+<td><p>
+Syntax checker enforces some of the field value constraints,
+rules checker enforces others.
+</p></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/CylindricalStructure.htm">&lt;&lt;Cylindrical&nbsp;Structure&gt;&gt;</a>
+</th>
+<td>Partial</td>
+<td><p>
+Part (a) is checked by rules_checker. Part (b) is not checked.
+</p></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/DistinctGeometricCentre.htm">&lt;&lt;Distinct&nbsp;Geometric&nbsp;Centre&gt;&gt;</a>
+</th>
+<td>None</td>
+<td><p>
+&nbsp;
+</p></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/DistinctLinkObjects.htm">&lt;&lt;Distinct&nbsp;Link&nbsp;Objects&gt;&gt;</a>
+</th>
+<td>Partial</td>
+<td><p>
+Checked by rules_checker for the following classes:
+<ul>
+<li>
+<a href="drm/classes/AlternateHierarchyRelatedFeatures.htm">&lt;Alternate Hierarchy Related Features&gt;</a>
+</li>
+<li>
+<a href="drm/classes/AlternateHierarchyRelatedGeometry.htm">&lt;Alternate Hierarchy Related Geometry&gt;</a>
+</li>
+<li>
+<a href="drm/classes/ClassificationRelatedFeatures.htm">&lt;Classification Related Features&gt;</a>
+</li>
+<li>
+<a href="drm/classes/ClassificationRelatedGeometry.htm">&lt;Classification Related Geometry&gt;</a>
+</li>
+<li>
+<a href="drm/classes/FeatureModelInstance.htm">&lt;Feature Model Instance&gt;</a>
+</li>
+<li>
+<a href="drm/classes/GeometryModelInstance.htm">&lt;Geometry Model Instance&gt;</a>
+</li>
+<li>
+<a href="drm/classes/LODRelatedFeatures.htm">&lt;LOD Related Features&gt;</a>
+</li>
+<li>
+<a href="drm/classes/LODRelatedGeometry.htm">&lt;LOD Related Geometry&gt;</a>
+</li>
+<li>
+<a href="drm/classes/OctantRelatedFeatures.htm">&lt;Octant Related Features&gt;</a>
+</li>
+<li>
+<a href="drm/classes/OctantRelatedGeometry.htm">&lt;Octant Related Geometry&gt;</a>
+</li>
+<li>
+<a href="drm/classes/QuadrantRelatedFeatures.htm">&lt;Quadrant Related Features&gt;</a>
+</li>
+<li>
+<a href="drm/classes/QuadrantRelatedGeometry.htm">&lt;Quadrant Related Geometry&gt;</a>
+</li>
+<li>
+<a href="drm/classes/SpatialIndexRelatedFeatures.htm">&lt;Spatial Index Related Features&gt;</a>
+</li>
+<li>
+<a href="drm/classes/SpatialIndexRelatedFeatureTopology.htm">&lt;Spatial Index Related Feature Topology&gt;</a>
+</li>
+<li>
+<a href="drm/classes/SpatialIndexRelatedGeometry.htm">&lt;Spatial Index Related Geometry&gt;</a>
+</li>
+<li>
+<a href="drm/classes/StateRelatedFeatures.htm">&lt;State Related Features&gt;</a>
+</li>
+<li>
+<a href="drm/classes/StateRelatedGeometry.htm">&lt;State Related Geometry&gt;</a>
+</li>
+<li>
+<a href="drm/classes/TimeRelatedFeatures.htm">&lt;Time Related Features&gt;</a>
+</li>
+<li>
+<a href="drm/classes/TimeRelatedGeometry.htm">&lt;Time Related Geometry&gt;</a>
+</li>
+</ul>
+
+<p>
+Still unchecked:
+<ul>
+<li>
+<a href="drm/classes/PerimeterRelatedFeatures.htm">&lt;Perimeter Related Features&gt;</a>
+</li>
+<li>
+<a href="drm/classes/PerimeterRelatedFeatureTopology.htm">&lt;Perimeter Related Feature Topology&gt;</a>
+</li>
+<li>
+<a href="drm/classes/PerimeterRelatedGeometry.htm">&lt;Perimeter Related Geometry&gt;</a>
+</li>
+<li>
+<a href="drm/classes/PerimeterRelatedGeometryTopology.htm">&lt;Perimeter Related Geometry Topology&gt;</a>
+</li>
+</ul>
+</td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/DistinctTimeSignificance.htm">&lt;&lt;Distinct&nbsp;Time&nbsp;Significance&gt;&gt;</a>
+</th>
+<td>Full</td>
+<td><p>
+Checked by rules_checker.
+</p></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/EdgesBorderingFaces.htm">&lt;&lt;Edges&nbsp;Bordering&nbsp;Faces&gt;&gt;</a>
+</th>
+<td>Partial</td>
+<td><p>
+Part (a) is checked by rules_checker.
+</p></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/EnvironmentRootSRF.htm">&lt;&lt;Environment&nbsp;Root&nbsp;SRF&gt;&gt;</a>
+</th>
+<td>Partial</td>
+<td><p>
+All parts are checked by rules_checker,
+although 'extended' coordinates are not allowed for.
+</p></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/FaceDirectionLevels03.htm">&lt;&lt;Face&nbsp;Direction&nbsp;Levels&nbsp;0&nbsp;3&gt;&gt;</a>
+</th>
+<td>Partial</td>
+<td><p>
+Checked by rules_checker for the relationship between <a href="drm/classes/FeatureFace.htm">&lt;Feature Face&gt;</a>
+and <a href="drm/classes/ArealFeature.htm">&lt;Areal Feature&gt;</a>.
+</p></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/FaceRingEdgeConsistency.htm">&lt;&lt;Face&nbsp;Ring&nbsp;Edge&nbsp;Consistency&gt;&gt;</a>
+</th>
+<td>Full</td>
+<td><p>
+Checked by rules_checker.
+</p></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/FacesBorderingVolumes.htm">&lt;&lt;Faces&nbsp;Bordering&nbsp;Volumes&gt;&gt;</a>
+</th>
+<td>Partial</td>
+<td><p>
+Checked by rules_checker (the association from <a href="drm/classes/FeatureFace.htm">&lt;Feature Face&gt;</a>
+to <a href="drm/classes/FeatureVolume.htm">&lt;Feature Volume&gt;</a> required by
+<a href="drm/types/SE_Feature_Topology_Level.htm#SE_FTL_FIVE">SE_FTL_FIVE</a>).
+</p></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/FeatureEdgeConstraints.htm">&lt;&lt;Feature&nbsp;Edge&nbsp;Constraints&gt;&gt;</a>
+</th>
+<td>Partial</td>
+<td><p>
+Part (a) is checked by rules_checker.
+</p><p>
+Parts (b) through (f) are not checked.
+</p></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/FiniteElementMeshStructure.htm">&lt;&lt;Finite&nbsp;Element&nbsp;Mesh&nbsp;Structure&gt;&gt;</a>
+</th>
+<td>Partial</td>
+<td><p>
+Part (a) is checked by syntax_checker.
+</p><p>
+Part (b) is checked by rules_checker.
+</p><p>
+Parts (c) through (f) are not checked.
+</p></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/GeneralAxisConstraints.htm">&lt;&lt;General&nbsp;Axis&nbsp;Constraints&gt;&gt;</a>
+</th>
+<td>Partial</td>
+<td><p>
+Part (a) is checked by syntax_checker.
+</p><p>
+Part (b) is checked by syntax_checker, except that the scale restriction
+for (b)4 is not checked.
+</p><p>
+Part (c) is checked by syntax_checker, except that the scale restriction
+for (c)3 is not checked.
+</p><p>
+Part (d) is checked by syntax_checker, except that the scale restriction
+for (d)4 is not checked.
+</p></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/HierarchySummaryConstraints.htm">&lt;&lt;Hierarchy&nbsp;Summary&nbsp;Constraints&gt;&gt;</a>
+</th>
+<td>Partial</td>
+<td><p>
+Part (a) is checked by syntax_checker.
+</p><p>
+Parts (b), (c), and (d) are checked by rules_checker.
+</p><p>
+Part (e) is checked by rules_checker to the extent that the
+associates shall match the class value, but does not check
+the DRM Class and EDCS Usage summary information against
+the structure being summarized.
+</p></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/HomogeneousLightRenderingProperties.htm">&lt;&lt;Homogeneous&nbsp;Light&nbsp;Rendering&nbsp;Properties&gt;&gt;</a>
+</th>
+<td>Full</td>
+<td><p>
+Checked by rules_checker.
+<p></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/ImageAnchorSRF.htm">&lt;&lt;Image&nbsp;Anchor&nbsp;SRF&gt;&gt;</a>
+</th>
+<td>Partial</td>
+<td><p>
+Checked by rules_checker, except that collinearity is not checked, and for non-planar projections
+the orthogonal axes constraint is not checked.
+</p></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/ImageMappingFunctionsandTextureCoordinates.htm">&lt;&lt;Image&nbsp;Mapping&nbsp;Functions&nbsp;and&nbsp;Texture&nbsp;Coordinates&gt;&gt;</a>
+</th>
+<td>Partial</td>
+<td><p>
+Checked by rules_checker. In the case where one or more
+&lt;<a href="drm/classes/PropertySetIndex.htm">Property Set Index</a>&gt; instances
+are in the context, however, the context is not completely checked.
+</p></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/IndexCodeswithinTables.htm">&lt;&lt;Index&nbsp;Codes&nbsp;within&nbsp;Tables&gt;&gt;</a>
+</th>
+<td>Partial</td>
+<td><p>
+Part (a) is checked by rules_checker.
+</p></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/InheritanceRuleForLocation.htm">&lt;&lt;Inheritance&nbsp;Rule&nbsp;For&nbsp;Location&gt;&gt;</a>
+</th>
+<td>None</td>
+<td><p>
+&nbsp;
+</p></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/LegalTimeRanges.htm">&lt;&lt;Legal&nbsp;Time&nbsp;Ranges&gt;&gt;</a>
+</th>
+<td>Full</td>
+<td><p>
+Checked by syntax_checker.
+</p></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/LinearGeometryStructure.htm">&lt;&lt;Linear&nbsp;Geometry&nbsp;Structure&gt;&gt;</a>
+</th>
+<td>Partial</td>
+<td><p>
+Part (a) is checked by syntax_checker.
+</p><p>
+Part (b) is checked by rules_checker.
+</p><p>
+Parts (c) and (d) are not checked.
+</p></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/LODRelatedOrganizingPrinciple.htm">&lt;&lt;LOD&nbsp;Related&nbsp;Organizing&nbsp;Principle&gt;&gt;</a>
+</th>
+<td>Partial</td>
+<td><p>
+Part (a) is checked by rules_checker.
+</p><p>
+Parts (b) and (c) are not checked.
+</p></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/LSRTransformationComponents.htm">&lt;&lt;LSR&nbsp;Transformation&nbsp;Components&gt;&gt;</a>
+</th>
+<td>Partial</td>
+<td><p>
+The rules_checker utility verifies that the presence of the
+components conforms with the constraint, but if both
+representations are present, does not check that they are
+mathematically equivalent.
+</p></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/MandatoryMetadata.htm">&lt;&lt;Mandatory&nbsp;Metadata&gt;&gt;</a>
+</th>
+<td>Partial</td>
+<td><p>
+The syntax_checker utility enforces this constraint, except
+for the following:
+</p>
+<ul>
+<li> URN validation
+</li>
+<li> email address validation
+</li>
+<li> web_site validation
+</li>
+</ul>
+</td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/ModelReferenceTypeConstraints.htm">&lt;&lt;Model&nbsp;Reference&nbsp;Type&nbsp;Constraints&gt;&gt;</a>
+</th>
+<td>Partial</td>
+<td><p>
+Part (a) is checked by rules_checker.
+</p><p>
+Part (b).1 is not checked.
+</p><p>
+Part (b).2 is checked by syntax_checker.
+</p></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/ModelSRF.htm">&lt;&lt;Model&nbsp;SRF&gt;&gt;</a>
+</th>
+<td>Partial</td>
+<td><p>
+Part (a) is partially checked. Part (a).1 is not checked, while
+part (a).2 is checked by syntax_checker.
+</p><p>
+Part (b) is not checked.
+</p><p>
+Part (c) is checked by rules_checker.
+</p></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/NestedPrimitiveGeometry.htm">&lt;&lt;Nested&nbsp;Primitive&nbsp;Geometry&gt;&gt;</a>
+</th>
+<td>Partial</td>
+<td><p>
+The constraints affecting <a href="drm/classes/FiniteElementMesh.htm">&lt;Finite Element Mesh&gt;</a>,
+<a href="drm/classes/Polyhedron.htm">&lt;Polyhedron&gt;</a>, and
+<a href="drm/classes/VolumeObject.htm">&lt;Volume Object&gt;</a> are not checked.
+</p></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/NonCyclicAggregations.htm">&lt;&lt;Non&nbsp;Cyclic&nbsp;Aggregations&gt;&gt;</a>
+</th>
+<td>None</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/NonEmptyEnvironmentRootInstance.htm">&lt;&lt;Non&nbsp;Empty&nbsp;Environment&nbsp;Root&nbsp;Instance&gt;&gt;</a>
+</th>
+<td>Full</td>
+<td><p>
+Checked by rules_checker.
+</p></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/NonEmptyModelInstance.htm">&lt;&lt;Non&nbsp;Empty&nbsp;Model&nbsp;Instance&gt;&gt;</a>
+</th>
+<td>Full</td>
+<td><p>
+Checked by rules_checker.
+</p></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/NonOverlappingDRMClassSummaryItemInstances.htm">&lt;&lt;Non&nbsp;Overlapping&nbsp;DRM&nbsp;Class&nbsp;Summary&nbsp;Item&nbsp;Instances&gt;&gt;</a>
+</th>
+<td>Full</td>
+<td><p>
+Checked by rules_checker, which checks whether the list is
+overlapping. However, currently rules_checker does not guarantee
+that the DRM class summary actually corresponds to the data
+being summarized.
+</p></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/NonSelfOverlappingPerimeterDataLocations.htm">&lt;&lt;Non&nbsp;Self&nbsp;Overlapping&nbsp;Perimeter&nbsp;Data&nbsp;Locations&gt;&gt;</a>
+</th>
+<td>Partial</td>
+<td><p>
+Checked by rules_checker, which checks only whether the
+<a href="drm/classes/PerimeterData.htm">&lt;Perimeter Data&gt;</a>
+<a href="drm/classes/Location.htm">&lt;Location&gt;</a> components
+specify distinct locations in space.
+</p></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/OctantRelatedOrganizingPrinciple.htm">&lt;&lt;Octant&nbsp;Related&nbsp;Organizing&nbsp;Principle&gt;&gt;</a>
+</th>
+<td>Partial</td>
+<td><p>
+Partially checked by rules_checker, which currently ensures that
+the required
+<a href="drm/classes/SpatialExtent.htm">&lt;Spatial Extent&gt;</a>
+instances are present, but not that their relationships with
+one another are compliant.
+</p></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/ParallelepipedStructure.htm">&lt;&lt;Parallelepiped&nbsp;Structure&gt;&gt;</a>
+</th>
+<td>Full</td>
+<td><p>
+Checked by rules_checker.
+</p></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/PerimeterRelatedOrganizingPrinciple.htm">&lt;&lt;Perimeter&nbsp;Related&nbsp;Organizing&nbsp;Principle&gt;&gt;</a>
+</th>
+<td>None</td>
+<td><p>
+&nbsp;
+</p></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/PolygonAsBoundedPlane.htm">&lt;&lt;Polygon&nbsp;As&nbsp;Bounded&nbsp;Plane&gt;&gt;</a>
+</th>
+<td>Partial</td>
+<td><p>
+Part (a) is checked by rules_checker.
+</p></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/PolyhedronStructure.htm">&lt;&lt;Polyhedron&nbsp;Structure&gt;&gt;</a>
+</th>
+<td>None</td>
+<td><p>
+&nbsp;
+</p></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/PrecedenceofPropertySetIndex.htm">&lt;&lt;Precedence&nbsp;of&nbsp;Property&nbsp;Set&nbsp;Index&gt;&gt;</a>
+</th>
+<td>None</td>
+<td><p>
+Not applicable; this is not a checkable constraint but rather
+specifies precedence for operations.
+</p></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/PresentationDomainConstraints.htm">&lt;&lt;Presentation&nbsp;Domain&nbsp;Constraints&gt;&gt;</a>
+</th>
+<td>Partial</td>
+<td><p>
+rules_checker checks this constraint, but does not check whether the
+<a href="drm/classes/PresentationDomain.htm">&lt;Presentation Domain&gt;</a> components of
+sibling <a href="drm/classes/Colour.htm">&lt;Colour&gt;</a> instances are distinct or
+whether those of sibling <a href="drm/classes/ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</a>
+instances are distinct.
+</p></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/PrimitiveSummaryItemConstraints.htm">&lt;&lt;Primitive&nbsp;Summary&nbsp;Item&nbsp;Constraints&gt;&gt;</a>
+</th>
+<td>Partial</td>
+<td><p>
+Part (a) is checked by syntax_checker.
+</p></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/PropertyCharacteristicConstraints.htm">&lt;&lt;Property&nbsp;Characteristic&nbsp;Constraints&gt;&gt;</a>
+</th>
+<td>Partial</td>
+<td><p>
+Part (a) is not checked.
+</p><p>
+Part (b) is checked by syntax_checker.
+</p><p>
+Part (c).1 is checked by rules_checker.
+</p></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/PropertyConstraints.htm">&lt;&lt;Property&nbsp;Constraints&gt;&gt;</a>
+</th>
+<td>Partial</td>
+<td><p>
+Part (a) is checked by syntax_checker.
+</p><p>
+Parts (b) and (c) are partially checked by rules_checker, but only where the meaning field
+values are specified by EDCS Attribute Codes.
+</p></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/PropertyGridConstraints.htm">&lt;&lt;Property&nbsp;Grid&nbsp;Constraints&gt;&gt;</a>
+</th>
+<td>None</td>
+<td><p>
+&nbsp;
+</p></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/PropertySetTableSize.htm">&lt;&lt;Property&nbsp;Set&nbsp;Table&nbsp;Size&gt;&gt;</a>
+</th>
+<td>Full</td>
+<td><p>
+Checked by rules_checker.
+</p></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/PublishableObject.htm">&lt;&lt;Publishable&nbsp;Object&gt;&gt;</a>
+</th>
+<td>None</td>
+<td><p>
+This is enforced by SE_PublishObject().
+</p></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/QuadrantRelatedOrganizingPrinciple.htm">&lt;&lt;Quadrant&nbsp;Related&nbsp;Organizing&nbsp;Principle&gt;&gt;</a>
+</th>
+<td>Partial</td>
+<td><p>
+Part (a) is checked by rules_checker.
+</p><p>
+Part (b).1 is partially checked.
+</p><p>
+Part (c) is checked by syntax_checker and rules_checker.
+</p></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/RequiredReferenceVectorLocation.htm">&lt;&lt;Required&nbsp;Reference&nbsp;Vector&nbsp;Location&gt;&gt;</a>
+</th>
+<td>Full</td>
+<td><p>
+Checked by rules_checker.
+</p></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/SeparatingPlaneRelatedOrganizingPrinciple.htm">&lt;&lt;Separating&nbsp;Plane&nbsp;Related&nbsp;Organizing&nbsp;Principle&gt;&gt;</a>
+</th>
+<td>Partial</td>
+<td><p>
+Part (a) is checked by rules_checker, which also checks that each
+<a href="drm/classes/SeparatingPlane.htm">&lt;Separating Plane&gt;</a>
+is specified by three distinct positions.
+</p></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/SpatialAxisConstraints.htm">&lt;&lt;Spatial&nbsp;Axis&nbsp;Constraints&gt;&gt;
+</a></th>
+<td>Partial</td>
+<td><p>
+Part (a) is a definition of
+spatial <a href="drm/classes/Axis.htm">&lt;Axis&gt;</a>
+rather than a checkable constraint.
+Parts (b), (c), and (d) are checked by rules_checker.
+</p></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/SpatialIndexRelatedOrganizingPrinciple.htm">&lt;&lt;Spatial&nbsp;Index&nbsp;Related&nbsp;Organizing&nbsp;Principle&gt;&gt;</a>
+</th>
+<td>Partial</td>
+<td><p>
+Part (a) is checked by syntax_checker, apart from (a).3.3, which is not
+checked.
+</p><p>
+Part (b) is not checked.
+</p></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/StateRelatedOrganizingPrinciple.htm">&lt;&lt;State&nbsp;Related&nbsp;Organizing&nbsp;Principle&gt;&gt;</a>
+</th>
+<td>Partial</td>
+<td><p>
+Parts (a) and (b) are checked by syntax_checker.
+</p><p>
+Part (c) is not checked.
+</p></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/TablePropertyDescriptionConstraints.htm">&lt;&lt;Table&nbsp;Property&nbsp;Description&nbsp;Constraints&gt;&gt;</a>
+</th>
+<td>Partial</td>
+<td><p>
+Checked by syntax_checker, except for the scale restrictions in part (c). Uniqueness within a given
+&lt;Data Table&gt; instance is checked by rules_checker.
+</p></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/TimeDependency.htm">&lt;&lt;Time&nbsp;Dependency&gt;&gt;</a>
+</th>
+<td>Full</td>
+<td><p>
+Part (e) is checked by syntax_checker, the rest by rules_checker.
+</p></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/TimeIntervalCalculation.htm">&lt;&lt;Time&nbsp;Interval&nbsp;Calculation&gt;&gt;</a>
+</th>
+<td>Full</td>
+<td><p>
+Checked by rules_checker.
+</p></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/UnionOrganizingPrinciple.htm">&lt;&lt;Union&nbsp;Organizing&nbsp;Principle&gt;&gt;</a>
+</th>
+<td>Partial</td>
+<td><p>
+Checked by syntax_checker, except for the second part of (d), which is not checked.
+</p></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/ValidNodeEdgeRelationships.htm">&lt;&lt;Valid&nbsp;Node&nbsp;Edge&nbsp;Relationships&gt;&gt;</a>
+</th>
+<td>Full</td>
+<td><p>
+The checkable portion (that which is not defined by the syntax) is checked by rules_checker.
+</p></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/VariableMeaningConstraints.htm">&lt;&lt;Variable&nbsp;Meaning&nbsp;Constraints&gt;&gt;</a>
+</th>
+<td>Partial</td>
+<td><p>
+Checked by syntax_checker, apart from the scale restrictions in part (c) which are not checked.
+</p></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/constraints/VolumeShellFaceConsistency.htm">&lt;&lt;Volume&nbsp;Shell&nbsp;Face&nbsp;Consistency&gt;&gt;</a>
+</th>
+<td>Full</td>
+<td><p>
+Checked by rules_checker.
+</p></td>
+</tr>
+</table>
+</td>
+</tr>
+</table></div>
+<p>
+<HR>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a></strong>,
+<strong><a href="p5v2.htm">Table of Contents</a></strong>
+<br><br>
+
+<div class="CenterDiv">
+<table border=2 class="doc_set_header">
+<tr><td>
+<table border=0 class="doc_set_header">
+<tr><td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td>
+</tr>
+</table>
+</td></tr>
+</table>
+</div>
+</BODY>
+</HTML>

@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE_Time_Select_Parameters</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Types
+</font>
+<br>
+<font color="#ffffff">
+SE_Time_Select_Parameters
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<PRE>
+/*
+ * STRUCT: SE_Time_Select_Parameters
+ *
+ *   Used to build up the SE_Hierarchy_Select_Parameters data structure.
+ *
+ *   Used to select which branches to traverse from a &lt;Time Related Features&gt;
+ *   or &lt;Time Related Geometry&gt; instance when encountered by a Component
+ *   Iterator.  All branches with a &lt;Time Constraints Data&gt; link object
+ *   &lt;Time Data&gt; with values &quot;matching&quot; the ranges specified in the
+ *   time_entry_array will be traversed.
+ *
+ *   If no rules are provided for the &quot;type&quot; of time data of the branch
+ *   in question, then the branch will be traversed.  For example, if a branch
+ *   is marked with season data, but only time_of_day search ranges are
+ *   provided, then the season branch will be taken.  When no search rules for
+ *   a certain &quot;type&quot; of time are defined, then all values for that &quot;type&quot;
+ *   of time are considered valid.  For another example, if time_interval
+ *   search ranges are given, but only for SE_TIMEMEASTYP_GMT times and not
+ *   any SE_TIMEMEASTYP_RELATIVE_TO_EXERCISE_START times, then any branch
+ *   with an SE_TIMEMEASTYP_RELATIVE_TO_EXERCISE_START time value will be
+ *   traversed, but branches with SE_TIMEMEASTYP_GMT time values will only
+ *   be traversed if they &quot;match&quot; the given SE_TIMEMEASTYP_GMT search ranges.
+ *
+ *   See the definitions of the &lt;Time Related Features&gt;,
+ *   &lt;Time Related Geometry&gt;, &lt;Time Constraints Data&gt;, &lt;Time Data&gt;,
+ *   &lt;Time Interval&gt;, &lt;Time Point&gt;, &lt;Season&gt;, and &lt;Time Of Day&gt;
+ *   classes for more details.
+ */
+</PRE>
+<span class="Code">typedef struct 
+<br>
+{</span>
+<br>
+<table class="CFunctionPrototype">
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Branch_Range_Matching.htm">SE_Branch_Range_Matching</a></td>
+        <td class="CFunction"><a name="matching_rules"></a>matching_rules;</td><td class="CFunction"><sup><A href="#Notes_matching_rules">1</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../drm/types/SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a></td>
+        <td class="CFunction"><a
+        name="time_entry_count"></a>time_entry_count;</td><td class="CFunction"><sup><A href="#Notes_time_entry_count">2</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Time_Entry.htm">SE_Time_Entry</a></td>
+        <td class="CFunction">*<a
+        name="time_entry_array"></a>time_entry_array;</td><td class="CFunction"><sup><A href="#Notes_time_entry_array">3</A></sup></td></tr>
+</table>
+<span class="Code">
+} SE_Time_Select_Parameters;</span>
+<br>
+
+<br>
+<HR>
+<H2>Field Notes</H2>
+<h4><a href="#matching_rules" name="Notes_matching_rules">matching_rules</a></h4>
+<P>
+ Specifies how the ranges should be &quot;matched&quot; against the
+ field values of the branches (exact match, any overlap, etc.).
+</P>
+<h4><a href="#time_entry_count" name="Notes_time_entry_count">time_entry_count</a></h4>
+<P>
+ Specifies the number of entries in the following array.
+</P>
+<h4><a href="#time_entry_array" name="Notes_time_entry_array">time_entry_array</a></h4>
+<P>
+ An array of time values to search against.
+</P>
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SE_Time_Point_Entry.htm">SE_Time_Point_Entry</a>.
+<strong>Next:</strong> <a href="SE_Transmittal.htm">SE_Transmittal</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

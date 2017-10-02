@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE RemoveObjectAndLinks</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX B - Transmittal Access Level 1 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+SE RemoveObjectAndLinks
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../../taccess0/types/SE_Status_Code.htm">SE_Status_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SE_RemoveObjectAndLinks</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../../taccess0/types/SE_Object.htm">SE_Object</a>&nbsp;</td> <td class="CFunction"><a name="object_to_remove"></a>object_to_remove</td><td class="CFunction"><sup><A href="#Notes_object_to_remove">1</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+  Removes the specified object from the transmittal in which it resides,
+  after breaking any relationships between it and its components,
+  associations, and aggregates. Also removes any link objects involved in
+  these relationships from the transmittal.
+</P><P>
+  The transmittal whose object is to be edited must be
+  explicitly opened in UPDATE mode for this operation to succeed.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../../taccess0/types/SE_Status_Code.htm#SE_STATCODE_SUCCESS">SE_STATCODE_SUCCESS</A>
+</td><td class="Status">
+ and all relationships from
+ <A href="#object_to_remove">object_to_remove</A> to other objects
+ are broken, if a valid parameter was passed in and all operations
+ succeeded.
+</td></tr>
+<tr><td class="Status">
+<A href="../../taccess0/types/SE_Status_Code.htm#SE_STATCODE_UNRESOLVED_INPUT_OBJECT">SE_STATCODE_UNRESOLVED_INPUT_OBJECT</A>
+</td><td class="Status">
+ and no changes are made, if
+ <A href="#object_to_remove">object_to_remove</A> is
+ an unresolved object.
+</td></tr>
+<tr><td class="Status">
+<A href="../../taccess0/types/SE_Status_Code.htm#SE_STATCODE_UNRESOLVED_OUTPUT_OBJECT">SE_STATCODE_UNRESOLVED_OUTPUT_OBJECT</A>
+</td><td class="Status">
+ and no changes are made, if
+ <A href="#object_to_remove">object_to_remove</A> has relationships
+ that the DRM defines as bidirectional to unresolved component objects.
+ This means that there may be a relationship from the component object
+ back to <A href="#object_to_remove">object_to_remove</A> that
+ cannot be broken.
+</td></tr>
+<tr><td class="Status">
+<A href="../../taccess0/types/SE_Status_Code.htm#SE_STATCODE_INVALID_ACCESS_MODE">SE_STATCODE_INVALID_ACCESS_MODE</A>
+</td><td class="Status">
+ and no changes are made, if
+<OL>
+<LI><A href="#object_to_remove">object_to_remove</A> is in
+ a transmittal that is not open for update
+</LI>
+<LI><A href="#object_to_remove">object_to_remove</A> has
+ component relationships that the DRM defines as bidirectional to
+ resolved objects in other transmittals that are not open for update
+</LI>
+</OL>
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#object_to_remove" name="Notes_object_to_remove">1</a></sup>
+ object to be removed from a transmittal
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SE_RearrangeImageData.htm">SE_RearrangeImageData</a>.
+<strong>Next:</strong> <a href="SE_RemoveObjectTree.htm">SE_RemoveObjectTree</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

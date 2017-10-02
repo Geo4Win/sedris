@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE_DRM_Type_Structure</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX C - Types
+</font>
+<br>
+<font color="#ffffff">
+SE_DRM_Type_Structure
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<PRE>
+/*
+ * STRUCT: SE_DRM_Type_Structure
+ *
+ *   Used by the SE_GetDRMTypeStructure() function to return information
+ *   about a SEDRIS type definition.
+ *
+ *   field_count - # of fields, if the type is a structure
+ *                 # of enumerants, if the type is an enumerated type
+ *                 otherwise 0 (if the type is a &quot;basic&quot; type)
+ */
+</PRE>
+<span class="Code">typedef struct 
+<br>
+{</span>
+<br>
+<table class="CFunctionPrototype">
+<tr><td class="CFunction">         </td> <td class="CFunction"></td> <td class="CFunction"><a href="SE_DRM_Type.htm">SE_DRM_Type</a></td>
+              <td class="CFunction"><a name="drm_type"></a>drm_type;</td></tr>
+<tr><td class="CFunction">         </td> <td class="CFunction"></td> <td class="CFunction"><a href="SE_API.htm">SE_API</a></td>
+              <td class="CFunction"><a name="api"></a>api;</td><td class="CFunction"><sup><A href="#Notes_api">1</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction">const</td> <td class="CFunction"><a href="SE_Character.htm">SE_Character</a></td>
+        <td class="CFunction">*<a name="name_ptr"></a>name_ptr;</td><td class="CFunction"><sup><A href="#Notes_name_ptr">2</A></sup></td></tr>
+<tr><td class="CFunction">         </td> <td class="CFunction"></td> <td class="CFunction"><a href="SE_Short_Integer_Unsigned.htm">SE_Short_Integer_Unsigned</a></td>
+              <td class="CFunction"><a name="field_count"></a>field_count;</td></tr>
+<tr><td class="CFunction">         </td> <td class="CFunction"></td> <td class="CFunction"><a href="SE_Short_Integer_Unsigned.htm">SE_Short_Integer_Unsigned</a></td>
+              <td class="CFunction"><a name="size"></a>size;</td><td class="CFunction"><sup><A href="#Notes_size">3</A></sup></td></tr>
+<tr><td class="CFunction">         </td> <td class="CFunction"></td> <td class="CFunction"><a href="SE_Type_Classification.htm">SE_Type_Classification</a></td>
+              <td class="CFunction"><a
+              name="type_classification"></a>type_classification;</td><td class="CFunction"><sup><A href="#Notes_type_classification">4</A></sup></td></tr>
+<tr><td class="CFunction">         </td> <td class="CFunction"></td> <td class="CFunction"><a href="SE_Struct_As_Union.htm">SE_Struct_As_Union</a></td>
+              <td class="CFunction"><a name="u"></a>u;</td><td class="CFunction"><sup><A href="#Notes_u">5</A></sup></td></tr>
+</table>
+<span class="Code">
+} SE_DRM_Type_Structure;</span>
+<br>
+
+<br>
+<HR>
+<H2>Field Notes</H2>
+<h4><a href="#api" name="Notes_api">api</a></h4>
+<P>
+ the API within which the type is defined
+</P>
+<h4><a href="#name_ptr" name="Notes_name_ptr">name_ptr</a></h4>
+<P>
+ the name of the type
+</P>
+<h4><a href="#size" name="Notes_size">size</a></h4>
+<P>
+ size of the type, in bytes
+</P>
+<h4><a href="#type_classification" name="Notes_type_classification">type_classification</a></h4>
+<P>
+ Classifies the type according to its structure.
+</P>
+<h4><a href="#u" name="Notes_u">u</a></h4>
+<P>
+ Used in place of a union, so that an
+ <A href="SE_DRM_Type_Structure.htm">SE_DRM_Type_Structure</A> can be statically initialized.
+</P>
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SE_DRM_Type.htm">SE_DRM_Type</a>.
+<strong>Next:</strong> <a href="SE_Element_Type.htm">SE_Element_Type</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

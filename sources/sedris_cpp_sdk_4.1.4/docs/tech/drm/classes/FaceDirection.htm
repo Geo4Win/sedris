@@ -1,0 +1,185 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Face Direction</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Face Direction
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Face Direction</h2>
+<h3>Superclass - <a href="SEDRISAbstractBase.htm">&lt;SEDRIS Abstract Base&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies, for the associated
+ relationship, whether the front or back of the target face
+ is associated with the surface being described.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet12.pdf"><strong>12</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet08.pdf"><strong>8</strong></A>
+</LI>
+<LI><A href="sheet13.pdf"><strong>13</strong></A>
+</LI>
+</UL>
+
+<h3>Example</h3>
+<OL>
+<LI><P>
+ Consider an <A href="ArealFeature.htm">&lt;Areal Feature&gt;</A> instance
+ representing a grass-covered region, consisting of a single
+ <A href="FeatureFace.htm">&lt;Feature Face&gt;</A> instance. The
+ <A href="FaceDirection.htm">&lt;Face Direction&gt;</A> link object on the
+ relationship between them is set to
+ <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A>, indicating that the
+ front (that is, the top) side of the face corresponds to the
+ <A href="ArealFeature.htm">&lt;Areal Feature&gt;</A> instance.
+</P></LI>
+<LI><P>
+ Consider a <A href="Polyhedron.htm">&lt;Polyhedron&gt;</A> instance specifying a room
+ within a building and a <A href="GeometryVolume.htm">&lt;Geometry Volume&gt;</A> instance
+ representing the topological connectivity of the boundary of
+ the room. The <A href="Polygon.htm">&lt;Polygon&gt;</A> instance representing
+ a wall of the room that is an interior wall of the building
+ has a <A href="GeometryFace.htm">&lt;Geometry Face&gt;</A> instance associated to the
+ <A href="Polyhedron.htm">&lt;Polyhedron&gt;</A> instance through a <A href="FaceDirection.htm">&lt;Face Direction&gt;</A>
+ link object with <A href="#front">front</A> field =
+ <A href="../types/SE_Boolean.htm#SE_FALSE">SE_FALSE</A>.
+</P><P>
+ A second <A href="Polyhedron.htm">&lt;Polyhedron&gt;</A> instance representing a room
+ on the other side of the same wall has a <A href="GeometryVolume.htm">&lt;Geometry Volume&gt;</A>
+ instance associated to the same <A href="Polygon.htm">&lt;Polygon&gt;</A> instance, but
+ through a <A href="FaceDirection.htm">&lt;Face Direction&gt;</A> link object with
+ <A href="#front">front</A> = <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A>.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ What if both sides of
+ a <A href="FeatureFace.htm">&lt;Feature Face&gt;</A> instance are associated with
+ the same <A href="ArealFeature.htm">&lt;Areal Feature&gt;</A> instance?
+</B></DT>
+<DD><P>
+ In such a case the <A href="FeatureFace.htm">&lt;Feature Face&gt;</A> instance
+ appears twice in the collection of
+ <A href="FeatureFace.htm">&lt;Feature Face&gt;</A> components of the
+ <A href="ArealFeature.htm">&lt;Areal Feature&gt;</A> instance, once with the
+ <A href="#front">front</A> field of the corresponding
+ <A href="FaceDirection.htm">&lt;Face Direction&gt;</A> link object set to
+ <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A>, and once with the
+ <A href="#front">front</A> field of the corresponding
+ <A href="FaceDirection.htm">&lt;Face Direction&gt;</A> link object set to
+ <A href="../types/SE_Boolean.htm#SE_FALSE">SE_FALSE</A>.
+</P></DD>
+<DT><B>
+ What if the two sides of a <A href="FeatureFace.htm">&lt;Feature Face&gt;</A>
+ instance are associated with different
+ <A href="ArealFeature.htm">&lt;Areal Feature&gt;</A> instances?
+</B></DT>
+<DD><P>
+ In such a case the <A href="FeatureFace.htm">&lt;Feature Face&gt;</A> instance
+ appears once in the collection of
+ <A href="FeatureFace.htm">&lt;Feature Face&gt;</A> components of each of
+ the two <A href="ArealFeature.htm">&lt;Areal Feature&gt;</A> instances.
+ For the <A href="ArealFeature.htm">&lt;Areal Feature&gt;</A> instance corresponding
+ to the front side of the face,
+ the corresponding <A href="FaceDirection.htm">&lt;Face Direction&gt;</A> link object
+ has <A href="#front">front</A> set to
+ <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A>, while for the
+ <A href="ArealFeature.htm">&lt;Areal Feature&gt;</A> instance corresponding to
+ the back side of the <A href="FeatureFace.htm">&lt;Feature Face&gt;</A> instance,
+ the <A href="FaceDirection.htm">&lt;Face Direction&gt;</A> link object
+ has <A href="#front">front</A> set to
+ <A href="../types/SE_Boolean.htm#SE_FALSE">SE_FALSE</A>.
+</P></DD>
+<DT><B>
+ What constraints does feature topology level place upon
+ <A href="FaceDirection.htm">&lt;Face Direction&gt;</A> link objects?
+</B></DT>
+<DD><P>
+ See <a href="../constraints/FaceDirectionLevels03.htm">&lt;&lt;Face Direction Levels 0 3&gt;&gt;</a>.
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/FaceDirectionLevels03.htm">&lt;&lt;Face Direction Levels 0 3&gt;&gt;</a> 
+</LI>
+</UL>
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Boolean.htm">SE_Boolean</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="front">front</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_front">1</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Fields Notes</h3>
+<h4><a href="#front" name="Notes_front">front</a></h4>
+<P>
+ If the value of the <A href="#front">front</A> field is
+ <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A>, the front face is
+ associated with the given DRM object. Otherwise, it is the back
+ face that is associated.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="Expression.htm">Expression</A>.
+<strong>Next:</strong> <A href="FadeRange.htm">Fade Range</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

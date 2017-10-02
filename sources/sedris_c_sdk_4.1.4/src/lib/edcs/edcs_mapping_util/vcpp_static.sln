@@ -1,0 +1,30 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "mapping_util_sdk", "src\mapping_util_sdk.vcproj", "{A63FC582-7383-4198-B45D-EA47603D2753}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C4198033-17E8-41EF-B139-4975B537D6FE} = {C4198033-17E8-41EF-B139-4975B537D6FE}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lib_map_util", "src\lib\lib_map_util.vcproj", "{C4198033-17E8-41EF-B139-4975B537D6FE}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{A63FC582-7383-4198-B45D-EA47603D2753}.Debug.ActiveCfg = Debug|Win32
+		{A63FC582-7383-4198-B45D-EA47603D2753}.Debug.Build.0 = Debug|Win32
+		{A63FC582-7383-4198-B45D-EA47603D2753}.Release.ActiveCfg = Release|Win32
+		{A63FC582-7383-4198-B45D-EA47603D2753}.Release.Build.0 = Release|Win32
+		{C4198033-17E8-41EF-B139-4975B537D6FE}.Debug.ActiveCfg = Debug|Win32
+		{C4198033-17E8-41EF-B139-4975B537D6FE}.Debug.Build.0 = Debug|Win32
+		{C4198033-17E8-41EF-B139-4975B537D6FE}.Release.ActiveCfg = Release|Win32
+		{C4198033-17E8-41EF-B139-4975B537D6FE}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

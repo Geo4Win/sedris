@@ -1,0 +1,190 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE ResolveTransmittalName</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+SE ResolveTransmittalName
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../types/SE_Return_Code.htm">SE_Return_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SE_ResolveTransmittalName</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1"><td class="CFunction">const&nbsp;</td><td class="CFunction"><a href="../../drm/types/SE_URN.htm">SE_URN</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="transmittal_name"></a>transmittal_name,</td><td class="CFunction"><sup><A href="#Notes_transmittal_name">1</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../types/SE_Store.htm">SE_Store</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="store"></a>store,</td><td class="CFunction"><sup><A href="#Notes_store">2</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../../drm/types/SE_URL.htm">SE_URL</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="location"></a>location</td><td class="CFunction"><sup><A href="#Notes_location">3</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+  Given an character string representing a formal transmittal name,
+  returns the file location associated with this name. This function invokes
+  the SEDRIS namespace resolver as described in the SEDRIS documentation
+  set.
+</P><P>
+  The format of a valid SEDRIS name is as follows:
+</P><P>
+ urn:sedris:&lt;delegated_creation_authority&gt;:&lt;assigned_transmittal_name&gt;
+     [:&lt;transmittal_version_serial&gt;]
+</P><P>
+ <STRONG>NOTE</STRONG>: in the format shown above there must be
+        <EM>no</EM> white space or carriage
+        control characters within or between the sub-fields.
+</P><P>
+  The format as described here is for cursory information only.  Please
+  consult the SEDRIS documentation set for a complete and formal
+  description of the SEDRIS namespace and resolution process.
+</P><P>
+  The first 11 characters are <EM>required</EM> fields that represent
+  a sentinel for the SEDRIS namespace.  These fields <EM>must</EM> be
+  present for the name string to be considered valid.
+</P><P>
+  The &lt;delegated_creation_authority&gt; is the string representing the
+  portion of the SEDRIS namespace that has been delegated by the SEDRIS
+  namespace registrar to the group, organization, or body that has authority
+  for the assignment of transmittal named within the delegated namespace.
+  This string may represent a sub-delegation by the registered authority to
+  another group, organization or body.
+</P><P>
+  The &lt;assigned_transmittal_name&gt; is the string representing a specific
+  transmittal, and the optional &lt;transmittal_version_serial&gt; allows for
+  a more specific designation of the transmittal to resolve.  The rules
+  governing the naming and versioning of transmittals are described
+  more fully in the SEDRIS documentation set.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A>
+</td><td class="Status">
+ and the transmittal name is resolved.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A>
+</td><td class="Status">
+ and the status code is set appropriately if the call failed.
+</td></tr>
+</table>
+
+<h3>Status Codes</h3>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A> is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_SUCCESS">SE_STATCODE_SUCCESS</A>
+</td><td class="Status">set if valid parameters were
+    passed in and the transmittal name was successfully resolved.
+</td></tr>
+</table>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A> is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_INVALID_TRANSMITTAL_NAME">SE_STATCODE_INVALID_TRANSMITTAL_NAME</A>
+</td><td class="Status">
+ set if the <A href="#transmittal_name">transmittal_name</A>
+ parameter did not specify a name that was valid according to the
+ formal SEDRIS namespace. See the comment in the function description
+ above about the nature of the validation done.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_UNRESOLVED_TRANSMITTAL">SE_STATCODE_UNRESOLVED_TRANSMITTAL</A>
+</td><td class="Status">
+ set if the API could not resolve the
+ <A href="#transmittal_name">transmittal_name</A>
+ to a file location.
+</td></tr>
+<tr><td class="Status">
+  <A href="../types/SE_Status_Code.htm#SE_STATCODE_C_STORE_INVALID">SE_STATCODE_C_STORE_INVALID</A>
+</td><td class="Status">
+  set if <A href="#store">store</A> is not a handle to
+ a valid <A href="../types/SE_Store.htm">SE_Store</A>.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_INACTIONABLE_FAILURE">SE_STATCODE_INACTIONABLE_FAILURE</A>
+</td><td class="Status">
+ set if the API implementation specified does not provide this function
+ in its shared library, and dynamic binding is specified at compile time.
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#transmittal_name" name="Notes_transmittal_name">1</a></sup>
+ a pointer to SE_URN specifying a valid
+    transmittal name in the formal SEDRIS namespace.  This parameter is
+    validated only based upon the structured format of the name string as
+    described above.  That is, the sub-fields within the string are only
+    checked for proper structure (character set, delimiters, etc.) and are
+    NOT checked for consistency with namespace delegation rules, and proper
+    use of transmittal versioning.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#store" name="Notes_store">2</a></sup>
+ the store to be used when allocated the string used to return
+    the file location.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#location" name="Notes_location">3</a></sup>
+ a pointer to a SE_URL variable from the user.
+    The file location will be returned via this pointer.  The storage for
+    the character string returned in this structure will be allocated within
+    the store passed in.
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SE_ResolveObject.htm">SE_ResolveObject</a>.
+<strong>Next:</strong> <a href="SE_SetColourModel.htm">SE_SetColourModel</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

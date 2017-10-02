@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE UseDefaultSRFContextInfo</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+SE UseDefaultSRFContextInfo
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../types/SE_Return_Code.htm">SE_Return_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SE_UseDefaultSRFContextInfo</td></tr>
+<tr><td class="CFunction">(void);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+ This function places the API into the default SRF state, in which
+ <A href="../../drm/classes/Location.htm">&lt;Location&gt;</A> instances are returned based entirely on the
+ SRF in which they were originally encoded in the transmittal. The
+ API will remain in this state until the user calls
+ <A href="SE_SetSRFContextInfo.htm">SE_SetSRFContextInfo()</A>,
+ which takes the API out of the current SRF state and forces the
+ use of whatever SRF was specified by
+ <A href="SE_SetSRFContextInfo.htm">SE_SetSRFContextInfo()</A>.
+</P><P>
+ EXAMPLE If positions in a transmittal are represented with
+ Augmented Transverse Mercator SRF locations,
+ <A href="../../drm/classes/TMAugmented3DLocation.htm">&lt;TM Augmented 3D Location&gt;</A> instances will be
+ returned as the type of <A href="../../drm/classes/Location3D.htm">&lt;Location 3D&gt;</A> instances
+ from that transmittal once
+ <A href="SE_UseDefaultSRFContextInfo.htm">SE_UseDefaultSRFContextInfo()</A>
+ is called.
+</P><P>
+ <A href="SE_GetSRFContextInfo.htm">SE_GetSRFContextInfo()</A> can be used
+ to find out what the current SRF is, either immediately after a call to
+ <A href="SE_UseDefaultSRFContextInfo.htm">SE_UseDefaultSRFContextInfo()</A>,
+ or at any time before a call to
+ <A href="SE_SetSRFContextInfo.htm">SE_SetSRFContextInfo()</A> is made.
+</P><P>
+  Instead of returning a valid, this function changes the internal state
+  of the API, determining the SRF used to define <A href="../../drm/classes/Location.htm">&lt;Location&gt;</A>
+  instances returned by the API.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A>
+</td><td class="Status">
+ all operations succeeded.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A>
+</td><td class="Status">
+ and the status code is set appropriately if the call failed.
+</td></tr>
+</table>
+
+<h3>Status Codes</h3>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A> is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_SUCCESS">SE_STATCODE_SUCCESS</A>
+</td><td class="Status">
+ set upon successful completion.
+</td></tr>
+</table>
+</P><P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A> is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status"><A href="../types/SE_Status_Code.htm#SE_STATCODE_INACTIONABLE_FAILURE">SE_STATCODE_INACTIONABLE_FAILURE</A>
+</td><td class="Status">
+ set upon failure.
+</td></tr>
+</table>
+
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SE_UseDefaultColourModel.htm">SE_UseDefaultColourModel</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

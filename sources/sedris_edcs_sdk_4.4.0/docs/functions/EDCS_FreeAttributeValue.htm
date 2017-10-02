@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>EDCS FreeAttributeValue</title>
+<link rel="stylesheet" href="../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>EDCS Reference Manual</big></big>
+<br>
+<!-- EDCS spec. 4.4 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+EDCS FreeAttributeValue
+</font>
+</th></tr>
+</table></div>
+
+<!-- EDCS SDK Release 4.4.0 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../types/EDCS_Status_Code.htm">EDCS_Status_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">EDCS_FreeAttributeValue</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/EDCS_Attribute_Value.htm">EDCS_Attribute_Value</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="to_free"></a>to_free,</td><td class="CFunction"><sup><A href="#Notes_to_free">1</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction">void&nbsp;          </td> <td class="CFunction">(*<a name="dealloc_func_in_ptr">dealloc_func_in_ptr</a>)(void *)</td><td class="CFunction"><sup><A href="#Notes_dealloc_func_in_ptr">2</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+  Frees any internal pointers in the data in the given
+<A href="../types/EDCS_Attribute_Value.htm">EDCS_Attribute_Value</A> structure.
+</P>
+<table class="Status" border="0">
+<th align=center valign=top>IMPORTANT NOTE:</th>
+<td class="Status">This function is intended <EM>only</EM> for use with
+ <A href="EDCS_CloneAttributeValue.htm">EDCS_CloneAttributeValue()</A>, if
+ <A href="#dealloc_func_in_ptr">dealloc_func_in_ptr</A> is not specified.
+</td></tr>
+</table>
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/EDCS_Status_Code.htm#EDCS_SC_SUCCESS">EDCS_SC_SUCCESS</A>
+</td><td class="Status">
+ and internal pointers within the data of <A href="#to_free">*to_free</A>
+ are freed and set to NULL, and any corresponding &quot;array size&quot;
+ fields are set to zero (0), if valid parameters were passed in.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/EDCS_Status_Code.htm#EDCS_SC_NULL_REQUIRED_PARAMETER">EDCS_SC_NULL_REQUIRED_PARAMETER</A>
+</td><td class="Status">
+ and <A href="#to_free">*to_free</A> is left unchanged, if
+ <A href="#to_free">to_free</A> is NULL.
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#to_free" name="Notes_to_free">1</a></sup>
+ pointer to the EDCS_Attribute_Value whose internal pointer(s)
+    (if in use) are to be freed.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#dealloc_func_in_ptr" name="Notes_dealloc_func_in_ptr">2</a></sup>
+ pointer to a user-supplied function to
+    be used to free the memory. Must correspond to the function used to
+    allocate the memory. (Should be omitted if EDCS_CloneAttributeValue()
+    was used.)
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="EDCS_EnumNameToValueCharacteristicApplicability.htm">EDCS_EnumNameToValueCharacteristicApplicability</a>.
+<strong>Next:</strong> <a href="EDCS_FreeString.htm">EDCS_FreeString</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

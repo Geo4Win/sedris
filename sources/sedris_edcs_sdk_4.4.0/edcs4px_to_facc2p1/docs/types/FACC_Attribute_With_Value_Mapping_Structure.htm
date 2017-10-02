@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<title>FACC_Attribute_With_Value_Mapping_Structure</title>
+<link rel="stylesheet" href="../../../docs/styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+<div align="center">
+<table border="2" class="doc_set_header">
+<tr><th class="doc_set_header">
+<big><big>EDCS Reference Manual</big></big>
+<br>
+<font color="#ffffff">
+Concept Mapping from EDCS 4.4 to FACC 2.1
+<!-- EDCS SDK Release 4.4.0 -->
+<br>
+Types
+<br>
+FACC_Attribute_With_Value_Mapping_Structure
+</font></th>
+</tr>
+</table>
+</div>
+<!-- EDCS 4.4 to FACC 2.1 Mapping SDK Release 4.4.0.0 -->
+<pre>/*
+ * STRUCT: FACC_Attribute_With_Value_Mapping_Structure
+ *
+ * This structure will be returned from the call
+ * <a href="../functions/EDCS_to_FACC_MapAttributeWithValue.htm">EDCS_to_FACC_MapAttributeWithValue</a>
+ *
+ * If the mapping_type field is FACC_MAP_TYP_ONE_TO_ONE then
+ * the facc_attribute_with_value structure will be populated 
+ * with the FACC Attribute Code and the corresponding value
+ * If applicable, the unit and scale of the value will be 
+ * proper for the FACC Attribute Code.
+ *
+ * If the mapping_type field is FACC_MAP_TYP_ONE_TO_ZERO then
+ * no mapping could be found for the EDCS attribute or for the 
+ * specific value given with the EDCS attribute.
+ *
+ */
+<br></pre>
+
+<table class="CFunctionPrototype">
+<tr>
+<td class="CFunction">typedef</td>
+<td class="CFunction">struct</td>
+<td class="CFunction">
+</td>
+</tr>
+<tr>
+<td class="CFunction">{</td>
+<td class="CFunction">
+</td>
+<td class="CFunction">
+</td>
+</tr>
+<tr>
+<td class="CFunction">
+</td>
+<td class="CFunction"><a href="FACC_Mapping_Type_Code.htm">FACC_Mapping_Type_Code</a>
+</td>
+<td class="CFunction"><a name="mapping_type"></a>mapping_type;
+</td>
+</tr>
+<tr>
+<td class="CFunction">
+</td>
+<td class="CFunction"><a href="FACC_Attribute_With_Value.htm">FACC_Attribute_With_Value</a>
+</td>
+<td class="CFunction"><a name="facc_attribute_with_value"></a>facc_attribute_with_value;
+</td>
+</tr>
+<tr>
+<td class="CFunction">
+</td>
+<td class="CFunction">const char
+</td>
+<td class="CFunction">* <a name="notes"></a>notes;
+</td>
+</tr>
+</table>
+} FACC_Attribute_Mapping_Structure;<br>
+<br>
+
+<hr> <br>
+<font color="#ff0000">Return to:</font>
+<b><a href="#Top">Top of this Page</a></b>,
+<b><a href="../edcs4px_facc2p1.htm#Data Structures">Type Index</a></b>
+<br><br>
+<table class="doc_set_header">
+<tr><td>
+<table class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="left" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

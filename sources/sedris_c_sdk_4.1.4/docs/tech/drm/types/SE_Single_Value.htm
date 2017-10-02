@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE_Single_Value</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX C - Types
+</font>
+<br>
+<font color="#ffffff">
+SE_Single_Value
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<PRE>
+/*
+ * STRUCT: SE_Single_Value
+ *
+ *   A tagged union to store a single float, int, count,
+ *   or similar.
+ */
+</PRE>
+<span class="Code">typedef struct 
+<br>
+{</span>
+<br>
+<table class="CFunctionPrototype">
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Single_Value_Type.htm">SE_Single_Value_Type</a></td>
+        <td class="CFunction"><a name="value_type"></a>value_type;</td></tr>
+<tr> <td class="CFunction">   </td><td class="CFunction">union</td></tr>
+<tr> <td class="CFunction">   </td><td class="CFunction">{</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../../../../src/lib/edcs/docs/types/EDCS_Long_Float.htm">EDCS_Long_Float</a></td>
+            <td class="CFunction"><a
+            name="long_float_value"></a>long_float_value;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../../../../src/lib/edcs/docs/types/EDCS_Integer.htm">EDCS_Integer</a></td>
+            <td class="CFunction"><a
+            name="integer_value"></a>integer_value;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../../../../src/lib/edcs/docs/types/EDCS_Count.htm">EDCS_Count</a></td>
+            <td class="CFunction"><a name="count_value"></a>count_value;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../../../../src/lib/edcs/docs/types/EDCS_Integer.htm">EDCS_Integer</a></td>
+            <td class="CFunction"><a name="index_value"></a>index_value;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../../../../src/lib/edcs/docs/types/EDCS_String.htm">EDCS_String</a></td>
+            <td class="CFunction"><a name="string_value"></a>string_value;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../../../../src/lib/edcs/docs/types/EDCS_String.htm">EDCS_String</a></td>
+            <td class="CFunction"><a
+            name="constrained_string_value"></a>constrained_string_value;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../../../../src/lib/edcs/docs/types/EDCS_String.htm">EDCS_String</a></td>
+            <td class="CFunction"><a name="key_value"></a>key_value;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../../../../src/lib/edcs/docs/types/EDCS_Enumerant_Code.htm">EDCS_Enumerant_Code</a></td>
+            <td class="CFunction"><a
+            name="enumerant_value"></a>enumerant_value;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../../../../src/lib/edcs/docs/types/EDCS_Boolean.htm">EDCS_Boolean</a></td>
+            <td class="CFunction"><a
+            name="boolean_value"></a>boolean_value;</td></tr>
+<tr><td class="CFunction"></td> <td class="CFunction">} <a
+        name="value"></a>value;</td></tr>
+</table>
+<span class="Code">
+} SE_Single_Value;</span>
+<br>
+
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SE_Short_Integer_Unsigned.htm">SE_Short_Integer_Unsigned</a>.
+<strong>Next:</strong> <a href="SE_Single_Value_Type.htm">SE_Single_Value_Type</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

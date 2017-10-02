@@ -1,0 +1,204 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<title>FACC_2p1_Mapping_Type_Code</title>
+<link rel="stylesheet" href="../../../docs/styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<A name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th class="doc_set_header">
+<big><big>EDCS Reference Manual</big></big>
+<br>
+<font color="#ffffff">
+Concept Mapping from FACC 2.1 to EDCS 4.4
+<!-- FACC 2.1 to EDCS 4.4 Mapping SDK Release 4.4.0.0 -->
+<!-- EDCS spec. 4.4 -->
+<br>
+Types
+<br>
+FACC_2p1_Mapping_Type_Code
+</font>
+</th></tr>
+</table></div>
+
+<PRE>
+/*
+ * REGISTERABLE ENUM: FACC_2p1_Mapping_Type_Code
+ *
+ *   Specifies the type and multiplicity of a given forward
+ *   mapping.
+ */
+typedef EDCS_Integer FACC_2p1_Mapping_Type_Code;
+</PRE>
+<table class="CFunctionPrototype">
+<tr><th>Enumerant</th> <th>Definition</th> <th>Value</th></tr>
+<tr><td class="CFunction"><a name="FACC_MAP_TYP_ONE_TO_ZERO">FACC_MAP_TYP_ONE_TO_ZERO</a></td>
+<td class="CFunction"><p>
+ There is no forward mapping for the given concept.
+</p><p>
+ In any mapping data structure with an entry list,
+ the entry list will be null.  Check the information
+ field for relevant information.
+</p></td>
+<td class="CFunction">1</td>
+</tr>
+<tr><td class="CFunction"><a name="FACC_MAP_TYP_ONE_TO_ONE">FACC_MAP_TYP_ONE_TO_ONE</a></td>
+<td class="CFunction"><p>
+ The given concept has an exact mapping to a single
+ concept in the target version of EDCS.
+</p><p>
+ In any mapping data structure with an entry list, there
+ will be exactly one unique replacement entry in the list.
+ There may or may not be information in the information
+ field for this case.
+</p></td>
+<td class="CFunction">2</td>
+</tr>
+<tr><td class="CFunction"><a name="FACC_MAP_TYP_ONE_TO_ONE_QUALIFIED">FACC_MAP_TYP_ONE_TO_ONE_QUALIFIED</a></td>
+<td class="CFunction"><p>
+ The given concept has been mapped to two or more concepts
+ in the target version of EDCS.
+</p><p>
+ This occurs only within mapping data structures that have
+ entry lists. In this case, the entry list will have
+ more than 1 entry, and the information field may have
+ relevant information.
+</p><p>
+ Examples:
+</p>
+<ol>
+<li><p>
+FACC Feature Code -&gt; EC plus one-or-more EA-with-values
+</p><p>
+BG010 -&gt;
+<a href="../../../docs/dictionary/ECC_O.htm#ECC_OBJECT_SET">ECC_OBJECT_SET</a>
+plus
+<a href="../../../docs/dictionary/EAC_O.htm#EAC_OBJECT_SET_TYPE">EAC_OBJECT_SET_TYPE</a> with
+<a href="../../../docs/dictionary/EAC_O.htm#EEC_OBJSETTY_MARINE_ENVIRONMENT">EEC_OBJSETTY_MARINE_ENVIRONMENT</a>
+</p></li>
+
+<li><p>
+FACC Attribute Code-with-value -&gt; EC plus EA-with-value
+</p><p>
+    No examples.
+</p></li>
+
+<li><p>
+FACC Attribute Code-with-value -&gt; EA-with-value plus EA-with-value
+</p><p>
+    No examples.
+</p></li>
+</ol></td>
+<td class="CFunction">3</td>
+</tr>
+<tr><td class="CFunction"><a name="FACC_MAP_TYP_ONE_TO_ONE_CONDITIONAL">FACC_MAP_TYP_ONE_TO_ONE_CONDITIONAL</a></td>
+<td class="CFunction"><p>
+ The given concept has a single exact replacement, but it is either
+ the old concept was an EA whose enumerants did not all map to the
+ same EA, or it mapped to a different concept.
+</p><p>
+ Examples:
+</p>
+<ol>
+<li><p>
+FACC Attribute-with-specific-value -&gt; EA-with-specific-value
+</p><p>
+   HDI_: Hydrographic Depth Information
+     = 11 (Depth Unknown But Safe to Depth Shown) -&gt;
+<a href="../../../docs/dictionary/EAC_H.htm#EAC_HYDROGRAPHIC_DEPTH_INFORMATION">EAC_HYDROGRAPHIC_DEPTH_INFORMATION</a> =
+<a href="../../../docs/dictionary/EAC_H.htm#EEC_HYDRGDEPINF_UNKNOWN_BUT_SAFE">EEC_HYDRGDEPINF_UNKNOWN_BUT_SAFE</a>
+</p><p>
+   HDI_: Hydrographic Depth Information
+     = 13 (Uncovering Height Known) -&gt;
+<a href="../../../docs/dictionary/EAC_U.htm#EAC_UNCOVERING_HEIGHT_KNOWN">EAC_UNCOVERING_HEIGHT_KNOWN</a> = EDCS_TRUE
+</p></li>
+<li><p>
+ EA-with-specific-value -&gt; EC
+</p><p>
+    SWT_: Spring / Well Type
+      = 5 (Water Hole) -&gt;
+<a href="../../../docs/dictionary/ECC_W.htm#ECC_WATERING_HOLE">ECC_WATERING_HOLE</a>
+     (Note that this replaces any existing EC,
+     and information will be in the information field)
+</p></li>
+</ol></td>
+<td class="CFunction">4</td>
+</tr>
+<tr><td class="CFunction"><a name="FACC_MAP_TYP_CHANGE_IN_DATATYPE">FACC_MAP_TYP_CHANGE_IN_DATATYPE</a></td>
+<td class="CFunction"><p>
+ The concept has a one-to-one mapping, but the datatype used to
+ realize the concept has changed.
+</p><p>
+ Examples:
+</p>
+<ol>
+<li><p>
+ ENUMERATION -&gt; BOOLEAN
+</p><p>
+  VDV_: Visibility Distance, Variability
+    = 1 (Non-variable) -&gt;
+<a href="../../../docs/dictionary/EAC_V.htm#EAC_VISIBILITY_DISTANCE_VARIABLE">EAC_VISIBILITY_DISTANCE_VARIABLE</a>
+ = EDCS_FALSE
+</p></li>
+<li><p>
+ &quot;RANGED&quot; ENUMERATION -&gt; INTERVAL
+</p><p>
+  DW1_: Depth of Water, First Range
+    = 2 (&gt; 0.8 and &lt;= 1.6 meters) -&gt;
+<a href="../../../docs/dictionary/EAC_W.htm#EAC_WATER_DEPTH">EAC_WATER_DEPTH</a> = (0.8, 1.6], EQ METRE, ES UNI
+</p></li>
+</ol></td>
+<td class="CFunction">5</td>
+</tr>
+<tr><td class="CFunction"><a name="FACC_MAP_TYP_CHANGE_TO_CHARACTERISTIC">FACC_MAP_TYP_CHANGE_TO_CHARACTERISTIC</a></td>
+<td class="CFunction"><p>
+ The concept has a one-to-one mapping, but the new concept is an EDCS
+ Value Characteristic Concept.
+</p><p>
+ Examples:
+</p>
+<ol>
+<li><p>
+ ENUMERATION -&gt; VALUE CHARACTERISTIC
+</p><p>
+   BUD_996
+     = EVC_MULTIPLE
+</p></li>
+</ol>
+</td>
+<td class="CFunction">6</td>
+</tr>
+<tr><td class="CFunction"><a name="FACC_MAP_TYP_SPECIAL_CASE">FACC_MAP_TYP_SPECIAL_CASE</a></td>
+<td class="CFunction"><p>
+ The mapping from this concept is not implemented in the code but
+ the description of the mapping will be in the information
+ field of the mapping structure.  There will be no mapping entries
+ in the list.
+</p></td>
+<td class="CFunction">7</td>
+</tr>
+</table>
+
+<br><br>
+<STRONG>Up:</STRONG><a href="../facc2p1_edcs4px.htm#Part5">Index</a>.
+<br><br>
+<table class="doc_set_header">
+<tr><td>
+<table class="doc_set_header">
+<tr>
+<td align="right" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="left" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</BODY>
+</HTML>

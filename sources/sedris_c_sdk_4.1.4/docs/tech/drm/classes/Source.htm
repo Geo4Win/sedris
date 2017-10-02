@@ -1,0 +1,190 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Source</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Source
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Source</h2>
+<h3>Superclass - <a href="SEDRISAbstractBase.htm">&lt;SEDRIS Abstract Base&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies a description of where the
+ environmental data originated or an intermediate collection of
+ environmental data used during data generation.  The term
+ source is used loosely, and covers intermediate forms
+ and final products as well as the original data sources.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet20.pdf"><strong>20</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+This class appears on only one page of the DRM class diagram.
+<h3>Example</h3>
+<OL>
+<LI><P>
+ A <A href="Source.htm">&lt;Source&gt;</A> instance references raw data used to create
+ the transmittal.
+</P></LI>
+<LI><P>
+ A <A href="Source.htm">&lt;Source&gt;</A> instance references the original satellite data
+ that has been refined for inclusion in the transmittal.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ What is the purpose of this class?
+</B></DT>
+<DD><P>
+ This class provides a mechanism for documenting the sources used in
+ environmental database generation.  It can also be used to
+ document intermediate forms of the data and final products.
+ In conjunction with <A href="ProcessStep.htm">&lt;Process Step&gt;</A> instances,
+ <A href="Source.htm">&lt;Source&gt;</A> instances can be used to construct a
+ network-like description of the database generation process, consisting
+ of processing steps linked by their input and output data.
+ A <A href="Source.htm">&lt;Source&gt;</A> instance uses a
+ <A href="Citation.htm">&lt;Citation&gt;</A> component to refer to the source data,
+ so it has the flavor of a bibliographical reference, and can be used to
+ refer to books, maps, presentations, or any other type of publication,
+ as well as to digital data sets.  Each <A href="Source.htm">&lt;Source&gt;</A>
+ instance includes a field in which the nature of the contribution of each
+ source to the result can be described.
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/DistinctLinkObjects.htm">&lt;&lt;Distinct Link Objects&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/MandatoryMetadata.htm">&lt;&lt;Mandatory Metadata&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Associated by (one-way)</h3>
+<UL>
+<li>zero or more <a href="ProcessStep.htm">&lt;Process Step&gt;</a> instances, each through the use of an <a href="InOut.htm">&lt;In Out&gt;</a> link object</li>
+</UL>
+
+<h3>Composed of (two-way)</h3>
+<UL>
+<li>one <a href="TimeInterval.htm">&lt;Time Interval&gt;</a> instance<sup><A href="#Notes_cmp_Time_Interval" name="cmp_Time_Interval">1</A></sup></li>
+</UL>
+
+<h3>Composed of (two-way metadata)</h3>
+<UL>
+<li>one <a href="Citation.htm">&lt;Citation&gt;</a> instance<sup><A href="#Notes_cmp_Citation" name="cmp_Citation">2</A></sup></li>
+</UL>
+
+<h3>Component of (two-way)</h3>
+<UL>
+<li>zero or more <a href="Lineage.htm">&lt;Lineage&gt;</a> instances</li>
+</UL>
+
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_String.htm">SE_String</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="description">description</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_description">3</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Integer_Positive.htm">SE_Integer_Positive</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="scale">scale</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_scale">4</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_String.htm">SE_String</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="contribution">contribution</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_contribution">5</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Composed of Notes</h3>
+<br>
+<h4><a href="#cmp_Citation" name="Notes_cmp_Citation">Citation</a></h4>
+ The <A href="Citation.htm">&lt;Citation&gt;</A> component
+ is a citation for the source environmental data.
+</P>
+<br>
+<h4><a href="#cmp_Time_Interval" name="Notes_cmp_Time_Interval">Time_Interval</a></h4>
+ The <A href="TimeInterval.htm">&lt;Time Interval&gt;</A> component specifies
+ the time period described by the source environmental data.
+</P>
+<h3>Fields Notes</h3>
+<h4><a href="#description" name="Notes_description">description</a></h4>
+<P>
+ The <A href="#description">description</A> field specifies
+ a description of the source environmental data, and is mandatory.
+</P>
+<h4><a href="#scale" name="Notes_scale">scale</a></h4>
+<P>
+ The <A href="#scale">scale</A> field specifies the scale
+ (in the map scale sense) of the source environmental data
+ (for example, 24000 for
+ a &quot;1:24,000&quot; scale).
+</P>
+<h4><a href="#contribution" name="Notes_contribution">contribution</a></h4>
+<P>
+ If supplied, the <A href="#contribution">contribution</A> field
+ states what the source environmental data contributes to the result.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="SoundVolume.htm">Sound Volume</A>.
+<strong>Next:</strong> <A href="SpatialAssociationData.htm">Spatial Association Data</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

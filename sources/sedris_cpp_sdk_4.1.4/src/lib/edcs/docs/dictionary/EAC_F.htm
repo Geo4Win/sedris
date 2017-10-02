@@ -1,0 +1,3110 @@
+<!DOCTYPE HTML PUBLIC="-//W3C/DTD HTML 4.01 Transitional//EN">
+<html>
+<!-- EDCS spec. 4.4 -->
+<!-- July 1, 2011 -->
+<head>
+<title>EDCS Reference Manual</title>
+</head>
+<body text="#000000" bgcolor="#ffffff" link="#0000ee" vlink="#800080" alink="#ff0000">
+<div align="center">
+<table border="2" width="100%" bgcolor="#0000ff">
+<tr>
+<th><font color="#00ffff"><big><big>
+EDCS Reference Manual
+</big></big></font><br>
+<font color="#ffffff">
+EDCS Attribute Dictionary - Concepts whose labels begin with the letter F
+</font>
+</th>
+</tr>
+</table>
+</div>
+<a name="Top" id="Top"></a>
+<br>
+<b>EDCS Attribute Label</b>: <a name="EAC_FABRICATION_TYPE" id="EAC_FABRICATION_TYPE">FABRICATION_TYPE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_FABRICATION_TYPE
+</p><p>
+<b>EDCS Attribute Code</b>: 373
+</p><p>
+<b>Definition</b>:
+<br>
+The type of a fabrication industry &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_FABTY_HEAVY" id="EEC_FABTY_HEAVY">1</a></td>
+<td>HEAVY</td>
+<td>EEC_FABTY_HEAVY</td>
+<td>Characterized by large heavy steel frame &lt;<a href="ECC_B.htm#ECC_BUILDING">BUILDING</a>&gt;s and may utilize large cranes for heavy lifting.</td>
+<td>IR</td>
+<td>[FACC, Annex B, FTP:2]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FABTY_LIGHT" id="EEC_FABTY_LIGHT">2</a></td>
+<td>LIGHT</td>
+<td>EEC_FABTY_LIGHT</td>
+<td>Characterized by light steel or wood frame &lt;<a href="ECC_B.htm#ECC_BUILDING">BUILDING</a>&gt;s and lack heavy equipment.</td>
+<td>IR</td>
+<td>[FACC, Annex B, FTP:1]</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_INDUSTRY">INDUSTRY</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: FTP]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_FACILITY_COMMISSIONED_STATUS" id="EAC_FACILITY_COMMISSIONED_STATUS">FACILITY_COMMISSIONED_STATUS</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_FACILITY_COMMISSIONED_STATUS
+</p><p>
+<b>EDCS Attribute Code</b>: 374
+</p><p>
+<b>Definition</b>:
+<br>
+The type of commissioned status of a &lt;<a href="ECC_F.htm#ECC_FACILITY">FACILITY</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_FACCMMSSTAT_ON_TEST_COMMISSIONED" id="EEC_FACCMMSSTAT_ON_TEST_COMMISSIONED">1</a></td>
+<td>ON_TEST_COMMISSIONED</td>
+<td>EEC_FACCMMSSTAT_ON_TEST_COMMISSIONED</td>
+<td>Commissioned and on-test.</td>
+<td>IR</td>
+<td>[FAD, Annex B, CMS:2]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FACCMMSSTAT_ON_TEST_NOT_COMMISSIONED" id="EEC_FACCMMSSTAT_ON_TEST_NOT_COMMISSIONED">2</a></td>
+<td>ON_TEST_NOT_COMMISSIONED</td>
+<td>EEC_FACCMMSSTAT_ON_TEST_NOT_COMMISSIONED</td>
+<td>Not commissioned and on-test.</td>
+<td>IR</td>
+<td>[FAD, Annex B, CMS:5]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FACCMMSSTAT_OPERATIONAL_COMMISSIONED" id="EEC_FACCMMSSTAT_OPERATIONAL_COMMISSIONED">3</a></td>
+<td>OPERATIONAL_COMMISSIONED</td>
+<td>EEC_FACCMMSSTAT_OPERATIONAL_COMMISSIONED</td>
+<td>Commissioned and operational.</td>
+<td>IR</td>
+<td>[FAD, Annex B, CMS:1]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FACCMMSSTAT_OPERATIONAL_NOT_COMMISSIONED" id="EEC_FACCMMSSTAT_OPERATIONAL_NOT_COMMISSIONED">4</a></td>
+<td>OPERATIONAL_NOT_COMMISSIONED</td>
+<td>EEC_FACCMMSSTAT_OPERATIONAL_NOT_COMMISSIONED</td>
+<td>Not commissioned and operational.</td>
+<td>IR</td>
+<td>[FAD, Annex B, CMS:4]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FACCMMSSTAT_OUT_SERVICE_COMMISSIONED" id="EEC_FACCMMSSTAT_OUT_SERVICE_COMMISSIONED">5</a></td>
+<td>OUT_SERVICE_COMMISSIONED</td>
+<td>EEC_FACCMMSSTAT_OUT_SERVICE_COMMISSIONED</td>
+<td>Commissioned and out of service.</td>
+<td>IR</td>
+<td>[FAD, Annex B, CMS:3]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FACCMMSSTAT_OUT_SERVICE_NOT_COMMISSIONED" id="EEC_FACCMMSSTAT_OUT_SERVICE_NOT_COMMISSIONED">6</a></td>
+<td>OUT_SERVICE_NOT_COMMISSIONED</td>
+<td>EEC_FACCMMSSTAT_OUT_SERVICE_NOT_COMMISSIONED</td>
+<td>Not commissioned and out of service.</td>
+<td>IR</td>
+<td>[FAD, Annex B, CMS:6]</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ABSTRACT_OBJECT">ABSTRACT_OBJECT</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FAD, Annex B: CMS]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_FACILITY_OPERATION_CONTINUITY" id="EAC_FACILITY_OPERATION_CONTINUITY">FACILITY_OPERATION_CONTINUITY</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_FACILITY_OPERATION_CONTINUITY
+</p><p>
+<b>EDCS Attribute Code</b>: 375
+</p><p>
+<b>Definition</b>:
+<br>
+The continuity of operation of a &lt;<a href="ECC_F.htm#ECC_FACILITY">FACILITY</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_FACOPCNT_CONTINUOUS" id="EEC_FACOPCNT_CONTINUOUS">1</a></td>
+<td>CONTINUOUS</td>
+<td>EEC_FACOPCNT_CONTINUOUS</td>
+<td>Services or &lt;<a href="ECC_F.htm#ECC_FACILITY">FACILITY</a>&gt;s are always available; continuous operation.</td>
+<td>IR</td>
+<td>[FAD, Annex B, COS:1]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FACOPCNT_INTERMITTENT" id="EEC_FACOPCNT_INTERMITTENT">2</a></td>
+<td>INTERMITTENT</td>
+<td>EEC_FACOPCNT_INTERMITTENT</td>
+<td>The services or &lt;<a href="ECC_F.htm#ECC_FACILITY">FACILITY</a>&gt;s are not always available; intermittent operation.</td>
+<td>IR</td>
+<td>[FAD, Annex B, COS:2]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FACOPCNT_OCCASIONAL" id="EEC_FACOPCNT_OCCASIONAL">3</a></td>
+<td>OCCASIONAL</td>
+<td>EEC_FACOPCNT_OCCASIONAL</td>
+<td>Not habitual; occasional or infrequent.</td>
+<td>IR</td>
+<td>[FAD, Annex B, COS:3]</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ABSTRACT_OBJECT">ABSTRACT_OBJECT</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FAD, Annex B: COS]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_FARMING_METHOD" id="EAC_FARMING_METHOD">FARMING_METHOD</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_FARMING_METHOD
+</p><p>
+<b>EDCS Attribute Code</b>: 376
+</p><p>
+<b>Definition</b>:
+<br>
+The agricultural practice in use within an agro-ecosystem; the farming method.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_FARMMETH_CROP_ROTATION" id="EEC_FARMMETH_CROP_ROTATION">1</a></td>
+<td>CROP_ROTATION</td>
+<td>EEC_FARMMETH_CROP_ROTATION</td>
+<td>The process of growing several different crops on the same &lt;<a href="ECC_T.htm#ECC_TRACT">TRACT</a>&gt; in successive years or seasons, supporting both replenishment of the &lt;<a href="ECC_S.htm#ECC_SOIL">SOIL</a>&gt; and pest and disease abatement; crop rotation.</td>
+<td>IR</td>
+<td>[APDS, "crop rotation"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FARMMETH_GRAZING" id="EEC_FARMMETH_GRAZING">2</a></td>
+<td>GRAZING</td>
+<td>EEC_FARMMETH_GRAZING</td>
+<td>Supporting the feeding of livestock on low &lt;<a href="ECC_V.htm#ECC_VEGETATION">VEGETATION</a>&gt; (for example: &lt;<a href="ECC_G.htm#ECC_GRASS">GRASS</a>&gt;) on pastures and ranges; grazing.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[SOED, "grazing"]</td>
+</tr>
+<tr>
+<td><a name="EEC_FARMMETH_PERMACULTURE" id="EEC_FARMMETH_PERMACULTURE">3</a></td>
+<td>PERMACULTURE</td>
+<td>EEC_FARMMETH_PERMACULTURE</td>
+<td>The continuous use of a &lt;<a href="ECC_T.htm#ECC_TRACT">TRACT</a>&gt; for cultivation; permaculture.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[SOED, "permaculture"], [AGNIC]</td>
+</tr>
+<tr>
+<td><a name="EEC_FARMMETH_SLASH_AND_BURN" id="EEC_FARMMETH_SLASH_AND_BURN">4</a></td>
+<td>SLASH_AND_BURN</td>
+<td>EEC_FARMMETH_SLASH_AND_BURN</td>
+<td>A system of cultivation in which &lt;<a href="ECC_P.htm#ECC_PLANT">PLANT</a>&gt;s are cut down, allowed to dry, and then burned off before crops are planted; slash-and-burn [SOED, "slash-and-burn"].</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_AGRICULTURE">AGRICULTURE</a>, <a href="groups.htm#EGC_GEN_USAGE_REGION">USAGE_REGION</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: FTC]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_FENCE_TYPE" id="EAC_FENCE_TYPE">FENCE_TYPE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_FENCE_TYPE
+</p><p>
+<b>EDCS Attribute Code</b>: 377
+</p><p>
+<b>Definition</b>:
+<br>
+The type of a &lt;<a href="ECC_F.htm#ECC_FENCE">FENCE</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_FENCETY_BARBED_WIRE" id="EEC_FENCETY_BARBED_WIRE">1</a></td>
+<td>BARBED_WIRE</td>
+<td>EEC_FENCETY_BARBED_WIRE</td>
+<td>Constructed of wire with sharp points or barbs twisted on it every 2 to 5 centimetres; barbed wire.</td>
+<td>IR</td>
+<td>[FACC, Annex B, FTI:5]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FENCETY_CHAIN_LINK" id="EEC_FENCETY_CHAIN_LINK">2</a></td>
+<td>CHAIN_LINK</td>
+<td>EEC_FENCETY_CHAIN_LINK</td>
+<td>Chain link.</td>
+<td>IR</td>
+<td>[FACC, Annex B, FTI:6]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FENCETY_CHAIN_LINK_BARBS_ABOVE" id="EEC_FENCETY_CHAIN_LINK_BARBS_ABOVE">3</a></td>
+<td>CHAIN_LINK_BARBS_ABOVE</td>
+<td>EEC_FENCETY_CHAIN_LINK_BARBS_ABOVE</td>
+<td>&lt;&lt;&lt;<a href="EAC_F.htm#EEC_FENCETY_CHAIN_LINK">CHAIN_LINK</a>&gt;&gt;&gt; with coiled barbs or razor wire along the upper margin; chain link with barbs above.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FENCETY_CHAIN_LINK_WITH_SLATS" id="EEC_FENCETY_CHAIN_LINK_WITH_SLATS">4</a></td>
+<td>CHAIN_LINK_WITH_SLATS</td>
+<td>EEC_FENCETY_CHAIN_LINK_WITH_SLATS</td>
+<td>&lt;&lt;&lt;<a href="EAC_F.htm#EEC_FENCETY_CHAIN_LINK">CHAIN_LINK</a>&gt;&gt;&gt; with slats. EXAMPLE Sand &lt;<a href="ECC_F.htm#ECC_FENCE">FENCE</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FENCETY_LOOSE_STONE" id="EEC_FENCETY_LOOSE_STONE">5</a></td>
+<td>LOOSE_STONE</td>
+<td>EEC_FENCETY_LOOSE_STONE</td>
+<td>Constructed of loose &lt;<a href="ECC_S.htm#ECC_STONE">STONE</a>&gt;s, generally those gathered from an adjacent field.</td>
+<td>IR</td>
+<td>[FACC, Annex B, FTI:4]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FENCETY_METAL" id="EEC_FENCETY_METAL">6</a></td>
+<td>METAL</td>
+<td>EEC_FENCETY_METAL</td>
+<td>Metal.</td>
+<td>IR</td>
+<td>[FACC, Annex B, FTI:1]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FENCETY_MINEFIELD_LANE" id="EEC_FENCETY_MINEFIELD_LANE">7</a></td>
+<td>MINEFIELD_LANE</td>
+<td>EEC_FENCETY_MINEFIELD_LANE</td>
+<td>&lt;<a href="ECC_F.htm#ECC_FENCE">FENCE</a>&gt; or &lt;<a href="ECC_N.htm#ECC_NON_EMPTY_SET">NON_EMPTY_SET</a>&gt; of &lt;<a href="ECC_M.htm#ECC_MARKER">MARKER</a>&gt;s indicating a lane cleared through a &lt;<a href="ECC_M.htm#ECC_MINEFIELD">MINEFIELD</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FENCETY_MINEFIELD_PERIMETER" id="EEC_FENCETY_MINEFIELD_PERIMETER">8</a></td>
+<td>MINEFIELD_PERIMETER</td>
+<td>EEC_FENCETY_MINEFIELD_PERIMETER</td>
+<td>&lt;<a href="ECC_F.htm#ECC_FENCE">FENCE</a>&gt; indicating the &lt;<a href="ECC_B.htm#ECC_BOUNDARY">BOUNDARY</a>&gt; of a &lt;<a href="ECC_M.htm#ECC_MINEFIELD">MINEFIELD</a>&gt; or fictitious &lt;<a href="ECC_M.htm#ECC_MINEFIELD">MINEFIELD</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FENCETY_STONE" id="EEC_FENCETY_STONE">9</a></td>
+<td>STONE</td>
+<td>EEC_FENCETY_STONE</td>
+<td>Constructed of &lt;<a href="ECC_S.htm#ECC_STONE">STONE</a>&gt;s, usually quarried, shaped, and mortared.</td>
+<td>IR</td>
+<td>[FACC, Annex B, FTI:3]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FENCETY_WOOD" id="EEC_FENCETY_WOOD">10</a></td>
+<td>WOOD</td>
+<td>EEC_FENCETY_WOOD</td>
+<td>Wood.</td>
+<td>IR</td>
+<td>[FACC, Annex B, FTI:2]</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_DEMARCATION">DEMARCATION</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: FTI]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_FERRY_CROSSING_LENGTH" id="EAC_FERRY_CROSSING_LENGTH">FERRY_CROSSING_LENGTH</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_FERRY_CROSSING_LENGTH
+</p><p>
+<b>EDCS Attribute Code</b>: 378
+</p><p>
+<b>Definition</b>:
+<br>
+The &lt;&lt;<a href="EAC_L.htm#EAC_LENGTH">LENGTH</a>&gt;&gt; of a &lt;<a href="ECC_F.htm#ECC_FERRY_CROSSING">FERRY_CROSSING</a>&gt; between points on opposite &lt;<a href="ECC_S.htm#ECC_SHORE">SHORE</a>&gt;s.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_LENGTH">LENGTH</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_DIMENSION">DIMENSION</a>, <a href="groups.htm#EGC_GEN_HYDROGRAPHIC_TRNSP">HYDROGRAPHIC_TRNSP</a>, <a href="groups.htm#EGC_GEN_TRNSP">TRNSP</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: FCL]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_FERRY_CROSSING_TIME" id="EAC_FERRY_CROSSING_TIME">FERRY_CROSSING_TIME</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_FERRY_CROSSING_TIME
+</p><p>
+<b>EDCS Attribute Code</b>: 379
+</p><p>
+<b>Definition</b>:
+<br>
+The usual &lt;&lt;<a href="EAC_T.htm#EAC_TIME_QUANTITY">TIME_QUANTITY</a>&gt;&gt; taken for a crossing by &lt;<a href="ECC_F.htm#ECC_FERRY">FERRY</a>&gt;, including typical loading and unloading times.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_TIME">TIME</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_HYDROGRAPHIC_TRNSP">HYDROGRAPHIC_TRNSP</a>, <a href="groups.htm#EGC_GEN_TIME">TIME</a>, <a href="groups.htm#EGC_GEN_TRNSP">TRNSP</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: FCT]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_FERRY_ROUTE_TYPE" id="EAC_FERRY_ROUTE_TYPE">FERRY_ROUTE_TYPE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_FERRY_ROUTE_TYPE
+</p><p>
+<b>EDCS Attribute Code</b>: 380
+</p><p>
+<b>Definition</b>:
+<br>
+The type of &lt;<a href="ECC_R.htm#ECC_ROUTE">ROUTE</a>&gt; which a &lt;<a href="ECC_F.htm#ECC_FERRY">FERRY</a>&gt; follows.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_FERRYRTETY_CABLE" id="EEC_FERRYRTETY_CABLE">1</a></td>
+<td>CABLE</td>
+<td>EEC_FERRYRTETY_CABLE</td>
+<td>Follows a fixed &lt;<a href="ECC_R.htm#ECC_ROUTE">ROUTE</a>&gt; guided by a &lt;<a href="ECC_L.htm#ECC_LOAD_CABLE">LOAD_CABLE</a>&gt;.</td>
+<td>PR</td>
+<td>[S57A, Attribute, CATFRY:2]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FERRYRTETY_FREE_MOVING" id="EEC_FERRYRTETY_FREE_MOVING">2</a></td>
+<td>FREE_MOVING</td>
+<td>EEC_FERRYRTETY_FREE_MOVING</td>
+<td>&lt;<a href="ECC_R.htm#ECC_ROUTE">ROUTE</a>&gt; varies with weather, &lt;<a href="ECC_T.htm#ECC_TIDE">TIDE</a>&gt;, and traffic; free moving.</td>
+<td>PR</td>
+<td>[S57A, Attribute, CATFRY:1]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FERRYRTETY_ICE" id="EEC_FERRYRTETY_ICE">3</a></td>
+<td>ICE</td>
+<td>EEC_FERRYRTETY_ICE</td>
+<td>Crosses a lead in wintertime; ice.</td>
+<td>PR</td>
+<td>[S57A, Attribute, CATFRY:3]</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_HYDROGRAPHIC_TRNSP">HYDROGRAPHIC_TRNSP</a>, <a href="groups.htm#EGC_GEN_TRNSP">TRNSP</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: FER]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_FIELD_PATTERN" id="EAC_FIELD_PATTERN">FIELD_PATTERN</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_FIELD_PATTERN
+</p><p>
+<b>EDCS Attribute Code</b>: 381
+</p><p>
+<b>Definition</b>:
+<br>
+The geometric layout used in placing seeds or young &lt;<a href="ECC_P.htm#ECC_PLANT">PLANT</a>&gt;s on a &lt;<a href="ECC_T.htm#ECC_TRACT">TRACT</a>&gt; used for agriculture; the field pattern.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_FIELDPAT_LINEAR" id="EEC_FIELDPAT_LINEAR">1</a></td>
+<td>LINEAR</td>
+<td>EEC_FIELDPAT_LINEAR</td>
+<td>Planted in a linear arrangement.</td>
+<td>IR</td>
+<td>[FACC, Annex B, FTC:7]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FIELDPAT_REGULAR" id="EEC_FIELDPAT_REGULAR">2</a></td>
+<td>REGULAR</td>
+<td>EEC_FIELDPAT_REGULAR</td>
+<td>Planted in a specific and uniform arrangement.</td>
+<td>IR</td>
+<td>[FACC, Annex B, FTC:6]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FIELDPAT_TERRACED" id="EEC_FIELDPAT_TERRACED">3</a></td>
+<td>TERRACED</td>
+<td>EEC_FIELDPAT_TERRACED</td>
+<td>Utilizing a long, low &lt;<a href="ECC_R.htm#ECC_RIDGE">RIDGE</a>&gt; of &lt;<a href="ECC_S.htm#ECC_SOIL">SOIL</a>&gt; across a slope with a flat or graded channel to stop erosion of the &lt;<a href="ECC_S.htm#ECC_SOIL">SOIL</a>&gt; and control &lt;<a href="ECC_R.htm#ECC_RUN_OFF">RUN_OFF</a>&gt;; terraced.</td>
+<td>IR</td>
+<td>[FACC, Annex B, FTC:3]</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_AGRICULTURE">AGRICULTURE</a>, <a href="groups.htm#EGC_GEN_LIVING_ORGANISM">LIVING_ORGANISM</a>, <a href="groups.htm#EGC_GEN_PLANT">PLANT</a>, <a href="groups.htm#EGC_GEN_USAGE_REGION">USAGE_REGION</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: FTC]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_FIGHTER_WINGED_AIRCRAFT_TYPE" id="EAC_FIGHTER_WINGED_AIRCRAFT_TYPE">FIGHTER_WINGED_AIRCRAFT_TYPE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_FIGHTER_WINGED_AIRCRAFT_TYPE
+</p><p>
+<b>EDCS Attribute Code</b>: 382
+</p><p>
+<b>Definition</b>:
+<br>
+The type of a &lt;<a href="ECC_F.htm#ECC_FIGHTER_WINGED_AIRCRAFT">FIGHTER_WINGED_AIRCRAFT</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_FGTWNGARCRFTY_F_1" id="EEC_FGTWNGARCRFTY_F_1">1</a></td>
+<td>F_1</td>
+<td>EEC_FGTWNGARCRFTY_F_1</td>
+<td>F-1 (US Navy FJ), manufactured by North American.</td>
+<td>IR</td>
+<td>[AMAG]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FGTWNGARCRFTY_F_2" id="EEC_FGTWNGARCRFTY_F_2">2</a></td>
+<td>F_2</td>
+<td>EEC_FGTWNGARCRFTY_F_2</td>
+<td>F-2 (US Navy F2H), manufactured by McDonnell.</td>
+<td>IR</td>
+<td>[AMAG]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FGTWNGARCRFTY_F_3" id="EEC_FGTWNGARCRFTY_F_3">3</a></td>
+<td>F_3</td>
+<td>EEC_FGTWNGARCRFTY_F_3</td>
+<td>F-3 (US Navy F3H), manufactured by McDonnell.</td>
+<td>IR</td>
+<td>[AMAG]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FGTWNGARCRFTY_F_4" id="EEC_FGTWNGARCRFTY_F_4">4</a></td>
+<td>F_4</td>
+<td>EEC_FGTWNGARCRFTY_F_4</td>
+<td>F-4 "Phantom" and "Phantom II", manufactured by McDonnell Douglas.</td>
+<td>IR</td>
+<td>[AMAG]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FGTWNGARCRFTY_F_5" id="EEC_FGTWNGARCRFTY_F_5">5</a></td>
+<td>F_5</td>
+<td>EEC_FGTWNGARCRFTY_F_5</td>
+<td>F-5A/B "Freedom Fighter" or F-5E/F "Tiger", manufactured by Northrop.</td>
+<td>IR</td>
+<td>[AMAG]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FGTWNGARCRFTY_F_6" id="EEC_FGTWNGARCRFTY_F_6">6</a></td>
+<td>F_6</td>
+<td>EEC_FGTWNGARCRFTY_F_6</td>
+<td>F-6 (US Navy F4D), manufactured by Douglas.</td>
+<td>IR</td>
+<td>[AMAG]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FGTWNGARCRFTY_F_7" id="EEC_FGTWNGARCRFTY_F_7">7</a></td>
+<td>F_7</td>
+<td>EEC_FGTWNGARCRFTY_F_7</td>
+<td>F-7 (US Navy YF2Y-1), manufactured by Convair.</td>
+<td>IR</td>
+<td>[AMAG]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FGTWNGARCRFTY_F_8" id="EEC_FGTWNGARCRFTY_F_8">8</a></td>
+<td>F_8</td>
+<td>EEC_FGTWNGARCRFTY_F_8</td>
+<td>F-8 (US Navy F8U), manufactured by LTV.</td>
+<td>IR</td>
+<td>[AMAG]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FGTWNGARCRFTY_F_9" id="EEC_FGTWNGARCRFTY_F_9">9</a></td>
+<td>F_9</td>
+<td>EEC_FGTWNGARCRFTY_F_9</td>
+<td>F-9 (US Navy F9F), manufactured by Grumman.</td>
+<td>IR</td>
+<td>[AMAG]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FGTWNGARCRFTY_F_10" id="EEC_FGTWNGARCRFTY_F_10">10</a></td>
+<td>F_10</td>
+<td>EEC_FGTWNGARCRFTY_F_10</td>
+<td>F-10 (US Navy F3D), manufactured by Douglas.</td>
+<td>IR</td>
+<td>[AMAG]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FGTWNGARCRFTY_F_11" id="EEC_FGTWNGARCRFTY_F_11">11</a></td>
+<td>F_11</td>
+<td>EEC_FGTWNGARCRFTY_F_11</td>
+<td>F-11 (US Navy F11F), manufactured by Grumman.</td>
+<td>IR</td>
+<td>[AMAG]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FGTWNGARCRFTY_F_12" id="EEC_FGTWNGARCRFTY_F_12">12</a></td>
+<td>F_12</td>
+<td>EEC_FGTWNGARCRFTY_F_12</td>
+<td>F-12, manufactured by Lockheed.</td>
+<td>IR</td>
+<td>[AMAG]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FGTWNGARCRFTY_F_14" id="EEC_FGTWNGARCRFTY_F_14">13</a></td>
+<td>F_14</td>
+<td>EEC_FGTWNGARCRFTY_F_14</td>
+<td>F-14 "Tomcat", manufactured by Grumman.</td>
+<td>IR</td>
+<td>[AMAG]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FGTWNGARCRFTY_F_15" id="EEC_FGTWNGARCRFTY_F_15">14</a></td>
+<td>F_15</td>
+<td>EEC_FGTWNGARCRFTY_F_15</td>
+<td>F-15 "Eagle" or F-15 "Streak Eagle" or F-15E "Strike Eagle", manufactured by McDonnell Douglas.</td>
+<td>IR</td>
+<td>[AMAG]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FGTWNGARCRFTY_F_16" id="EEC_FGTWNGARCRFTY_F_16">15</a></td>
+<td>F_16</td>
+<td>EEC_FGTWNGARCRFTY_F_16</td>
+<td>F-16 "Fighting Falcon", manufactured by General Dynamics.</td>
+<td>IR</td>
+<td>[AMAG]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FGTWNGARCRFTY_F_17" id="EEC_FGTWNGARCRFTY_F_17">16</a></td>
+<td>F_17</td>
+<td>EEC_FGTWNGARCRFTY_F_17</td>
+<td>F-1 "Cobra", manufactured by Northrop.</td>
+<td>IR</td>
+<td>[AMAG]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FGTWNGARCRFTY_F_18" id="EEC_FGTWNGARCRFTY_F_18">17</a></td>
+<td>F_18</td>
+<td>EEC_FGTWNGARCRFTY_F_18</td>
+<td>F-18, manufactured by McDonnell Douglas.</td>
+<td>IR</td>
+<td>[AMAG]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FGTWNGARCRFTY_F_19" id="EEC_FGTWNGARCRFTY_F_19">18</a></td>
+<td>F_19</td>
+<td>EEC_FGTWNGARCRFTY_F_19</td>
+<td>F-19, manufactured by Lockheed.</td>
+<td>IR</td>
+<td>[AMAG]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FGTWNGARCRFTY_F_20" id="EEC_FGTWNGARCRFTY_F_20">19</a></td>
+<td>F_20</td>
+<td>EEC_FGTWNGARCRFTY_F_20</td>
+<td>F-20 "Tigershark", manufactured by Northrop.</td>
+<td>IR</td>
+<td>[AMAG]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FGTWNGARCRFTY_F_21" id="EEC_FGTWNGARCRFTY_F_21">20</a></td>
+<td>F_21</td>
+<td>EEC_FGTWNGARCRFTY_F_21</td>
+<td>F-21 "Lion Cub", manufactured by IAI KFIR.</td>
+<td>IR</td>
+<td>[AMAG]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FGTWNGARCRFTY_F_22" id="EEC_FGTWNGARCRFTY_F_22">21</a></td>
+<td>F_22</td>
+<td>EEC_FGTWNGARCRFTY_F_22</td>
+<td>F-2 "Raptor", manufactured by Lockheed-Martin.</td>
+<td>IR</td>
+<td>[AMAG]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FGTWNGARCRFTY_F_23" id="EEC_FGTWNGARCRFTY_F_23">22</a></td>
+<td>F_23</td>
+<td>EEC_FGTWNGARCRFTY_F_23</td>
+<td>F-23, manufactured by Northrop-McDonnell Douglas.</td>
+<td>IR</td>
+<td>[AMAG]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FGTWNGARCRFTY_F_100" id="EEC_FGTWNGARCRFTY_F_100">23</a></td>
+<td>F_100</td>
+<td>EEC_FGTWNGARCRFTY_F_100</td>
+<td>F-100 "Super Sabre", manufactured by North American.</td>
+<td>IR</td>
+<td>[AMAG]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FGTWNGARCRFTY_F_101" id="EEC_FGTWNGARCRFTY_F_101">24</a></td>
+<td>F_101</td>
+<td>EEC_FGTWNGARCRFTY_F_101</td>
+<td>F-101 "Voodoo", manufactured by McDonnell.</td>
+<td>IR</td>
+<td>[AMAG]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FGTWNGARCRFTY_F_102" id="EEC_FGTWNGARCRFTY_F_102">25</a></td>
+<td>F_102</td>
+<td>EEC_FGTWNGARCRFTY_F_102</td>
+<td>F-102 "Delta Dagger", manufactured by Convair.</td>
+<td>IR</td>
+<td>[AMAG]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FGTWNGARCRFTY_F_104" id="EEC_FGTWNGARCRFTY_F_104">26</a></td>
+<td>F_104</td>
+<td>EEC_FGTWNGARCRFTY_F_104</td>
+<td>F-104 "Starfighter", manufactured by Lockheed.</td>
+<td>IR</td>
+<td>[AMAG]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FGTWNGARCRFTY_F_105" id="EEC_FGTWNGARCRFTY_F_105">27</a></td>
+<td>F_105</td>
+<td>EEC_FGTWNGARCRFTY_F_105</td>
+<td>F-105 "Thunderchief", manufactured by Republic.</td>
+<td>IR</td>
+<td>[AMAG]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FGTWNGARCRFTY_F_106" id="EEC_FGTWNGARCRFTY_F_106">28</a></td>
+<td>F_106</td>
+<td>EEC_FGTWNGARCRFTY_F_106</td>
+<td>F-106 "Delta Dart", manufactured by Convair.</td>
+<td>IR</td>
+<td>[AMAG]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FGTWNGARCRFTY_F_107" id="EEC_FGTWNGARCRFTY_F_107">29</a></td>
+<td>F_107</td>
+<td>EEC_FGTWNGARCRFTY_F_107</td>
+<td>F-107, manufactured by North American.</td>
+<td>IR</td>
+<td>[AMAG]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FGTWNGARCRFTY_F_108" id="EEC_FGTWNGARCRFTY_F_108">30</a></td>
+<td>F_108</td>
+<td>EEC_FGTWNGARCRFTY_F_108</td>
+<td>F-108 "Rapier", manufactured by North American.</td>
+<td>IR</td>
+<td>[AMAG]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FGTWNGARCRFTY_F_110" id="EEC_FGTWNGARCRFTY_F_110">31</a></td>
+<td>F_110</td>
+<td>EEC_FGTWNGARCRFTY_F_110</td>
+<td>F-110 "Spectre", manufactured by McDonnell.</td>
+<td>IR</td>
+<td>[AMAG]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FGTWNGARCRFTY_F_111" id="EEC_FGTWNGARCRFTY_F_111">32</a></td>
+<td>F_111</td>
+<td>EEC_FGTWNGARCRFTY_F_111</td>
+<td>F-111 "Aardvark", manufactured by General Dynamics.</td>
+<td>IR</td>
+<td>[AMAG]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FGTWNGARCRFTY_F_117" id="EEC_FGTWNGARCRFTY_F_117">33</a></td>
+<td>F_117</td>
+<td>EEC_FGTWNGARCRFTY_F_117</td>
+<td>F-117 "Nighthawk", manufactured by Lockheed.</td>
+<td>IR</td>
+<td>[AMAG]</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_AIR_TRNSP">AIR_TRNSP</a>, <a href="groups.htm#EGC_GEN_MILITARY_SCIENCE">MILITARY_SCIENCE</a>, <a href="groups.htm#EGC_GEN_TRNSP">TRNSP</a>, <a href="groups.htm#EGC_GEN_VEHICLE">VEHICLE</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_FIGHTING_POSITION_TYPE" id="EAC_FIGHTING_POSITION_TYPE">FIGHTING_POSITION_TYPE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_FIGHTING_POSITION_TYPE
+</p><p>
+<b>EDCS Attribute Code</b>: 1687
+</p><p>
+<b>Definition</b>:
+<br>
+Defines a &lt;<a href="ECC_F.htm#ECC_FIGHTING_POSITION">FIGHTING_POSITION</a>&gt; as primary, alternate, or supplementary.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_FIGHTINGPOSTY_ALTERNATE" id="EEC_FIGHTINGPOSTY_ALTERNATE">1</a></td>
+<td>ALTERNATE</td>
+<td>EEC_FIGHTINGPOSTY_ALTERNATE</td>
+<td>The &lt;<a href="ECC_F.htm#ECC_FIGHTING_POSITION">FIGHTING_POSITION</a>&gt; to be occupied when the &lt;&lt;&lt;<a href="EAC_F.htm#EEC_FIGHTINGPOSTY_PRIMARY">PRIMARY</a>&gt;&gt;&gt; position becomes untenable or unsuitable for carrying out the task or mission. The alternate position is located so that the original task or mission can continue to be fulfilled.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FIGHTINGPOSTY_PRIMARY" id="EEC_FIGHTINGPOSTY_PRIMARY">2</a></td>
+<td>PRIMARY</td>
+<td>EEC_FIGHTINGPOSTY_PRIMARY</td>
+<td>A &lt;<a href="ECC_F.htm#ECC_FIGHTING_POSITION">FIGHTING_POSITION</a>&gt; that provides the best means to accomlpish the assigned mission.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FIGHTINGPOSTY_SUPPLEMENTARY" id="EEC_FIGHTINGPOSTY_SUPPLEMENTARY">3</a></td>
+<td>SUPPLEMENTARY</td>
+<td>EEC_FIGHTINGPOSTY_SUPPLEMENTARY</td>
+<td>That location which provides the best sectors of fire and defensive terrain along an avenue of approach other than the primary avenue the enemy is expected to attack along, for example, a flank avenue of approach.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_MILITARY_SCIENCE">MILITARY_SCIENCE</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_FILL_TYPE" id="EAC_FILL_TYPE">FILL_TYPE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_FILL_TYPE
+</p><p>
+<b>EDCS Attribute Code</b>: 383
+</p><p>
+<b>Definition</b>:
+<br>
+The type of an &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt; that is filled with &lt;<a href="ECC_M.htm#ECC_MATERIAL">MATERIAL</a>&gt; (for example: &lt;<a href="ECC_S.htm#ECC_SOIL">SOIL</a>&gt; and/or &lt;<a href="ECC_R.htm#ECC_ROCK">ROCK</a>&gt;); fill type.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_FILLTY_EMBANKMENT" id="EEC_FILLTY_EMBANKMENT">1</a></td>
+<td>EMBANKMENT</td>
+<td>EEC_FILLTY_EMBANKMENT</td>
+<td>&lt;<a href="ECC_E.htm#ECC_EMBANKMENT">EMBANKMENT</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[FAD, Annex B, FIC:1]</td>
+</tr>
+<tr>
+<td><a name="EEC_FILLTY_FILLED_TERRAIN" id="EEC_FILLTY_FILLED_TERRAIN">2</a></td>
+<td>FILLED_TERRAIN</td>
+<td>EEC_FILLTY_FILLED_TERRAIN</td>
+<td>&lt;<a href="ECC_F.htm#ECC_FILLED_TERRAIN">FILLED_TERRAIN</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[FAD, Annex B, FIC:2]</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_PHYSIOGRAPHY">PHYSIOGRAPHY</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FAD, Annex B: FIC]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_FIRE_ESCAPE_EXTENDED" id="EAC_FIRE_ESCAPE_EXTENDED">FIRE_ESCAPE_EXTENDED</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_FIRE_ESCAPE_EXTENDED
+</p><p>
+<b>EDCS Attribute Code</b>: 384
+</p><p>
+<b>Definition</b>:
+<br>
+An indication that the retracting, lowest section of a &lt;<a href="ECC_F.htm#ECC_FIRE_ESCAPE">FIRE_ESCAPE</a>&gt; is extended for use.
+<p>
+<b>EDCS Attribute Value Data Type</b>: BOOLEAN
+</p><p>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_BUILDING_COMPONENT">BUILDING_COMPONENT</a>, <a href="groups.htm#EGC_GEN_INFRASTRUCTURE">INFRASTRUCTURE</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_FIRE_POWER_DAMAGE" id="EAC_FIRE_POWER_DAMAGE">FIRE_POWER_DAMAGE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_FIRE_POWER_DAMAGE
+</p><p>
+<b>EDCS Attribute Code</b>: 385
+</p><p>
+<b>Definition</b>:
+<br>
+A number between 0 and 1 inclusive representing the linearly-scaled fraction of the extent of physical injury/damage to an &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt; affecting its capability to project firepower. Zero means not capable at all and one means fully capable.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_PURE_NUMBER">PURE_NUMBER</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ABSTRACT_OBJECT">ABSTRACT_OBJECT</a>, <a href="groups.htm#EGC_GEN_MILITARY_SCIENCE">MILITARY_SCIENCE</a>, <a href="groups.htm#EGC_GEN_RATE_OR_RATIO">RATE_OR_RATIO</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [EBEV, 4.3.1.1, Bit: 2 (Firepower)]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_FISHING_FACILITY_TYPE" id="EAC_FISHING_FACILITY_TYPE">FISHING_FACILITY_TYPE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_FISHING_FACILITY_TYPE
+</p><p>
+<b>EDCS Attribute Code</b>: 386
+</p><p>
+<b>Definition</b>:
+<br>
+The type of a &lt;<a href="ECC_F.htm#ECC_FISHING_FACILITY">FISHING_FACILITY</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_FISHFACTY_STAKE" id="EEC_FISHFACTY_STAKE">1</a></td>
+<td>STAKE</td>
+<td>EEC_FISHFACTY_STAKE</td>
+<td>A &lt;<a href="ECC_P.htm#ECC_POLE">POLE</a>&gt; or &lt;<a href="ECC_S.htm#ECC_STAKE">STAKE</a>&gt; placed in shallow &lt;<a href="ECC_W.htm#ECC_WATER">WATER</a>&gt; to outline a fishing &lt;<a href="ECC_R.htm#ECC_REGION">REGION</a>&gt; or to catch &lt;<a href="ECC_F.htm#ECC_FISH">FISH</a>&gt;.</td>
+<td>PR</td>
+<td>[S57A, Attribute, CATFIF:1]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FISHFACTY_TRAP" id="EEC_FISHFACTY_TRAP">2</a></td>
+<td>TRAP</td>
+<td>EEC_FISHFACTY_TRAP</td>
+<td>A &lt;<a href="ECC_S.htm#ECC_STRUCTURE">STRUCTURE</a>&gt; (usually portable) for catching &lt;<a href="ECC_F.htm#ECC_FISH">FISH</a>&gt;; trap.</td>
+<td>PR</td>
+<td>[S57A, Attribute, CATFIF:2]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FISHFACTY_TUNA_NET" id="EEC_FISHFACTY_TUNA_NET">3</a></td>
+<td>TUNA_NET</td>
+<td>EEC_FISHFACTY_TUNA_NET</td>
+<td>A &lt;<a href="ECC_F.htm#ECC_FISHING_FACILITY">FISHING_FACILITY</a>&gt; that employs nets spread out under the &lt;<a href="ECC_W.htm#ECC_WATERBODY_SURFACE">WATERBODY_SURFACE</a>&gt; to catch tuna.</td>
+<td>IR</td>
+<td>[FACC, Annex B, FFC:4]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FISHFACTY_WEIR" id="EEC_FISHFACTY_WEIR">4</a></td>
+<td>WEIR</td>
+<td>EEC_FISHFACTY_WEIR</td>
+<td>A &lt;<a href="ECC_F.htm#ECC_FENCE">FENCE</a>&gt; of &lt;<a href="ECC_S.htm#ECC_STAKE">STAKE</a>&gt;s or &lt;<a href="ECC_S.htm#ECC_STONE">STONE</a>&gt;s set in a &lt;<a href="ECC_R.htm#ECC_RIVER">RIVER</a>&gt; or along a &lt;<a href="ECC_S.htm#ECC_SHORE">SHORE</a>&gt; to trap &lt;<a href="ECC_F.htm#ECC_FISH">FISH</a>&gt;; weir.</td>
+<td>PR</td>
+<td>[S57A, Attribute, CATFIF:3]</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ANIMAL">ANIMAL</a>, <a href="groups.htm#EGC_GEN_HYDROGRAPHIC_INDUSTRY">HYDROGRAPHIC_INDUSTRY</a>, <a href="groups.htm#EGC_GEN_INDUSTRY">INDUSTRY</a>, <a href="groups.htm#EGC_GEN_LIVING_ORGANISM">LIVING_ORGANISM</a>, <a href="groups.htm#EGC_GEN_USAGE_REGION">USAGE_REGION</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: FFC]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_FISHING_VESSEL_DENSITY" id="EAC_FISHING_VESSEL_DENSITY">FISHING_VESSEL_DENSITY</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_FISHING_VESSEL_DENSITY
+</p><p>
+<b>EDCS Attribute Code</b>: 387
+</p><p>
+<b>Definition</b>:
+<br>
+The areal density of &lt;<a href="ECC_F.htm#ECC_FISHING_BOAT">FISHING_BOAT</a>&gt;s.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_AREAL_ENTITY_DENSITY">AREAL_ENTITY_DENSITY</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ANIMAL">ANIMAL</a>, <a href="groups.htm#EGC_GEN_HYDROGRAPHIC_TRNSP">HYDROGRAPHIC_TRNSP</a>, <a href="groups.htm#EGC_GEN_LIVING_ORGANISM">LIVING_ORGANISM</a>, <a href="groups.htm#EGC_GEN_RATE_OR_RATIO">RATE_OR_RATIO</a>, <a href="groups.htm#EGC_GEN_TRNSP">TRNSP</a>, <a href="groups.htm#EGC_GEN_VEHICLE">VEHICLE</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [OAML, Historical Temporal Shipping Database]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_FLOOR_CONSTRUCTION_TYPE" id="EAC_FLOOR_CONSTRUCTION_TYPE">FLOOR_CONSTRUCTION_TYPE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_FLOOR_CONSTRUCTION_TYPE
+</p><p>
+<b>EDCS Attribute Code</b>: 388
+</p><p>
+<b>Definition</b>:
+<br>
+The type of &lt;<a href="ECC_M.htm#ECC_MATERIAL">MATERIAL</a>&gt; and/or techniques used to construct a &lt;<a href="ECC_F.htm#ECC_FLOOR">FLOOR</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_FLRCNSTCTTY_BRICK" id="EEC_FLRCNSTCTTY_BRICK">1</a></td>
+<td>BRICK</td>
+<td>EEC_FLRCNSTCTTY_BRICK</td>
+<td>Brick.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[SOED, "brick", 1]</td>
+</tr>
+<tr>
+<td><a name="EEC_FLRCNSTCTTY_COBBLE" id="EEC_FLRCNSTCTTY_COBBLE">2</a></td>
+<td>COBBLE</td>
+<td>EEC_FLRCNSTCTTY_COBBLE</td>
+<td>Cobble.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[SOED, "cobble", 1]</td>
+</tr>
+<tr>
+<td><a name="EEC_FLRCNSTCTTY_CONCRETE" id="EEC_FLRCNSTCTTY_CONCRETE">3</a></td>
+<td>CONCRETE</td>
+<td>EEC_FLRCNSTCTTY_CONCRETE</td>
+<td>Concrete.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[SOED, "concrete", 3]</td>
+</tr>
+<tr>
+<td><a name="EEC_FLRCNSTCTTY_DIMENSION_LUMBER" id="EEC_FLRCNSTCTTY_DIMENSION_LUMBER">4</a></td>
+<td>DIMENSION_LUMBER</td>
+<td>EEC_FLRCNSTCTTY_DIMENSION_LUMBER</td>
+<td>Lumber that was cut to the sizes usually in demand, or to special sizes as ordered and secured to joists; dimension lumber.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FLRCNSTCTTY_EARTHEN" id="EEC_FLRCNSTCTTY_EARTHEN">5</a></td>
+<td>EARTHEN</td>
+<td>EEC_FLRCNSTCTTY_EARTHEN</td>
+<td>Packed &lt;<a href="ECC_S.htm#ECC_SOIL">SOIL</a>&gt;; earthen.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FLRCNSTCTTY_ENGINEERED_LUMBER" id="EEC_FLRCNSTCTTY_ENGINEERED_LUMBER">6</a></td>
+<td>ENGINEERED_LUMBER</td>
+<td>EEC_FLRCNSTCTTY_ENGINEERED_LUMBER</td>
+<td>Manufactured sheets of wood fibre and adhesives secured to joists; engineered lumber.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FLRCNSTCTTY_REINFORCED_CONCRETE" id="EEC_FLRCNSTCTTY_REINFORCED_CONCRETE">7</a></td>
+<td>REINFORCED_CONCRETE</td>
+<td>EEC_FLRCNSTCTTY_REINFORCED_CONCRETE</td>
+<td>Reinforced &lt;&lt;&lt;<a href="EAC_F.htm#EEC_FLRCNSTCTTY_CONCRETE">CONCRETE</a>&gt;&gt;&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[SOED, "reinforced concrete"]</td>
+</tr>
+<tr>
+<td><a name="EEC_FLRCNSTCTTY_STEEL" id="EEC_FLRCNSTCTTY_STEEL">8</a></td>
+<td>STEEL</td>
+<td>EEC_FLRCNSTCTTY_STEEL</td>
+<td>Sheets or plates of steel.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[SOED, "steel", n1 1]</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_BUILDING_COMPONENT">BUILDING_COMPONENT</a>, <a href="groups.htm#EGC_GEN_MATERIAL">MATERIAL</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_FLOOR_COVERING_TYPE" id="EAC_FLOOR_COVERING_TYPE">FLOOR_COVERING_TYPE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_FLOOR_COVERING_TYPE
+</p><p>
+<b>EDCS Attribute Code</b>: 389
+</p><p>
+<b>Definition</b>:
+<br>
+The type of the covering of a &lt;<a href="ECC_F.htm#ECC_FLOOR">FLOOR</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_FLRCOVTY_CARPET" id="EEC_FLRCOVTY_CARPET">1</a></td>
+<td>CARPET</td>
+<td>EEC_FLRCOVTY_CARPET</td>
+<td>Carpet.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[SOED, "carpet", 2]</td>
+</tr>
+<tr>
+<td><a name="EEC_FLRCOVTY_CERAMIC_TILE" id="EEC_FLRCOVTY_CERAMIC_TILE">2</a></td>
+<td>CERAMIC_TILE</td>
+<td>EEC_FLRCOVTY_CERAMIC_TILE</td>
+<td>Ceramic tile.</td>
+<td>IR</td>
+<td>[APDS, "ceramic tile"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FLRCOVTY_CONCRETE" id="EEC_FLRCOVTY_CONCRETE">3</a></td>
+<td>CONCRETE</td>
+<td>EEC_FLRCOVTY_CONCRETE</td>
+<td>Concrete.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[SOED, "concrete", 3]</td>
+</tr>
+<tr>
+<td><a name="EEC_FLRCOVTY_FIRED_CLAY_TILE" id="EEC_FLRCOVTY_FIRED_CLAY_TILE">4</a></td>
+<td>FIRED_CLAY_TILE</td>
+<td>EEC_FLRCOVTY_FIRED_CLAY_TILE</td>
+<td>Fired clay tile.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FLRCOVTY_NONE_PRESENT" id="EEC_FLRCOVTY_NONE_PRESENT">5</a></td>
+<td>NONE_PRESENT</td>
+<td>EEC_FLRCOVTY_NONE_PRESENT</td>
+<td>No covering is present; bare.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FLRCOVTY_SHEET_VINYL" id="EEC_FLRCOVTY_SHEET_VINYL">6</a></td>
+<td>SHEET_VINYL</td>
+<td>EEC_FLRCOVTY_SHEET_VINYL</td>
+<td>Sheet vinyl.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[SOED, "vinyl", 2]</td>
+</tr>
+<tr>
+<td><a name="EEC_FLRCOVTY_SLATE" id="EEC_FLRCOVTY_SLATE">7</a></td>
+<td>SLATE</td>
+<td>EEC_FLRCOVTY_SLATE</td>
+<td>Slate.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[SOED, "slate", 1]</td>
+</tr>
+<tr>
+<td><a name="EEC_FLRCOVTY_THATCH" id="EEC_FLRCOVTY_THATCH">8</a></td>
+<td>THATCH</td>
+<td>EEC_FLRCOVTY_THATCH</td>
+<td>Thatch.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[SOED, "thatch", 1a]</td>
+</tr>
+<tr>
+<td><a name="EEC_FLRCOVTY_VINYL_TILE" id="EEC_FLRCOVTY_VINYL_TILE">9</a></td>
+<td>VINYL_TILE</td>
+<td>EEC_FLRCOVTY_VINYL_TILE</td>
+<td>Vinyl tile.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[SOED, "vinyl", 2]</td>
+</tr>
+<tr>
+<td><a name="EEC_FLRCOVTY_WOOD" id="EEC_FLRCOVTY_WOOD">10</a></td>
+<td>WOOD</td>
+<td>EEC_FLRCOVTY_WOOD</td>
+<td>Wood.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[SOED, "wood", n1 4a]</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_BUILDING_COMPONENT">BUILDING_COMPONENT</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_FLOOR_LEVEL_COUNT" id="EAC_FLOOR_LEVEL_COUNT">FLOOR_LEVEL_COUNT</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_FLOOR_LEVEL_COUNT
+</p><p>
+<b>EDCS Attribute Code</b>: 390
+</p><p>
+<b>Definition</b>:
+<br>
+The number of &lt;<a href="ECC_F.htm#ECC_FLOOR_LEVEL">FLOOR_LEVEL</a>&gt;s for accommodating &lt;<a href="ECC_H.htm#ECC_HUMAN">HUMAN</a>&gt;s or &lt;<a href="ECC_E.htm#ECC_EQUIPMENT">EQUIPMENT</a>&gt; in a &lt;<a href="ECC_B.htm#ECC_BUILDING">BUILDING</a>&gt;, possibly different from the number of stories in the &lt;<a href="ECC_B.htm#ECC_BUILDING">BUILDING</a>&gt;. &lt;<a href="ECC_F.htm#ECC_FLOOR_LEVEL">FLOOR_LEVEL</a>&gt;s may include underground &lt;<a href="ECC_F.htm#ECC_FLOOR_LEVEL">FLOOR_LEVEL</a>&gt;s as well as above ground &lt;<a href="ECC_F.htm#ECC_FLOOR_LEVEL">FLOOR_LEVEL</a>&gt;s; the floor level count.
+<p>
+<b>EDCS Attribute Value Data Type</b>: COUNT
+</p><p>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_BUILDING_COMPONENT">BUILDING_COMPONENT</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_FLOOR_LEVEL_IDENTIFIER" id="EAC_FLOOR_LEVEL_IDENTIFIER">FLOOR_LEVEL_IDENTIFIER</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_FLOOR_LEVEL_IDENTIFIER
+</p><p>
+<b>EDCS Attribute Code</b>: 391
+</p><p>
+<b>Definition</b>:
+<br>
+The numeric identifier of a &lt;<a href="ECC_F.htm#ECC_FLOOR_LEVEL">FLOOR_LEVEL</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: INDEX
+</p><p>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_BUILDING_COMPONENT">BUILDING_COMPONENT</a>, <a href="groups.htm#EGC_GEN_IDENTIFICATION">IDENTIFICATION</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_FLOW_DIRECTION" id="EAC_FLOW_DIRECTION">FLOW_DIRECTION</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_FLOW_DIRECTION
+</p><p>
+<b>EDCS Attribute Code</b>: 392
+</p><p>
+<b>Definition</b>:
+<br>
+The &lt;<a href="ECC_D.htm#ECC_DIRECTION">DIRECTION</a>&gt; of flow.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_PLANE_ANGLE">PLANE_ANGLE</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ANGULAR_MEASURE">ANGULAR_MEASURE</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: DOF]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_FOG_COVERAGE_FRACTION" id="EAC_FOG_COVERAGE_FRACTION">FOG_COVERAGE_FRACTION</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_FOG_COVERAGE_FRACTION
+</p><p>
+<b>EDCS Attribute Code</b>: 393
+</p><p>
+<b>Definition</b>:
+<br>
+A number between 0 and 1 inclusive representing the linearly-scaled fractional &lt;&lt;<a href="EAC_A.htm#EAC_AREA">AREA</a>&gt;&gt; of a &lt;<a href="ECC_R.htm#ECC_REGION">REGION</a>&gt; of a &lt;<a href="ECC_P.htm#ECC_PLANETARY_SURFACE">PLANETARY_SURFACE</a>&gt; that is covered by &lt;<a href="ECC_F.htm#ECC_FOG">FOG</a>&gt;, as seen from above. Zero means no coverage at all and one means complete coverage.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_PURE_NUMBER">PURE_NUMBER</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_AIRBORNE_PARTICLE">AIRBORNE_PARTICLE</a>, <a href="groups.htm#EGC_GEN_ATMOSPHERE">ATMOSPHERE</a>, <a href="groups.htm#EGC_GEN_LIGHTING_AND_VISIBILITY">LIGHTING_AND_VISIBILITY</a>, <a href="groups.htm#EGC_GEN_RATE_OR_RATIO">RATE_OR_RATIO</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_FOG_DETECTOR_LIGHT_PRESENT" id="EAC_FOG_DETECTOR_LIGHT_PRESENT">FOG_DETECTOR_LIGHT_PRESENT</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_FOG_DETECTOR_LIGHT_PRESENT
+</p><p>
+<b>EDCS Attribute Code</b>: 394
+</p><p>
+<b>Definition</b>:
+<br>
+An indication that an &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt; has an associated detector light for &lt;<a href="ECC_F.htm#ECC_FOG">FOG</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: BOOLEAN
+</p><p>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ABSTRACT_OBJECT">ABSTRACT_OBJECT</a>, <a href="groups.htm#EGC_GEN_AIRBORNE_PARTICLE">AIRBORNE_PARTICLE</a>, <a href="groups.htm#EGC_GEN_ATMOSPHERE">ATMOSPHERE</a>, <a href="groups.htm#EGC_GEN_LIGHTING_AND_VISIBILITY">LIGHTING_AND_VISIBILITY</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: FDT]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_FOG_EXTINCTION_COEFFICIENT" id="EAC_FOG_EXTINCTION_COEFFICIENT">FOG_EXTINCTION_COEFFICIENT</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_FOG_EXTINCTION_COEFFICIENT
+</p><p>
+<b>EDCS Attribute Code</b>: 395
+</p><p>
+<b>Definition</b>:
+<br>
+The &lt;&lt;<a href="EAC_E.htm#EAC_EXTINCTION_COEFFICIENT">EXTINCTION_COEFFICIENT</a>&gt;&gt; due to &lt;<a href="ECC_F.htm#ECC_FOG">FOG</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_LINEAR_ENERGY_TRANSFER">LINEAR_ENERGY_TRANSFER</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_AIRBORNE_PARTICLE">AIRBORNE_PARTICLE</a>, <a href="groups.htm#EGC_GEN_ATMOSPHERE">ATMOSPHERE</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [WMO182, "extinction coefficient"]
+</p><p>
+<b>Supplemental References</b>: [WMO182, "fog"]
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_FOG_PRESENT" id="EAC_FOG_PRESENT">FOG_PRESENT</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_FOG_PRESENT
+</p><p>
+<b>EDCS Attribute Code</b>: 396
+</p><p>
+<b>Definition</b>:
+<br>
+An indication that &lt;<a href="ECC_F.htm#ECC_FOG">FOG</a>&gt; is present.
+<p>
+<b>EDCS Attribute Value Data Type</b>: BOOLEAN
+</p><p>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_AIRBORNE_PARTICLE">AIRBORNE_PARTICLE</a>, <a href="groups.htm#EGC_GEN_ATMOSPHERE">ATMOSPHERE</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_FOG_PROBABILITY" id="EAC_FOG_PROBABILITY">FOG_PROBABILITY</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_FOG_PROBABILITY
+</p><p>
+<b>EDCS Attribute Code</b>: 397
+</p><p>
+<b>Definition</b>:
+<br>
+The probability of the occurrence of &lt;<a href="ECC_F.htm#ECC_FOG">FOG</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_PURE_NUMBER">PURE_NUMBER</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_AIRBORNE_PARTICLE">AIRBORNE_PARTICLE</a>, <a href="groups.htm#EGC_GEN_ATMOSPHERE">ATMOSPHERE</a>, <a href="groups.htm#EGC_GEN_RATE_OR_RATIO">RATE_OR_RATIO</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [JMCDM, "CLOUD-ANALYSIS-FORECAST fog probability rate"]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_FOG_SIGNAL_GENERATION_TYPE" id="EAC_FOG_SIGNAL_GENERATION_TYPE">FOG_SIGNAL_GENERATION_TYPE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_FOG_SIGNAL_GENERATION_TYPE
+</p><p>
+<b>EDCS Attribute Code</b>: 398
+</p><p>
+<b>Definition</b>:
+<br>
+The type of mechanism of signal generation in the presence of &lt;<a href="ECC_F.htm#ECC_FOG">FOG</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_FOGSIGGENTY_AUTOMATIC" id="EEC_FOGSIGGENTY_AUTOMATIC">1</a></td>
+<td>AUTOMATIC</td>
+<td>EEC_FOGSIGGENTY_AUTOMATIC</td>
+<td>Initiated by a self-regulating mechanism such as a timer or light sensor; automatic.</td>
+<td>PR</td>
+<td>[S57A, Attribute, SIGGEN:1]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FOGSIGGENTY_HAND" id="EEC_FOGSIGGENTY_HAND">2</a></td>
+<td>HAND</td>
+<td>EEC_FOGSIGGENTY_HAND</td>
+<td>A manually operated mechanism such as a hand-cranked siren.</td>
+<td>PR</td>
+<td>[S57A, Attribute, SIGGEN:3]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FOGSIGGENTY_WAVE_ACTION" id="EEC_FOGSIGGENTY_WAVE_ACTION">3</a></td>
+<td>WAVE_ACTION</td>
+<td>EEC_FOGSIGGENTY_WAVE_ACTION</td>
+<td>Motion of the &lt;<a href="ECC_W.htm#ECC_WATERBODY_SURFACE">WATERBODY_SURFACE</a>&gt;; wave action. EXAMPLE Bell in a &lt;<a href="ECC_B.htm#ECC_BUOY">BUOY</a>&gt;.</td>
+<td>PR</td>
+<td>[S57A, Attribute, SIGGEN:2]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FOGSIGGENTY_WIND" id="EEC_FOGSIGGENTY_WIND">4</a></td>
+<td>WIND</td>
+<td>EEC_FOGSIGGENTY_WIND</td>
+<td>The &lt;<a href="ECC_W.htm#ECC_WIND">WIND</a>&gt;. EXAMPLE Wind driven whistle.</td>
+<td>PR</td>
+<td>[S57A, Attribute, SIGGEN:4]</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_AIRBORNE_PARTICLE">AIRBORNE_PARTICLE</a>, <a href="groups.htm#EGC_GEN_ATMOSPHERE">ATMOSPHERE</a>, <a href="groups.htm#EGC_GEN_COMMUNICATION">COMMUNICATION</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: GEN]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_FOG_THICKNESS" id="EAC_FOG_THICKNESS">FOG_THICKNESS</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_FOG_THICKNESS
+</p><p>
+<b>EDCS Attribute Code</b>: 399
+</p><p>
+<b>Definition</b>:
+<br>
+The height of a bank of &lt;<a href="ECC_F.htm#ECC_FOG">FOG</a>&gt; relative to the local &lt;<a href="ECC_T.htm#ECC_TERRAIN">TERRAIN</a>&gt;, where the base of the &lt;<a href="ECC_F.htm#ECC_FOG">FOG</a>&gt; is assumed to be at ground level; fog thickness.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_LENGTH">LENGTH</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_AIRBORNE_PARTICLE">AIRBORNE_PARTICLE</a>, <a href="groups.htm#EGC_GEN_ATMOSPHERE">ATMOSPHERE</a>, <a href="groups.htm#EGC_GEN_DIMENSION">DIMENSION</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_FOLIAGE_STATE" id="EAC_FOLIAGE_STATE">FOLIAGE_STATE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_FOLIAGE_STATE
+</p><p>
+<b>EDCS Attribute Code</b>: 400
+</p><p>
+<b>Definition</b>:
+<br>
+The state of the foliage within a delineated &lt;<a href="ECC_R.htm#ECC_REGION">REGION</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_FOLIAGESTATE_LOW_DENSITY_LOW_CHLOROPHYLL" id="EEC_FOLIAGESTATE_LOW_DENSITY_LOW_CHLOROPHYLL">1</a></td>
+<td>LOW_DENSITY_LOW_CHLOROPHYLL</td>
+<td>EEC_FOLIAGESTATE_LOW_DENSITY_LOW_CHLOROPHYLL</td>
+<td>Low spatial density and low chlorophyll content. EXAMPLE Winter foliage on a deciduous &lt;<a href="ECC_T.htm#ECC_TREE">TREE</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FOLIAGESTATE_MEDIUM_DENSITY_HIGH_CHLOROPHYLL" id="EEC_FOLIAGESTATE_MEDIUM_DENSITY_HIGH_CHLOROPHYLL">2</a></td>
+<td>MEDIUM_DENSITY_HIGH_CHLOROPHYLL</td>
+<td>EEC_FOLIAGESTATE_MEDIUM_DENSITY_HIGH_CHLOROPHYLL</td>
+<td>Low to medium spatial density and high chlorophyll content. EXAMPLE Spring foliage on a deciduous &lt;<a href="ECC_T.htm#ECC_TREE">TREE</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FOLIAGESTATE_HIGH_DENSITY_LOW_CHLOROPHYLL" id="EEC_FOLIAGESTATE_HIGH_DENSITY_LOW_CHLOROPHYLL">3</a></td>
+<td>HIGH_DENSITY_LOW_CHLOROPHYLL</td>
+<td>EEC_FOLIAGESTATE_HIGH_DENSITY_LOW_CHLOROPHYLL</td>
+<td>High spatial density and low chlorophyll content. EXAMPLE Autumn foliage on a deciduous &lt;<a href="ECC_T.htm#ECC_TREE">TREE</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FOLIAGESTATE_HIGH_DENSITY_HIGH_CHLOROPHYLL" id="EEC_FOLIAGESTATE_HIGH_DENSITY_HIGH_CHLOROPHYLL">4</a></td>
+<td>HIGH_DENSITY_HIGH_CHLOROPHYLL</td>
+<td>EEC_FOLIAGESTATE_HIGH_DENSITY_HIGH_CHLOROPHYLL</td>
+<td>High spatial density and high chlorophyll content. EXAMPLE Summer foliage on a deciduous &lt;<a href="ECC_T.htm#ECC_TREE">TREE</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_LIVING_ORGANISM">LIVING_ORGANISM</a>, <a href="groups.htm#EGC_GEN_PLANT">PLANT</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_FORCE_IDENTIFIER" id="EAC_FORCE_IDENTIFIER">FORCE_IDENTIFIER</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_FORCE_IDENTIFIER
+</p><p>
+<b>EDCS Attribute Code</b>: 1692
+</p><p>
+<b>Definition</b>:
+<br>
+A textual identifier for a military or civilian force, e.g. platoon, squadron, disorderly crowd, emergency services unit, police; force identifier.
+<p>
+<b>EDCS Attribute Value Data Type</b>: STRING
+</p><p>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_MILITARY_SCIENCE">MILITARY_SCIENCE</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_FORDABLE" id="EAC_FORDABLE">FORDABLE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_FORDABLE
+</p><p>
+<b>EDCS Attribute Code</b>: 1667
+</p><p>
+<b>Definition</b>:
+<br>
+Indication that a &lt;<a href="ECC_W.htm#ECC_WATERBODY">WATERBODY</a>&gt; is fordable.
+<p>
+<b>EDCS Attribute Value Data Type</b>: BOOLEAN
+</p><p>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_LAND_TRNSP">LAND_TRNSP</a>, <a href="groups.htm#EGC_GEN_TRNSP">TRNSP</a>, <a href="groups.htm#EGC_GEN_WATERBODY_STATE">WATERBODY_STATE</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_FORMATION_RUNNING_LIGHT_INTENSITY" id="EAC_FORMATION_RUNNING_LIGHT_INTENSITY">FORMATION_RUNNING_LIGHT_INTENSITY</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_FORMATION_RUNNING_LIGHT_INTENSITY
+</p><p>
+<b>EDCS Attribute Code</b>: 401
+</p><p>
+<b>Definition</b>:
+<br>
+A number between 0 and 1 inclusive representing the linearly-scaled fractional intensity of the external &lt;<a href="ECC_L.htm#ECC_LIGHTING">LIGHTING</a>&gt; used to maintain spatial relationships with/by &lt;<a href="ECC_V.htm#ECC_VEHICLE">VEHICLE</a>&gt;s; the formation, running, or tail light intensity. Zero means unlit and one means maximum intensity.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_PURE_NUMBER">PURE_NUMBER</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_EM_PHENOMENON">EM_PHENOMENON</a>, <a href="groups.htm#EGC_GEN_LIGHTING_AND_VISIBILITY">LIGHTING_AND_VISIBILITY</a>, <a href="groups.htm#EGC_GEN_RATE_OR_RATIO">RATE_OR_RATIO</a>, <a href="groups.htm#EGC_GEN_TRNSP">TRNSP</a>, <a href="groups.htm#EGC_GEN_VEHICLE">VEHICLE</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [EBEV, 4.3.1.2, Bit: 24 (Formation Lights)]
+</p><p>
+<b>Supplemental References</b>: [EBEV, 4.3.1.1, Bit: 13 (Tail Lights)], [EBEV, 4.3.1.3, Bit: 12 (Running Lights)]
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_FRACTIONAL_CONTENT" id="EAC_FRACTIONAL_CONTENT">FRACTIONAL_CONTENT</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_FRACTIONAL_CONTENT
+</p><p>
+<b>EDCS Attribute Code</b>: 402
+</p><p>
+<b>Definition</b>:
+<br>
+A number between 0 and 1 inclusive representing the linearly-scaled fraction of the total composition of an &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt;; fractional content. Zero means that there is no contribution and one means that the &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt; is homogeneous.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_PURE_NUMBER">PURE_NUMBER</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ABSTRACT_OBJECT">ABSTRACT_OBJECT</a>, <a href="groups.htm#EGC_GEN_RATE_OR_RATIO">RATE_OR_RATIO</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: PCC]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_FREQUENCY" id="EAC_FREQUENCY">FREQUENCY</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_FREQUENCY
+</p><p>
+<b>EDCS Attribute Code</b>: 403
+</p><p>
+<b>Definition</b>:
+<br>
+The frequency of an audio, electromagnetic, or light wave.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_FREQUENCY">FREQUENCY</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ACOUSTIC_PHENOMENON">ACOUSTIC_PHENOMENON</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: [SOED, "frequency", 4.b]
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_FREQUENCY_INDEPENDENT_ACOUSTIC_SCATTERING_LEVEL" id="EAC_FREQUENCY_INDEPENDENT_ACOUSTIC_SCATTERING_LEVEL">FREQUENCY_INDEPENDENT_ACOUSTIC_SCATTERING_LEVEL</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_FREQUENCY_INDEPENDENT_ACOUSTIC_SCATTERING_LEVEL
+</p><p>
+<b>EDCS Attribute Code</b>: 404
+</p><p>
+<b>Definition</b>:
+<br>
+In a &lt;<a href="ECC_W.htm#ECC_WATERBODY">WATERBODY</a>&gt;, the frequency-independent acoustic scattering level.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_FIELD_OR_POWER_LEVEL_DIFF">FIELD_OR_POWER_LEVEL_DIFF</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ACOUSTIC_PHENOMENON">ACOUSTIC_PHENOMENON</a>, <a href="groups.htm#EGC_GEN_RATE_OR_RATIO">RATE_OR_RATIO</a>, <a href="groups.htm#EGC_GEN_WATERBODY_STATE">WATERBODY_STATE</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [OAML, Volume Scattering Strength Database]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_FRIGATE_TYPE" id="EAC_FRIGATE_TYPE">FRIGATE_TYPE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_FRIGATE_TYPE
+</p><p>
+<b>EDCS Attribute Code</b>: 405
+</p><p>
+<b>Definition</b>:
+<br>
+The type of a &lt;<a href="ECC_F.htm#ECC_FRIGATE">FRIGATE</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_FRIGTY_GRISHA_I_CLASS_ASW_CORVETTE" id="EEC_FRIGTY_GRISHA_I_CLASS_ASW_CORVETTE">1</a></td>
+<td>GRISHA_I_CLASS_ASW_CORVETTE</td>
+<td>EEC_FRIGTY_GRISHA_I_CLASS_ASW_CORVETTE</td>
+<td>Grisha I class ASW corvette.</td>
+<td>IR</td>
+<td>[WNT, Russia, Littoral warfare ships, Patrol combatants]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FRIGTY_GRISHA_III_CLASS_ASW_CORVETTE" id="EEC_FRIGTY_GRISHA_III_CLASS_ASW_CORVETTE">2</a></td>
+<td>GRISHA_III_CLASS_ASW_CORVETTE</td>
+<td>EEC_FRIGTY_GRISHA_III_CLASS_ASW_CORVETTE</td>
+<td>Grisha III class ASW corvette.</td>
+<td>IR</td>
+<td>[WNT, Russia, Littoral warfare ships, Patrol combatants]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FRIGTY_GRISHA_V_CLASS_ASW" id="EEC_FRIGTY_GRISHA_V_CLASS_ASW">3</a></td>
+<td>GRISHA_V_CLASS_ASW</td>
+<td>EEC_FRIGTY_GRISHA_V_CLASS_ASW</td>
+<td>Grisha V class ASW &lt;<a href="ECC_F.htm#ECC_FRIGATE">FRIGATE</a>&gt;.</td>
+<td>IR</td>
+<td>[WNT, Russia, Littoral warfare ships, Patrol combatants]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FRIGTY_PARCHIM_II_CLASS" id="EEC_FRIGTY_PARCHIM_II_CLASS">4</a></td>
+<td>PARCHIM_II_CLASS</td>
+<td>EEC_FRIGTY_PARCHIM_II_CLASS</td>
+<td>Parchim II class &lt;<a href="ECC_F.htm#ECC_FRIGATE">FRIGATE</a>&gt;.</td>
+<td>IR</td>
+<td>[WNT, Russia, Littoral warfare ships, Patrol combatants]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FRIGTY_THETIS_CLASS" id="EEC_FRIGTY_THETIS_CLASS">5</a></td>
+<td>THETIS_CLASS</td>
+<td>EEC_FRIGTY_THETIS_CLASS</td>
+<td>Thetis class (type 420) &lt;<a href="ECC_F.htm#ECC_FRIGATE">FRIGATE</a>&gt; designed for fisheries patrol.</td>
+<td>IR</td>
+<td>[WNT, Europe, Greece, Patrol craft]</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_HYDROGRAPHIC_TRNSP">HYDROGRAPHIC_TRNSP</a>, <a href="groups.htm#EGC_GEN_MILITARY_SCIENCE">MILITARY_SCIENCE</a>, <a href="groups.htm#EGC_GEN_TRNSP">TRNSP</a>, <a href="groups.htm#EGC_GEN_VEHICLE">VEHICLE</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_FRONT_AND_AXIS_REFERENCE" id="EAC_FRONT_AND_AXIS_REFERENCE">FRONT_AND_AXIS_REFERENCE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_FRONT_AND_AXIS_REFERENCE
+</p><p>
+<b>EDCS Attribute Code</b>: 406
+</p><p>
+<b>Definition</b>:
+<br>
+The association of the front, or long, axis of an &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt; to an axis of a reference local orthonormal coordinate system.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_FRONTAXISREFR_NEGATIVE_X" id="EEC_FRONTAXISREFR_NEGATIVE_X">1</a></td>
+<td>NEGATIVE_X</td>
+<td>EEC_FRONTAXISREFR_NEGATIVE_X</td>
+<td>The negative "X" axis.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FRONTAXISREFR_NEGATIVE_Y" id="EEC_FRONTAXISREFR_NEGATIVE_Y">2</a></td>
+<td>NEGATIVE_Y</td>
+<td>EEC_FRONTAXISREFR_NEGATIVE_Y</td>
+<td>The negative "Y" axis.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FRONTAXISREFR_NEGATIVE_Z" id="EEC_FRONTAXISREFR_NEGATIVE_Z">3</a></td>
+<td>NEGATIVE_Z</td>
+<td>EEC_FRONTAXISREFR_NEGATIVE_Z</td>
+<td>The negative "Z" axis.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FRONTAXISREFR_NO_FRONT_PRESENT" id="EEC_FRONTAXISREFR_NO_FRONT_PRESENT">4</a></td>
+<td>NO_FRONT_PRESENT</td>
+<td>EEC_FRONTAXISREFR_NO_FRONT_PRESENT</td>
+<td>Has no front. EXAMPLES Cylinder, sphere.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FRONTAXISREFR_POSITIVE_X" id="EEC_FRONTAXISREFR_POSITIVE_X">5</a></td>
+<td>POSITIVE_X</td>
+<td>EEC_FRONTAXISREFR_POSITIVE_X</td>
+<td>The positive "X" axis.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FRONTAXISREFR_POSITIVE_Y" id="EEC_FRONTAXISREFR_POSITIVE_Y">6</a></td>
+<td>POSITIVE_Y</td>
+<td>EEC_FRONTAXISREFR_POSITIVE_Y</td>
+<td>The positive "Y" axis.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FRONTAXISREFR_POSITIVE_Z" id="EEC_FRONTAXISREFR_POSITIVE_Z">7</a></td>
+<td>POSITIVE_Z</td>
+<td>EEC_FRONTAXISREFR_POSITIVE_Z</td>
+<td>The positive "Z" axis.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ABSTRACT_OBJECT">ABSTRACT_OBJECT</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_FROUDE_NUMBER_TYPE_1" id="EAC_FROUDE_NUMBER_TYPE_1">FROUDE_NUMBER_TYPE_1</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_FROUDE_NUMBER_TYPE_1
+</p><p>
+<b>EDCS Attribute Code</b>: 1675
+</p><p>
+<b>Definition</b>:
+<br>
+The non-dimensional ratio of the internal force to the force of gravity for fluid flow given by the ratio of the fluid velocity to the square root of the product of gravitational acceleration and the characteristic length; Froude number type 1.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_PURE_NUMBER">PURE_NUMBER</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_FLUID_CONDITION">FLUID_CONDITION</a>, <a href="groups.htm#EGC_GEN_RATE_OR_RATIO">RATE_OR_RATIO</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [YIH]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_FROUDE_NUMBER_TYPE_2" id="EAC_FROUDE_NUMBER_TYPE_2">FROUDE_NUMBER_TYPE_2</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_FROUDE_NUMBER_TYPE_2
+</p><p>
+<b>EDCS Attribute Code</b>: 1676
+</p><p>
+<b>Definition</b>:
+<br>
+The non-dimensional ratio of the internal force to the force of gravity for fluid flow. It is equal to the square of &lt;&lt;<a href="EAC_F.htm#EAC_FROUDE_NUMBER_TYPE_1">FROUDE_NUMBER_TYPE_1</a>&gt;&gt;; Froude number type 2.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_PURE_NUMBER">PURE_NUMBER</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_FLUID_CONDITION">FLUID_CONDITION</a>, <a href="groups.htm#EGC_GEN_RATE_OR_RATIO">RATE_OR_RATIO</a>
+</p><p>
+<b>Reference Type</b>: PR
+</p><p>
+<b>Reference</b>: [WMO182, "Froude Number(Fr)"]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_FROZEN_SOIL_LAYER_BOTTOM_DEPTH" id="EAC_FROZEN_SOIL_LAYER_BOTTOM_DEPTH">FROZEN_SOIL_LAYER_BOTTOM_DEPTH</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_FROZEN_SOIL_LAYER_BOTTOM_DEPTH
+</p><p>
+<b>EDCS Attribute Code</b>: 407
+</p><p>
+<b>Definition</b>:
+<br>
+The &lt;&lt;<a href="EAC_D.htm#EAC_DEPTH">DEPTH</a>&gt;&gt; from the &lt;<a href="ECC_T.htm#ECC_TERRAIN">TERRAIN</a>&gt; to the base of a layer of frozen &lt;<a href="ECC_S.htm#ECC_SOIL">SOIL</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_LENGTH">LENGTH</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_LOCATION">LOCATION</a>, <a href="groups.htm#EGC_GEN_MATERIAL">MATERIAL</a>, <a href="groups.htm#EGC_GEN_PHYSIOGRAPHY">PHYSIOGRAPHY</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [JMCDM, "ENVIRONMENTAL-SOIL-OBSERVATION frozen depth dimension"]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_FROZEN_SOIL_LAYER_TOP_DEPTH" id="EAC_FROZEN_SOIL_LAYER_TOP_DEPTH">FROZEN_SOIL_LAYER_TOP_DEPTH</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_FROZEN_SOIL_LAYER_TOP_DEPTH
+</p><p>
+<b>EDCS Attribute Code</b>: 408
+</p><p>
+<b>Definition</b>:
+<br>
+The &lt;&lt;<a href="EAC_D.htm#EAC_DEPTH">DEPTH</a>&gt;&gt; from the &lt;<a href="ECC_T.htm#ECC_TERRAIN">TERRAIN</a>&gt; to the top of a layer of frozen &lt;<a href="ECC_S.htm#ECC_SOIL">SOIL</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_LENGTH">LENGTH</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_LOCATION">LOCATION</a>, <a href="groups.htm#EGC_GEN_MATERIAL">MATERIAL</a>, <a href="groups.htm#EGC_GEN_PHYSIOGRAPHY">PHYSIOGRAPHY</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [JMCDM, "ENVIRONMENTAL-SOIL-OBSERVATION frozen depth dimension"]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_FROZEN_SURFACE_COVER_TYPE" id="EAC_FROZEN_SURFACE_COVER_TYPE">FROZEN_SURFACE_COVER_TYPE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_FROZEN_SURFACE_COVER_TYPE
+</p><p>
+<b>EDCS Attribute Code</b>: 409
+</p><p>
+<b>Definition</b>:
+<br>
+The type of frozen &lt;<a href="ECC_P.htm#ECC_PRECIPITATION">PRECIPITATION</a>&gt; and/or frozen &lt;<a href="ECC_W.htm#ECC_WATER">WATER</a>&gt; that is present covering a &lt;<a href="ECC_S.htm#ECC_SURFACE">SURFACE</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_FROZSRFCVRTY_ICE" id="EEC_FROZSRFCVRTY_ICE">1</a></td>
+<td>ICE</td>
+<td>EEC_FROZSRFCVRTY_ICE</td>
+<td>&lt;<a href="ECC_I.htm#ECC_ICE">ICE</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FROZSRFCVRTY_MIXED_SNOW_AND_ICE" id="EEC_FROZSRFCVRTY_MIXED_SNOW_AND_ICE">2</a></td>
+<td>MIXED_SNOW_AND_ICE</td>
+<td>EEC_FROZSRFCVRTY_MIXED_SNOW_AND_ICE</td>
+<td>A mixture of &lt;<a href="ECC_S.htm#ECC_SNOW_GROUND_COVER">SNOW_GROUND_COVER</a>&gt; and crystals of &lt;<a href="ECC_I.htm#ECC_ICE">ICE</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FROZSRFCVRTY_NONE_PRESENT" id="EEC_FROZSRFCVRTY_NONE_PRESENT">3</a></td>
+<td>NONE_PRESENT</td>
+<td>EEC_FROZSRFCVRTY_NONE_PRESENT</td>
+<td>No freezing &lt;<a href="ECC_P.htm#ECC_PRECIPITATION">PRECIPITATION</a>&gt; or frozen standing &lt;<a href="ECC_W.htm#ECC_WATER">WATER</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FROZSRFCVRTY_SLUSH" id="EEC_FROZSRFCVRTY_SLUSH">4</a></td>
+<td>SLUSH</td>
+<td>EEC_FROZSRFCVRTY_SLUSH</td>
+<td>Partially melted &lt;<a href="ECC_S.htm#ECC_SNOW_GROUND_COVER">SNOW_GROUND_COVER</a>&gt; or &lt;<a href="ECC_I.htm#ECC_ICE">ICE</a>&gt;; slush [SOED, "slush", n1 1a].</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FROZSRFCVRTY_SNOW" id="EEC_FROZSRFCVRTY_SNOW">5</a></td>
+<td>SNOW</td>
+<td>EEC_FROZSRFCVRTY_SNOW</td>
+<td>&lt;<a href="ECC_S.htm#ECC_SNOW_GROUND_COVER">SNOW_GROUND_COVER</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FROZSRFCVRTY_SNOW_OVER_ICE" id="EEC_FROZSRFCVRTY_SNOW_OVER_ICE">6</a></td>
+<td>SNOW_OVER_ICE</td>
+<td>EEC_FROZSRFCVRTY_SNOW_OVER_ICE</td>
+<td>&lt;<a href="ECC_S.htm#ECC_SNOW_GROUND_COVER">SNOW_GROUND_COVER</a>&gt; over &lt;<a href="ECC_I.htm#ECC_ICE">ICE</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ICE">ICE</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: SIC]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_FUEL_FACILITIES_AVAILABLE" id="EAC_FUEL_FACILITIES_AVAILABLE">FUEL_FACILITIES_AVAILABLE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_FUEL_FACILITIES_AVAILABLE
+</p><p>
+<b>EDCS Attribute Code</b>: 410
+</p><p>
+<b>Definition</b>:
+<br>
+The type of fuel &lt;<a href="ECC_F.htm#ECC_FACILITY">FACILITY</a>&gt;s available at or in the near vicinity.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_FUELFACAVAIL_AVIATION_FUEL" id="EEC_FUELFACAVAIL_AVIATION_FUEL">1</a></td>
+<td>AVIATION_FUEL</td>
+<td>EEC_FUELFACAVAIL_AVIATION_FUEL</td>
+<td>Aviation fuel.</td>
+<td>IR</td>
+<td>[FACC, Annex B, FFA:2]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FUELFACAVAIL_BUTANE" id="EEC_FUELFACAVAIL_BUTANE">2</a></td>
+<td>BUTANE</td>
+<td>EEC_FUELFACAVAIL_BUTANE</td>
+<td>Butane.</td>
+<td>IR</td>
+<td>[FACC, Annex B, FFA:13]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FUELFACAVAIL_COAL" id="EEC_FUELFACAVAIL_COAL">3</a></td>
+<td>COAL</td>
+<td>EEC_FUELFACAVAIL_COAL</td>
+<td>Coal.</td>
+<td>IR</td>
+<td>[FACC, Annex B, FFA:6]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FUELFACAVAIL_COMPRESSED_NATURAL_GAS" id="EEC_FUELFACAVAIL_COMPRESSED_NATURAL_GAS">4</a></td>
+<td>COMPRESSED_NATURAL_GAS</td>
+<td>EEC_FUELFACAVAIL_COMPRESSED_NATURAL_GAS</td>
+<td>Compressed natural gas.</td>
+<td>IR</td>
+<td>[FACC, Annex B, FFA:12]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FUELFACAVAIL_DIESEL" id="EEC_FUELFACAVAIL_DIESEL">5</a></td>
+<td>DIESEL</td>
+<td>EEC_FUELFACAVAIL_DIESEL</td>
+<td>Diesel.</td>
+<td>IR</td>
+<td>[FACC, Annex B, FFA:5]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FUELFACAVAIL_ETHANOL" id="EEC_FUELFACAVAIL_ETHANOL">6</a></td>
+<td>ETHANOL</td>
+<td>EEC_FUELFACAVAIL_ETHANOL</td>
+<td>Ethanol.</td>
+<td>IR</td>
+<td>[FACC, Annex B, FFA:14]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FUELFACAVAIL_KEROSENE" id="EEC_FUELFACAVAIL_KEROSENE">7</a></td>
+<td>KEROSENE</td>
+<td>EEC_FUELFACAVAIL_KEROSENE</td>
+<td>Kerosene.</td>
+<td>IR</td>
+<td>[FACC, Annex B, FFA:3]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FUELFACAVAIL_LIQUIFIED_PETROLEUM_GAS" id="EEC_FUELFACAVAIL_LIQUIFIED_PETROLEUM_GAS">8</a></td>
+<td>LIQUIFIED_PETROLEUM_GAS</td>
+<td>EEC_FUELFACAVAIL_LIQUIFIED_PETROLEUM_GAS</td>
+<td>Liquified petroleum gas.</td>
+<td>IR</td>
+<td>[FACC, Annex B, FFA:11]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FUELFACAVAIL_LUBRICANTS" id="EEC_FUELFACAVAIL_LUBRICANTS">9</a></td>
+<td>LUBRICANTS</td>
+<td>EEC_FUELFACAVAIL_LUBRICANTS</td>
+<td>Lubricants.</td>
+<td>IR</td>
+<td>[FACC, Annex B, FFA:8]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FUELFACAVAIL_METHANE" id="EEC_FUELFACAVAIL_METHANE">10</a></td>
+<td>METHANE</td>
+<td>EEC_FUELFACAVAIL_METHANE</td>
+<td>Methane.</td>
+<td>IR</td>
+<td>[FACC, Annex B, FFA:9]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FUELFACAVAIL_NONE_PRESENT" id="EEC_FUELFACAVAIL_NONE_PRESENT">11</a></td>
+<td>NONE_PRESENT</td>
+<td>EEC_FUELFACAVAIL_NONE_PRESENT</td>
+<td>No fuel &lt;<a href="ECC_F.htm#ECC_FACILITY">FACILITY</a>&gt;s or supplies are available; none present.</td>
+<td>IR</td>
+<td>[FACC, Annex B, FFA:995]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FUELFACAVAIL_OIL" id="EEC_FUELFACAVAIL_OIL">12</a></td>
+<td>OIL</td>
+<td>EEC_FUELFACAVAIL_OIL</td>
+<td>Oil.</td>
+<td>IR</td>
+<td>[FACC, Annex B, FFA:7]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FUELFACAVAIL_PETROL" id="EEC_FUELFACAVAIL_PETROL">13</a></td>
+<td>PETROL</td>
+<td>EEC_FUELFACAVAIL_PETROL</td>
+<td>Petrol.</td>
+<td>IR</td>
+<td>[FACC, Annex B, FFA:1]</td>
+<td>[SOED, "petrol"]</td>
+</tr>
+<tr>
+<td><a name="EEC_FUELFACAVAIL_SPECIAL" id="EEC_FUELFACAVAIL_SPECIAL">14</a></td>
+<td>SPECIAL</td>
+<td>EEC_FUELFACAVAIL_SPECIAL</td>
+<td>Some special fuels, not otherwise enumerated, are available.</td>
+<td>IR</td>
+<td>[FACC, Annex B, FFA:10]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FUELFACAVAIL_WATER" id="EEC_FUELFACAVAIL_WATER">15</a></td>
+<td>WATER</td>
+<td>EEC_FUELFACAVAIL_WATER</td>
+<td>&lt;<a href="ECC_W.htm#ECC_WATER">WATER</a>&gt;. EXAMPLE As used for a steam engine.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_INFRASTRUCTURE">INFRASTRUCTURE</a>, <a href="groups.htm#EGC_GEN_TRNSP">TRNSP</a>, <a href="groups.htm#EGC_GEN_USAGE_REGION">USAGE_REGION</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: FFA]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_FUNCTIONAL_RUNWAY_COUNT" id="EAC_FUNCTIONAL_RUNWAY_COUNT">FUNCTIONAL_RUNWAY_COUNT</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_FUNCTIONAL_RUNWAY_COUNT
+</p><p>
+<b>EDCS Attribute Code</b>: 411
+</p><p>
+<b>Definition</b>:
+<br>
+The number of fully functional &lt;<a href="ECC_R.htm#ECC_RUNWAY">RUNWAY</a>&gt;s at an &lt;<a href="ECC_A.htm#ECC_AERODROME">AERODROME</a>&gt;; the functional runway count.
+<p>
+<b>EDCS Attribute Value Data Type</b>: COUNT
+</p><p>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_AIR_TRNSP">AIR_TRNSP</a>, <a href="groups.htm#EGC_GEN_TRNSP">TRNSP</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_FUNCTIONAL_STATUS" id="EAC_FUNCTIONAL_STATUS">FUNCTIONAL_STATUS</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_FUNCTIONAL_STATUS
+</p><p>
+<b>EDCS Attribute Code</b>: 412
+</p><p>
+<b>Definition</b>:
+<br>
+The general condition or functionality of an &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt; regardless of its primary purpose.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_FNSTAT_ABANDONED" id="EEC_FNSTAT_ABANDONED">1</a></td>
+<td>ABANDONED</td>
+<td>EEC_FNSTAT_ABANDONED</td>
+<td>Abandoned, deserted, no longer used or inhabited, forsaken, or disused.</td>
+<td>IR</td>
+<td>[FAD, Annex B, FUN:2]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FNSTAT_DAMAGED" id="EEC_FNSTAT_DAMAGED">2</a></td>
+<td>DAMAGED</td>
+<td>EEC_FNSTAT_DAMAGED</td>
+<td>Not in its original condition and has been harmed, injured, or broken; damaged.</td>
+<td>IR</td>
+<td>[FAD, Annex B, FUN:13]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FNSTAT_DESTROYED" id="EEC_FNSTAT_DESTROYED">3</a></td>
+<td>DESTROYED</td>
+<td>EEC_FNSTAT_DESTROYED</td>
+<td>No longer in existence; destroyed, spoiled, ruined or demolished.</td>
+<td>IR</td>
+<td>[FAD, Annex B, FUN:3]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FNSTAT_DISMANTLED" id="EEC_FNSTAT_DISMANTLED">4</a></td>
+<td>DISMANTLED</td>
+<td>EEC_FNSTAT_DISMANTLED</td>
+<td>Taken apart, disassembled, or torn down; dismantled.</td>
+<td>IR</td>
+<td>[FAD, Annex B, FUN:4]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FNSTAT_DISSIPATING" id="EEC_FNSTAT_DISSIPATING">5</a></td>
+<td>DISSIPATING</td>
+<td>EEC_FNSTAT_DISSIPATING</td>
+<td>Attenuated to, or almost to the point of, disappearing; dissipating.</td>
+<td>IR</td>
+<td>[FAD, Annex B, FUN:8]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FNSTAT_INACTIVE" id="EEC_FNSTAT_INACTIVE">6</a></td>
+<td>INACTIVE</td>
+<td>EEC_FNSTAT_INACTIVE</td>
+<td>Not functioning or operating or out of use; inactive.</td>
+<td>IR</td>
+<td>[FAD, Annex B, FUN:12]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FNSTAT_INCOMPLETE" id="EEC_FNSTAT_INCOMPLETE">7</a></td>
+<td>INCOMPLETE</td>
+<td>EEC_FNSTAT_INCOMPLETE</td>
+<td>Not complete, lacking some parts, or not finished; incomplete.</td>
+<td>IR</td>
+<td>[FAD, Annex B, FUN:9]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FNSTAT_NOT_USABLE" id="EEC_FNSTAT_NOT_USABLE">8</a></td>
+<td>NOT_USABLE</td>
+<td>EEC_FNSTAT_NOT_USABLE</td>
+<td>Of no utility; not usable.</td>
+<td>IR</td>
+<td>[FAD, Annex B, FUN:10]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FNSTAT_OCCASIONAL" id="EEC_FNSTAT_OCCASIONAL">9</a></td>
+<td>OCCASIONAL</td>
+<td>EEC_FNSTAT_OCCASIONAL</td>
+<td>Not habitual; occasional or infrequent.</td>
+<td>IR</td>
+<td>[FAD, Annex B, FUN:14]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FNSTAT_OPERATIONAL" id="EEC_FNSTAT_OPERATIONAL">10</a></td>
+<td>OPERATIONAL</td>
+<td>EEC_FNSTAT_OPERATIONAL</td>
+<td>Fit for proper functioning; ready for use; operational.</td>
+<td>IR</td>
+<td>[FAD, Annex B, FUN:6]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FNSTAT_PARTIALLY_DESTROYED" id="EEC_FNSTAT_PARTIALLY_DESTROYED">11</a></td>
+<td>PARTIALLY_DESTROYED</td>
+<td>EEC_FNSTAT_PARTIALLY_DESTROYED</td>
+<td>Some portion or part is &lt;&lt;&lt;<a href="EAC_F.htm#EEC_FNSTAT_DESTROYED">DESTROYED</a>&gt;&gt;&gt;; partially destroyed.</td>
+<td>IR</td>
+<td>[FAD, Annex B, FUN:11]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FNSTAT_PROPOSED" id="EEC_FNSTAT_PROPOSED">12</a></td>
+<td>PROPOSED</td>
+<td>EEC_FNSTAT_PROPOSED</td>
+<td>Suggested, put forward for consideration, discussion, or adoption; proposed.</td>
+<td>IR</td>
+<td>[FAD, Annex B, FUN:5]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FNSTAT_RECOMMENDED" id="EEC_FNSTAT_RECOMMENDED">13</a></td>
+<td>RECOMMENDED</td>
+<td>EEC_FNSTAT_RECOMMENDED</td>
+<td>Endorsed, commended as being worthy or desirable, or useful; recommended.</td>
+<td>IR</td>
+<td>[FAD, Annex B, FUN:15]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FNSTAT_RUINED" id="EEC_FNSTAT_RUINED">14</a></td>
+<td>RUINED</td>
+<td>EEC_FNSTAT_RUINED</td>
+<td>In a decayed or deteriorated condition resulting from neglect or disuse, or a damaged and in need of repair; ruined.</td>
+<td>IR</td>
+<td>[FAD, Annex B, FUN:7]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FNSTAT_TEMPORARILY_UNUSED" id="EEC_FNSTAT_TEMPORARILY_UNUSED">15</a></td>
+<td>TEMPORARILY_UNUSED</td>
+<td>EEC_FNSTAT_TEMPORARILY_UNUSED</td>
+<td>Temporarily unused.</td>
+<td>IR</td>
+<td>[FAD, Annex B, FUN:16]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FNSTAT_UNDER_CONSTRUCTION" id="EEC_FNSTAT_UNDER_CONSTRUCTION">16</a></td>
+<td>UNDER_CONSTRUCTION</td>
+<td>EEC_FNSTAT_UNDER_CONSTRUCTION</td>
+<td>In the process of being built or renovated; under construction.</td>
+<td>IR</td>
+<td>[FAD, Annex B, FUN:1]</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ABSTRACT_OBJECT">ABSTRACT_OBJECT</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FAD, Annex B: FUN]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_FUNCTIONAL_USE" id="EAC_FUNCTIONAL_USE">FUNCTIONAL_USE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_FUNCTIONAL_USE
+</p><p>
+<b>EDCS Attribute Code</b>: 413
+</p><p>
+<b>Definition</b>:
+<br>
+The general function or use of an &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_FNUSE_AGRICULTURE" id="EEC_FNUSE_AGRICULTURE">1</a></td>
+<td>AGRICULTURE</td>
+<td>EEC_FNUSE_AGRICULTURE</td>
+<td>Agriculture.</td>
+<td>IR</td>
+<td>[FAD, Annex B, FUC:5]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FNUSE_ANIMAL_SANCTUARY" id="EEC_FNUSE_ANIMAL_SANCTUARY">2</a></td>
+<td>ANIMAL_SANCTUARY</td>
+<td>EEC_FNUSE_ANIMAL_SANCTUARY</td>
+<td>Sanctuary for &lt;<a href="ECC_N.htm#ECC_NON_HUMAN_ANIMAL">NON_HUMAN_ANIMAL</a>&gt;s.</td>
+<td>IR</td>
+<td>[FAD, Annex B, FUC:10]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FNUSE_AVALANCHE" id="EEC_FNUSE_AVALANCHE">3</a></td>
+<td>AVALANCHE</td>
+<td>EEC_FNUSE_AVALANCHE</td>
+<td>Avalanche.</td>
+<td>IR</td>
+<td>[FAD, Annex B, FUC:7]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FNUSE_CABLE_PIPE_SIGN" id="EEC_FNUSE_CABLE_PIPE_SIGN">4</a></td>
+<td>CABLE_PIPE_SIGN</td>
+<td>EEC_FNUSE_CABLE_PIPE_SIGN</td>
+<td>Sign indicating a &lt;<a href="ECC_E.htm#ECC_ELECTRICAL_CABLE">ELECTRICAL_CABLE</a>&gt; or &lt;<a href="ECC_P.htm#ECC_PIPELINE">PIPELINE</a>&gt;.</td>
+<td>IR</td>
+<td>[FAD, Annex B, FUC:30]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FNUSE_CAUSEWAY" id="EEC_FNUSE_CAUSEWAY">5</a></td>
+<td>CAUSEWAY</td>
+<td>EEC_FNUSE_CAUSEWAY</td>
+<td>&lt;<a href="ECC_C.htm#ECC_CAUSEWAY">CAUSEWAY</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[FAD, Annex B, FUC:18]</td>
+</tr>
+<tr>
+<td><a name="EEC_FNUSE_COMMERCE" id="EEC_FNUSE_COMMERCE">6</a></td>
+<td>COMMERCE</td>
+<td>EEC_FNUSE_COMMERCE</td>
+<td>Commerce.</td>
+<td>IR</td>
+<td>[FAD, Annex B, FUC:2]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FNUSE_CONTAINER" id="EEC_FNUSE_CONTAINER">7</a></td>
+<td>CONTAINER</td>
+<td>EEC_FNUSE_CONTAINER</td>
+<td>&lt;<a href="ECC_C.htm#ECC_CONTAINER">CONTAINER</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[FAD, Annex B, FUC:22]</td>
+</tr>
+<tr>
+<td><a name="EEC_FNUSE_DRAG_STRIP" id="EEC_FNUSE_DRAG_STRIP">8</a></td>
+<td>DRAG_STRIP</td>
+<td>EEC_FNUSE_DRAG_STRIP</td>
+<td>Drag strip.</td>
+<td>IR</td>
+<td>[FAD, Annex B, FUC:27]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FNUSE_DUGOUT" id="EEC_FNUSE_DUGOUT">9</a></td>
+<td>DUGOUT</td>
+<td>EEC_FNUSE_DUGOUT</td>
+<td>Dugout.</td>
+<td>IR</td>
+<td>[FAD, Annex B, FUC:29]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FNUSE_DYKE" id="EEC_FNUSE_DYKE">10</a></td>
+<td>DYKE</td>
+<td>EEC_FNUSE_DYKE</td>
+<td>&lt;<a href="ECC_D.htm#ECC_DYKE">DYKE</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[FAD, Annex B, FUC:11]</td>
+</tr>
+<tr>
+<td><a name="EEC_FNUSE_FILTRATION_POND" id="EEC_FNUSE_FILTRATION_POND">11</a></td>
+<td>FILTRATION_POND</td>
+<td>EEC_FNUSE_FILTRATION_POND</td>
+<td>Filtration pond.</td>
+<td>IR</td>
+<td>[FAD, Annex B, FUC:28]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FNUSE_FIREBREAK" id="EEC_FNUSE_FIREBREAK">12</a></td>
+<td>FIREBREAK</td>
+<td>EEC_FNUSE_FIREBREAK</td>
+<td>Firebreak.</td>
+<td>IR</td>
+<td>[FAD, Annex B, FUC:14]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FNUSE_FLOOD_BARRAGE" id="EEC_FNUSE_FLOOD_BARRAGE">13</a></td>
+<td>FLOOD_BARRAGE</td>
+<td>EEC_FNUSE_FLOOD_BARRAGE</td>
+<td>&lt;<a href="ECC_F.htm#ECC_FLOOD_BARRAGE">FLOOD_BARRAGE</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[FAD, Annex B, FUC:21]</td>
+</tr>
+<tr>
+<td><a name="EEC_FNUSE_FLOOD_CONTROL" id="EEC_FNUSE_FLOOD_CONTROL">14</a></td>
+<td>FLOOD_CONTROL</td>
+<td>EEC_FNUSE_FLOOD_CONTROL</td>
+<td>Flood control and/or rate measurement.</td>
+<td>IR</td>
+<td>[FAD, Annex B, FUC:25]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FNUSE_FOREST_PRESERVE" id="EEC_FNUSE_FOREST_PRESERVE">15</a></td>
+<td>FOREST_PRESERVE</td>
+<td>EEC_FNUSE_FOREST_PRESERVE</td>
+<td>&lt;<a href="ECC_F.htm#ECC_FOREST_PRESERVE">FOREST_PRESERVE</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[FAD, Annex B, FUC:24]</td>
+</tr>
+<tr>
+<td><a name="EEC_FNUSE_INDUSTRY" id="EEC_FNUSE_INDUSTRY">16</a></td>
+<td>INDUSTRY</td>
+<td>EEC_FNUSE_INDUSTRY</td>
+<td>Industry.</td>
+<td>IR</td>
+<td>[FAD, Annex B, FUC:1]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FNUSE_INSTITUTION" id="EEC_FNUSE_INSTITUTION">17</a></td>
+<td>INSTITUTION</td>
+<td>EEC_FNUSE_INSTITUTION</td>
+<td>Institution.</td>
+<td>IR</td>
+<td>[FAD, Annex B, FUC:3]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FNUSE_IRRIGATION" id="EEC_FNUSE_IRRIGATION">18</a></td>
+<td>IRRIGATION</td>
+<td>EEC_FNUSE_IRRIGATION</td>
+<td>Irrigation.</td>
+<td>IR</td>
+<td>[FAD, Annex B, FUC:16]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FNUSE_LEVEE" id="EEC_FNUSE_LEVEE">19</a></td>
+<td>LEVEE</td>
+<td>EEC_FNUSE_LEVEE</td>
+<td>&lt;<a href="ECC_L.htm#ECC_LEVEE">LEVEE</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[FAD, Annex B, FUC:11]</td>
+</tr>
+<tr>
+<td><a name="EEC_FNUSE_LEVEE_OR_DYKE" id="EEC_FNUSE_LEVEE_OR_DYKE">20</a></td>
+<td>LEVEE_OR_DYKE</td>
+<td>EEC_FNUSE_LEVEE_OR_DYKE</td>
+<td>&lt;&lt;&lt;<a href="EAC_F.htm#EEC_FNUSE_LEVEE">LEVEE</a>&gt;&gt;&gt; or &lt;&lt;&lt;<a href="EAC_F.htm#EEC_FNUSE_DYKE">DYKE</a>&gt;&gt;&gt;.</td>
+<td>IR</td>
+<td>[FAD, Annex B, FUC:11]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FNUSE_MARINE" id="EEC_FNUSE_MARINE">21</a></td>
+<td>MARINE</td>
+<td>EEC_FNUSE_MARINE</td>
+<td>Marine.</td>
+<td>IR</td>
+<td>[FAD, Annex B, FUC:6]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FNUSE_MEDICAL" id="EEC_FNUSE_MEDICAL">22</a></td>
+<td>MEDICAL</td>
+<td>EEC_FNUSE_MEDICAL</td>
+<td>Medical.</td>
+<td>IR</td>
+<td>[FAD, Annex B, FUC:23]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FNUSE_MIXED_URBAN" id="EEC_FNUSE_MIXED_URBAN">23</a></td>
+<td>MIXED_URBAN</td>
+<td>EEC_FNUSE_MIXED_URBAN</td>
+<td>&lt;<a href="ECC_M.htm#ECC_MIXED_URBAN_REGION">MIXED_URBAN_REGION</a>&gt; or &lt;<a href="ECC_B.htm#ECC_BUILT_UP_REGION">BUILT_UP_REGION</a>&gt;.</td>
+<td>IR</td>
+<td>[FAD, Annex B, FUC:19]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FNUSE_PRISONER" id="EEC_FNUSE_PRISONER">24</a></td>
+<td>PRISONER</td>
+<td>EEC_FNUSE_PRISONER</td>
+<td>Prisoner.</td>
+<td>IR</td>
+<td>[FAD, Annex B, FUC:9]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FNUSE_RECREATION" id="EEC_FNUSE_RECREATION">25</a></td>
+<td>RECREATION</td>
+<td>EEC_FNUSE_RECREATION</td>
+<td>Recreation.</td>
+<td>IR</td>
+<td>[FAD, Annex B, FUC:13]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FNUSE_REFUGEE" id="EEC_FNUSE_REFUGEE">26</a></td>
+<td>REFUGEE</td>
+<td>EEC_FNUSE_REFUGEE</td>
+<td>Refugee.</td>
+<td>IR</td>
+<td>[FAD, Annex B, FUC:8]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FNUSE_RESERVE" id="EEC_FNUSE_RESERVE">27</a></td>
+<td>RESERVE</td>
+<td>EEC_FNUSE_RESERVE</td>
+<td>&lt;<a href="ECC_R.htm#ECC_RESERVE">RESERVE</a>&gt; or reservation.</td>
+<td>IR</td>
+<td>[FAD, Annex B, FUC:12]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FNUSE_RESIDENCE" id="EEC_FNUSE_RESIDENCE">28</a></td>
+<td>RESIDENCE</td>
+<td>EEC_FNUSE_RESIDENCE</td>
+<td>Residence.</td>
+<td>IR</td>
+<td>[FAD, Annex B, FUC:4]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FNUSE_RETAINING" id="EEC_FNUSE_RETAINING">29</a></td>
+<td>RETAINING</td>
+<td>EEC_FNUSE_RETAINING</td>
+<td>Retaining.</td>
+<td>IR</td>
+<td>[FAD, Annex B, FUC:17]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FNUSE_SCHOOL" id="EEC_FNUSE_SCHOOL">30</a></td>
+<td>SCHOOL</td>
+<td>EEC_FNUSE_SCHOOL</td>
+<td>School.</td>
+<td>IR</td>
+<td>[FAD, Annex B, FUC:26]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FNUSE_TOURIST" id="EEC_FNUSE_TOURIST">31</a></td>
+<td>TOURIST</td>
+<td>EEC_FNUSE_TOURIST</td>
+<td>Tourist.</td>
+<td>IR</td>
+<td>[FAD, Annex B, FUC:15]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FNUSE_TRANSPORTATION" id="EEC_FNUSE_TRANSPORTATION">32</a></td>
+<td>TRANSPORTATION</td>
+<td>EEC_FNUSE_TRANSPORTATION</td>
+<td>Transportation.</td>
+<td>IR</td>
+<td>[FAD, Annex B, FUC:20]</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ABSTRACT_OBJECT">ABSTRACT_OBJECT</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FAD, Annex B: FUC]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_FURNITURE_TYPE" id="EAC_FURNITURE_TYPE">FURNITURE_TYPE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_FURNITURE_TYPE
+</p><p>
+<b>EDCS Attribute Code</b>: 414
+</p><p>
+<b>Definition</b>:
+<br>
+The type of &lt;<a href="ECC_F.htm#ECC_FURNITURE">FURNITURE</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_FRNTTY_BOX" id="EEC_FRNTTY_BOX">1</a></td>
+<td>BOX</td>
+<td>EEC_FRNTTY_BOX</td>
+<td>Box.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[SOED, "box", n2 1]</td>
+</tr>
+<tr>
+<td><a name="EEC_FRNTTY_CHAIR" id="EEC_FRNTTY_CHAIR">2</a></td>
+<td>CHAIR</td>
+<td>EEC_FRNTTY_CHAIR</td>
+<td>Chair.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[SOED, "chair", n1 1]</td>
+</tr>
+<tr>
+<td><a name="EEC_FRNTTY_CRATE" id="EEC_FRNTTY_CRATE">3</a></td>
+<td>CRATE</td>
+<td>EEC_FRNTTY_CRATE</td>
+<td>Crate.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[SOED, "crate", 2]</td>
+</tr>
+<tr>
+<td><a name="EEC_FRNTTY_DESK" id="EEC_FRNTTY_DESK">4</a></td>
+<td>DESK</td>
+<td>EEC_FRNTTY_DESK</td>
+<td>Desk.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[SOED, "desk", 1]</td>
+</tr>
+<tr>
+<td><a name="EEC_FRNTTY_FILING_CABINET" id="EEC_FRNTTY_FILING_CABINET">5</a></td>
+<td>FILING_CABINET</td>
+<td>EEC_FRNTTY_FILING_CABINET</td>
+<td>A &lt;<a href="ECC_C.htm#ECC_CONTAINER">CONTAINER</a>&gt; for keeping papers in order; a filing cabinet [AHD, "file", 1].</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_FRNTTY_SHELVES" id="EEC_FRNTTY_SHELVES">6</a></td>
+<td>SHELVES</td>
+<td>EEC_FRNTTY_SHELVES</td>
+<td>Shelves.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[SOED, "shelf", n1 1]</td>
+</tr>
+<tr>
+<td><a name="EEC_FRNTTY_TABLE" id="EEC_FRNTTY_TABLE">7</a></td>
+<td>TABLE</td>
+<td>EEC_FRNTTY_TABLE</td>
+<td>Table.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[SOED, "table", 13]</td>
+</tr>
+<tr>
+<td><a name="EEC_FRNTTY_BENCH" id="EEC_FRNTTY_BENCH">8</a></td>
+<td>BENCH</td>
+<td>EEC_FRNTTY_BENCH</td>
+<td>&lt;<a href="ECC_B.htm#ECC_BENCH">BENCH</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_BUILDING_COMPONENT">BUILDING_COMPONENT</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<font color="#ff0000">Return to:</font>
+<b><a href="#Top">Top of page</a></b>,
+<b><a href="EAC_E.htm">Previous EAC Page (E)</a></b>,
+<b><a href="EAC_G.htm">Next EAC Page (G)</a></b>,
+<b><a href="EAC.htm">Attribute Index</a></b>,
+<b><a href="../edcs.htm#SDK">EDCS Home</a></b>
+<br><br>
+<table border="2" width="100%" bgcolor="#0000ff">
+<tr><td>
+<table width="100%" bgcolor="#0000ff">
+<tr>
+<td align="left"><font color="#00ffff"><small>
+Last updated:
+July 1, 2011
+</small></font></td>
+<td align="right"><font color="#00ffff"><small>
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</small></font></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

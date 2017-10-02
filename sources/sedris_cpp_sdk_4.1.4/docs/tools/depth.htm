@@ -1,0 +1,193 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>SEDRIS SDK - Depth Tool</title>
+</head>
+<body bgcolor="#ffffff">
+
+<div align="center"><h1><a name="top" id="top">Depth Tool</a></h1></div>
+<div align="center">
+<h3>
+SEDRIS C++ SDK Release 4.1.4
+</h3>
+<h3>
+July 1, 2011
+</h3>
+</div>
+
+<p align="center">
+<a href="depth.gif"><img alt="Sample image" src="depth.gif" width="340" height="187"></a></p>
+
+<ol>
+<li><a href="#short">Synopsis</a></li>
+<li><a href="#descr">Description</a></li>
+<li><a href="#options">Options</a></li>
+<li><a href="#examples">Examples</a></li>
+<li><a href="#samplerun">Sample Run</a></li>
+<li><a href="#environ">Environment</a></li>
+<li><a href="#seealso">See Also</a></li>
+</ol>
+<br>
+
+<h2><a name="short" id="short">SYNOPSIS</a></h2>
+<blockquote>
+<pre><b>depth</b> [ <a href="#options">options</a> ] transmittal
+</pre>
+</blockquote>
+
+<h2><a name="descr" id="descr">DESCRIPTION</a></h2>
+<blockquote>
+<p><b>Depth</b> performs a depth-first traversal of the given
+SEDRIS transmittal and prints the objects and fields to stdout
+in text format. It also prints the number of objects and object
+classes encountered.</p>
+</blockquote>
+
+<h2><a name="options" id="options">OPTIONS</a></h2>
+<blockquote>
+<dl>
+<dt><b>-c [-|configuration_file_name]</b></dt>
+   <dd><p>Specify optional file of configuration information; if &quot;-&quot;
+   appears with no file name specified, read the configuration information
+   from stdin.</p></dd>
+
+<dt><b>-d&lt;maximum depth&gt;</b></dt>
+   <dd><p>Specify the maximum depth of the traversal (the default is zero,
+   for unlimited depth.</p></dd>
+
+<dt><b>-fast</b></dt>
+   <dd><p>&quot;Fast&quot; version of depth. Object counts are inaccurate
+   (shared objects are counted multiple times), but this is still useful
+   for &quot;just touching&quot; every object in a transmittal, especially
+   when used in conjunction with the quiet modes.</p></dd>
+
+<dt><b>-q</b></dt>
+   <dd><p>Quiet mode. Count the objects, but don't print them.</p></dd>
+
+<dt><b>-qq</b></dt>
+   <dd><p>Very quiet mode. Don't even show the counting update.</p></dd>
+
+<dt><b>-s&quot;object id&quot;</b></dt>
+   <dd><p>Start traversal at the object with the given object ID.</p></dd>
+
+<dt><b>-u&lt;update rate&gt;</b></dt>
+   <dd><p>Specify the counting update rate (0=off, default=500).</p></dd>
+
+<dt><b>-unique</b></dt>
+   <dd><p>Only count unique objects.  Skip the shared objects.</p></dd>
+
+<dt><b>-v</b></dt>
+   <dd><p>Verbose mode. Print class names and fields of each object.
+   (The default is verbose mode off. Only class names of each object
+   are printed).</p></dd>
+
+<dt><b>-vv</b></dt>
+   <dd><p>Very verbose mode. Print contents of &lt;Data Tables&gt; and
+   &lt;Images&gt;.</p></dd>
+
+<dt><b>-version</b></dt>
+   <dd><p>Print the version and exit.</p></dd>
+</dl>
+</blockquote>
+
+<h2><a name="examples" id="examples">EXAMPLES</a></h2>
+<blockquote>
+<dl>
+<dt><b>depth transmittals/test.stf</b></dt>
+   <dd><p>traverses the transmittal starting at the root object</p></dd>
+
+<dt><b>depth -q transmittals/test.stf</b></dt>
+   <dd><p>traverses the transmittal without printing the object
+   fields.</p></dd>
+
+<dt><b>depth -v -c my_configuration_file transmittals/test.stf</b></dt>
+   <dd><p>traverses the transmittal using the options specified
+   in &quot;my_configuration_file&quot;.</p></dd>
+
+<dt><b>depth -v -s&quot;:0,0,92&quot;
+transmittals/test.stf</b></dt>
+   <dd><p>traverses the transmittal starting at the object with
+   specified ID.</p></dd>
+</dl>
+</blockquote>
+
+<h2><a name="samplerun" id="samplerun">SAMPLE RUN</a></h2>
+<blockquote><p>
+The following command (initiated in the &quot;transmittals&quot;
+directory):</p>
+<blockquote><pre>depth -q test.stf</pre>
+</blockquote>
+produces the following output:
+<blockquote>
+
+<pre>Depth (C) v4.1.4.0 - SEDRIS 4.1.x compatible
+
+glb_directly_attach_table_components = SE_FALSE
+glb_process_inheritance = SE_FALSE
+glb_transform_locations = SE_FALSE
+glb_follow_model_instances = SE_FALSE
+glb_evaluate_static_control_links = SE_FALSE
+
+Opened transmittal "test.stf"
+    Unique ID = 4BCD32E8-7863D914-90CF7951-E0141F92-CAF5D582
+
+
+Maximum Tree Height = 10
+
+        3       Absolute Time
+        4       Ambient Colour
+        1       Citation
+        1       Data Quality
+        4       Diffuse Colour
+        1       Environment Root
+        1       Geometry Model
+        1       Geometry Model Instance
+        1       Identification
+        4       Inline Colour
+        1       Keywords
+        1       Legal Constraints
+        1       Lineage
+       29       LSR 3D Location
+        1       Model
+        1       Model Library
+        4       Polygon
+        2       Presentation Domain
+        4       Primitive Colour
+        1       Process Step
+        2       Responsible Party
+        8       RGB Colour
+        2       Role Data
+        1       Security Constraints
+        1       Spatial Extent
+        4       Translucency
+        1       Transmittal Root
+        1       Transmittal Summary
+        1       Union Of Geometry Hierarchy
+        2       Union Of Primitive Geometry
+       27       Vertex
+
+Total object count = 116
+</pre>
+</blockquote>
+</blockquote>
+
+<h2><a name="environ" id="environ">ENVIRONMENT</a></h2>
+<blockquote>
+See the SEDRIS SDK <a href="../index.htm#runtime">Runtime
+Environment</a> variables.
+</blockquote>
+
+<h2><a name="seealso" id="seealso">SEE ALSO</a></h2>
+<blockquote>
+<a href="rules_checker.htm">Rules Checker</a>,
+<a href="syntax_checker.htm">Syntax Checker</a>,
+<a href="model_viewer.htm">Model Viewer</a>,
+<a href="index.htm">Tools And Utilities</a> document
+</blockquote>
+
+<p>
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</p>
+</body>
+</html>

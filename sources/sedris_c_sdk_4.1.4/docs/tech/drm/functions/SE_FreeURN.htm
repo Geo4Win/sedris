@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE FreeURN</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX D - Functions
+</font>
+<br>
+<font color="#ffffff">
+SE FreeURN
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../types/SE_DRM_Status_Code.htm">SE_DRM_Status_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SE_FreeURN</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/SE_URN.htm">SE_URN</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="to_free"></a>to_free,</td><td class="CFunction"><sup><A href="#Notes_to_free">1</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction">void&nbsp;</td> <td class="CFunction">(*<a name="dealloc_func_in_ptr">dealloc_func_in_ptr</a>)(void *)</td><td class="CFunction"><sup><A href="#Notes_dealloc_func_in_ptr">2</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+ Frees any internal pointers in the data in the given
+ <A href="../types/SE_URN.htm">SE_URN</A> structure.
+</P>
+<table class="Status" border="0">
+<th align=center valign=top>IMPORTANT NOTE:</th>
+<td class="Status">This function is intended <EM>only</EM> for use with
+  <A href="SE_CloneURN.htm">SE_CloneURN()</A>, if
+  <A href="#dealloc_func_in_ptr">dealloc_func_in_ptr</A>
+  is not specified.
+</td></tr>
+</table>
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_DRM_Status_Code.htm#SE_DRM_STAT_CODE_SUCCESS">SE_DRM_STAT_CODE_SUCCESS</A>
+</td><td class="Status">
+ and internal pointers within the data of <A href="#to_free">*to_free</A>
+ are freed and set to NULL, and any corresponding &quot;array size&quot;
+ fields are set to zero (0), if valid parameters were passed in.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_DRM_Status_Code.htm#SE_DRM_STAT_CODE_NULL_REQUIRED_PARAMETER">SE_DRM_STAT_CODE_NULL_REQUIRED_PARAMETER</A>
+</td><td class="Status">
+ and <A href="#to_free">*to_free</A> is left unchanged, if
+ <A href="#to_free">to_free</A> is NULL.
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#to_free" name="Notes_to_free">1</a></sup>
+ pointer to the SE_URN whose internal pointer(s)
+    (if in use) are to be freed.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#dealloc_func_in_ptr" name="Notes_dealloc_func_in_ptr">2</a></sup>
+ pointer to a user-supplied function to
+    be used to free the memory. Must correspond to the function used to
+    allocate the memory. (Should be omitted if SE_CloneURN() was used.)
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SE_FreeURL.htm">SE_FreeURL</a>.
+<strong>Next:</strong> <a href="SE_FuncAdd.htm">SE_FuncAdd</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

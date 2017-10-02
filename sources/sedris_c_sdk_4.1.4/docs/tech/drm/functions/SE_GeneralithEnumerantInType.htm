@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE GeneralithEnumerantInType</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX D - Functions
+</font>
+<br>
+<font color="#ffffff">
+SE GeneralithEnumerantInType
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../types/SE_DRM_Status_Code.htm">SE_DRM_Status_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SE_GeneralithEnumerantInType</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../types/SE_Short_Integer_Positive.htm">SE_Short_Integer_Positive</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"> </td><td class="CFunction"><a name="major_drm_version"></a>major_drm_version,</td><td class="CFunction"><sup><A href="#Notes_major_drm_version">1</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../types/SE_Byte_Unsigned.htm">SE_Byte_Unsigned</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"> </td><td class="CFunction"><a name="minor_drm_version"></a>minor_drm_version,</td><td class="CFunction"><sup><A href="#Notes_minor_drm_version">2</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../types/SE_Short_Integer_Positive.htm">SE_Short_Integer_Positive</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"> </td><td class="CFunction"><a name="drm_type"></a>drm_type,</td><td class="CFunction"><sup><A href="#Notes_drm_type">3</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../types/SE_Short_Integer_Unsigned.htm">SE_Short_Integer_Unsigned</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"> </td><td class="CFunction"><a name="i"></a>i,</td><td class="CFunction"><sup><A href="#Notes_i">4</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">const&nbsp;</td><td class="CFunction"><a href="../types/SE_Enumerant_Structure.htm">SE_Enumerant_Structure</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction">*</td><td class="CFunction"><a name="result_out_ptr"></a>result_out_ptr</td><td class="CFunction"><sup><A href="#Notes_result_out_ptr">5</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+  If drm_type represents a valid enumerated type available to the DRM,
+  retrieves structural information on the ith enumerant of that type.
+  Enumerant information is indexed from 0.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_DRM_Status_Code.htm#SE_DRM_STAT_CODE_SUCCESS">SE_DRM_STAT_CODE_SUCCESS</A>
+</td><td class="Status">
+ and <A href="#result_out_ptr">*result_out_ptr</A> is set
+ appropriately, if valid parameters were passed in.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_DRM_Status_Code.htm#SE_DRM_STAT_CODE_NULL_REQUIRED_PARAMETER">SE_DRM_STAT_CODE_NULL_REQUIRED_PARAMETER</A>
+</td><td class="Status">
+ and <A href="#result_out_ptr">*result_out_ptr</A> is left unchanged,
+ if <A href="#result_out_ptr">result_out_ptr</A> is NULL.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_DRM_Status_Code.htm#SE_DRM_STAT_CODE_INVALID_VERSION">SE_DRM_STAT_CODE_INVALID_VERSION</A>
+</td><td class="Status">
+ and <A href="#result_out_ptr">*result_out_ptr</A> is set to NULL,
+ if the specified version of the DRM is not supported.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_DRM_Status_Code.htm#SE_DRM_STAT_CODE_INVALID_TYPE">SE_DRM_STAT_CODE_INVALID_TYPE</A>
+</td><td class="Status">
+ and <A href="#result_out_ptr">*result_out_ptr</A> is set to NULL,
+ if <A href="#drm_type">drm_type</A> does not correspond to
+ a valid type available to the DRM.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_DRM_Status_Code.htm#SE_DRM_STAT_CODE_INVALID_TYPE_CLASSIFICATION">SE_DRM_STAT_CODE_INVALID_TYPE_CLASSIFICATION</A>
+</td><td class="Status">
+ and <A href="#result_out_ptr">*result_out_ptr</A> is set to NULL,
+ if <A href="#drm_type">drm_type</A> does not correspond to
+ an enumerated type.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_DRM_Status_Code.htm#SE_DRM_STAT_CODE_INVALID_ENUMERANT">SE_DRM_STAT_CODE_INVALID_ENUMERANT</A>
+</td><td class="Status">
+ and <A href="#result_out_ptr">*result_out_ptr</A> is set to NULL,
+ if <A href="#i">i</A> is invalid for
+ <A href="#drm_type">drm_type</A>.
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#major_drm_version" name="Notes_major_drm_version">1</a></sup>
+ major DRM version number of the DRM version for which this function
+ is being called
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#minor_drm_version" name="Notes_minor_drm_version">2</a></sup>
+ minor DRM version number of the DRM version for which this function
+ is being called
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#drm_type" name="Notes_drm_type">3</a></sup>
+ represents a SEDRIS type, available for use by the DRM.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#i" name="Notes_i">4</a></sup>
+ index of desired enumerant within type.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#result_out_ptr" name="Notes_result_out_ptr">5</a></sup>
+ pointer to a variable in the user's memory space in which
+ the answer (a pointer) will be stored.
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SE_GeneralTypeName.htm">SE_GeneralTypeName</a>.
+<strong>Next:</strong> <a href="SE_GeneralithFieldInClass.htm">SE_GeneralithFieldInClass</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

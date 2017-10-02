@@ -1,0 +1,205 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>LOD Related Organizing Principle</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX B - Constraints
+</font>
+<br>
+<font color="#ffffff">
+LOD Related Organizing Principle
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h3>Definition</h3>
+<P>
+ For any level-of-detail related organization instance L, whether
+ an instance of <A href="../classes/LODRelatedFeatures.htm">&lt;LOD Related Features&gt;</A> or
+ <A href="../classes/LODRelatedGeometry.htm">&lt;LOD Related Geometry&gt;</A>, the following apply:
+</P>
+<OL type='a'>
+<LI><P>
+ The <A href="../classes/BaseLODData.htm">&lt;Base LOD Data&gt;</A> link object
+ for each branch of <span class="ConstructName">L</span> shall match the class specified by
+<span class="ConstructName">L</span>'s <span class="Code">lod_data_type</span> field value.
+</P></LI>
+<LI><P>
+ For each pair of branches with <A href="../classes/DistanceLODData.htm">&lt;Distance LOD Data&gt;</A> or
+ <A href="../classes/VolumeLODData.htm">&lt;Volume LOD Data&gt;</A> link objects that overlap,
+ neither shall be a subset of the other, as follows:
+</P>
+<OL type='1'>
+<LI><P>
+ For <A href="../classes/DistanceLODData.htm">&lt;Distance LOD Data&gt;</A> link objects,
+ neither interval shall be contained within the other. Specifically,
+</P>
+<OL type='i'>
+<LI><P>
+ The ranges may touch at their endpoints; that is, the
+ <A href="../classes/DistanceLODData.htm#minimum_range">minimum_range</A>
+ field value of one may equal the
+ <A href="../classes/DistanceLODData.htm#maximum_range">maximum_range</A>
+ field value of the other.
+</P></LI>
+<LI><P>
+ If the ranges overlap by more than one endpoint, each
+ <A href="../classes/DistanceLODData.htm">&lt;Distance LOD Data&gt;</A> link object shall specify at
+ least one fade band, so that one branch is fading in while the other is
+ fading out for the overlap range.
+</P></LI>
+</OL>
+</LI>
+<LI><P>
+ For <A href="../classes/VolumeLODData.htm">&lt;Volume LOD Data&gt;</A> link objects,
+</P>
+<OL type='i'>
+<LI><P>
+ If the two branches both have
+ <A href="../classes/VolumeLODData.htm#outside">outside</A> =
+ <A href="../types/SE_Boolean.htm#SE_FALSE">SE_FALSE</A>, neither volume may
+ be contained within the other.
+</P></LI>
+<LI><P>
+ The volumes specified may be identical if the link objects specify
+ different values for their
+ <A href="../classes/VolumeLODData.htm#outside">outside</A>
+ fields, provided that <span class="ConstructName">L</span> complies with
+ the constraint specified in <a href="DistinctLinkObjects.htm">&lt;&lt;Distinct Link Objects&gt;&gt;</a>.
+</P></LI>
+</OL>
+</LI>
+</OL>
+</LI>
+<LI><P>
+ If <span class="ConstructName">L</span> inherits a <A href="../classes/BaseLODData.htm">&lt;Base LOD Data&gt;</A>
+ instance <span class="ConstructName">C</span> as a component, such that
+ <span class="ConstructName">C</span> matches <span class="ConstructName">L</span>'s
+ <span class="Code">lod_data_type</span> field value,
+ the link objects of <span class="ConstructName">L</span> shall fall
+ within the scope specified by <span class="ConstructName">C</span>:
+</P>
+<OL type='1'>
+<LI><P>
+ If <span class="ConstructName">C</span> is a <A href="../classes/DistanceLODData.htm">&lt;Distance LOD Data&gt;</A> instance
+ and <span class="ConstructName">L</span> has
+ an <span class="Code">lod_data_type</span> field value of
+ <A href="../types/SE_LOD_Data_Type.htm#SE_LODDATTYP_DISTANCE">SE_LODDATTYP_DISTANCE</A>,
+ each link object specified by <span class="ConstructName">L</span>
+ shall specify a range within the region covered by
+ <span class="ConstructName">C</span>.
+</P></LI>
+<LI><P>
+ If <span class="ConstructName">C</span> is a <A href="../classes/VolumeLODData.htm">&lt;Volume LOD Data&gt;</A> instance
+ and <span class="ConstructName">L</span> has
+ an <span class="Code">lod_data_type</span> field value of
+ <A href="../types/SE_LOD_Data_Type.htm#SE_LODDATTYP_VOLUME">SE_LODDATTYP_VOLUME</A>,
+ each link object specified by <span class="ConstructName">L</span> shall specify
+ a volume lying within that of <span class="ConstructName">C</span>.
+</P></LI>
+<LI><P>
+ No other classes of <span class="ConstructName">C</span> permit a matching
+ <span class="ConstructName">L</span> to occur in their inheritance tree.
+</P></LI>
+</OL>
+</LI>
+</OL>
+
+<h3>Rationale</h3>
+<OL type='a'>
+<LI><P>
+ The mechanism for switching between different levels of detail is
+ defined only if the &quot;type&quot; of level of detail is homogeneous.
+</P></LI>
+<LI><P>
+ Different branches of a level-of-detail related organization can
+ be active at the same time only if one is incoming and the other
+ is outgoing.
+</P></LI>
+<LI><P>
+ The component tree of an item with level-of-detail information
+ shall comply with that level-of-detail.
+</P>
+<OL type='1'>
+<LI><P>
+ If a hierarchy is visible only from viewing distance
+ <span class="ConstructName">X</span> to viewing distance <span class="ConstructName">Y</span>,
+ none of its components can be visible outside that range.
+</P></LI>
+<LI><P>
+ If a hierarchy is visible only inside (or outside) a given
+ viewing volume, all of its components are also inside
+ (or outside) the given viewing volume.
+</P></LI>
+<LI><P>
+ If a hierarchy is visible only at a specific index,
+ map scale, or spatial resolution, none of its components
+ can be visible at any conflicting value.
+</P></LI>
+</OL>
+</LI>
+</OL>
+<h3>Example</h3>
+<OL>
+<LI><P>
+ It isn't defined for a data provider to switch between
+</P>
+<UL>
+ <LI>
+ &quot;0-500 metres&quot; for
+ a <A href="../classes/DistanceLODData.htm">&lt;Distance LOD Data&gt;</A> instance and
+ </LI>
+ <LI>
+ &quot;sphere with radius 5 metres centred at 0, 0, 0&quot;
+ for a <A href="../classes/VolumeLODData.htm">&lt;Volume LOD Data&gt;</A> instance.
+ </LI>
+</UL>
+</P></LI>
+<LI><P>
+ Range-based components and index-based components will not
+ be attached to the same
+ <A href="../classes/LODRelatedGeometry.htm">&lt;LOD Related Geometry&gt;</A> instance.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<p>
+No FAQs supplied.
+</p>
+
+<hr>
+<strong>Prev:</strong> <A href="LinearGeometryStructure.htm">Linear Geometry Structure</A>.
+<strong>Next:</strong> <A href="LSRTransformationComponents.htm">LSR Transformation Components</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

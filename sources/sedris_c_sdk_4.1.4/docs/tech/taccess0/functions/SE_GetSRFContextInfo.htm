@@ -1,0 +1,188 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE GetSRFContextInfo</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+SE GetSRFContextInfo
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../types/SE_Return_Code.htm">SE_Return_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SE_GetSRFContextInfo</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/SE_Object.htm">SE_Object</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="object_in"></a>object_in,</td><td class="CFunction"><sup><A href="#Notes_object_in">1</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../../drm/types/SE_SRF_Context_Info.htm">SE_SRF_Context_Info</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="srf_context_info"></a>srf_context_info</td><td class="CFunction"><sup><A href="#Notes_srf_context_info">2</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+  This function returns in
+ <A href="#srf_context_info">srf_context_info</A> the SRF currently being
+  used when returning <A href="../../drm/classes/Location.htm">&lt;Location&gt;</A> instances in the same SRF scope as
+  the DRM object specified by <A href="#object_in">object_in</A>.
+</P><P>
+  More details are available under
+  <A href="SE_SetSRFContextInfo.htm">SE_SetSRFContextInfo()</A>.
+</P><P>
+ The value of <A href="#srf_context_info">srf_context_info</A>
+ depends on the last call made to
+ <A href="SE_SetSRFContextInfo.htm">SE_SetSRFContextInfo()</A> and/or
+ <A href="SE_UseDefaultSRFContextInfo.htm">SE_UseDefaultSRFContextInfo()</A>
+ and the manner in which the transmittal was produced.
+</P><P>
+ case 1 - <A href="SE_SetSRFContextInfo.htm">SE_SetSRFContextInfo()</A> was
+ called more recently than
+ <A href="SE_UseDefaultSRFContextInfo.htm">SE_UseDefaultSRFContextInfo()</A>
+</P><P>
+ The SRF defined by
+ <A href="SE_SetSRFContextInfo.htm">SE_SetSRFContextInfo()</A> is still the
+ current retrieval SRF, and that SRF's context information will be returned
+ by this function.  This indicates that the SRF used to originally produce
+ the given transmittal was overridden by a call to the
+ <A href="SE_SetSRFContextInfo.htm">SE_SetSRFContextInfo()</A> function.
+</P><P>
+ case 2 -
+ <A href="SE_UseDefaultSRFContextInfo.htm">SE_UseDefaultSRFContextInfo()</A>
+ was called more recently than
+ <A href="SE_SetSRFContextInfo.htm">SE_SetSRFContextInfo()</A>, or
+ <A href="SE_SetSRFContextInfo.htm">SE_SetSRFContextInfo()</A>
+ was never called.
+</P><P>
+ In this case, the retrieval SRF that will be used to define
+ <A href="../../drm/classes/Location.htm">&lt;Location&gt;</A> instances from the given transmittal depends
+ entirely on the transmittal. The retrieval SRF used to return data
+ will be the retrieval SRF that was used when producing the transmittal.
+ This is the default case. If the supplied object does not fall within
+ the scope of <EM>any</EM> SRF, then the SRF parameters are undefined and
+ <A href="SE_GetSRFContextInfo.htm">SE_GetSRFContextInfo()</A>
+ will return <A href="../types/SE_Status_Code.htm#SE_STATCODE_INACTIONABLE_FAILURE">SE_STATCODE_INACTIONABLE_FAILURE</A>.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A>
+</td><td class="Status">
+ and the <A href="../../drm/types/SE_SRF_Context_Info.htm">SE_SRF_Context_Info</A> is returned.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A>
+</td><td class="Status">
+ and the status code is set appropriately if the call failed.
+</td></tr>
+</table>
+
+<h3>Status Codes</h3>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A> is returned:</B>
+</P><P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_SUCCESS">SE_STATCODE_SUCCESS</A>
+</td><td class="Status">
+ set if valid parameters were passed in and the call was successful.
+</td></tr>
+</table>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A> is returned:</B>
+</P><P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_UNRESOLVED_INPUT_OBJECT">SE_STATCODE_UNRESOLVED_INPUT_OBJECT</A>
+</td><td class="Status">
+ and no changes are made if <A href="#object_in">object_in</A>
+ is an unresolved DRM object.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_DELETED_OBJECT">SE_STATCODE_DELETED_OBJECT</A>
+</td><td class="Status">
+ and no changes are made if <A href="#object_in">object_in</A>
+ has been removed from the transmittal in which it resided.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_INACTIONABLE_FAILURE">SE_STATCODE_INACTIONABLE_FAILURE</A>
+</td><td class="Status">
+ and no changes are made if
+<OL>
+<LI><A href="#object_in">object_in</A> is not a handle to a valid
+ DRM object,
+</LI>
+<LI><A href="#object_in">object_in</A> has no scoping SRF, and either
+ <A href="SE_UseDefaultSRFContextInfo.htm">SE_UseDefaultSRFContextInfo()</A>
+ was called more recently than
+ <A href="SE_SetSRFContextInfo.htm">SE_SetSRFContextInfo()</A> or
+ <A href="SE_SetSRFContextInfo.htm">SE_SetSRFContextInfo()</A>
+ was never called, or
+</LI>
+<LI>
+ the call failed for any other reason.
+</LI>
+</OL>
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#object_in" name="Notes_object_in">1</a></sup>
+  the object in the transmittal of which the user is asking the
+    question &quot;What are the parameters for/what is the SRF whose scope
+    includes this object?&quot;
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#srf_context_info" name="Notes_srf_context_info">2</a></sup>
+ a pointer to the variable in the user's memory
+    space where the answer will be stored.
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SE_GetRootObject.htm">SE_GetRootObject</a>.
+<strong>Next:</strong> <a href="SE_GetTransmittalFromObject.htm">SE_GetTransmittalFromObject</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

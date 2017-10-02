@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Base Summary Item</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Base Summary Item
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Abstract Class Name: Base Summary Item</h2>
+<h3>Superclass - <a href="SEDRISAbstractBase.htm">&lt;SEDRIS Abstract Base&gt;</a></h3>
+<h3>Subclasses</h3>
+<UL>
+<LI>
+<a href="DRMClassSummaryItem.htm">&lt;DRM Class Summary Item&gt;</a> 
+</LI>
+<LI>
+<a href="HierarchySummaryItem.htm">&lt;Hierarchy Summary Item&gt;</a> 
+</LI>
+<LI>
+<a href="PrimitiveSummaryItem.htm">&lt;Primitive Summary Item&gt;</a> 
+</LI>
+</UL>
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class
+ represents an instance (or group of instances) of the specified class
+ that exist within the scope being summarized. The specific aspect of
+ the usage of instance(s) being summarized depends on the concrete
+ subclass of <A href="BaseSummaryItem.htm">&lt;Base Summary Item&gt;</A> being
+ instanced.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet20.pdf"><strong>20</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet23.pdf"><strong>23</strong></A>
+</LI>
+</UL>
+
+<h3>Example</h3>
+<p>
+ See concrete subclasses for examples.
+
+</p>
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ Can the same classes be represented by
+ <A href="DRMClassSummaryItem.htm">&lt;DRM Class Summary Item&gt;</A>,
+ <A href="HierarchySummaryItem.htm">&lt;Hierarchy Summary Item&gt;</A> and/or
+ <A href="PrimitiveSummaryItem.htm">&lt;Primitive Summary Item&gt;</A> instances
+ in the same transmittal?
+</B></DT>
+<DD><P>
+ Yes.
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Composed of (two-way metadata)</h3>
+<UL>
+<li>zero or more <a href="EDCSUseSummaryItem.htm">&lt;EDCS Use Summary Item&gt;</a> instances<sup><A href="#Notes_cmp_EDCS_Use_Summary_Item" name="cmp_EDCS_Use_Summary_Item">1</A></sup></li>
+</UL>
+
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_DRM_Class.htm">SE_DRM_Class</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="drm_class">drm_class</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_drm_class">2</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Composed of Notes</h3>
+<br>
+<h4><a href="#cmp_EDCS_Use_Summary_Item" name="Notes_cmp_EDCS_Use_Summary_Item">EDCS_Use_Summary_Item</a></h4>
+ If present, the list of
+ <A href="EDCSUseSummaryItem.htm">&lt;EDCS Use Summary Item&gt;</A> components
+ of a <A href="BaseSummaryItem.htm">&lt;Base Summary Item&gt;</A> instance
+ summarize EDCS usage by instances
+ of the class specified by
+ <A href="#drm_class">drm_class</A> that occur
+ somewhere in the scope being summarized.
+</P>
+<h3>Fields Notes</h3>
+<h4><a href="#drm_class" name="Notes_drm_class">drm_class</a></h4>
+<P>
+ The <A href="#drm_class">drm_class</A>
+ field indicates the DRM class of the DRM object(s)
+ represented by the
+ <A href="BaseSummaryItem.htm">&lt;Base Summary Item&gt;</A> instance.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="BaseSpatialAssociationData.htm">Base Spatial Association Data</A>.
+<strong>Next:</strong> <A href="BaseTimeData.htm">Base Time Data</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

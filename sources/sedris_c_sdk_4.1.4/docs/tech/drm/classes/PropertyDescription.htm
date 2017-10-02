@@ -1,0 +1,247 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Property Description</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Property Description
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Property Description</h2>
+<h3>Superclass - <a href="Property.htm">&lt;Property&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class is used to elaborate a property of
+ an <A href="AggregateGeometry.htm">&lt;Aggregate Geometry&gt;</A> instance or
+ <A href="AggregateFeature.htm">&lt;Aggregate Feature&gt;</A> instance and/or its
+ component inheritance subtree by specifying
+ <A href="PropertyCharacteristic.htm">&lt;Property Characteristic&gt;</A> components
+ and/or qualifying <A href="PropertyValue.htm">&lt;Property Value&gt;</A> components
+ that meaningfully limit the property identified by the
+ <A href="PropertyDescription.htm">&lt;Property Description&gt;</A> instance.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet06.pdf"><strong>6</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet04.pdf"><strong>4</strong></A>
+</LI>
+<LI><A href="sheet08.pdf"><strong>8</strong></A>
+</LI>
+<LI><A href="sheet20.pdf"><strong>20</strong></A>
+</LI>
+</UL>
+
+<h3>Example</h3>
+<OL>
+<LI><P>
+ Consider a <A href="UnionOfPrimitiveGeometry.htm">&lt;Union Of Primitive Geometry&gt;</A> instance
+ containing <A href="Polygon.htm">&lt;Polygon&gt;</A> instances,
+ each of which has an emissivity applicable to the infrared band only,
+ where valid values are less than or equal to 1.0,
+ as depicted in <a href="#Figure41">Figure 41</a>.
+</P>
+<DIV align="center">
+<p>
+<A name="Figure41"></A>
+<IMG SRC="../Images/PDesc_Ex1.png"
+     ALT="Property Description, Example 1">
+</p>
+<p class=FigureCaption>Figure 41 &#8212; &lt;DRM Property Description&gt; infrared emissivity example</p>
+</DIV>
+<P>
+ The emissivity of each <A href="Polygon.htm">&lt;Polygon&gt;</A> instance is
+ applicable to the infrared band only, because that property is so
+ qualified by inheritance.
+</P></LI>
+<LI><P>
+ Consider a <A href="UnionOfFeatures.htm">&lt;Union Of Features&gt;</A> instance containing various
+ <A href="PrimitiveFeature.htm">&lt;Primitive Feature&gt;</A> instances
+ that shall specify dewpoint temperature. For all the
+ <A href="PrimitiveFeature.htm">&lt;Primitive Feature&gt;</A> instances
+ in this aggregate, the dewpoint temperature given was taken at a height
+ of ten metres above the surface of the terrain, and is of good quality,
+ as depicted in <a href="#Figure42">Figure 42</a>.
+</P>
+<DIV align="center">
+<p>
+<A name="Figure42"></A>
+<IMG SRC="../Images/PDesc_Ex2.png"
+     ALT="Property Description, Example 2">
+</p>
+<p class=FigureCaption>Figure 42 &#8212; &lt;DRM Property Description&gt; dewpoint temperature example</p>
+</DIV>
+<P>
+ Since the <A href="PointFeature.htm">&lt;Point Feature&gt;</A> instance's
+ <A href="PropertyValue.htm">&lt;Property Value&gt;</A> component describes
+ <A href="../../../../src/lib/edcs/docs/dictionary/EAC_D.htm#EAC_DEWPOINT_TEMPERATURE">EAC_DEWPOINT_TEMPERATURE</A>, it inherits
+ the following qualifiers:
+</P>
+<OL type='a'>
+<LI>
+ The <A href="../../../../src/lib/edcs/docs/dictionary/EAC_D.htm#EAC_DEWPOINT_TEMPERATURE">EAC_DEWPOINT_TEMPERATURE</A> measurement was taken at
+ a height of ten metres above the surface.
+</LI>
+<LI>
+ The measurement is of good quality.
+</LI>
+</OL>
+</LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ How does an aggregate object use a <A href="PropertyDescription.htm">&lt;Property Description&gt;</A>
+ instance?
+</B></DT>
+<DD><P>
+ In two ways, either separately or in combination.
+</P>
+<OL>
+<LI><P>
+ An aggregate may use a
+ <A href="PropertyDescription.htm">&lt;Property Description&gt;</A> instance to specify
+ <A href="PropertyCharacteristic.htm">&lt;Property Characteristic&gt;</A> components
+ (such as maximum value for a quantity).
+</P></LI>
+<LI><P>
+ An aggregate might also use a
+ <A href="PropertyDescription.htm">&lt;Property Description&gt;</A> instance's
+ <A href="PropertyValue.htm">&lt;Property Value&gt;</A> components to qualify an EAC.
+</P></LI>
+</OL>
+<P>
+ All objects in the component inheritance tree of the aggregate, as long
+ as they have <A href="PropertyValue.htm">&lt;Property Value&gt;</A> instances
+ with a matching EAC, are subject to the
+ <A href="PropertyDescription.htm">&lt;Property Description&gt;</A> instances
+ and/or qualifying values.
+</P></DD>
+<DT><B>
+ Can a data provider qualify an attribute A with two sets of qualifying
+ <A href="PropertyValue.htm">&lt;Property Value&gt;</A> instances, {b1, c1} and
+ {b2, c2} by associating two <A href="PropertyValue.htm">&lt;Property Value&gt;</A>
+ instances for A with the corresponding qualifier set?
+</B></DT>
+<DD><P>
+ No.  This situation requires a <A href="PropertyTable.htm">&lt;Property Table&gt;</A> instance.
+</P></DD>
+<DT><B>
+ Are there any restrictions on the
+ <A href="PropertyValue.htm">&lt;Property Value&gt;</A> components?
+</B></DT>
+<DD><P>
+ Only semantic restrictions.  For example, it makes sense to limit
+ the applicability of an electromagnetic emissivity value to a
+ particular electromagnetic band.  But it would be nonsensical
+ to limit an electromagnetic band to a particular emissivity value.
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/PropertyCharacteristicConstraints.htm">&lt;&lt;Property Characteristic Constraints&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/PropertyConstraints.htm">&lt;&lt;Property Constraints&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Composed of (two-way) (inherited)</h3>
+<UL>
+<li>zero or more <a href="PropertyCharacteristic.htm">&lt;Property Characteristic&gt;</a> instances</li>
+</UL>
+<h3>Composed of (two-way)</h3>
+<UL>
+<li>zero or more <a href="PropertyValue.htm">&lt;Property Value&gt;</a> instances</li>
+</UL>
+
+<h3>Component of (two-way)</h3>
+<UL>
+<li>zero or more <a href="AggregateFeature.htm">&lt;Aggregate Feature&gt;</a> instances</li>
+<li>zero or more <a href="AggregateGeometry.htm">&lt;Aggregate Geometry&gt;</a> instances</li>
+<li>zero or more <a href="EDCSUseSummaryItem.htm">&lt;EDCS Use Summary Item&gt;</a> instances</li>
+</UL>
+
+<h2><a name="inherited_field">Inherited Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Property_Code.htm">SE_Property_Code</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="meaning">meaning</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_meaning">1</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Boolean.htm">SE_Boolean</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="apply_property_inheritance">apply_property_inheritance</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_apply_property_inheritance">2</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Fields Notes</h3>
+<h4><a href="#meaning" name="Notes_meaning">meaning</a></h4>
+<P>
+ The <A href="#meaning">meaning</A> field
+ specifies the meaning of the
+ <A href="Property.htm">&lt;Property&gt;</A> instance.
+</P>
+<h4><a href="#apply_property_inheritance" name="Notes_apply_property_inheritance">apply_property_inheritance</a></h4>
+<P>
+ If <A href="#apply_property_inheritance">apply_property_inheritance</A>
+ is <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A> for the <A href="Property.htm">&lt;Property&gt;</A> instance
+ <span class="ConstructName">P</span>, <span class="ConstructName">P</span> shall be inherited;
+ otherwise, <span class="ConstructName">P</span> shall not be inherited.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="PropertyCharacteristic.htm">Property Characteristic</A>.
+<strong>Next:</strong> <A href="PropertyGrid.htm">Property Grid</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

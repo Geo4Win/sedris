@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE_Union_Reason</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX C - Types
+</font>
+<br>
+<font color="#ffffff">
+SE_Union_Reason
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<PRE>
+/*
+ * REGISTERABLE ENUM: SE_Union_Reason
+ *
+ *  This data type specifies the reason why a
+ *  &lt;Union Of Features&gt; or &lt;Union Of Geometry&gt; instance
+ *  was created.
+ */
+</PRE><span class="Code">
+typedef <a href="SE_Short_Integer.htm">SE_Short_Integer</a> SE_Union_Reason;
+</span>
+<table>
+<tr><th>Enumerant</th> <th>Definition</th> <th>Value</th></tr>
+<tr><td class="CFunction"><a name="SE_UNIONREAS_CLASSIFIED_OBJECT">SE_UNIONREAS_CLASSIFIED_OBJECT</a></td>
+<td class="CFunction"><PRE>
+ U has a &lt;Classification Data&gt; component, and
+ represents a single environmental object.
+</PRE></td>
+<td class="CFunction">1</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_UNIONREAS_COLLECTION_OF_CLASSIFIED_OBJECTS">SE_UNIONREAS_COLLECTION_OF_CLASSIFIED_OBJECTS</a></td>
+<td class="CFunction"><PRE>
+ U has a &lt;Classification Data&gt; component, and
+ represents a collection of environmental objects,
+ corresponding to the &quot;branches&quot; of the union, such
+ that the &lt;Classification Data&gt; component is inherited by
+ each branch component.
+</PRE></td>
+<td class="CFunction">2</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_UNIONREAS_OTHER">SE_UNIONREAS_OTHER</a></td>
+<td class="CFunction"><PRE>
+ U has no &lt;Classification Data&gt; component, so the
+ data provider's reason for creating U was something other
+ than directly representing an environmental object or
+ collection of environmental objects.
+</PRE></td>
+<td class="CFunction">3</td>
+</TR>
+</table>
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SE_Underline_Style.htm">SE_Underline_Style</a>.
+<strong>Next:</strong> <a href="SE_URL.htm">SE_URL</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

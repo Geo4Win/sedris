@@ -1,0 +1,296 @@
+<!DOCTYPE HTML PUBLIC="-//W3C/DTD HTML 4.01 Transitional//EN">
+<html lang="en">
+<head>
+<title>
+FACC 2.1 to EDCS 4.4 Mapping SDK - Release Notes
+</title>
+</head>
+<body bgcolor="#ffffff">
+
+<div align="center"><h1><a name="top">Release Notes</a></h1></div>
+<div align="center">
+<h3>
+FACC 2.1 to EDCS 4.4 Mapping SDK Release 4.4.0.0
+</h3>
+<h3>
+July 1, 2011
+</h3>
+</div>
+
+<p>
+<ol>
+<li><a href="#intro">Introduction</a>
+</li>
+<li><a href="#fixes">Bug Fixes</a>
+</li>
+<li><a href="#install">Installation</a>
+</li>
+<li><a href="#libs">Compiling, Linking, and Testing</a>
+</li>
+<li><a href="#docs">SDK Documentation</a>
+</li>
+<li><a href="#bugs">Bug Reports and Feedback</a>
+</li>
+<li><a href="#webpages">Web Pages</a>
+</li>
+</ol>
+<br>
+
+<h3><a name="intro">Introduction</a></h3>
+<blockquote>
+<p>Thank you for downloading this release of the FACC 2.1 to EDCS 4.4 Mapping Software Development Kit (SDK).
+This SDK is intended as a &quot;drop-in&quot; into the EDCS SDK.
+
+<p>
+This release has been tested on multiple platforms,
+such as Linux, Irix, Sun, and Windows 98/Me/NT/2000.
+</p><p>
+For help, comments, and bug reports please send email to
+<a href="mailto:help@sedris.org">help@sedris.org</a>.
+If you are an associate, please use
+<a href="mailto:se-coders@sedris.org">se-coders@sedris.org</a>.
+</p><p>
+Return to: <a href="#top">Top</a>
+</p></blockquote>
+<br>
+
+<h3><a name="fixes">Bug Fixes</a></h3>
+<blockquote>
+<p>
+General:
+</p>
+<ol type="a">
+<li>For the Microsoft Visual C++ IDE, updated the project files for
+    the sample applications to address a dynamic linking issue.
+</li>
+</ol>
+<p>
+FACC 2.1 feature mappings:
+</p>
+<ol type="a">
+<li>None.
+</li>
+</ol>
+
+FACC 2.1 attribute mappings:
+<ol type="a">
+<li>Code was erroneously indicating that CHANGE_IN_DATATYPE mappings were
+ONE_TO_ONE.
+</li>
+<li>ENUM to Boolean mappings are now CHANGE_IN_DATATYPE.
+</li>
+<li>Cases where an attribute has different targets for different
+cases are now SPECIAL_CASE where they were previously ONE_TO_ONE
+(affects FCO).
+</li>
+</ol>
+
+FACC 2.1 &quot;code list&quot; mappings:
+<ol type="a">
+<li>
+NST and NS2 no longer replicate the qualifier supplied by the attribute
+mapping for each of the attribute value mappings.
+</li>
+
+<li>
+Added notes information on a number of mappings.
+</li>
+</ol>
+
+<p>Return to: <a href="#top">Top</a>
+</blockquote>
+<br>
+<h3><a name="install">Installation</a></h3>
+<blockquote>
+<p>
+This SDK is meant to be installed into an EDCS SDK installation.
+The files in this SDK should be extracted inside the
+EDCS SDK top level directory. If you have a previous installation
+of this SDK and you don't want to overwrite it, you should
+rename the &quot;facc2p1_to_edcs4px&quot; directory to some other name.
+</p><p>
+This SDK is distributed as a GNU-zipped tar file for Unix systems and a Zip
+file in Win32 systems. In the discussions that follow, the &quot;[root]&quot; directory is
+the top directory of an SDK installation.
+</p><p>
+<strong>IMPORTANT:</strong>Extract the contents of the compressed
+file into the &quot;[root]&quot; directory of the EDCS SDK:
+<ul>
+<li>In Unix systems: <strong>tar xvzf facc2p1_to_edcs4px_[version].tar.gz</strong>
+</li>
+<li>In Win32 systems: use <a href="http://www.winzip.com">WinZip</a> or other
+</li>
+decompression utility to extract the contents of the downloaded file.
+</ul>
+
+<p>
+The extraction should have created a &quot;facc2p1_to_edcs4px&quot; subdirectory in the
+&quot;[root]&quot; directory of the EDCS SDK if it didn't exist.
+
+<p>Return to: <a href="#top">Top</a>
+</blockquote>
+<br>
+
+<h3><a name="libs">Compiling, Linking, and Testing</a></h3>
+<blockquote>
+<p>
+This section describes the steps needed to compile, link, and test the software
+included in this SDK. Applications and/or libraries that use this SDK will need
+to refer to the EDCS SDK &quot;[root]/include&quot; directory for compilation,
+and the libraries in the EDCS SDK &quot;[root]/lib&quot; subdirectories for
+linking, since those are the places where all headers and libraries from this
+SDK are placed. The applications in this SDK are similarly placed in the
+EDCS SDK &quot;[root]/bin&quot; subdirectories.
+</p><p>
+<strong>IMPORTANT:</strong>
+The libraries produced by this SDK depend on the EDCS Mapping Utilities
+library having been compiled and installed before you compile this SDK.
+</p><p>
+To compile this SDK, follow these steps:
+</p>
+<dl>
+<dt><strong>Unix</strong>
+<dd>
+<p>
+After installing this SDK as detailed in
+<a href="#install">Installation</a>,
+a &quot;make&quot; command in the EDCS SDK &quot;[root]&quot; directory will
+recursively go through the SDK directory structure and
+build all libraries and applications provided with the distribution
+using the default settings. For this release, the default settings are:
+<ul>
+<li>BUILD_MODE = OPT
+</li>
+<li>BIND_STATIC = no
+</li>
+<li>USE_GNU = false (set to true under Linux)
+</li>
+</ul>
+
+<p>
+These settings will compile the release using optimization and dynamic linking.
+
+<p>
+<dt><strong>Win32</strong>
+<dd>
+<p>
+Follow these steps to build all the SDK libraries and applications:
+</p>
+<ol>
+<li><p>
+Prior to building this SDK you must build the EDCS SDK and the
+EDCS Mapping Utilities SDK.
+</p></li>
+
+<li><p>
+If the EDCS Mapping Utilities SDK has not yet been installed, then
+from Windows Explorer, locate and open (<I>i.e.</I>, double click)
+the &quot;win32_headers.bat&quot; file in the &quot;[root]&quot; directory
+of the EDCS Mapping Utilities SDK installation. This step copies the header
+files of that SDK into the EDCS SDK &quot;[root]/include&quot; directory.
+</p></li>
+
+<li><p>
+From Windows Explorer, locate and open (<I>i.e.</I>, double click)
+the &quot;win32_headers.bat&quot; file in the &quot;[root]&quot; directory
+of this SDK installation. This step copies the header files for
+this SDK into the EDCS SDK &quot;[root]/include&quot; directory.
+</p></li>
+
+<li><p>
+Open the &quot;vcpp_static.dsw&quot; Visual C++ (VC++) project workspace file
+for this SDK.
+</p></li>
+
+<li><p>
+From the Visual C++ IDE, select &quot;all_sdk&quot; as your
+&quot;Active Project&quot; and &quot;Release&quot; or
+&quot;Debug&quot; for your &quot;Active Configuration&quot;. For example,
+to compile in &quot;Release&quot; mode, choose &quot;Build->Set Active Configuration...&quot;
+and select the &quot;all_sdk - Win32 Release&quot; entry.
+</p></li>
+
+<li><p>
+From the &quot;Build&quot; menu, choose &quot;Rebuild All&quot;.
+</p></li>
+</ol>
+
+<p><strong>Notes:</strong>
+<ul>
+<li>
+You can build individual applications by making them the current &quot;Active
+Project&quot; (&quot;Project->Set Active Project&quot; menu), and choosing &quot;Rebuild All&quot;.
+</li>
+
+<li>
+The &quot;Release&quot; option is similar to the Unix Build Environment &quot;OPT&quot; option for
+the &quot;BUILD_MODE&quot; variable.
+</li>
+</ul>
+</dl>
+
+<p>
+To run the applications included in this SDK, see
+<a href="facc2p1_edcs4px.htm#Use Examples">Use Examples</a> to learn
+about the applications, and follow the same steps as described
+in the EDCS SDK documentation section
+<a href="../../docs/buildkit.htm#testing">Testing the Build</a> for setting
+your environment variables.
+</p><p>
+To build your own applications using this SDK, see the provided applications
+for examples on how to create appropriate Makefiles for Unix or
+VC++ Project files for Win32.
+
+<p>Return to: <a href="#top">Top</a>
+</blockquote>
+<br>
+
+<h3><a name="docs">SDK Documentation</a></h3>
+<blockquote>
+<p>The SDK Documentation is divided into the following areas:
+<dl>
+<dt><a href="index.htm">Release Notes</a> (this document)</dt>
+<dd>
+Describes this release, its contents,
+and supported platforms and compilers.
+</dd>
+<p>
+<dt><a href="facc2p1_edcs4px.htm">FACC 2.1 to EDCS 4.4 Mapping Reference Manual</a></dt>
+<dd>
+Provides links to detailed documents for SDK functions, capabilities,
+and applications in this SDK.
+</dd>
+<p>
+</dl>
+<p>Return to: <a href="#top">Top</a>
+</blockquote>
+<br>
+
+<h3><a name="bugs">Bug Reports and Feedback</a></h3>
+<blockquote>
+<p>Questions, comments, and bug reports should be sent to
+<a href="mailto:help@sedris.org">help@sedris.org</a>.
+<p>If you are an associate, please send email to
+<a href="mailto:se-coders@sedris.org">se-coders@sedris.org</a>.
+<p>Return to: <a href="#top">Top</a>
+</blockquote>
+<br>
+
+<h3><a name="webpages">Web Pages</a></h3>
+<blockquote>
+<p>These links require Internet access.
+<ul>
+<li><a href="http://www.sedris.org/">SEDRIS (www.sedris.org)</a>
+<li><a href="http://tools.sedris.org/">SEDRIS Tools</a>
+<li><a href="http://www.sedris.org/pro_trpl.htm">SEDRIS Documents</a>
+</ul>
+<p>Return to: <a href="#top">Top</a>
+</blockquote>
+<br>
+
+<p>
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</p>
+</body>
+</html>

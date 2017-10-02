@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>P4V6 - Section 6</title>
+<META name="Author" CONTENT="SAIC">
+<link rel="stylesheet" type="text/css" href="../styles/SDK_SEDRIS.css">
+</head>
+<body>
+
+<a name="Top" id="Top"></a>
+
+<div class="CenterDiv">
+<table border=2 class="doc_set_header">
+<tr><th class="doc_set_header">
+<big><big>
+Data Tables Technical Guide
+</big></big>
+<br>
+<font color="#ffffff">
+Section 6 - &lt;FINITE ELEMENT MESH&gt;
+</font>
+</th></tr>
+</table>
+
+<table class="doc_set_toc">
+<tr>
+<th class="doc_set_toc_outline_number"><a name="61" id="61">6.1</a></th>
+<th class="doc_set_toc_outline_description">Overview</th>
+</tr>
+
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+A <a href="drm/classes/FiniteElementMesh.htm">&lt;Finite Element Mesh&gt;</a>
+instance represents a tessellation of a surface or solid into mesh faces
+(for a surface) or solid elements (for a solid). Each vertex and / or
+mesh face / solid element may have data associated with it. Knowing
+which vertices form a mesh face (or solid element) is important for
+interpolation, as well as other computations.
+</p><p>
+A <a href="drm/classes/FiniteElementMesh.htm">&lt;Finite Element Mesh&gt;</a>,
+as specified in the definition of the class, is comprised of the following.
+<ol>
+<li><p>
+An ordered list of
+<a href="drm/classes/Vertex.htm">&lt;Vertex&gt;</a> components,
+so that each vertex is associated with an index number.
+</p></li>
+<li><p>
+A <a href="drm/classes/MeshFaceTable.htm">&lt;Mesh Face Table&gt;</a>
+that defines the mesh faces by mesh face index number in terms of
+vertex index numbers.
+</p></li>
+<li><p>
+Optionally, <a href="drm/classes/PropertyTable.htm">&lt;Property Table&gt;</a>
+instances may be attached as components of the
+<a href="drm/classes/FiniteElementMesh.htm">&lt;Finite Element Mesh&gt;</a>
+to provide additional data. Such a
+<a href="drm/classes/PropertyTable.htm">&lt;Property Table&gt;</a> might have
+a vertex number axis to provide additional vertex data, or
+a mesh face number axis to provide additional mesh face data.
+</p><p>
+In particular, if the
+<a href="drm/classes/FiniteElementMesh.htm">&lt;Finite Element Mesh&gt;</a>
+is specified in terms of solid elements, a
+<a href="drm/classes/PropertyTable.htm">&lt;Property Table&gt;</a> may be
+provided as a &quot;solid element definition table&quot;, so that other
+<a href="drm/classes/PropertyTable.htm">&lt;Property Table&gt;</a>
+components of the
+<a href="drm/classes/FiniteElementMesh.htm">&lt;Finite Element Mesh&gt;</a>
+can then exist and provide solid element data.
+</p></li>
+</ol>
+<p>
+Topological information may optionally be included via either the
+<a href="drm/classes/MeshFaceTable.htm">&lt;Mesh Face Table&gt;</a>
+or the &quot;solid element definition table&quot;. A
+<a href="drm/classes/MeshFaceTable.htm">&lt;Mesh Face Table&gt;</a>
+shall comply with very rigid structural requirements in order to be
+semantically valid; see its class documentation and that of
+<a href="drm/classes/FiniteElementMesh.htm">&lt;Finite Element Mesh&gt;</a> for details.
+</p></td></tr>
+</table></div>
+
+<p>
+<hr>
+<font color="#ff0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a></strong>,
+<strong><a href="p4v6.htm">Table of Contents</a></strong>
+<br><br>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr><td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td>
+</tr>
+</table>
+</td></tr>
+</table></div>
+</body>
+</html>

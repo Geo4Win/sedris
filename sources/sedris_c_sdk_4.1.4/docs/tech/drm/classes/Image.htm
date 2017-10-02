@@ -1,0 +1,901 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Image</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Image
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Image</h2>
+<h3>Superclass - <a href="SEDRISAbstractBase.htm">&lt;SEDRIS Abstract Base&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies one or more MIP levels of texels,
+ and can have three dimensions. Each texel consists of the set of
+ components identified by the <A href="#image_signature">image_signature</A>
+ field.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet22.pdf"><strong>22</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet10.pdf"><strong>10</strong></A>
+</LI>
+<LI><A href="sheet18.pdf"><strong>18</strong></A>
+</LI>
+</UL>
+
+<h3>Example</h3>
+<OL>
+<LI><P>
+ A brick <A href="Image.htm">&lt;Image&gt;</A> instance that is repeated over
+ the surface of a <A href="Polygon.htm">&lt;Polygon&gt;</A> instance to
+ represent a brick wall.
+</P></LI>
+<LI><P>
+ An <A href="Image.htm">&lt;Image&gt;</A> instance of a tree that when applied to a
+ <A href="Polygon.htm">&lt;Polygon&gt;</A> instance and combined with a
+ <A href="Translucency.htm">&lt;Translucency&gt;</A> instance creates a flat version of a tree.
+</P></LI>
+<LI><P>
+ The sequence of <A href="Image.htm">&lt;Image&gt;</A> instance(s) mapped to a
+ <A href="Polygon.htm">&lt;Polygon&gt;</A> instance to represent a television.
+</P></LI>
+<LI><P>
+ Consider an <A href="Image.htm">&lt;Image&gt;</A> instance that has three
+ <A href="PropertyTableReference.htm">&lt;Property Table Reference&gt;</A> components:
+</P>
+<OL type='a'>
+<LI>a reference to a <A href="PropertyTable.htm">&lt;Property Table&gt;</A> instance for
+    infrared properties,
+</LI>
+<LI>a reference to a <A href="PropertyTable.htm">&lt;Property Table&gt;</A> instance for
+    night vision goggles properties, and
+</LI>
+<LI>a reference to a <A href="PropertyTable.htm">&lt;Property Table&gt;</A> instance for
+ surface material category properties (see <a href="#Figure23">Figure 23</a>).
+</LI>
+</OL>
+<DIV align="center">
+<p>
+<A name="Figure23"></A>
+<IMG SRC="../Images/Image_Ex5.png" ALT="Image, Ex 5">
+</p>
+<p class=FigureCaption>Figure 23 &#8212; &lt;DRM Image&gt; example</p>
+</DIV>
+<P>
+ Consider the case of one material. A given texel contains a single
+ integer, which is used in place of the
+ <A href="PropertyTableReference.htm#index_on_axis">index_on_axis</A>
+ field for all the <A href="PropertyTableReference.htm">&lt;Property Table Reference&gt;</A> components
+ of the <A href="Image.htm">&lt;Image&gt;</A> instance.
+</P><P>
+ Consider the case of two materials. A given texel contains
+ three integers, two of which are used in place of the
+ <A href="PropertyTableReference.htm#index_on_axis">index_on_axis</A>
+ field for all the <A href="PropertyTableReference.htm">&lt;Property Table Reference&gt;</A> components
+ of the <A href="Image.htm">&lt;Image&gt;</A> instance, and a third integer, which
+ specifies the percentage of the second material. For a given texel,
+ say the numbers are 7   6   50. The material at that texel is
+ something that is 50% glass and 50% concrete.
+</P><P>
+ Consider the case of three materials. A given texel contains
+ five integers, three of which are used in place of the
+ <A href="PropertyTableReference.htm#index_on_axis">index_on_axis</A>
+ field for all the <A href="PropertyTableReference.htm">&lt;Property Table Reference&gt;</A> components
+ of the <A href="Image.htm">&lt;Image&gt;</A> instance, and two of which specify the
+ percentages of material two and three. For a given texel, say the
+ numbers are  4 6 7 20 30. The material at that texel is something
+ that is 50% wood, 20% concrete, and 30% glass.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ Where can users go for further information about
+ <A href="Image.htm">&lt;Image&gt;</A> instances and texture mapping?
+</B></DT>
+<DD><P>
+ See <A href="../../p4v8.htm">Part 4 Volume 8,
+ Images and Colour Models Technical Guide, of the</A>
+ SEDRIS Documentation Set for detailed information on
+ <A href="DataTable.htm">&lt;Data Table&gt;</A> manipulation.
+</P></DD>
+<DT><B>
+ The <A href="Image.htm">&lt;Image&gt;</A> class does not appear to have a
+ field for storing the texels of an <A href="Image.htm">&lt;Image&gt;</A>
+ instance. Where are the texels, and how can a data provider get at
+ them?
+</B></DT>
+<DD><P>
+ The actual texels of an <A href="Image.htm">&lt;Image&gt;</A> instance are
+ hidden by the API implementation being used to provide the
+ <A href="Image.htm">&lt;Image&gt;</A> instance. See the
+ <A href="../../taccess0/functions/SE_PutImageData.htm">SE_PutImageData()</A>
+ function in the level 0 API.
+</P></DD>
+<DT><B>
+ The <A href="Image.htm">&lt;Image&gt;</A> class does not appear to have a
+ field for storing the texels of an <A href="Image.htm">&lt;Image&gt;</A>
+ instance. Where are the texels, and how can a data consumer get at
+ them?
+</B></DT>
+<DD><P>
+ The actual texels of an <A href="Image.htm">&lt;Image&gt;</A> instance are
+ hidden by the API implementation being used to provide the
+ <A href="Image.htm">&lt;Image&gt;</A> instance, so they are accessed via the
+ <A href="../../taccess0/functions/SE_GetImageData.htm">SE_GetImageData()</A>
+ (in level 0) and
+ <A href="../../taccess1/functions/SE_GetRearrangedImageData.htm">SE_GetRearrangedImageData()</A>
+ (in level 1) API functions.
+</P></DD>
+<DT><B>
+ How are the bits_of_xxx, min_value_of_xxx, and max_value_of_xxx fields
+ used?
+</B></DT>
+<DD><P>
+ See the comments for the individual image signatures in
+ <A href="../types/SE_Image_Signature.htm">SE_Image_Signature</A> for
+ details on which values are present for which signature.
+</P><P>
+ The mininum / maximum fields are used to specify the minimum and
+ maximum values that a component may have on the producer's system,
+ and do <EM>not</EM> relate to whatever values may actually be
+ present in the transmittal.
+</P><P>
+    <STRONG>EXAMPLES:</STRONG>
+<OL>
+<LI><P>
+ If the image components are floating point 32 bits, a minimum
+ value of -1.0 and a maximum value of
+ 1.0 means that all values in
+ an image on the producer's system shall be represented within the
+ range [-1.0, 1.0].
+</P></LI>
+<LI><P>
+ An image with unsigned integer components of 8 bits may specify its
+ range to be [0, 99], indicating that even though the maximum value
+ that can be specified with 8 bits is 255, the value 99 should be
+ treated as the maximum value for this image.
+</P></LI>
+</OL>
+</P></DD>
+<DT><B>
+ What is the maximum size of an image that the DRM can represent?
+</B></DT>
+<DD><P>
+ There is no known size limitation for images in a transmittal.
+ (Well, 1.8 x 10^19 texels by the depth of the texel.)
+ However, there may be size limitations in either the media that is used
+ in the transmission or in computer hardware that interprets the
+ transmittal. To alleviate some of the problems associated with large
+ images, the DRM has &quot;hidden&quot; the actual image data behind
+ a function
+ call that allows for the consumer to specify the size of the data that
+ is to be handed off to the consumer. This function call is documented
+ in <A href="../../p4v17.htm">P4V17</A> of the SEDRIS Documentation Set.
+</P></DD>
+<DT><B>
+ A data provider has an image that does not correspond to any registered
+ <A href="../types/SE_Image_Signature.htm">SE_Image_Signature</A> in the DRM.
+ What can be done with it?
+</B></DT>
+<DD><P>
+ There are two possibilities.
+<OL>
+<LI><P>
+ Decompose this image into component images which <EM>do</EM>
+ correspond to various registered image signatures, if possible. In
+ addition to complex image signatures, individual image components
+ are also supported as an <A href="../types/SE_Image_Signature.htm">SE_Image_Signature</A>.
+ After the decomposition, add
+ an <A href="Identification.htm">&lt;Identification&gt;</A> component to the resulting
+ <A href="Image.htm">&lt;Image&gt;</A> instances to convey to
+ consumers how the component images are to be reassembled
+ into the complete image.
+</P></LI>
+<LI><P>
+ If one of the components of the image does not correspond to
+ any registered <A href="../types/SE_Image_Signature.htm">SE_Image_Signature</A>,
+ submit a SEDRIS Change Request requesting that the desired
+ signature be registered as an addition to
+ <A href="../types/SE_Image_Signature.htm">SE_Image_Signature</A>.
+</P></LI>
+</OL>
+</DD>
+<DT><B>
+ Why doesn't the DRM support JPEG (and other compressed formats)?
+</B></DT>
+<DD><P>
+ It is not currently deemed appropriate to directly support
+ &quot;lossy&quot; imagery within the DRM.
+</P></DD>
+<DT><B>
+ What kind of image data ordering does the DRM support?
+</B></DT>
+<DD><P>
+ Currently the DRM only supports texel (pixel) data ordering. Scan line
+ (All the red values on the first scan line, then all the green
+ values ...) and image plane ordering (all the values of red within
+ the image, then all the values of green...) are not supported.
+</P></DD>
+<DT><B>
+ The <A href="ClassificationData.htm">&lt;Classification Data&gt;</A> component of a
+ <A href="GeometryRepresentation.htm">&lt;Geometry Representation&gt;</A> instance <span class="ConstructName">G</span>
+ classifies <span class="ConstructName">G</span> as a wall, but an <A href="Image.htm">&lt;Image&gt;</A>
+ instance referenced by the <A href="ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</A> component
+ of <span class="ConstructName">G</span> has a <A href="ClassificationData.htm">&lt;Classification Data&gt;</A> component
+ specifying railway track. Which is it?
+</B></DT>
+<DD><P>
+ The <A href="Image.htm">&lt;Image&gt;</A> instance was created for use as a railway track,
+ but when it is creatively reused by a <A href="GeometryRepresentation.htm">&lt;Geometry Representation&gt;</A>
+ instance that is not classified as a railway track, the classification
+ of the <A href="GeometryRepresentation.htm">&lt;Geometry Representation&gt;</A> instance overrides.
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/PresentationDomainConstraints.htm">&lt;&lt;Presentation Domain Constraints&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Associated by (one-way)</h3>
+<UL>
+<li>zero or more <a href="CameraPoint.htm">&lt;Camera Point&gt;</a> instances</li>
+<li>zero or more <a href="ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</a> instances</li>
+</UL>
+
+<h3>Composed of (two-way)</h3>
+<UL>
+<li>zero or one <a href="ClassificationData.htm">&lt;Classification Data&gt;</a> instance<sup><A href="#Notes_cmp_Classification_Data" name="cmp_Classification_Data">1</A></sup></li>
+<li>zero or one <a href="ImageAnchor.htm">&lt;Image Anchor&gt;</a> instance</li>
+<li>zero or one <a href="Lineage.htm">&lt;Lineage&gt;</a> instance<sup><A href="#Notes_cmp_Lineage" name="cmp_Lineage">2</A></sup></li>
+<li>zero or one <a href="PresentationDomain.htm">&lt;Presentation Domain&gt;</a> instance<sup><A href="#Notes_cmp_Presentation_Domain" name="cmp_Presentation_Domain">3</A></sup></li>
+<li>zero or more <a href="PropertyTableReference.htm">&lt;Property Table Reference&gt;</a> instances</li>
+<li>zero or one <a href="SpatialExtent.htm">&lt;Spatial Extent&gt;</a> instance</li>
+</UL>
+
+<h3>Composed of (two-way metadata)</h3>
+<UL>
+<li>zero or one <a href="Identification.htm">&lt;Identification&gt;</a> instance<sup><A href="#Notes_cmp_Identification" name="cmp_Identification">4</A></sup></li>
+<li>zero or one <a href="TimeConstraintsData.htm">&lt;Time Constraints Data&gt;</a> instance</li>
+</UL>
+
+<h3>Component of (two-way)</h3>
+<UL>
+<li>one <a href="ImageLibrary.htm">&lt;Image Library&gt;</a> instance</li>
+</UL>
+
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_String.htm">SE_String</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="name">name</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_name">5</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Colour_Model.htm">SE_Colour_Model</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="colour_model">colour_model</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_colour_model">6</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Short_Integer_Positive.htm">SE_Short_Integer_Positive</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="level_count">level_count</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_level_count">7</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Image_MIP_Extents.htm">SE_Image_MIP_Extents</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="mip_extents_array">mip_extents_array</a>[];</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_mip_extents_array">8</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Image_Signature.htm">SE_Image_Signature</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="image_signature">image_signature</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_image_signature">9</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Image_Scan_Direction.htm">SE_Image_Scan_Direction</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="scan_direction">scan_direction</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_scan_direction">10</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Image_Scan_Direction_Z.htm">SE_Image_Scan_Direction_Z</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="scan_direction_z">scan_direction_z</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_scan_direction_z">11</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Image_Component_Type.htm">SE_Image_Component_Type</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="component_data_type">component_data_type</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_component_data_type">12</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Boolean.htm">SE_Boolean</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="data_is_little_endian">data_is_little_endian</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_data_is_little_endian">13</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Boolean.htm">SE_Boolean</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="data_is_3D">data_is_3D</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_data_is_3D">14</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Short_Integer_Unsigned.htm">SE_Short_Integer_Unsigned</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="bits_of_alpha">bits_of_alpha</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_bits_of_alpha">15</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Short_Integer_Unsigned.htm">SE_Short_Integer_Unsigned</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="bits_of_luminance">bits_of_luminance</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_bits_of_luminance">16</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Short_Integer_Unsigned.htm">SE_Short_Integer_Unsigned</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="bits_of_colour_coordinate_1">bits_of_colour_coordinate_1</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_bits_of_colour_coordinate_1">17</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Short_Integer_Unsigned.htm">SE_Short_Integer_Unsigned</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="bits_of_colour_coordinate_2">bits_of_colour_coordinate_2</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_bits_of_colour_coordinate_2">18</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Short_Integer_Unsigned.htm">SE_Short_Integer_Unsigned</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="bits_of_colour_coordinate_3">bits_of_colour_coordinate_3</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_bits_of_colour_coordinate_3">19</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Short_Integer_Unsigned.htm">SE_Short_Integer_Unsigned</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="bits_of_bump_map_height">bits_of_bump_map_height</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_bits_of_bump_map_height">20</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Short_Integer_Unsigned.htm">SE_Short_Integer_Unsigned</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="bits_of_material_1">bits_of_material_1</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_bits_of_material_1">21</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Short_Integer_Unsigned.htm">SE_Short_Integer_Unsigned</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="bits_of_material_2">bits_of_material_2</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_bits_of_material_2">22</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Short_Integer_Unsigned.htm">SE_Short_Integer_Unsigned</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="bits_of_material_3">bits_of_material_3</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_bits_of_material_3">23</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Short_Integer_Unsigned.htm">SE_Short_Integer_Unsigned</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="bits_of_material_2_percentage">bits_of_material_2_percentage</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_bits_of_material_2_percentage">24</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Short_Integer_Unsigned.htm">SE_Short_Integer_Unsigned</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="bits_of_material_3_percentage">bits_of_material_3_percentage</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_bits_of_material_3_percentage">25</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Short_Integer_Unsigned.htm">SE_Short_Integer_Unsigned</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="bits_of_image_index">bits_of_image_index</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_bits_of_image_index">26</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Short_Integer_Unsigned.htm">SE_Short_Integer_Unsigned</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="bits_of_bump_map_u">bits_of_bump_map_u</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_bits_of_bump_map_u">27</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Short_Integer_Unsigned.htm">SE_Short_Integer_Unsigned</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="bits_of_bump_map_v">bits_of_bump_map_v</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_bits_of_bump_map_v">28</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Float.htm">SE_Float</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="min_value_of_alpha">min_value_of_alpha</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_min_value_of_alpha">29</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Float.htm">SE_Float</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="max_value_of_alpha">max_value_of_alpha</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_max_value_of_alpha">30</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Float.htm">SE_Float</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="min_value_of_luminance">min_value_of_luminance</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_min_value_of_luminance">31</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Float.htm">SE_Float</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="max_value_of_luminance">max_value_of_luminance</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_max_value_of_luminance">32</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Float.htm">SE_Float</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="min_value_of_colour_coordinate_1">min_value_of_colour_coordinate_1</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_min_value_of_colour_coordinate_1">33</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Float.htm">SE_Float</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="max_value_of_colour_coordinate_1">max_value_of_colour_coordinate_1</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_max_value_of_colour_coordinate_1">34</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Float.htm">SE_Float</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="min_value_of_colour_coordinate_2">min_value_of_colour_coordinate_2</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_min_value_of_colour_coordinate_2">35</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Float.htm">SE_Float</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="max_value_of_colour_coordinate_2">max_value_of_colour_coordinate_2</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_max_value_of_colour_coordinate_2">36</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Float.htm">SE_Float</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="min_value_of_colour_coordinate_3">min_value_of_colour_coordinate_3</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_min_value_of_colour_coordinate_3">37</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Float.htm">SE_Float</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="max_value_of_colour_coordinate_3">max_value_of_colour_coordinate_3</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_max_value_of_colour_coordinate_3">38</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Float.htm">SE_Float</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="min_value_of_bump_map_height">min_value_of_bump_map_height</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_min_value_of_bump_map_height">39</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Float.htm">SE_Float</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="max_value_of_bump_map_height">max_value_of_bump_map_height</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_max_value_of_bump_map_height">40</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Float.htm">SE_Float</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="min_value_of_bump_map_u">min_value_of_bump_map_u</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_min_value_of_bump_map_u">41</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Float.htm">SE_Float</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="max_value_of_bump_map_u">max_value_of_bump_map_u</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_max_value_of_bump_map_u">42</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Float.htm">SE_Float</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="min_value_of_bump_map_v">min_value_of_bump_map_v</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_min_value_of_bump_map_v">43</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Float.htm">SE_Float</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="max_value_of_bump_map_v">max_value_of_bump_map_v</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_max_value_of_bump_map_v">44</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Composed of Notes</h3>
+<br>
+<h4><a href="#cmp_Classification_Data" name="Notes_cmp_Classification_Data">Classification_Data</a></h4>
+ If provided, the <A href="ClassificationData.htm">&lt;Classification Data&gt;</A>
+ component identifies the content of the imagery.
+</P>
+<br>
+<h4><a href="#cmp_Identification" name="Notes_cmp_Identification">Identification</a></h4>
+ If provided, the <A href="Identification.htm">&lt;Identification&gt;</A>
+ component may be used to provide a more detailed description
+ than that specified by the <A href="#name">name</A> field.
+</P>
+<br>
+<h4><a href="#cmp_Lineage" name="Notes_cmp_Lineage">Lineage</a></h4>
+ If provided, the <A href="Lineage.htm">&lt;Lineage&gt;</A> component specifies either
+ information about the events and/or source data used in
+ constructing the <A href="Image.htm">&lt;Image&gt;</A> instance or
+ lack of knowledge about lineage.
+</P>
+<br>
+<h4><a href="#cmp_Presentation_Domain" name="Notes_cmp_Presentation_Domain">Presentation_Domain</a></h4>
+ The <A href="PresentationDomain.htm">&lt;Presentation Domain&gt;</A> component
+ is intended to support geospecific
+ <A href="Image.htm">&lt;Image&gt;</A> instances that
+ are not referenced by any
+ <A href="ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</A>
+ instance since an <A href="Image.htm">&lt;Image&gt;</A> instance may
+ be significant only for a particular domain, such as radar,
+ thermal, or OTW.
+</P>
+<h3>Fields Notes</h3>
+<h4><a href="#name" name="Notes_name">name</a></h4>
+<P>
+ The <A href="#name">name</A> field specifies a
+ meaningful short name.
+</P>
+<h4><a href="#colour_model" name="Notes_colour_model">colour_model</a></h4>
+<P>
+ The <A href="#colour_model">colour_model</A> field
+ specifies the colour model used throughout the
+ <A href="Image.htm">&lt;Image&gt;</A> instance.
+ Only one colour model is allowed per
+ <A href="Image.htm">&lt;Image&gt;</A> instance.
+</P>
+<h4><a href="#level_count" name="Notes_level_count">level_count</a></h4>
+<P>
+ The <A href="#level_count">level_count</A> field
+ specifies the number of levels of detail defined for the
+ <A href="Image.htm">&lt;Image&gt;</A> instance (for mipmaps). If the
+ given instance is not a MIP-mapped image, only one level is
+ specified (<A href="#level_count">level_count</A> = 1).
+</P><P class=Note>
+NOTE 1&nbsp; 
+ Many end-user applications require that
+ <A href="Image.htm">&lt;Image&gt;</A> instances
+ having MIP levels specify both the horizontal and vertical
+ dimensions as a power of two. However, some applications can
+ handle <A href="Image.htm">&lt;Image&gt;</A> instances for which the
+ horizontal and vertical
+ dimensions are a multiple of two rather than a power of two.
+ For example, 96 texels in a direction is a multiple of two but not
+ a power of two. The DRM places no restriction on
+ either the dimensional size of
+ an <A href="Image.htm">&lt;Image&gt;</A> instance, nor makes
+ any statement as to whether the use of MIP information within
+ the <A href="Image.htm">&lt;Image&gt;</A> instance will be valid on a
+ given consuming application.
+</p>
+<h4><a href="#mip_extents_array" name="Notes_mip_extents_array">mip_extents_array</a></h4>
+<P>
+ There are <A href="#level_count">level_count</A>
+ entries in the
+ <A href="#mip_extents_array">mip_extents_array</A>.
+ Each entry defines the number of horizontal, vertical, and z texels
+ for a single MIP level of the
+ <A href="Image.htm">&lt;Image&gt;</A> instance.
+ The first map shall contain the highest level of detail;
+ that is, <A href="#mip_extents_array">mip_extents_array[0]</A>
+ corresponds to the level containing the most texels.
+</P>
+<h4><a href="#image_signature" name="Notes_image_signature">image_signature</a></h4>
+<P>
+ The <A href="#image_signature">image_signature</A> field
+ specifies how texels are represented within the
+ <A href="Image.htm">&lt;Image&gt;</A> instance (see
+ <A href="../types/SE_Image_Signature.htm">SE_Image_Signature</A> for details).
+</P><P class=Note>
+NOTE 2&nbsp; 
+ For an <A href="Image.htm">&lt;Image&gt;</A> instance with
+ an <A href="#image_signature">image_signature</A> of
+ <A href="../types/SE_Image_Signature.htm#SE_IMAGSIG_EDCS_CLASSIFICATION_CODE">SE_IMAGSIG_EDCS_CLASSIFICATION_CODE</A>,
+ the bit size is a constant that represents the number of bits
+ needed to represent an ECC.
+</p>
+<h4><a href="#scan_direction" name="Notes_scan_direction">scan_direction</a></h4>
+<P>
+ The <A href="#scan_direction">scan_direction</A> field
+ specifies the origin and direction of the horizontal and
+ vertical components of the <A href="Image.htm">&lt;Image&gt;</A> instance.
+</P>
+<h4><a href="#scan_direction_z" name="Notes_scan_direction_z">scan_direction_z</a></h4>
+<P>
+ The <A href="#scan_direction_z">scan_direction_z</A> field
+ specifies the direction in which the z components of the
+ <A href="Image.htm">&lt;Image&gt;</A> instance are ordered.
+</P>
+<h4><a href="#component_data_type" name="Notes_component_data_type">component_data_type</a></h4>
+<P>
+ The <A href="#component_data_type">component_data_type</A> field
+ specifies the data type of each component of the raw texel data.
+ If signed or unsigned integer is specified, the &quot;minimum_value&quot;
+ and &quot;maximum_value&quot; fields apply. If floating point is
+ specified, the component values are in the range
+ [0.0, 1.0], and the applicable
+ &quot;minimum_value&quot; and &quot;maximum_value&quot; fields
+ shall be set to the applicable value of either 0.0
+ or 1.0. In addition, if floating point is specified,
+ the applicable &quot;bits_of&quot; fields shall be set to either
+ 32 or 64.
+</P>
+<h4><a href="#data_is_little_endian" name="Notes_data_is_little_endian">data_is_little_endian</a></h4>
+<P>
+ The <A href="#data_is_little_endian">data_is_little_endian</A>
+ field specifies the endianess of the raw image data.
+</P>
+<h4><a href="#data_is_3D" name="Notes_data_is_3D">data_is_3D</a></h4>
+<P>
+ The <A href="#data_is_3D">data_is_3D</A> field specifies
+ whether the image data has three dimensions.
+</P>
+<h4><a href="#bits_of_alpha" name="Notes_bits_of_alpha">bits_of_alpha</a></h4>
+<P>
+ The <A href="#bits_of_alpha">bits_of_alpha</A> field specifies
+ how many bits of a texel within the image data specify
+ alpha information. It is zero if alpha is not used.
+</P>
+<h4><a href="#bits_of_luminance" name="Notes_bits_of_luminance">bits_of_luminance</a></h4>
+<P>
+ The <A href="#bits_of_luminance">bits_of_luminance</A> field specifies
+ how many bits of a texel within the image data specify
+ luminance information. It is zero if luminance is not used.
+</P>
+<h4><a href="#bits_of_colour_coordinate_1" name="Notes_bits_of_colour_coordinate_1">bits_of_colour_coordinate_1</a></h4>
+<P>
+ The
+ <A href="#bits_of_colour_coordinate_1">bits_of_colour_coordinate_1</A>
+ field specifies how many bits of a texel within the image data
+ specify colour coordinate 1 information.
+ It is zero if colour coordinate 1 is not used.
+</P>
+<h4><a href="#bits_of_colour_coordinate_2" name="Notes_bits_of_colour_coordinate_2">bits_of_colour_coordinate_2</a></h4>
+<P>
+ The
+ <A href="#bits_of_colour_coordinate_2">bits_of_colour_coordinate_2</A>
+ field specifies how many bits of a texel within the image data
+ specify colour coordinate 2 information.
+ It is zero if colour coordinate 2 is not used.
+</P>
+<h4><a href="#bits_of_colour_coordinate_3" name="Notes_bits_of_colour_coordinate_3">bits_of_colour_coordinate_3</a></h4>
+<P>
+ The
+ <A href="#bits_of_colour_coordinate_3">bits_of_colour_coordinate_3</A>
+ field specifies how many bits of a texel within the image data
+ specify colour coordinate 3 information.
+ It is zero if colour coordinate 3 is not used.
+</P>
+<h4><a href="#bits_of_bump_map_height" name="Notes_bits_of_bump_map_height">bits_of_bump_map_height</a></h4>
+<P>
+ The
+ <A href="#bits_of_bump_map_height">bits_of_bump_map_height</A>
+ field specifies how many bits of a texel within the image data
+ specify bump map height information.
+ It is zero if bump map height is not used.
+</P>
+<h4><a href="#bits_of_material_1" name="Notes_bits_of_material_1">bits_of_material_1</a></h4>
+<P>
+ If the value of the
+ <A href="#bits_of_material_1">bits_of_material_1</A> field is
+ non-zero, the <A href="Image.htm">&lt;Image&gt;</A> instance has at least one
+ <A href="PropertyTableReference.htm">&lt;Property Table Reference&gt;</A> component, and the bits in
+ the image data corresponding to material 1 specify indexes
+ into the <A href="PropertyTable.htm">&lt;Property Table&gt;</A> instance(s)
+ that are referenced by the <A href="PropertyTableReference.htm">&lt;Property Table Reference&gt;</A>
+ component(s) of the <A href="Image.htm">&lt;Image&gt;</A> instance.
+ If the value of the
+ <A href="#bits_of_material_1">bits_of_material_1</A> field is
+ zero, the image data does not contain material 1 index information.
+</P><P class=Note>
+NOTE 3&nbsp; 
+ With no material 2 or material 3 percentages, material 1
+ is at 100%.
+</p>
+<h4><a href="#bits_of_material_2" name="Notes_bits_of_material_2">bits_of_material_2</a></h4>
+<P>
+ If the value of the <A href="#bits_of_material_2">bits_of_material_2</A>
+ field is non-zero, the <A href="Image.htm">&lt;Image&gt;</A> instance has
+ at least one <A href="PropertyTableReference.htm">&lt;Property Table Reference&gt;</A> component,
+ and the bits in the image data corresponding to material 2
+ specify indexes into the <A href="PropertyTable.htm">&lt;Property Table&gt;</A> instance(s)
+ referenced by the <A href="PropertyTableReference.htm">&lt;Property Table Reference&gt;</A> component(s)
+ of the <A href="Image.htm">&lt;Image&gt;</A> instance.
+ However, if <A href="#bits_of_material_2">bits_of_material_2</A>
+ = 0, the texel data of the <A href="Image.htm">&lt;Image&gt;</A> instance does not
+ contain material 2 index information.
+</P>
+<h4><a href="#bits_of_material_3" name="Notes_bits_of_material_3">bits_of_material_3</a></h4>
+<P>
+ If the <A href="#bits_of_material_3">bits_of_material_3</A>
+ field specifies non-zero, the <A href="Image.htm">&lt;Image&gt;</A> instance has
+ at least one <A href="PropertyTableReference.htm">&lt;Property Table Reference&gt;</A> component,
+ and the bits in the image data corresponding to material 3
+ specify indexes into the <A href="PropertyTable.htm">&lt;Property Table&gt;</A> instance(s)
+ referenced by the <A href="PropertyTableReference.htm">&lt;Property Table Reference&gt;</A> component(s)
+ of the <A href="Image.htm">&lt;Image&gt;</A> instance.
+ However, if <A href="#bits_of_material_3">bits_of_material_3</A>
+ = 0, the texel data of the <A href="Image.htm">&lt;Image&gt;</A> instance does not
+ contain material 3 index information.
+</P>
+<h4><a href="#bits_of_material_2_percentage" name="Notes_bits_of_material_2_percentage">bits_of_material_2_percentage</a></h4>
+<P>
+ If required by the <A href="#image_signature">image_signature</A>
+ value of the <A href="Image.htm">&lt;Image&gt;</A> instance, the
+ <A href="#bits_of_material_2_percentage">bits_of_material_2_percentage</A>
+ field is used to specify the percentage of material 2.
+</P><P class=Note>
+NOTE 4&nbsp; 
+ If data is provided for only two materials, the percentage of
+ material 1 is (100% - (percentage of material 2))
+</p>
+<h4><a href="#bits_of_material_3_percentage" name="Notes_bits_of_material_3_percentage">bits_of_material_3_percentage</a></h4>
+<P>
+ If required by the <A href="#image_signature">image_signature</A>
+ value of the <A href="Image.htm">&lt;Image&gt;</A> instance, the
+ <A href="#bits_of_material_3_percentage">bits_of_material_3_percentage</A>
+ field is used to specify the percentage of material 3.
+</P><P class=Note>
+NOTE 5&nbsp; 
+ If data for all three materials is provided, the percentage of
+ material 1 is
+ (100% - (percentage of material 2) - percentage of material 3))
+</p>
+<h4><a href="#bits_of_image_index" name="Notes_bits_of_image_index">bits_of_image_index</a></h4>
+<P>
+ The
+ <A href="#bits_of_image_index">bits_of_image_index</A>
+ field specifies how many bits of a texel within the image data
+ specify image index information. It is zero if image index is not used.
+</P>
+<h4><a href="#bits_of_bump_map_u" name="Notes_bits_of_bump_map_u">bits_of_bump_map_u</a></h4>
+<P>
+ The
+ <A href="#bits_of_bump_map_u">bits_of_bump_map_u</A>
+ field specifies how many bits of a texel within the image data
+ specify bump map u information. It is zero if bump map u is not used.
+</P>
+<h4><a href="#bits_of_bump_map_v" name="Notes_bits_of_bump_map_v">bits_of_bump_map_v</a></h4>
+<P>
+ The
+ <A href="#bits_of_bump_map_v">bits_of_bump_map_v</A>
+ field specifies how many bits of a texel within the image data
+ specify bump map v information. It is zero if bump map v is not used.
+</P>
+<h4><a href="#min_value_of_alpha" name="Notes_min_value_of_alpha">min_value_of_alpha</a></h4>
+<P>
+ The <A href="#min_value_of_alpha">min_value_of_alpha</A>
+ field specifies the minimum value that alpha can be within the
+ image data. It is zero if alpha is not used.
+</P>
+<h4><a href="#max_value_of_alpha" name="Notes_max_value_of_alpha">max_value_of_alpha</a></h4>
+<P>
+ The <A href="#max_value_of_alpha">max_value_of_alpha</A>
+ field specifies the maximum value that alpha can be within the
+ image data. It is zero if alpha is not used.
+</P>
+<h4><a href="#min_value_of_luminance" name="Notes_min_value_of_luminance">min_value_of_luminance</a></h4>
+<P>
+ The <A href="#min_value_of_luminance">min_value_of_luminance</A>
+ field specifies the minimum value that luminance can be within the
+ image data. It is zero if luminance is not used.
+</P>
+<h4><a href="#max_value_of_luminance" name="Notes_max_value_of_luminance">max_value_of_luminance</a></h4>
+<P>
+ The <A href="#max_value_of_luminance">max_value_of_luminance</A>
+ field specifies the maximum value that luminance can be within the
+ image data. It is zero if luminance is not used.
+</P>
+<h4><a href="#min_value_of_colour_coordinate_1" name="Notes_min_value_of_colour_coordinate_1">min_value_of_colour_coordinate_1</a></h4>
+<P>
+ The <A href="#min_value_of_colour_coordinate_1">min_value_of_colour_coordinate_1</A>
+ field specifies the minimum value that colour coordinate 1
+ can be within the image data. It is zero if
+ colour coordinate 1 is not used.
+</P>
+<h4><a href="#max_value_of_colour_coordinate_1" name="Notes_max_value_of_colour_coordinate_1">max_value_of_colour_coordinate_1</a></h4>
+<P>
+ The <A href="#max_value_of_colour_coordinate_1">max_value_of_colour_coordinate_1</A>
+ field specifies the maximum value that colour coordinate 1
+ can be within the image data. It is zero if
+ colour coordinate 1 is not used.
+</P>
+<h4><a href="#min_value_of_colour_coordinate_2" name="Notes_min_value_of_colour_coordinate_2">min_value_of_colour_coordinate_2</a></h4>
+<P>
+ The <A href="#min_value_of_colour_coordinate_2">min_value_of_colour_coordinate_2</A>
+ field specifies the minimum value that colour coordinate 2
+ can be within the image data. It is zero if
+ colour coordinate 2 is not used.
+</P>
+<h4><a href="#max_value_of_colour_coordinate_2" name="Notes_max_value_of_colour_coordinate_2">max_value_of_colour_coordinate_2</a></h4>
+<P>
+ The <A href="#max_value_of_colour_coordinate_2">max_value_of_colour_coordinate_2</A>
+ field specifies the maximum value that colour coordinate 2
+ can be within the image data. It is zero if
+ colour coordinate 2 is not used.
+</P>
+<h4><a href="#min_value_of_colour_coordinate_3" name="Notes_min_value_of_colour_coordinate_3">min_value_of_colour_coordinate_3</a></h4>
+<P>
+ The <A href="#min_value_of_colour_coordinate_3">min_value_of_colour_coordinate_3</A>
+ field specifies the minimum value that colour coordinate 3
+ can be within the image data. It is zero if
+ colour coordinate 3 is not used.
+</P>
+<h4><a href="#max_value_of_colour_coordinate_3" name="Notes_max_value_of_colour_coordinate_3">max_value_of_colour_coordinate_3</a></h4>
+<P>
+ The <A href="#max_value_of_colour_coordinate_3">max_value_of_colour_coordinate_3</A>
+ field specifies the maximum value that colour coordinate 3
+ can be within the image data. It is zero if
+ colour coordinate 3 is not used.
+</P>
+<h4><a href="#min_value_of_bump_map_height" name="Notes_min_value_of_bump_map_height">min_value_of_bump_map_height</a></h4>
+<P>
+ The <A href="#min_value_of_bump_map_height">min_value_of_bump_map_height</A>
+ field specifies the minimum value that bump map height
+ can be within the image data. It is zero if
+ bump map height is not used.
+</P>
+<h4><a href="#max_value_of_bump_map_height" name="Notes_max_value_of_bump_map_height">max_value_of_bump_map_height</a></h4>
+<P>
+ The <A href="#max_value_of_bump_map_height">max_value_of_bump_map_height</A>
+ field specifies the maximum value that bump map height
+ can be within the image data. It is zero if
+ bump map height is not used.
+</P>
+<h4><a href="#min_value_of_bump_map_u" name="Notes_min_value_of_bump_map_u">min_value_of_bump_map_u</a></h4>
+<P>
+ The <A href="#min_value_of_bump_map_u">min_value_of_bump_map_u</A>
+ field specifies the minimum value that bump map u
+ can be within the image data. It is zero if
+ bump map u is not used.
+</P>
+<h4><a href="#max_value_of_bump_map_u" name="Notes_max_value_of_bump_map_u">max_value_of_bump_map_u</a></h4>
+<P>
+ The <A href="#max_value_of_bump_map_u">max_value_of_bump_map_u</A>
+ field specifies the maximum value that bump map u
+ can be within the image data. It is zero if
+ bump map u is not used.
+</P>
+<h4><a href="#min_value_of_bump_map_v" name="Notes_min_value_of_bump_map_v">min_value_of_bump_map_v</a></h4>
+<P>
+ The <A href="#min_value_of_bump_map_v">min_value_of_bump_map_v</A>
+ field specifies the minimum value that bump map v
+ can be within the image data. It is zero if
+ bump map v is not used.
+</P>
+<h4><a href="#max_value_of_bump_map_v" name="Notes_max_value_of_bump_map_v">max_value_of_bump_map_v</a></h4>
+<P>
+ The <A href="#max_value_of_bump_map_v">max_value_of_bump_map_v</A>
+ field specifies the maximum value that bump map v
+ can be within the image data. It is zero if
+ bump map v is not used.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="Identification.htm">Identification</A>.
+<strong>Next:</strong> <A href="ImageAnchor.htm">Image Anchor</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

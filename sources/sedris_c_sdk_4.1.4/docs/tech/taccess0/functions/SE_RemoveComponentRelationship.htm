@@ -1,0 +1,187 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE RemoveComponentRelationship</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+SE RemoveComponentRelationship
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../types/SE_Return_Code.htm">SE_Return_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SE_RemoveComponentRelationship</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/SE_Object.htm">SE_Object</a>&nbsp;</td> <td class="CFunction"><a name="aggregate_object"></a>aggregate_object,</td><td class="CFunction"><sup><A href="#Notes_aggregate_object">1</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/SE_Object.htm">SE_Object</a>&nbsp;</td> <td class="CFunction"><a name="component_object"></a>component_object,</td><td class="CFunction"><sup><A href="#Notes_component_object">2</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/SE_Object.htm">SE_Object</a>&nbsp;</td> <td class="CFunction"><a name="link_object"></a>link_object</td><td class="CFunction"><sup><A href="#Notes_link_object">3</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+  Breaks the relationship between
+  <A href="#aggregate_object">aggregate_object</A> and
+  <A href="#component_object">component_object</A> (and
+  <A href="#link_object">link_object</A>, if given). Does
+ <EM>not</EM>remove any of the objects involved from the
+  transmittal (see
+ <A href="SE_RemoveFromTransmittal.htm">SE_RemoveFromTransmittal()</A>).
+</P><P>
+  The transmittal whose object is to be edited must be
+  explicitly opened in UPDATE mode for this operation to succeed.
+</P><P>
+  Note that the relationship being removed may be 1-way or 2-way. If it is
+  2-way, both connections are removed, unless the component is unresolved.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A>
+</td><td class="Status">
+ and the relationship is removed.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A>
+</td><td class="Status">
+and the status code is set appropriately if the call failed.
+</td></tr>
+</table>
+
+<h3>Status Codes</h3>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A>
+   is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+ <A href="../types/SE_Status_Code.htm#SE_STATCODE_SUCCESS">SE_STATCODE_SUCCESS</A>
+</td><td class="Status">
+ set if valid parameters were passed in and all operations succeeded.
+</td></tr>
+</table>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A>
+   is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+ <A href="../types/SE_Status_Code.htm#SE_STATCODE_UNRESOLVED_INPUT_OBJECT">SE_STATCODE_UNRESOLVED_INPUT_OBJECT</A>
+</td><td class="Status">
+ set if <A href="#aggregate_object">aggregate_object</A> is unresolved,
+ or <A href="#link_object">link_object</A> is provided
+ but unresolved.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_UNRESOLVED_OUTPUT_OBJECT">SE_STATCODE_UNRESOLVED_OUTPUT_OBJECT</A>
+</td><td class="Status">
+ set if the DRM defines the relationship as bidirectional, but
+ <A href="#component_object">component_object</A> is unresolved,
+ so the relationship from
+ <A href="#component_object">component_object</A> to
+ <A href="#aggregate_object">aggregate_object</A> cannot be removed.
+</td></tr>
+<tr><td class="Status">
+ <A href="../types/SE_Status_Code.htm#SE_STATCODE_INVALID_ACCESS_MODE">SE_STATCODE_INVALID_ACCESS_MODE</A>
+</td><td class="Status">
+ set if
+<OL>
+<LI><A href="#aggregate_object">aggregate_object</A> is in a
+ transmittal that not opened for update,
+</LI>
+<LI><A href="#link_object">link_object</A> is provided, but is
+ in a transmittal that is not open for update, or
+</LI>
+<LI><A href="#component_object">component_object</A> is resolved
+ and has a relationship back to
+ <A href="#aggregate_object">aggregate_object</A>, but is in a
+ transmittal that is not open in open for update.
+</LI>
+</OL>
+</td></tr>
+<tr><td class="Status">
+ <A href="../types/SE_Status_Code.htm#SE_STATCODE_INACTIONABLE_FAILURE">SE_STATCODE_INACTIONABLE_FAILURE</A>
+</td><td class="Status">
+ set if
+<OL>
+<LI><A href="#aggregate_object">aggregate_object</A> and
+ <A href="#component_object">component_object</A> are not related
+ by a component relationship,
+</LI>
+<LI><A href="#link_object">link_object</A> is provided but is not
+ the link object for the relationship, or
+</LI>
+<LI> the call fails for any other reason.
+</LI>
+</OL>
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#aggregate_object" name="Notes_aggregate_object">1</a></sup>
+ object whose relationship to one of its components
+    is being broken.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#component_object" name="Notes_component_object">2</a></sup>
+ object whose relationship to one of its aggregators
+    (1-way or 2-way) is being broken
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#link_object" name="Notes_link_object">3</a></sup>
+ if specified, link object for the component
+    relationship being removed.
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SE_RemoveAssociateRelationship.htm">SE_RemoveAssociateRelationship</a>.
+<strong>Next:</strong> <a href="SE_RemoveFromTransmittal.htm">SE_RemoveFromTransmittal</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

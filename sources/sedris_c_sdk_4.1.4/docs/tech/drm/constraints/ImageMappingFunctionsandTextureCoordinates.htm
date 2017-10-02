@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Image Mapping Functions and Texture Coordinates</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX B - Constraints
+</font>
+<br>
+<font color="#ffffff">
+Image Mapping Functions and Texture Coordinates
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h3>Definition</h3>
+<P>
+ The number of <A href="../classes/ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</A> instances referenced by
+ a <A href="../classes/GeometryRepresentation.htm">&lt;Geometry Representation&gt;</A> instance shall
+ equal the number of <A href="../classes/TextureCoordinate.htm">&lt;Texture Coordinate&gt;</A>
+ components for each <A href="../classes/Vertex.htm">&lt;Vertex&gt;</A> instance and
+ <A href="../classes/TackPoint.htm">&lt;Tack Point&gt;</A> instance within the
+ component tree rooted at that
+ <A href="../classes/GeometryRepresentation.htm">&lt;Geometry Representation&gt;</A> instance.
+</P><P>
+ <A href="../classes/ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</A> instances
+ referenced by <A href="../classes/FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> instances,
+ on the other hand, shall either have <A href="../classes/ImageAnchor.htm">&lt;Image Anchor&gt;</A> components, or
+ reference <A href="../classes/Image.htm">&lt;Image&gt;</A> instances that have
+ <A href="../classes/ImageAnchor.htm">&lt;Image Anchor&gt;</A> components.
+</P><P>
+<B>EXCEPTION:</B>
+<BR>
+ If an <A href="../classes/ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</A>
+ instance is used to specify a non-planar projection (such as spherical,
+ cylindrical), it shall use
+ an <A href="../classes/ImageAnchor.htm">&lt;Image Anchor&gt;</A> component, and the
+ <A href="../classes/GeometryRepresentation.htm">&lt;Geometry Representation&gt;</A> instance
+ to which the
+ <A href="../classes/ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</A> instance
+ is attached cannot have
+ <A href="../classes/TextureCoordinate.htm">&lt;Texture Coordinate&gt;</A> instances or
+ <A href="../classes/TackPoint.htm">&lt;Tack Point&gt;</A> instances within its component tree.
+</P>
+
+<h3>Rationale</h3>
+<P>
+ The multiple <A href="../classes/ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</A>
+ instances and multiple
+ <A href="../classes/TextureCoordinate.htm">&lt;Texture Coordinate&gt;</A> instances
+ are ordered, and are defined to correspond to each other as if they were in
+ parallel arrays.
+</P><P>
+ <A href="../classes/ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</A> instances
+ referenced by a <A href="../classes/FeatureRepresentation.htm">&lt;Feature Representation&gt;</A>
+ instance are attributes for geometry that is to be
+ derived by the consumer for the
+ <A href="../classes/FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> instance. Since
+ <A href="../classes/TextureCoordinate.htm">&lt;Texture Coordinate&gt;</A> instances and
+ <A href="../classes/TackPoint.htm">&lt;Tack Point&gt;</A> instances are not applicable to
+ <A href="../classes/FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> instances, such
+ <A href="../classes/ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</A> instances
+ shall be specified with <A href="../classes/ImageAnchor.htm">&lt;Image Anchor&gt;</A>
+ components.
+</P>
+<h3>Example</h3>
+<OL>
+<LI><P>
+ Consider a triangular <A href="../classes/Polygon.htm">&lt;Polygon&gt;</A> instance with one
+ <A href="../classes/ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</A> instance
+ for the OTW domain as shown in <a href="#Figure1">Figure 1</a>.
+ Each of the three <A href="../classes/Vertex.htm">&lt;Vertex&gt;</A> components of the
+ <A href="../classes/Polygon.htm">&lt;Polygon&gt;</A> instance has one
+ <A href="../classes/TextureCoordinate.htm">&lt;Texture Coordinate&gt;</A> component,
+ specifying the (s,t) within the image space
+ that will be mapped to that <A href="../classes/Vertex.htm">&lt;Vertex&gt;</A> instance.
+</P>
+<DIV align="center">
+<p>
+<A name="Figure1"></A>
+<IMG SRC="../Images/IMFs_and_TCs_Ex1.png"
+  ALT="Image_Mapping_Functions_and_Texture_Coordinates, Ex 1">
+</p>
+<p class=FigureCaption>Figure 1 &#8212; &lt;DRM Image Mapping Functions and Texture Coordinates&gt; example1</p>
+</DIV>
+</LI>
+<LI><P>
+ Consider a triangular <A href="../classes/Polygon.htm">&lt;Polygon&gt;</A> instance that has
+ different texture maps, one for OTW and one for thermal, as
+ shown in <a href="#Figure2">Figure 2</a>.
+ The <A href="../classes/Polygon.htm">&lt;Polygon&gt;</A> instance thus has two ordered
+ <A href="../classes/ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</A> components,
+ so each of its <A href="../classes/Vertex.htm">&lt;Vertex&gt;</A> components will have two ordered
+ <A href="../classes/TextureCoordinate.htm">&lt;Texture Coordinate&gt;</A> components, one for
+ each <A href="../classes/ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</A> instance.
+</P>
+<DIV align="center">
+<p>
+<A name="Figure2"></A>
+<IMG SRC="../Images/IMFs_and_TCs_Ex2.png"
+  ALT="Image_Mapping_Functions_and_Texture_Coordinates, Ex 2">
+</p>
+<p class=FigureCaption>Figure 2 &#8212; &lt;DRM Image Mapping Functions and Texture Coordinates&gt; example2</p>
+</DIV>
+</LI>
+</OL>
+
+<h3>FAQs</h3>
+<p>
+No FAQs supplied.
+</p>
+
+<hr>
+<strong>Prev:</strong> <A href="ImageAnchorSRF.htm">Image Anchor SRF</A>.
+<strong>Next:</strong> <A href="IndexCodeswithinTables.htm">Index Codes within Tables</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,463 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<head>
+<title>Migration Guide, Classes</title>
+<link rel="stylesheet" type="text/css" href="../../styles/SDK_SEDRIS.css">
+</head>
+<body>
+
+<div class="CenterDiv">
+<table class="doc_set_header">
+<tr><th align="center">
+<font color="#00ffff"><big><big>MIGRATION GUIDE</big></big></font>
+<br>
+<font color="#ffffff">Classes</font>
+</th></tr>
+</table>
+</div>
+
+<a name="Top"></a>
+
+<!-- DRM spec. 4.1 -->
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<ol type='I'>
+<li><A href="#removed_classes">Removed Classes</a>
+</li>
+<li><A href="#SE_DRM_Class_Fields_Changes">SE_DRM_Class_Fields_Changes</a>
+</li>
+<li><A href="#Modified_Classes">Modified Classes</a>
+</li>
+</ol>
+<hr>
+<p>
+The <font color="#008000">marked</font> items indicate areas that can
+be handled by the name change script.
+</p>
+<ol type='I'>
+<li><p><A name="removed_classes">The following classes were removed.</a>
+</p>
+<ul>
+<li><p>&lt;Cross Reference&gt;</p></li>
+<li><p>&lt;Image Lookup&gt;</p></li>
+</ul>
+</li>
+<li><A name="SE_DRM_Class_Fields_Changes">SE_DRM_Class_Fields Changes</a>.
+<p>
+For union members shown without a forward mapping, check
+the <A href="#removed_classes">removed classes</a> list
+for further information.
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th> <th>New</th></tr>
+<tr><td><font color="#008000">u.Access</font></td><td>
+<font color="#008000">u.Legal_Constraints</font>,
+<font color="#008000">u.Security_Constraints</font></td></tr>
+<tr><td><font color="#008000">u.AZ_2D_Location</font></td><td>
+<font color="#008000">u.LSA_2D_Location</font></td></tr>
+<tr><td>u.Cross_Reference</td><td>&nbsp;</td></tr>
+<tr><td><font color="#008000">u.Description</font></td><td>
+<font color="#008000">u.Identification</font></td></tr>
+<tr><td>u.Image_Lookup</td><td>&nbsp;</td></tr>
+<tr><td><font color="#008000">u.OM_Augmented_3D_Location</font></td><td>
+<font color="#008000">u.OMS_Augmented_3D_Location</font></td></tr>
+<tr><td><font color="#008000">u.OM_Surface_Location</font></td><td>
+<font color="#008000">u.OMS_Surface_Location</font></td></tr>
+<tr><td><font color="#008000">u.Polar_2D_Location</font></td><td>
+<font color="#008000">u.LSP_2D_Location</font></td></tr>
+<tr><td><font color="#008000">u.SM_3D_Location</font></td><td>
+<font color="#008000">u.SMD_3D_Location</font></td></tr>
+<tr><td><font color="#008000">u.SMS_3D_Location</font></td><td>
+<font color="#008000">u.SME_3D_Location</font></td></tr>
+<tr><td><font color="#008000">u.Volume</font></td><td>
+<font color="#008000">u.Enclosing_Volume</font></td></tr>
+</table>
+<br><br></li>
+<li><A name="Modified_Classes">Modified Classes</a>.
+<p>Each of the modified classes changed in the following manner.
+</p>
+<ol>
+<li><p>&lt;Access&gt; maps to
+<A href="../../tech/drm/classes/LegalConstraints.htm">&lt;Legal Constraints&gt;</a>.
+</p><p>
+<font color="#008000">SE_Access_Fields maps to SE_Legal_Constraints_Fields.
+</font></p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>security</td> <td>(none)</td></tr>
+<tr><td>use_limitation</td> <td>split into: use_limitation_count, use_limitation</td></tr>
+</table>
+<br><br></li>
+<li><p>&lt;Access&gt; maps to
+<A href="../../tech/drm/classes/SecurityConstraints.htm">&lt;Security Constraints&gt;</a>.
+</p><p>
+<font color="#008000">SE_Access_Fields maps to SE_Security_Constraints_Fields.
+</font></p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>access_constraints</td> <td>(none)</td></tr>
+<tr><td>use_constraints</td> <td>(none)</td></tr>
+<tr><td>other_constraints</td> <td>(none)</td></tr>
+<tr><td>security</td> <td>split into: classification, user_note, classification_system, handling_description</td></tr>
+<tr><td>use_limitation</td> <td>split into: use_limitation_count, use_limitation</td></tr>
+</table>
+<br><br></li>
+<li><p>&lt;AZ 2D Location&gt; maps to
+<A href="../../tech/drm/classes/LSA2DLocation.htm">&lt;LSA 2D Location&gt;</a>.
+</p><p>
+<font color="#008000">SE_AZ_2D_Location_Fields maps to SE_LSA_2D_Location_Fields.
+</font></p></li>
+<li><p><A href="../../tech/drm/classes/CameraPoint.htm">
+&lt;Camera Point&gt;</a>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">use_left_right_bottom_top</font></td> <td><font color="#008000">use_left_bottom_right_top</font></td></tr>
+</table>
+<br><br></li>
+<li><p><A href="../../tech/drm/classes/CMYColourControlLink.htm">
+&lt;CMY Colour Control Link&gt;</a>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">cyan_expr_index</font></td> <td><font color="#008000">cyan_expression_index</font></td></tr>
+<tr><td><font color="#008000">magenta_expr_index</font></td> <td><font color="#008000">magenta_expression_index</font></td></tr>
+<tr><td><font color="#008000">yellow_expr_index</font></td> <td><font color="#008000">yellow_expression_index</font></td></tr>
+</table>
+<br><br></li>
+<li><p><A href="../../tech/drm/classes/ConformalBehaviour.htm">
+&lt;Conformal Behaviour&gt;</a>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>(none)</td><td>classification</td></tr>
+</table>
+<br><br></li>
+<li><p>&lt;Description&gt; maps to
+<A href="../../tech/drm/classes/Identification.htm">&lt;Identification&gt;</a>.
+</p><p>
+<font color="#008000">SE_Description_Fields maps to SE_Identification_Fields.
+</font></p></li>
+<li><p><A href="../../tech/drm/classes/EnvironmentRoot.htm">
+&lt;Environment Root&gt;</a>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">srf_info</font></td> <td><font color="#008000">srf_context_info</font></td></tr>
+</table>
+<br><br></li>
+<li><p><A href="../../tech/drm/classes/FeatureVolume.htm">
+&lt;Feature Volume&gt;</a>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>(none)</td><td>universal</td></tr>
+</table>
+<br><br></li>
+<li><p><A href="../../tech/drm/classes/FeatureVolumeShell.htm">
+&lt;Feature Volume Shell&gt;</a>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>universal</td> <td>(none)</td></tr>
+</table>
+<br><br></li>
+<li><p><A href="../../tech/drm/classes/HSVColourControlLink.htm">
+&lt;HSV Colour Control Link&gt;</a>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">hue_expr_index</font></td> <td><font color="#008000">hue_expression_index</font></td></tr>
+<tr><td><font color="#008000">saturation_expr_index</font></td> <td><font color="#008000">saturation_expression_index</font></td></tr>
+<tr><td><font color="#008000">value_expr_index</font></td> <td><font color="#008000">value_expression_index</font></td></tr>
+</table>
+<br><br></li>
+<li><p><A href="../../tech/drm/classes/ImageAnchor.htm">
+&lt;Image Anchor&gt;</a>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">srf_info</font></td> <td><font color="#008000">srf_context_info</font></td></tr>
+</table>
+<br><br></li>
+<li><p><A href="../../tech/drm/classes/LightRenderingPropertiesControlLink.htm">
+&lt;Light Rendering Properties Control Link&gt;</a>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">active_expr_index</font></td> <td><font color="#008000">active_expression_index</font></td></tr>
+<tr><td><font color="#008000">candela_value_expr_index</font></td> <td><font color="#008000">candela_value_expression_index</font></td></tr>
+<tr><td><font color="#008000">lower_candela_value_expr_index</font></td> <td><font color="#008000">lower_candela_value_index</font></td></tr>
+<tr><td><font color="#008000">upper_candela_value_expr_index</font></td> <td><font color="#008000">upper_candela_value_index</font></td></tr>
+</table>
+<br><br></li>
+<li><p><A href="../../tech/drm/classes/LightSourceControlLink.htm">
+&lt;Light Source Control Link&gt;</a>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">expr_index</font></td> <td><font color="#008000">expression_index</font></td></tr>
+</table>
+<br><br></li>
+<li><p><A href="../../tech/drm/classes/LSR3DLocationControlLink.htm">
+&lt;LSR 3D Location Control Link&gt;</a>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">u_expr_index</font></td> <td><font color="#008000">u_expression_index</font></td></tr>
+<tr><td><font color="#008000">v_expr_index</font></td> <td><font color="#008000">v_expression_index</font></td></tr>
+<tr><td><font color="#008000">w_expr_index</font></td> <td><font color="#008000">w_expression_index</font></td></tr>
+</table>
+<br><br></li>
+<li><p><A href="../../tech/drm/classes/Model.htm">
+&lt;Model&gt;</a>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">srf_info</font></td> <td><font color="#008000">srf_context_info</font></td></tr>
+</table>
+<br><br></li>
+<li><p>&lt;OM Augmented 3D Location&gt; maps to
+<A href="../../tech/drm/classes/OMSAugmented3DLocation.htm">&lt;OMS Augmented 3D Location&gt;</a>.
+</p><p>
+<font color="#008000">SE_OM_Augmented_3D_Location_Fields maps to SE_OMS_Augmented_3D_Location_Fields.
+</font></p></li>
+<li><p>&lt;OM Surface Location&gt; maps to
+<A href="../../tech/drm/classes/OMSSurfaceLocation.htm">&lt;OMS Surface Location&gt;</a>.
+</p><p>
+<font color="#008000">SE_OM_Surface_Location_Fields maps to SE_OMS_Surface_Location_Fields.
+</font></p></li>
+<li><p>&lt;Polar 2D Location&gt; maps to
+<A href="../../tech/drm/classes/LSP2DLocation.htm">&lt;LSP 2D Location&gt;</a>.
+</p><p>
+<font color="#008000">SE_Polar_2D_Location_Fields maps to SE_LSP_2D_Location_Fields.
+</font></p></li>
+<li><p><A href="../../tech/drm/classes/PolygonControlLink.htm">
+&lt;Polygon Control Link&gt;</a>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">hat_test_expr_index</font></td> <td><font color="#008000">hat_test_expression_index</font></td></tr>
+<tr><td><font color="#008000">collidible_expr_index</font></td> <td><font color="#008000">collidible_expression_index</font></td></tr>
+<tr><td><font color="#008000">invisible_expr_index</font></td> <td><font color="#008000">invisible_expression_index</font></td></tr>
+<tr><td><font color="#008000">laser_range_finding_expr_index</font></td> <td><font color="#008000">laser_range_finding_expression_index</font></td></tr>
+</table>
+<br><br></li>
+<li><p><A href="../../tech/drm/classes/PropertyDescription.htm">
+&lt;Property Description&gt;</a>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>(none)</td><td>apply_property_inheritance</td></tr>
+</table>
+<br><br></li>
+<li><p><A href="../../tech/drm/classes/PropertyGrid.htm">
+&lt;Property Grid&gt;</a>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">srf_info</font></td> <td><font color="#008000">srf_context_info</font></td></tr>
+<tr><td>(none)</td><td>relative_to_hook_point</td></tr>
+</table>
+<br><br></li>
+<li><p><A href="../../tech/drm/classes/PropertySetIndexControlLink.htm">
+&lt;Property Set Index Control Link&gt;</a>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">expr_index</font></td> <td><font color="#008000">expression_index</font></td></tr>
+</table>
+<br><br></li>
+<li><p><A href="../../tech/drm/classes/PropertyTableReferenceControlLink.htm">
+&lt;Property Table Reference Control Link&gt;</a>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">expr_index</font></td> <td><font color="#008000">expression_index</font></td></tr>
+</table>
+<br><br></li>
+<li><p><A href="../../tech/drm/classes/PropertyValue.htm">
+&lt;Property Value&gt;</a>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>(none)</td><td>apply_property_inheritance</td></tr>
+</table>
+<br><br></li>
+<li><p><A href="../../tech/drm/classes/ReferenceOrigin.htm">
+&lt;Reference Origin&gt;</a>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">srf_info</font></td> <td><font color="#008000">srf_context_info</font></td></tr>
+</table>
+<br><br></li>
+<li><p><A href="../../tech/drm/classes/ReferenceVectorControlLink.htm">
+&lt;Reference Vector Control Link&gt;</a>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">v0_expr_index</font></td> <td><font color="#008000">v0_expression_index</font></td></tr>
+<tr><td><font color="#008000">v1_expr_index</font></td> <td><font color="#008000">v1_expression_index</font></td></tr>
+<tr><td><font color="#008000">v2_expr_index</font></td> <td><font color="#008000">v2_expression_index</font></td></tr>
+</table>
+<br><br></li>
+</p><p>
+&lt;Responsible Party&gt; has a new component
+<A href="../../tech/drm/classes/RoleData.htm">
+&lt;Role Data&gt;</a>.</LI>
+<li><p>Responsible Party has a new component
+<A href="../../tech/drm/classes/RoleData.htm">&lt;Role Data&gt;</a>.
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>role</td> <td>(moved to component)</td></tr>
+</table>
+<br><br></li>
+<li><p><A href="../../tech/drm/classes/RGBColourControlLink.htm">
+&lt;RGB Colour Control Link&gt;</a>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">red_expr_index</font></td> <td><font color="#008000">red_expression_index</font></td></tr>
+<tr><td><font color="#008000">green_expr_index</font></td> <td><font color="#008000">green_expression_index</font></td></tr>
+<tr><td><font color="#008000">blue_expr_index</font></td> <td><font color="#008000">blue_expression_index</font></td></tr>
+</table>
+<br><br></li>
+<li><p><A href="../../tech/drm/classes/RotationControlLink.htm">
+&lt;Rotation Control Link&gt;</a>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">expr_index</font></td> <td><font color="#008000">expression_index</font></td></tr>
+<tr><td><font color="#008000">lower_expr_index</font></td> <td><font color="#008000">lower_expression_index</font></td></tr>
+<tr><td><font color="#008000">upper_expr_index</font></td> <td><font color="#008000">upper_expression_index</font></td></tr>
+</table>
+<br><br></li>
+<li><p><A href="../../tech/drm/classes/Scale.htm">
+&lt;Scale&gt;</a>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">scale_amount</font></td> <td><font color="#008000">scale_factor</font></td></tr>
+</table>
+<br><br></li>
+<li><p><A href="../../tech/drm/classes/ScaleControlLink.htm">
+&lt;Scale Control Link&gt;</a>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">expr_index</font></td> <td><font color="#008000">expression_index</font></td></tr>
+<tr><td><font color="#008000">lower_expr_index</font></td> <td><font color="#008000">lower_expression_index</font></td></tr>
+<tr><td><font color="#008000">upper_expr_index</font></td> <td><font color="#008000">upper_expression_index</font></td></tr>
+</table>
+<br><br></li>
+<li><p>&lt;SM 3D Location&gt; maps to
+<A href="../../tech/drm/classes/SMD3DLocation.htm">&lt;SMD 3D Location&gt;</a>.
+</p><p>
+<font color="#008000">SE_SM_3D_Location_Fields maps to SE_SMD_3D_Location_Fields.
+</font></p></li>
+<li><p>&lt;SMS 3D Location&gt; maps to
+<A href="../../tech/drm/classes/SME3DLocation.htm">&lt;SME 3D Location&gt;</a>.
+</p><p>
+<font color="#008000">SE_SMS_3D_Location_Fields maps to SE_SME_3D_Location_Fields.
+</font></p></li>
+<li><p><A href="../../tech/drm/classes/SoundInstanceControlLink.htm">
+&lt;Sound Instance Control Link&gt;</a>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">active_sound_value_expr_index</font></td> <td><font color="#008000">active_sound_value_expression_index</font></td></tr>
+</table>
+<br><br></li>
+<li><p><A href="../../tech/drm/classes/SRFSummary.htm">
+&lt;SRF Summary&gt;</a>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">srf_info</font></td> <td><font color="#008000">srf_context_info</font></td></tr>
+</table>
+<br><br></li>
+<li><p><A href="../../tech/drm/classes/StateControlLink.htm">
+&lt;State Control Link&gt;</a>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">expr_index</font></td> <td><font color="#008000">expression_index</font></td></tr>
+</table>
+<br><br></li>
+<li><p><A href="../../tech/drm/classes/TextureCoordinateControlLink.htm">
+&lt;Texture Coordinate Control Link&gt;</a>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">s_expr_index</font></td> <td><font color="#008000">s_expression_index</font></td></tr>
+<tr><td><font color="#008000">t_expr_index</font></td> <td><font color="#008000">t_expression_index</font></td></tr>
+</table>
+<br><br></li>
+<li><p><A href="../../tech/drm/classes/TranslationControlLink.htm">
+&lt;Translation Control Link&gt;</a>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">expr_index</font></td> <td><font color="#008000">expression_index</font></td></tr>
+<tr><td><font color="#008000">lower_expr_index</font></td> <td><font color="#008000">lower_expression_index</font></td></tr>
+<tr><td><font color="#008000">upper_expr_index</font></td> <td><font color="#008000">upper_expression_index</font></td></tr>
+</table>
+<br><br></li>
+<li><p><A href="../../tech/drm/classes/TranslucencyControlLink.htm">
+&lt;Translucency Control Link&gt;</a>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">expr_index</font></td> <td><font color="#008000">expression_index</font></td></tr>
+</table>
+<br><br></li>
+<li><p><A href="../../tech/drm/classes/TransmittalRoot.htm">
+&lt;Transmittal Root&gt;</a>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>(none)</td><td>major_SRM_version</td></tr>
+<tr><td>(none)</td><td>minor_SRM_version</td></tr>
+<tr><td>(none)</td><td>interim_SRM_version</td></tr>
+</table>
+<br><br></li>
+<li><p><A href="../../tech/drm/classes/TransmittalSummary.htm">
+&lt;Transmittal Summary&gt;</a>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">EDCS_usage_list_is_comprehensive</font></td> <td><font color="#008000">EDCS_usage_list_is_complete</font></td></tr>
+</table>
+<br><br></li>
+<li><p><A href="../../tech/drm/classes/Variable.htm">
+&lt;Variable&gt;</a>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">runtime_label</font></td> <td><font color="#008000">name</font></td></tr>
+</table>
+<br><br></li>
+</ol>
+</li>
+</ol>
+<strong>Return to:</strong> <a href="#Top">Top</a>
+<br><br>
+<table class="doc_set_header">
+<tr><td>
+<table class="doc_set_header">
+<tr>
+<td align="left"><small><font color="#00ffff">
+Last updated: July 1, 2011
+</font></small></td>
+<td align="right"><small><font color="#00ffff">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</font></small></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</body>
+</HTML>

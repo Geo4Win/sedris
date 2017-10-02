@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SRM_Coordinate_Valid_Region</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SRM Reference Manual</big></big>
+<br>
+<!-- SRM spec. 4.1 -->
+<font color="#ffffff">
+Types
+</font>
+<br>
+<font color="#ffffff">
+SRM_Coordinate_Valid_Region
+</font>
+</th></tr>
+</table></div>
+
+<!-- SRM SDK Release 4.1.4 -->
+
+<PRE>
+/*!
+ * ENUM: SRM_Coordinate_Valid_Region
+ *
+ *  This data type represents coordinate location with respect to valid regions.
+ */
+</PRE>
+<span class="Code">typedef enum
+<br>
+{
+</span>
+
+<table class="CFunctionPrototype">
+    <tr><td class="CFunction"></td><td class="CFunction"><a name="SRM_COORDVALRGN_VALID"></a>SRM_COORDVALRGN_VALID,</td><td class="CFunction"><sup><A href="#Notes_SRM_COORDVALRGN_VALID">1</A></sup></td></tr>
+    <tr><td class="CFunction"></td><td class="CFunction"><a name="SRM_COORDVALRGN_EXTENDED_VALID"></a>SRM_COORDVALRGN_EXTENDED_VALID,</td><td class="CFunction"><sup><A href="#Notes_SRM_COORDVALRGN_EXTENDED_VALID">2</A></sup></td></tr>
+    <tr><td class="CFunction"></td><td class="CFunction"><a name="SRM_COORDVALRGN_DEFINED"></a>SRM_COORDVALRGN_DEFINED</td><td class="CFunction"><sup><A href="#Notes_SRM_COORDVALRGN_DEFINED">3</A></sup></td></tr>
+</table>
+<span class="Code">
+} SRM_Coordinate_Valid_Region;
+</span>
+<br>
+<br>
+<hr>
+<h2>Enumerant Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#SRM_COORDVALRGN_VALID" name="Notes_SRM_COORDVALRGN_VALID">1</a></sup>
+ VALID denotes a coordinate that is contained in the valid region and in
+ the CS domain.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#SRM_COORDVALRGN_EXTENDED_VALID" name="Notes_SRM_COORDVALRGN_EXTENDED_VALID">2</a></sup>
+ EXTENDED_VALID denotes a coordinate that is contained in the
+ extended valid region and in the CS domain but not in the valid region.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#SRM_COORDVALRGN_DEFINED" name="Notes_SRM_COORDVALRGN_DEFINED">3</a></sup>
+ DEFINED denotes a coordinate that is contained in the CS domain but not
+ in the valid or the extended valid regions.
+</p>
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SRM_Coordinate.htm">SRM_Coordinate</a>.
+<strong>Next:</strong> <a href="SRM_Coordinate_Valid_Region_Array.htm">SRM_Coordinate_Valid_Region_Array</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Control Link</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Control Link
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Abstract Class Name: Control Link</h2>
+<h3>Superclass - <a href="SEDRISAbstractBase.htm">&lt;SEDRIS Abstract Base&gt;</a></h3>
+<h3>Subclasses</h3>
+<UL>
+<LI>
+<a href="CMYColourControlLink.htm">&lt;CMY Colour Control Link&gt;</a> 
+</LI>
+<LI>
+<a href="ColourIndexControlLink.htm">&lt;Colour Index Control Link&gt;</a> 
+</LI>
+<LI>
+<a href="HSVColourControlLink.htm">&lt;HSV Colour Control Link&gt;</a> 
+</LI>
+<LI>
+<a href="LightRenderingPropertiesControlLink.htm">&lt;Light Rendering Properties Control Link&gt;</a> 
+</LI>
+<LI>
+<a href="LightSourceControlLink.htm">&lt;Light Source Control Link&gt;</a> 
+</LI>
+<LI>
+<a href="LSR3DLocationControlLink.htm">&lt;LSR 3D Location Control Link&gt;</a> 
+</LI>
+<LI>
+<a href="PolygonControlLink.htm">&lt;Polygon Control Link&gt;</a> 
+</LI>
+<LI>
+<a href="PropertySetIndexControlLink.htm">&lt;Property Set Index Control Link&gt;</a> 
+</LI>
+<LI>
+<a href="PropertyTableReferenceControlLink.htm">&lt;Property Table Reference Control Link&gt;</a> 
+</LI>
+<LI>
+<a href="ReferenceVectorControlLink.htm">&lt;Reference Vector Control Link&gt;</a> 
+</LI>
+<LI>
+<a href="RGBColourControlLink.htm">&lt;RGB Colour Control Link&gt;</a> 
+</LI>
+<LI>
+<a href="RotationControlLink.htm">&lt;Rotation Control Link&gt;</a> 
+</LI>
+<LI>
+<a href="ScaleControlLink.htm">&lt;Scale Control Link&gt;</a> 
+</LI>
+<LI>
+<a href="SoundInstanceControlLink.htm">&lt;Sound Instance Control Link&gt;</a> 
+</LI>
+<LI>
+<a href="StateControlLink.htm">&lt;State Control Link&gt;</a> 
+</LI>
+<LI>
+<a href="TextureCoordinateControlLink.htm">&lt;Texture Coordinate Control Link&gt;</a> 
+</LI>
+<LI>
+<a href="TranslationControlLink.htm">&lt;Translation Control Link&gt;</a> 
+</LI>
+<LI>
+<a href="TranslucencyControlLink.htm">&lt;Translucency Control Link&gt;</a> 
+</LI>
+</UL>
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies the connection
+ between <A href="Expression.htm">&lt;Expression&gt;</A> instances and the
+ fields of other DRM objects (termed <I>target objects</I>).
+ For each class of target object, there shall be a specialization of
+ this class to match it. Instances of the specialized subclass shall be
+ aggregated by the target object.  The definition of each subclass shall
+ specify how the ordered list of <A href="Expression.htm">&lt;Expression&gt;</A>
+ instances is used to determine the values of the fields of the
+ target object (termed <I>target fields</I>).
+</P><P>
+ In general, a specialized <A href="ControlLink.htm">&lt;Control Link&gt;</A>
+ instance contains at least one
+ field (termed a <I>link field</I>) for each target field in the
+ target object.  The link field is an index into the ordered
+ aggregation of <A href="Expression.htm">&lt;Expression&gt;</A> instances, and is used
+ to select the specific <A href="Expression.htm">&lt;Expression&gt;</A> instance
+ that controls the value of the target field.
+ The specialization may also contain fields specifying indexes
+ into the ordered aggregation of <A href="Expression.htm">&lt;Expression&gt;</A> instances.
+ In this case, the referenced expressions are used to constrain
+ the values of the target field.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet17.pdf"><strong>17</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet16.pdf"><strong>16</strong></A>
+</LI>
+<LI><A href="sheet23.pdf"><strong>23</strong></A>
+</LI>
+</UL>
+
+<h3>Example</h3>
+<p>
+ See individual subclasses for examples.
+
+</p>
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ControlLinkConstraints.htm">&lt;&lt;Control Link Constraints&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Composed of (two-way)</h3>
+<UL>
+<li>one or more {ordered} <a href="Expression.htm">&lt;Expression&gt;</a> instances</li>
+</UL>
+
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_String.htm">SE_String</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="description">description</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_description">1</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Fields Notes</h3>
+<h4><a href="#description" name="Notes_description">description</a></h4>
+<P>
+ The <A href="#description">description</A> field
+ specifies a text description of the purpose of the
+ <A href="ControlLink.htm">&lt;Control Link&gt;</A> instance.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="ContinuousLODRelatedGeometry.htm">Continuous LOD Related Geometry</A>.
+<strong>Next:</strong> <A href="CylindricalVolumeExtent.htm">Cylindrical Volume Extent</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Time Dependency</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX B - Constraints
+</font>
+<br>
+<font color="#ffffff">
+Time Dependency
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h3>Definition</h3>
+<P>
+ <A href="../classes/RelativeTime.htm">&lt;Relative Time&gt;</A> instances,
+ <A href="../classes/AbsoluteTimeInterval.htm">&lt;Absolute Time Interval&gt;</A> instances,
+ and <A href="../classes/RelativeTimeInterval.htm">&lt;Relative Time Interval&gt;</A> instances may each have
+ an <A href="../classes/AbsoluteTime.htm">&lt;Absolute Time&gt;</A> component.
+ When the <A href="../classes/AbsoluteTime.htm">&lt;Absolute Time&gt;</A> component is present,
+ the constraints on the field values of the respective
+ <A href="../classes/RelativeTime.htm">&lt;Relative Time&gt;</A>,
+ <A href="../classes/AbsoluteTimeInterval.htm">&lt;Absolute Time Interval&gt;</A>,
+ and <A href="../classes/RelativeTimeInterval.htm">&lt;Relative Time Interval&gt;</A> instances
+ depend on the field values of the
+ <A href="../classes/AbsoluteTime.htm">&lt;Absolute Time&gt;</A> component as follows:
+</P>
+<OL type='a'>
+<LI><P>
+ If an <A href="../classes/AbsoluteTime.htm">&lt;Absolute Time&gt;</A> component is present with a
+ <A href="../classes/AbsoluteTime.htm#time_value">time_value</A>.<A href="../types/SE_Time_Value.htm#configuration">configuration</A>
+ entry specifying that the <span class="Code">day</span>
+ field value is not applicable,
+</P>
+<OL type='1'>
+<LI><P>
+ For <A href="../classes/AbsoluteTimeInterval.htm">&lt;Absolute Time Interval&gt;</A> instances,
+ <A href="../classes/AbsoluteTimeInterval.htm#delta_days">delta_days</A> = 0.
+</P></LI>
+<LI><P>
+ For <A href="../classes/RelativeTime.htm">&lt;Relative Time&gt;</A> instances,
+ <A href="../classes/RelativeTime.htm#delta_days">delta_days</A> = 0.
+</P></LI>
+<LI><P>
+ For <A href="../classes/RelativeTimeInterval.htm">&lt;Relative Time Interval&gt;</A> instances,
+ <A href="../classes/RelativeTimeInterval.htm#delta_start_days">delta_start_days</A>
+ = <A href="../classes/RelativeTimeInterval.htm#delta_stop_days">delta_stop_days</A>
+ = 0.
+</P></LI>
+</OL>
+</LI>
+<LI><P>
+ If an <A href="../classes/AbsoluteTime.htm">&lt;Absolute Time&gt;</A> component is
+ present with a
+ <A href="../classes/AbsoluteTime.htm#time_value">time_value</A>.<A href="../types/SE_Time_Value.htm#configuration">configuration</A>
+ entry specifying that the <span class="Code">month</span>
+ field value is not applicable but that the
+ <span class="Code">day</span> field value is applicable,
+</P>
+<OL type='1'>
+<LI><P>
+ For <A href="../classes/AbsoluteTimeInterval.htm">&lt;Absolute Time Interval&gt;</A> instances,
+ <A href="../classes/AbsoluteTimeInterval.htm#delta_days">delta_days</A>
+ shall be in the range
+ (1 - <span class="Code">day</span>) to
+ (30 - <span class="Code">day</span>) to
+ where <span class="Code">day</span> is the
+ <span class="Code">day</span> field within the
+ <A href="../classes/AbsoluteTime.htm#time_value">time_value</A> field
+ of the <A href="../classes/AbsoluteTime.htm">&lt;Absolute Time&gt;</A> component.
+</P></LI>
+<LI><P>
+ For <A href="../classes/RelativeTime.htm">&lt;Relative Time&gt;</A> instances,
+ <A href="../classes/RelativeTime.htm#delta_days">delta_days</A>
+ shall be in the range
+ (1 - <span class="Code">day</span>) to
+ (30 - <span class="Code">day</span>)
+ where <span class="Code">day</span> is the
+ <span class="Code">day</span> field within the
+ <A href="../classes/AbsoluteTime.htm#time_value">time_value</A> field
+ of the <A href="../classes/AbsoluteTime.htm">&lt;Absolute Time&gt;</A> component.
+</P></LI>
+</OL>
+</LI>
+<LI><P>
+ If an <A href="../classes/AbsoluteTime.htm">&lt;Absolute Time&gt;</A> component is present with a
+ <A href="../classes/AbsoluteTime.htm#time_value">time_value</A>.<A href="../types/SE_Time_Value.htm#configuration">configuration</A>
+ entry specifying that the <span class="Code">month</span>
+ field value is not applicable and that the
+ <span class="Code">year</span> field value is not applicable,
+</P>
+<OL type='1'>
+<LI><P>
+ For <A href="../classes/AbsoluteTimeInterval.htm">&lt;Absolute Time Interval&gt;</A> instances,
+ <A href="../classes/AbsoluteTimeInterval.htm#delta_days">delta_days</A>
+ shall be in the range [0..365] inclusive.
+</P></LI>
+<LI><P>
+ For <A href="../classes/RelativeTime.htm">&lt;Relative Time&gt;</A> instances,
+ <A href="../classes/RelativeTime.htm#delta_days">delta_days</A>
+ shall be in the range [0..365] inclusive.
+</P></LI>
+</OL>
+</LI>
+</OL>
+
+<h3>Rationale</h3>
+<OL type='a'>
+<LI><P>
+ No meaningful delta values can be applied to the <span class="Code">day</span>
+ value of an <A href="../classes/AbsoluteTime.htm">&lt;Absolute Time&gt;</A> instance for the case
+ where a <span class="Code">day</span> value is not specified by the
+ <A href="../types/SE_Time_Value.htm#configuration">configuration</A> field of
+ the <A href="../classes/AbsoluteTime.htm#time_value">time_value</A> field
+ of that <A href="../classes/AbsoluteTime.htm">&lt;Absolute Time&gt;</A> instance.
+</P></LI>
+<LI><P>
+ A <A href="../classes/TimeInterval.htm">&lt;Time Interval&gt;</A> instance that is referenced
+ to an <A href="../classes/AbsoluteTime.htm">&lt;Absolute Time&gt;</A> component
+ for which no specific month is specified is assumed to have a
+ 30 day month, and the interval cannot exceed a 30 day period.
+</P></LI>
+<LI><P>
+ When using day of year (rather than explicitly specifying the month)
+ for an unspecified year, the year is assumed to be a 365-day year.
+</P></LI>
+<LI><P>
+ Part 4 of this constraint only applies to the cases explicitly
+ specified by the constraint.
+</P></LI>
+<LI><P>
+ If the day of the year is specified rather than a specific month,
+ the day shall fall within the bounds of a 365-day year (negative days
+ in a year are not defined).
+</P></LI>
+</OL>
+<h3>Example</h3>
+<p>
+No example supplied.
+</p>
+<h3>FAQs</h3>
+<p>
+No FAQs supplied.
+</p>
+
+<hr>
+<strong>Prev:</strong> <A href="TablePropertyDescriptionConstraints.htm">Table Property Description Constraints</A>.
+<strong>Next:</strong> <A href="TimeIntervalCalculation.htm">Time Interval Calculation</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

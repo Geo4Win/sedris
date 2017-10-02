@@ -1,0 +1,845 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<title>P4V5 - Section 4</title>
+<META name="Author" CONTENT="Science Applications International Corporation">
+<link rel="stylesheet" type="text/css" href="../styles/SDK_SEDRIS.css">
+</HEAD>
+<body>
+
+<div class="CenterDiv">
+<table border=2 class="doc_set_header">
+<tr><th class="doc_set_header">
+<big><big>
+Control Link Technical Guide
+</big></big>
+<br>
+<FONT color="#FFFFFF">
+Section 4 - SUBCLASSES OF &lt;CONTROL LINK&gt;
+</font>
+</th></tr>
+</table></div>
+
+<a name="Top"></a>
+
+<table class="doc_set_toc">
+<tr>
+<th class="doc_set_toc_outline_number">4.1</th>
+<th class="doc_set_toc_outline_description">
+<a href="drm/classes/ControlLink.htm" name="41">&lt;Control Link&gt;</a>
+Subclasses That Turn On and Off</a>
+</th></tr>
+
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description">
+<table class="doc_set_toc">
+<tr><th class="doc_set_toc_outline_number">4.1.1</th>
+<th class="doc_set_toc_outline_description">
+<a href="drm/classes/LightSourceControlLink.htm" name="411">
+&lt;Light Source Control Link&gt;</a>
+</th></tr>
+
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+<a href="drm/classes/LightSourceControlLink.htm">&lt;Light Source Control Link&gt;</a>
+provides control over the
+<a href="drm/classes/LightSource.htm#active_light_value">active_light_value</a>
+field of a <a href="drm/classes/LightSource.htm">&lt;Light Source&gt;</a>.
+This allows the consuming system to turn the 
+<a href="drm/classes/LightSource.htm">&lt;Light Source&gt;</a> on and
+off at will.
+</p></td></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">4.1.2</th>
+<th class="doc_set_toc_outline_description"><a name="412"></a>
+<a href="drm/classes/LightRenderingPropertiesControlLink.htm">&lt;Light Rendering Properties Control Link&gt;</a>
+</th>
+</tr>
+
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+<a href="drm/classes/LightRenderingPropertiesControlLink.htm">&lt;Light Rendering Properties Control Link&gt;</a>
+provides control over the
+<a href="drm/classes/LightRenderingProperties.htm#active_light_value">active_value</a>
+and
+<a href="drm/classes/LightRenderingProperties.htm#candela_value">candela_value</a>
+field values of the target
+<a href="drm/classes/LightRenderingProperties.htm">&lt;Light Rendering Properties&gt;</a>
+instances. This allows the user to control whether the target is
+'on' or 'off', and if it's on, how bright it is. In addition, if the user
+allows the
+<a href="drm/classes/LightRenderingProperties.htm#candela_value">candela_value</a>
+field to vary,
+<a href="drm/classes/LightRenderingPropertiesControlLink.htm">&lt;Light Rendering Properties Control Link&gt;</a> can specify
+constraints on the upper and lower limits of the candela value, so that
+there are limits on the maximum and / or minimum brightness. The user
+is not required to provide control over all 4 fields, however. If any
+of the link fields is zero, then the corresponding target field is not
+controlled.
+</p></td></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">4.1.3</th>
+<th class="doc_set_toc_outline_description">
+<a name="413" href="drm/classes/SoundInstanceControlLink.htm">
+&lt;Sound Instance Control Link&gt;</a></td>
+</tr>
+
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+<a href="drm/classes/SoundInstanceControlLink.htm">
+&lt;Sound Instance Control Link&gt;</a> provides control over the
+<a href="drm/classes/SoundInstance.htm#active_sound_value">active_sound_value</a>
+field of a
+<a href="drm/classes/SoundInstance.htm">&lt;Sound Instance&gt;</a>.
+This allows the consuming system to turn the 
+<a href="drm/classes/SoundInstance.htm">&lt;Sound Instance&gt;</a>
+on and off at will.
+</p></td></tr>
+</table>
+
+<tr>
+<th class="doc_set_toc_outline_number">4.2</th>
+<th class="doc_set_toc_outline_description"><a name="42"></a>
+<a href="drm/classes/StateControlLink.htm">
+<a href="drm/classes/StateControlLink.htm">&lt;State Control Link&gt;</a>
+</th></tr>
+
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description">
+<table class="doc_set_toc">
+<tr>
+<th class="doc_set_toc_outline_number">4.2.1</th>
+<th class="doc_set_toc_outline_description"><a name="421">Overview</a></th></tr>
+
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+A state-related aggregation represents something that can assume multiple
+states; each branch of the aggregation represents a particular state. The
+state-related aggregation object itself specifies the state being describe
+with its state_tag field. The state is one of a special set of EDCS
+Attributes that are designated as &quot;state applicable&quot;. 
+Each branch of the aggregation has a <a href="drm/classes/StateData.htm">
+&lt;State Data&gt;</a> link object, specifying the value of the state 
+associated with that branch.
+</p></td></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">4.2.2</th>
+<th class="doc_set_toc_outline_description">
+<a name="422">Applying</a> 
+<a href="drm/classes/StateControlLink.htm">&lt;State Control Link&gt;</a>
+to a <a href="drm/classes/StateRelatedGeometry.htm">
+&lt;State Related Geometry&gt;</a></td></tr>
+
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+Consider a specific building represented by a
+<a href="drm/classes/StateRelatedGeometry.htm">
+&lt;State Related Geometry&gt;</a> instance. The data provider in this
+example has chosen to model 4 damage states: 0% damaged, 25% damaged,
+50% damaged, and 100% damaged (totally destroyed).
+</p><p>
+<table border="1">
+<tr>
+<th align="left" valign="top">
+<a href="drm/classes/StateRelatedGeometry.htm#state_tag">state_tag</a>
+</th>
+<td>
+<a href="../../src/lib/edcs/docs/dictionary/EAC_G.htm#EAC_GENERAL_DAMAGE_FRACTION">
+EAC_GENERAL_DAMAGE_FRACTION</a>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">
+<a href="drm/classes/StateRelatedGeometry.htm#active_state_value">
+active_state_value</a>
+</th>
+<td>0%</td>
+</td>
+</tr>
+</table>
+</p><p>
+This indicates that the 'default' state of the aggregation is 0%
+damage, that is, completely undamaged. The branches' 
+<a href="drm/classes/StateData.htm">&lt;State Data&gt;</a>
+link objects have the following field values (meanings given in the
+bottom row).
+</p><p>
+<table border=1>
+<tr>
+<th align="left" valign="top">
+<a href="drm/classes/StateData.htm#state_value">state_value</a>
+</th>
+
+<td>0%</td> <td>25%</td> <td>50%</td> <td>100%</td>
+</tr>
+
+<tr>
+<th align="left" valign="top">
+meaning
+</th>
+
+<td>building's OK</td> <td>some damage</td>
+<td>heavy damage</td> <td>a little pile of rubble</td>
+</tr>
+</table>
+</p><p>
+Generally speaking, any state-related aggregation should be produced
+with an appropriate <a href="drm/classes/StateControlLink.htm">
+&lt;State Control Link&gt;</a> component. After all,
+if a data provider has created an object that can assume one of multiple
+states, it only seems reasonable to provide the mechanism to change
+between states; why would a producer go to the trouble of representing
+multiple states of an object if only the default state could ever be used?
+Consequently, the building example needs a 
+<a href="drm/classes/StateControlLink.htm">&lt;State Control Link&gt;</a>
+to allow the use of states other than the default of 0% damage.
+</p><p>
+The <a href="drm/classes/StateControlLink.htm">&lt;State Control Link&gt;</a> 
+component controls the 
+<a href="drm/classes/StateRelatedGeometry.htm#active_state_value">
+active_state_value</a>
+by providing a connection between it and the controlling 
+<a href="drm/classes/Expression.htm">&lt;Expression&gt;</a>,
+so that the <a href="drm/classes/StateRelatedGeometry.htm#active_state_value">
+active_state_value</a> changes to specify which branch of the
+aggregation is currently active. Since active_state_value is the only
+controlled field in a state-related aggregation, the 
+<a href="drm/classes/StateControlLink.htm">&lt;State Control Link&gt;</a>
+should have exactly 1 <a href="drm/classes/Expression.htm">
+&lt;Expression&gt;</a> component, and therefore its
+expr_index field value would be 1.
+</p><p>
+<table border="1">
+<tr><th align="left" valign="top">
+<a href="drm/classes/StateControlLink.htm#expr_index">expr_index</a>
+</th> <td>1</td>
+</tr>
+<tr><th align="left" valign="top">
+<a href="drm/classes/StateControlLink.htm#mismatch_behaviour">
+mismatch_behaviour</a></th>
+<td><a href="drm/types/SE_State_Mismatch_Behaviour.htm#SE_STMISMBEH_LAST">
+SE_STMISMBEH_LAST
+</a></td>
+</tr>
+</table>
+</p><p>
+In this example, the
+<a href="drm/classes/Expression.htm">&lt;Expression&gt;</a> is a
+<a href="drm/classes/Variable.htm">&lt;Variable&gt;</a>, so that
+whatever value is plugged into the
+<a href="drm/classes/Variable.htm">&lt;Variable&gt;</a> when the
+<a href="drm/classes/StateRelatedGeometry.htm">&lt;State Related Geometry&gt;</a>
+is instanced is then fed into the
+<a href="drm/classes/StateRelatedGeometry.htm#active_state_value">active_state_value</a>.
+</p>
+<table border="1">
+<tr><th align="left" valign="top">
+<a href="drm/classes/Variable.htm#meaning">meaning</a></th>
+
+<td>
+{<a href="drm/types/SE_Element_Type_Code.htm#SE_ELEMTYPCOD_VARIABLE">SE_ELEMTYPCOD_VARIABLE</a>, 
+<a href="drm/types/SE_Variable_Code.htm#SE_VARCOD_ACTIVE_STATE_VALUE">
+SE_VARCOD_ACTIVE_STATE_VALUE</a>}
+</td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/classes/Variable.htm#value_unit">value_unit</a></th>
+
+<td><a href="../../src/lib/edcs/docs/types/EDCS_Unit_Scale_Code.htm#EUC_UNITLESS">EUC_UNITLESS</a></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/classes/Variable.htm#value_scale">value_scale</a></th>
+<td><a href="../../src/lib/edcs/docs/types/EDCS_Unit_Scale_Code.htm#ESC_UNI">ESC_UNI</a></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/classes/Variable.htm#value_type">value_type</a>
+</th>
+<td><a href="../../src/lib/edcs/docs/types/EDCS_Attribute_Value_Type.htm#EDCS_AVT_REAL">
+EDCS_AVT_REAL
+</a></td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/classes/Variable.htm#description">description</a>
+</th>
+<td>{SE_LOCALE_DEFAULT, 12, &quot;damage state&quot;}
+</td>
+</tr>
+
+<tr><th align="left" valign="top">
+<a href="drm/classes/Variable.htm#runtime_label">runtime_label</a>
+</th>
+<td>{SE_LOCALE_DEFAULT, 0, &quot;&quot;}
+</td>
+</tr>
+</table>
+<p>
+Suppose that a value of 25% is supplied to the 
+<a href="drm/classes/Variable.htm">&lt;Variable&gt;</a>.
+The aggregate then changes state to 25% damage. Then
+more damage is done, so that the damage is updated to 45%. This
+presents a problem, because the data provider has specified each
+branch with a single matching value, and 45% is not covered by
+any of the branches. At this point, the mismatch_behaviour of
+the <a href="drm/classes/StateControlLink.htm">&lt;State Control Link&gt;</a> 
+comes into play. Since its value
+is <a href="drm/types/SE_State_Mismatch_Behaviour.htm#SE_STMISMBEH_LAST">
+SE_STMISMBEH_LAST</a>, the aggregation will remain in the
+25% damage state.
+</p><p>
+There are two other possible choices for mismatch_behaviour, but
+they are not appropriate for this example.
+<a href="drm/types/SE_State_Mismatch_Behaviour.htm#SE_STMISMBEH_DEFAULT">
+SE_STMISMBEH_DEFAULT</a> would have reset the aggregate to its default
+state (that provided by the original unmodified active_state_value), namely,
+0% damage. The effect would be that 45% damage would magically appear to
+return the building to its intact state, as for that matter, would 99%
+damage, or any other value not covered by the branches of the aggregation.
+This would seem rather peculiar to the end user. The other possible choice,
+<a href="drm/types/SE_State_Mismatch_Behaviour.htm#SE_STMISMBEH_NONE">
+SE_STMISMBEH_NONE</a>, acts as an 'off' state. The building would seem
+to disappear completely if none of the branches matched, then reappear
+when a matching value occurred. If that had been specified, 5% damage would
+make the building disappear from sight, but 25% damage would make it reappear,
+making life rather bizarre for the end user.
+</p></td></tr></table>
+</td>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">4.3</th>
+<th class="doc_set_toc_outline_description"><a name="43">
+Customizing or Dynamically Changing Appearance
+</a></th></tr>
+
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description">
+<table class="doc_set_toc">
+<tr>
+<th class="doc_set_toc_outline_number">4.3.1</th>
+<th class="doc_set_toc_outline_description"><a name="431">&nbsp;</>
+<a href="drm/classes/ControlLink.htm">&lt;Control Link&gt;</a> 
+Subclasses for the Subclasses of <a href="drm/classes/ColourData.htm">
+&lt;Colour Data&gt;</a>
+</a></th></tr>
+
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+<a href="drm/classes/CMYColourControlLink.htm">
+&lt;CMY Colour Control Link&gt;</a>,
+<a href="drm/classes/HSVColourControlLink.htm">
+&lt;HSV Colour Control Link&gt;</a>, and
+<a href="drm/classes/RGBColourControlLink.htm">
+&lt;RGB Colour Control Link&gt;</a> serve exactly the same purposes for
+their respective colour models. An understanding of the operation of any
+of the three is an understanding of the principles underlying the
+operation of all three. Consequently, this section will describe the
+operation of <a href="drm/classes/RGBColourControlLink.htm">
+&lt;RGB Colour Control Link&gt;</a> only, with the understanding that
+the explanation applies to the other two classes in principle.
+</p><p>
+<a href="drm/classes/RGBColourControlLink.htm">
+&lt;RGB Colour Control Link&gt;</a> provides control over the
+red, green, and blue fields of the target 
+<a href="drm/classes/RGBColour.htm">&lt;RGB Colour&gt;</a> instances.
+A data provider is <EM>not</EM> required to provide control over all
+three fields. If any of the link fields within an
+<a href="drm/classes/RGBColourControlLink.htm">
+&lt;RGB Colour Control Link&gt;</a> instance is zero, that indicates that
+the corresponding target field is not controlled.
+</p><p>
+<a href="drm/classes/RGBColour.htm">&lt;RGB Colour&gt;</a> 
+instances within the context of a 
+<a href="drm/classes/ColourTable.htm">&lt;Colour Table&gt;</a>
+shall not have 
+<a href="drm/classes/RGBColourControlLink.htm">
+&lt;RGB Colour Control Link&gt;</a> components, because a
+<a href="drm/classes/ColourTable.htm">&lt;Colour Table&gt;</a> 
+does not provide an <a href="drm/classes/InterfaceTemplate.htm">
+&lt;Interface Template&gt;</a> to
+allow values to be supplied for <a href="drm/classes/Variable.htm">
+&lt;Variable&gt;</a> instances. Data consumers
+need only concern themselves with 
+<a href="drm/classes/RGBColourControlLink.htm">
+&lt;RGB Colour Control Link&gt;</a> instances
+in the context of <a href="drm/classes/Model.htm">&lt;Model&gt;</a> 
+and <a href="drm/classes/EnvironmentRoot.htm">&lt;Environment Root&gt;</a> 
+instances, and even in that case primarily with the former rather than
+the latter.
+</p><p>
+A data provider may wish to provide control over the colour of a
+<a href="drm/classes/Model.htm">&lt;Model&gt;</a>, so that every 
+<a href="drm/classes/GeometryModelInstance.htm">
+&lt;Geometry Model Instance&gt;</a> of that
+<a href="drm/classes/Model.htm">&lt;Model&gt;</a> can be given a different 
+colour, allowing the user of the <a href="drm/classes/Model.htm">
+&lt;Model&gt;</a> to vary the appearance of model instances without
+being forced to replicate many <a href="drm/classes/Model.htm">
+&lt;Model&gt;</a> instances that differ only in colour. As another 
+example, a <a href="drm/classes/Model.htm">&lt;Model&gt;</a> representing a 
+car may be designed for an environment in which thermal colours are a
+consideration. In this case, the user might need the ability to change
+the colour of the car dynamically, as the engine heats up from a cold
+start or as the engine cools down after being shut off.
+</p></td></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">4.3.2</th>
+<th class="doc_set_toc_outline_description">
+<a href="drm/classes/TranslucencyControlLink.htm" name="432">
+&lt;Translucency Control Link&gt;</a></th>
+</tr>
+
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description">
+<a href="drm/classes/TranslucencyControlLink.htm">
+&lt;Translucency Control Link&gt;</a> provides control over the
+<a href="drm/classes/Translucency.htm#translucency_value">
+translucency_value</a> field of a <a href="drm/classes/Translucency.htm">
+&lt;Translucency&gt;</a> instance. This allows such visual effects as
+fading in puddles based on the precipitation rate.
+</td></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">4.3.3</th>
+<th class="doc_set_toc_outline_description">
+<a name="433">&nbsp;</a>
+<a href="drm/classes/TextureCoordinateControlLink.htm">
+&lt;Texture Coordinate Control Link&gt;
+</a></th></tr>
+
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+<a href="drm/classes/TextureCoordinateControlLink.htm">
+&lt;Texture Coordinate Control Link&gt;</a> provides control over the
+<a href="drm/classes/TextureCoordinate.htm#s">s</a> and
+<a href="drm/classes/TextureCoordinate.htm#t">t</a> fields of a
+<a href="drm/classes/TextureCoordinate.htm">&lt;Texture Coordinate&gt;</a>.
+The producer is <EM>not</EM> required to provide control over both
+fields. If either of the link fields within a
+<a href="drm/classes/TextureCoordinateControlLink.htm">
+&lt;Texture Coordinate Control Link&gt;</a> instance
+(<a href="drm/classes/TextureCoordinateControlLink.htm#s_expr_index">
+s_expr_index</a> or
+<a href="drm/classes/TextureCoordinateControlLink.htm#t_expr_index">
+t_expr_index</a>) is zero, that indicates that the corresponding
+target field is not controlled.
+</p></td></tr>
+</table>
+</td></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">4.4</th>
+<th class="doc_set_toc_outline_description">
+<a href="drm/classes/ControlLink.htm" name="44">
+&lt;Control Link&gt;</a> Subclasses for Table Indices
+</a></th></tr>
+
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description">
+<table class="doc_set_toc">
+<tr>
+<th class="doc_set_toc_outline_number">4.4.1</th>
+<th class="doc_set_toc_outline_description"><a name="441">&nbsp;</a>
+<a href="drm/classes/PropertySetIndexControlLink.htm">
+&lt;Proprty Set Index Control Link&gt;
+</a></th></tr>
+
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+<a href="drm/classes/PropertySetIndexControlLink.htm">
+&lt;Attribute Set Index Control Link&gt;</a> provides control over the index
+field value of the target
+<a href="drm/classes/PropertySetIndex.htm">&lt;Property Set Index&gt;</a>
+instances. For
+example, the appearance of a tree canopy varies according to the season
+of the year, so a data provider may choose to provide the ability to
+apply different texture maps and colours to a representation of a
+tree canopy to represent its appearance in different seasons. This
+can be achieved by providing an <a href="drm/classes/PropertySetTable.htm">
+&lt;Property Set Table&gt;</a> containing
+a different <a href="drm/classes/PropertySet.htm">&lt;Property Set&gt;</a>
+for each season of the year, which in turn specifies appropriate
+<a href="drm/classes/Colour.htm">&lt;Colour&gt;</a> and
+<a href="drm/classes/ImageMappingFunction.htm">
+&lt;Image Mapping Function&gt;</a>
+instances. The aggregate representing the tree canopy is provided with
+an <a href="drm/classes/PropertySetIndex.htm">&lt;Property Set Index&gt;</a> 
+with a component <a href="drm/classes/PropertySetIndexControlLink.htm">
+&lt;Property Set Index Control Link&gt;</a>, to allow the user to change
+the <a href="drm/classes/PropertySetIndex.htm">&lt;Property Set Index&gt;</a> 
+index field to select the appropriate <a href="drm/classes/PropertySet.htm">
+&lt;Property Set&gt;</a> for a given time of year.
+</p></td></tr>
+
+<tr><th class="doc_set_toc_outline_number">4.4.2</th>
+<th class="doc_set_toc_outline_description">
+<a name="442">&nbsp;</a>
+<a href="drm/classes/ColourIndexControlLink.htm">
+&lt;Colour Index Control Link&gt;</a></th>
+</tr>
+
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+<a href="drm/classes/ColourIndexControlLink.htm">
+&lt;Colour Index Control Link&gt;</a> provides control over the
+<a href="drm/classes/ColourIndex.htm#index">index</a> and
+<a href="drm/classes/ColourIndex.htm#intensity_level">intensity_level</a>
+fields of the target <a href="drm/classes/ColourIndex.htm">
+&lt;Colour Index&gt;</a> instances.
+A data provider is <EM>not</EM> required to provide control over
+both field values. If either of the link fields within a
+<a href="drm/classes/ColourIndexControlLink.htm">
+&lt;Colour Index Control Link&gt;</a> instance is zero, that indicates
+that the corresponding target field is not controlled.
+</p></td></tr>
+
+<tr><th class="doc_set_toc_outline_number">4.4.3</th>
+<th class="doc_set_toc_outline_description">
+<a name="443">&nbsp;</a>
+<a href="drm/classes/PropertyTableReferenceControlLink.htm">
+&lt;Property Table Reference Control Link&gt;</a>
+</a></th></tr>
+
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+<a href="drm/classes/PropertyTableReferenceControlLink.htm">
+&lt;Property Table Reference Control Link&gt;</a> provides control over
+the <a href="drm/classes/PropertyTableReference.htm#index_on_axis">
+index_on_axis</a> field of the target
+<a href="drm/classes/PropertyTableReference.htm">
+&lt;Property Table Reference&gt;</a> instances. This allows the user
+to specify different N-1 dimensional 'slices' of the N-dimensional
+<a href="drm/classes/PropertyTable.htm">&lt;Property Table&gt;</a>
+that is referred to by a given target
+<a href="drm/classes/PropertyTableReference.htm">
+&lt;Property Table Reference&gt;</a> instance.
+</p><p>
+For example, consider a <a href="drm/classes/Polygon.htm">&lt;Polygon&gt;</a> 
+instance that specifies the electromagnetic properties of its 
+surface material by a <a href="drm/classes/PropertyTableReference.htm">
+&lt;Property Table Reference&gt;</a> component. If the
+<a href="drm/classes/PropertyTableReference.htm">
+&lt;Property Table Reference&gt;</a> has a
+<a href="drm/classes/PropertyTableReferenceControlLink.htm">
+&lt;Property Table Reference Control Link&gt;</a>, its index_on_axis
+field value can be changed at will, allowing the user to change
+the electromagnetic properties of the <a href="drm/classes/Polygon.htm">
+&lt;Polygon&gt;</a> as a result.
+</p></td></tr>
+</table>
+</td></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">4.5</th>
+<th class="doc_set_toc_outline_description">
+<a href="drm/classes/LSR3DLocationControlLink.htm" name="45">
+&lt;LSR 3D Location Control Link&gt;
+</a></th></tr>
+
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+<a href="drm/classes/LSR3DLocationControlLink.htm">
+&lt;LSR 3D Location Control Link&gt;</a> provides control over the u, v,
+and w fields of the coordinate fields of the target
+<a href="drm/classes/LSR3DLocation.htm">&lt;LSR 3D Location&gt;</a>
+instances. Data providers are <EM>not</EM> required to provide control
+over all three fields. If any of the link fields within an
+<a href="drm/classes/LSR3DLocationControlLink.htm">
+&lt;LSR Location 3D Control Link&gt;</a>
+(<a href="drm/classes/LSR3DLocationControlLink.htm#u_expr_index">
+u_expr_index</a>,
+<a href="drm/classes/LSR3DLocationControlLink.htm#v_expr_index">
+v_expr_index</a>, or
+<a href="drm/classes/LSR3DLocationControlLink.htm#w_expr_index">
+w_expr_index</a>) is zero, that indicates that the corresponding target
+field value is not controlled.
+</p><p>
+For example, consider an <a href="drm/classes/LSR3DLocation.htm">
+&lt;LSR 3D Location&gt;</a> in a <a href="drm/classes/Model.htm">
+&lt;Model&gt;</a> representing a building, where the location 
+represents a point at the foundation of the building. In this case, 
+the data provider wishes to be able to conform each instance of the 
+<a href="drm/classes/Model.htm">&lt;Model&gt;</a> to
+the terrain on which it is instanced, so that the bottom of the
+building rests on the terrain, regardless of whether the terrain is
+flat or hilly. The <a href="drm/classes/LSR3DLocation.htm">
+&lt;LSR 3D Location&gt;</a> is provided with an
+<a href="drm/classes/LSR3DLocationControlLink.htm">
+&lt;LSR 3D Location Control Link&gt;</a> that specifies zero for the u and
+v values of the target, but a controlling <a href="drm/classes/Variable.htm">
+&lt;Variable&gt;</a> for the
+w value.
+</p></td></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">4.6</th>
+<th class="doc_set_toc_outline_description">
+<a name="46">&nbsp;</a>
+<a href="drm/classes/ReferenceVectorControlLink.htm">
+&lt;Reference Vector Control Link&gt;</a>
+</a></th></tr>
+
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+<a href="drm/classes/ReferenceVectorControlLink.htm">
+&lt;Reference Vector Control Link&gt;</a> provides control over the
+<a href="drm/classes/ReferenceVector.htm#unit_vector">unit_vector</a>
+field values of the target <a href="drm/classes/ReferenceVector.htm">
+&lt;Reference Vector&gt;</a> instances.
+Data providers are <EM>not</EM> required to provide control over all
+three entries of the unit vector. If any of the link fields within
+<a href="drm/classes/ReferenceVectorControlLink.htm">
+&lt;Reference Vector Control Link&gt;</a>
+(<a href="drm/classes/ReferenceVectorControlLink.htm#v0_expr_index">
+v0_expr_index</a>,
+<a href="drm/classes/ReferenceVectorControlLink.htm#v1_expr_index">
+v1_expr_index</a>, and
+<a href="drm/classes/ReferenceVectorControlLink.htm#v2_expr_index">
+v2_expr_index</a>) is zero, that indicates that the corresponding
+target is not controlled.
+</p><p>
+One possible use of a <a href="drm/classes/ReferenceVectorControlLink.htm">
+&lt;Reference Vector Control Link&gt;</a> is to
+specify the normal vector of a <a href="drm/classes/Polygon.htm">
+&lt;Polygon&gt;</a> instance. Another
+possible use is to control a 
+<a href="drm/classes/ReferenceVector.htm">&lt;Reference Vector&gt;</a> of type
+<a href="drm/types/SE_Reference_Vector_Type.htm#SE_REF_VEC_TYP_LIGHT_DIRECTION">
+SE_REF_VEC_TYP_LIGHT_DIRECTION</a>, to allow the user to control
+the direction of the light.
+</p></td></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">4.7</th>
+<th class="doc_set_toc_outline_description">
+<a name="47">Motion:</a> 
+<a href="drm/classes/ControlLink.htm">&lt;Control Link&gt;</a> 
+Subclasses for Subclasses of 
+<a href="drm/classes/LSRTransformationStep.htm">&lt;LSR Transformation Step&gt;</a>
+</th></tr>
+
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description">
+<table class="doc_set_toc">
+<tr>
+<th class="doc_set_toc_outline_number">4.7.1</th>
+<th class="doc_set_toc_outline_description">
+<a name="471"></a>
+<a href="drm/classes/RotationControlLink.htm">
+&lt;Rotation Control Link&gt;</a>
+</td></tr>
+
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+<a href="drm/classes/RotationControlLink.htm">
+&lt;Rotation Control Link&gt;</a> provides control over the
+<a href="drm/classes/Rotation.htm#angle">angle</a> field
+values of the target <a href="drm/classes/Rotation.htm">
+&lt;Rotation&gt;</a> instances. In addition,
+<a href="drm/classes/RotationControlLink.htm">&lt;Rotation Control Link&gt;</a>
+is specialized to provide control
+over the upper limit and / or lower limit of the rotation angle,
+although a data provider is not required to provide control over
+all three target fields. If any of the link field values within a
+<a href="drm/classes/RotationControlLink.htm">
+&lt;Rotation Control Link&gt;</a> instance is zero, then the corresponding
+target field value is not controlled.
+</p><p>
+An example of the use of <a href="drm/classes/RotationControlLink.htm">
+&lt;Rotation Control Link&gt;</a> is to specify
+physical constraints on the rotation of a moving part (as well as to
+allow the part to rotate in the first place). Consider a robot with
+a jointed 'arm', where the joint acts like a human elbow: the 'forearm'
+can be rotated for a range of 90 degrees about the axis of the
+elbow joint, but there are upper and lower limits to the angle of
+rotation where the joint would have to be broken to permit any
+further rotation.
+</p><p>
+An example where rotation might be provided without limits can be
+provided by considering a weathervane. A weathervane can rotate
+about its axis, but has no physical limits on its rotation, so
+it does not have to be modelled with constraints on the amount
+of rotation.
+</p><p>
+As an example, consider a <a href="drm/classes/Model.htm">&lt;Model&gt;</a> 
+of a rotating weather vane, such that the weather vane turns to match
+the wind direction. The <a href="drm/classes/Model.htm">&lt;Model&gt;</a> 
+therefore has an <a href="drm/classes/LSRTransformation.htm">
+&lt;LSR Transformation&gt;</a> on its top-level geometry
+to represent the rotation - that is, the 
+<a href="drm/classes/LSRTransformation.htm">&lt;LSR Transformation&gt;</a>
+has a <a href="drm/classes/Rotation.htm">&lt;Rotation&gt;</a> component.
+</p><p>
+However, the rotation angle is determined by the wind
+direction, which is not a fixed value, and is not
+the same at different locations in the world. Each
+instance of the weather vane needs to have an
+independent rotation. Consequently, the <a href="drm/classes/Rotation.htm">
+&lt;Rotation&gt;</a> has a <a href="drm/classes/RotationControlLink.htm">
+&lt;Rotation Control Link&gt;</a> component that
+changes the angle value of the <a href="drm/classes/Rotation.htm">
+&lt;Rotation&gt;</a> to match the wind direction. The controlling 
+<a href="drm/classes/Expression.htm">&lt;Expression&gt;</a>
+of the <a href="drm/classes/RotationControlLink.htm">
+&lt;Rotation Control Link&gt;</a> is therefore a
+<a href="drm/classes/Variable.htm">&lt;Variable&gt;</a> with a 
+<a href="drm/classes/Variable.htm#meaning">meaning</a> of 
+<a href="drm/types/SE_Variable_Code.htm#SE_VARCOD_ROTATION_ANGLE">SE_VARCOD_ROTATION_ANGLE</a>.
+This <a href="drm/classes/Variable.htm">&lt;Variable&gt;</a> is 
+associated by the <a href="drm/classes/Model.htm">&lt;Model&gt;</a>'s
+<a href="drm/classes/InterfaceTemplate.htm">&lt;Interface Template&gt;</a> 
+so that each instance of the model can plug in the appropriate value, 
+in this case the wind direction at that point.
+</p></td></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">4.7.2</th>
+<th class="doc_set_toc_outline_description">
+<a name="472">&nbsp;</a>
+<a href="drm/classes/TranslationControlLink.htm">
+&lt;Translation Control Link&gt;
+</a></th></tr>
+
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+<a href="drm/classes/TranslationControlLink.htm">
+&lt;Translation Control Link&gt;</a> provides control over the
+<a href="drm/classes/Translation.htm#translation_amount">
+translation_amount</a> field of the target
+<a href="drm/classes/Translation.htm">&lt;Translation&gt;</a>
+instances. Specifically,
+<a href="drm/classes/TranslationControlLink.htm">
+&lt;Translation Control Link&gt;</a> is
+specialized to provide control over the amount of translation,
+together with control over the lower limit of that amount
+and / or control over the upper limit. A data provider is <EM>not</EM>
+required to provide control over all three field values. If any of
+the link field values within a 
+<a href="drm/classes/TranslationControlLink.htm">
+&lt;Translation Control Link&gt;</a>
+instance is zero, that indicates that the corresponding target
+field is not controlled.
+</p><p>
+An example of the use of a <a href="drm/classes/TranslationControlLink.htm">
+&lt;Translation Control Link&gt;</a> is to
+specify physical constraints on the motion of a moving part. For instance,
+a building <a href="drm/classes/Model.htm">&lt;Model&gt;</a> may 
+contain an elevator that can move up or down an elevator shaft. 
+The elevator has physical limits on how far it can translate up or 
+down without smashing into the top of the shaft or plunging through 
+the bottom, so it requires upper and lower limits on the amount of 
+translation.
+</p><p>
+As another example, consider a robot with an 'arm' that can be
+extended or retracted from its 'body'. The arm has physical limits
+on how far it can be extended without 'floating' away from the robot's
+body, and how far it can be retracted into the robot without 'breaking'
+the model. Consequently, it requires upper and lower limits on the
+amount of translation.
+</p></td></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">4.7.3</th>
+<th class="doc_set_toc_outline_description">
+<a name="473">&nbsp;</a>
+<a href="drm/classes/ScaleControlLink.htm">
+&lt;Scale Control Link&gt;
+</a></th></tr>
+
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+<a href="drm/classes/ScaleControlLink.htm">&lt;Scale Control Link&gt;</a>
+provides control over the
+<a href="drm/classes/Scale.htm#scale_amount">scale_amount</a> field
+of the target <a href="drm/classes/Scale.htm">&lt;Scale&gt;</a>
+instances. As with <a href="drm/classes/ControlLink.htm">
+&lt;Control Links&gt;</a> for translation and roation,
+<a href="drm/classes/ScaleControlLink.htm">&lt;Scale Control Link&gt;</a>
+is specialized to provide control over the
+upper and lower limits of the scale, as well as the scale itself.
+</p></td></tr>
+</table>
+</td></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">4.8</th>
+<th class="doc_set_toc_outline_description">
+<a name="48">&nbsp;</a>
+<a href="drm/classes/PolygonControlLink.htm">&lt;Polygon Control Link&gt;</a>
+</td></tr>
+
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+<a href="drm/classes/PolygonControlLink.htm">&lt;Polygon Control Link&gt;</a>
+provides control over some of the individual flags within the
+<a href="drm/classes/Polygon.htm#polygon_flags">polygon_flags</a> fields of the
+target <a href="drm/classes/Polygon.htm">&lt;Polygon&gt;</a> instances:
+hat test, collidible, invisible, and laser range finding. Since
+<a href="drm/classes/Polygon.htm#polygon_flags">polygon_flags</a>
+is a set rather than a single value, in which each flag may be set
+to on or off, each flag that can be controlled has a
+corresponding link field in
+<a href="drm/classes/PolygonControlLink.htm">&lt;Polygon Control Link&gt;</a>,
+and specifies
+a controlling <a href="drm/classes/Expression.htm">&lt;Expression&gt;</a> 
+that is evaluated as a boolean,
+to determine whether the corresponding flag should be set or unset.
+Note that only some of the flags may be controlled, but this is only
+because there have been no user requirements to control any of the
+other flags. If any such requirements arise, the SEDRIS team would be
+happy to consider any change requests.
+</p></td></tr>
+</table>
+
+<HR>
+<FONT color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a></strong>
+<br><br>
+
+<div class="CenterDiv">
+<table class="doc_set_header">
+<tr><td>
+<table class="doc_set_header">
+<tr><td class="doc_set_footer" align="left">
+Last updated: July 1, 2011
+</td>
+<td class="doc_set_footer" align="right">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td>
+</tr>
+</table>
+</td></tr>
+</table>
+</div>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Property Set Table Library</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Property Set Table Library
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Property Set Table Library</h2>
+<h3>Superclass - <a href="Library.htm">&lt;Library&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class is a <A href="Library.htm">&lt;Library&gt;</A> instance
+ of <A href="PropertySetTableGroup.htm">&lt;Property Set Table Group&gt;</A> instances.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet10.pdf"><strong>10</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet01.pdf"><strong>1</strong></A>
+</LI>
+<LI><A href="sheet19.pdf"><strong>19</strong></A>
+</LI>
+</UL>
+
+<h3>Example</h3>
+<OL>
+<LI><P>
+ Consider a transmittal containing large stretches of various types
+ of terrain, represented with texture-mapped <A href="Polygon.htm">&lt;Polygon&gt;</A>
+ instances, where the textures are blended with <A href="Colour.htm">&lt;Colour&gt;</A>
+ instances.
+ For efficiency, the source of this transmittal uses a library of
+ terrain textures, which are repeated at intervals across the
+ terrain. Consequently, a limited number of
+ <A href="ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</A> instance,
+ <A href="Colour.htm">&lt;Colour&gt;</A> instance pairs are repeated across a
+ large number of <A href="Polygon.htm">&lt;Polygon&gt;</A> instances as components.
+</P><P>
+ Rather than creating many duplicate DRM objects, the data provider
+ creates a <A href="PropertySetTableLibrary.htm">&lt;Property Set Table Library&gt;</A> instance.
+ Each of the <A href="ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</A> instance,
+ <A href="Colour.htm">&lt;Colour&gt;</A> instance pairs is placed in a
+ <A href="PropertySet.htm">&lt;Property Set&gt;</A> instance, which is in turn stored
+ in the primary <A href="PropertySetTable.htm">&lt;Property Set Table&gt;</A> component of a
+ <A href="PropertySetTableGroup.htm">&lt;Property Set Table Group&gt;</A>
+ component within the library.
+</P><P>
+ Each <A href="Polygon.htm">&lt;Polygon&gt;</A> instance is then given a
+ <A href="PropertySetIndex.htm">&lt;Property Set Index&gt;</A> component,
+ which is associated to the appropriate
+ <A href="PropertySetTableGroup.htm">&lt;Property Set Table Group&gt;</A> instance.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<p>
+No FAQs supplied.
+</p>
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Composed of (two-way)</h3>
+<UL>
+<li>one or more {ordered} <a href="PropertySetTableGroup.htm">&lt;Property Set Table Group&gt;</a> instances</li>
+</UL>
+
+<h3>Composed of (two-way metadata) (inherited)</h3>
+<UL>
+<li>zero or one <a href="Identification.htm">&lt;Identification&gt;</a> instance</li>
+</UL>
+<h3>Component of (two-way)</h3>
+<UL>
+<li>one <a href="TransmittalRoot.htm">&lt;Transmittal Root&gt;</a> instance</li>
+</UL>
+
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+
+<hr>
+<strong>Prev:</strong> <A href="PropertySetTableGroup.htm">Property Set Table Group</A>.
+<strong>Next:</strong> <A href="PropertyTable.htm">Property Table</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,581 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>SEDRIS SDK - Release Notes</title>
+</head>
+<body bgcolor="#ffffff">
+
+<div align="center"><h1><a name="top" id="top">Release Notes</a></h1></div>
+<div align="center">
+<h3>
+SEDRIS C++ SDK Release 4.1.4
+</h3>
+<h3>
+July 1, 2011
+</h3>
+</div>
+
+<ol>
+<li><a href="#intro">Introduction</a></li>
+<li><a href="#distrib">Distribution Packages</a></li>
+<li><a href="#recom">Recommended Reading</a></li>
+<li><a href="#install">Installation</a></li>
+<li><a href="#docs">SDK Documentation Overview</a></li>
+<li><a href="#apps">Applications and Data</a></li>
+<li><a href="#runtime">Runtime Environment Variables</a></li>
+<li><a href="#upgrades">Included Upgrades</a></li>
+<li><a href="#bugs">Bug Reports and Feedback</a></li>
+<li><a href="#webpages">Web Pages</a></li>
+</ol>
+<br />
+
+<h3><a name="intro" id="intro">Introduction</a></h3>
+<blockquote><p>
+Thank you for downloading this release of the SEDRIS Software Development Kit
+(SEDRIS SDK). The SEDRIS SDK is the development environment for building
+applications and components that can unambiguously represent and interchange
+environmental data.
+</p><p>
+This release has been tested on multiple platforms, such as Linux,
+Windows 98/Me/NT/2000/XP, Irix, and Sun. For detailed information on platform
+and compiler versions supported see the
+<a href="buildkit.htm#platform">Build Kit</a>.
+</p><p>
+The SDK includes tools useful for accessing, testing, and viewing SEDRIS
+transmittals (also called STF transmittals). Some of these tools are designed
+to be used from the command line, but there is also an application that can
+display 3D geometry present in a transmittal using the
+<a href="http://www.opengl.org/">OpenGL</a> libraries. More information
+on these applications is available in the
+<a href="tools/index.htm">Tools and Utilities</a> page.
+</p><p>
+This release is compatible with the following SEDRIS technology components:
+</p>
+<ul>
+<li>Data Representation Model (DRM), version 4.1</li>
+<li>Environmental Data Coding Specification (EDCS), version 4.4</li>
+<li>Spatial Reference Model (SRM), version 4.1</li>
+<li>Transmittal Access (TA) API, version 4.1</li>
+<li>SEDRIS Transmittal Format (STF), version 4.1</li>
+</ul>
+
+<p>This release includes the following SEDRIS implementations:</p>
+<ul>
+<li>Reference DRM implementation, version 4.1.4</li>
+<li>Reference EDCS implementation, version 4.4.0</li>
+<li>Reference SRM implementation, version 4.1.4</li>
+<li>Reference TA API implementation, version 4.1.4</li>
+<li>Reference STF implementation, version 4.1.4</li>
+</ul>
+
+<p>
+This reference implementation is compliant with the following
+<a href="http://standards.sedris.org/">SEDRIS IS specifications</a>:
+</p>
+<ul>
+<li>(ISO/IEC 18023-1) SEDRIS -- Part 1: Functional specification</li>
+<li>(ISO/IEC 18023-3) SEDRIS -- Part 3: Transmittal format binary encoding</li>
+<li>(ISO/IEC 18024-4) SEDRIS language bindings -- Part 4: C</li>
+<li>(ISO/IEC 18025) Environmental Data Coding Specification (EDCS)</li>
+<li>(ISO/IEC 18041-4) EDCS language bindings -- Part 4: C</li>
+<li>(ISO/IEC 18026) Spatial Reference Model (SRM)</li>
+<li>(ISO/IEC 18042-4) SRM language bindings -- Part 4: C</li>
+</ul>
+
+<p>
+The EDCS and SRM will be updated on a regular basis, probably at a faster rate
+than the other SEDRIS technology components. New versions of these components
+will easily integrate into your current SEDRIS environment using
+simple file replacements.
+</p><p>
+For help, comments, and bug reports please send email to
+<a href="mailto:help@sedris.org">help@sedris.org</a>. If you are an associate, please use
+<a href="mailto:se-coders@sedris.org">se-coders@sedris.org</a>.
+</p><p>
+Return to: <a href="#top">Top</a>
+</p></blockquote>
+<br />
+
+<h3><a name="distrib" id="distrib">Distribution Packages</a></h3>
+<blockquote><p>
+This version of the SDK is being made available in multiple distribution
+formats. In addition to source code, pre-compiled binaries for all
+supported platforms can be downloaded from the SEDRIS
+web site (<a href="http://www.sedris.org">www.sedris.org</a>). You may
+also download separate distributions of the EDCS SDK and SRM SDK technology
+components in both source and pre-compiled binaries form.
+</p><p>
+The following matrix shows the contents of the different packages for the
+SEDRIS SDK distributions and the directories in which you will find them:
+</p>
+<br />
+
+<div align="center"><table width="90%" border="1" cellpadding="2">
+<tr valign="top">
+<th valign="middle">Package and Contents</th>
+<td align="left" bgcolor="#e0e0e0" width="40"><b>bin</b>:
+<p>Executable binary applications</td>
+<td align="left" bgcolor="#e0e0e0" width="40"><b>docs</b>:
+<p>Documentation, including Release Notes, Migration Guide, and Reference Manual</td>
+<td align="left" bgcolor="#e0e0e0" width="40"><b>include</b>:
+<p>Headers for SEDRIS Technology Components</td>
+<td align="left" bgcolor="#e0e0e0" width="40"><b>lib</b>:
+<p>Compiled binary libraries</td>
+<td align="left" bgcolor="#e0e0e0" width="40"><b>src</b>:
+<p>Source code for SEDRIS Technology Components and Applications</td>
+<td align="left" bgcolor="#e0e0e0" width="40"><b>transmittals</b>:
+<p>Sample SEDRIS STF transmittals</td>
+</tr>
+<tr>
+<td align="left" bgcolor="#e0e0e0"><b>Complete&nbsp;Source&nbsp;Suite</b>:
+<ul>
+<li>All SEDRIS Technology Components</li>
+<li>All SDK Applications</li>
+</ul>
+</td>
+<td bgcolor="#c0c0c0">&nbsp;</td>
+<td align="center">X</td>
+<td align="center">X<sup>1</sup></td>
+<td bgcolor="#c0c0c0">&nbsp;</td>
+<td align="center">X</td>
+<td align="center">X</td>
+</tr><tr>
+<td align="left" bgcolor="#e0e0e0"><b>Complete&nbsp;Binary&nbsp;Suite</b>:
+<ul>
+<li>All SEDRIS Technology Components</li>
+<li>All SDK applications</li>
+</ul>
+</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td bgcolor="#c0c0c0">&nbsp;</td>
+<td align="center">X</td>
+</tr>
+</table></div>
+<p><sup>1</sup> <i>Note: Headers are generated during the build process</i></p>
+<p>Return to: <a href="#top">Top</a></p>
+</blockquote>
+<br />
+
+<h3><a name="recom" id="recom">Recommended Reading</a></h3>
+<blockquote><p>
+The following table may assist developers in finding the documentation
+that best matches their needs:
+</p>
+
+<div align="center">
+<table border="1" width="90%" cellpadding="2">
+<tr>
+<td>&nbsp;</td>
+<th bgcolor="#e0e0e0"><a href="index.htm">Release Notes</a></th>
+<th bgcolor="#e0e0e0"><a href="fixes.htm">Fixes and Limitations</a></th>
+<th bgcolor="#e0e0e0"><a href="buildkit.htm">Build Kit</a></th>
+<th bgcolor="#e0e0e0"><a
+       href="migration/4.0.x_to_4.1/index.htm">Migration Guide</a></th>
+<th bgcolor="#e0e0e0"><a href="tools/index.htm">
+       Tools And Utilities</a></th>
+<th bgcolor="#e0e0e0"><a href="tech/index.htm">SDK Reference Manual</a></th>
+</tr>
+<tr>
+<td bgcolor="#e0e0e0"><b>New user with<br /> binary
+   distribution</b></td>
+<td align="center">Read</td>
+<td align="center">Read</td>
+<td align="center" bgcolor="#c0c0c0">&nbsp;</td>
+<td align="center" bgcolor="#c0c0c0">&nbsp;</td>
+<td align="center">Read</td>
+<td align="center">Read</td>
+</tr>
+<tr>
+<td bgcolor="#e0e0e0"><b>New user with<br /> source code
+   distribution</b></td>
+<td align="center">Read</td>
+<td align="center">Read</td>
+<td align="center">Read</td>
+<td align="center" bgcolor="#c0c0c0">&nbsp;</td>
+<td align="center">Read</td>
+<td align="center">Read</td>
+</tr>
+<tr>
+<td bgcolor="#e0e0e0"><b>Experienced user with<br />binary
+   distribution</b></td>
+<td align="center">Read</td>
+<td align="center">Read</td>
+<td align="center" bgcolor="#c0c0c0">&nbsp;</td>
+<td align="center">Read</td>
+<td align="center" bgcolor="#c0c0c0">&nbsp;</td>
+<td align="center">Read</td>
+</tr>
+<tr>
+<td bgcolor="#e0e0e0"><b>Experienced user with<br />source code
+   distribution</b></td>
+<td align="center" valign="middle">Read</td>
+<td align="center">Read</td>
+<td align="center">Read</td>
+<td align="center">Read</td>
+<td align="center" bgcolor="#c0c0c0">&nbsp;</td>
+<td align="center">Read</td>
+</tr>
+</table></div>
+<p>
+Return to: <a href="#top">Top</a></p>
+</blockquote>
+<br />
+
+<h3><a name="install" id="install">Installation</a></h3>
+<blockquote><p>
+The SEDRIS SDK is distributed as a GNU-zipped tar file for Unix systems and a
+zip file for Win32 systems. If you have obtained a source distribution, you will
+need to build the SDK after installation in order to run the applications and
+test your setup.
+</p><p>
+The binary releases include the OS/architecture type as part of the
+file/directory hierarchy. This allows binary releases associated with different
+OS/architectures to be installed on a common &quot;sedris&quot; SDK directory.
+The OS/architecture-specific libraries and executables are stored under separate
+sub-directories in the &quot;lib&quot; and &quot;bin&quot; directories.
+</p><p>
+To install, extract the contents of the compressed file:
+</p>
+<dl>
+<dt><b>Unix</b></dt>
+<dd><p>
+Use the &quot;tar&quot; and &quot;gzip&quot; commands to extract the
+contents of the SDK:
+</p>
+<blockquote><pre>gunzip -c sdk_file.tgz | tar xf -</pre></blockquote>
+using the appropriate filename for &quot;sdk_file.tgz&quot;.
+<p>If you have GNU tar installed, you can use the following command instead:
+</p>
+<blockquote><pre>tar xzf sdk_file.tgz</pre></blockquote>
+</dd>
+<dt><b>Win32</b></dt>
+<dd><p>
+Unzip the zip file using a decompression utility (such as
+<a href="http://www.winzip.com">WinZip</a> or
+<a href="http://www.7-zip.org">7-Zip</a>) to extract the contents of
+the SDK.
+</p></dd>
+</dl>
+
+<p>
+The next step is to build, test, and use the SDK. See the
+<a href="buildkit.htm">Build Kit</a> page for information on building the SDK
+(if you downloaded a source distribution),
+<a href="buildkit.htm#testing">testing the build</a>, and
+<a href="buildkit.htm#libs">linking your applications and/or libraries</a>
+against the libraries in this SDK.
+</p>
+<p>Return to: <a href="#top">Top</a></p>
+</blockquote>
+<br />
+
+<h3><a name="docs" id="docs">SDK Documentation Overview</a></h3>
+<blockquote>
+<p>The SDK Documentation is divided into the following areas:</p>
+<blockquote>
+<dl>
+  <dt><a href="index.htm">Release Notes</a> (this document)</dt>
+     <dd><p>Describes the capabilities of this release, its contents, and
+         supported platforms and compilers.</p></dd>
+  <dt><a href="buildkit.htm">Build Kit</a></dt>
+     <dd><p>Details the build options and procedures for compiling and
+         linking the software, how to test the build, and how to link
+         applications and libraries against the SDK.</p></dd>
+  <dt><a href="fixes.htm">Fixes And Limitations</a></dt>
+     <dd><p>Describes the fixes and known limitations of this release.</p></dd>
+  <dt><a href="tech/index.htm">SDK Reference Manual</a></dt>
+     <dd><p>Provides links to detailed documents for the DRM, EDCS, SRM,
+         API, and STF technology components.</p></dd>
+  <dt><a href="tools/index.htm">Tools and Utilities</a></dt>
+     <dd><p>Describes the tools and utilities included with this release,
+         such as Depth and Model Viewer.</p></dd>
+  <dt><a href="migration/4.0.x_to_4.1/index.htm">Migration Guide</a></dt>
+     <dd><p>Provides information on procedures and utilities available to
+         migrate applications from previous releases of the SDK.</p></dd>
+</dl>
+</blockquote>
+
+<p>Return to: <a href="#top">Top</a></p>
+</blockquote>
+<br />
+
+<h3><a name="apps" id="apps">Applications and Data</a></h3>
+<blockquote>
+<p>This release includes several applications and sample data that demonstrate
+the use of the SEDRIS SDK to create and access STF transmittals. For more
+information on these applications see the <a href="tools/index.htm">Tools and
+Utilities</a> page.</p>
+
+<p><b>Applications:</b></p>
+<blockquote>
+<dl>
+<dt><a href="tools/depth.htm">Depth</a></dt>
+<dd><p>An application that traverses an STF transmittal and displays the
+    objects in text format. See a
+    <a href="tools/depth.htm#samplerun">sample run of the Depth tool</a>.
+</p></dd>
+<dt><a href="tools/model_viewer.htm">Model Viewer</a></dt>
+<dd><p>A 3D viewer that can display &lt;Model&gt; geometry and textures using
+    OpenGL. See a <a href="tools/model_viewer.htm#samplerun">sample
+    run of the Model Viewer tool</a>.</p></dd>
+<dt><a href="tools/itr_test.htm">ITR Test</a></dt>
+    <dd><p>An application that demonstrates the use of the Inter-Transmittal
+         Referencing mechanism to link multiple STF transmittals.</p></dd>
+<dt><a href="tools/stf_test.htm">STF Test</a></dt>
+   <dd><p>A sample application that creates and populates an STF transmittal
+        with &lt;Data Table&gt; data.</p></dd>
+<dt><a href="tools/rules_checker.htm">Rules Checker</a> (C SDK only)</dt>
+   <dd><p>A tool that checks the semantical correctness of an STF transmittal.
+       See a <a href="tools/rules_checker.htm#samplerun">sample run of the
+       Rules Checker tool</a>.</p></dd>
+<dt><a href="tools/syntax_checker.htm">Syntax Checker</a> (C SDK only)</dt>
+   <dd><p>A tool that checks the syntactical correctness of an STF transmittal.
+       See a <a href="tools/syntax_checker.htm#samplerun">sample run of the
+       Syntax Checker tool</a>.</p></dd>
+</dl>
+</blockquote>
+
+<p><b>Sample STF transmittals and related files:</b></p>
+<blockquote>
+<dl>
+  <dt><b>test.stf</b></dt>
+     <dd><p>Contains one &lt;Model&gt; with 3 polygons.
+         Uses LSR for its environment. There are no textures, features, or
+         grids. There is one green polygon in the &lt;Environment Root&gt;
+         and an instance reference for the &lt;Model&gt;.
+         (green color).</p></dd>
+  <dt><b>sample_comm.stf</b></dt>
+     <dd><p>Contains a model of a communications console. It demonstrates
+         texture mapping.</p></dd>
+  <dt><b>sample_chair.stf</b></dt>
+     <dd><p>Contains a somewhat complex model of an office chair.</p></dd>
+  <dt><b>WindData.stf</b></dt>
+     <dd><p>Contains sample atmospheric data (wind speed and temperature)
+         stored in a &lt;Property Grid&gt; class instance.</p></dd>
+  <dt><b>sedris.rsl</b></dt>
+     <dd><p>A sample SEDRIS resolution file for resolving transmittal
+         Uniform Resource Names (URNs) to STF transmittals.</p></dd>
+</dl>
+</blockquote>
+
+<p>Return to: <a href="#top">Top</a></p>
+<br />
+</blockquote>
+
+<h3><a name="runtime" id="runtime">Runtime Environment Variables</a></h3>
+<blockquote><p>
+The SDK can use several environment variables to control and configure
+its runtime execution.</p>
+
+<p><b>Environment variables common to both the C and C++ SDKs:</b></p>
+<blockquote>
+<dl>
+  <dt><b>SEDRIS_RESOLVER_PATH</b></dt>
+  <dd><p>This variable specifies the path(s) where the API should look for
+  SEDRIS resolution (*.rsl) files.</p></dd>
+</dl>
+</blockquote>
+
+<p><b>Environment variables unique to the C SDK:</b></p>
+<blockquote>
+<p><b>Note:</b> These variables rarely need to be set.</p>
+<dl>
+<dt><b>SE_API_MEMORY_MODEL</b></dt>
+<dd><p>This variable allows the user to specify, at a high level, the amount
+  of memory to use. Its allowed values are SMALL (default), MEDIUM, and LARGE.
+  Each choice will set the default values of the subordinate memory model
+  environment variables SE_RAIF_MAX_OBJECT_CACHE_SIZE and
+  SE_STF_BLOCK_CACHE_SIZE.</p></dd>
+<dt><b>SE_RAIF_MAX_OBJECT_CACHE_SIZE</b></dt>
+<dd><p>The API maintains a cache of objects. This cache is made up of objects
+  that the user has a handle for and objects that have been previously
+  processed. This reduces the need to re-create previously seen objects.
+  SE_RAIF_MAX_OBJECT_CACHE_SIZE specifies the maximum number of objects in
+  the cache before the API will delete objects that don't have a user handle.
+  The default is 4096.</p></dd>
+<dt><b>SE_STF_BLOCK_CACHE_SIZE</b></dt>
+<dd><p>This variable specifies how many STF memory blocks to keep in memory.
+  Every file contains 2048 blocks; the more blocks in memory the less they
+  have to be instantiated. The default value is 500.</p></dd>
+</dl>
+
+<p>
+If SE_API_MEMORY_MODEL is set and the user overrides the subordinate
+variables, then the overriding values will be used.
+</p><p>
+The following are the default values for each memory model choice:
+</p>
+<div align="center">
+<table border="1" width="80%" cellpadding="3">
+<tr>
+ <th bgcolor="#e0e0e0">Memory Model</th>
+ <th bgcolor="#e0e0e0">Default Setting</th>
+</tr>
+<tr><td align="center" valign="middle">SMALL<br />(default)</td>
+ <td valign="middle">
+  SE_RAIF_MAX_OBJECT_CACHE_SIZE = 4096<br />
+  SE_STF_BLOCK_CACHE_SIZE = 500
+ </td></tr>
+<tr><td align="center" valign="middle">MEDIUM</td>
+ <td valign="middle">
+  SE_RAIF_MAX_OBJECT_CACHE_SIZE = 32768<br />
+  SE_STF_BLOCK_CACHE_SIZE = 2000
+ </td></tr>
+<tr><td align="center" valign="middle">LARGE</td>
+ <td valign="middle">
+  SE_RAIF_MAX_OBJECT_CACHE_SIZE = 131072<br />
+  SE_STF_BLOCK_CACHE_SIZE = 10000
+ </td></tr>
+</table>
+</div>
+
+<p>The following considerations can be used when deciding to set
+these variables in order to attempt performance improvements:</p>
+<dl>
+ <dt><b>Object interconnectivity</b></dt>
+   <dd><p>If a transmittal has a high amount of object sharing and hence
+       is highly interconnected, the user could benefit by enlarging
+       the memory model, which causes more objects to be maintained in
+       memory. Since in highly interconnected transmittals the same
+       objects will be encountered many times, maintaining them in
+       memory means that they will not have to be re-instantiated each
+       time they are encountered. The API can directly access them and
+       the user will have immediate access, rather than having to read
+       them from disk or convert them in memory.</p></dd>
+ <dt><b>Traversal algorithm</b></dt>
+   <dd><p>The second area of impact depends on the user's traversal
+       algorithm. The user could benefit from larger memory models
+       if the user consumes/produces transmittals in a manner in which
+       the same transmittal areas are visited repeatedly. In the case
+       where the user has simple depth-first traversal and processes most
+       objects only once, there is no benefit in enlarging the memory
+       model.</p></dd>
+ <dt><b>&lt;Data Table&gt; production</b></dt>
+   <dd><p>The third area affected is specific to data providers of
+       &lt;Data Tables&gt;. Using a small memory model while a
+       &lt;Data Table&gt; is being produced will optimize the
+       &lt;Data Table&gt;'s size on disk, while a large memory model
+       will optimize it for speed of consumption.</p></dd>
+</dl>
+</blockquote>
+
+<p>Return to: <a href="#top">Top</a></p>
+</blockquote>
+<br />
+
+<h3><a name="upgrades" id="upgrades">Included Upgrades</a></h3>
+<blockquote>
+<p>The following table provides a short summary of changes in this release.
+For a full description of software fixes and known limitations in this
+SDK release see <a href="fixes.htm">Fixes And Limitations</a>.</p>
+
+<div align="center">
+<table border="1" width="90%" cellpadding="3">
+<tr>
+  <th bgcolor="#e0e0e0">SEDRIS Change Requests (SCRs) addressed</th>
+  <td valign="middle">None</td>
+</tr>
+<tr>
+  <th bgcolor="#e0e0e0">DRM</th>
+  <td valign="middle">None</td>
+</tr>
+<tr>
+<th bgcolor="#e0e0e0">SRM</th>
+<td valign="middle">
+<ul>
+<li>Build environment cleanups/fixes.</li>
+<li>Added support for builds on Cygwin 1.6/1.7, Visual Studio 2008 and 2010.
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th bgcolor="#e0e0e0">EDCS</th>
+<td valign="middle">
+<ul>
+<li>Build environment cleanups/fixes.</li>
+<li>Added support for builds on Cygwin 1.6/1.7, Visual Studio 2008 and 2010.
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+  <th bgcolor="#e0e0e0">Transmittal Access C API</th>
+<td valign="middle">
+<ul>
+<li>Build environment cleanups/fixes.</li>
+<li>Added support for builds on Cygwin 1.6/1.7, Visual Studio 2008 and 2010.
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+  <th bgcolor="#e0e0e0">Transmittal Access C++ API</th>
+<td valign="middle">
+<ul>
+<li>Bug fix in getRelationsCount()</li>
+<li>Build environment cleanups/fixes.</li>
+<li>Added support for builds on Cygwin 1.6/1.7, Visual Studio 2008 and 2010.
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th bgcolor="#e0e0e0">Applications</th>
+<td>
+<ul>
+<li>Additional checks in Rules Checker</li>
+<li>Several bug fixes in Model Viewer</li>
+</ul>
+</td>
+</tr>
+</table>
+</div>
+
+<p>
+A SEDRIS Change Request (SCR) is the means by which users
+make their requests for SEDRIS technology changes as either a functional
+enhancement or a software problem. Users can make such requests via the
+<a href="http://www.sedris.org/fbk2trpl.htm">SCR Form Web Site</a>.
+The SEDRIS Associates can review the status of the SCRs at the SEDRIS
+website while the non-associates can obtain their status by sending a
+request for specific SCRs to <a href="mailto:se-scrccb@sedris.org">
+se-scrccb@sedris.org</a>.
+</p>
+
+<p>Return to: <a href="#top">Top</a></p>
+</blockquote>
+<br />
+
+<h3><a name="bugs" id="bugs">Bug Reports and Feedback</a></h3>
+<blockquote>
+<p>Questions, comments, and bug reports should be sent to
+<a href="mailto:help@sedris.org">help@sedris.org</a>.</p>
+<p>If you are an associate, please send email to
+<a href="mailto:se-coders@sedris.org">se-coders@sedris.org</a>.</p>
+<p>Return to: <a href="#top">Top</a></p>
+</blockquote>
+<br />
+
+<h3><a name="webpages" id="webpages">Web Pages</a></h3>
+<blockquote>
+<p>These links require Internet access:</p>
+<ul>
+<li><a href="http://www.sedris.org/">SEDRIS (www.sedris.org)</a></li>
+<li><a href="http://www.sedris.org/dwn4trpl.htm">SEDRIS SDK Download</a></li>
+<li><a href="http://tools.sedris.org/">SEDRIS Tools</a></li>
+<li><a href="http://www.sedris.org/pro_trpl.htm">SEDRIS Documents</a></li>
+</ul>
+<p>Return to: <a href="#top">Top</a></p>
+</blockquote>
+<br />
+
+<p>
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</p>
+</body>
+</html>

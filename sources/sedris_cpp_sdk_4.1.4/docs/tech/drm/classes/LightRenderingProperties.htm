@@ -1,0 +1,239 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Light Rendering Properties</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Light Rendering Properties
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Light Rendering Properties</h2>
+<h3>Superclass - <a href="SEDRISAbstractBase.htm">&lt;SEDRIS Abstract Base&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies that the aggregating
+ <A href="GeometryRepresentation.htm">&lt;Geometry Representation&gt;</A> instance is to be
+ rendered so as to provide the illusion that the
+ <A href="GeometryRepresentation.htm">&lt;Geometry Representation&gt;</A> instance emits light,
+ but unlike an actual <A href="LightSource.htm">&lt;Light Source&gt;</A> instance, the
+ <A href="GeometryRepresentation.htm">&lt;Geometry Representation&gt;</A> instance
+ will not actually emit light.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet21.pdf"><strong>21</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet04.pdf"><strong>4</strong></A>
+</LI>
+<LI><A href="sheet05.pdf"><strong>5</strong></A>
+</LI>
+<LI><A href="sheet19.pdf"><strong>19</strong></A>
+</LI>
+</UL>
+
+<h3>Example</h3>
+<OL>
+<LI><P>
+ Consider a <A href="Point.htm">&lt;Point&gt;</A> instance <span class="ConstructName">S</span>
+ representing a light attached to the exterior wall of a house,
+ where <span class="ConstructName">S</span> has a
+ <A href="LightRenderingProperties.htm">&lt;Light Rendering Properties&gt;</A> component. The house
+ is surrounded by trees and other buildings, and
+ <span class="ConstructName">S</span> is located under an overhang. Consequently,
+ the geometry of the environment surrounding the light is such that
+ <span class="ConstructName">S</span> cannot be seen from a distance of more than
+ 500 metres, so the
+ <A href="#light_extinguishing_range">light_extinguishing_range</A>
+ field of <span class="ConstructName">S</span> is set to 500.
+</P></LI>
+<LI><P>
+ Consider a <A href="Point.htm">&lt;Point&gt;</A> instance <span class="ConstructName">S</span>
+ representing a streetlight on a pole mounted on an overpass,
+ where <span class="ConstructName">S</span> has a
+ <A href="LightRenderingProperties.htm">&lt;Light Rendering Properties&gt;</A> component. The
+ <A href="#light_extinguishing_range">light_extinguishing_range</A>
+ field of <span class="ConstructName">S</span> is set to 0, indicating that
+ the light can be seen from any distance.
+</P></LI>
+<LI><P>
+ See the subclasses of the <A href="LightRenderingBehaviour.htm">&lt;Light Rendering Behaviour&gt;</A> class
+ for examples.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<p>
+No FAQs supplied.
+</p>
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/HomogeneousLightRenderingProperties.htm">&lt;&lt;Homogeneous Light Rendering Properties&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Composed of (two-way)</h3>
+<UL>
+<li>zero or more <a href="LightRenderingBehaviour.htm">&lt;Light Rendering Behaviour&gt;</a> instances</li>
+<li>zero or one <a href="LightRenderingPropertiesControlLink.htm">&lt;Light Rendering Properties Control Link&gt;</a> instance<sup><A href="#Notes_cmp_Light_Rendering_Properties_Control_Link" name="cmp_Light_Rendering_Properties_Control_Link">1</A></sup></li>
+</UL>
+
+<h3>Component of (two-way)</h3>
+<UL>
+<li>zero or more <a href="AggregateGeometry.htm">&lt;Aggregate Geometry&gt;</a> instances</li>
+<li>zero or more <a href="PrimitiveGeometry.htm">&lt;Primitive Geometry&gt;</a> instances</li>
+<li>zero or more <a href="PropertySet.htm">&lt;Property Set&gt;</a> instances</li>
+</UL>
+
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Point_Light_Display_Type.htm">SE_Point_Light_Display_Type</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="display_type">display_type</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_display_type">2</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Long_Float.htm">SE_Long_Float</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="light_diameter">light_diameter</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_light_diameter">3</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Long_Float.htm">SE_Long_Float</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="light_extinguishing_range">light_extinguishing_range</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_light_extinguishing_range">4</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Boolean.htm">SE_Boolean</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="random_area_light">random_area_light</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_random_area_light">5</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Boolean.htm">SE_Boolean</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="active_light_value">active_light_value</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_active_light_value">6</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Long_Float.htm">SE_Long_Float</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="candela_value">candela_value</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_candela_value">7</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Composed of Notes</h3>
+<br>
+<h4><a href="#cmp_Light_Rendering_Properties_Control_Link" name="Notes_cmp_Light_Rendering_Properties_Control_Link">Light_Rendering_Properties_Control_Link</a></h4>
+ If a <A href="LightRenderingProperties.htm">&lt;Light Rendering Properties&gt;</A> instance is
+ subject to dynamic control (that is, if it can be turned on and off
+ or the candela value of the light can vary) it has a
+ <A href="LightRenderingPropertiesControlLink.htm">&lt;Light Rendering Properties Control Link&gt;</A>
+ component to express that control mechanism.
+</P>
+<h3>Fields Notes</h3>
+<h4><a href="#display_type" name="Notes_display_type">display_type</a></h4>
+<P>
+ The <A href="#display_type">display_type</A> field
+ specifies whether the light is raster or calligraphic.
+</P>
+<h4><a href="#light_diameter" name="Notes_light_diameter">light_diameter</a></h4>
+<P>
+ The <A href="#light_diameter">light_diameter</A> field
+ specifies the size of the light, in pixels.
+ The default value, 0.0,
+ means &quot;not applicable.&quot;
+</P>
+<h4><a href="#light_extinguishing_range" name="Notes_light_extinguishing_range">light_extinguishing_range</a></h4>
+<P>
+ The <A href="#light_extinguishing_range">light_extinguishing_range</A>
+ field specifies the distance,
+ in metres, at which the light is no longer seen.
+ The default value, 0.0, means that it is always seen.
+</P>
+<h4><a href="#random_area_light" name="Notes_random_area_light">random_area_light</a></h4>
+<P>
+ The <A href="#random_area_light">random_area_light</A> field
+ specifies whether all lights at this level and in the associated
+ component tree were originally part of an area with randomly
+ generated lights.
+</P>
+<h4><a href="#active_light_value" name="Notes_active_light_value">active_light_value</a></h4>
+<P>
+ The <A href="#active_light_value">active_light_value</A> field
+ specifies the active state of the light, where
+ <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A> = on, and
+ <A href="../types/SE_Boolean.htm#SE_FALSE">SE_FALSE</A> = off. For a
+ <A href="LightRenderingProperties.htm">&lt;Light Rendering Properties&gt;</A> instance
+ with a <A href="LightRenderingPropertiesControlLink.htm">&lt;Light Rendering Properties Control Link&gt;</A>
+ component <span class="ConstructName">X</span>, where the
+ <A href="LightRenderingPropertiesControlLink.htm#active_expression_index">active_expression_index</A>
+ field of <span class="ConstructName">X</span> is non-zero, the value of the
+ <A href="#active_light_value">active_light_value</A> field
+ is obtained from <span class="ConstructName">X</span>.
+</P>
+<h4><a href="#candela_value" name="Notes_candela_value">candela_value</a></h4>
+<P>
+ The <A href="#candela_value">candela_value</A> field specifies
+ the candela value of the light at full intensity.
+ The default value, 0.0, means that the
+ source had no candela value. For a
+ <A href="LightRenderingProperties.htm">&lt;Light Rendering Properties&gt;</A> instance
+ with a <A href="LightRenderingPropertiesControlLink.htm">&lt;Light Rendering Properties Control Link&gt;</A>
+ component <span class="ConstructName">X</span>, where the
+ <A href="LightRenderingPropertiesControlLink.htm#candela_value_expression_index">candela_value_expression_index</A>
+ field of <span class="ConstructName">X</span> is non-zero, the value of the
+ <A href="#candela_value">candela_value</A> field
+ is obtained from <span class="ConstructName">X</span>.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="LightRenderingBehaviour.htm">Light Rendering Behaviour</A>.
+<strong>Next:</strong> <A href="LightRenderingPropertiesControlLink.htm">Light Rendering Properties Control Link</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

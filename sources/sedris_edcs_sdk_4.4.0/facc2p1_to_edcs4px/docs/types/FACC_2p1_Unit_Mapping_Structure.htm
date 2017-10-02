@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<title>FACC_2p1_Unit_Mapping_Structure</title>
+<link rel="stylesheet" href="../../../docs/styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div align="center">
+<table border="2" class="doc_set_header">
+<tr><th class="doc_set_header">
+<big><big>EDCS Reference Manual</big></big>
+<br>
+<font color="#ffffff">
+Concept Mapping from FACC 2.1 to EDCS 4.4
+<!-- FACC 2.1 to EDCS 4.4 Mapping SDK Release 4.4.0.0 -->
+<!-- EDCS spec. 4.4 -->
+<br>
+Types
+<br>
+FACC_2p1_Unit_Mapping_Structure
+</font>
+</th></tr>
+</table>
+</div>
+
+<PRE>
+/*
+ * STRUCT: FACC_2p1_Unit_Mapping_Structure
+ *
+ *   Forward mapping information for an EDCS unit of measure.
+ */
+</PRE>
+<table class="CFunctionPrototype">
+<tr><td class="CFunction">typedef</td> <td class="CFunction">struct</td></tr>
+<tr><td class="CFunction">{</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="FACC_2p1_Mapping_Type_Code.htm">FACC_2p1_Mapping_Type_Code</a></td> 
+        <td class="CFunction"><a name="map_type">map_type</a>;</td><td class="CFunction"> <a href="#Notes_map_type">(notes)</a></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../../docs/types/EDCS_Unit_Code.htm">EDCS_Unit_Code</a></td>         
+        <td class="CFunction"><a name="eu_code">eu_code</a>;</td><td class="CFunction"> <a href="#Notes_eu_code">(notes)</a></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../../docs/types/EDCS_Unit_Scale_Code.htm">EDCS_Unit_Scale_Code</a></td>        
+        <td class="CFunction"><a name="es_code">es_code</a>;</td><td class="CFunction"> <a href="#Notes_es_code">(notes)</a></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../../docs/types/EDCS_Character.htm">EDCS_Character</a></td>        
+        <td class="CFunction">*<a name="information">information</a>;</td><td class="CFunction"> <a href="#Notes_information">(notes)</a></td></tr>
+</table>
+} FACC_2p1_Unit_Mapping_Structure;<br>
+
+<br>
+<HR>
+<H2>Field Notes</H2>
+<br>
+<H4><a href="#map_type" name="Notes_map_type">map_type</a></H4>
+<p>
+ Specifies the type and multiplicity of the forward mapping,
+ which is needed to interpret the values of the remaining
+ fields.
+</p>
+<H4><a href="#eu_code" name="Notes_eu_code">eu_code</a></H4>
+<p>
+ If map_type indicates that the concept was dropped without
+ support, then this field carries no relevant information
+ and is set to zero (0).
+</p><p>
+ Otherwise, this is the proper EU code in the target version
+ of EDCS.
+</p>
+<br>
+<H4><a href="#es_code" name="Notes_es_code">es_code</a></H4>
+<p>
+ If map_type indicates that the concept was dropped without
+ support, then this field carries no relevant information
+ and is set to zero (0).
+</p><p>
+ Otherwise, this is the proper ES code in the target version
+ of EDCS.
+</p>
+<H4><a href="#information" name="Notes_information">information</a></H4>
+ Provides any additional human-readable information that
+ may be of interest to the user.
+
+<br><br>
+<STRONG>Up:</STRONG><a href="../facc2p1_edcs4px.htm#Part5">Index</a>.
+<br><br>
+<table class="doc_set_header">
+<tr><td>
+<table class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="left" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</BODY>
+</HTML>

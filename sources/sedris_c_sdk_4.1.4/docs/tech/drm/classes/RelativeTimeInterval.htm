@@ -1,0 +1,260 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Relative Time Interval</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Relative Time Interval
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Relative Time Interval</h2>
+<h3>Superclass - <a href="TimeInterval.htm">&lt;Time Interval&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies an interval of time, defined
+ by a start time and a stop time that are relative to another time.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet20.pdf"><strong>20</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+This class appears on only one page of the DRM class diagram.
+<h3>Example</h3>
+<OL>
+<LI><P>
+ The <A href="RelativeTimeInterval.htm">&lt;Relative Time Interval&gt;</A> instance specifies the
+ time period for which a transmittal should be considered to be
+ valid. The stop time can be considered to be the time at which
+ the validity expires.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ What is the purpose of this class?
+</B></DT>
+<DD><P>
+ This class provides a mechanism for specifying a time interval in terms
+ of times relative to another time.  The time interval is used to specify
+ <A href="../bibliography.htm#I19115">ISO 19115</A>-compliant metadata that describes a
+ time period that is significant for some high-level DRM object
+ (<I>e.g.</I>,
+ an instance of <A href="TransmittalRoot.htm">&lt;Transmittal Root&gt;</A>,
+ <A href="Model.htm">&lt;Model&gt;</A>, or <A href="Image.htm">&lt;Image&gt;</A>) and as a
+ general-purpose mechanism for describing time intervals.
+ <A href="RelativeTimeInterval.htm">&lt;Relative Time Interval&gt;</A> allows
+ potential users of a transmittal or DRM object to evaluate a time period
+ significant for that transmittal or DRM object without necessarily
+ obtaining or examining the transmittal or DRM object directly.
+</P></DD>
+<DT><B>
+ How can a data provider specify a time interval relative to start of
+ simulation?
+</B><DT>
+<DD><P>
+ This is specified by omitting the
+ <A href="AbsoluteTime.htm">&lt;Absolute Time&gt;</A> component.
+ If there is no
+ <A href="AbsoluteTime.htm">&lt;Absolute Time&gt;</A> component,
+ the deltas are relative to simulation start.
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/LegalTimeRanges.htm">&lt;&lt;Legal Time Ranges&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/TimeDependency.htm">&lt;&lt;Time Dependency&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/TimeIntervalCalculation.htm">&lt;&lt;Time Interval Calculation&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Composed of (two-way)</h3>
+<UL>
+<li>zero or one <a href="AbsoluteTime.htm">&lt;Absolute Time&gt;</a> instance<sup><A href="#Notes_cmp_Absolute_Time" name="cmp_Absolute_Time">1</A></sup></li>
+</UL>
+
+<h3>Component of (two-way) (inherited)</h3>
+<UL>
+<li>zero or more <a href="EnvironmentRoot.htm">&lt;Environment Root&gt;</a> instances</li>
+<li>zero or more <a href="TimeConstraintsData.htm">&lt;Time Constraints Data&gt;</a> instances</li>
+<li>zero or one <a href="TransmittalRoot.htm">&lt;Transmittal Root&gt;</a> instance</li>
+<li>zero or more <a href="Season.htm">&lt;Season&gt;</a> instances</li>
+<li>zero or more <a href="SoundInstance.htm">&lt;Sound Instance&gt;</a> instances</li>
+<li>zero or more <a href="Source.htm">&lt;Source&gt;</a> instances</li>
+</UL>
+<h2><a name="inherited_field">Inherited Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Time_Significance.htm">SE_Time_Significance</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="time_significance">time_significance</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_time_significance">2</A></sup></p></td>
+</tr>
+</table>
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Integer.htm">SE_Integer</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="delta_start_days">delta_start_days</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_delta_start_days">3</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Integer.htm">SE_Integer</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="delta_stop_days">delta_stop_days</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_delta_stop_days">4</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Byte_Unsigned.htm">SE_Byte_Unsigned</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="delta_start_hours">delta_start_hours</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_delta_start_hours">5</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Byte_Unsigned.htm">SE_Byte_Unsigned</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="delta_stop_hours">delta_stop_hours</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_delta_stop_hours">6</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Byte_Unsigned.htm">SE_Byte_Unsigned</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="delta_start_minutes">delta_start_minutes</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_delta_start_minutes">7</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Byte_Unsigned.htm">SE_Byte_Unsigned</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="delta_stop_minutes">delta_stop_minutes</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_delta_stop_minutes">8</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Long_Float.htm">SE_Long_Float</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="delta_start_seconds">delta_start_seconds</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_delta_start_seconds">9</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Long_Float.htm">SE_Long_Float</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="delta_stop_seconds">delta_stop_seconds</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_delta_stop_seconds">10</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Composed of Notes</h3>
+<br>
+<h4><a href="#cmp_Absolute_Time" name="Notes_cmp_Absolute_Time">Absolute_Time</a></h4>
+ If the <A href="RelativeTimeInterval.htm">&lt;Relative Time Interval&gt;</A> instance R has
+ an <A href="AbsoluteTime.htm">&lt;Absolute Time&gt;</A> component, R is relative to the
+ specified absolute time; otherwise, R is relative to
+ the start time of the consuming application (<I>i.e.</I>,
+ simulation start time).
+</P>
+<h3>Fields Notes</h3>
+<h4><a href="#time_significance" name="Notes_time_significance">time_significance</a></h4>
+<P>
+ The <A href="#time_significance">time_significance</A>
+ field specifies the usage of the time information.
+</P>
+<h4><a href="#delta_start_days" name="Notes_delta_start_days">delta_start_days</a></h4>
+<P>
+ The
+ <A href="#delta_start_days">delta_start_days</A>
+ field specifies the starting whole day of the
+ interval, relative to the specified time.
+</P>
+<h4><a href="#delta_stop_days" name="Notes_delta_stop_days">delta_stop_days</a></h4>
+<P>
+ The
+ <A href="#delta_stop_days">delta_stop_days</A>
+ field specifies the stopping whole day of the
+ interval, relative to the specified time.
+</P>
+<h4><a href="#delta_start_hours" name="Notes_delta_start_hours">delta_start_hours</a></h4>
+<P>
+ The
+ <A href="#delta_start_hours">delta_start_hours</A>
+ field specifies the starting whole hour of the
+ interval, relative to the specified time.
+</P>
+<h4><a href="#delta_stop_hours" name="Notes_delta_stop_hours">delta_stop_hours</a></h4>
+<P>
+ The
+ <A href="#delta_stop_hours">delta_stop_hours</A>
+ field specifies the stopping whole hour of the interval,
+ relative to the specified time.
+</P>
+<h4><a href="#delta_start_minutes" name="Notes_delta_start_minutes">delta_start_minutes</a></h4>
+<P>
+ The <A href="#delta_start_minutes">delta_start_minutes</A> field
+ specifies the starting whole minute of
+ the interval, relative to the specified time.
+</P>
+<h4><a href="#delta_stop_minutes" name="Notes_delta_stop_minutes">delta_stop_minutes</a></h4>
+<P>
+ The <A href="#delta_stop_minutes">delta_stop_minutes</A> field
+ specifies the stopping whole minute of the
+ interval, relative to the specified time.
+</P>
+<h4><a href="#delta_start_seconds" name="Notes_delta_start_seconds">delta_start_seconds</a></h4>
+<P>
+ The <A href="#delta_start_seconds">delta_start_seconds</A> field
+ specifies the starting second of
+ the interval, relative to the specified time.
+</P>
+<h4><a href="#delta_stop_seconds" name="Notes_delta_stop_seconds">delta_stop_seconds</a></h4>
+<P>
+ The <A href="#delta_stop_seconds">delta_stop_seconds</A> field
+ specifies the stopping second of the
+ interval, relative to the specified time.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="RelativeTime.htm">Relative Time</A>.
+<strong>Next:</strong> <A href="RenderingPriorityLevel.htm">Rendering Priority Level</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

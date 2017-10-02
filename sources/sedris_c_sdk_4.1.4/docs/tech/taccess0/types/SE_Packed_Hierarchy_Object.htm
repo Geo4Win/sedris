@@ -1,0 +1,203 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE_Packed_Hierarchy_Object</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Types
+</font>
+<br>
+<font color="#ffffff">
+SE_Packed_Hierarchy_Object
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<PRE>
+/*
+ * STRUCT: SE_Packed_Hierarchy_Object
+ *
+ *   Part of the data returned from SE_GetPackedHierarchy() or
+ *   SE_GetRemainingPackedHierarchiesList().  This structure represents
+ *   an object in a Packed Hierarchy.
+ *
+ *  NOTE FOR AGGREGATE REFERENCES:
+ *    Just because an object has no aggregates &quot;within the hierarchy&quot; does not
+ *    mean the object has no aggregates.  Applications requiring this
+ *    information should use an aggregate iterator to return all the aggregate
+ *    objects.
+ */
+</PRE>
+<span class="Code">typedef struct se_packed_hierarchy_object
+<br>
+{</span>
+<br>
+<table class="CFunctionPrototype">
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Object.htm">SE_Object</a></td>
+        <td class="CFunction"><a name="this_object"></a>this_object;</td><td class="CFunction"><sup><A href="#Notes_this_object">1</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../drm/types/SE_Boolean.htm">SE_Boolean</a></td>
+        <td class="CFunction"><a
+        name="components_included"></a>components_included;</td><td class="CFunction"><sup><A href="#Notes_components_included">2</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../drm/types/SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a></td>
+        <td class="CFunction"><a
+        name="component_count"></a>component_count;</td><td class="CFunction"><sup><A href="#Notes_component_count">3</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Packed_Hierarchy_Reference.htm">SE_Packed_Hierarchy_Reference</a></td>
+        <td class="CFunction">*<a name="components"></a>components;</td><td class="CFunction"><sup><A href="#Notes_components">4</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../drm/types/SE_Boolean.htm">SE_Boolean</a></td>
+        <td class="CFunction"><a
+        name="aggregates_included"></a>aggregates_included;</td><td class="CFunction"><sup><A href="#Notes_aggregates_included">5</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../drm/types/SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a></td>
+        <td class="CFunction"><a
+        name="aggregate_count"></a>aggregate_count;</td><td class="CFunction"><sup><A href="#Notes_aggregate_count">6</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Packed_Hierarchy_Reference.htm">SE_Packed_Hierarchy_Reference</a></td>
+        <td class="CFunction">*<a name="aggregates"></a>aggregates;</td><td class="CFunction"><sup><A href="#Notes_aggregates">7</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../drm/types/SE_DRM_Class_Fields.htm">SE_DRM_Class_Fields</a></td>
+        <td class="CFunction"><a name="fields"></a>fields;</td><td class="CFunction"><sup><A href="#Notes_fields">8</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Status_Code.htm">SE_Status_Code</a></td>
+        <td class="CFunction"><a name="status_code"></a>status_code;</td><td class="CFunction"><sup><A href="#Notes_status_code">9</A></sup></td></tr>
+</table>
+<span class="Code">
+} SE_Packed_Hierarchy_Object;</span>
+<br>
+
+<br>
+<HR>
+<H2>Field Notes</H2>
+<h4><a href="#this_object" name="Notes_this_object">this_object</a></h4>
+<P>
+ A handle to the object represented by this structure. The user would
+ need this in cases where the object is to be passed to other API
+ functions.
+</P>
+<h4><a href="#components_included" name="Notes_components_included">components_included</a></h4>
+<P>
+ A boolean flag indicating whether the components of
+<A href="#this_object">this_object</A> are
+ included in this packed hierarchy.  If
+ <A href="#components_included">components_included</A> is
+ <A href="../../drm/types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A>, but
+ <A href="#component_count">component_count</A> is
+ 0, then the object has no components.
+</P>
+<h4><a href="#component_count" name="Notes_component_count">component_count</a></h4>
+<P>
+ A count of the number of component references (see
+  <A href="#components">components</A>). The number of
+ components of this_object that are included in this
+ <A href="SE_Packed_Hierarchy.htm">SE_Packed_Hierarchy</A>.
+</P><P>
+ If <A href="#components_included">components_included</A> is
+ <A href="../../drm/types/SE_Boolean.htm#SE_FALSE">SE_FALSE</A>, this shall be zero (0).
+</P><P>
+ If <A href="#components_included">components_included</A> is
+ <A href="../../drm/types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A>, but
+ <A href="#component_count">component_count</A> is 0, then
+ <A href="#this_object">this_object</A> has no components within
+ the specified packed hierarchy.
+</P>
+<h4><a href="#components" name="Notes_components">components</a></h4>
+<P>
+ An array (of size
+ <A href="#component_count">component_count</A>) of references
+ for the components of <A href="#this_object">this_object</A>.
+</P>
+<h4><a href="#aggregates_included" name="Notes_aggregates_included">aggregates_included</a></h4>
+<P>
+ A boolean flag indicating whether the aggregates of
+ <A href="#this_object">this_object</A> are included in the
+ packed hierarchy.  If aggregates_included is
+ <A href="../../drm/types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A>, but
+ <A href="#aggregate_count">aggregate_count</A> is 0, then
+ <A href="#this_object">this_object</A> has no aggregates within
+ this packed hierarchy.
+</P>
+<h4><a href="#aggregate_count" name="Notes_aggregate_count">aggregate_count</a></h4>
+<P>
+ The number of aggregates of this_object that are within this
+ <A href="SE_Packed_Hierarchy.htm">SE_Packed_Hierarchy</A>.
+</P><P>
+ If <A href="#aggregates_included">aggregates_included</A> is
+ <A href="../../drm/types/SE_Boolean.htm#SE_FALSE">SE_FALSE</A>, this shall be zero (0).
+</P><P>
+ If <A href="#aggregates_included">aggregates_included</A> is
+ <A href="../../drm/types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A>, but
+ <A href="#aggregate_count">aggregate_count</A> is zero (0),
+ then <A href="#this_object">this_object</A> has no aggregates
+ within the specified packed hierarchy.
+</P>
+<h4><a href="#aggregates" name="Notes_aggregates">aggregates</a></h4>
+<P>
+ An array (of size <A href="#aggregate_count">aggregate_count</A>)
+ of references for the aggregates of
+ <A href="#this_object">this_object</A>.
+</P>
+<h4><a href="#fields" name="Notes_fields">fields</a></h4>
+<P>
+ The fields of <A href="#this_object">this_object</A>.
+</P>
+<h4><a href="#status_code" name="Notes_status_code">status_code</a></h4>
+<P>
+ Corresponds to this_object; used to provide ITR information
+ in hierarchies that cross ITR boundaries. Possible values
+ are:
+</P>
+<OL>
+<LI><A href="SE_Status_Code.htm#SE_STATCODE_SUCCESS">SE_STATCODE_SUCCESS</A> - the corresponding
+ object is in the same transmittal as the hierarchy's root object
+</LI>
+<LI><A href="SE_Status_Code.htm#SE_STATCODE_DIFFERENT_TRANSMITTAL">SE_STATCODE_DIFFERENT_TRANSMITTAL</A> - the
+ corresponding object is in a different transmittal than the
+ hierarchy's root object, and is resolved
+</LI>
+<LI><A href="SE_Status_Code.htm#SE_STATCODE_UNRESOLVED_OUTPUT_OBJECT">SE_STATCODE_UNRESOLVED_OUTPUT_OBJECT</A> -
+ the corresponding object is in a different transmittal than the
+ hierarchy's root object, but was not resolved
+</LI>
+</OL>
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SE_Packed_Hierarchy.htm">SE_Packed_Hierarchy</a>.
+<strong>Next:</strong> <a href="SE_Packed_Hierarchy_Object_Access.htm">SE_Packed_Hierarchy_Object_Access</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

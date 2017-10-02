@@ -1,0 +1,372 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Feature Volume</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Feature Volume
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Feature Volume</h2>
+<h3>Superclass - <a href="FeatureTopology.htm">&lt;Feature Topology&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class is a three-dimensional
+ <A href="FeatureTopology.htm">&lt;Feature Topology&gt;</A> instance used to
+ represent the region of space that corresponds to parts of
+ zero or more <A href="VolumetricFeature.htm">&lt;Volumetric Feature&gt;</A>
+ instances, bounded by two or more
+ <A href="FeatureFace.htm">&lt;Feature Face&gt;</A> instances.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet12.pdf"><strong>12</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet08.pdf"><strong>8</strong></A>
+</LI>
+</UL>
+
+<h3>Example</h3>
+<OL>
+<LI><P>
+ Consider a <A href="VolumetricFeature.htm">&lt;Volumetric Feature&gt;</A> instance
+ representing a building as depicted in <a href="#Figure17">Figure 17</a>:
+</P>
+<DIV align="center">
+<p>
+<A name="Figure17"></A>
+ <IMG SRC="../Images/FeatVolEx1.png"
+  ALT="Feature Volume, Example 1">
+</p>
+<p class=FigureCaption>Figure 17 &#8212; &lt;DRM Feature Volume&gt; example</p>
+</DIV>
+<P>
+ It has:
+</P>
+<OL type='a'>
+<LI>an associated <A href="FeatureVolume.htm">&lt;Feature Volume&gt;</A> instance that
+ defines its extent, shape, and topological relationships;
+</LI>
+<LI> a <A href="ClassificationData.htm">&lt;Classification Data&gt;</A> component
+ that classifies it as an <A href="../../../../src/lib/edcs/docs/dictionary/ECC_B.htm#ECC_BUILDING">ECC_BUILDING</A>;
+</LI>
+<LI><A href="PropertyValue.htm">&lt;Property Value&gt;</A> components that
+ describe its characteristics, such as material composition; and
+</LI>
+<LI>a <A href="Label.htm">&lt;Label&gt;</A> component that identifies it as
+ &quot;The Empire State Building&quot;.
+</LI>
+</OL>
+</LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ When are <A href="FeatureVolume.htm">&lt;Feature Volume&gt;</A> instances required?
+</B></DT>
+<DD><P>
+ <A href="FeatureVolume.htm">&lt;Feature Volume&gt;</A> instances are
+ required whenever there are
+ <A href="VolumetricFeature.htm">&lt;Volumetric Feature&gt;</A> instances,
+ regardless of the feature topology level.
+</P></DD>
+<DT><B>
+ Are there any geometric constraints on
+ <A href="FeatureVolume.htm">&lt;Feature Volume&gt;</A> instances?
+</B></DT>
+<DD><P>
+ Yes.  <A href="FeatureVolume.htm">&lt;Feature Volume&gt;</A> instances
+ must always have closed external boundaries, and their
+ interiors must be fully connected.  At feature topology
+ level 5, the interiors of
+ <A href="FeatureVolume.htm">&lt;Feature Volume&gt;</A> instances may
+ not intersect or overlap one another, and
+ <A href="FeatureVolume.htm">&lt;Feature Volume&gt;</A> instances may
+ meet only along one or more common
+ <A href="FeatureFace.htm">&lt;Feature Face&gt;</A> instances.
+</P></DD>
+<DT><B>
+ Can <A href="FeatureVolume.htm">&lt;Feature Volume&gt;</A> instances
+ exist at any feature topology level?
+</B></DT>
+<DD><P>
+ Yes. <A href="FeatureVolume.htm">&lt;Feature Volume&gt;</A> instances
+ may exist at any feature topology level in order to define
+ the extents of <A href="VolumetricFeature.htm">&lt;Volumetric Feature&gt;</A>
+ instances. At feature topology level 5, the collection of
+ <A href="FeatureVolume.htm">&lt;Feature Volume&gt;</A> instances must
+ exhaustively and exclusively partition the 3-dimensional
+ topological space, such that exactly two
+ <A href="FeatureVolume.htm">&lt;Feature Volume&gt;</A> instances
+ shall be bounded by each <A href="FeatureFace.htm">&lt;Feature Face&gt;</A>
+ instance.
+</P></DD>
+<DT><B>
+ Looking at the relationships allowed for
+ <A href="FeatureTopology.htm">&lt;Feature Topology&gt;</A> instances, we
+ note that the <A href="FeatureNode.htm">&lt;Feature Node&gt;</A> to
+ <A href="FeatureNode.htm">&lt;Feature Node&gt;</A> association, and
+ the <A href="FeatureEdge.htm">&lt;Feature Edge&gt;</A> to
+ <A href="FeatureEdge.htm">&lt;Feature Edge&gt;</A> association are &quot;many to
+ many&quot;, while the <A href="FeatureFace.htm">&lt;Feature Face&gt;</A>
+ to <A href="FeatureFace.htm">&lt;Feature Face&gt;</A> association is
+ &quot;optional to optional&quot;.  Why is there no corresponding
+ association between <A href="FeatureVolume.htm">&lt;Feature Volume&gt;</A>
+ instances?
+</B></DT>
+<DD><P>
+ These associations exist to support cross-tile topology. This
+ refers to topological relationships that cross multiple branches
+ below a
+ <A href="SpatialIndexRelatedFeatures.htm">&lt;Spatial Index Related Features&gt;</A>
+ instance,
+ a <A href="SpatialIndexRelatedFeatureTopology.htm">&lt;Spatial Index Related Feature Topology&gt;</A>
+ instance,
+ a <A href="PerimeterRelatedFeatures.htm">&lt;Perimeter Related Features&gt;</A>
+ instance, or a
+ <A href="PerimeterRelatedFeatureTopology.htm">&lt;Perimeter Related Feature Topology&gt;</A>
+ instance.
+ <A href="FeatureNode.htm">&lt;Feature Node&gt;</A> instances,
+ <A href="FeatureEdge.htm">&lt;Feature Edge&gt;</A> instances, and, in 3D,
+ <A href="FeatureFace.htm">&lt;Feature Face&gt;</A> instances can be
+ located on the boundary of a tile. When this happens, they have
+ &quot;counterparts&quot; in each of the adjacent tiles that share the
+ boundary. These associations allow
+ <A href="FeatureNode.htm">&lt;Feature Node&gt;</A> instances,
+ <A href="FeatureEdge.htm">&lt;Feature Edge&gt;</A> instances, and
+ <A href="FeatureFace.htm">&lt;Feature Face&gt;</A> instances to identify their
+ counterparts, if any.
+</P><P>
+ In 2D,
+</P>
+<UL>
+<LI>
+ tile boundary <A href="FeatureNode.htm">&lt;Feature Node&gt;</A> instances
+ come in pairs, unless they're located at a corner where four tiles
+ meet,
+</LI>
+<LI>
+ tile boundary <A href="FeatureEdge.htm">&lt;Feature Edge&gt;</A> instances
+ always come in pairs,
+</LI>
+<LI>
+ <A href="FeatureFace.htm">&lt;Feature Face&gt;</A> instances are
+ always contained within a single tile.
+</LI>
+</UL>
+<P>
+ In 3D,
+</P>
+<UL>
+<LI>
+ tile boundary <A href="FeatureNode.htm">&lt;Feature Node&gt;</A> instances
+ can come in
+<UL>
+<LI>
+ pairs, if they're located within a tile boundary
+ <A href="FeatureFace.htm">&lt;Feature Face&gt;</A> instance,
+</LI>
+<LI>
+ fours, if they lie on a tile boundary
+ <A href="FeatureEdge.htm">&lt;Feature Edge&gt;</A> instance, or
+</LI>
+<LI>
+ eights, if they are at a tile boundary corner.
+</LI>
+</UL>
+</LI>
+<LI>
+ tile boundary <A href="FeatureEdge.htm">&lt;Feature Edge&gt;</A> instances
+ can come in
+<UL>
+<LI>
+ pairs, if they are contained in a tile boundary
+ <A href="FeatureFace.htm">&lt;Feature Face&gt;</A> instance, or
+</LI>
+<LI>
+ fours if they lie on a tile boundary
+ <A href="FeatureEdge.htm">&lt;Feature Edge&gt;</A> instance.
+</LI>
+</UL>
+</LI>
+<LI>
+ tile boundary <A href="FeatureFace.htm">&lt;Feature Face&gt;</A>
+ instances only come in pairs, so a
+ <A href="FeatureFace.htm">&lt;Feature Face&gt;</A> instance can have at
+ most one counterpart.
+</LI>
+<LI>
+ <A href="FeatureVolume.htm">&lt;Feature Volume&gt;</A> instances
+ cannot be part of a tile boundary (though their bounding
+ <A href="FeatureFace.htm">&lt;Feature Face&gt;</A> instances can).
+ Therefore, <A href="FeatureVolume.htm">&lt;Feature Volume&gt;</A>
+ instances never have counterparts in adjacent tiles.
+</LI>
+</UL>
+</DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/PropertyConstraints.htm">&lt;&lt;Property Constraints&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ConstraintsOnAssociates.htm">&lt;&lt;Constraints On Associates&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ContainedEdgeConstraints.htm">&lt;&lt;Contained Edge Constraints&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ContainedNodeConstraints.htm">&lt;&lt;Contained Node Constraints&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/FacesBorderingVolumes.htm">&lt;&lt;Faces Bordering Volumes&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Associated by (one-way)</h3>
+<UL>
+<li>zero or more <a href="FeatureFace.htm">&lt;Feature Face&gt;</a> instances<sup><A href="#Notes_asn_fromFeature_Face" name="asn_fromFeature_Face">1</A></sup></li>
+</UL>
+
+<h3>Associated with (two-way)</h3>
+<UL>
+<li>zero or more <a href="FeatureEdge.htm">&lt;Feature Edge&gt;</a> instances<sup><A href="#Notes_asn_biFeature_Edge" name="asn_biFeature_Edge">2</A></sup></li>
+<li>zero or more <a href="FeatureNode.htm">&lt;Feature Node&gt;</a> instances<sup><A href="#Notes_asn_biFeature_Node" name="asn_biFeature_Node">3</A></sup></li>
+<li>zero or more <a href="VolumetricFeature.htm">&lt;Volumetric Feature&gt;</a> instances</li>
+</UL>
+
+<h3>Composed of (two-way) (inherited)</h3>
+<UL>
+<li>zero or more <a href="PropertyValue.htm">&lt;Property Value&gt;</a> instances</li>
+</UL>
+<h3>Composed of (two-way)</h3>
+<UL>
+<li>zero or more {ordered} <a href="FeatureVolumeShell.htm">&lt;Feature Volume Shell&gt;</a> instances<sup><A href="#Notes_cmp_Feature_Volume_Shell" name="cmp_Feature_Volume_Shell">4</A></sup></li>
+</UL>
+
+<h3>Component of (two-way) (inherited)</h3>
+<UL>
+<li>one or more <a href="UnionOfFeatureTopology.htm">&lt;Union Of Feature Topology&gt;</a> instances</li>
+</UL>
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Boolean.htm">SE_Boolean</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="universal">universal</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_universal">5</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Associated from Notes</h3>
+<br>
+<h4><a href="#asn_fromFeature_Face" name="Notes_asn_fromFeature_Face">Feature_Face</a></h4>
+ The <A href="FeatureFace.htm">&lt;Feature Face&gt;</A> instances that
+ border the <A href="FeatureVolume.htm">&lt;Feature Volume&gt;</A>
+ instance indicate the relationship by their association to the
+ <A href="FeatureVolume.htm">&lt;Feature Volume&gt;</A> instance. The converse
+ of this relationship is that between
+ <A href="FeatureVolumeShell.htm">&lt;Feature Volume Shell&gt;</A> instances and
+ <A href="FeatureFace.htm">&lt;Feature Face&gt;</A> instances.
+</P>
+<h3>Associated with Notes</h3>
+<br>
+<h4><a href="#asn_biFeature_Edge" name="Notes_asn_biFeature_Edge">Feature_Edge</a></h4>
+ If the <A href="FeatureVolume.htm">&lt;Feature Volume&gt;</A> instance
+ has an association relationship
+ with a <A href="FeatureEdge.htm">&lt;Feature Edge&gt;</A> instance,
+ that <A href="FeatureEdge.htm">&lt;Feature Edge&gt;</A>
+ instance is contained within the
+ <A href="FeatureVolume.htm">&lt;Feature Volume&gt;</A> instance.
+</P>
+<br>
+<h4><a href="#asn_biFeature_Node" name="Notes_asn_biFeature_Node">Feature_Node</a></h4>
+ If the <A href="FeatureVolume.htm">&lt;Feature Volume&gt;</A> instance has
+ an association relationship
+ with a <A href="FeatureNode.htm">&lt;Feature Node&gt;</A> instance,
+ that <A href="FeatureNode.htm">&lt;Feature Node&gt;</A>
+ instance is contained within the
+ <A href="FeatureVolume.htm">&lt;Feature Volume&gt;</A> instance.
+</P>
+<h3>Composed of Notes</h3>
+<br>
+<h4><a href="#cmp_Feature_Volume_Shell" name="Notes_cmp_Feature_Volume_Shell">Feature_Volume_Shell</a></h4>
+ The first <A href="FeatureVolumeShell.htm">&lt;Feature Volume Shell&gt;</A> instance
+ associated with a <A href="FeatureVolume.htm">&lt;Feature Volume&gt;</A> instance is its
+ external shell, while the remaining, if any, are its internal
+ shells.  Exception: Since the universal
+ <A href="FeatureVolume.htm">&lt;Feature Volume&gt;</A> instance has no external
+ boundary, all of its shells are internal shells.
+</P>
+<h3>Fields Notes</h3>
+<h4><a href="#universal" name="Notes_universal">universal</a></h4>
+<P>
+ The <A href="#universal">universal</A> field specifies that the
+ <A href="FeatureVolume.htm">&lt;Feature Volume&gt;</A> instance is the
+ universal <A href="FeatureVolume.htm">&lt;Feature Volume&gt;</A>
+ instance.  Within a 3D tile that has feature topology level 5,
+ the universal <A href="FeatureVolume.htm">&lt;Feature Volume&gt;</A>
+ instance lies outside any other volumes.  Since the
+ external boundary of the universal
+ <A href="FeatureVolume.htm">&lt;Feature Volume&gt;</A> instance
+ is conceptually at infinity, a <A href="FeatureVolume.htm">&lt;Feature Volume&gt;</A>
+ instance that has this field set to
+ <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A> has no external
+ <A href="FeatureVolumeShell.htm">&lt;Feature Volume Shell&gt;</A> instance.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="FeatureTopologyHierarchy.htm">Feature Topology Hierarchy</A>.
+<strong>Next:</strong> <A href="FeatureVolumeShell.htm">Feature Volume Shell</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

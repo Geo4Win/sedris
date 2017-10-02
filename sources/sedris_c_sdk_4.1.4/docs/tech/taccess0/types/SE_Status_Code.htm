@@ -1,0 +1,267 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE_Status_Code</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Types
+</font>
+<br>
+<font color="#ffffff">
+SE_Status_Code
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<PRE>
+/*
+ * REGISTERABLE ENUM: SE_Status_Code
+ *
+ *   Return codes for all SEDRIS Level 0 API functions that can fail.
+ *   To determine the exact meaning of a status code with respect to a
+ *   particular function, read the comments for that function.
+ *
+ *   SE_STATCODE_INACTIONABLE_FAILURE has priority over the other
+ *   failure values. If a function call would fail due to multiple reasons,
+ *   and if SE_STATCODE_INACTIONABLE_FAILURE is one of those reasons,
+ *   then SE_STATCODE_INACTIONABLE_FAILURE is the reason that will be
+ *   returned.
+ */
+</PRE><span class="Code">
+typedef <a href="../../drm/types/SE_Short_Integer.htm">SE_Short_Integer</a> SE_Status_Code;
+</span>
+<table>
+<tr><th>Enumerant</th> <th>Definition</th> <th>Value</th></tr>
+<tr><td class="CFunction"><a name="SE_STATCODE_SUCCESS">SE_STATCODE_SUCCESS</a></td>
+<td class="CFunction"><PRE>
+ To be returned when all parameters are valid and all operations
+ succeeded, as a general statement. SE_STATCODE_SUCCESS always indicates
+ that the function succeeded.
+
+ However, see individual functions for details, since some of the
+ other status codes do not necessarily indicate error conditions
+ (for example, SE_STATCODE_NO_OBJECT,
+ SE_STATCODE_DIFFERENT_TRANSMITTAL)
+
+ In other words, a function may return something other than
+ SE_STATCODE_SUCCESS, without encountering an error condition. (See
+ SE_GetNextObject(), for example.)
+</PRE></td>
+<td class="CFunction">1</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_STATCODE_DELETED_OBJECT">SE_STATCODE_DELETED_OBJECT</a></td>
+<td class="CFunction"><PRE>
+ To be returned by a function when an argument of type SE_Object
+ has been removed from its transmittal.
+</PRE></td>
+<td class="CFunction">2</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_STATCODE_DIFFERENT_TRANSMITTAL">SE_STATCODE_DIFFERENT_TRANSMITTAL</a></td>
+<td class="CFunction"><PRE>
+ To be returned when the caller passed in valid parameters
+ to the given function, and one or more objects were encountered
+ that were in a different transmittal than the start object.
+
+ Note that this status is *not* an error condition when
+ extracting objects, but *is* an error condition when
+ attempting to remove objects from a transmittal.
+</PRE></td>
+<td class="CFunction">3</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_STATCODE_INVALID_ACCESS_MODE">SE_STATCODE_INVALID_ACCESS_MODE</a></td>
+<td class="CFunction"><PRE>
+ To be returned by a function (for example SE_OpenTransmittalByLocation())
+ if the resolved file location of a transmittal was found, but
+ the security permissions of the underlying system (OS /
+ filesystem) prohibited access to the file in the mode specified.
+
+ This could occur if
+ (1) the access mode specified was create or update and the
+     file was marked read-only, or
+
+ (2) no access was permitted for the account running the
+     application, or
+
+ (3) create or update mode was requested but the API
+     implementation did not support the write capability
+     (for example when linked to a read-only s1000-SEDRIS API
+     implementation).
+
+ (4) a function requiring create or update mode was invoked
+     for an object in a transmittal that was opened in
+     read-only mode, for example attempting to remove an object
+     from a read-only transmittal.
+</PRE></td>
+<td class="CFunction">4</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_STATCODE_INVALID_OBJECT_LABEL">SE_STATCODE_INVALID_OBJECT_LABEL</a></td>
+<td class="CFunction"><PRE>
+ To be returned when the caller has provided as a function
+ argument a label that is not valid in accordance with label
+ syntax rules (i.e. the same lexical conventions that apply
+ to the name of a variable in ANSI C), or when an attempt
+ is made to publish an object with a label that is already
+ in use.
+</PRE></td>
+<td class="CFunction">5</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_STATCODE_INVALID_TRANSMITTAL_NAME">SE_STATCODE_INVALID_TRANSMITTAL_NAME</a></td>
+<td class="CFunction"><PRE>
+ To be returned when a parameter representing a transmittal name
+ did not specify a name that was valid according to the formal
+ SEDRIS namespace. See SE_ResolveTransmittalName()'s description
+ for a description of the validation done.
+</PRE></td>
+<td class="CFunction">6</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_STATCODE_NO_OBJECT">SE_STATCODE_NO_OBJECT</a></td>
+<td class="CFunction"><PRE>
+ To be returned by SE_GetNextObject(), the 1-shot functions,
+ etc. when there are no objects left to return that meet the
+ specified criteria.
+</PRE></td>
+<td class="CFunction">7</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_STATCODE_SRF_OPERATION_UNSUPPORTED">SE_STATCODE_SRF_OPERATION_UNSUPPORTED</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">8</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_STATCODE_TRANSMITTAL_INACCESSIBLE">SE_STATCODE_TRANSMITTAL_INACCESSIBLE</a></td>
+<td class="CFunction"><PRE>
+ To be returned by the open-transmittal functions (for example
+ SE_OpenTransmittalByLocation()) if the resolved file location
+ was not accessible by the API.
+
+ This could occur if the file was opened for read-only or update
+ and the file did not exist.  It could also occur if the file
+ location specified a non-local file and the API had no transport
+ mechanism for accessing the remote file.
+</PRE></td>
+<td class="CFunction">9</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_STATCODE_UNPUBLISHED_OBJECT">SE_STATCODE_UNPUBLISHED_OBJECT</a></td>
+<td class="CFunction"><PRE>
+ To be returned when an object is encountered (while
+ attempting to process an intertransmittal reference)
+ that is not published by its its transmittal.
+
+ (To be available for intertransmittal referencing,
+ an object must be published.)
+</PRE></td>
+<td class="CFunction">10</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_STATCODE_UNRESOLVED_TRANSMITTAL">SE_STATCODE_UNRESOLVED_TRANSMITTAL</a></td>
+<td class="CFunction"><PRE>
+ To be returned when a reference to a transmittal is encountered
+ that cannot be resolved.
+</PRE></td>
+<td class="CFunction">11</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_STATCODE_UNRESOLVED_INPUT_OBJECT">SE_STATCODE_UNRESOLVED_INPUT_OBJECT</a></td>
+<td class="CFunction"><PRE>
+ To be returned when the caller has provided as a function
+ argument an unresolved object, for example as the start object
+ for an iterator.
+
+ Note that this status *is* an error condition, returned
+ when the API must be able to access the content of the
+ unresolved object in order to perform the requested
+ operation.
+</PRE></td>
+<td class="CFunction">12</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_STATCODE_UNRESOLVED_OUTPUT_OBJECT">SE_STATCODE_UNRESOLVED_OUTPUT_OBJECT</a></td>
+<td class="CFunction"><PRE>
+ To be returned when an SE_Object handle is encountered that
+ references a DRM object that is not available to the
+ SEDRIS API, i.e., the DRM object is contained within a
+ transmittal whose content the API cannot access or the
+ application programmer has chosen to not to access that
+ content.
+
+ Note that this status is not necessarily an error condition.
+ See the individual functions that can return this status
+ for further details.
+</PRE></td>
+<td class="CFunction">13</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_STATCODE_UNSUPPORTED_ENCODING">SE_STATCODE_UNSUPPORTED_ENCODING</a></td>
+<td class="CFunction"><PRE>
+ To be returned by the open-transmittal functions (for example
+ SE_OpenTransmittalByLocation()) when a transmittal was requested
+ in a format that is not supported by the implementation(s)
+ of the SEDRIS API linked to the application.
+</PRE></td>
+<td class="CFunction">14</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_STATCODE_INACTIONABLE_FAILURE">SE_STATCODE_INACTIONABLE_FAILURE</a></td>
+<td class="CFunction"><PRE>
+ This code indicates a general, unknown, or other error for
+ which there is no meaningful branch that the application code
+ could make. (The error description may contain more detailed
+ information.)
+</PRE></td>
+<td class="CFunction">1000</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_STATCODE_OUT_OF_MEMORY">SE_STATCODE_OUT_OF_MEMORY</a></td>
+<td class="CFunction"><PRE>
+ To be returned when the API is out of memory.
+</PRE></td>
+<td class="CFunction">1001</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_STATCODE_C_ENUMERATION_VALUE_INVALID">SE_STATCODE_C_ENUMERATION_VALUE_INVALID</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">2401</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_STATCODE_C_STORE_INVALID">SE_STATCODE_C_STORE_INVALID</a></td>
+<td class="CFunction"></td>
+<td class="CFunction">2402</td>
+</TR>
+</table>
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SE_State_Select_Parameters.htm">SE_State_Select_Parameters</a>.
+<strong>Next:</strong> <a href="SE_Status_Logger.htm">SE_Status_Logger</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

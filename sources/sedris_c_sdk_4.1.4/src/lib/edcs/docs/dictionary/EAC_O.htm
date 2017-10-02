@@ -1,0 +1,3757 @@
+<!DOCTYPE HTML PUBLIC="-//W3C/DTD HTML 4.01 Transitional//EN">
+<html>
+<!-- EDCS spec. 4.4 -->
+<!-- July 1, 2011 -->
+<head>
+<title>EDCS Reference Manual</title>
+</head>
+<body text="#000000" bgcolor="#ffffff" link="#0000ee" vlink="#800080" alink="#ff0000">
+<div align="center">
+<table border="2" width="100%" bgcolor="#0000ff">
+<tr>
+<th><font color="#00ffff"><big><big>
+EDCS Reference Manual
+</big></big></font><br>
+<font color="#ffffff">
+EDCS Attribute Dictionary - Concepts whose labels begin with the letter O
+</font>
+</th>
+</tr>
+</table>
+</div>
+<a name="Top" id="Top"></a>
+<br>
+<b>EDCS Attribute Label</b>: <a name="EAC_OBJECT_ASPECT" id="EAC_OBJECT_ASPECT">OBJECT_ASPECT</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_OBJECT_ASPECT
+</p><p>
+<b>EDCS Attribute Code</b>: 885
+</p><p>
+<b>Definition</b>:
+<br>
+The portion or aspect of an &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt; in relation to the &lt;<a href="ECC_T.htm#ECC_TERRAIN">TERRAIN</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_OBJASP_BODY" id="EEC_OBJASP_BODY">1</a></td>
+<td>BODY</td>
+<td>EEC_OBJASP_BODY</td>
+<td>Body.</td>
+<td>IR</td>
+<td>[CATT]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJASP_CUT" id="EEC_OBJASP_CUT">2</a></td>
+<td>CUT</td>
+<td>EEC_OBJASP_CUT</td>
+<td>&lt;<a href="ECC_M.htm#ECC_MATERIAL">MATERIAL</a>&gt;s remaining after partial removal to depress the base of a &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt; below the level of the surrounding &lt;<a href="ECC_L.htm#ECC_LAND">LAND</a>&gt;; cut.</td>
+<td>IR</td>
+<td>[CATT]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJASP_CUT_TRANSITION" id="EEC_OBJASP_CUT_TRANSITION">3</a></td>
+<td>CUT_TRANSITION</td>
+<td>EEC_OBJASP_CUT_TRANSITION</td>
+<td>&lt;&lt;&lt;<a href="EAC_O.htm#EEC_OBJASP_CUT">CUT</a>&gt;&gt;&gt; transition.</td>
+<td>IR</td>
+<td>[CATT]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJASP_EMBANK" id="EEC_OBJASP_EMBANK">4</a></td>
+<td>EMBANK</td>
+<td>EEC_OBJASP_EMBANK</td>
+<td>&lt;<a href="ECC_M.htm#ECC_MATERIAL">MATERIAL</a>&gt; used to elevate the base of an &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt; above the level of the surrounding land; embankment.</td>
+<td>IR</td>
+<td>[CATT]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJASP_EMBANK_OR_CUT_TRANSITION" id="EEC_OBJASP_EMBANK_OR_CUT_TRANSITION">5</a></td>
+<td>EMBANK_OR_CUT_TRANSITION</td>
+<td>EEC_OBJASP_EMBANK_OR_CUT_TRANSITION</td>
+<td>&lt;&lt;&lt;<a href="EAC_O.htm#EEC_OBJASP_EMBANK">EMBANK</a>&gt;&gt;&gt;s and/or &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OBJASP_CUT">CUT</a>&gt;&gt;&gt;s transition &lt;<a href="ECC_R.htm#ECC_REGION">REGION</a>&gt;s.</td>
+<td>IR</td>
+<td>[CATT]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJASP_EMBANK_TRANSITION" id="EEC_OBJASP_EMBANK_TRANSITION">6</a></td>
+<td>EMBANK_TRANSITION</td>
+<td>EEC_OBJASP_EMBANK_TRANSITION</td>
+<td>&lt;&lt;&lt;<a href="EAC_O.htm#EEC_OBJASP_EMBANK">EMBANK</a>&gt;&gt;&gt; transition.</td>
+<td>IR</td>
+<td>[CATT]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJASP_LEFT_CUT" id="EEC_OBJASP_LEFT_CUT">7</a></td>
+<td>LEFT_CUT</td>
+<td>EEC_OBJASP_LEFT_CUT</td>
+<td>&lt;&lt;&lt;<a href="EAC_O.htm#EEC_OBJASP_CUT">CUT</a>&gt;&gt;&gt; located to the left side of the &lt;<a href="ECC_D.htm#ECC_DIRECTION">DIRECTION</a>&gt; of travel.</td>
+<td>IR</td>
+<td>[CATT]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJASP_LEFT_CUT_TRANSITION" id="EEC_OBJASP_LEFT_CUT_TRANSITION">8</a></td>
+<td>LEFT_CUT_TRANSITION</td>
+<td>EEC_OBJASP_LEFT_CUT_TRANSITION</td>
+<td>&lt;&lt;&lt;<a href="EAC_O.htm#EEC_OBJASP_LEFT_CUT">LEFT_CUT</a>&gt;&gt;&gt; transition.</td>
+<td>IR</td>
+<td>[CATT]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJASP_LEFT_EMBANK" id="EEC_OBJASP_LEFT_EMBANK">9</a></td>
+<td>LEFT_EMBANK</td>
+<td>EEC_OBJASP_LEFT_EMBANK</td>
+<td>&lt;&lt;&lt;<a href="EAC_O.htm#EEC_OBJASP_EMBANK">EMBANK</a>&gt;&gt;&gt; located to the left side of the &lt;<a href="ECC_D.htm#ECC_DIRECTION">DIRECTION</a>&gt; of travel or flow.</td>
+<td>IR</td>
+<td>[CATT]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJASP_LEFT_EMBANK_OR_CUT_TRANSITION" id="EEC_OBJASP_LEFT_EMBANK_OR_CUT_TRANSITION">10</a></td>
+<td>LEFT_EMBANK_OR_CUT_TRANSITION</td>
+<td>EEC_OBJASP_LEFT_EMBANK_OR_CUT_TRANSITION</td>
+<td>&lt;&lt;&lt;<a href="EAC_O.htm#EEC_OBJASP_LEFT_EMBANK">LEFT_EMBANK</a>&gt;&gt;&gt; and/or &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OBJASP_LEFT_CUT">LEFT_CUT</a>&gt;&gt;&gt; transition &lt;<a href="ECC_R.htm#ECC_REGION">REGION</a>&gt;s.</td>
+<td>IR</td>
+<td>[CATT]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJASP_LEFT_EMBANK_TRANSITION" id="EEC_OBJASP_LEFT_EMBANK_TRANSITION">11</a></td>
+<td>LEFT_EMBANK_TRANSITION</td>
+<td>EEC_OBJASP_LEFT_EMBANK_TRANSITION</td>
+<td>&lt;&lt;&lt;<a href="EAC_O.htm#EEC_OBJASP_LEFT_EMBANK">LEFT_EMBANK</a>&gt;&gt;&gt; transition.</td>
+<td>IR</td>
+<td>[CATT]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJASP_LEFT_SHOULDER" id="EEC_OBJASP_LEFT_SHOULDER">12</a></td>
+<td>LEFT_SHOULDER</td>
+<td>EEC_OBJASP_LEFT_SHOULDER</td>
+<td>&lt;&lt;&lt;<a href="EAC_O.htm#EEC_OBJASP_SHOULDER">SHOULDER</a>&gt;&gt;&gt; located to the left side of the &lt;<a href="ECC_D.htm#ECC_DIRECTION">DIRECTION</a>&gt; of travel or flow.</td>
+<td>IR</td>
+<td>[CATT]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJASP_RIGHT_CUT" id="EEC_OBJASP_RIGHT_CUT">13</a></td>
+<td>RIGHT_CUT</td>
+<td>EEC_OBJASP_RIGHT_CUT</td>
+<td>&lt;&lt;&lt;<a href="EAC_O.htm#EEC_OBJASP_CUT">CUT</a>&gt;&gt;&gt; located to the right side of the &lt;<a href="ECC_D.htm#ECC_DIRECTION">DIRECTION</a>&gt; of travel or flow.</td>
+<td>IR</td>
+<td>[CATT]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJASP_RIGHT_CUT_TRANSITION" id="EEC_OBJASP_RIGHT_CUT_TRANSITION">14</a></td>
+<td>RIGHT_CUT_TRANSITION</td>
+<td>EEC_OBJASP_RIGHT_CUT_TRANSITION</td>
+<td>&lt;&lt;&lt;<a href="EAC_O.htm#EEC_OBJASP_RIGHT_CUT">RIGHT_CUT</a>&gt;&gt;&gt; transition.</td>
+<td>IR</td>
+<td>[CATT]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJASP_RIGHT_EMBANK" id="EEC_OBJASP_RIGHT_EMBANK">15</a></td>
+<td>RIGHT_EMBANK</td>
+<td>EEC_OBJASP_RIGHT_EMBANK</td>
+<td>&lt;&lt;&lt;<a href="EAC_O.htm#EEC_OBJASP_EMBANK">EMBANK</a>&gt;&gt;&gt; located to the right side of the &lt;<a href="ECC_D.htm#ECC_DIRECTION">DIRECTION</a>&gt; of travel or flow.</td>
+<td>IR</td>
+<td>[CATT]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJASP_RIGHT_EMBANK_OR_CUT_TRANSITION" id="EEC_OBJASP_RIGHT_EMBANK_OR_CUT_TRANSITION">16</a></td>
+<td>RIGHT_EMBANK_OR_CUT_TRANSITION</td>
+<td>EEC_OBJASP_RIGHT_EMBANK_OR_CUT_TRANSITION</td>
+<td>&lt;&lt;&lt;<a href="EAC_O.htm#EEC_OBJASP_RIGHT_EMBANK">RIGHT_EMBANK</a>&gt;&gt;&gt; and/or &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OBJASP_RIGHT_CUT">RIGHT_CUT</a>&gt;&gt;&gt; transition &lt;<a href="ECC_R.htm#ECC_REGION">REGION</a>&gt;s.</td>
+<td>IR</td>
+<td>[CATT]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJASP_RIGHT_EMBANK_TRANSITION" id="EEC_OBJASP_RIGHT_EMBANK_TRANSITION">17</a></td>
+<td>RIGHT_EMBANK_TRANSITION</td>
+<td>EEC_OBJASP_RIGHT_EMBANK_TRANSITION</td>
+<td>&lt;&lt;&lt;<a href="EAC_O.htm#EEC_OBJASP_RIGHT_EMBANK">RIGHT_EMBANK</a>&gt;&gt;&gt; transition.</td>
+<td>IR</td>
+<td>[CATT]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJASP_RIGHT_SHOULDER" id="EEC_OBJASP_RIGHT_SHOULDER">18</a></td>
+<td>RIGHT_SHOULDER</td>
+<td>EEC_OBJASP_RIGHT_SHOULDER</td>
+<td>&lt;&lt;&lt;<a href="EAC_O.htm#EEC_OBJASP_SHOULDER">SHOULDER</a>&gt;&gt;&gt; located to the right side of the &lt;<a href="ECC_D.htm#ECC_DIRECTION">DIRECTION</a>&gt; of travel or flow.</td>
+<td>IR</td>
+<td>[CATT]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJASP_SHOULDER" id="EEC_OBJASP_SHOULDER">19</a></td>
+<td>SHOULDER</td>
+<td>EEC_OBJASP_SHOULDER</td>
+<td>Stopping strip along a travel way, typically gravel covered; shoulder.</td>
+<td>IR</td>
+<td>[CATT]</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_LOCATION">LOCATION</a>, <a href="groups.htm#EGC_GEN_PHYSIOGRAPHY">PHYSIOGRAPHY</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [CATT]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_OBJECT_BASE_HEIGHT" id="EAC_OBJECT_BASE_HEIGHT">OBJECT_BASE_HEIGHT</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_OBJECT_BASE_HEIGHT
+</p><p>
+<b>EDCS Attribute Code</b>: 886
+</p><p>
+<b>Definition</b>:
+<br>
+The &lt;&lt;<a href="EAC_H.htm#EAC_HEIGHT_AGL">HEIGHT_AGL</a>&gt;&gt; of the base (lowest point) of an &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_LENGTH">LENGTH</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ABSTRACT_OBJECT">ABSTRACT_OBJECT</a>, <a href="groups.htm#EGC_GEN_LOCATION">LOCATION</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_OBJECT_BEARING_GEODETIC" id="EAC_OBJECT_BEARING_GEODETIC">OBJECT_BEARING_GEODETIC</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_OBJECT_BEARING_GEODETIC
+</p><p>
+<b>EDCS Attribute Code</b>: 887
+</p><p>
+<b>Definition</b>:
+<br>
+The &lt;&lt;<a href="EAC_G.htm#EAC_GEODETIC_AZIMUTH">GEODETIC_AZIMUTH</a>&gt;&gt; of the bearing of an &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt; from an observer.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_PLANE_ANGLE">PLANE_ANGLE</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ABSTRACT_OBJECT">ABSTRACT_OBJECT</a>, <a href="groups.htm#EGC_GEN_ANGULAR_MEASURE">ANGULAR_MEASURE</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: BRG]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_OBJECT_CONFIGURATION" id="EAC_OBJECT_CONFIGURATION">OBJECT_CONFIGURATION</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_OBJECT_CONFIGURATION
+</p><p>
+<b>EDCS Attribute Code</b>: 888
+</p><p>
+<b>Definition</b>:
+<br>
+The type of configuration of an &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_OBJCFG_DISPERSED" id="EEC_OBJCFG_DISPERSED">1</a></td>
+<td>DISPERSED</td>
+<td>EEC_OBJCFG_DISPERSED</td>
+<td>The &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt; consists of multiple &lt;<a href="ECC_C.htm#ECC_COMPONENT">COMPONENT</a>&gt;s that are dispersed.</td>
+<td>IR</td>
+<td>[FACC, Annex B, FCO:1]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJCFG_DIVIDED_DIFFERENT_WIDTHS" id="EEC_OBJCFG_DIVIDED_DIFFERENT_WIDTHS">2</a></td>
+<td>DIVIDED_DIFFERENT_WIDTHS</td>
+<td>EEC_OBJCFG_DIVIDED_DIFFERENT_WIDTHS</td>
+<td>The &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt; is divided into multiple &lt;<a href="ECC_C.htm#ECC_COMPONENT">COMPONENT</a>&gt;s that have different &lt;&lt;<a href="EAC_W.htm#EAC_WIDTH">WIDTH</a>&gt;&gt;s.</td>
+<td>IR</td>
+<td>[FACC, Annex B, FCO:6]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJCFG_DIVIDED_SAME_WIDTH" id="EEC_OBJCFG_DIVIDED_SAME_WIDTH">3</a></td>
+<td>DIVIDED_SAME_WIDTH</td>
+<td>EEC_OBJCFG_DIVIDED_SAME_WIDTH</td>
+<td>The &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt; is divided into multiple &lt;<a href="ECC_C.htm#ECC_COMPONENT">COMPONENT</a>&gt;s that have the same &lt;&lt;<a href="EAC_W.htm#EAC_WIDTH">WIDTH</a>&gt;&gt;.</td>
+<td>IR</td>
+<td>[FACC, Annex B, FCO:5]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJCFG_DOUBLE" id="EEC_OBJCFG_DOUBLE">4</a></td>
+<td>DOUBLE</td>
+<td>EEC_OBJCFG_DOUBLE</td>
+<td>Double.</td>
+<td>IR</td>
+<td>[FACC, Annex B, FCO:11]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJCFG_INCLINED" id="EEC_OBJCFG_INCLINED">5</a></td>
+<td>INCLINED</td>
+<td>EEC_OBJCFG_INCLINED</td>
+<td>The &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt; is inclined from either the horizontal or the vertical.</td>
+<td>IR</td>
+<td>[FACC, Annex B, FCO:4]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJCFG_JUXTAPOSITION" id="EEC_OBJCFG_JUXTAPOSITION">6</a></td>
+<td>JUXTAPOSITION</td>
+<td>EEC_OBJCFG_JUXTAPOSITION</td>
+<td>The &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt; consists of multiple &lt;<a href="ECC_C.htm#ECC_COMPONENT">COMPONENT</a>&gt;s that are are juxtaposed with respect to one another.</td>
+<td>IR</td>
+<td>[FACC, Annex B, FCO:12]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJCFG_NON_DIVIDED" id="EEC_OBJCFG_NON_DIVIDED">7</a></td>
+<td>NON_DIVIDED</td>
+<td>EEC_OBJCFG_NON_DIVIDED</td>
+<td>The &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt; is not divided into distinct, spatial separated &lt;<a href="ECC_C.htm#ECC_COMPONENT">COMPONENT</a>&gt;s.</td>
+<td>IR</td>
+<td>[FACC, Annex B, FCO:7]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJCFG_SINGLE" id="EEC_OBJCFG_SINGLE">8</a></td>
+<td>SINGLE</td>
+<td>EEC_OBJCFG_SINGLE</td>
+<td>Single.</td>
+<td>IR</td>
+<td>[FACC, Annex B, FCO:3]</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ABSTRACT_OBJECT">ABSTRACT_OBJECT</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: FCO]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_OBJECT_CONFIGURATION_QUALITY" id="EAC_OBJECT_CONFIGURATION_QUALITY">OBJECT_CONFIGURATION_QUALITY</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_OBJECT_CONFIGURATION_QUALITY
+</p><p>
+<b>EDCS Attribute Code</b>: 889
+</p><p>
+<b>Definition</b>:
+<br>
+An indication of whether the &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt; has a recognizable &lt;&lt;<a href="EAC_O.htm#EAC_OBJECT_CONFIGURATION">OBJECT_CONFIGURATION</a>&gt;&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: BOOLEAN
+</p><p>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ABSTRACT_OBJECT">ABSTRACT_OBJECT</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B, FCO:8 and 9]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_OBJECT_ELEMENT_GEODETIC_ORIENTATION" id="EAC_OBJECT_ELEMENT_GEODETIC_ORIENTATION">OBJECT_ELEMENT_GEODETIC_ORIENTATION</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_OBJECT_ELEMENT_GEODETIC_ORIENTATION
+</p><p>
+<b>EDCS Attribute Code</b>: 890
+</p><p>
+<b>Definition</b>:
+<br>
+The &lt;&lt;<a href="EAC_G.htm#EAC_GEODETIC_AZIMUTH">GEODETIC_AZIMUTH</a>&gt;&gt; of the predominant linear pattern of the elements within an &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_PLANE_ANGLE">PLANE_ANGLE</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ABSTRACT_OBJECT">ABSTRACT_OBJECT</a>, <a href="groups.htm#EGC_GEN_ANGULAR_MEASURE">ANGULAR_MEASURE</a>, <a href="groups.htm#EGC_GEN_LOCATION">LOCATION</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: FEO]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_OBJECT_IDENTIFICATION_BASE_NUMBER" id="EAC_OBJECT_IDENTIFICATION_BASE_NUMBER">OBJECT_IDENTIFICATION_BASE_NUMBER</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_OBJECT_IDENTIFICATION_BASE_NUMBER
+</p><p>
+<b>EDCS Attribute Code</b>: 891
+</p><p>
+<b>Definition</b>:
+<br>
+The base number used within a specific geographic &lt;<a href="ECC_R.htm#ECC_REGION">REGION</a>&gt; to assign identification numbers to new &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt;s.
+<p>
+<b>EDCS Attribute Value Data Type</b>: INTEGER
+</p><p>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_IDENTIFICATION">IDENTIFICATION</a>, <a href="groups.htm#EGC_GEN_SURVEY">SURVEY</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_OBJECT_LABEL" id="EAC_OBJECT_LABEL">OBJECT_LABEL</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_OBJECT_LABEL
+</p><p>
+<b>EDCS Attribute Code</b>: 892
+</p><p>
+<b>Definition</b>:
+<br>
+The label applied to an &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: STRING
+</p><p>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ABSTRACT_OBJECT">ABSTRACT_OBJECT</a>, <a href="groups.htm#EGC_GEN_IDENTIFICATION">IDENTIFICATION</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: LAB]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_OBJECT_ORDINAL_RANK" id="EAC_OBJECT_ORDINAL_RANK">OBJECT_ORDINAL_RANK</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_OBJECT_ORDINAL_RANK
+</p><p>
+<b>EDCS Attribute Code</b>: 893
+</p><p>
+<b>Definition</b>:
+<br>
+The relative importance of an &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt; as an ordinal rank.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_OBJORDRANK_FIRST" id="EEC_OBJORDRANK_FIRST">1</a></td>
+<td>FIRST</td>
+<td>EEC_OBJORDRANK_FIRST</td>
+<td>Primary or first order.</td>
+<td>IR</td>
+<td>[FACC, Annex B, ORD:1]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJORDRANK_SECOND" id="EEC_OBJORDRANK_SECOND">2</a></td>
+<td>SECOND</td>
+<td>EEC_OBJORDRANK_SECOND</td>
+<td>Secondary or second order.</td>
+<td>IR</td>
+<td>[FACC, Annex B, ORD:2]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJORDRANK_THIRD" id="EEC_OBJORDRANK_THIRD">3</a></td>
+<td>THIRD</td>
+<td>EEC_OBJORDRANK_THIRD</td>
+<td>Tertiary or third order.</td>
+<td>IR</td>
+<td>[FACC, Annex B, ORD:3]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJORDRANK_FOURTH" id="EEC_OBJORDRANK_FOURTH">4</a></td>
+<td>FOURTH</td>
+<td>EEC_OBJORDRANK_FOURTH</td>
+<td>Quaternary or fourth order.</td>
+<td>IR</td>
+<td>[FACC, Annex B, ORD:4]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJORDRANK_FIFTH" id="EEC_OBJORDRANK_FIFTH">5</a></td>
+<td>FIFTH</td>
+<td>EEC_OBJORDRANK_FIFTH</td>
+<td>Quintary or fifth order.</td>
+<td>IR</td>
+<td>[FACC, Annex B, ORD:5]</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ABSTRACT_OBJECT">ABSTRACT_OBJECT</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: ORD]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_OBJECT_ORIENTATION_WRT_VERTICAL" id="EAC_OBJECT_ORIENTATION_WRT_VERTICAL">OBJECT_ORIENTATION_WRT_VERTICAL</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_OBJECT_ORIENTATION_WRT_VERTICAL
+</p><p>
+<b>EDCS Attribute Code</b>: 894
+</p><p>
+<b>Definition</b>:
+<br>
+The orientation of the usual axis of an &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt; with respect to the vertical &lt;<a href="ECC_D.htm#ECC_DIRECTION">DIRECTION</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_OBJORNTWRTVERT_HORIZONTAL" id="EEC_OBJORNTWRTVERT_HORIZONTAL">1</a></td>
+<td>HORIZONTAL</td>
+<td>EEC_OBJORNTWRTVERT_HORIZONTAL</td>
+<td>Perpendicular to the vertical.</td>
+<td>IR</td>
+<td>[FACC, Annex B, FVO:5]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJORNTWRTVERT_INVERTED" id="EEC_OBJORNTWRTVERT_INVERTED">2</a></td>
+<td>INVERTED</td>
+<td>EEC_OBJORNTWRTVERT_INVERTED</td>
+<td>Inverted.</td>
+<td>IR</td>
+<td>[FACC, Annex B, FVO:4]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJORNTWRTVERT_LEANING" id="EEC_OBJORNTWRTVERT_LEANING">3</a></td>
+<td>LEANING</td>
+<td>EEC_OBJORNTWRTVERT_LEANING</td>
+<td>Leaning.</td>
+<td>IR</td>
+<td>[FACC, Annex B, FVO:3]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJORNTWRTVERT_ON_SIDE" id="EEC_OBJORNTWRTVERT_ON_SIDE">4</a></td>
+<td>ON_SIDE</td>
+<td>EEC_OBJORNTWRTVERT_ON_SIDE</td>
+<td>On side.</td>
+<td>IR</td>
+<td>[FACC, Annex B, FVO:2]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJORNTWRTVERT_UPRIGHT" id="EEC_OBJORNTWRTVERT_UPRIGHT">5</a></td>
+<td>UPRIGHT</td>
+<td>EEC_OBJORNTWRTVERT_UPRIGHT</td>
+<td>Upright.</td>
+<td>IR</td>
+<td>[FACC, Annex B, FVO:1]</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ABSTRACT_OBJECT">ABSTRACT_OBJECT</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: FVO]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_OBJECT_POLYGONAL_FACE_SHAPE" id="EAC_OBJECT_POLYGONAL_FACE_SHAPE">OBJECT_POLYGONAL_FACE_SHAPE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_OBJECT_POLYGONAL_FACE_SHAPE
+</p><p>
+<b>EDCS Attribute Code</b>: 895
+</p><p>
+<b>Definition</b>:
+<br>
+The shape of the polygon associated with a &lt;<a href="ECC_N.htm#ECC_NON_EMPTY_SET">NON_EMPTY_SET</a>&gt; of &lt;<a href="ECC_P.htm#ECC_POLYGONAL_FACE">POLYGONAL_FACE</a>&gt;s of an &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_OBJPOLYFCSHAP_EQUILATERAL_TRIANGLE" id="EEC_OBJPOLYFCSHAP_EQUILATERAL_TRIANGLE">1</a></td>
+<td>EQUILATERAL_TRIANGLE</td>
+<td>EEC_OBJPOLYFCSHAP_EQUILATERAL_TRIANGLE</td>
+<td>Equilateral triangle.</td>
+<td>IR</td>
+<td>[CATT]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJPOLYFCSHAP_HEXAGON" id="EEC_OBJPOLYFCSHAP_HEXAGON">2</a></td>
+<td>HEXAGON</td>
+<td>EEC_OBJPOLYFCSHAP_HEXAGON</td>
+<td>Hexagon.</td>
+<td>IR</td>
+<td>[CATT]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJPOLYFCSHAP_OCTAGON" id="EEC_OBJPOLYFCSHAP_OCTAGON">3</a></td>
+<td>OCTAGON</td>
+<td>EEC_OBJPOLYFCSHAP_OCTAGON</td>
+<td>Octagon.</td>
+<td>IR</td>
+<td>[CATT]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJPOLYFCSHAP_PENTAGON" id="EEC_OBJPOLYFCSHAP_PENTAGON">4</a></td>
+<td>PENTAGON</td>
+<td>EEC_OBJPOLYFCSHAP_PENTAGON</td>
+<td>Pentagon.</td>
+<td>IR</td>
+<td>[CATT]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJPOLYFCSHAP_RECTANGLE" id="EEC_OBJPOLYFCSHAP_RECTANGLE">5</a></td>
+<td>RECTANGLE</td>
+<td>EEC_OBJPOLYFCSHAP_RECTANGLE</td>
+<td>Rectangle.</td>
+<td>IR</td>
+<td>[CATT]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJPOLYFCSHAP_RIGHT_ISOSCELES_TRIANGLE" id="EEC_OBJPOLYFCSHAP_RIGHT_ISOSCELES_TRIANGLE">6</a></td>
+<td>RIGHT_ISOSCELES_TRIANGLE</td>
+<td>EEC_OBJPOLYFCSHAP_RIGHT_ISOSCELES_TRIANGLE</td>
+<td>Right isosceles triangle.</td>
+<td>IR</td>
+<td>[CATT]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJPOLYFCSHAP_RIGHT_TRIANGLE" id="EEC_OBJPOLYFCSHAP_RIGHT_TRIANGLE">7</a></td>
+<td>RIGHT_TRIANGLE</td>
+<td>EEC_OBJPOLYFCSHAP_RIGHT_TRIANGLE</td>
+<td>Right triangle.</td>
+<td>IR</td>
+<td>[CATT]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJPOLYFCSHAP_SQUARE" id="EEC_OBJPOLYFCSHAP_SQUARE">8</a></td>
+<td>SQUARE</td>
+<td>EEC_OBJPOLYFCSHAP_SQUARE</td>
+<td>Square.</td>
+<td>IR</td>
+<td>[CATT]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJPOLYFCSHAP_TRIANGLE" id="EEC_OBJPOLYFCSHAP_TRIANGLE">9</a></td>
+<td>TRIANGLE</td>
+<td>EEC_OBJPOLYFCSHAP_TRIANGLE</td>
+<td>Triangle.</td>
+<td>IR</td>
+<td>[CATT]</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ALGORITHM_RELATED">ALGORITHM_RELATED</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [CATT]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_OBJECT_RATE" id="EAC_OBJECT_RATE">OBJECT_RATE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_OBJECT_RATE
+</p><p>
+<b>EDCS Attribute Code</b>: 896
+</p><p>
+<b>Definition</b>:
+<br>
+A rate associated with an &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt;. The value is formatted in a Basic Latin string. The string contains a number, followed by a unit enclosed in parenthesis ("(&nbsp;)"), followed by a unit qualifier enclosed in square brackets ("[&nbsp;]"). EXAMPLE "100(cars)[per hour]" associated with a &lt;<a href="ECC_B.htm#ECC_BRIDGE">BRIDGE</a>&gt; as the rate at which cars cross the &lt;<a href="ECC_B.htm#ECC_BRIDGE">BRIDGE</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: CONSTRAINED_STRING
+</p><p>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ABSTRACT_OBJECT">ABSTRACT_OBJECT</a>, <a href="groups.htm#EGC_GEN_RATE_OR_RATIO">RATE_OR_RATIO</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: FTR]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_OBJECT_SET_TYPE" id="EAC_OBJECT_SET_TYPE">OBJECT_SET_TYPE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_OBJECT_SET_TYPE
+</p><p>
+<b>EDCS Attribute Code</b>: 897
+</p><p>
+<b>Definition</b>:
+<br>
+The type of an &lt;<a href="ECC_O.htm#ECC_OBJECT_SET">OBJECT_SET</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_OBJSETTY_AERONAUTICAL" id="EEC_OBJSETTY_AERONAUTICAL">1</a></td>
+<td>AERONAUTICAL</td>
+<td>EEC_OBJSETTY_AERONAUTICAL</td>
+<td>Related to &lt;<a href="ECC_A.htm#ECC_AIRCRAFT">AIRCRAFT</a>&gt;, &lt;<a href="ECC_A.htm#ECC_AERODROME">AERODROME</a>&gt;s, and other aeronautical activities.</td>
+<td>IR</td>
+<td>[SCTDS, 4, "Airport or Aeronautical"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJSETTY_AERONAUTICAL_OBSTRUCTION" id="EEC_OBJSETTY_AERONAUTICAL_OBSTRUCTION">2</a></td>
+<td>AERONAUTICAL_OBSTRUCTION</td>
+<td>EEC_OBJSETTY_AERONAUTICAL_OBSTRUCTION</td>
+<td>Vertical obstructions to aeronautical navigation.</td>
+<td>IR</td>
+<td>[SCTDS, 4, "Aeronautical Obstructions"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJSETTY_AID_TO_NAVIGATION" id="EEC_OBJSETTY_AID_TO_NAVIGATION">3</a></td>
+<td>AID_TO_NAVIGATION</td>
+<td>EEC_OBJSETTY_AID_TO_NAVIGATION</td>
+<td>Related to &lt;<a href="ECC_A.htm#ECC_AID_TO_NAVIGATION">AID_TO_NAVIGATION</a>&gt;s.</td>
+<td>IR</td>
+<td>[SCTDS, 4, "Aids to Navigation"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJSETTY_AIRSPACE" id="EEC_OBJSETTY_AIRSPACE">4</a></td>
+<td>AIRSPACE</td>
+<td>EEC_OBJSETTY_AIRSPACE</td>
+<td>Related to &lt;<a href="ECC_A.htm#ECC_AIRSPACE">AIRSPACE</a>&gt;s.</td>
+<td>IR</td>
+<td>[SCTDS, 4, "Airspace"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJSETTY_ATS_ROUTE" id="EEC_OBJSETTY_ATS_ROUTE">5</a></td>
+<td>ATS_ROUTE</td>
+<td>EEC_OBJSETTY_ATS_ROUTE</td>
+<td>Related to &lt;<a href="ECC_A.htm#ECC_ATS_ROUTE">ATS_ROUTE</a>&gt;s.</td>
+<td>IR</td>
+<td>[SCTDS, 4, "Air Traffic Service Routes"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJSETTY_BEACH" id="EEC_OBJSETTY_BEACH">6</a></td>
+<td>BEACH</td>
+<td>EEC_OBJSETTY_BEACH</td>
+<td>Related to &lt;<a href="ECC_B.htm#ECC_BEACH">BEACH</a>&gt;s.</td>
+<td>IR</td>
+<td>[SCTDS, 4, "Beach"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJSETTY_BOUNDARY" id="EEC_OBJSETTY_BOUNDARY">7</a></td>
+<td>BOUNDARY</td>
+<td>EEC_OBJSETTY_BOUNDARY</td>
+<td>Related to political or geographic &lt;<a href="ECC_B.htm#ECC_BOUNDARY">BOUNDARY</a>&gt;s.</td>
+<td>IR</td>
+<td>[SCTDS, 4, "Boundaries"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJSETTY_COASTLINE" id="EEC_OBJSETTY_COASTLINE">8</a></td>
+<td>COASTLINE</td>
+<td>EEC_OBJSETTY_COASTLINE</td>
+<td>Related to &lt;<a href="ECC_C.htm#ECC_COASTLINE">COASTLINE</a>&gt;s, international &lt;<a href="ECC_B.htm#ECC_BOUNDARY">BOUNDARY</a>&gt;s, and major &lt;<a href="ECC_M.htm#ECC_MARINE_PORT">MARINE_PORT</a>&gt;s.</td>
+<td>IR</td>
+<td>[SCTDS, 4, "Coastline or Countries"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJSETTY_CULTURAL_LANDMARK" id="EEC_OBJSETTY_CULTURAL_LANDMARK">9</a></td>
+<td>CULTURAL_LANDMARK</td>
+<td>EEC_OBJSETTY_CULTURAL_LANDMARK</td>
+<td>Related to cultural landmarks.</td>
+<td>IR</td>
+<td>[SCTDS, 4, "Cultural Landmarks"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJSETTY_DATA_QUALITY" id="EEC_OBJSETTY_DATA_QUALITY">10</a></td>
+<td>DATA_QUALITY</td>
+<td>EEC_OBJSETTY_DATA_QUALITY</td>
+<td>Related to &lt;<a href="ECC_D.htm#ECC_DATA_QUALITY_BOUNDARY">DATA_QUALITY_BOUNDARY</a>&gt;s and &lt;<a href="ECC_D.htm#ECC_DATA_QUALITY_REGION">DATA_QUALITY_REGION</a>&gt;s.</td>
+<td>IR</td>
+<td>[SCTDS, 4, "Data Quality"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJSETTY_DATABASE_BOUNDARY" id="EEC_OBJSETTY_DATABASE_BOUNDARY">11</a></td>
+<td>DATABASE_BOUNDARY</td>
+<td>EEC_OBJSETTY_DATABASE_BOUNDARY</td>
+<td>Related to the &lt;<a href="ECC_B.htm#ECC_BOUNDARY">BOUNDARY</a>&gt;s of data libraries and databases.</td>
+<td>IR</td>
+<td>[SCTDS, 4, "Database Reference"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJSETTY_DEMARCATION" id="EEC_OBJSETTY_DEMARCATION">12</a></td>
+<td>DEMARCATION</td>
+<td>EEC_OBJSETTY_DEMARCATION</td>
+<td>Related to &lt;<a href="ECC_L.htm#ECC_LINE">LINE</a>&gt;s and &lt;<a href="ECC_R.htm#ECC_REGION">REGION</a>&gt;s of demarcation, which have been defined for administrative, political, military, or other purposes.</td>
+<td>IR</td>
+<td>[SCTDS, 4, "Coastline or Boundaries"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJSETTY_ELEVATION" id="EEC_OBJSETTY_ELEVATION">13</a></td>
+<td>ELEVATION</td>
+<td>EEC_OBJSETTY_ELEVATION</td>
+<td>Related to the relief or &lt;&lt;<a href="EAC_E.htm#EAC_ELEVATION">ELEVATION</a>&gt;&gt; of the &lt;<a href="ECC_T.htm#ECC_TERRAIN">TERRAIN</a>&gt;.</td>
+<td>IR</td>
+<td>[SCTDS, 4, "Elevation"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJSETTY_FIXED_UNDERWATER_OBJECT" id="EEC_OBJSETTY_FIXED_UNDERWATER_OBJECT">14</a></td>
+<td>FIXED_UNDERWATER_OBJECT</td>
+<td>EEC_OBJSETTY_FIXED_UNDERWATER_OBJECT</td>
+<td>Related to fixed &lt;<a href="ECC_U.htm#ECC_UNDERWATER_OBJECT">UNDERWATER_OBJECT</a>&gt;s.</td>
+<td>IR</td>
+<td>[SCTDS, 4, "Non-submarine Contacts"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJSETTY_GROUND_OBSTACLE" id="EEC_OBJSETTY_GROUND_OBSTACLE">15</a></td>
+<td>GROUND_OBSTACLE</td>
+<td>EEC_OBJSETTY_GROUND_OBSTACLE</td>
+<td>&lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt;s on, or in, the &lt;<a href="ECC_T.htm#ECC_TERRAIN">TERRAIN</a>&gt; that act as &lt;<a href="ECC_T.htm#ECC_TERRAIN_OBSTACLE">TERRAIN_OBSTACLE</a>&gt;s to the movement of &lt;<a href="ECC_G.htm#ECC_GROUND_VEHICLE">GROUND_VEHICLE</a>&gt;s.</td>
+<td>IR</td>
+<td>[SCTDS, 4, "Ground Obstacle"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJSETTY_HYDRO" id="EEC_OBJSETTY_HYDRO">16</a></td>
+<td>HYDRO</td>
+<td>EEC_OBJSETTY_HYDRO</td>
+<td>Hydrographic &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt;s, including &lt;<a href="ECC_W.htm#ECC_WATERBODY_FLOOR">WATERBODY_FLOOR</a>&gt; characteristics, of significance to marine navigation.</td>
+<td>IR</td>
+<td>[SCTDS, 4, "Hydrography"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJSETTY_HYDRO_AID_TO_NAVIGATION" id="EEC_OBJSETTY_HYDRO_AID_TO_NAVIGATION">17</a></td>
+<td>HYDRO_AID_TO_NAVIGATION</td>
+<td>EEC_OBJSETTY_HYDRO_AID_TO_NAVIGATION</td>
+<td>Related to &lt;<a href="ECC_M.htm#ECC_MARINE_AID_TO_NAVIGATION">MARINE_AID_TO_NAVIGATION</a>&gt;s.</td>
+<td>IR</td>
+<td>[SCTDS, 4, "Hydrographic Aids to Navigation"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJSETTY_HYDRO_DANGER" id="EEC_OBJSETTY_HYDRO_DANGER">18</a></td>
+<td>HYDRO_DANGER</td>
+<td>EEC_OBJSETTY_HYDRO_DANGER</td>
+<td>Offshore hydrographic&lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt;s, generally underwater, which constitute a danger to the movement of &lt;<a href="ECC_V.htm#ECC_VESSEL">VESSEL</a>&gt;s.</td>
+<td>IR</td>
+<td>[SCTDS, 4, "Hydrographic Dangers"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJSETTY_HYDRO_LIMITS" id="EEC_OBJSETTY_HYDRO_LIMITS">19</a></td>
+<td>HYDRO_LIMITS</td>
+<td>EEC_OBJSETTY_HYDRO_LIMITS</td>
+<td>&lt;<a href="ECC_L.htm#ECC_LINE">LINE</a>&gt;s and &lt;<a href="ECC_R.htm#ECC_REGION">REGION</a>&gt;s of demarcation that have been defined for the purpose of controlling marine traffic; hydrographic limits.</td>
+<td>IR</td>
+<td>[SCTDS, 4, "Hydrographic Limits"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJSETTY_HYPSOGRAPHY" id="EEC_OBJSETTY_HYPSOGRAPHY">20</a></td>
+<td>HYPSOGRAPHY</td>
+<td>EEC_OBJSETTY_HYPSOGRAPHY</td>
+<td>Related to the &lt;<a href="ECC_T.htm#ECC_TERRAIN">TERRAIN</a>&gt; that directly depict &lt;&lt;<a href="EAC_T.htm#EAC_TERRAIN_ELEVATION">TERRAIN_ELEVATION</a>&gt;&gt; information, including &lt;<a href="ECC_C.htm#ECC_CONTOUR">CONTOUR</a>&gt;s and &lt;<a href="ECC_S.htm#ECC_SPOT_ELEVATION">SPOT_ELEVATION</a>&gt;s; relief or hypsography.</td>
+<td>IR</td>
+<td>[SCTDS, 4, "Relief or Hypsography"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJSETTY_INDUSTRY" id="EEC_OBJSETTY_INDUSTRY">21</a></td>
+<td>INDUSTRY</td>
+<td>EEC_OBJSETTY_INDUSTRY</td>
+<td>Man-made and related to the commercial production and sale of goods and services.</td>
+<td>IR</td>
+<td>[SCTDS, 4, "Industry"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJSETTY_INLAND_WATER" id="EEC_OBJSETTY_INLAND_WATER">22</a></td>
+<td>INLAND_WATER</td>
+<td>EEC_OBJSETTY_INLAND_WATER</td>
+<td>Related to &lt;<a href="ECC_I.htm#ECC_INLAND_WATER">INLAND_WATER</a>&gt; and associated &lt;<a href="ECC_S.htm#ECC_STRUCTURE">STRUCTURE</a>&gt;s.</td>
+<td>IR</td>
+<td>[SCTDS, 4, "Inland Water or Surface Drainage"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJSETTY_LAND_COVER" id="EEC_OBJSETTY_LAND_COVER">23</a></td>
+<td>LAND_COVER</td>
+<td>EEC_OBJSETTY_LAND_COVER</td>
+<td>Related to the &lt;<a href="ECC_T.htm#ECC_TERRAIN">TERRAIN</a>&gt;, including agricultural and extraction activities, and related &lt;<a href="ECC_S.htm#ECC_SURFACE">SURFACE</a>&gt; characteristics; land use or cover.</td>
+<td>IR</td>
+<td>[SCTDS, 4, "Land Cover"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJSETTY_MARINE_ENVIRONMENT" id="EEC_OBJSETTY_MARINE_ENVIRONMENT">24</a></td>
+<td>MARINE_ENVIRONMENT</td>
+<td>EEC_OBJSETTY_MARINE_ENVIRONMENT</td>
+<td>Environmental characteristics relating to &lt;<a href="ECC_W.htm#ECC_WATERBODY_CURRENT">WATERBODY_CURRENT</a>&gt;s, &lt;<a href="ECC_T.htm#ECC_TIDE">TIDE</a>&gt;s, and anomalies of significance to marine navigation; marine limit.</td>
+<td>IR</td>
+<td>[SCTDS, 4, "Maritime Environment"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJSETTY_MARINE_LIMIT" id="EEC_OBJSETTY_MARINE_LIMIT">25</a></td>
+<td>MARINE_LIMIT</td>
+<td>EEC_OBJSETTY_MARINE_LIMIT</td>
+<td>&lt;<a href="ECC_B.htm#ECC_BOUNDARY">BOUNDARY</a>&gt;s of &lt;<a href="ECC_W.htm#ECC_WATERBODY">WATERBODY</a>&gt;s of significance to marine operations.</td>
+<td>IR</td>
+<td>[SCTDS, 4, "Maritime Limits"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJSETTY_MARINE_NAVIGATION" id="EEC_OBJSETTY_MARINE_NAVIGATION">26</a></td>
+<td>MARINE_NAVIGATION</td>
+<td>EEC_OBJSETTY_MARINE_NAVIGATION</td>
+<td>Topographic and hydrographic &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt;s including &lt;<a href="ECC_S.htm#ECC_SHORELINE">SHORELINE</a>&gt;s, &lt;<a href="ECC_I.htm#ECC_ISLAND">ISLAND</a>&gt;s and &lt;<a href="ECC_B.htm#ECC_BOUNDARY">BOUNDARY</a>&gt;s of significance to marine navigation.</td>
+<td>IR</td>
+<td>[SCTDS, 4, "Earth Cover Maritime"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJSETTY_MARINE_OBSTRUCTION" id="EEC_OBJSETTY_MARINE_OBSTRUCTION">27</a></td>
+<td>MARINE_OBSTRUCTION</td>
+<td>EEC_OBJSETTY_MARINE_OBSTRUCTION</td>
+<td>Related to wrecks, offshore installations and obstructions of significance to marine navigation.</td>
+<td>IR</td>
+<td>[SCTDS, 4, "Maritime Obstructions"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJSETTY_MARINE_OVERVIEW" id="EEC_OBJSETTY_MARINE_OVERVIEW">28</a></td>
+<td>MARINE_OVERVIEW</td>
+<td>EEC_OBJSETTY_MARINE_OVERVIEW</td>
+<td>Provide a generalized representation of a &lt;<a href="ECC_M.htm#ECC_MARINE_REGION">MARINE_REGION</a>&gt;; marine overview.</td>
+<td>IR</td>
+<td>[SCTDS, 4, "Ocean"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJSETTY_MARINE_SHORE" id="EEC_OBJSETTY_MARINE_SHORE">29</a></td>
+<td>MARINE_SHORE</td>
+<td>EEC_OBJSETTY_MARINE_SHORE</td>
+<td>Related to the &lt;<a href="ECC_S.htm#ECC_SHORE">SHORE</a>&gt;, including &lt;<a href="ECC_G.htm#ECC_GLACIER">GLACIER</a>&gt;s, &lt;<a href="ECC_T.htm#ECC_TREE">TREE</a>&gt;s, &lt;<a href="ECC_S.htm#ECC_SWAMP">SWAMP</a>&gt;s and &lt;<a href="ECC_M.htm#ECC_MARSH">MARSH</a>&gt;s of significance to marine navigation.</td>
+<td>IR</td>
+<td>[SCTDS, 4, "Land Cover Maritime"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJSETTY_MILITARY_AIRSPACE" id="EEC_OBJSETTY_MILITARY_AIRSPACE">30</a></td>
+<td>MILITARY_AIRSPACE</td>
+<td>EEC_OBJSETTY_MILITARY_AIRSPACE</td>
+<td>Vertical and lateral defined &lt;<a href="ECC_A.htm#ECC_AIRSPACE">AIRSPACE</a>&gt;s established for conducting military training and aerial refuelling.</td>
+<td>IR</td>
+<td>[SCTDS, 4, "Military Training and Refuel Routes"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJSETTY_MILITARY_STRUCTURE" id="EEC_OBJSETTY_MILITARY_STRUCTURE">31</a></td>
+<td>MILITARY_STRUCTURE</td>
+<td>EEC_OBJSETTY_MILITARY_STRUCTURE</td>
+<td>Related to &lt;<a href="ECC_S.htm#ECC_STRUCTURE">STRUCTURE</a>&gt;s originally built for defensive purposes, although not necessarily still in use for such purposes; military structure.</td>
+<td>IR</td>
+<td>[SCTDS, 4, "Military Structures"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJSETTY_OCEAN_ENVIRONMENT" id="EEC_OBJSETTY_OCEAN_ENVIRONMENT">32</a></td>
+<td>OCEAN_ENVIRONMENT</td>
+<td>EEC_OBJSETTY_OCEAN_ENVIRONMENT</td>
+<td>Describing the physical characteristics of the &lt;<a href="ECC_O.htm#ECC_OCEAN">OCEAN</a>&gt; (and littoral) volume and floor.</td>
+<td>IR</td>
+<td>[SCTDS, 4, "Ocean Environment"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJSETTY_OCEAN_FLOOR" id="EEC_OBJSETTY_OCEAN_FLOOR">33</a></td>
+<td>OCEAN_FLOOR</td>
+<td>EEC_OBJSETTY_OCEAN_FLOOR</td>
+<td>Related to the &lt;<a href="ECC_O.htm#ECC_OCEAN_FLOOR">OCEAN_FLOOR</a>&gt; and &lt;<a href="ECC_W.htm#ECC_WATERBODY_FLOOR_TOPOGRAPHIC_CONFIGURATION">WATERBODY_FLOOR_TOPOGRAPHIC_CONFIGURATION</a>&gt;s.</td>
+<td>IR</td>
+<td>[SCTDS, 4, "Bottom Physiography"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJSETTY_OVERVIEW" id="EEC_OBJSETTY_OVERVIEW">34</a></td>
+<td>OVERVIEW</td>
+<td>EEC_OBJSETTY_OVERVIEW</td>
+<td>Providing a generalized representation of a &lt;<a href="ECC_R.htm#ECC_REGION">REGION</a>&gt;; overview.</td>
+<td>IR</td>
+<td>[SCTDS, 4, "Library Reference"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJSETTY_PHYSIOGRAPHY" id="EEC_OBJSETTY_PHYSIOGRAPHY">35</a></td>
+<td>PHYSIOGRAPHY</td>
+<td>EEC_OBJSETTY_PHYSIOGRAPHY</td>
+<td>Natural, exclusive of &lt;<a href="ECC_I.htm#ECC_INLAND_WATER">INLAND_WATER</a>&gt;s, and comprising or laying upon the &lt;<a href="ECC_T.htm#ECC_TERRAIN">TERRAIN</a>&gt; and its macro and micro relief; physiography.</td>
+<td>IR</td>
+<td>[SCTDS, 4, "Physiography"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJSETTY_PLACE_NAME" id="EEC_OBJSETTY_PLACE_NAME">36</a></td>
+<td>PLACE_NAME</td>
+<td>EEC_OBJSETTY_PLACE_NAME</td>
+<td>Identifying significant named &lt;<a href="ECC_L.htm#ECC_LOCATION">LOCATION</a>&gt;s.</td>
+<td>IR</td>
+<td>[SCTDS, 4, "Place Names"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJSETTY_PLANETARY_SCIENCE" id="EEC_OBJSETTY_PLANETARY_SCIENCE">37</a></td>
+<td>PLANETARY_SCIENCE</td>
+<td>EEC_OBJSETTY_PLANETARY_SCIENCE</td>
+<td>Related to the physical processes and phenomena occurring in a &lt;<a href="ECC_P.htm#ECC_PLANET">PLANET</a>&gt; and its vicinity; planetary science.</td>
+<td>IR</td>
+<td>[SCTDS, 4, "Geophysical"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJSETTY_POLITICAL_ENTITY" id="EEC_OBJSETTY_POLITICAL_ENTITY">38</a></td>
+<td>POLITICAL_ENTITY</td>
+<td>EEC_OBJSETTY_POLITICAL_ENTITY</td>
+<td>Identifying political entities and their &lt;<a href="ECC_B.htm#ECC_BOUNDARY">BOUNDARY</a>&gt;s.</td>
+<td>IR</td>
+<td>[SCTDS, 4, "Political Entities"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJSETTY_POPULATION" id="EEC_OBJSETTY_POPULATION">39</a></td>
+<td>POPULATION</td>
+<td>EEC_OBJSETTY_POPULATION</td>
+<td>Man-made and used to house, employ, administrate, provide medical care, and entertain the populace of a &lt;<a href="ECC_R.htm#ECC_REGION">REGION</a>&gt;; population.</td>
+<td>IR</td>
+<td>[SCTDS, 4, "Population"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJSETTY_PORT_AND_HARBOUR" id="EEC_OBJSETTY_PORT_AND_HARBOUR">40</a></td>
+<td>PORT_AND_HARBOUR</td>
+<td>EEC_OBJSETTY_PORT_AND_HARBOUR</td>
+<td>Related to &lt;<a href="ECC_M.htm#ECC_MARINE_PORT">MARINE_PORT</a>&gt;s and &lt;<a href="ECC_H.htm#ECC_HARBOUR">HARBOUR</a>&gt;s, including their associated anchorage, docking and related cultural &lt;<a href="ECC_F.htm#ECC_FACILITY">FACILITY</a>&gt;s.</td>
+<td>IR</td>
+<td>[SCTDS, 4, "Ports and Harbors"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJSETTY_RAILWAY" id="EEC_OBJSETTY_RAILWAY">41</a></td>
+<td>RAILWAY</td>
+<td>EEC_OBJSETTY_RAILWAY</td>
+<td>Related to &lt;<a href="ECC_R.htm#ECC_RAILWAY">RAILWAY</a>&gt;s.</td>
+<td>IR</td>
+<td>[SCTDS, 4, "Railroads"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJSETTY_ROAD" id="EEC_OBJSETTY_ROAD">42</a></td>
+<td>ROAD</td>
+<td>EEC_OBJSETTY_ROAD</td>
+<td>Related to &lt;<a href="ECC_R.htm#ECC_ROAD">ROAD</a>&gt;s.</td>
+<td>IR</td>
+<td>[SCTDS, 4, "Roads"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJSETTY_SHORE_STRUCTURE" id="EEC_OBJSETTY_SHORE_STRUCTURE">43</a></td>
+<td>SHORE_STRUCTURE</td>
+<td>EEC_OBJSETTY_SHORE_STRUCTURE</td>
+<td>Hydrographic &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt;s including &lt;<a href="ECC_B.htm#ECC_BREAKWATER">BREAKWATER</a>&gt;s, &lt;<a href="ECC_P.htm#ECC_PIER">PIER</a>&gt;s and &lt;<a href="ECC_S.htm#ECC_SHORE_PROTECTION_STRUCTURE">SHORE_PROTECTION_STRUCTURE</a>&gt;s of significance to marine navigation.</td>
+<td>IR</td>
+<td>[SCTDS, 4, "Port Facilities"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJSETTY_TERMINAL_PROCEDURE" id="EEC_OBJSETTY_TERMINAL_PROCEDURE">44</a></td>
+<td>TERMINAL_PROCEDURE</td>
+<td>EEC_OBJSETTY_TERMINAL_PROCEDURE</td>
+<td>Related to predetermined &lt;<a href="ECC_A.htm#ECC_AIRCRAFT">AIRCRAFT</a>&gt; maneuvers in the vicinity of an &lt;<a href="ECC_A.htm#ECC_AERODROME">AERODROME</a>&gt; to orderly transition &lt;<a href="ECC_A.htm#ECC_AIRCRAFT">AIRCRAFT</a>&gt; from take-off to the enroute phase of flight, or from the enroute to terminal phase of flight.</td>
+<td>IR</td>
+<td>[SCTDS, 4, "Terminal Procedures"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJSETTY_TERRAIN_COMPOSITION" id="EEC_OBJSETTY_TERRAIN_COMPOSITION">45</a></td>
+<td>TERRAIN_COMPOSITION</td>
+<td>EEC_OBJSETTY_TERRAIN_COMPOSITION</td>
+<td>Related to the composition of the &lt;<a href="ECC_T.htm#ECC_TERRAIN">TERRAIN</a>&gt;.</td>
+<td>IR</td>
+<td>[SCTDS, 4, "Soil or Surface Materials"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJSETTY_TERRAIN_CONFIGURATION" id="EEC_OBJSETTY_TERRAIN_CONFIGURATION">46</a></td>
+<td>TERRAIN_CONFIGURATION</td>
+<td>EEC_OBJSETTY_TERRAIN_CONFIGURATION</td>
+<td>Related to the slope or configuration of the &lt;<a href="ECC_T.htm#ECC_TERRAIN">TERRAIN</a>&gt;.</td>
+<td>IR</td>
+<td>[SCTDS, 4, "Slope or Surface Configuration"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJSETTY_TERRAIN_TRANSPORTATION_ROUTE" id="EEC_OBJSETTY_TERRAIN_TRANSPORTATION_ROUTE">47</a></td>
+<td>TERRAIN_TRANSPORTATION_ROUTE</td>
+<td>EEC_OBJSETTY_TERRAIN_TRANSPORTATION_ROUTE</td>
+<td>Related to &lt;<a href="ECC_L.htm#ECC_LAND_TRANSPORTATION_ROUTE">LAND_TRANSPORTATION_ROUTE</a>&gt;s.</td>
+<td>IR</td>
+<td>[SCTDS, 4, "Ground Transportation"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJSETTY_TILE_SET" id="EEC_OBJSETTY_TILE_SET">48</a></td>
+<td>TILE_SET</td>
+<td>EEC_OBJSETTY_TILE_SET</td>
+<td>Defining a &lt;<a href="ECC_N.htm#ECC_NON_EMPTY_SET">NON_EMPTY_SET</a>&gt; of rectangular subdivisions of a &lt;<a href="ECC_R.htm#ECC_REGION">REGION</a>&gt;; tiles.</td>
+<td>IR</td>
+<td>[SCTDS, 4, "Tile Reference"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJSETTY_TRACK_SWATH" id="EEC_OBJSETTY_TRACK_SWATH">49</a></td>
+<td>TRACK_SWATH</td>
+<td>EEC_OBJSETTY_TRACK_SWATH</td>
+<td>Related to &lt;<a href="ECC_T.htm#ECC_TRACK_SWATH">TRACK_SWATH</a>&gt;s.</td>
+<td>IR</td>
+<td>[SCTDS, 4, "Survey Information"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJSETTY_UNDERWATER_OBJECT" id="EEC_OBJSETTY_UNDERWATER_OBJECT">50</a></td>
+<td>UNDERWATER_OBJECT</td>
+<td>EEC_OBJSETTY_UNDERWATER_OBJECT</td>
+<td>Related to &lt;<a href="ECC_U.htm#ECC_UNDERWATER_OBJECT">UNDERWATER_OBJECT</a>&gt;s.</td>
+<td>IR</td>
+<td>[SCTDS, 4, "Miscellaneous Underwater"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJSETTY_UTILITY" id="EEC_OBJSETTY_UTILITY">51</a></td>
+<td>UTILITY</td>
+<td>EEC_OBJSETTY_UTILITY</td>
+<td>Related to the infrastructure of a &lt;<a href="ECC_R.htm#ECC_REGION">REGION</a>&gt;, and used to deliver utility services into the homes and businesses of the populace. EXAMPLES Electric power, natural gas, oil, water, sewerage, telephone, telecommunications.</td>
+<td>IR</td>
+<td>[SCTDS, 4, "Utilities"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJSETTY_VEGETATION" id="EEC_OBJSETTY_VEGETATION">52</a></td>
+<td>VEGETATION</td>
+<td>EEC_OBJSETTY_VEGETATION</td>
+<td>Related to &lt;<a href="ECC_V.htm#ECC_VEGETATION">VEGETATION</a>&gt;.</td>
+<td>IR</td>
+<td>[SCTDS, 4, "Vegetation"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBJSETTY_WATER_BODY_BATHYMETRY" id="EEC_OBJSETTY_WATER_BODY_BATHYMETRY">53</a></td>
+<td>WATER_BODY_BATHYMETRY</td>
+<td>EEC_OBJSETTY_WATER_BODY_BATHYMETRY</td>
+<td>Related to relief or &lt;&lt;<a href="EAC_E.htm#EAC_ELEVATION">ELEVATION</a>&gt;&gt; of a &lt;<a href="ECC_W.htm#ECC_WATERBODY_FLOOR">WATERBODY_FLOOR</a>&gt;.</td>
+<td>IR</td>
+<td>[SCTDS, 4, "Depth Information"]</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ABSTRACT_OBJECT">ABSTRACT_OBJECT</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_OBJECT_SHADED" id="EAC_OBJECT_SHADED">OBJECT_SHADED</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_OBJECT_SHADED
+</p><p>
+<b>EDCS Attribute Code</b>: 898
+</p><p>
+<b>Definition</b>:
+<br>
+An indication that an &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt; is shaded from direct sunlight or solar loading.
+<p>
+<b>EDCS Attribute Value Data Type</b>: BOOLEAN
+</p><p>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ABSTRACT_OBJECT">ABSTRACT_OBJECT</a>, <a href="groups.htm#EGC_GEN_LIGHTING_AND_VISIBILITY">LIGHTING_AND_VISIBILITY</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_OBJECT_SKY_IRRADIANCE" id="EAC_OBJECT_SKY_IRRADIANCE">OBJECT_SKY_IRRADIANCE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_OBJECT_SKY_IRRADIANCE
+</p><p>
+<b>EDCS Attribute Code</b>: 899
+</p><p>
+<b>Definition</b>:
+<br>
+The irradiance from the sky (downwelling) onto an &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_IRRADIANCE">IRRADIANCE</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ABSTRACT_OBJECT">ABSTRACT_OBJECT</a>, <a href="groups.htm#EGC_GEN_LIGHTING_AND_VISIBILITY">LIGHTING_AND_VISIBILITY</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_OBJECT_TRANSMITTANCE_FRACTION" id="EAC_OBJECT_TRANSMITTANCE_FRACTION">OBJECT_TRANSMITTANCE_FRACTION</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_OBJECT_TRANSMITTANCE_FRACTION
+</p><p>
+<b>EDCS Attribute Code</b>: 900
+</p><p>
+<b>Definition</b>:
+<br>
+From a &lt;<a href="ECC_L.htm#ECC_LOCATION">LOCATION</a>&gt; of maximum visibility through an &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt; (for example: a &lt;<a href="ECC_F.htm#ECC_FENCE">FENCE</a>&gt; and/or a &lt;<a href="ECC_T.htm#ECC_TREE_LINE">TREE_LINE</a>&gt;), the ratio of the number of geometric rays from that &lt;<a href="ECC_L.htm#ECC_LOCATION">LOCATION</a>&gt; that are within the &lt;<a href="ECC_R.htm#ECC_REGION">REGION</a>&gt; delineated by an &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt; but do not intersect that &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt; to the total number of geometric rays from that &lt;<a href="ECC_L.htm#ECC_LOCATION">LOCATION</a>&gt; that are within that same &lt;<a href="ECC_R.htm#ECC_REGION">REGION</a>&gt;; transmittance fraction.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_PURE_NUMBER">PURE_NUMBER</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ABSTRACT_OBJECT">ABSTRACT_OBJECT</a>, <a href="groups.htm#EGC_GEN_LIGHTING_AND_VISIBILITY">LIGHTING_AND_VISIBILITY</a>, <a href="groups.htm#EGC_GEN_RATE_OR_RATIO">RATE_OR_RATIO</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_OBJECT_TYPE_DENSITY" id="EAC_OBJECT_TYPE_DENSITY">OBJECT_TYPE_DENSITY</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_OBJECT_TYPE_DENSITY
+</p><p>
+<b>EDCS Attribute Code</b>: 901
+</p><p>
+<b>Definition</b>:
+<br>
+The areal density of &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt;s of a specified type.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_AREAL_ENTITY_DENSITY">AREAL_ENTITY_DENSITY</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_RATE_OR_RATIO">RATE_OR_RATIO</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: DMF]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_OBJECT_VARIANT" id="EAC_OBJECT_VARIANT">OBJECT_VARIANT</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_OBJECT_VARIANT
+</p><p>
+<b>EDCS Attribute Code</b>: 902
+</p><p>
+<b>Definition</b>:
+<br>
+The numeric identifier of a variation of a type of &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt;; object variant. All variations of the type of an &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt; have a common supertype.
+<p>
+<b>EDCS Attribute Value Data Type</b>: INDEX
+</p><p>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ABSTRACT_OBJECT">ABSTRACT_OBJECT</a>, <a href="groups.htm#EGC_GEN_IDENTIFICATION">IDENTIFICATION</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_OBJECT_VERTICAL_DISPLACEMENT" id="EAC_OBJECT_VERTICAL_DISPLACEMENT">OBJECT_VERTICAL_DISPLACEMENT</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_OBJECT_VERTICAL_DISPLACEMENT
+</p><p>
+<b>EDCS Attribute Code</b>: 903
+</p><p>
+<b>Definition</b>:
+<br>
+The vertical distance measured from the lowest point of the base of an &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt; (downhill side/downstream side) to the prevailing &lt;<a href="ECC_T.htm#ECC_TERRAIN">TERRAIN</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_LENGTH">LENGTH</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ABSTRACT_OBJECT">ABSTRACT_OBJECT</a>, <a href="groups.htm#EGC_GEN_LOCATION">LOCATION</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_OBSCURANT_TYPE" id="EAC_OBSCURANT_TYPE">OBSCURANT_TYPE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_OBSCURANT_TYPE
+</p><p>
+<b>EDCS Attribute Code</b>: 904
+</p><p>
+<b>Definition</b>:
+<br>
+The type of obscurant present in an &lt;<a href="ECC_A.htm#ECC_ATMOSPHERE">ATMOSPHERE</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_OBSCTY_ADVECTION_FOG" id="EEC_OBSCTY_ADVECTION_FOG">1</a></td>
+<td>ADVECTION_FOG</td>
+<td>EEC_OBSCTY_ADVECTION_FOG</td>
+<td>&lt;<a href="ECC_F.htm#ECC_FOG">FOG</a>&gt; caused by advection of moist &lt;<a href="ECC_A.htm#ECC_AIR">AIR</a>&gt; over a cold &lt;<a href="ECC_P.htm#ECC_PLANETARY_SURFACE">PLANETARY_SURFACE</a>&gt;; advection fog.</td>
+<td>IR</td>
+<td>[GMET]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBSCTY_BLOWING_SNOW" id="EEC_OBSCTY_BLOWING_SNOW">2</a></td>
+<td>BLOWING_SNOW</td>
+<td>EEC_OBSCTY_BLOWING_SNOW</td>
+<td>&lt;<a href="ECC_S.htm#ECC_SNOW_GROUND_COVER">SNOW_GROUND_COVER</a>&gt; lifted over the &lt;<a href="ECC_P.htm#ECC_PLANETARY_SURFACE">PLANETARY_SURFACE</a>&gt; by &lt;<a href="ECC_W.htm#ECC_WIND">WIND</a>&gt; to a height of 2 metres or more; blowing snow.</td>
+<td>IR</td>
+<td>[GMET]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBSCTY_DESERT_HAZE" id="EEC_OBSCTY_DESERT_HAZE">3</a></td>
+<td>DESERT_HAZE</td>
+<td>EEC_OBSCTY_DESERT_HAZE</td>
+<td>Desert &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OBSCTY_HAZE">HAZE</a>&gt;&gt;&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBSCTY_DESERT_SUMMER" id="EEC_OBSCTY_DESERT_SUMMER">4</a></td>
+<td>DESERT_SUMMER</td>
+<td>EEC_OBSCTY_DESERT_SUMMER</td>
+<td>Desert summer.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBSCTY_DESERT_WINTER" id="EEC_OBSCTY_DESERT_WINTER">5</a></td>
+<td>DESERT_WINTER</td>
+<td>EEC_OBSCTY_DESERT_WINTER</td>
+<td>Desert winter.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBSCTY_DUSTSTORM" id="EEC_OBSCTY_DUSTSTORM">6</a></td>
+<td>DUSTSTORM</td>
+<td>EEC_OBSCTY_DUSTSTORM</td>
+<td>An unusual, frequently severe, condition characterized by strong &lt;<a href="ECC_W.htm#ECC_WIND">WIND</a>&gt;s and &lt;<a href="ECC_D.htm#ECC_DUST_SUSPENSION">DUST_SUSPENSION</a>&gt; over an extensive &lt;<a href="ECC_R.htm#ECC_REGION">REGION</a>&gt;; a dust storm.</td>
+<td>IR</td>
+<td>[GMET]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBSCTY_HAZE" id="EEC_OBSCTY_HAZE">7</a></td>
+<td>HAZE</td>
+<td>EEC_OBSCTY_HAZE</td>
+<td>Suspension in the &lt;<a href="ECC_A.htm#ECC_ATMOSPHERE">ATMOSPHERE</a>&gt; of extremely small, dry &lt;<a href="ECC_P.htm#ECC_PARTICLE">PARTICLE</a>&gt;s that are invisible to the naked eye but numerous enough to give the sky an opalescent appearance; haze.</td>
+<td>PR</td>
+<td>[WMO182, H0170]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBSCTY_MARINE_HAZE" id="EEC_OBSCTY_MARINE_HAZE">8</a></td>
+<td>MARINE_HAZE</td>
+<td>EEC_OBSCTY_MARINE_HAZE</td>
+<td>&lt;&lt;&lt;<a href="EAC_O.htm#EEC_OBSCTY_HAZE">HAZE</a>&gt;&gt;&gt; consisting of salt &lt;<a href="ECC_P.htm#ECC_PARTICLE">PARTICLE</a>&gt;s; marine haze.</td>
+<td>IR</td>
+<td>[GMET]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBSCTY_NONE_PRESENT" id="EEC_OBSCTY_NONE_PRESENT">9</a></td>
+<td>NONE_PRESENT</td>
+<td>EEC_OBSCTY_NONE_PRESENT</td>
+<td>No obscurant conditions are present.</td>
+<td>IR</td>
+<td>[GMET]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBSCTY_RADIATION_FOG" id="EEC_OBSCTY_RADIATION_FOG">10</a></td>
+<td>RADIATION_FOG</td>
+<td>EEC_OBSCTY_RADIATION_FOG</td>
+<td>&lt;<a href="ECC_F.htm#ECC_FOG">FOG</a>&gt; produced over a &lt;<a href="ECC_T.htm#ECC_TRACT">TRACT</a>&gt; when radiational cooling reduces the &lt;&lt;<a href="EAC_A.htm#EAC_AIR_TEMPERATURE">AIR_TEMPERATURE</a>&gt;&gt; to or below its dew point; radiation fog.</td>
+<td>IR</td>
+<td>[GMET]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBSCTY_RURAL_HAZE" id="EEC_OBSCTY_RURAL_HAZE">11</a></td>
+<td>RURAL_HAZE</td>
+<td>EEC_OBSCTY_RURAL_HAZE</td>
+<td>Rural &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OBSCTY_HAZE">HAZE</a>&gt;&gt;&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBSCTY_SNOW" id="EEC_OBSCTY_SNOW">12</a></td>
+<td>SNOW</td>
+<td>EEC_OBSCTY_SNOW</td>
+<td>Obscuration caused by the presence of &lt;<a href="ECC_S.htm#ECC_SNOW_PRECIPITATION">SNOW_PRECIPITATION</a>&gt; suspended in the &lt;<a href="ECC_A.htm#ECC_ATMOSPHERE">ATMOSPHERE</a>&gt;.</td>
+<td>IR</td>
+<td>[GMET]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBSCTY_TEMPERATE_SUMMER_DAY" id="EEC_OBSCTY_TEMPERATE_SUMMER_DAY">13</a></td>
+<td>TEMPERATE_SUMMER_DAY</td>
+<td>EEC_OBSCTY_TEMPERATE_SUMMER_DAY</td>
+<td>A condition present during the summer and dependent on the &lt;&lt;<a href="EAC_T.htm#EAC_TEMPERATURE">TEMPERATURE</a>&gt;&gt; during the day; temperate summer day.</td>
+<td>IR</td>
+<td>[GMET]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBSCTY_TEMPERATE_SUMMER_NIGHT" id="EEC_OBSCTY_TEMPERATE_SUMMER_NIGHT">14</a></td>
+<td>TEMPERATE_SUMMER_NIGHT</td>
+<td>EEC_OBSCTY_TEMPERATE_SUMMER_NIGHT</td>
+<td>A condition present during the summer and dependent on the &lt;&lt;<a href="EAC_T.htm#EAC_TEMPERATURE">TEMPERATURE</a>&gt;&gt; during the night; temperate summer night.</td>
+<td>IR</td>
+<td>[GMET]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBSCTY_TEMPERATE_WINTER" id="EEC_OBSCTY_TEMPERATE_WINTER">15</a></td>
+<td>TEMPERATE_WINTER</td>
+<td>EEC_OBSCTY_TEMPERATE_WINTER</td>
+<td>A condition present during winter season and dependent on the &lt;&lt;<a href="EAC_T.htm#EAC_TEMPERATURE">TEMPERATURE</a>&gt;&gt; at the time; temperate winter.</td>
+<td>IR</td>
+<td>[GMET]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBSCTY_TROPOSPHERIC" id="EEC_OBSCTY_TROPOSPHERIC">16</a></td>
+<td>TROPOSPHERIC</td>
+<td>EEC_OBSCTY_TROPOSPHERIC</td>
+<td>&lt;&lt;&lt;<a href="EAC_O.htm#EEC_OBSCTY_HAZE">HAZE</a>&gt;&gt;&gt; in the &lt;<a href="ECC_T.htm#ECC_TROPOSPHERE">TROPOSPHERE</a>&gt;.</td>
+<td>IR</td>
+<td>[GMET]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBSCTY_URBAN_HAZE" id="EEC_OBSCTY_URBAN_HAZE">17</a></td>
+<td>URBAN_HAZE</td>
+<td>EEC_OBSCTY_URBAN_HAZE</td>
+<td>&lt;&lt;&lt;<a href="EAC_O.htm#EEC_OBSCTY_HAZE">HAZE</a>&gt;&gt;&gt; caused by or present in urban environments.</td>
+<td>IR</td>
+<td>[GMET]</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_AIRBORNE_PARTICLE">AIRBORNE_PARTICLE</a>, <a href="groups.htm#EGC_GEN_ATMOSPHERE">ATMOSPHERE</a>, <a href="groups.htm#EGC_GEN_LIGHTING_AND_VISIBILITY">LIGHTING_AND_VISIBILITY</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_OBSERVATION_DECK_PRESENT" id="EAC_OBSERVATION_DECK_PRESENT">OBSERVATION_DECK_PRESENT</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_OBSERVATION_DECK_PRESENT
+</p><p>
+<b>EDCS Attribute Code</b>: 905
+</p><p>
+<b>Definition</b>:
+<br>
+An indication that one or more observation decks are present on an &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: BOOLEAN
+</p><p>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ABSTRACT_OBJECT">ABSTRACT_OBJECT</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_OBSERVATION_PLATFORM_TYPE" id="EAC_OBSERVATION_PLATFORM_TYPE">OBSERVATION_PLATFORM_TYPE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_OBSERVATION_PLATFORM_TYPE
+</p><p>
+<b>EDCS Attribute Code</b>: 906
+</p><p>
+<b>Definition</b>:
+<br>
+The type of an observation platform.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_OBVPLATTY_AIRCRAFT" id="EEC_OBVPLATTY_AIRCRAFT">1</a></td>
+<td>AIRCRAFT</td>
+<td>EEC_OBVPLATTY_AIRCRAFT</td>
+<td>&lt;<a href="ECC_A.htm#ECC_AIRCRAFT">AIRCRAFT</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBVPLATTY_BUOY" id="EEC_OBVPLATTY_BUOY">2</a></td>
+<td>BUOY</td>
+<td>EEC_OBVPLATTY_BUOY</td>
+<td>&lt;<a href="ECC_B.htm#ECC_BUOY">BUOY</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBVPLATTY_FIXED_WEATHER_STATION" id="EEC_OBVPLATTY_FIXED_WEATHER_STATION">3</a></td>
+<td>FIXED_WEATHER_STATION</td>
+<td>EEC_OBVPLATTY_FIXED_WEATHER_STATION</td>
+<td>Fixed weather station.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBVPLATTY_GEOPHYSICAL_SATELLITE" id="EEC_OBVPLATTY_GEOPHYSICAL_SATELLITE">4</a></td>
+<td>GEOPHYSICAL_SATELLITE</td>
+<td>EEC_OBVPLATTY_GEOPHYSICAL_SATELLITE</td>
+<td>Geophysical &lt;<a href="ECC_A.htm#ECC_ARTIFICIAL_SATELLITE">ARTIFICIAL_SATELLITE</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBVPLATTY_HUMAN" id="EEC_OBVPLATTY_HUMAN">5</a></td>
+<td>HUMAN</td>
+<td>EEC_OBVPLATTY_HUMAN</td>
+<td>&lt;<a href="ECC_H.htm#ECC_HUMAN">HUMAN</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBVPLATTY_METEOROLOGIC_OBSERVATION_TOWER" id="EEC_OBVPLATTY_METEOROLOGIC_OBSERVATION_TOWER">6</a></td>
+<td>METEOROLOGIC_OBSERVATION_TOWER</td>
+<td>EEC_OBVPLATTY_METEOROLOGIC_OBSERVATION_TOWER</td>
+<td>Meteorological observation &lt;<a href="ECC_T.htm#ECC_TOWER">TOWER</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBVPLATTY_MOTOR_VEHICLE" id="EEC_OBVPLATTY_MOTOR_VEHICLE">7</a></td>
+<td>MOTOR_VEHICLE</td>
+<td>EEC_OBVPLATTY_MOTOR_VEHICLE</td>
+<td>&lt;<a href="ECC_M.htm#ECC_MOTOR_VEHICLE">MOTOR_VEHICLE</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBVPLATTY_VESSEL" id="EEC_OBVPLATTY_VESSEL">8</a></td>
+<td>VESSEL</td>
+<td>EEC_OBVPLATTY_VESSEL</td>
+<td>&lt;<a href="ECC_V.htm#ECC_VESSEL">VESSEL</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ATMOSPHERE">ATMOSPHERE</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_OBSERVATION_TIME_EPOCH_1970" id="EAC_OBSERVATION_TIME_EPOCH_1970">OBSERVATION_TIME_EPOCH_1970</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_OBSERVATION_TIME_EPOCH_1970
+</p><p>
+<b>EDCS Attribute Code</b>: 907
+</p><p>
+<b>Definition</b>:
+<br>
+The time at which an observation was made since the epoch 00:00:00 UTC, January 1, 1970 Common Era.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_TIME">TIME</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_TIME">TIME</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_OBSERVED_VISIBILITY_REPORT_TYPE" id="EAC_OBSERVED_VISIBILITY_REPORT_TYPE">OBSERVED_VISIBILITY_REPORT_TYPE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_OBSERVED_VISIBILITY_REPORT_TYPE
+</p><p>
+<b>EDCS Attribute Code</b>: 908
+</p><p>
+<b>Definition</b>:
+<br>
+The type of report of observed visibility.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_OBVVISRPTTY_MINIMUM" id="EEC_OBVVISRPTTY_MINIMUM">1</a></td>
+<td>MINIMUM</td>
+<td>EEC_OBVVISRPTTY_MINIMUM</td>
+<td>Minimum observed visibility during reporting period.</td>
+<td>IR</td>
+<td>[FMH1, Section 6]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBVVISRPTTY_PRVL" id="EEC_OBVVISRPTTY_PRVL">2</a></td>
+<td>PRVL</td>
+<td>EEC_OBVVISRPTTY_PRVL</td>
+<td>The visibility that is considered representative of visibility conditions at the station; the greatest distance that can be seen throughout at least half the horizon circle, not necessarily continuous; prevailing.</td>
+<td>IR</td>
+<td>[FMH1, Section 6]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBVVISRPTTY_PRVL_VAR_HIGH" id="EEC_OBVVISRPTTY_PRVL_VAR_HIGH">3</a></td>
+<td>PRVL_VAR_HIGH</td>
+<td>EEC_OBVVISRPTTY_PRVL_VAR_HIGH</td>
+<td>The maximum visibility reported if the prevailing visibility rapidly increases and decreases by 800 metres (approximately 0,5 miles) or more, during the time of observation, and the visibility is less than 4&nbsp;828 metres (approximately 3 miles); prevailing variable high.</td>
+<td>IR</td>
+<td>[FMH1, Section 6]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBVVISRPTTY_PRVL_VAR_LOW" id="EEC_OBVVISRPTTY_PRVL_VAR_LOW">4</a></td>
+<td>PRVL_VAR_LOW</td>
+<td>EEC_OBVVISRPTTY_PRVL_VAR_LOW</td>
+<td>The minimum visibility reported if the prevailing visibility rapidly increases and decreases by 800 metres (approximately 0,5 miles) or more, during the time of observation, and the visibility is less than 4&nbsp;828 metres (approximately 3 miles); prevailing variable low.</td>
+<td>IR</td>
+<td>[FMH1, Section 6]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBVVISRPTTY_SECTOR" id="EEC_OBVVISRPTTY_SECTOR">5</a></td>
+<td>SECTOR</td>
+<td>EEC_OBVVISRPTTY_SECTOR</td>
+<td>The visibility in a specific &lt;<a href="ECC_D.htm#ECC_DIRECTION">DIRECTION</a>&gt; that represents at least a 45 arc degree sector of the horizon circle.</td>
+<td>IR</td>
+<td>[FMH1, Section 6]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBVVISRPTTY_TOWER" id="EEC_OBVVISRPTTY_TOWER">6</a></td>
+<td>TOWER</td>
+<td>EEC_OBVVISRPTTY_TOWER</td>
+<td>The prevailing visibility determined from airport traffic &lt;<a href="ECC_C.htm#ECC_CONTROL_TOWER">CONTROL_TOWER</a>&gt; at stations that also report surface-level visibility.</td>
+<td>IR</td>
+<td>[FMH1, Section 6]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBVVISRPTTY_TOWER_VAR_HIGH" id="EEC_OBVVISRPTTY_TOWER_VAR_HIGH">7</a></td>
+<td>TOWER_VAR_HIGH</td>
+<td>EEC_OBVVISRPTTY_TOWER_VAR_HIGH</td>
+<td>The maximum visibility reported if the airport traffic &lt;<a href="ECC_C.htm#ECC_CONTROL_TOWER">CONTROL_TOWER</a>&gt; visibility rapidly increases and decreases by 800 metres (approximately 0,5 miles) or more, during the time of observation and the visibility is less than 4&nbsp;828 metres (approximately 3 miles); control tower prevailing high.</td>
+<td>IR</td>
+<td>[FMH1, Section 6]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OBVVISRPTTY_TOWER_VAR_LOW" id="EEC_OBVVISRPTTY_TOWER_VAR_LOW">8</a></td>
+<td>TOWER_VAR_LOW</td>
+<td>EEC_OBVVISRPTTY_TOWER_VAR_LOW</td>
+<td>The minimum visibility reported if the airport traffic &lt;<a href="ECC_C.htm#ECC_CONTROL_TOWER">CONTROL_TOWER</a>&gt; visibility rapidly increases and decreases by 800 metres (approximately 0,5 miles) or more, during the time of observation and the visibility is less than 4&nbsp;828 metres (approximately 3 miles); control tower prevailing low.</td>
+<td>IR</td>
+<td>[FMH1, Section 6]</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_LIGHTING_AND_VISIBILITY">LIGHTING_AND_VISIBILITY</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_OCEAN_CURRENT_EAST_SPEED" id="EAC_OCEAN_CURRENT_EAST_SPEED">OCEAN_CURRENT_EAST_SPEED</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_OCEAN_CURRENT_EAST_SPEED
+</p><p>
+<b>EDCS Attribute Code</b>: 909
+</p><p>
+<b>Definition</b>:
+<br>
+The &lt;&lt;<a href="EAC_W.htm#EAC_WATER_CURRENT_SPEED">WATER_CURRENT_SPEED</a>&gt;&gt; in an &lt;<a href="ECC_O.htm#ECC_OCEAN">OCEAN</a>&gt; in the geodetic east-west &lt;<a href="ECC_D.htm#ECC_DIRECTION">DIRECTION</a>&gt;, where east is positive.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_SPEED">SPEED</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_RATE_OR_RATIO">RATE_OR_RATIO</a>, <a href="groups.htm#EGC_GEN_WATERBODY_STATE">WATERBODY_STATE</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [NPDM]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_OCEAN_CURRENT_NORTH_SPEED" id="EAC_OCEAN_CURRENT_NORTH_SPEED">OCEAN_CURRENT_NORTH_SPEED</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_OCEAN_CURRENT_NORTH_SPEED
+</p><p>
+<b>EDCS Attribute Code</b>: 910
+</p><p>
+<b>Definition</b>:
+<br>
+The &lt;&lt;<a href="EAC_W.htm#EAC_WATER_CURRENT_SPEED">WATER_CURRENT_SPEED</a>&gt;&gt; in an &lt;<a href="ECC_O.htm#ECC_OCEAN">OCEAN</a>&gt; in the geodetic south-north &lt;<a href="ECC_D.htm#ECC_DIRECTION">DIRECTION</a>&gt;, where north is positive.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_SPEED">SPEED</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_RATE_OR_RATIO">RATE_OR_RATIO</a>, <a href="groups.htm#EGC_GEN_WATERBODY_STATE">WATERBODY_STATE</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [NPDM]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_OCEAN_CURRENT_U" id="EAC_OCEAN_CURRENT_U">OCEAN_CURRENT_U</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_OCEAN_CURRENT_U
+</p><p>
+<b>EDCS Attribute Code</b>: 911
+</p><p>
+<b>Definition</b>:
+<br>
+The U component (geodetic west-east &lt;<a href="ECC_D.htm#ECC_DIRECTION">DIRECTION</a>&gt;, where east is positive) of the &lt;&lt;<a href="EAC_W.htm#EAC_WATER_CURRENT_SPEED">WATER_CURRENT_SPEED</a>&gt;&gt; in an &lt;<a href="ECC_O.htm#ECC_OCEAN">OCEAN</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_SPEED">SPEED</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_RATE_OR_RATIO">RATE_OR_RATIO</a>, <a href="groups.htm#EGC_GEN_WATERBODY_STATE">WATERBODY_STATE</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [JMCDM, "CURRENT-PROFILE-ELEMENT u component velocity rate"]
+</p><p>
+<b>Supplemental References</b>: [NPDM]
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_OCEAN_CURRENT_U_SPEED" id="EAC_OCEAN_CURRENT_U_SPEED">OCEAN_CURRENT_U_SPEED</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_OCEAN_CURRENT_U_SPEED
+</p><p>
+<b>EDCS Attribute Code</b>: 912
+</p><p>
+<b>Definition</b>:
+<br>
+The &lt;&lt;<a href="EAC_W.htm#EAC_WATER_CURRENT_SPEED">WATER_CURRENT_SPEED</a>&gt;&gt; in an &lt;<a href="ECC_O.htm#ECC_OCEAN">OCEAN</a>&gt; in the X &lt;<a href="ECC_D.htm#ECC_DIRECTION">DIRECTION</a>&gt; of a projection-based coordinate system, where +X is positive; the "U" speed.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_SPEED">SPEED</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_RATE_OR_RATIO">RATE_OR_RATIO</a>, <a href="groups.htm#EGC_GEN_WATERBODY_STATE">WATERBODY_STATE</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [NPDM]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_OCEAN_CURRENT_V" id="EAC_OCEAN_CURRENT_V">OCEAN_CURRENT_V</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_OCEAN_CURRENT_V
+</p><p>
+<b>EDCS Attribute Code</b>: 913
+</p><p>
+<b>Definition</b>:
+<br>
+The V component (geodetic south-north &lt;<a href="ECC_D.htm#ECC_DIRECTION">DIRECTION</a>&gt;, where north is positive) of the &lt;&lt;<a href="EAC_W.htm#EAC_WATER_CURRENT_SPEED">WATER_CURRENT_SPEED</a>&gt;&gt; in an &lt;<a href="ECC_O.htm#ECC_OCEAN">OCEAN</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_SPEED">SPEED</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_RATE_OR_RATIO">RATE_OR_RATIO</a>, <a href="groups.htm#EGC_GEN_WATERBODY_STATE">WATERBODY_STATE</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [JMCDM, "CURRENT-PROFILE-ELEMENT v component velocity rate"]
+</p><p>
+<b>Supplemental References</b>: [NPDM]
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_OCEAN_CURRENT_V_SPEED" id="EAC_OCEAN_CURRENT_V_SPEED">OCEAN_CURRENT_V_SPEED</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_OCEAN_CURRENT_V_SPEED
+</p><p>
+<b>EDCS Attribute Code</b>: 914
+</p><p>
+<b>Definition</b>:
+<br>
+The &lt;&lt;<a href="EAC_W.htm#EAC_WATER_CURRENT_SPEED">WATER_CURRENT_SPEED</a>&gt;&gt; in an &lt;<a href="ECC_O.htm#ECC_OCEAN">OCEAN</a>&gt; in the Y &lt;<a href="ECC_D.htm#ECC_DIRECTION">DIRECTION</a>&gt; of a projection-based coordinate system, where +Y is positive; the "V" speed.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_SPEED">SPEED</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_RATE_OR_RATIO">RATE_OR_RATIO</a>, <a href="groups.htm#EGC_GEN_WATERBODY_STATE">WATERBODY_STATE</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [NPDM]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_OCEAN_CURRENT_W" id="EAC_OCEAN_CURRENT_W">OCEAN_CURRENT_W</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_OCEAN_CURRENT_W
+</p><p>
+<b>EDCS Attribute Code</b>: 915
+</p><p>
+<b>Definition</b>:
+<br>
+The &lt;&lt;<a href="EAC_W.htm#EAC_WATER_CURRENT_SPEED">WATER_CURRENT_SPEED</a>&gt;&gt; in an &lt;<a href="ECC_O.htm#ECC_OCEAN">OCEAN</a>&gt; in the down-up &lt;<a href="ECC_D.htm#ECC_DIRECTION">DIRECTION</a>&gt; where up is positive; the ocean current W.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_SPEED">SPEED</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_RATE_OR_RATIO">RATE_OR_RATIO</a>, <a href="groups.htm#EGC_GEN_WATERBODY_STATE">WATERBODY_STATE</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [JMCDM, "CURRENT-PROFILE-ELEMENT w component velocity rate"]
+</p><p>
+<b>Supplemental References</b>: [NPDM]
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_OCEAN_ELECTRICAL_CONDUCTIVITY_RATIO" id="EAC_OCEAN_ELECTRICAL_CONDUCTIVITY_RATIO">OCEAN_ELECTRICAL_CONDUCTIVITY_RATIO</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_OCEAN_ELECTRICAL_CONDUCTIVITY_RATIO
+</p><p>
+<b>EDCS Attribute Code</b>: 916
+</p><p>
+<b>Definition</b>:
+<br>
+The ratio of the electrical conductivity of &lt;<a href="ECC_W.htm#ECC_WATER">WATER</a>&gt; in an &lt;<a href="ECC_O.htm#ECC_OCEAN">OCEAN</a>&gt; to the electrical conductivity of a potassium chloride standard solution, in which the mass fraction of potassium chloride is 32,4356 x 10<sup>-6</sup>. Both conductivities are measured at a given &lt;&lt;<a href="EAC_W.htm#EAC_WATERBODY_TEMPERATURE">WATERBODY_TEMPERATURE</a>&gt;&gt; and a pressure of 1 standard atmosphere. A ratio of 1 corresponds to a &lt;&lt;<a href="EAC_P.htm#EAC_PRACTICAL_SALINITY">PRACTICAL_SALINITY</a>&gt;&gt; of 35.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_PURE_NUMBER">PURE_NUMBER</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_RATE_OR_RATIO">RATE_OR_RATIO</a>, <a href="groups.htm#EGC_GEN_WATERBODY_STATE">WATERBODY_STATE</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [ISUO, Clause VI]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_OCEAN_FLOOR_REGION_NAME" id="EAC_OCEAN_FLOOR_REGION_NAME">OCEAN_FLOOR_REGION_NAME</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_OCEAN_FLOOR_REGION_NAME
+</p><p>
+<b>EDCS Attribute Code</b>: 917
+</p><p>
+<b>Definition</b>:
+<br>
+The name of a &lt;<a href="ECC_R.htm#ECC_REGION">REGION</a>&gt; of an &lt;<a href="ECC_O.htm#ECC_OCEAN_FLOOR">OCEAN_FLOOR</a>&gt; that has measurable relief or is delimited by relief. The value is formatted in a Basic Latin string and contains the name for a kind of feature of the &lt;<a href="ECC_O.htm#ECC_OCEAN_FLOOR">OCEAN_FLOOR</a>&gt; that may be found in [SUFN].
+<p>
+<b>EDCS Attribute Value Data Type</b>: CONSTRAINED_STRING
+</p><p>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_IDENTIFICATION">IDENTIFICATION</a>, <a href="groups.htm#EGC_GEN_WATERBODY_FLOOR">WATERBODY_FLOOR</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [SUFN, page 2-5, "UNDERSEA FEATURE NAME PROPOSAL"]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_OCEAN_FLOOR_REGION_NAME_TYPE" id="EAC_OCEAN_FLOOR_REGION_NAME_TYPE">OCEAN_FLOOR_REGION_NAME_TYPE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_OCEAN_FLOOR_REGION_NAME_TYPE
+</p><p>
+<b>EDCS Attribute Code</b>: 918
+</p><p>
+<b>Definition</b>:
+<br>
+The type of a named &lt;<a href="ECC_R.htm#ECC_REGION">REGION</a>&gt; of the &lt;<a href="ECC_O.htm#ECC_OCEAN_FLOOR">OCEAN_FLOOR</a>&gt; that has measurable relief or is delimited by relief.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_ABYSSAL_HILLS" id="EEC_OCFLRREGNNAMTY_ABYSSAL_HILLS">1</a></td>
+<td>ABYSSAL_HILLS</td>
+<td>EEC_OCFLRREGNNAMTY_ABYSSAL_HILLS</td>
+<td>A &lt;<a href="ECC_W.htm#ECC_WATERBODY_FLOOR_REGION">WATERBODY_FLOOR_REGION</a>&gt; of small elevations in an &lt;<a href="ECC_A.htm#ECC_ABYSS">ABYSS</a>&gt;; abyssal hills.</td>
+<td>PR</td>
+<td>[SUFN, "abyssal hills"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_ABYSSAL_PLAIN" id="EEC_OCFLRREGNNAMTY_ABYSSAL_PLAIN">2</a></td>
+<td>ABYSSAL_PLAIN</td>
+<td>EEC_OCFLRREGNNAMTY_ABYSSAL_PLAIN</td>
+<td>A &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCFLRREGNNAMTY_PLAIN">PLAIN</a>&gt;&gt;&gt; in an &lt;<a href="ECC_A.htm#ECC_ABYSS">ABYSS</a>&gt;; an abyssal plain.</td>
+<td>PR</td>
+<td>[SUFN, "abyssal plain"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_APRON" id="EEC_OCFLRREGNNAMTY_APRON">3</a></td>
+<td>APRON</td>
+<td>EEC_OCFLRREGNNAMTY_APRON</td>
+<td>A gently dipping &lt;<a href="ECC_S.htm#ECC_SURFACE">SURFACE</a>&gt;, underlain primarily by &lt;<a href="ECC_S.htm#ECC_SEDIMENT">SEDIMENT</a>&gt;, at the base of any steeper slope; an apron.</td>
+<td>PR</td>
+<td>[SUFN, "apron"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_ARCHIPELAGIC_APRON" id="EEC_OCFLRREGNNAMTY_ARCHIPELAGIC_APRON">4</a></td>
+<td>ARCHIPELAGIC_APRON</td>
+<td>EEC_OCFLRREGNNAMTY_ARCHIPELAGIC_APRON</td>
+<td>A gentle slope with a generally smooth &lt;<a href="ECC_S.htm#ECC_SURFACE">SURFACE</a>&gt;, characteristically found around groups of &lt;<a href="ECC_I.htm#ECC_ISLAND">ISLAND</a>&gt;s or &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCFLRREGNNAMTY_SEAMOUNT">SEAMOUNT</a>&gt;&gt;&gt;s; an archipelagic apron.</td>
+<td>PR</td>
+<td>[SUFN, "archipelagic apron"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_BANK" id="EEC_OCFLRREGNNAMTY_BANK">5</a></td>
+<td>BANK</td>
+<td>EEC_OCFLRREGNNAMTY_BANK</td>
+<td>An elevation over which the &lt;&lt;<a href="EAC_W.htm#EAC_WATER_DEPTH">WATER_DEPTH</a>&gt;&gt; is relatively shallow, but sufficient for safe navigation on the &lt;<a href="ECC_W.htm#ECC_WATERBODY_SURFACE">WATERBODY_SURFACE</a>&gt;; a bank.</td>
+<td>PR</td>
+<td>[SUFN, "bank"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_BANK_SET" id="EEC_OCFLRREGNNAMTY_BANK_SET">6</a></td>
+<td>BANK_SET</td>
+<td>EEC_OCFLRREGNNAMTY_BANK_SET</td>
+<td>A &lt;<a href="ECC_N.htm#ECC_NON_EMPTY_SET">NON_EMPTY_SET</a>&gt; of &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCFLRREGNNAMTY_BANK">BANK</a>&gt;&gt;&gt;s in close proximity.</td>
+<td>IR</td>
+<td>[SUFN, "bank"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_BASIN" id="EEC_OCFLRREGNNAMTY_BASIN">7</a></td>
+<td>BASIN</td>
+<td>EEC_OCFLRREGNNAMTY_BASIN</td>
+<td>&lt;<a href="ECC_O.htm#ECC_OCEAN_BASIN">OCEAN_BASIN</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[SUFN, "basin"]</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_BORDERLAND" id="EEC_OCFLRREGNNAMTY_BORDERLAND">8</a></td>
+<td>BORDERLAND</td>
+<td>EEC_OCFLRREGNNAMTY_BORDERLAND</td>
+<td>A &lt;<a href="ECC_W.htm#ECC_WATERBODY_FLOOR_REGION">WATERBODY_FLOOR_REGION</a>&gt; adjacent to a continent, normally occupied by or bordering a &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCFLRREGNNAMTY_CNTNTL_SHELF">CNTNTL_SHELF</a>&gt;&gt;&gt;, and sometimes emerging as &lt;<a href="ECC_I.htm#ECC_ISLAND">ISLAND</a>&gt;s that are irregular or blocky in plan or profile, with &lt;&lt;<a href="EAC_W.htm#EAC_WATER_DEPTH">WATER_DEPTH</a>&gt;&gt;s well in excess of those typical of a &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCFLRREGNNAMTY_CNTNTL_SHELF">CNTNTL_SHELF</a>&gt;&gt;&gt;; a borderland.</td>
+<td>PR</td>
+<td>[SUFN, "borderland"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_CALDERA" id="EEC_OCFLRREGNNAMTY_CALDERA">9</a></td>
+<td>CALDERA</td>
+<td>EEC_OCFLRREGNNAMTY_CALDERA</td>
+<td>A collapsed or partially-collapsed &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCFLRREGNNAMTY_SEAMOUNT">SEAMOUNT</a>&gt;&gt;&gt;, commonly of annular shape; a caldera.</td>
+<td>PR</td>
+<td>[SUFN, "caldera"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_CANYON" id="EEC_OCFLRREGNNAMTY_CANYON">10</a></td>
+<td>CANYON</td>
+<td>EEC_OCFLRREGNNAMTY_CANYON</td>
+<td>&lt;<a href="ECC_W.htm#ECC_WATERBODY_FLOOR_CANYON">WATERBODY_FLOOR_CANYON</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[SUFN, "canyon"]</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_CANYON_SET" id="EEC_OCFLRREGNNAMTY_CANYON_SET">11</a></td>
+<td>CANYON_SET</td>
+<td>EEC_OCFLRREGNNAMTY_CANYON_SET</td>
+<td>A &lt;<a href="ECC_N.htm#ECC_NON_EMPTY_SET">NON_EMPTY_SET</a>&gt; of &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCFLRREGNNAMTY_CANYON">CANYON</a>&gt;&gt;&gt;s, in close proximity.</td>
+<td>IR</td>
+<td>[SUFN, "canyon"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_CAP" id="EEC_OCFLRREGNNAMTY_CAP">12</a></td>
+<td>CAP</td>
+<td>EEC_OCFLRREGNNAMTY_CAP</td>
+<td>A localized elevation, over which the &lt;&lt;<a href="EAC_W.htm#EAC_WATER_DEPTH">WATER_DEPTH</a>&gt;&gt; is relatively shallow, but sufficient for safe navigation on the &lt;<a href="ECC_W.htm#ECC_WATERBODY_SURFACE">WATERBODY_SURFACE</a>&gt;; a cap.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_CNTNTL_MARGIN" id="EEC_OCFLRREGNNAMTY_CNTNTL_MARGIN">13</a></td>
+<td>CNTNTL_MARGIN</td>
+<td>EEC_OCFLRREGNNAMTY_CNTNTL_MARGIN</td>
+<td>The &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCFLRREGNNAMTY_ZONE">ZONE</a>&gt;&gt;&gt;, generally consisting of a &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCFLRREGNNAMTY_CNTNTL_SHELF">CNTNTL_SHELF</a>&gt;&gt;&gt;, &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCFLRREGNNAMTY_CNTNTL_SLOPE">CNTNTL_SLOPE</a>&gt;&gt;&gt; and &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCFLRREGNNAMTY_CNTNTL_RISE">CNTNTL_RISE</a>&gt;&gt;&gt;, separating a continent from the deep &lt;<a href="ECC_O.htm#ECC_OCEAN_FLOOR">OCEAN_FLOOR</a>&gt; or &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCFLRREGNNAMTY_ABYSSAL_PLAIN">ABYSSAL_PLAIN</a>&gt;&gt;&gt;; a continental margin. Occasionally a &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCFLRREGNNAMTY_TRENCH">TRENCH</a>&gt;&gt;&gt; may be present in place of a &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCFLRREGNNAMTY_CNTNTL_RISE">CNTNTL_RISE</a>&gt;&gt;&gt;.</td>
+<td>PR</td>
+<td>[SUFN, "continental margin"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_CNTNTL_RISE" id="EEC_OCFLRREGNNAMTY_CNTNTL_RISE">14</a></td>
+<td>CNTNTL_RISE</td>
+<td>EEC_OCFLRREGNNAMTY_CNTNTL_RISE</td>
+<td>A gentle slope rising from the &lt;<a href="ECC_O.htm#ECC_OCEAN">OCEAN</a>&gt; depths towards the foot of a &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCFLRREGNNAMTY_CNTNTL_SLOPE">CNTNTL_SLOPE</a>&gt;&gt;&gt;; a continental rise.</td>
+<td>PR</td>
+<td>[SUFN, "continental rise"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_CNTNTL_SHELF" id="EEC_OCFLRREGNNAMTY_CNTNTL_SHELF">15</a></td>
+<td>CNTNTL_SHELF</td>
+<td>EEC_OCFLRREGNNAMTY_CNTNTL_SHELF</td>
+<td>A &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCFLRREGNNAMTY_SHELF">SHELF</a>&gt;&gt;&gt; adjacent to a continent.</td>
+<td>PR</td>
+<td>[SUFN, "continental shelf"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_CNTNTL_SLOPE" id="EEC_OCFLRREGNNAMTY_CNTNTL_SLOPE">16</a></td>
+<td>CNTNTL_SLOPE</td>
+<td>EEC_OCFLRREGNNAMTY_CNTNTL_SLOPE</td>
+<td>The deepening &lt;<a href="ECC_O.htm#ECC_OCEAN_FLOOR">OCEAN_FLOOR</a>&gt; out from the &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCFLRREGNNAMTY_SHELF_EDGE">SHELF_EDGE</a>&gt;&gt;&gt; of a &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCFLRREGNNAMTY_CNTNTL_SHELF">CNTNTL_SHELF</a>&gt;&gt;&gt; to the upper &lt;<a href="ECC_B.htm#ECC_BOUNDARY">BOUNDARY</a>&gt; of the &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCFLRREGNNAMTY_CNTNTL_RISE">CNTNTL_RISE</a>&gt;&gt;&gt;, or the &lt;<a href="ECC_L.htm#ECC_LOCATION">LOCATION</a>&gt; where there is a general decrease in steepness; a continental slope.</td>
+<td>PR</td>
+<td>[SUFN, "slope"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_DEEP" id="EEC_OCFLRREGNNAMTY_DEEP">17</a></td>
+<td>DEEP</td>
+<td>EEC_OCFLRREGNNAMTY_DEEP</td>
+<td>An extensive &lt;<a href="ECC_R.htm#ECC_REGION">REGION</a>&gt; of the &lt;<a href="ECC_O.htm#ECC_OCEAN_FLOOR">OCEAN_FLOOR</a>&gt; having great &lt;&lt;<a href="EAC_W.htm#EAC_WATER_DEPTH">WATER_DEPTH</a>&gt;&gt;, generally greater than 6&nbsp;000 metres.</td>
+<td>IR</td>
+<td>[APDS, "deep"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_ESCARPMENT" id="EEC_OCFLRREGNNAMTY_ESCARPMENT">18</a></td>
+<td>ESCARPMENT</td>
+<td>EEC_OCFLRREGNNAMTY_ESCARPMENT</td>
+<td>An elongated, characteristically linear, steep slope separating horizontal or gently sloping sectors of the &lt;<a href="ECC_O.htm#ECC_OCEAN_FLOOR">OCEAN_FLOOR</a>&gt; in non-shelf &lt;<a href="ECC_W.htm#ECC_WATERBODY_FLOOR_REGION">WATERBODY_FLOOR_REGION</a>&gt;s; an escarpment or scarp.</td>
+<td>PR</td>
+<td>[SUFN, "escarpment"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_FAN" id="EEC_OCFLRREGNNAMTY_FAN">19</a></td>
+<td>FAN</td>
+<td>EEC_OCFLRREGNNAMTY_FAN</td>
+<td>A relatively smooth, fan-like, depositional &lt;<a href="ECC_W.htm#ECC_WATERBODY_FLOOR_TOPOGRAPHIC_CONFIGURATION">WATERBODY_FLOOR_TOPOGRAPHIC_CONFIGURATION</a>&gt; normally sloping away from the outer termination of a &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCFLRREGNNAMTY_CANYON">CANYON</a>&gt;&gt;&gt;, or &lt;<a href="ECC_S.htm#ECC_SYSTEM">SYSTEM</a>&gt; of &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCFLRREGNNAMTY_CANYON">CANYON</a>&gt;&gt;&gt;s; a fan or cone.</td>
+<td>PR</td>
+<td>[SUFN, "fan"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_FRACTURE_ZONE" id="EEC_OCFLRREGNNAMTY_FRACTURE_ZONE">20</a></td>
+<td>FRACTURE_ZONE</td>
+<td>EEC_OCFLRREGNNAMTY_FRACTURE_ZONE</td>
+<td>An extensive linear &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCFLRREGNNAMTY_ZONE">ZONE</a>&gt;&gt;&gt; of irregular topography, mountainous or faulted, characterized by steep-sided or asymmetrical &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCFLRREGNNAMTY_RIDGE">RIDGE</a>&gt;&gt;&gt;s, clefts, &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCFLRREGNNAMTY_TROUGH">TROUGH</a>&gt;&gt;&gt;s, or &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCFLRREGNNAMTY_ESCARPMENT">ESCARPMENT</a>&gt;&gt;&gt;s; a fracture zone.</td>
+<td>PR</td>
+<td>[SUFN, "fracture zone"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_GUYOT" id="EEC_OCFLRREGNNAMTY_GUYOT">21</a></td>
+<td>GUYOT</td>
+<td>EEC_OCFLRREGNNAMTY_GUYOT</td>
+<td>A &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCFLRREGNNAMTY_SEAMOUNT">SEAMOUNT</a>&gt;&gt;&gt; having a comparatively smooth flat top; a guyot or tablemount.</td>
+<td>PR</td>
+<td>[SUFN, "guyot"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_GUYOT_SET" id="EEC_OCFLRREGNNAMTY_GUYOT_SET">22</a></td>
+<td>GUYOT_SET</td>
+<td>EEC_OCFLRREGNNAMTY_GUYOT_SET</td>
+<td>A &lt;<a href="ECC_N.htm#ECC_NON_EMPTY_SET">NON_EMPTY_SET</a>&gt; of &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCFLRREGNNAMTY_GUYOT">GUYOT</a>&gt;&gt;&gt;s in close proximity.</td>
+<td>IR</td>
+<td>[SUFN, "guyot"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_HILL" id="EEC_OCFLRREGNNAMTY_HILL">23</a></td>
+<td>HILL</td>
+<td>EEC_OCFLRREGNNAMTY_HILL</td>
+<td>An isolated elevation, smaller than a &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCFLRREGNNAMTY_SEAMOUNT">SEAMOUNT</a>&gt;&gt;&gt;; a hill.</td>
+<td>PR</td>
+<td>[SUFN, "hill"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_HILL_SET" id="EEC_OCFLRREGNNAMTY_HILL_SET">24</a></td>
+<td>HILL_SET</td>
+<td>EEC_OCFLRREGNNAMTY_HILL_SET</td>
+<td>A &lt;<a href="ECC_N.htm#ECC_NON_EMPTY_SET">NON_EMPTY_SET</a>&gt; of &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCFLRREGNNAMTY_HILL">HILL</a>&gt;&gt;&gt;s in close proximity.</td>
+<td>IR</td>
+<td>[SUFN, "hill"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_HOLE" id="EEC_OCFLRREGNNAMTY_HOLE">25</a></td>
+<td>HOLE</td>
+<td>EEC_OCFLRREGNNAMTY_HOLE</td>
+<td>A small local &lt;<a href="ECC_T.htm#ECC_TERRAIN_DEPRESSION">TERRAIN_DEPRESSION</a>&gt;, often steep-sided; a hole.</td>
+<td>PR</td>
+<td>[SUFN, "hole"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_KNOLL" id="EEC_OCFLRREGNNAMTY_KNOLL">26</a></td>
+<td>KNOLL</td>
+<td>EEC_OCFLRREGNNAMTY_KNOLL</td>
+<td>An elevation somewhat smaller than a &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCFLRREGNNAMTY_SEAMOUNT">SEAMOUNT</a>&gt;&gt;&gt; and of rounded profile, characteristically isolated or as a cluster on the &lt;<a href="ECC_O.htm#ECC_OCEAN_FLOOR">OCEAN_FLOOR</a>&gt;; a knoll.</td>
+<td>PR</td>
+<td>[SUFN, "knoll"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_KNOLL_SET" id="EEC_OCFLRREGNNAMTY_KNOLL_SET">27</a></td>
+<td>KNOLL_SET</td>
+<td>EEC_OCFLRREGNNAMTY_KNOLL_SET</td>
+<td>A &lt;<a href="ECC_N.htm#ECC_NON_EMPTY_SET">NON_EMPTY_SET</a>&gt; of &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCFLRREGNNAMTY_KNOLL">KNOLL</a>&gt;&gt;&gt;s, clustered, in close proximity.</td>
+<td>IR</td>
+<td>[SUFN, "knoll"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_LEVEE" id="EEC_OCFLRREGNNAMTY_LEVEE">28</a></td>
+<td>LEVEE</td>
+<td>EEC_OCFLRREGNNAMTY_LEVEE</td>
+<td>A depositional natural embankment bordering a &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCFLRREGNNAMTY_CANYON">CANYON</a>&gt;&gt;&gt;, &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCFLRREGNNAMTY_VALLEY">VALLEY</a>&gt;&gt;&gt;, or &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCFLRREGNNAMTY_SEA_CHANNEL">SEA_CHANNEL</a>&gt;&gt;&gt;; a levee.</td>
+<td>PR</td>
+<td>[SUFN, "levee"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_MEDIAN_VALLEY" id="EEC_OCFLRREGNNAMTY_MEDIAN_VALLEY">29</a></td>
+<td>MEDIAN_VALLEY</td>
+<td>EEC_OCFLRREGNNAMTY_MEDIAN_VALLEY</td>
+<td>The axial &lt;<a href="ECC_T.htm#ECC_TERRAIN_DEPRESSION">TERRAIN_DEPRESSION</a>&gt; of a &lt;<a href="ECC_S.htm#ECC_SYSTEM">SYSTEM</a>&gt; of &lt;<a href="ECC_M.htm#ECC_MOUNTAIN">MOUNTAIN</a>&gt;s forming part of a &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCFLRREGNNAMTY_MID_OCEANIC_RIDGE">MID_OCEANIC_RIDGE</a>&gt;&gt;&gt;; a median valley.</td>
+<td>PR</td>
+<td>[SUFN, "median valley"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_MID_OCEANIC_RIDGE" id="EEC_OCFLRREGNNAMTY_MID_OCEANIC_RIDGE">30</a></td>
+<td>MID_OCEANIC_RIDGE</td>
+<td>EEC_OCFLRREGNNAMTY_MID_OCEANIC_RIDGE</td>
+<td>The linked major mid-oceanic &lt;<a href="ECC_S.htm#ECC_SYSTEM">SYSTEM</a>&gt;s of &lt;<a href="ECC_M.htm#ECC_MOUNTAIN">MOUNTAIN</a>&gt;s, where such &lt;<a href="ECC_S.htm#ECC_SYSTEM">SYSTEM</a>&gt;s are of global extent; a mid-oceanic ridge.</td>
+<td>PR</td>
+<td>[SUFN, "mid-oceanic ridge"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_MOAT" id="EEC_OCFLRREGNNAMTY_MOAT">31</a></td>
+<td>MOAT</td>
+<td>EEC_OCFLRREGNNAMTY_MOAT</td>
+<td>An annular &lt;<a href="ECC_T.htm#ECC_TERRAIN_DEPRESSION">TERRAIN_DEPRESSION</a>&gt; that may not be continuous, located at the base of many isolated elevations (for example: &lt;<a href="ECC_S.htm#ECC_SEAMOUNT">SEAMOUNT</a>&gt; and/or an &lt;<a href="ECC_I.htm#ECC_ISLAND">ISLAND</a>&gt;); a moat.</td>
+<td>PR</td>
+<td>[SUFN, "moat"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_MOUNTAIN_SET" id="EEC_OCFLRREGNNAMTY_MOUNTAIN_SET">32</a></td>
+<td>MOUNTAIN_SET</td>
+<td>EEC_OCFLRREGNNAMTY_MOUNTAIN_SET</td>
+<td>A &lt;<a href="ECC_N.htm#ECC_NON_EMPTY_SET">NON_EMPTY_SET</a>&gt; of &lt;<a href="ECC_M.htm#ECC_MOUNTAIN">MOUNTAIN</a>&gt;s, in close proximity.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[SUFN]</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_PASSAGE" id="EEC_OCFLRREGNNAMTY_PASSAGE">33</a></td>
+<td>PASSAGE</td>
+<td>EEC_OCFLRREGNNAMTY_PASSAGE</td>
+<td>A narrow break in a &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCFLRREGNNAMTY_RIDGE">RIDGE</a>&gt;&gt;&gt; or a &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCFLRREGNNAMTY_RISE">RISE</a>&gt;&gt;&gt;; a passage, pass, or gap.</td>
+<td>PR</td>
+<td>[SUFN, "passage"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_PEAK" id="EEC_OCFLRREGNNAMTY_PEAK">34</a></td>
+<td>PEAK</td>
+<td>EEC_OCFLRREGNNAMTY_PEAK</td>
+<td>A prominent elevation either pointed or of a very limited extent across the summit; a peak.</td>
+<td>PR</td>
+<td>[SUFN, "peak"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_PINNACLE" id="EEC_OCFLRREGNNAMTY_PINNACLE">35</a></td>
+<td>PINNACLE</td>
+<td>EEC_OCFLRREGNNAMTY_PINNACLE</td>
+<td>Any high tower or spire-shaped pillar of &lt;<a href="ECC_R.htm#ECC_ROCK">ROCK</a>&gt; or &lt;<a href="ECC_C.htm#ECC_CORAL">CORAL</a>&gt;, alone or cresting a summit; a pinnacle.</td>
+<td>PR</td>
+<td>[SUFN, "pinnacle"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_PLAIN" id="EEC_OCFLRREGNNAMTY_PLAIN">36</a></td>
+<td>PLAIN</td>
+<td>EEC_OCFLRREGNNAMTY_PLAIN</td>
+<td>An extensive, flat, gently sloping or nearly level &lt;<a href="ECC_T.htm#ECC_TERRAIN_PLAIN">TERRAIN_PLAIN</a>&gt;.</td>
+<td>IR</td>
+<td>[SP35, "plain"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_PLATEAU" id="EEC_OCFLRREGNNAMTY_PLATEAU">37</a></td>
+<td>PLATEAU</td>
+<td>EEC_OCFLRREGNNAMTY_PLATEAU</td>
+<td>A &lt;<a href="ECC_P.htm#ECC_PLATEAU">PLATEAU</a>&gt;, one or more sides of which drop off abruptly.</td>
+<td>PR</td>
+<td>[SUFN, "plateau"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_PROMONTORY" id="EEC_OCFLRREGNNAMTY_PROMONTORY">38</a></td>
+<td>PROMONTORY</td>
+<td>EEC_OCFLRREGNNAMTY_PROMONTORY</td>
+<td>A major protrusion, resembling a &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCFLRREGNNAMTY_SPUR">SPUR</a>&gt;&gt;&gt;, of the &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCFLRREGNNAMTY_CNTNTL_SLOPE">CNTNTL_SLOPE</a>&gt;&gt;&gt; extending to the deep &lt;<a href="ECC_O.htm#ECC_OCEAN_FLOOR">OCEAN_FLOOR</a>&gt;; a promontory. Characteristically, the crest deepens seaward.</td>
+<td>PR</td>
+<td>[SUFN, "promontory"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_PROVINCE" id="EEC_OCFLRREGNNAMTY_PROVINCE">39</a></td>
+<td>PROVINCE</td>
+<td>EEC_OCFLRREGNNAMTY_PROVINCE</td>
+<td>&lt;<a href="ECC_W.htm#ECC_WATERBODY_FLOOR_PROVINCE">WATERBODY_FLOOR_PROVINCE</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[SUFN, "province"]</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_REEF" id="EEC_OCFLRREGNNAMTY_REEF">40</a></td>
+<td>REEF</td>
+<td>EEC_OCFLRREGNNAMTY_REEF</td>
+<td>&lt;<a href="ECC_R.htm#ECC_REEF">REEF</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[SUFN, "reef"]</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_REEF_SET" id="EEC_OCFLRREGNNAMTY_REEF_SET">41</a></td>
+<td>REEF_SET</td>
+<td>EEC_OCFLRREGNNAMTY_REEF_SET</td>
+<td>A &lt;<a href="ECC_N.htm#ECC_NON_EMPTY_SET">NON_EMPTY_SET</a>&gt; of &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCFLRREGNNAMTY_REEF">REEF</a>&gt;&gt;&gt;s, in close proximity.</td>
+<td>IR</td>
+<td>[SUFN, "reef"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_RIDGE" id="EEC_OCFLRREGNNAMTY_RIDGE">42</a></td>
+<td>RIDGE</td>
+<td>EEC_OCFLRREGNNAMTY_RIDGE</td>
+<td>&lt;<a href="ECC_W.htm#ECC_WATERBODY_FLOOR_RIDGE">WATERBODY_FLOOR_RIDGE</a>&gt;. EXAMPLE &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCFLRREGNNAMTY_MID_OCEANIC_RIDGE">MID_OCEANIC_RIDGE</a>&gt;&gt;&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[SUFN, "ridge"]</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_RIDGE_SET" id="EEC_OCFLRREGNNAMTY_RIDGE_SET">43</a></td>
+<td>RIDGE_SET</td>
+<td>EEC_OCFLRREGNNAMTY_RIDGE_SET</td>
+<td>A &lt;<a href="ECC_N.htm#ECC_NON_EMPTY_SET">NON_EMPTY_SET</a>&gt; of &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCFLRREGNNAMTY_RIDGE">RIDGE</a>&gt;&gt;&gt;s, in close proximity.</td>
+<td>IR</td>
+<td>[SUFN, "ridge"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_RISE" id="EEC_OCFLRREGNNAMTY_RISE">44</a></td>
+<td>RISE</td>
+<td>EEC_OCFLRREGNNAMTY_RISE</td>
+<td>A broad elevation that rises gently and generally smoothly from the &lt;<a href="ECC_O.htm#ECC_OCEAN_FLOOR">OCEAN_FLOOR</a>&gt;, generally including the &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCFLRREGNNAMTY_MID_OCEANIC_RIDGE">MID_OCEANIC_RIDGE</a>&gt;&gt;&gt;s; a rise.</td>
+<td>PR</td>
+<td>[SUFN, "rise"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_SADDLE" id="EEC_OCFLRREGNNAMTY_SADDLE">45</a></td>
+<td>SADDLE</td>
+<td>EEC_OCFLRREGNNAMTY_SADDLE</td>
+<td>A broad pass or col, resembling in shape a riding saddle, in a &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCFLRREGNNAMTY_RIDGE">RIDGE</a>&gt;&gt;&gt; or between contiguous elevations.</td>
+<td>PR</td>
+<td>[SUFN, "saddle"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_SEABIGHT" id="EEC_OCFLRREGNNAMTY_SEABIGHT">46</a></td>
+<td>SEABIGHT</td>
+<td>EEC_OCFLRREGNNAMTY_SEABIGHT</td>
+<td>A crescent-shaped indentation in the &lt;<a href="ECC_O.htm#ECC_OCEAN_FLOOR">OCEAN_FLOOR</a>&gt; formed by &lt;<a href="ECC_W.htm#ECC_WATER_CURRENT">WATER_CURRENT</a>&gt;s; a seabight.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_SEA_CHANNEL" id="EEC_OCFLRREGNNAMTY_SEA_CHANNEL">47</a></td>
+<td>SEA_CHANNEL</td>
+<td>EEC_OCFLRREGNNAMTY_SEA_CHANNEL</td>
+<td>A continuously sloping &lt;<a href="ECC_T.htm#ECC_TERRAIN_CHANNEL">TERRAIN_CHANNEL</a>&gt; found in &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCFLRREGNNAMTY_FAN">FAN</a>&gt;&gt;&gt;s or &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCFLRREGNNAMTY_ABYSSAL_PLAIN">ABYSSAL_PLAIN</a>&gt;&gt;&gt;s and customarily bordered by &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCFLRREGNNAMTY_LEVEE">LEVEE</a>&gt;&gt;&gt;s on one or both sides; a channel or sea channel.</td>
+<td>PR</td>
+<td>[SUFN, "sea channel"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_SEAMOUNT" id="EEC_OCFLRREGNNAMTY_SEAMOUNT">48</a></td>
+<td>SEAMOUNT</td>
+<td>EEC_OCFLRREGNNAMTY_SEAMOUNT</td>
+<td>&lt;<a href="ECC_S.htm#ECC_SEAMOUNT">SEAMOUNT</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[SUFN, "seamount(s)"]</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_SEAMOUNT_CHAIN" id="EEC_OCFLRREGNNAMTY_SEAMOUNT_CHAIN">49</a></td>
+<td>SEAMOUNT_CHAIN</td>
+<td>EEC_OCFLRREGNNAMTY_SEAMOUNT_CHAIN</td>
+<td>Several &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCFLRREGNNAMTY_SEAMOUNT">SEAMOUNT</a>&gt;&gt;&gt;s in linear or arcuate alignment, with their bases clearly separated; a seamount chain.</td>
+<td>PR</td>
+<td>[SUFN, "seamount chain"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_SEAMOUNT_GROUP" id="EEC_OCFLRREGNNAMTY_SEAMOUNT_GROUP">50</a></td>
+<td>SEAMOUNT_GROUP</td>
+<td>EEC_OCFLRREGNNAMTY_SEAMOUNT_GROUP</td>
+<td>A distinct &lt;<a href="ECC_N.htm#ECC_NON_EMPTY_SET">NON_EMPTY_SET</a>&gt; of &lt;<a href="ECC_S.htm#ECC_SEAMOUNT">SEAMOUNT</a>&gt;s, in close proximity to, but set off from, other &lt;<a href="ECC_O.htm#ECC_OCEAN_FLOOR">OCEAN_FLOOR</a>&gt; features; a seamount group.</td>
+<td>IR</td>
+<td>[SUFN, "seamount(s)"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_SEAMOUNT_PROVINCE" id="EEC_OCFLRREGNNAMTY_SEAMOUNT_PROVINCE">51</a></td>
+<td>SEAMOUNT_PROVINCE</td>
+<td>EEC_OCFLRREGNNAMTY_SEAMOUNT_PROVINCE</td>
+<td>A &lt;<a href="ECC_B.htm#ECC_BATHYMETRIC_PROVINCE">BATHYMETRIC_PROVINCE</a>&gt; of &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCFLRREGNNAMTY_SEAMOUNT">SEAMOUNT</a>&gt;&gt;&gt;s.</td>
+<td>IR</td>
+<td>[SUFN, "seamount(s)"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_SEAMOUNT_SET" id="EEC_OCFLRREGNNAMTY_SEAMOUNT_SET">52</a></td>
+<td>SEAMOUNT_SET</td>
+<td>EEC_OCFLRREGNNAMTY_SEAMOUNT_SET</td>
+<td>A &lt;<a href="ECC_N.htm#ECC_NON_EMPTY_SET">NON_EMPTY_SET</a>&gt; of &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCFLRREGNNAMTY_SEAMOUNT">SEAMOUNT</a>&gt;&gt;&gt;s, in close proximity.</td>
+<td>IR</td>
+<td>[SUFN, "seamount(s)"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_SHELF" id="EEC_OCFLRREGNNAMTY_SHELF">53</a></td>
+<td>SHELF</td>
+<td>EEC_OCFLRREGNNAMTY_SHELF</td>
+<td>A &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCFLRREGNNAMTY_ZONE">ZONE</a>&gt;&gt;&gt; adjacent to a continent (or around an &lt;<a href="ECC_I.htm#ECC_ISLAND">ISLAND</a>&gt;) and extending from the &lt;<a href="ECC_L.htm#ECC_LOW_WATER_LINE">LOW_WATER_LINE</a>&gt; to a depth at which there is usually a marked increase of slope towards the depths of the &lt;<a href="ECC_O.htm#ECC_OCEAN">OCEAN</a>&gt;; a shelf.</td>
+<td>PR</td>
+<td>[SUFN, "shelf"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_SHELF_EDGE" id="EEC_OCFLRREGNNAMTY_SHELF_EDGE">54</a></td>
+<td>SHELF_EDGE</td>
+<td>EEC_OCFLRREGNNAMTY_SHELF_EDGE</td>
+<td>The &lt;<a href="ECC_L.htm#ECC_LINE">LINE</a>&gt; along which there is marked increase of slope at the seaward margin of a &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCFLRREGNNAMTY_SHELF">SHELF</a>&gt;&gt;&gt;; a shelf edge or shelf break.</td>
+<td>PR</td>
+<td>[SUFN, "shelf edge"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_SHOAL" id="EEC_OCFLRREGNNAMTY_SHOAL">55</a></td>
+<td>SHOAL</td>
+<td>EEC_OCFLRREGNNAMTY_SHOAL</td>
+<td>An &lt;<a href="ECC_U.htm#ECC_UNDERWATER_HAZARD">UNDERWATER_HAZARD</a>&gt; with substantially less clearance than the surrounding &lt;<a href="ECC_W.htm#ECC_WATERBODY_FLOOR_REGION">WATERBODY_FLOOR_REGION</a>&gt; and composed of unconsolidated &lt;<a href="ECC_M.htm#ECC_MATERIAL">MATERIAL</a>&gt;; a shoal.</td>
+<td>PR</td>
+<td>[SUFN, "shoal"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_SHOAL_SET" id="EEC_OCFLRREGNNAMTY_SHOAL_SET">56</a></td>
+<td>SHOAL_SET</td>
+<td>EEC_OCFLRREGNNAMTY_SHOAL_SET</td>
+<td>A &lt;<a href="ECC_N.htm#ECC_NON_EMPTY_SET">NON_EMPTY_SET</a>&gt; of &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCFLRREGNNAMTY_SHOAL">SHOAL</a>&gt;&gt;&gt;s, in close proximity.</td>
+<td>IR</td>
+<td>[SUFN, "shoal"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_SILL" id="EEC_OCFLRREGNNAMTY_SILL">57</a></td>
+<td>SILL</td>
+<td>EEC_OCFLRREGNNAMTY_SILL</td>
+<td>A &lt;<a href="ECC_B.htm#ECC_BARRIER">BARRIER</a>&gt; of relatively shallow &lt;&lt;<a href="EAC_W.htm#EAC_WATER_DEPTH">WATER_DEPTH</a>&gt;&gt; restricting the movement of &lt;<a href="ECC_W.htm#ECC_WATER">WATER</a>&gt; between &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCFLRREGNNAMTY_BASIN">BASIN</a>&gt;&gt;&gt;s; a sill.</td>
+<td>PR</td>
+<td>[SUFN, "sill"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_SLOPE" id="EEC_OCFLRREGNNAMTY_SLOPE">58</a></td>
+<td>SLOPE</td>
+<td>EEC_OCFLRREGNNAMTY_SLOPE</td>
+<td>The deepening &lt;<a href="ECC_O.htm#ECC_OCEAN_FLOOR">OCEAN_FLOOR</a>&gt; out from a &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCFLRREGNNAMTY_SHELF_EDGE">SHELF_EDGE</a>&gt;&gt;&gt; to the upper limit of a &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCFLRREGNNAMTY_RISE">RISE</a>&gt;&gt;&gt;, or the &lt;<a href="ECC_L.htm#ECC_LOCATION">LOCATION</a>&gt; where there is a general decrease in steepness; a slope.</td>
+<td>PR</td>
+<td>[SUFN, "slope"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_SOUND" id="EEC_OCFLRREGNNAMTY_SOUND">59</a></td>
+<td>SOUND</td>
+<td>EEC_OCFLRREGNNAMTY_SOUND</td>
+<td>&lt;<a href="ECC_M.htm#ECC_MARINE_SOUND">MARINE_SOUND</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_SPUR" id="EEC_OCFLRREGNNAMTY_SPUR">60</a></td>
+<td>SPUR</td>
+<td>EEC_OCFLRREGNNAMTY_SPUR</td>
+<td>A subordinate elevation or &lt;<a href="ECC_R.htm#ECC_RIDGE">RIDGE</a>&gt; protruding from a larger &lt;<a href="ECC_W.htm#ECC_WATERBODY_FLOOR_TOPOGRAPHIC_CONFIGURATION">WATERBODY_FLOOR_TOPOGRAPHIC_CONFIGURATION</a>&gt; (for example: a &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCFLRREGNNAMTY_PLATEAU">PLATEAU</a>&gt;&gt;&gt; and/or the foundation of an &lt;<a href="ECC_I.htm#ECC_ISLAND">ISLAND</a>&gt;); a spur.</td>
+<td>PR</td>
+<td>[SUFN, "spur"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_TERRACE" id="EEC_OCFLRREGNNAMTY_TERRACE">61</a></td>
+<td>TERRACE</td>
+<td>EEC_OCFLRREGNNAMTY_TERRACE</td>
+<td>A relatively flat horizontal or gently inclined &lt;<a href="ECC_W.htm#ECC_WATERBODY_FLOOR_REGION">WATERBODY_FLOOR_REGION</a>&gt;, sometimes long and narrow, which is bounded by a steeper ascending slope on one side and by a steeper descending slope on the opposite side; a terrace.</td>
+<td>PR</td>
+<td>[SUFN, "terrace"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_TRENCH" id="EEC_OCFLRREGNNAMTY_TRENCH">62</a></td>
+<td>TRENCH</td>
+<td>EEC_OCFLRREGNNAMTY_TRENCH</td>
+<td>&lt;<a href="ECC_W.htm#ECC_WATERBODY_FLOOR_TRENCH">WATERBODY_FLOOR_TRENCH</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[SUFN, "trench"]</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_TROUGH" id="EEC_OCFLRREGNNAMTY_TROUGH">63</a></td>
+<td>TROUGH</td>
+<td>EEC_OCFLRREGNNAMTY_TROUGH</td>
+<td>A long &lt;<a href="ECC_T.htm#ECC_TERRAIN_DEPRESSION">TERRAIN_DEPRESSION</a>&gt;, characteristically flat bottomed and steep-sided and normally shallower than a &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCFLRREGNNAMTY_TRENCH">TRENCH</a>&gt;&gt;&gt;; a trough.</td>
+<td>PR</td>
+<td>[SUFN, "trough"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_VALLEY" id="EEC_OCFLRREGNNAMTY_VALLEY">64</a></td>
+<td>VALLEY</td>
+<td>EEC_OCFLRREGNNAMTY_VALLEY</td>
+<td>A relatively shallow, wide &lt;<a href="ECC_T.htm#ECC_TERRAIN_DEPRESSION">TERRAIN_DEPRESSION</a>&gt;, the &lt;<a href="ECC_W.htm#ECC_WATERBODY_FLOOR">WATERBODY_FLOOR</a>&gt; of which usually has a continuous gradient; a valley, submarine valley, or sea valley. This term is generally not used for &lt;<a href="ECC_W.htm#ECC_WATERBODY_FLOOR_TOPOGRAPHIC_CONFIGURATION">WATERBODY_FLOOR_TOPOGRAPHIC_CONFIGURATION</a>&gt;s that have characteristics of &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCFLRREGNNAMTY_CANYON">CANYON</a>&gt;&gt;&gt;s for a significant portion of their extent.</td>
+<td>PR</td>
+<td>[SUFN, "valley"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCFLRREGNNAMTY_ZONE" id="EEC_OCFLRREGNNAMTY_ZONE">65</a></td>
+<td>ZONE</td>
+<td>EEC_OCFLRREGNNAMTY_ZONE</td>
+<td>An extensive linear &lt;<a href="ECC_R.htm#ECC_REGION">REGION</a>&gt; identifiable by a number of shared physiographic characteristics that are markedly in contrast with those in the surrounding &lt;<a href="ECC_R.htm#ECC_REGION">REGION</a>&gt;s; a zone.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[SUFN]</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_WATERBODY_FLOOR">WATERBODY_FLOOR</a>
+</p><p>
+<b>Reference Type</b>: PR
+</p><p>
+<b>Reference</b>: [SUFN, page 2-1, sub-paragraph I-B]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_OCEAN_NAME" id="EAC_OCEAN_NAME">OCEAN_NAME</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_OCEAN_NAME
+</p><p>
+<b>EDCS Attribute Code</b>: 919
+</p><p>
+<b>Definition</b>:
+<br>
+The name of an &lt;<a href="ECC_O.htm#ECC_OCEAN">OCEAN</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_OCEANNAME_ANTARCTIC" id="EEC_OCEANNAME_ANTARCTIC">1</a></td>
+<td>ANTARCTIC</td>
+<td>EEC_OCEANNAME_ANTARCTIC</td>
+<td>Antarctic Ocean, or Southern Ocean, as defined in [LOS, 10]. The limits of the Antarctic Ocean are the parallel of 60&deg;S to the north and the &lt;<a href="ECC_C.htm#ECC_COAST">COAST</a>&gt; of Antarctica, including the Antarctic Peninsula, to the south.</td>
+<td>PR</td>
+<td>[LOS, 10]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCEANNAME_ARCTIC" id="EEC_OCEANNAME_ARCTIC">2</a></td>
+<td>ARCTIC</td>
+<td>EEC_OCEANNAME_ARCTIC</td>
+<td>Arctic Ocean as defined in [LOS, 9]. The Arctic Ocean is situated round the North Pole. Its southern limit generally follows the northern &lt;<a href="ECC_C.htm#ECC_COAST">COAST</a>&gt;s of North America, Greenland, and Eurasia.</td>
+<td>PR</td>
+<td>[LOS, 9]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCEANNAME_ATLANTIC" id="EEC_OCEANNAME_ATLANTIC">3</a></td>
+<td>ATLANTIC</td>
+<td>EEC_OCEANNAME_ATLANTIC</td>
+<td>&lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCEANNAME_NORTH_ATLANTIC">NORTH_ATLANTIC</a>&gt;&gt;&gt; plus &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCEANNAME_SOUTH_ATLANTIC">SOUTH_ATLANTIC</a>&gt;&gt;&gt; as defined in [LOS, 1 and 4].</td>
+<td>PR</td>
+<td>[LOS, 1 and 4]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCEANNAME_INDIAN" id="EEC_OCEANNAME_INDIAN">4</a></td>
+<td>INDIAN</td>
+<td>EEC_OCEANNAME_INDIAN</td>
+<td>Indian Ocean as defined in [LOS, 5]. The general limits of the Indian Ocean are the eastern &lt;<a href="ECC_C.htm#ECC_COAST">COAST</a>&gt; of Africa, the sourthen &lt;<a href="ECC_C.htm#ECC_COAST">COAST</a>&gt; of Asia, the western &lt;<a href="ECC_C.htm#ECC_COAST">COAST</a>&gt; of Australia, and the parallel of 60&deg;S to the south.</td>
+<td>PR</td>
+<td>[LOS, 5]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCEANNAME_NORTH_ATLANTIC" id="EEC_OCEANNAME_NORTH_ATLANTIC">5</a></td>
+<td>NORTH_ATLANTIC</td>
+<td>EEC_OCEANNAME_NORTH_ATLANTIC</td>
+<td>North &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCEANNAME_ATLANTIC">ATLANTIC</a>&gt;&gt;&gt; Ocean as defined in [LOS, 1]. The general limits of the North Atlantic Ocean are the eastern &lt;<a href="ECC_C.htm#ECC_COAST">COAST</a>&gt;s of South America and North America, the southern &lt;<a href="ECC_C.htm#ECC_COAST">COAST</a>&gt; of Greenland, the western &lt;<a href="ECC_C.htm#ECC_COAST">COAST</a>&gt;s of Europe and Africa, and the Equator.</td>
+<td>PR</td>
+<td>[LOS, 1]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCEANNAME_NORTH_PACIFIC" id="EEC_OCEANNAME_NORTH_PACIFIC">6</a></td>
+<td>NORTH_PACIFIC</td>
+<td>EEC_OCEANNAME_NORTH_PACIFIC</td>
+<td>North &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCEANNAME_PACIFIC">PACIFIC</a>&gt;&gt;&gt; Ocean as defined in [LOS, 7]. The general limits of the North Pacific Ocean are the eastern &lt;<a href="ECC_C.htm#ECC_COAST">COAST</a>&gt; of Asia, the western &lt;<a href="ECC_C.htm#ECC_COAST">COAST</a>&gt; of North America, and the Equator.</td>
+<td>PR</td>
+<td>[LOS, 7]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCEANNAME_PACIFIC" id="EEC_OCEANNAME_PACIFIC">7</a></td>
+<td>PACIFIC</td>
+<td>EEC_OCEANNAME_PACIFIC</td>
+<td>&lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCEANNAME_NORTH_PACIFIC">NORTH_PACIFIC</a>&gt;&gt;&gt; plus &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCEANNAME_SOUTH_PACIFIC">SOUTH_PACIFIC</a>&gt;&gt;&gt; as defined in [LOS, 7 and 8].</td>
+<td>PR</td>
+<td>[LOS, 7 and 8]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCEANNAME_SOUTH_ATLANTIC" id="EEC_OCEANNAME_SOUTH_ATLANTIC">8</a></td>
+<td>SOUTH_ATLANTIC</td>
+<td>EEC_OCEANNAME_SOUTH_ATLANTIC</td>
+<td>South &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCEANNAME_ATLANTIC">ATLANTIC</a>&gt;&gt;&gt; Ocean as defined in [LOS, 4]. The general limits of the South Atlantic Ocean are the eastern &lt;<a href="ECC_C.htm#ECC_COAST">COAST</a>&gt; of South America, the Equator, the western &lt;<a href="ECC_C.htm#ECC_COAST">COAST</a>&gt; of Africa, and the parallel of 60&deg;S to the south.</td>
+<td>PR</td>
+<td>[LOS, 4]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCEANNAME_SOUTH_CHINA" id="EEC_OCEANNAME_SOUTH_CHINA">9</a></td>
+<td>SOUTH_CHINA</td>
+<td>EEC_OCEANNAME_SOUTH_CHINA</td>
+<td>South China and Eastern Archipelagic Seas as defined in [LOS, 6]. The general limits of the South China and Eastern Archipelagic Seas are the eastern boundary of the Indian Ocean, the south-eastern &lt;<a href="ECC_C.htm#ECC_COAST">COAST</a>&gt; of Asia, and the western boundary of the Pacific Ocean.</td>
+<td>PR</td>
+<td>[LOS, 6]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OCEANNAME_SOUTH_PACIFIC" id="EEC_OCEANNAME_SOUTH_PACIFIC">10</a></td>
+<td>SOUTH_PACIFIC</td>
+<td>EEC_OCEANNAME_SOUTH_PACIFIC</td>
+<td>South &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OCEANNAME_PACIFIC">PACIFIC</a>&gt;&gt;&gt; Ocean as defined in [LOS, 8]. The general limits of the South Pacific Ocean are the eastern &lt;<a href="ECC_C.htm#ECC_COAST">COAST</a>&gt;s of Australia, Irian Jaya and Papua New Guinea, the Equator, the western &lt;<a href="ECC_C.htm#ECC_COAST">COAST</a>&gt; of South AMerica, and the parallel of 60&deg;S to the south.</td>
+<td>PR</td>
+<td>[LOS, 8]</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_HYDROLOGY">HYDROLOGY</a>, <a href="groups.htm#EGC_GEN_IDENTIFICATION">IDENTIFICATION</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [BOWD]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_OFFSHORE_PLATFORM_TYPE" id="EAC_OFFSHORE_PLATFORM_TYPE">OFFSHORE_PLATFORM_TYPE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_OFFSHORE_PLATFORM_TYPE
+</p><p>
+<b>EDCS Attribute Code</b>: 920
+</p><p>
+<b>Definition</b>:
+<br>
+The type of an offshore platform.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_OFFSHPLATTY_ACCOMMODATION" id="EEC_OFFSHPLATTY_ACCOMMODATION">1</a></td>
+<td>ACCOMMODATION</td>
+<td>EEC_OFFSHPLATTY_ACCOMMODATION</td>
+<td>Used primarily for eating, sleeping and recreation purposes; accommodation.</td>
+<td>PR</td>
+<td>[S57A, Attribute, CATOFP:9]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OFFSHPLATTY_ARTICULATED_LOADING" id="EEC_OFFSHPLATTY_ARTICULATED_LOADING">2</a></td>
+<td>ARTICULATED_LOADING</td>
+<td>EEC_OFFSHPLATTY_ARTICULATED_LOADING</td>
+<td>A metal lattice &lt;<a href="ECC_T.htm#ECC_TOWER">TOWER</a>&gt;, buoyant at one end and attached at the other by a universal joint to a concrete filled base on the &lt;<a href="ECC_O.htm#ECC_OCEAN_FLOOR">OCEAN_FLOOR</a>&gt;; an articulated loading platform (ALP).</td>
+<td>IR</td>
+<td>[S57A, Attribute, CATOFP:4]</td>
+<td>[FACC, Annex B, OPC:4]</td>
+</tr>
+<tr>
+<td><a name="EEC_OFFSHPLATTY_ARTIFICIAL_ISLAND" id="EEC_OFFSHPLATTY_ARTIFICIAL_ISLAND">3</a></td>
+<td>ARTIFICIAL_ISLAND</td>
+<td>EEC_OFFSHPLATTY_ARTIFICIAL_ISLAND</td>
+<td>An artificial &lt;<a href="ECC_S.htm#ECC_STRUCTURE">STRUCTURE</a>&gt; usually constructed for the exploration or exploitation of marine resources, marine scientific research, or tidal observations; an artificial island.</td>
+<td>PR</td>
+<td>[S57A, Attribute, CATOFP:7]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OFFSHPLATTY_FLOATING_PRODUCTION_VESSEL" id="EEC_OFFSHPLATTY_FLOATING_PRODUCTION_VESSEL">4</a></td>
+<td>FLOATING_PRODUCTION_VESSEL</td>
+<td>EEC_OFFSHPLATTY_FLOATING_PRODUCTION_VESSEL</td>
+<td>An offshore oil/gas &lt;<a href="ECC_F.htm#ECC_FACILITY">FACILITY</a>&gt; consisting of a moored tanker/barge by which the product is extracted, stored and exported; a floating production vessel.</td>
+<td>IR</td>
+<td>[S57A, Attribute, CATOFP:8]</td>
+<td>[FACC, Annex B, OPC:8]</td>
+</tr>
+<tr>
+<td><a name="EEC_OFFSHPLATTY_MOORING_TOWER" id="EEC_OFFSHPLATTY_MOORING_TOWER">5</a></td>
+<td>MOORING_TOWER</td>
+<td>EEC_OFFSHPLATTY_MOORING_TOWER</td>
+<td>A tower-like &lt;<a href="ECC_S.htm#ECC_STRUCTURE">STRUCTURE</a>&gt; secured to the &lt;<a href="ECC_O.htm#ECC_OCEAN_FLOOR">OCEAN_FLOOR</a>&gt; and surmounted by a turntable to which &lt;<a href="ECC_V.htm#ECC_VESSEL">VESSEL</a>&gt;s moor; a mooring tower.</td>
+<td>IR</td>
+<td>[S57A, Attribute, CATOFP:6]</td>
+<td>[FACC, Annex B, OPC:6]</td>
+</tr>
+<tr>
+<td><a name="EEC_OFFSHPLATTY_NAVIGATION_AID_SUPPORT" id="EEC_OFFSHPLATTY_NAVIGATION_AID_SUPPORT">6</a></td>
+<td>NAVIGATION_AID_SUPPORT</td>
+<td>EEC_OFFSHPLATTY_NAVIGATION_AID_SUPPORT</td>
+<td>A floating &lt;<a href="ECC_M.htm#ECC_MARINE_AID_TO_NAVIGATION">MARINE_AID_TO_NAVIGATION</a>&gt; support &lt;<a href="ECC_S.htm#ECC_STRUCTURE">STRUCTURE</a>&gt; with control room, power and storage &lt;<a href="ECC_F.htm#ECC_FACILITY">FACILITY</a>&gt;s, attached to the &lt;<a href="ECC_O.htm#ECC_OCEAN_FLOOR">OCEAN_FLOOR</a>&gt; by a flexible &lt;<a href="ECC_P.htm#ECC_PIPELINE">PIPELINE</a>&gt; and cables.</td>
+<td>IR</td>
+<td>[S57A, Attribute, CATOFP:10]</td>
+<td>[FACC, Annex B, OPC:10]</td>
+</tr>
+<tr>
+<td><a name="EEC_OFFSHPLATTY_OBSERVATION" id="EEC_OFFSHPLATTY_OBSERVATION">7</a></td>
+<td>OBSERVATION</td>
+<td>EEC_OFFSHPLATTY_OBSERVATION</td>
+<td>Used primarily to observe, note, or record information about the surroundings or related events; observation.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[SOED, "observation"]</td>
+</tr>
+<tr>
+<td><a name="EEC_OFFSHPLATTY_OBSERVATION_RESEARCH" id="EEC_OFFSHPLATTY_OBSERVATION_RESEARCH">8</a></td>
+<td>OBSERVATION_RESEARCH</td>
+<td>EEC_OFFSHPLATTY_OBSERVATION_RESEARCH</td>
+<td>&lt;&lt;&lt;<a href="EAC_O.htm#EEC_OFFSHPLATTY_OBSERVATION">OBSERVATION</a>&gt;&gt;&gt; and/or &lt;&lt;&lt;<a href="EAC_O.htm#EEC_OFFSHPLATTY_RESEARCH">RESEARCH</a>&gt;&gt;&gt;.</td>
+<td>IR</td>
+<td>[S57A, Attribute, CATOFP:3]</td>
+<td>[FACC, Annex B, OPC:3]</td>
+</tr>
+<tr>
+<td><a name="EEC_OFFSHPLATTY_OIL_DERRICK" id="EEC_OFFSHPLATTY_OIL_DERRICK">9</a></td>
+<td>OIL_DERRICK</td>
+<td>EEC_OFFSHPLATTY_OIL_DERRICK</td>
+<td>A temporary mobile &lt;<a href="ECC_S.htm#ECC_STRUCTURE">STRUCTURE</a>&gt;, either fixed or floating, used in the exploration stages of &lt;<a href="ECC_P.htm#ECC_PETROLEUM_FIELD">PETROLEUM_FIELD</a>&gt;s, consisting of a combination of a derrick and &lt;<a href="ECC_O.htm#ECC_OIL_DRILLING_RIG">OIL_DRILLING_RIG</a>&gt;.</td>
+<td>IR</td>
+<td>[S57A, Attribute, CATOFP:1]</td>
+<td>[FACC, Annex B, OPC:1]</td>
+</tr>
+<tr>
+<td><a name="EEC_OFFSHPLATTY_PRODUCTION" id="EEC_OFFSHPLATTY_PRODUCTION">10</a></td>
+<td>PRODUCTION</td>
+<td>EEC_OFFSHPLATTY_PRODUCTION</td>
+<td>A permanent offshore &lt;<a href="ECC_S.htm#ECC_STRUCTURE">STRUCTURE</a>&gt; equipped to control the production and flow of oil or gas, excluding entirely submarine &lt;<a href="ECC_S.htm#ECC_STRUCTURE">STRUCTURE</a>&gt;s.</td>
+<td>IR</td>
+<td>[S57A, Attribute, CATOFP:2]</td>
+<td>[FACC, Annex B, OPC:2]</td>
+</tr>
+<tr>
+<td><a name="EEC_OFFSHPLATTY_RESEARCH" id="EEC_OFFSHPLATTY_RESEARCH">11</a></td>
+<td>RESEARCH</td>
+<td>EEC_OFFSHPLATTY_RESEARCH</td>
+<td>Used primarily for scientific experimentation or research, including scholarly investigation or inquiry, intended to ultimately result in commercial products.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[SOED, "research"]</td>
+</tr>
+<tr>
+<td><a name="EEC_OFFSHPLATTY_SINGLE_ANCHOR_LEG_MOORING" id="EEC_OFFSHPLATTY_SINGLE_ANCHOR_LEG_MOORING">12</a></td>
+<td>SINGLE_ANCHOR_LEG_MOORING</td>
+<td>EEC_OFFSHPLATTY_SINGLE_ANCHOR_LEG_MOORING</td>
+<td>A rigid frame or tube with a buoyancy &lt;<a href="ECC_D.htm#ECC_DEVICE">DEVICE</a>&gt; at its upper end, secured at its lower end to a universal joint on a large steel or concrete base resting on the &lt;<a href="ECC_O.htm#ECC_OCEAN_FLOOR">OCEAN_FLOOR</a>&gt;, and at its upper end to a mooring &lt;<a href="ECC_B.htm#ECC_BUOY">BUOY</a>&gt; by a &lt;<a href="ECC_F.htm#ECC_FLEXIBLE_RESTRAINT">FLEXIBLE_RESTRAINT</a>&gt; (for example: a &lt;<a href="ECC_C.htm#ECC_CHAIN">CHAIN</a>&gt; or &lt;<a href="ECC_W.htm#ECC_WIRE">WIRE</a>&gt;); a single anchor leg mooring.</td>
+<td>IR</td>
+<td>[S57A, Attribute, CATOFP:5]</td>
+<td>[FACC, Annex B, OPC:5]</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_HYDROGRAPHIC_TRNSP">HYDROGRAPHIC_TRNSP</a>, <a href="groups.htm#EGC_GEN_TRNSP">TRNSP</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: OPC]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_OIL_BARRIER_TYPE" id="EAC_OIL_BARRIER_TYPE">OIL_BARRIER_TYPE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_OIL_BARRIER_TYPE
+</p><p>
+<b>EDCS Attribute Code</b>: 921
+</p><p>
+<b>Definition</b>:
+<br>
+The type of an &lt;<a href="ECC_O.htm#ECC_OIL_BARRIER">OIL_BARRIER</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_OILBARTY_FLOATING" id="EEC_OILBARTY_FLOATING">1</a></td>
+<td>FLOATING</td>
+<td>EEC_OILBARTY_FLOATING</td>
+<td>A floating tube-shaped &lt;<a href="ECC_S.htm#ECC_STRUCTURE">STRUCTURE</a>&gt;, with a curtain (2 metres) hanging under it, below the &lt;<a href="ECC_W.htm#ECC_WATERBODY_SURFACE">WATERBODY_SURFACE</a>&gt;, that acts as a &lt;<a href="ECC_B.htm#ECC_BARRIER">BARRIER</a>&gt; preventing the spread of oil.</td>
+<td>IR</td>
+<td>[S57A, Attribute, CATOLB:2]</td>
+<td>[FACC, Annex B, OBC:2]</td>
+</tr>
+<tr>
+<td><a name="EEC_OILBARTY_OIL_RETENTION_PIPE" id="EEC_OILBARTY_OIL_RETENTION_PIPE">2</a></td>
+<td>OIL_RETENTION_PIPE</td>
+<td>EEC_OILBARTY_OIL_RETENTION_PIPE</td>
+<td>A &lt;<a href="ECC_P.htm#ECC_PIPE">PIPE</a>&gt; with &lt;<a href="ECC_A.htm#ECC_APERTURE">APERTURE</a>&gt;s from which &lt;<a href="ECC_A.htm#ECC_AIR">AIR</a>&gt; blows under high pressure; when the bubbles of &lt;<a href="ECC_A.htm#ECC_AIR">AIR</a>&gt; reach the &lt;<a href="ECC_W.htm#ECC_WATERBODY_SURFACE">WATERBODY_SURFACE</a>&gt; they form a &lt;<a href="ECC_B.htm#ECC_BARRIER">BARRIER</a>&gt; which prevents the spread of oil; an oil retention pipe.</td>
+<td>IR</td>
+<td>[S57A, Attribute, CATOLB:1]</td>
+<td>[FACC, Annex B, OBC:1]</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_HYDROGRAPHIC_ARTEFACT">HYDROGRAPHIC_ARTEFACT</a>, <a href="groups.htm#EGC_GEN_WATERBODY_SURFACE">WATERBODY_SURFACE</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: OBC]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_OILRIG_PRESENT" id="EAC_OILRIG_PRESENT">OILRIG_PRESENT</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_OILRIG_PRESENT
+</p><p>
+<b>EDCS Attribute Code</b>: 922
+</p><p>
+<b>Definition</b>:
+<br>
+An indication that an &lt;<a href="ECC_O.htm#ECC_OIL_DRILLING_RIG">OIL_DRILLING_RIG</a>&gt; exists within a delineated &lt;<a href="ECC_R.htm#ECC_REGION">REGION</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: BOOLEAN
+</p><p>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_INDUSTRY">INDUSTRY</a>, <a href="groups.htm#EGC_GEN_INFRASTRUCTURE">INFRASTRUCTURE</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [OAML, Wind and Residual Noise Database]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_OMNIDIR_SHIP_NOISE_CONFIDENCE" id="EAC_OMNIDIR_SHIP_NOISE_CONFIDENCE">OMNIDIR_SHIP_NOISE_CONFIDENCE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_OMNIDIR_SHIP_NOISE_CONFIDENCE
+</p><p>
+<b>EDCS Attribute Code</b>: 923
+</p><p>
+<b>Definition</b>:
+<br>
+A qualitative estimate of the degree of confidence in the &lt;&lt;<a href="EAC_O.htm#EAC_OMNIDIR_SHIP_NOISE_SPCT_PWR_LVL">OMNIDIR_SHIP_NOISE_SPCT_PWR_LVL</a>&gt;&gt; at a specified &lt;&lt;<a href="EAC_F.htm#EAC_FREQUENCY">FREQUENCY</a>&gt;&gt;, based on the quantity and variability of the measurements.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_OMNDSHPNSECNF_LOW" id="EEC_OMNDSHPNSECNF_LOW">1</a></td>
+<td>LOW</td>
+<td>EEC_OMNDSHPNSECNF_LOW</td>
+<td>Low.</td>
+<td>IR</td>
+<td>[OAML, Shipping Noise Database]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OMNDSHPNSECNF_MEDIUM" id="EEC_OMNDSHPNSECNF_MEDIUM">2</a></td>
+<td>MEDIUM</td>
+<td>EEC_OMNDSHPNSECNF_MEDIUM</td>
+<td>Medium.</td>
+<td>IR</td>
+<td>[OAML, Shipping Noise Database]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OMNDSHPNSECNF_HIGH" id="EEC_OMNDSHPNSECNF_HIGH">3</a></td>
+<td>HIGH</td>
+<td>EEC_OMNDSHPNSECNF_HIGH</td>
+<td>High.</td>
+<td>IR</td>
+<td>[OAML, Shipping Noise Database]</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ACOUSTIC_PHENOMENON">ACOUSTIC_PHENOMENON</a>, <a href="groups.htm#EGC_GEN_WATERBODY_STATE">WATERBODY_STATE</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [OAML, Shipping Noise Database]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_OMNIDIR_SHIP_NOISE_CORRECTION" id="EAC_OMNIDIR_SHIP_NOISE_CORRECTION">OMNIDIR_SHIP_NOISE_CORRECTION</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_OMNIDIR_SHIP_NOISE_CORRECTION
+</p><p>
+<b>EDCS Attribute Code</b>: 924
+</p><p>
+<b>Definition</b>:
+<br>
+The correction to the &lt;&lt;<a href="EAC_O.htm#EAC_OMNIDIR_SHIP_NOISE_SPCT_PWR_LVL">OMNIDIR_SHIP_NOISE_SPCT_PWR_LVL</a>&gt;&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_FIELD_OR_POWER_LEVEL_DIFF">FIELD_OR_POWER_LEVEL_DIFF</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ACOUSTIC_PHENOMENON">ACOUSTIC_PHENOMENON</a>, <a href="groups.htm#EGC_GEN_RATE_OR_RATIO">RATE_OR_RATIO</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [OAML, Shipping Noise Database]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_OMNIDIR_SHIP_NOISE_DECORRELATION_TIME" id="EAC_OMNIDIR_SHIP_NOISE_DECORRELATION_TIME">OMNIDIR_SHIP_NOISE_DECORRELATION_TIME</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_OMNIDIR_SHIP_NOISE_DECORRELATION_TIME
+</p><p>
+<b>EDCS Attribute Code</b>: 925
+</p><p>
+<b>Definition</b>:
+<br>
+The &lt;&lt;<a href="EAC_T.htm#EAC_TIME_QUANTITY">TIME_QUANTITY</a>&gt;&gt; required for omnidirectional shipping noise to decorrelate and/or disperse, typically taken at 50 hertz.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_TIME">TIME</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ACOUSTIC_PHENOMENON">ACOUSTIC_PHENOMENON</a>, <a href="groups.htm#EGC_GEN_TIME">TIME</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [OAML, Shipping Noise Database]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_OMNIDIR_SHIP_NOISE_SPATIAL_VARIATION" id="EAC_OMNIDIR_SHIP_NOISE_SPATIAL_VARIATION">OMNIDIR_SHIP_NOISE_SPATIAL_VARIATION</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_OMNIDIR_SHIP_NOISE_SPATIAL_VARIATION
+</p><p>
+<b>EDCS Attribute Code</b>: 926
+</p><p>
+<b>Definition</b>:
+<br>
+The degree of spatial variation of omnidirectional shipping noise, typically taken at 50 hertz.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_FIELD_OR_POWER_LEVEL_DIFF">FIELD_OR_POWER_LEVEL_DIFF</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ACOUSTIC_PHENOMENON">ACOUSTIC_PHENOMENON</a>, <a href="groups.htm#EGC_GEN_RATE_OR_RATIO">RATE_OR_RATIO</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [OAML, Shipping Noise Database]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_OMNIDIR_SHIP_NOISE_SPCT_PWR_LVL" id="EAC_OMNIDIR_SHIP_NOISE_SPCT_PWR_LVL">OMNIDIR_SHIP_NOISE_SPCT_PWR_LVL</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_OMNIDIR_SHIP_NOISE_SPCT_PWR_LVL
+</p><p>
+<b>EDCS Attribute Code</b>: 927
+</p><p>
+<b>Definition</b>:
+<br>
+The omnidirectional shipping noise spectral power level in a &lt;&lt;<a href="EAC_V.htm#EAC_VOLUME">VOLUME</a>&gt;&gt; of a &lt;<a href="ECC_W.htm#ECC_WATERBODY">WATERBODY</a>&gt;, typically taken at 50 hertz.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_PRESSURE_POWER_LEVEL">PRESSURE_POWER_LEVEL</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ACOUSTIC_PHENOMENON">ACOUSTIC_PHENOMENON</a>, <a href="groups.htm#EGC_GEN_RATE_OR_RATIO">RATE_OR_RATIO</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [OAML, Shipping Noise Database]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_OPACITY" id="EAC_OPACITY">OPACITY</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_OPACITY
+</p><p>
+<b>EDCS Attribute Code</b>: 928
+</p><p>
+<b>Definition</b>:
+<br>
+A number between 0 and 1 representing a linearly-scaled fraction specifying the degree of line of sight blockage. The value is, on average, the fraction of the cross-sectional &lt;&lt;<a href="EAC_A.htm#EAC_AREA">AREA</a>&gt;&gt; of a non-homogeneous &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt; that completely blocks the line of sight; the opacity.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_PURE_NUMBER">PURE_NUMBER</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ABSTRACT_OBJECT">ABSTRACT_OBJECT</a>, <a href="groups.htm#EGC_GEN_LIGHTING_AND_VISIBILITY">LIGHTING_AND_VISIBILITY</a>, <a href="groups.htm#EGC_GEN_RATE_OR_RATIO">RATE_OR_RATIO</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_OPERATING_RESTRICTIONS_TYPE" id="EAC_OPERATING_RESTRICTIONS_TYPE">OPERATING_RESTRICTIONS_TYPE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_OPERATING_RESTRICTIONS_TYPE
+</p><p>
+<b>EDCS Attribute Code</b>: 929
+</p><p>
+<b>Definition</b>:
+<br>
+The conditions during which the use of an &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt; (for example: a &lt;<a href="ECC_F.htm#ECC_FACILITY">FACILITY</a>&gt; and/or an &lt;<a href="ECC_A.htm#ECC_AIRSPACE">AIRSPACE</a>&gt;) is restricted.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_OPERRESTTY_DAYTIME_ONLY" id="EEC_OPERRESTTY_DAYTIME_ONLY">1</a></td>
+<td>DAYTIME_ONLY</td>
+<td>EEC_OPERRESTTY_DAYTIME_ONLY</td>
+<td>Daytime operations; between sunrise and sunset only.</td>
+<td>IR</td>
+<td>[FACC, Annex B, ORS:1]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OPERRESTTY_NIGHT_TIME_ONLY" id="EEC_OPERRESTTY_NIGHT_TIME_ONLY">2</a></td>
+<td>NIGHT_TIME_ONLY</td>
+<td>EEC_OPERRESTTY_NIGHT_TIME_ONLY</td>
+<td>Night-time operations; between sunset and sunrise only.</td>
+<td>IR</td>
+<td>[FACC, Annex B, ORS:2]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OPERRESTTY_NO_RESTRICTIONS" id="EEC_OPERRESTTY_NO_RESTRICTIONS">3</a></td>
+<td>NO_RESTRICTIONS</td>
+<td>EEC_OPERRESTTY_NO_RESTRICTIONS</td>
+<td>No restrictions apply.</td>
+<td>IR</td>
+<td>[FACC, Annex B, ORS:3]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OPERRESTTY_PRONE_TO_FLOODING" id="EEC_OPERRESTTY_PRONE_TO_FLOODING">4</a></td>
+<td>PRONE_TO_FLOODING</td>
+<td>EEC_OPERRESTTY_PRONE_TO_FLOODING</td>
+<td>Prone to flooding that may restrict normal usage.</td>
+<td>IR</td>
+<td>[FACC, Annex B, ORS:6]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OPERRESTTY_PRONE_TO_ICE" id="EEC_OPERRESTTY_PRONE_TO_ICE">5</a></td>
+<td>PRONE_TO_ICE</td>
+<td>EEC_OPERRESTTY_PRONE_TO_ICE</td>
+<td>Prone to icy weather conditions that may restrict normal usage.</td>
+<td>IR</td>
+<td>[FACC, Annex B, ORS:5]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OPERRESTTY_PRONE_TO_SNOW" id="EEC_OPERRESTTY_PRONE_TO_SNOW">6</a></td>
+<td>PRONE_TO_SNOW</td>
+<td>EEC_OPERRESTTY_PRONE_TO_SNOW</td>
+<td>Prone to snowy weather conditions that may restrict normal usage.</td>
+<td>IR</td>
+<td>[FACC, Annex B, ORS:4]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OPERRESTTY_SPECIAL_RESTRICTIONS" id="EEC_OPERRESTTY_SPECIAL_RESTRICTIONS">7</a></td>
+<td>SPECIAL_RESTRICTIONS</td>
+<td>EEC_OPERRESTTY_SPECIAL_RESTRICTIONS</td>
+<td>Special restrictions apply.</td>
+<td>IR</td>
+<td>[FACC, Annex B, ORS:996]</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ABSTRACT_OBJECT">ABSTRACT_OBJECT</a>, <a href="groups.htm#EGC_GEN_USAGE_REGION">USAGE_REGION</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: ORS]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_OPERATING_TIME" id="EAC_OPERATING_TIME">OPERATING_TIME</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_OPERATING_TIME
+</p><p>
+<b>EDCS Attribute Code</b>: 930
+</p><p>
+<b>Definition</b>:
+<br>
+The times during which the use of an &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt; (for example: a &lt;<a href="ECC_F.htm#ECC_FACILITY">FACILITY</a>&gt; and/or an &lt;<a href="ECC_A.htm#ECC_AIRSPACE">AIRSPACE</a>&gt;) is unrestricted.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_OPERTIME_CONTINUOUS" id="EEC_OPERTIME_CONTINUOUS">1</a></td>
+<td>CONTINUOUS</td>
+<td>EEC_OPERTIME_CONTINUOUS</td>
+<td>Continuous.</td>
+<td>IR</td>
+<td>[FACC, Annex B, OPT:3]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OPERTIME_DAYTIME" id="EEC_OPERTIME_DAYTIME">2</a></td>
+<td>DAYTIME</td>
+<td>EEC_OPERTIME_DAYTIME</td>
+<td>Between sunrise and sunset; daytime.</td>
+<td>IR</td>
+<td>[FACC, Annex B, OPT:1]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OPERTIME_NIGHT_TIME" id="EEC_OPERTIME_NIGHT_TIME">3</a></td>
+<td>NIGHT_TIME</td>
+<td>EEC_OPERTIME_NIGHT_TIME</td>
+<td>Between sunset and sunrise; night-time.</td>
+<td>IR</td>
+<td>[FACC, Annex B, OPT:2]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OPERTIME_SUMMER_TIME_APRIL_OCTOBER" id="EEC_OPERTIME_SUMMER_TIME_APRIL_OCTOBER">4</a></td>
+<td>SUMMER_TIME_APRIL_OCTOBER</td>
+<td>EEC_OPERTIME_SUMMER_TIME_APRIL_OCTOBER</td>
+<td>Summer time; April through October.</td>
+<td>IR</td>
+<td>[FACC, Annex B, OPT:4]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OPERTIME_WINTER_TIME_NOVEMBER_MARCH" id="EEC_OPERTIME_WINTER_TIME_NOVEMBER_MARCH">5</a></td>
+<td>WINTER_TIME_NOVEMBER_MARCH</td>
+<td>EEC_OPERTIME_WINTER_TIME_NOVEMBER_MARCH</td>
+<td>Winter time; November through March.</td>
+<td>IR</td>
+<td>[FACC, Annex B, OPT:5]</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ABSTRACT_OBJECT">ABSTRACT_OBJECT</a>, <a href="groups.htm#EGC_GEN_TIME">TIME</a>, <a href="groups.htm#EGC_GEN_USAGE_REGION">USAGE_REGION</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: OPT]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_OPERATIONAL" id="EAC_OPERATIONAL">OPERATIONAL</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_OPERATIONAL
+</p><p>
+<b>EDCS Attribute Code</b>: 931
+</p><p>
+<b>Definition</b>:
+<br>
+An indication that an &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt; is operational.
+<p>
+<b>EDCS Attribute Value Data Type</b>: BOOLEAN
+</p><p>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ABSTRACT_OBJECT">ABSTRACT_OBJECT</a>, <a href="groups.htm#EGC_GEN_USAGE_REGION">USAGE_REGION</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: OPS]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_OPTICAL_TURBULENCE_INTENSITY" id="EAC_OPTICAL_TURBULENCE_INTENSITY">OPTICAL_TURBULENCE_INTENSITY</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_OPTICAL_TURBULENCE_INTENSITY
+</p><p>
+<b>EDCS Attribute Code</b>: 932
+</p><p>
+<b>Definition</b>:
+<br>
+A measure of fluctuations in the index of refraction at optical &lt;&lt;<a href="EAC_W.htm#EAC_WAVELENGTH">WAVELENGTH</a>&gt;&gt;s resulting from turbulence in the &lt;<a href="ECC_A.htm#ECC_ATMOSPHERE">ATMOSPHERE</a>&gt;. The value is measured by the refractive index structure parameter that represents the correlation of refractive indices over distances of a few metres; the optical turbulence intensity.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_VOLUMETRIC_ENTITY_DENSITY">VOLUMETRIC_ENTITY_DENSITY</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ATMOSPHERE">ATMOSPHERE</a>, <a href="groups.htm#EGC_GEN_EM_PHENOMENON">EM_PHENOMENON</a>, <a href="groups.htm#EGC_GEN_LIGHTING_AND_VISIBILITY">LIGHTING_AND_VISIBILITY</a>, <a href="groups.htm#EGC_GEN_RATE_OR_RATIO">RATE_OR_RATIO</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [AFGL]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_ORIENTATION_ANGLE" id="EAC_ORIENTATION_ANGLE">ORIENTATION_ANGLE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_ORIENTATION_ANGLE
+</p><p>
+<b>EDCS Attribute Code</b>: 933
+</p><p>
+<b>Definition</b>:
+<br>
+The &lt;&lt;<a href="EAC_G.htm#EAC_GEODETIC_AZIMUTH">GEODETIC_AZIMUTH</a>&gt;&gt; measured in the local horizontal plane normal to the vertical axis of an &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt; to the major (longitudinal) axis of the &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt;. If the &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt; is square, a value from 0 to 90 arc degrees (or equivalent) is recorded. If the &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt; is circular, 360 arc degrees (or equivalent) is recorded.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_PLANE_ANGLE">PLANE_ANGLE</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ABSTRACT_OBJECT">ABSTRACT_OBJECT</a>, <a href="groups.htm#EGC_GEN_ANGULAR_MEASURE">ANGULAR_MEASURE</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: AOO]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_OUTSIDE_DIAMETER" id="EAC_OUTSIDE_DIAMETER">OUTSIDE_DIAMETER</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_OUTSIDE_DIAMETER
+</p><p>
+<b>EDCS Attribute Code</b>: 934
+</p><p>
+<b>Definition</b>:
+<br>
+The diameter of a cylindrical or spherical &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt; measured using the outside &lt;<a href="ECC_S.htm#ECC_SURFACE">SURFACE</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_LENGTH">LENGTH</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ABSTRACT_OBJECT">ABSTRACT_OBJECT</a>, <a href="groups.htm#EGC_GEN_DIMENSION">DIMENSION</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_OVERALL_BRIDGE_HEIGHT" id="EAC_OVERALL_BRIDGE_HEIGHT">OVERALL_BRIDGE_HEIGHT</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_OVERALL_BRIDGE_HEIGHT
+</p><p>
+<b>EDCS Attribute Code</b>: 935
+</p><p>
+<b>Definition</b>:
+<br>
+The vertical distance measured from the lowest point at the level of the &lt;<a href="ECC_T.htm#ECC_TERRAIN">TERRAIN</a>&gt; or &lt;<a href="ECC_W.htm#ECC_WATERBODY_SURFACE">WATERBODY_SURFACE</a>&gt; to the highest portion of a &lt;<a href="ECC_B.htm#ECC_BRIDGE">BRIDGE</a>&gt;, including any &lt;<a href="ECC_B.htm#ECC_BRIDGE_SUPERSTRUCTURE">BRIDGE_SUPERSTRUCTURE</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_LENGTH">LENGTH</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_DIMENSION">DIMENSION</a>, <a href="groups.htm#EGC_GEN_LAND_TRNSP">LAND_TRNSP</a>, <a href="groups.htm#EGC_GEN_TRNSP">TRNSP</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: OHB]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_OVERALL_VERTICAL_DIMENSION" id="EAC_OVERALL_VERTICAL_DIMENSION">OVERALL_VERTICAL_DIMENSION</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_OVERALL_VERTICAL_DIMENSION
+</p><p>
+<b>EDCS Attribute Code</b>: 936
+</p><p>
+<b>Definition</b>:
+<br>
+The overall vertical dimension that includes all &lt;<a href="ECC_C.htm#ECC_COMPONENT">COMPONENT</a>&gt;s of an &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt;, including both those above and those below the &lt;<a href="ECC_T.htm#ECC_TERRAIN">TERRAIN</a>&gt; (for a &lt;<a href="ECC_T.htm#ECC_TERRAIN_SURFACE_OBJECT">TERRAIN_SURFACE_OBJECT</a>&gt;) or &lt;<a href="ECC_W.htm#ECC_WATERBODY_SURFACE">WATERBODY_SURFACE</a>&gt; (for an &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt; on a &lt;<a href="ECC_W.htm#ECC_WATERBODY_SURFACE">WATERBODY_SURFACE</a>&gt;).
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_LENGTH">LENGTH</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ABSTRACT_OBJECT">ABSTRACT_OBJECT</a>, <a href="groups.htm#EGC_GEN_DIMENSION">DIMENSION</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_OVERHEAD_CLEARANCE" id="EAC_OVERHEAD_CLEARANCE">OVERHEAD_CLEARANCE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_OVERHEAD_CLEARANCE
+</p><p>
+<b>EDCS Attribute Code</b>: 937
+</p><p>
+<b>Definition</b>:
+<br>
+The least distance between a &lt;<a href="ECC_L.htm#ECC_LAND_TRANSPORTATION_ROUTE">LAND_TRANSPORTATION_ROUTE</a>&gt; and any &lt;<a href="ECC_O.htm#ECC_OVERHEAD_OBSTRUCTION">OVERHEAD_OBSTRUCTION</a>&gt; vertically above it; the overhead clearance.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_LENGTH">LENGTH</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_DIMENSION">DIMENSION</a>, <a href="groups.htm#EGC_GEN_LAND_TRNSP">LAND_TRNSP</a>, <a href="groups.htm#EGC_GEN_TRNSP">TRNSP</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: OHC]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_OVERHEAD_COVER" id="EAC_OVERHEAD_COVER">OVERHEAD_COVER</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_OVERHEAD_COVER
+</p><p>
+<b>EDCS Attribute Code</b>: 938
+</p><p>
+<b>Definition</b>:
+<br>
+An indication that a &lt;<a href="ECC_D.htm#ECC_DEFENSIVE_POSITION">DEFENSIVE_POSITION</a>&gt; provides protection (cover) from the effects of overhead detonation of &lt;<a href="ECC_M.htm#ECC_MUNITION">MUNITION</a>&gt;s.
+<p>
+<b>EDCS Attribute Value Data Type</b>: BOOLEAN
+</p><p>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_MILITARY_SCIENCE">MILITARY_SCIENCE</a>, <a href="groups.htm#EGC_GEN_SHELTER">SHELTER</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_OVERHEAD_OBSTRUCTED" id="EAC_OVERHEAD_OBSTRUCTED">OVERHEAD_OBSTRUCTED</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_OVERHEAD_OBSTRUCTED
+</p><p>
+<b>EDCS Attribute Code</b>: 939
+</p><p>
+<b>Definition</b>:
+<br>
+An indication that there is an &lt;<a href="ECC_O.htm#ECC_OVERHEAD_OBSTRUCTION">OVERHEAD_OBSTRUCTION</a>&gt; less than 4,3 metres above a &lt;<a href="ECC_L.htm#ECC_LAND_TRANSPORTATION_ROUTE">LAND_TRANSPORTATION_ROUTE</a>&gt;; overhead obstructed.
+<p>
+<b>EDCS Attribute Value Data Type</b>: BOOLEAN
+</p><p>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_LAND_TRNSP">LAND_TRNSP</a>, <a href="groups.htm#EGC_GEN_TRNSP">TRNSP</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: OCC]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_OVERHEAD_OBSTRUCTION_TYPE" id="EAC_OVERHEAD_OBSTRUCTION_TYPE">OVERHEAD_OBSTRUCTION_TYPE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_OVERHEAD_OBSTRUCTION_TYPE
+</p><p>
+<b>EDCS Attribute Code</b>: 940
+</p><p>
+<b>Definition</b>:
+<br>
+The type of an &lt;<a href="ECC_O.htm#ECC_OVERHEAD_OBSTRUCTION">OVERHEAD_OBSTRUCTION</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_OVRHDOBSTNTY_BRIDGE_SUPERSTRUCTURE" id="EEC_OVRHDOBSTNTY_BRIDGE_SUPERSTRUCTURE">1</a></td>
+<td>BRIDGE_SUPERSTRUCTURE</td>
+<td>EEC_OVRHDOBSTNTY_BRIDGE_SUPERSTRUCTURE</td>
+<td>Limited by the design of the &lt;<a href="ECC_B.htm#ECC_BRIDGE">BRIDGE</a>&gt;.</td>
+<td>IR</td>
+<td>[FACC, Annex B, OOC:6]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OVRHDOBSTNTY_HIGH_TENSION_POWERLINE" id="EEC_OVRHDOBSTNTY_HIGH_TENSION_POWERLINE">2</a></td>
+<td>HIGH_TENSION_POWERLINE</td>
+<td>EEC_OVRHDOBSTNTY_HIGH_TENSION_POWERLINE</td>
+<td>Limited by a high-tension &lt;<a href="ECC_P.htm#ECC_POWER_TRANSMISSION_LINE">POWER_TRANSMISSION_LINE</a>&gt;.</td>
+<td>IR</td>
+<td>[FACC, Annex B, OOC:5]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OVRHDOBSTNTY_RAILWAY_POWERLINE" id="EEC_OVRHDOBSTNTY_RAILWAY_POWERLINE">3</a></td>
+<td>RAILWAY_POWERLINE</td>
+<td>EEC_OVRHDOBSTNTY_RAILWAY_POWERLINE</td>
+<td>Limited by a &lt;<a href="ECC_P.htm#ECC_POWER_TRANSMISSION_LINE">POWER_TRANSMISSION_LINE</a>&gt; for a &lt;<a href="ECC_R.htm#ECC_RAILWAY">RAILWAY</a>&gt;.</td>
+<td>IR</td>
+<td>[FACC, Annex B, OOC:4]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OVRHDOBSTNTY_ROOF" id="EEC_OVRHDOBSTNTY_ROOF">4</a></td>
+<td>ROOF</td>
+<td>EEC_OVRHDOBSTNTY_ROOF</td>
+<td>Limited by the design of the &lt;<a href="ECC_R.htm#ECC_ROOF">ROOF</a>&gt;.</td>
+<td>IR</td>
+<td>[FACC, Annex B, OOC:3]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OVRHDOBSTNTY_VIADUCT_ARCH_CONSTRUCTION" id="EEC_OVRHDOBSTNTY_VIADUCT_ARCH_CONSTRUCTION">5</a></td>
+<td>VIADUCT_ARCH_CONSTRUCTION</td>
+<td>EEC_OVRHDOBSTNTY_VIADUCT_ARCH_CONSTRUCTION</td>
+<td>Limited by the construction of the arch overpass of a &lt;<a href="ECC_V.htm#ECC_VIADUCT">VIADUCT</a>&gt;.</td>
+<td>IR</td>
+<td>[FACC, Annex B, OOC:2]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_OVRHDOBSTNTY_VIADUCT_FRAME_CONSTRUCTION" id="EEC_OVRHDOBSTNTY_VIADUCT_FRAME_CONSTRUCTION">6</a></td>
+<td>VIADUCT_FRAME_CONSTRUCTION</td>
+<td>EEC_OVRHDOBSTNTY_VIADUCT_FRAME_CONSTRUCTION</td>
+<td>Limited by the construction of the frame overpass of a &lt;<a href="ECC_V.htm#ECC_VIADUCT">VIADUCT</a>&gt;.</td>
+<td>IR</td>
+<td>[FACC, Annex B, OOC:1]</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_LAND_TRNSP">LAND_TRNSP</a>, <a href="groups.htm#EGC_GEN_TRNSP">TRNSP</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: OOC]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<font color="#ff0000">Return to:</font>
+<b><a href="#Top">Top of page</a></b>,
+<b><a href="EAC_N.htm">Previous EAC Page (N)</a></b>,
+<b><a href="EAC_P.htm">Next EAC Page (P)</a></b>,
+<b><a href="EAC.htm">Attribute Index</a></b>,
+<b><a href="../edcs.htm#SDK">EDCS Home</a></b>
+<br><br>
+<table border="2" width="100%" bgcolor="#0000ff">
+<tr><td>
+<table width="100%" bgcolor="#0000ff">
+<tr>
+<td align="left"><font color="#00ffff"><small>
+Last updated: 
+July 1, 2011
+</small></font></td>
+<td align="right"><font color="#00ffff"><small>
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</small></font></td>
+</tr>
+</table>
+</td></tr>
+</table> 
+</body>
+</html>

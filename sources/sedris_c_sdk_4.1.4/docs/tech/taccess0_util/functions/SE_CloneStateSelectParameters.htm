@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE CloneStateSelectParameters</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX C - Transmittal Access Level 0 API Auxiliary Functions
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+SE CloneStateSelectParameters
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../../taccess0/types/SE_Status_Code.htm">SE_Status_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SE_CloneStateSelectParameters</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1"><td class="CFunction">const&nbsp;</td><td class="CFunction"><a href="../../taccess0/types/SE_State_Select_Parameters.htm">SE_State_Select_Parameters</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="src_ptr"></a>src_ptr,</td><td class="CFunction"><sup><A href="#Notes_src_ptr">1</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../../taccess0/types/SE_State_Select_Parameters.htm">SE_State_Select_Parameters</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="dest_ptr"></a>dest_ptr</td><td class="CFunction"><sup><A href="#Notes_dest_ptr">2</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+ Duplicates the data in a <A href="../../taccess0/types/SE_State_Select_Parameters.htm">SE_State_Select_Parameters</A> structure
+ by allocating memory for its internal pointers (if any are
+ in use), then populating it with data from the input
+ <A href="../../taccess0/types/SE_State_Select_Parameters.htm">SE_State_Select_Parameters</A>
+  structure.  This function avoids the problems associated with doing a
+  simple member-wise copy of the structure.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../../taccess0/types/SE_Status_Code.htm#SE_STATCODE_SUCCESS">SE_STATCODE_SUCCESS</A>
+</td><td class="Status">
+ and memory is allocated for any dynamically allocated data within
+ the structure, which is then populated with data copied from
+ <A href="#src_ptr">*src_ptr</A>, if valid parameters were
+ passed in and all operations succeeded.
+</td></tr>
+<tr><td class="Status">
+<A href="../../taccess0/types/SE_Status_Code.htm#SE_STATCODE_INACTIONABLE_FAILURE">SE_STATCODE_INACTIONABLE_FAILURE</A>
+</td><td class="Status">
+ and <A href="#dest_ptr">*dest_ptr</A> is initialized to empty,
+ if the call failed for any reason.
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#src_ptr" name="Notes_src_ptr">1</a></sup>
+ the SE_State_Select_Parameters that is to be duplicated
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#dest_ptr" name="Notes_dest_ptr">2</a></sup>
+ a pointer to an SE_State_Select_Parameters structure
+    within memory managed by the caller.  Non-dynamically allocated fields
+    in this structure will be directly populated with data from the input
+    fields. Dynamically allocated data will be allocated by this function,
+    then copied from the input structure.
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SE_CloneStateEntry.htm">SE_CloneStateEntry</a>.
+<strong>Next:</strong> <a href="SE_CloneTimeSelectParameters.htm">SE_CloneTimeSelectParameters</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,367 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Reference Vector</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Reference Vector
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Reference Vector</h2>
+<h3>Superclass - <a href="SEDRISAbstractBase.htm">&lt;SEDRIS Abstract Base&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies a unit vector, the
+ meaning of which is specified by its
+ <A href="#vector_type">vector_type</A> field.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet07.pdf"><strong>7</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet04.pdf"><strong>4</strong></A>
+</LI>
+<LI><A href="sheet05.pdf"><strong>5</strong></A>
+</LI>
+<LI><A href="sheet09.pdf"><strong>9</strong></A>
+</LI>
+<LI><A href="sheet18.pdf"><strong>18</strong></A>
+</LI>
+<LI><A href="sheet21.pdf"><strong>21</strong></A>
+</LI>
+</UL>
+
+<h3>Example</h3>
+<OL>
+<LI><P>
+ Consider a <A href="Polygon.htm">&lt;Polygon&gt;</A> instance specified in a 3D LSR SRF
+ for which a data provider wishes to explicitly provide the
+ surface normal vector so that consumers do not need to calculate
+ the surface normal when consuming that particular
+ <A href="Polygon.htm">&lt;Polygon&gt;</A> instance.
+ The data provider specifies this vector information as a
+ <A href="ReferenceVector.htm">&lt;Reference Vector&gt;</A> component
+ of the <A href="Polygon.htm">&lt;Polygon&gt;</A> instance as depicted in
+ <a href="#Figure55">Figure 55</a>:
+</P>
+<DIV align="center">
+<p>
+<A name="Figure55"></A>
+<IMG SRC="../Images/RefVec_Ex1.png"
+     ALT="Reference Vector, Example 1">
+</p>
+<p class=FigureCaption>Figure 55 &#8212; &lt;DRM Reference Vector&gt; surface normal example</p>
+</DIV>
+<P>
+ Since the <A href="ReferenceVector.htm">&lt;Reference Vector&gt;</A> instance
+ is a component of a <A href="Polygon.htm">&lt;Polygon&gt;</A> instance, it
+ specifies an <A href="LSR3DLocation.htm">&lt;LSR 3D Location&gt;</A>
+ component in order to comply with
+ <a href="../constraints/RequiredReferenceVectorLocation.htm">&lt;&lt;Required Reference Vector Location&gt;&gt;</a>.
+</P></LI>
+<LI><P>
+ Consider a <A href="ReferenceVector.htm">&lt;Reference Vector&gt;</A> instance, contained by a
+ <A href="Polygon.htm">&lt;Polygon&gt;</A> instance, representing a normal vector that is used
+ for rendering purposes (that is, to calculate colour and shading when
+ rendering the <A href="Polygon.htm">&lt;Polygon&gt;</A> instance). This
+ <A href="ReferenceVector.htm">&lt;Reference Vector&gt;</A> instance has a
+ <A href="#vector_type">vector_type</A> of
+ <A href="../types/SE_Reference_Vector_Type.htm#SE_REFVEC_RENDERING_NORMAL">SE_REFVEC_RENDERING_NORMAL</A>.
+</P></LI>
+<LI><P>
+ Consider a <A href="Polygon.htm">&lt;Polygon&gt;</A> instance <span class="ConstructName">F</span>
+ classified as <A href="../../../../src/lib/edcs/docs/dictionary/ECC_F.htm#ECC_FENCE">ECC_FENCE</A>, where <span class="ConstructName">F</span> is a
+ quadrilateral. <span class="ConstructName">F</span> is instanced on some
+ terrain representation, such that the plane of <span class="ConstructName">F</span>
+ is perpendicular to the surrounding terrain.
+</P><P>
+ <span class="ConstructName">F</span> has radar cross sections that are dependent
+ on aspect angles (azimuth and elevation). These aspect angles are
+ defined with respect to <span class="ConstructName">F</span>'s normal vector and
+ <span class="ConstructName">F</span>'s azimuth vector. Consequently,
+ <span class="ConstructName">F</span> has two <A href="ReferenceVector.htm">&lt;Reference Vector&gt;</A>
+ components as depicted in
+ <a href="#Figure56">Figure 56</a>:
+</P>
+<DIV align="center">
+<p>
+<A name="Figure56"></A>
+<IMG SRC="../Images/RefVec_Ex3_1.png"
+     ALT="Reference Vector, Example 3, Diagram 1">
+</p>
+<p class=FigureCaption>Figure 56 &#8212; &lt;DRM Reference Vector&gt; radar cross section example</p>
+</DIV>
+<P>
+ The <A href="../types/SE_Reference_Vector_Type.htm#SE_REFVEC_FACE_NORMAL">SE_REFVEC_FACE_NORMAL</A>
+ <A href="ReferenceVector.htm">&lt;Reference Vector&gt;</A> component is the unit vector that is
+ perpendicular to the plane of <span class="ConstructName">F</span> and points away
+ from <span class="ConstructName">F</span> on its outside face. The azimuth
+ <A href="ReferenceVector.htm">&lt;Reference Vector&gt;</A> component is the unit vector that lies
+ in the plane of <span class="ConstructName">F</span> and points straight up.
+</P></LI>
+<LI><P>
+ A segment of the road has a retroreflector (a device that reflects emissions
+ back along the incident path irrespective of its angle of incidence)
+ on it and is modelled as a <A href="Line.htm">&lt;Line&gt;</A> instance.  The
+ <A href="Line.htm">&lt;Line&gt;</A> instance has a normal vector that is
+ perpendicular to it and an azimuth reference parallel to it.  This is
+ sufficient to describe radar cross sections of the road as a function of
+ aspect angles.  However, the normal vector for the infrared bands depends
+ on the orientation of the retroreflector, not the road.  This is because
+ radars see the road but infrared see the retroreflector.  In this example,
+ the <A href="Line.htm">&lt;Line&gt;</A> instance has
+ four <A href="ReferenceVector.htm">&lt;Reference Vector&gt;</A> components
+ (radar-normal, radar-azimuth, infrared-normal, and infrared-azimuth).
+</P></LI>
+<LI><P>
+ A normal vector used for reflectivity/emissivity calculations is
+ represented by a <A href="ReferenceVector.htm">&lt;Reference Vector&gt;</A>
+ instance with <A href="#vector_type">vector_type</A> =
+ <A href="../types/SE_Reference_Vector_Type.htm#SE_REFVEC_REFLECTIVITY_EMISSIVITY_NORMAL">SE_REFVEC_REFLECTIVITY_EMISSIVITY_NORMAL</A>.
+</P></LI>
+<LI><P>
+ A vector specifying the direction of illumination of
+ an <A href="InfiniteLight.htm">&lt;Infinite Light&gt;</A> instance
+ is represented by a <A href="ReferenceVector.htm">&lt;Reference Vector&gt;</A>
+ component with <A href="#vector_type">vector_type</A> =
+ <A href="../types/SE_Reference_Vector_Type.htm#SE_REFVEC_LIGHT_DIRECTION">SE_REFVEC_LIGHT_DIRECTION</A>.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ Why does
+ <A href="../types/SE_Reference_Vector_Type.htm">SE_Reference_Vector_Type</A>
+ have so many entries
+ that appear to be mathematically similar, such as the
+ several different varieties of normal?
+</B></DT>
+<DD><P>
+ In the general case, a location on an environmental object
+ may have distinct vectors for each of these
+ <A href="../types/SE_Reference_Vector_Type.htm">SE_Reference_Vector_Type</A>
+ entries, although in specific instances such vectors may coincide
+ with one another.
+</P><P>
+ For example, consider a large flat window, represented
+ by a <A href="Polygon.htm">&lt;Polygon&gt;</A> instance. The geometric normal
+ (<A href="../types/SE_Reference_Vector_Type.htm#SE_REFVEC_FACE_NORMAL">SE_REFVEC_FACE_NORMAL</A>)
+ in this example coincides with the radar
+ <A href="../types/SE_Reference_Vector_Type.htm#SE_REFVEC_EMISSIVITY_NORMAL">SE_REFVEC_EMISSIVITY_NORMAL</A>
+ and with the infrared
+ <A href="../types/SE_Reference_Vector_Type.htm#SE_REFVEC_EMISSIVITY_NORMAL">SE_REFVEC_EMISSIVITY_NORMAL</A>.
+</P><P>
+ However, consider a more complex geometric representation -
+ in this example, a representation of an aircraft. Here the
+ <A href="../types/SE_Reference_Vector_Type.htm#SE_REFVEC_FACE_NORMAL">SE_REFVEC_FACE_NORMAL</A>
+ is not applicable, and the radar and infrared
+ <A href="../types/SE_Reference_Vector_Type.htm#SE_REFVEC_EMISSIVITY_NORMAL">SE_REFVEC_EMISSIVITY_NORMAL</A>
+ <A href="ReferenceVector.htm">&lt;Reference Vector&gt;</A> instances do not coincide.
+</P></DD>
+<DT><B>
+ Why can a <A href="Vertex.htm">&lt;Vertex&gt;</A> instance have only one
+ <A href="ReferenceVector.htm">&lt;Reference Vector&gt;</A> component,
+ when a <A href="PrimitiveGeometry.htm">&lt;Primitive Geometry&gt;</A> instance
+ can have more than one?
+</B></DT>
+<DD><P>
+ A <A href="Vertex.htm">&lt;Vertex&gt;</A> instance, unlike a
+ <A href="PrimitiveGeometry.htm">&lt;Primitive Geometry&gt;</A> instance
+ such as a <A href="Point.htm">&lt;Point&gt;</A> instance,
+ does not represent an environmental object, but only part of
+ an environmental object.
+</P>
+<HR><P>
+Examples:
+<UL>
+<LI><P>
+ A ship may be represented by a <A href="Point.htm">&lt;Point&gt;</A> instance
+ <span class="ConstructName">S</span>. The fact that <span class="ConstructName">S</span>
+ represents an environmental object is indicated by providing
+ <span class="ConstructName">S</span> with an appropriate
+ <A href="ClassificationData.htm">&lt;Classification Data&gt;</A> component.
+</P></LI>
+<LI><P>
+ An environental object classified as <A href="../../../../src/lib/edcs/docs/dictionary/ECC_E.htm#ECC_EXTERNAL_WALL">ECC_EXTERNAL_WALL</A> within
+ another environmental object classified as <A href="../../../../src/lib/edcs/docs/dictionary/ECC_B.htm#ECC_BUILDING">ECC_BUILDING</A>
+ may be represented by a <A href="Polygon.htm">&lt;Polygon&gt;</A> instance
+ <span class="ConstructName">W</span>, but the individual <A href="Vertex.htm">&lt;Vertex&gt;</A>
+ components of <span class="ConstructName">W</span> do not themselves
+ represent environmental objects.
+</P></LI>
+<LI><P>
+ An environental object classified as <A href="../../../../src/lib/edcs/docs/dictionary/ECC_B.htm#ECC_BRIDGE">ECC_BRIDGE</A> may be
+ represented by a <A href="Line.htm">&lt;Line&gt;</A> instance <span class="ConstructName">B</span>,
+ but the individual <A href="Vertex.htm">&lt;Vertex&gt;</A> components of
+ <span class="ConstructName">B</span> do not themselves represent
+ environmental objects.
+</P></LI>
+</UL>
+</P>
+<HR><P>
+ To fully describe aspect dependent characteristics as part
+ of the representation of an environmental object, the
+ representation requires at least two
+ <A href="ReferenceVector.htm">&lt;Reference Vector&gt;</A> components, one specifying a
+ normal and the other an azimuth.
+ In addition, a representation of
+ an environmental object may need to represent a combination
+ of geometric and/or sensor-related vectors simultaneously.
+</P><P>
+ Since a <A href="Vertex.htm">&lt;Vertex&gt;</A> instance does not itself
+ constitute a representation of an environmental object, it
+ does not require the capability of specifying multiple
+ <A href="ReferenceVector.htm">&lt;Reference Vector&gt;</A> components.
+ However, a <A href="Vertex.htm">&lt;Vertex&gt;</A> instance may need a
+ <A href="../types/SE_Reference_Vector_Type.htm#SE_REFVEC_RENDERING_NORMAL">SE_REFVEC_RENDERING_NORMAL</A>
+ <A href="ReferenceVector.htm">&lt;Reference Vector&gt;</A> component
+ for use in smooth shading, so a single
+ <A href="ReferenceVector.htm">&lt;Reference Vector&gt;</A> component
+ may be needed for a given <A href="Vertex.htm">&lt;Vertex&gt;</A> instance.
+</P></DD>
+<DT><B>
+ Why does a <A href="ReferenceVector.htm">&lt;Reference Vector&gt;</A>
+ instance have an optional <A href="Location.htm">&lt;Location&gt;</A> component,
+ and if the <A href="Location.htm">&lt;Location&gt;</A> component
+ is needed to support functionality, why is it optional?
+</B></DT>
+<DD><P>
+ The SEDRIS API provides the capability of converting
+ <A href="ReferenceVector.htm">&lt;Reference Vector&gt;</A> instances
+ between SRFs. These SRFs include non-vector space coordinates,
+ such as CD. To support those cases, a
+ <A href="ReferenceVector.htm">&lt;Reference Vector&gt;</A> instance
+ requires the ability to specify a
+ <A href="Location.htm">&lt;Location&gt;</A> component.
+</P><P>
+ However, in most contexts where a
+ <A href="ReferenceVector.htm">&lt;Reference Vector&gt;</A> instance can appear
+ in a transmittal, the
+ <A href="ReferenceVector.htm">&lt;Reference Vector&gt;</A> instance
+ inherits the appropriate <A href="Location.htm">&lt;Location&gt;</A>
+ component from its context, and does not require a
+ direct <A href="Location.htm">&lt;Location&gt;</A> component. See
+ <a href="../constraints/RequiredReferenceVectorLocation.htm">&lt;&lt;Required Reference Vector Location&gt;&gt;</a>
+ for the cases where an appropriate <A href="Location.htm">&lt;Location&gt;</A> instance
+ cannot be inherited, so that
+ the data provider is required to specify such a component
+ directly for the <A href="ReferenceVector.htm">&lt;Reference Vector&gt;</A>
+ instance.
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/RequiredReferenceVectorLocation.htm">&lt;&lt;Required Reference Vector Location&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Composed of (two-way)</h3>
+<UL>
+<li>zero or one <a href="Location.htm">&lt;Location&gt;</a> instance</li>
+<li>zero or one <a href="ReferenceVectorControlLink.htm">&lt;Reference Vector Control Link&gt;</a> instance</li>
+</UL>
+
+<h3>Component of (two-way)</h3>
+<UL>
+<li>zero or more <a href="CameraPoint.htm">&lt;Camera Point&gt;</a> instances</li>
+<li>zero or more <a href="CylindricalVolumeExtent.htm">&lt;Cylindrical Volume Extent&gt;</a> instances</li>
+<li>zero or more <a href="Ellipse.htm">&lt;Ellipse&gt;</a> instances</li>
+<li>zero or more <a href="InfiniteLight.htm">&lt;Infinite Light&gt;</a> instances</li>
+<li>zero or more <a href="Line.htm">&lt;Line&gt;</a> instances</li>
+<li>zero or more <a href="LobeData.htm">&lt;Lobe Data&gt;</a> instances</li>
+<li>zero or more <a href="LSRTransformationStep.htm">&lt;LSR Transformation Step&gt;</a> instances</li>
+<li>zero or more <a href="MovingLightBehaviour.htm">&lt;Moving Light Behaviour&gt;</a> instances</li>
+<li>zero or more <a href="ParallelepipedVolumeExtent.htm">&lt;Parallelepiped Volume Extent&gt;</a> instances</li>
+<li>zero or more <a href="Point.htm">&lt;Point&gt;</a> instances</li>
+<li>zero or more <a href="Polygon.htm">&lt;Polygon&gt;</a> instances</li>
+<li>zero or more <a href="UnionOfGeometry.htm">&lt;Union Of Geometry&gt;</a> instances</li>
+<li>zero or more <a href="Vertex.htm">&lt;Vertex&gt;</a> instances</li>
+</UL>
+
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../../srm/types/SRM_Vector_3D.htm">SRM_Vector_3D</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="unit_vector">unit_vector</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_unit_vector">1</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Reference_Vector_Type.htm">SE_Reference_Vector_Type</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="vector_type">vector_type</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_vector_type">2</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Fields Notes</h3>
+<h4><a href="#unit_vector" name="Notes_unit_vector">unit_vector</a></h4>
+<P>
+ The <A href="#unit_vector">unit_vector</A> field specifies the
+ unit vector. For a <A href="ReferenceVector.htm">&lt;Reference Vector&gt;</A> instance
+ with a <A href="ReferenceVectorControlLink.htm">&lt;Reference Vector Control Link&gt;</A> component
+ <span class="ConstructName">X</span>, the value of the
+ <A href="#unit_vector">unit_vector</A> field is obtained from
+ <span class="ConstructName">X</span>.
+</P>
+<h4><a href="#vector_type" name="Notes_vector_type">vector_type</a></h4>
+<P>
+ The <A href="#vector_type">vector_type</A> field specifies the semantic
+ meaning of the vector data being represented by the
+ <A href="ReferenceVector.htm">&lt;Reference Vector&gt;</A> instance.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="ReferenceSurface.htm">Reference Surface</A>.
+<strong>Next:</strong> <A href="ReferenceVectorControlLink.htm">Reference Vector Control Link</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

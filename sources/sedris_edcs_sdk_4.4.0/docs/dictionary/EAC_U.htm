@@ -1,0 +1,2904 @@
+<!DOCTYPE HTML PUBLIC="-//W3C/DTD HTML 4.01 Transitional//EN">
+<html>
+<!-- EDCS spec. 4.4 -->
+<!-- July 1, 2011 -->
+<head>
+<title>EDCS Reference Manual</title>
+</head>
+<body text="#000000" bgcolor="#ffffff" link="#0000ee" vlink="#800080" alink="#ff0000">
+<div align="center">
+<table border="2" width="100%" bgcolor="#0000ff">
+<tr>
+<th><font color="#00ffff"><big><big>
+EDCS Reference Manual
+</big></big></font><br>
+<font color="#ffffff">
+EDCS Attribute Dictionary - Concepts whose labels begin with the letter U
+</font>
+</th>
+</tr>
+</table>
+</div>
+<a name="Top" id="Top"></a>
+<br>
+<b>EDCS Attribute Label</b>: <a name="EAC_UNCOVERING_HEIGHT_KNOWN" id="EAC_UNCOVERING_HEIGHT_KNOWN">UNCOVERING_HEIGHT_KNOWN</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_UNCOVERING_HEIGHT_KNOWN
+</p><p>
+<b>EDCS Attribute Code</b>: 1487
+</p><p>
+<b>Definition</b>:
+<br>
+An indication that information is known about the &lt;&lt;<a href="EAC_H.htm#EAC_HEIGHT">HEIGHT</a>&gt;&gt; to which a &lt;<a href="ECC_M.htm#ECC_MARINE_OBJECT">MARINE_OBJECT</a>&gt; may be uncovered by the &lt;<a href="ECC_T.htm#ECC_TIDE">TIDE</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: BOOLEAN
+</p><p>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_WATERBODY_SURFACE">WATERBODY_SURFACE</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: HDI]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_UNDERBRIDGE_CLEARANCE" id="EAC_UNDERBRIDGE_CLEARANCE">UNDERBRIDGE_CLEARANCE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_UNDERBRIDGE_CLEARANCE
+</p><p>
+<b>EDCS Attribute Code</b>: 1488
+</p><p>
+<b>Definition</b>:
+<br>
+The clearance below a &lt;<a href="ECC_B.htm#ECC_BRIDGE">BRIDGE</a>&gt; measured from the lowest level of the bridged &lt;<a href="ECC_S.htm#ECC_SURFACE">SURFACE</a>&gt; to the base of the lower of either a cross beam or lowest deck of the &lt;<a href="ECC_B.htm#ECC_BRIDGE">BRIDGE</a>&gt;; the underbridge clearance.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_LENGTH">LENGTH</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_DIMENSION">DIMENSION</a>, <a href="groups.htm#EGC_GEN_LAND_TRNSP">LAND_TRNSP</a>, <a href="groups.htm#EGC_GEN_TRNSP">TRNSP</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: UBD]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_UNDERLYING_MATERIAL_CHARACTERISTIC" id="EAC_UNDERLYING_MATERIAL_CHARACTERISTIC">UNDERLYING_MATERIAL_CHARACTERISTIC</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_UNDERLYING_MATERIAL_CHARACTERISTIC
+</p><p>
+<b>EDCS Attribute Code</b>: 1489
+</p><p>
+<b>Definition</b>:
+<br>
+The characteristics of the composition of the &lt;<a href="ECC_M.htm#ECC_MATERIAL">MATERIAL</a>&gt; underlying the &lt;<a href="ECC_S.htm#ECC_SURFACE">SURFACE</a>&gt; of an &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATCHR_BROKEN" id="EEC_UNDRMATCHR_BROKEN">1</a></td>
+<td>BROKEN</td>
+<td>EEC_UNDRMATCHR_BROKEN</td>
+<td>Broken.</td>
+<td>IR</td>
+<td>[FACC, Annex B, UMC:1]</td>
+<td>[SOED, "broken", 1]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATCHR_CALCAREOUS" id="EEC_UNDRMATCHR_CALCAREOUS">2</a></td>
+<td>CALCAREOUS</td>
+<td>EEC_UNDRMATCHR_CALCAREOUS</td>
+<td>Calcareous.</td>
+<td>IR</td>
+<td>[FACC, Annex B, UMC:17]</td>
+<td>[SOED, "calcareous"]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATCHR_COARSE" id="EEC_UNDRMATCHR_COARSE">3</a></td>
+<td>COARSE</td>
+<td>EEC_UNDRMATCHR_COARSE</td>
+<td>Coarse.</td>
+<td>IR</td>
+<td>[FACC, Annex B, UMC:2]</td>
+<td>[SOED, "coarse", 2]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATCHR_DECAYED" id="EEC_UNDRMATCHR_DECAYED">4</a></td>
+<td>DECAYED</td>
+<td>EEC_UNDRMATCHR_DECAYED</td>
+<td>Decayed.</td>
+<td>IR</td>
+<td>[FACC, Annex B, UMC:3]</td>
+<td>[SOED, "decay", 2]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATCHR_FINE_PARTICLES" id="EEC_UNDRMATCHR_FINE_PARTICLES">5</a></td>
+<td>FINE_PARTICLES</td>
+<td>EEC_UNDRMATCHR_FINE_PARTICLES</td>
+<td>Fine, minute &lt;<a href="ECC_P.htm#ECC_PARTICLE">PARTICLE</a>&gt;s.</td>
+<td>IR</td>
+<td>[FACC, Annex B, UMC:4]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATCHR_FLINTY" id="EEC_UNDRMATCHR_FLINTY">6</a></td>
+<td>FLINTY</td>
+<td>EEC_UNDRMATCHR_FLINTY</td>
+<td>Flinty.</td>
+<td>IR</td>
+<td>[FACC, Annex B, UMC:18]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATCHR_GLACIAL" id="EEC_UNDRMATCHR_GLACIAL">7</a></td>
+<td>GLACIAL</td>
+<td>EEC_UNDRMATCHR_GLACIAL</td>
+<td>Glacial.</td>
+<td>IR</td>
+<td>[FACC, Annex B, UMC:19]</td>
+<td>[SOED, "glacial", A.1]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATCHR_GRITTY" id="EEC_UNDRMATCHR_GRITTY">8</a></td>
+<td>GRITTY</td>
+<td>EEC_UNDRMATCHR_GRITTY</td>
+<td>Gritty.</td>
+<td>IR</td>
+<td>[FACC, Annex B, UMC:5]</td>
+<td>[SOED, "gritty", 1]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATCHR_GROUND" id="EEC_UNDRMATCHR_GROUND">9</a></td>
+<td>GROUND</td>
+<td>EEC_UNDRMATCHR_GROUND</td>
+<td>Ground.</td>
+<td>IR</td>
+<td>[FACC, Annex B, UMC:20]</td>
+<td>[SOED, "ground", 10]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATCHR_HARD" id="EEC_UNDRMATCHR_HARD">10</a></td>
+<td>HARD</td>
+<td>EEC_UNDRMATCHR_HARD</td>
+<td>Hard.</td>
+<td>IR</td>
+<td>[FACC, Annex B, UMC:6]</td>
+<td>[SOED, "hard", 1]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATCHR_LARGE_PARTICLES" id="EEC_UNDRMATCHR_LARGE_PARTICLES">11</a></td>
+<td>LARGE_PARTICLES</td>
+<td>EEC_UNDRMATCHR_LARGE_PARTICLES</td>
+<td>Large sized &lt;<a href="ECC_P.htm#ECC_PARTICLE">PARTICLE</a>&gt;s.</td>
+<td>IR</td>
+<td>[FACC, Annex B, UMC:21]</td>
+<td>[SOED, "large", 8]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATCHR_MASONRY" id="EEC_UNDRMATCHR_MASONRY">12</a></td>
+<td>MASONRY</td>
+<td>EEC_UNDRMATCHR_MASONRY</td>
+<td>Masonry.</td>
+<td>IR</td>
+<td>[FACC, Annex B, UMC:62]</td>
+<td>[SOED, "masonry", 1]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATCHR_MEDIUM_PARTICLES" id="EEC_UNDRMATCHR_MEDIUM_PARTICLES">13</a></td>
+<td>MEDIUM_PARTICLES</td>
+<td>EEC_UNDRMATCHR_MEDIUM_PARTICLES</td>
+<td>Medium sized &lt;<a href="ECC_P.htm#ECC_PARTICLE">PARTICLE</a>&gt;s.</td>
+<td>IR</td>
+<td>[FACC, Annex B, UMC:27]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATCHR_ROCKY" id="EEC_UNDRMATCHR_ROCKY">14</a></td>
+<td>ROCKY</td>
+<td>EEC_UNDRMATCHR_ROCKY</td>
+<td>Rocky.</td>
+<td>IR</td>
+<td>[FACC, Annex B, UMC:22]</td>
+<td>[SOED, "rocky", 1]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATCHR_ROTTEN" id="EEC_UNDRMATCHR_ROTTEN">15</a></td>
+<td>ROTTEN</td>
+<td>EEC_UNDRMATCHR_ROTTEN</td>
+<td>Rotten.</td>
+<td>IR</td>
+<td>[FACC, Annex B, UMC:7]</td>
+<td>[SOED, "rotten", 1]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATCHR_SMALL_PARTICLES" id="EEC_UNDRMATCHR_SMALL_PARTICLES">16</a></td>
+<td>SMALL_PARTICLES</td>
+<td>EEC_UNDRMATCHR_SMALL_PARTICLES</td>
+<td>Small sized &lt;<a href="ECC_P.htm#ECC_PARTICLE">PARTICLE</a>&gt;s.</td>
+<td>IR</td>
+<td>[FACC, Annex B, UMC:23]</td>
+<td>[SOED, "small", 1a]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATCHR_SOFT" id="EEC_UNDRMATCHR_SOFT">17</a></td>
+<td>SOFT</td>
+<td>EEC_UNDRMATCHR_SOFT</td>
+<td>Soft.</td>
+<td>IR</td>
+<td>[FACC, Annex B, UMC:8]</td>
+<td>[SOED, "soft"]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATCHR_SPECKLED" id="EEC_UNDRMATCHR_SPECKLED">18</a></td>
+<td>SPECKLED</td>
+<td>EEC_UNDRMATCHR_SPECKLED</td>
+<td>Speckled.</td>
+<td>IR</td>
+<td>[FACC, Annex B, UMC:24]</td>
+<td>[SOED, "speckled"]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATCHR_STICKY" id="EEC_UNDRMATCHR_STICKY">19</a></td>
+<td>STICKY</td>
+<td>EEC_UNDRMATCHR_STICKY</td>
+<td>Sticky.</td>
+<td>IR</td>
+<td>[FACC, Annex B, UMC:9]</td>
+<td>[SOED, "sticky", 1a]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATCHR_STIFF" id="EEC_UNDRMATCHR_STIFF">20</a></td>
+<td>STIFF</td>
+<td>EEC_UNDRMATCHR_STIFF</td>
+<td>Stiff.</td>
+<td>IR</td>
+<td>[FACC, Annex B, UMC:10]</td>
+<td>[SOED, "stiff", 1]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATCHR_STREAKY" id="EEC_UNDRMATCHR_STREAKY">21</a></td>
+<td>STREAKY</td>
+<td>EEC_UNDRMATCHR_STREAKY</td>
+<td>Streaky.</td>
+<td>IR</td>
+<td>[FACC, Annex B, UMC:11]</td>
+<td>[SOED, "streaky", 1]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATCHR_TENACIOUS" id="EEC_UNDRMATCHR_TENACIOUS">22</a></td>
+<td>TENACIOUS</td>
+<td>EEC_UNDRMATCHR_TENACIOUS</td>
+<td>Tenacious.</td>
+<td>IR</td>
+<td>[FACC, Annex B, UMC:12]</td>
+<td>[SOED, "tenacious", 1a]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATCHR_UNEVEN" id="EEC_UNDRMATCHR_UNEVEN">23</a></td>
+<td>UNEVEN</td>
+<td>EEC_UNDRMATCHR_UNEVEN</td>
+<td>Uneven.</td>
+<td>IR</td>
+<td>[FACC, Annex B, UMC:13]</td>
+<td>[SOED, "uneven", 2]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATCHR_VARIED" id="EEC_UNDRMATCHR_VARIED">24</a></td>
+<td>VARIED</td>
+<td>EEC_UNDRMATCHR_VARIED</td>
+<td>Varied, mottled.</td>
+<td>IR</td>
+<td>[FACC, Annex B, UMC:25]</td>
+<td>[SOED, "varied", 3]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATCHR_VOLCANIC" id="EEC_UNDRMATCHR_VOLCANIC">25</a></td>
+<td>VOLCANIC</td>
+<td>EEC_UNDRMATCHR_VOLCANIC</td>
+<td>Volcanic.</td>
+<td>IR</td>
+<td>[FACC, Annex B, UMC:26]</td>
+<td>[SOED, "volcanic", 1]</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_MATERIAL">MATERIAL</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: UMC]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_UNDERLYING_MATERIAL_TYPE" id="EAC_UNDERLYING_MATERIAL_TYPE">UNDERLYING_MATERIAL_TYPE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_UNDERLYING_MATERIAL_TYPE
+</p><p>
+<b>EDCS Attribute Code</b>: 1490
+</p><p>
+<b>Definition</b>:
+<br>
+The type of composition of the &lt;<a href="ECC_M.htm#ECC_MATERIAL">MATERIAL</a>&gt; underlying the &lt;<a href="ECC_S.htm#ECC_SURFACE">SURFACE</a>&gt; of an &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATTY_ASH" id="EEC_UNDRMATTY_ASH">1</a></td>
+<td>ASH</td>
+<td>EEC_UNDRMATTY_ASH</td>
+<td>Ash.</td>
+<td>IR</td>
+<td>[FACC, Annex B, MCU:4]</td>
+<td>[SOED, "ash", n2 1b]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATTY_BOULDER" id="EEC_UNDRMATTY_BOULDER">2</a></td>
+<td>BOULDER</td>
+<td>EEC_UNDRMATTY_BOULDER</td>
+<td>Boulder.</td>
+<td>IR</td>
+<td>[FACC, Annex B, MCU:8]</td>
+<td>[SOED, "boulder", A]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATTY_CHALK" id="EEC_UNDRMATTY_CHALK">3</a></td>
+<td>CHALK</td>
+<td>EEC_UNDRMATTY_CHALK</td>
+<td>Chalk.</td>
+<td>IR</td>
+<td>[FACC, Annex B, MCU:12]</td>
+<td>[SOED, "chalk", 2]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATTY_CINDER" id="EEC_UNDRMATTY_CINDER">4</a></td>
+<td>CINDER</td>
+<td>EEC_UNDRMATTY_CINDER</td>
+<td>Cinder.</td>
+<td>IR</td>
+<td>[FACC, Annex B, MCU:14]</td>
+<td>[SOED, "cinder", 3]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATTY_CIRRIPEDIA" id="EEC_UNDRMATTY_CIRRIPEDIA">5</a></td>
+<td>CIRRIPEDIA</td>
+<td>EEC_UNDRMATTY_CIRRIPEDIA</td>
+<td>Cirripedia.</td>
+<td>IR</td>
+<td>[FACC, Annex B, MCU:15]</td>
+<td>[SOED, "cirripede"]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATTY_CLAY" id="EEC_UNDRMATTY_CLAY">6</a></td>
+<td>CLAY</td>
+<td>EEC_UNDRMATTY_CLAY</td>
+<td>Clay.</td>
+<td>IR</td>
+<td>[FACC, Annex B, MCU:16]</td>
+<td>[SOED, "clay", 1]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATTY_COBBLE" id="EEC_UNDRMATTY_COBBLE">7</a></td>
+<td>COBBLE</td>
+<td>EEC_UNDRMATTY_COBBLE</td>
+<td>Cobble.</td>
+<td>IR</td>
+<td>[FACC, Annex B, MCU:18]</td>
+<td>[SOED, "cobble", 1]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATTY_CORAL" id="EEC_UNDRMATTY_CORAL">8</a></td>
+<td>CORAL</td>
+<td>EEC_UNDRMATTY_CORAL</td>
+<td>&lt;<a href="ECC_C.htm#ECC_CORAL">CORAL</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[FACC, Annex B, MCU:24]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATTY_CORAL_HEAD" id="EEC_UNDRMATTY_CORAL_HEAD">9</a></td>
+<td>CORAL_HEAD</td>
+<td>EEC_UNDRMATTY_CORAL_HEAD</td>
+<td>Coral head.</td>
+<td>IR</td>
+<td>[FACC, Annex B, MCU:25]</td>
+<td>[APDS, "coral head"]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATTY_DIATOMACEOUS_EARTH" id="EEC_UNDRMATTY_DIATOMACEOUS_EARTH">10</a></td>
+<td>DIATOMACEOUS_EARTH</td>
+<td>EEC_UNDRMATTY_DIATOMACEOUS_EARTH</td>
+<td>Diatomaceous earth.</td>
+<td>IR</td>
+<td>[FACC, Annex B, MCU:28]</td>
+<td>[SOED, "diatomaceous earth"]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATTY_EVAPORITE" id="EEC_UNDRMATTY_EVAPORITE">11</a></td>
+<td>EVAPORITE</td>
+<td>EEC_UNDRMATTY_EVAPORITE</td>
+<td>Evaporite.</td>
+<td>IR</td>
+<td>[FACC, Annex B, MCU:119]</td>
+<td>[SOED, "evaporite"]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATTY_FORAMINIFERA" id="EEC_UNDRMATTY_FORAMINIFERA">12</a></td>
+<td>FORAMINIFERA</td>
+<td>EEC_UNDRMATTY_FORAMINIFERA</td>
+<td>Foraminifera.</td>
+<td>IR</td>
+<td>[FACC, Annex B, MCU:36]</td>
+<td>[SOED, "foraminifer"]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATTY_FUCUS" id="EEC_UNDRMATTY_FUCUS">13</a></td>
+<td>FUCUS</td>
+<td>EEC_UNDRMATTY_FUCUS</td>
+<td>Fucus.</td>
+<td>IR</td>
+<td>[FACC, Annex B, MCU:37]</td>
+<td>[SOED, "fucus", 2]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATTY_GLASS_REINFORCED_PLASTIC" id="EEC_UNDRMATTY_GLASS_REINFORCED_PLASTIC">14</a></td>
+<td>GLASS_REINFORCED_PLASTIC</td>
+<td>EEC_UNDRMATTY_GLASS_REINFORCED_PLASTIC</td>
+<td>Glass reinforced plastic.</td>
+<td>IR</td>
+<td>[FACC, Annex B, MCU:120]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATTY_GLOBIGERINA" id="EEC_UNDRMATTY_GLOBIGERINA">15</a></td>
+<td>GLOBIGERINA</td>
+<td>EEC_UNDRMATTY_GLOBIGERINA</td>
+<td>Globigerina.</td>
+<td>IR</td>
+<td>[FACC, Annex B, MCU:41]</td>
+<td>[SOED, "globigerina"]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATTY_GRASS" id="EEC_UNDRMATTY_GRASS">16</a></td>
+<td>GRASS</td>
+<td>EEC_UNDRMATTY_GRASS</td>
+<td>Grass.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[SOED, "grass", 4.b]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATTY_GRAVEL" id="EEC_UNDRMATTY_GRAVEL">17</a></td>
+<td>GRAVEL</td>
+<td>EEC_UNDRMATTY_GRAVEL</td>
+<td>Gravel.</td>
+<td>IR</td>
+<td>[FACC, Annex B, MCU:46]</td>
+<td>[SOED, "gravel", 2]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATTY_GROUND" id="EEC_UNDRMATTY_GROUND">18</a></td>
+<td>GROUND</td>
+<td>EEC_UNDRMATTY_GROUND</td>
+<td>Ground.</td>
+<td>IR</td>
+<td>[FACC, Annex B, MCU:48]</td>
+<td>[SOED, "ground", 9]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATTY_LAVA" id="EEC_UNDRMATTY_LAVA">19</a></td>
+<td>LAVA</td>
+<td>EEC_UNDRMATTY_LAVA</td>
+<td>Lava.</td>
+<td>IR</td>
+<td>[FACC, Annex B, MCU:52]</td>
+<td>[SOED, "lava", 1]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATTY_MADREPORE" id="EEC_UNDRMATTY_MADREPORE">20</a></td>
+<td>MADREPORE</td>
+<td>EEC_UNDRMATTY_MADREPORE</td>
+<td>Madrepore.</td>
+<td>IR</td>
+<td>[FACC, Annex B, MCU:58]</td>
+<td>[SOED, "madrepore", 1]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATTY_MANGANESE" id="EEC_UNDRMATTY_MANGANESE">21</a></td>
+<td>MANGANESE</td>
+<td>EEC_UNDRMATTY_MANGANESE</td>
+<td>Manganese.</td>
+<td>IR</td>
+<td>[FACC, Annex B, MCU:59]</td>
+<td>[SOED, "manganese", 2]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATTY_MARL" id="EEC_UNDRMATTY_MARL">22</a></td>
+<td>MARL</td>
+<td>EEC_UNDRMATTY_MARL</td>
+<td>Marl.</td>
+<td>IR</td>
+<td>[FACC, Annex B, MCU:61]</td>
+<td>[SOED, "marl", n1 1]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATTY_MATTE" id="EEC_UNDRMATTY_MATTE">23</a></td>
+<td>MATTE</td>
+<td>EEC_UNDRMATTY_MATTE</td>
+<td>Matte.</td>
+<td>IR</td>
+<td>[FACC, Annex B, MCU:63]</td>
+<td>[SOED, "matte", 1]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATTY_MUD" id="EEC_UNDRMATTY_MUD">24</a></td>
+<td>MUD</td>
+<td>EEC_UNDRMATTY_MUD</td>
+<td>Mud.</td>
+<td>IR</td>
+<td>[FACC, Annex B, MCU:65]</td>
+<td>[SOED, "mud", n1 1]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATTY_MUSSEL" id="EEC_UNDRMATTY_MUSSEL">25</a></td>
+<td>MUSSEL</td>
+<td>EEC_UNDRMATTY_MUSSEL</td>
+<td>Mussel.</td>
+<td>IR</td>
+<td>[FACC, Annex B, MCU:66]</td>
+<td>[SOED, "mussel"]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATTY_OOZE" id="EEC_UNDRMATTY_OOZE">26</a></td>
+<td>OOZE</td>
+<td>EEC_UNDRMATTY_OOZE</td>
+<td>Ooze.</td>
+<td>IR</td>
+<td>[FACC, Annex B, MCU:69]</td>
+<td>[SOED, "ooze", 1]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATTY_OYSTER" id="EEC_UNDRMATTY_OYSTER">27</a></td>
+<td>OYSTER</td>
+<td>EEC_UNDRMATTY_OYSTER</td>
+<td>Oyster.</td>
+<td>IR</td>
+<td>[FACC, Annex B, MCU:70]</td>
+<td>[SOED, "oyster", 1]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATTY_PEBBLE" id="EEC_UNDRMATTY_PEBBLE">28</a></td>
+<td>PEBBLE</td>
+<td>EEC_UNDRMATTY_PEBBLE</td>
+<td>Pebble.</td>
+<td>IR</td>
+<td>[FACC, Annex B, MCU:73]</td>
+<td>[SOED, "pebble", 1]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATTY_PLANT_MATERIAL" id="EEC_UNDRMATTY_PLANT_MATERIAL">29</a></td>
+<td>PLANT_MATERIAL</td>
+<td>EEC_UNDRMATTY_PLANT_MATERIAL</td>
+<td>Covered with plant &lt;<a href="ECC_M.htm#ECC_MATERIAL">MATERIAL</a>&gt; (for example: straw and/or tall coarse &lt;<a href="ECC_G.htm#ECC_GRASS">GRASS</a>&gt;), possibly also containing the slices of &lt;<a href="ECC_S.htm#ECC_SOIL">SOIL</a>&gt; to which the plant &lt;<a href="ECC_M.htm#ECC_MATERIAL">MATERIAL</a>&gt; is attached.</td>
+<td>IR</td>
+<td>[FACC, Annex B, MCU:45]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATTY_POLYZOA" id="EEC_UNDRMATTY_POLYZOA">30</a></td>
+<td>POLYZOA</td>
+<td>EEC_UNDRMATTY_POLYZOA</td>
+<td>Polyzoa.</td>
+<td>IR</td>
+<td>[FACC, Annex B, MCU:75]</td>
+<td>[SOED, "polyzoa"]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATTY_PTEROPOD" id="EEC_UNDRMATTY_PTEROPOD">31</a></td>
+<td>PTEROPOD</td>
+<td>EEC_UNDRMATTY_PTEROPOD</td>
+<td>Pteropod.</td>
+<td>IR</td>
+<td>[FACC, Annex B, MCU:78]</td>
+<td>[SOED, "pteropod"]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATTY_PUMICE" id="EEC_UNDRMATTY_PUMICE">32</a></td>
+<td>PUMICE</td>
+<td>EEC_UNDRMATTY_PUMICE</td>
+<td>Pumice.</td>
+<td>IR</td>
+<td>[FACC, Annex B, MCU:79]</td>
+<td>[SOED, "pumice", A]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATTY_QUARTZ" id="EEC_UNDRMATTY_QUARTZ">33</a></td>
+<td>QUARTZ</td>
+<td>EEC_UNDRMATTY_QUARTZ</td>
+<td>Quartz.</td>
+<td>IR</td>
+<td>[FACC, Annex B, MCU:80]</td>
+<td>[SOED, "quartz"]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATTY_RADIOLARIAN" id="EEC_UNDRMATTY_RADIOLARIAN">34</a></td>
+<td>RADIOLARIAN</td>
+<td>EEC_UNDRMATTY_RADIOLARIAN</td>
+<td>Radiolarian.</td>
+<td>IR</td>
+<td>[FACC, Annex B, MCU:81]</td>
+<td>[SOED, "radiolarian", A]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATTY_ROCK" id="EEC_UNDRMATTY_ROCK">35</a></td>
+<td>ROCK</td>
+<td>EEC_UNDRMATTY_ROCK</td>
+<td>&lt;<a href="ECC_R.htm#ECC_ROCK">ROCK</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[FACC, Annex B, MCU:84]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATTY_SAND" id="EEC_UNDRMATTY_SAND">36</a></td>
+<td>SAND</td>
+<td>EEC_UNDRMATTY_SAND</td>
+<td>&lt;<a href="ECC_S.htm#ECC_SAND">SAND</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[FACC, Annex B, MCU:88]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATTY_SCHIST" id="EEC_UNDRMATTY_SCHIST">37</a></td>
+<td>SCHIST</td>
+<td>EEC_UNDRMATTY_SCHIST</td>
+<td>Schist.</td>
+<td>IR</td>
+<td>[FACC, Annex B, MCU:90]</td>
+<td>[SOED, "schist"]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATTY_SCORIA" id="EEC_UNDRMATTY_SCORIA">38</a></td>
+<td>SCORIA</td>
+<td>EEC_UNDRMATTY_SCORIA</td>
+<td>Scoria.</td>
+<td>IR</td>
+<td>[FACC, Annex B, MCU:92]</td>
+<td>[SOED, "scoria", 2]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATTY_SEA_TANGLE" id="EEC_UNDRMATTY_SEA_TANGLE">39</a></td>
+<td>SEA_TANGLE</td>
+<td>EEC_UNDRMATTY_SEA_TANGLE</td>
+<td>Sea-tangle.</td>
+<td>IR</td>
+<td>[FACC, Annex B, MCU:93]</td>
+<td>[SOED, "sea-tangle"]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATTY_SEAWEED" id="EEC_UNDRMATTY_SEAWEED">40</a></td>
+<td>SEAWEED</td>
+<td>EEC_UNDRMATTY_SEAWEED</td>
+<td>&lt;<a href="ECC_S.htm#ECC_SEAWEED">SEAWEED</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[FACC, Annex B, MCU:94]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATTY_SHELL" id="EEC_UNDRMATTY_SHELL">41</a></td>
+<td>SHELL</td>
+<td>EEC_UNDRMATTY_SHELL</td>
+<td>Shell.</td>
+<td>IR</td>
+<td>[FACC, Annex B, MCU:96]</td>
+<td>[SOED, "shell", 1a]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATTY_SHINGLE" id="EEC_UNDRMATTY_SHINGLE">42</a></td>
+<td>SHINGLE</td>
+<td>EEC_UNDRMATTY_SHINGLE</td>
+<td>Shingle.</td>
+<td>IR</td>
+<td>[FACC, Annex B, MCU:98]</td>
+<td>[SOED, "shingle", n1 1]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATTY_SILT" id="EEC_UNDRMATTY_SILT">43</a></td>
+<td>SILT</td>
+<td>EEC_UNDRMATTY_SILT</td>
+<td>Silt.</td>
+<td>IR</td>
+<td>[FACC, Annex B, MCU:99]</td>
+<td>[SOED, "silt", 1a]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATTY_SPICULE" id="EEC_UNDRMATTY_SPICULE">44</a></td>
+<td>SPICULE</td>
+<td>EEC_UNDRMATTY_SPICULE</td>
+<td>Spicule.</td>
+<td>IR</td>
+<td>[FACC, Annex B, MCU:105]</td>
+<td>[SOED, "spicule", 3]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATTY_SPONGE" id="EEC_UNDRMATTY_SPONGE">45</a></td>
+<td>SPONGE</td>
+<td>EEC_UNDRMATTY_SPONGE</td>
+<td>Sponge.</td>
+<td>IR</td>
+<td>[FACC, Annex B, MCU:106]</td>
+<td>[SOED, "sponge", n1 3]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATTY_STONE" id="EEC_UNDRMATTY_STONE">46</a></td>
+<td>STONE</td>
+<td>EEC_UNDRMATTY_STONE</td>
+<td>Stone.</td>
+<td>IR</td>
+<td>[FACC, Annex B, MCU:108]</td>
+<td>[SOED, "stone", 2]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATTY_THATCH" id="EEC_UNDRMATTY_THATCH">47</a></td>
+<td>THATCH</td>
+<td>EEC_UNDRMATTY_THATCH</td>
+<td>Thatch.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[SOED, "thatch", 1a]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATTY_TUFA" id="EEC_UNDRMATTY_TUFA">48</a></td>
+<td>TUFA</td>
+<td>EEC_UNDRMATTY_TUFA</td>
+<td>Tufa.</td>
+<td>IR</td>
+<td>[FACC, Annex B, MCU:111]</td>
+<td>[SOED, "tufa"]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATTY_URANIUM" id="EEC_UNDRMATTY_URANIUM">49</a></td>
+<td>URANIUM</td>
+<td>EEC_UNDRMATTY_URANIUM</td>
+<td>Uranium.</td>
+<td>IR</td>
+<td>[FACC, Annex B, MCU:112]</td>
+<td>[SOED, "uranium"]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATTY_VEGETATION_PRODUCT" id="EEC_UNDRMATTY_VEGETATION_PRODUCT">50</a></td>
+<td>VEGETATION_PRODUCT</td>
+<td>EEC_UNDRMATTY_VEGETATION_PRODUCT</td>
+<td>Incorporates &lt;<a href="ECC_V.htm#ECC_VEGETATION">VEGETATION</a>&gt;.</td>
+<td>IR</td>
+<td>[FACC, Annex B, MCU:113]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATTY_VOLCANIC" id="EEC_UNDRMATTY_VOLCANIC">51</a></td>
+<td>VOLCANIC</td>
+<td>EEC_UNDRMATTY_VOLCANIC</td>
+<td>Volcanic.</td>
+<td>IR</td>
+<td>[FACC, Annex B, MCU:114]</td>
+<td>[SOED, "volcanic", 1]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATTY_VOLCANIC_ASH" id="EEC_UNDRMATTY_VOLCANIC_ASH">52</a></td>
+<td>VOLCANIC_ASH</td>
+<td>EEC_UNDRMATTY_VOLCANIC_ASH</td>
+<td>Volcanic ash.</td>
+<td>IR</td>
+<td>[FACC, Annex B, MCU:115]</td>
+<td>[SOED, "ash", 4]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATTY_WATER" id="EEC_UNDRMATTY_WATER">53</a></td>
+<td>WATER</td>
+<td>EEC_UNDRMATTY_WATER</td>
+<td>&lt;<a href="ECC_W.htm#ECC_WATER">WATER</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[FACC, Annex B, MCU:116]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATTY_WOOD" id="EEC_UNDRMATTY_WOOD">54</a></td>
+<td>WOOD</td>
+<td>EEC_UNDRMATTY_WOOD</td>
+<td>Wood.</td>
+<td>IR</td>
+<td>[FACC, Annex B, MCU:117]</td>
+<td>[SOED, "wood", n1 4a]</td>
+</tr>
+<tr>
+<td><a name="EEC_UNDRMATTY_ZINC" id="EEC_UNDRMATTY_ZINC">55</a></td>
+<td>ZINC</td>
+<td>EEC_UNDRMATTY_ZINC</td>
+<td>Zinc.</td>
+<td>IR</td>
+<td>[FACC, Annex B, MCU:118]</td>
+<td>[SOED, "zinc", 1]</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_MATERIAL">MATERIAL</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: MCU]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_UPSTREAM_HEIGHT" id="EAC_UPSTREAM_HEIGHT">UPSTREAM_HEIGHT</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_UPSTREAM_HEIGHT
+</p><p>
+<b>EDCS Attribute Code</b>: 1491
+</p><p>
+<b>Definition</b>:
+<br>
+The height of an &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt; above a &lt;<a href="ECC_W.htm#ECC_WATERCOURSE">WATERCOURSE</a>&gt; measured on the upstream side.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_LENGTH">LENGTH</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ABSTRACT_OBJECT">ABSTRACT_OBJECT</a>, <a href="groups.htm#EGC_GEN_LOCATION">LOCATION</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: HGU]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_URBAN_BUILDING_LIGHTING_INTENSITY" id="EAC_URBAN_BUILDING_LIGHTING_INTENSITY">URBAN_BUILDING_LIGHTING_INTENSITY</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_URBAN_BUILDING_LIGHTING_INTENSITY
+</p><p>
+<b>EDCS Attribute Code</b>: 1492
+</p><p>
+<b>Definition</b>:
+<br>
+A number between 0 and 1 inclusive representing the linearly-scaled fractional intensity of the &lt;<a href="ECC_L.htm#ECC_LIGHTING">LIGHTING</a>&gt; on an urban &lt;<a href="ECC_B.htm#ECC_BUILDING">BUILDING</a>&gt;. Zero means unlit and one means maximum intensity.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_PURE_NUMBER">PURE_NUMBER</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_LIGHTING_AND_VISIBILITY">LIGHTING_AND_VISIBILITY</a>, <a href="groups.htm#EGC_GEN_RATE_OR_RATIO">RATE_OR_RATIO</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_URBAN_STREET_LIGHTING_INTENSITY" id="EAC_URBAN_STREET_LIGHTING_INTENSITY">URBAN_STREET_LIGHTING_INTENSITY</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_URBAN_STREET_LIGHTING_INTENSITY
+</p><p>
+<b>EDCS Attribute Code</b>: 1493
+</p><p>
+<b>Definition</b>:
+<br>
+A number between 0 and 1 inclusive representing the linearly-scaled fractional intensity of the &lt;<a href="ECC_L.htm#ECC_LIGHTING">LIGHTING</a>&gt; on an urban &lt;<a href="ECC_S.htm#ECC_STREET">STREET</a>&gt;. Zero means unlit and one means maximum intensity.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_PURE_NUMBER">PURE_NUMBER</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_LAND_TRNSP">LAND_TRNSP</a>, <a href="groups.htm#EGC_GEN_LIGHTING_AND_VISIBILITY">LIGHTING_AND_VISIBILITY</a>, <a href="groups.htm#EGC_GEN_RATE_OR_RATIO">RATE_OR_RATIO</a>, <a href="groups.htm#EGC_GEN_TRNSP">TRNSP</a>, <a href="groups.htm#EGC_GEN_USAGE_REGION">USAGE_REGION</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_URBAN_STREET_PATTERN" id="EAC_URBAN_STREET_PATTERN">URBAN_STREET_PATTERN</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_URBAN_STREET_PATTERN
+</p><p>
+<b>EDCS Attribute Code</b>: 1494
+</p><p>
+<b>Definition</b>:
+<br>
+The predominant geometric configuration of &lt;<a href="ECC_S.htm#ECC_STREET">STREET</a>&gt;s found within a delineated &lt;<a href="ECC_T.htm#ECC_TERRAIN_SURFACE_REGION">TERRAIN_SURFACE_REGION</a>&gt;; urban street pattern.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_URBSTREETPAT_CURVILINEAR_CLUSTER" id="EEC_URBSTREETPAT_CURVILINEAR_CLUSTER">1</a></td>
+<td>CURVILINEAR_CLUSTER</td>
+<td>EEC_URBSTREETPAT_CURVILINEAR_CLUSTER</td>
+<td>Curvilinear cluster with limited access from outside.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USP:4]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_URBSTREETPAT_IRREG_GRID" id="EEC_URBSTREETPAT_IRREG_GRID">2</a></td>
+<td>IRREG_GRID</td>
+<td>EEC_URBSTREETPAT_IRREG_GRID</td>
+<td>Rectangular, or irregular grid.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USP:3]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_URBSTREETPAT_IRREG_RADIAL" id="EEC_URBSTREETPAT_IRREG_RADIAL">3</a></td>
+<td>IRREG_RADIAL</td>
+<td>EEC_URBSTREETPAT_IRREG_RADIAL</td>
+<td>Concentric, or radial irregular.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USP:7]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_URBSTREETPAT_LINEAR_STRIP" id="EEC_URBSTREETPAT_LINEAR_STRIP">4</a></td>
+<td>LINEAR_STRIP</td>
+<td>EEC_URBSTREETPAT_LINEAR_STRIP</td>
+<td>Linear strip.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USP:13]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_URBSTREETPAT_MIXED_CLUSTER" id="EEC_URBSTREETPAT_MIXED_CLUSTER">5</a></td>
+<td>MIXED_CLUSTER</td>
+<td>EEC_URBSTREETPAT_MIXED_CLUSTER</td>
+<td>Mixed &lt;&lt;&lt;<a href="EAC_U.htm#EEC_URBSTREETPAT_CURVILINEAR_CLUSTER">CURVILINEAR_CLUSTER</a>&gt;&gt;&gt; and rectangular grid.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USP:9]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_URBSTREETPAT_MIXED_GRID" id="EEC_URBSTREETPAT_MIXED_GRID">6</a></td>
+<td>MIXED_GRID</td>
+<td>EEC_URBSTREETPAT_MIXED_GRID</td>
+<td>Mixed concentric or radial and rectangular grid.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USP:10]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_URBSTREETPAT_MIXED_RADIAL" id="EEC_URBSTREETPAT_MIXED_RADIAL">7</a></td>
+<td>MIXED_RADIAL</td>
+<td>EEC_URBSTREETPAT_MIXED_RADIAL</td>
+<td>Mixed &lt;&lt;&lt;<a href="EAC_U.htm#EEC_URBSTREETPAT_CURVILINEAR_CLUSTER">CURVILINEAR_CLUSTER</a>&gt;&gt;&gt; and concentric or radial.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USP:11]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_URBSTREETPAT_REG_GRID" id="EEC_URBSTREETPAT_REG_GRID">8</a></td>
+<td>REG_GRID</td>
+<td>EEC_URBSTREETPAT_REG_GRID</td>
+<td>Rectangular or regular grid.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USP:2]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_URBSTREETPAT_REG_RADIAL" id="EEC_URBSTREETPAT_REG_RADIAL">9</a></td>
+<td>REG_RADIAL</td>
+<td>EEC_URBSTREETPAT_REG_RADIAL</td>
+<td>Concentric or radial regular.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USP:6]</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_LAND_TRNSP">LAND_TRNSP</a>, <a href="groups.htm#EGC_GEN_TRNSP">TRNSP</a>, <a href="groups.htm#EGC_GEN_USAGE_REGION">USAGE_REGION</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: USP]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_URBAN_TERRAIN_ZONE_TYPE" id="EAC_URBAN_TERRAIN_ZONE_TYPE">URBAN_TERRAIN_ZONE_TYPE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_URBAN_TERRAIN_ZONE_TYPE
+</p><p>
+<b>EDCS Attribute Code</b>: 1495
+</p><p>
+<b>Definition</b>:
+<br>
+The type of an urban terrain zone based on the characterization of &lt;<a href="ECC_B.htm#ECC_BUILDING">BUILDING</a>&gt;s and their density.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_URBTERZNTY_ATTACHED_1" id="EEC_URBTERZNTY_ATTACHED_1">1</a></td>
+<td>ATTACHED_1</td>
+<td>EEC_URBTERZNTY_ATTACHED_1</td>
+<td>Centres of older &lt;<a href="ECC_C.htm#ECC_CITY">CITY</a>&gt;s with high concentrations of &lt;<a href="ECC_B.htm#ECC_BUILDING">BUILDING</a>&gt;s with multiple &lt;<a href="ECC_F.htm#ECC_FLOOR_LEVEL">FLOOR_LEVEL</a>&gt;s (5 to 50); Attached<sub>1</sub>. &lt;<a href="ECC_B.htm#ECC_BUILDING">BUILDING</a>&gt;s occupy nearly all of their lots and are flush to &lt;<a href="ECC_S.htm#ECC_SIDEWALK">SIDEWALK</a>&gt;s and they either attach or abut neighbours. Usually bordered by &lt;&lt;&lt;<a href="EAC_U.htm#EEC_URBTERZNTY_ATTACHED_1">ATTACHED_1</a>&gt;&gt;&gt; and &lt;&lt;&lt;<a href="EAC_U.htm#EEC_URBTERZNTY_DISCRETE_CLUST_1">DISCRETE_CLUST_1</a>&gt;&gt;&gt; zones.</td>
+<td>IR</td>
+<td>[UTZB]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_URBTERZNTY_ATTACHED_2" id="EEC_URBTERZNTY_ATTACHED_2">2</a></td>
+<td>ATTACHED_2</td>
+<td>EEC_URBTERZNTY_ATTACHED_2</td>
+<td>&lt;<a href="ECC_B.htm#ECC_BUILDING">BUILDING</a>&gt;s fill lots to their perimeters, but are not as tall as those in &lt;&lt;&lt;<a href="EAC_U.htm#EEC_URBTERZNTY_ATTACHED_1">ATTACHED_1</a>&gt;&gt;&gt;; Attached<sub>2</sub>. &lt;<a href="ECC_B.htm#ECC_BUILDING">BUILDING</a>&gt;s are attached or abutted to neighbours, are flush to &lt;<a href="ECC_S.htm#ECC_STREET">STREET</a>&gt;s, and are typically 5 to 10 &lt;<a href="ECC_F.htm#ECC_FLOOR_LEVEL">FLOOR_LEVEL</a>&gt;s. Land use is mainly &lt;<a href="ECC_A.htm#ECC_APARTMENT_HOUSE">APARTMENT_HOUSE</a>&gt;s with some &lt;<a href="ECC_H.htm#ECC_HOTEL">HOTEL</a>&gt;s and offices.</td>
+<td>IR</td>
+<td>[UTZB]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_URBTERZNTY_ATTACHED_3" id="EEC_URBTERZNTY_ATTACHED_3">3</a></td>
+<td>ATTACHED_3</td>
+<td>EEC_URBTERZNTY_ATTACHED_3</td>
+<td>Attached or abutted individual &lt;<a href="ECC_B.htm#ECC_BUILDING">BUILDING</a>&gt;s (for example: row houses), typically of 1 to 4 &lt;<a href="ECC_F.htm#ECC_FLOOR_LEVEL">FLOOR_LEVEL</a>&gt;s and most often residential. &lt;<a href="ECC_B.htm#ECC_BUILDING">BUILDING</a>&gt;s have little or no setback from &lt;<a href="ECC_S.htm#ECC_SIDEWALK">SIDEWALK</a>&gt; and they usually have a narrow back yard; Attached<sub>3</sub>.</td>
+<td>IR</td>
+<td>[UTZB]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_URBTERZNTY_ATTACHED_4" id="EEC_URBTERZNTY_ATTACHED_4">4</a></td>
+<td>ATTACHED_4</td>
+<td>EEC_URBTERZNTY_ATTACHED_4</td>
+<td>Attached or abutted &lt;<a href="ECC_B.htm#ECC_BUILDING">BUILDING</a>&gt;s, 2 to 10 &lt;<a href="ECC_F.htm#ECC_FLOOR_LEVEL">FLOOR_LEVEL</a>&gt;s, flush to the &lt;<a href="ECC_S.htm#ECC_STREET">STREET</a>&gt; with no setback or side set; Attached<sub>4</sub>. The&lt;<a href="ECC_B.htm#ECC_BUILDING">BUILDING</a>&gt;s have industrial or storage functions with little space for parking. Non-built-upon space is primarily for storage of &lt;<a href="ECC_M.htm#ECC_MATERIAL">MATERIAL</a>&gt;.</td>
+<td>IR</td>
+<td>[UTZB]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_URBTERZNTY_ATTACHED_5" id="EEC_URBTERZNTY_ATTACHED_5">5</a></td>
+<td>ATTACHED_5</td>
+<td>EEC_URBTERZNTY_ATTACHED_5</td>
+<td>Attached or abutted &lt;<a href="ECC_B.htm#ECC_BUILDING">BUILDING</a>&gt;s, along commercial ribbon &lt;<a href="ECC_S.htm#ECC_STREET">STREET</a>&gt;s; Attached<sub>5</sub>. Typically 1 to 5 &lt;<a href="ECC_F.htm#ECC_FLOOR_LEVEL">FLOOR_LEVEL</a>&gt;s, and old in age (newer types are typically of the &lt;&lt;&lt;<a href="EAC_U.htm#EEC_URBTERZNTY_DISCRETE_CLUST_5">DISCRETE_CLUST_5</a>&gt;&gt;&gt; zone), with no setback from &lt;<a href="ECC_S.htm#ECC_SIDEWALK">SIDEWALK</a>&gt;s. The &lt;<a href="ECC_B.htm#ECC_BUILDING">BUILDING</a>&gt;s often have a commercial function on the ground &lt;<a href="ECC_F.htm#ECC_FLOOR">FLOOR</a>&gt;, with apartments above.</td>
+<td>IR</td>
+<td>[UTZB]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_URBTERZNTY_ATTACHED_6" id="EEC_URBTERZNTY_ATTACHED_6">6</a></td>
+<td>ATTACHED_6</td>
+<td>EEC_URBTERZNTY_ATTACHED_6</td>
+<td>Attached &lt;<a href="ECC_B.htm#ECC_BUILDING">BUILDING</a>&gt; or &lt;<a href="ECC_B.htm#ECC_BUILDING">BUILDING</a>&gt;s, 1 to 7 &lt;<a href="ECC_F.htm#ECC_FLOOR_LEVEL">FLOOR_LEVEL</a>&gt;s; often a single institutional &lt;<a href="ECC_L.htm#ECC_LAND">LAND</a>&gt; use along a &lt;<a href="ECC_S.htm#ECC_STREET">STREET</a>&gt; otherwise occupied by office &lt;<a href="ECC_B.htm#ECC_BUILDING">BUILDING</a>&gt;s or stores, e.g., a &lt;<a href="ECC_C.htm#ECC_CHURCH">CHURCH</a>&gt;, &lt;<a href="ECC_G.htm#ECC_GOVERNMENT_BUILDING">GOVERNMENT_BUILDING</a>&gt;, or a &lt;<a href="ECC_H.htm#ECC_HOSPITAL_BUILDING">HOSPITAL_BUILDING</a>&gt;; Attached<sub>6</sub>. This is in effect a single instance of a differing &lt;<a href="ECC_B.htm#ECC_BUILDING">BUILDING</a>&gt; rather than a zone of multiple &lt;<a href="ECC_B.htm#ECC_BUILDING">BUILDING</a>&gt;s.</td>
+<td>IR</td>
+<td>[UTZB]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_URBTERZNTY_ATTACHED_BUILDINGS" id="EEC_URBTERZNTY_ATTACHED_BUILDINGS">7</a></td>
+<td>ATTACHED_BUILDINGS</td>
+<td>EEC_URBTERZNTY_ATTACHED_BUILDINGS</td>
+<td>Attached &lt;<a href="ECC_B.htm#ECC_BUILDING">BUILDING</a>&gt;s of an unknown type or function.</td>
+<td>IR</td>
+<td>[UTZB]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_URBTERZNTY_CLOSE_SET_BUILDINGS" id="EEC_URBTERZNTY_CLOSE_SET_BUILDINGS">8</a></td>
+<td>CLOSE_SET_BUILDINGS</td>
+<td>EEC_URBTERZNTY_CLOSE_SET_BUILDINGS</td>
+<td>Close-set &lt;<a href="ECC_B.htm#ECC_BUILDING">BUILDING</a>&gt;s of an unknown type or function.</td>
+<td>IR</td>
+<td>[UTZB]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_URBTERZNTY_DISCRETE_CLUST_1" id="EEC_URBTERZNTY_DISCRETE_CLUST_1">9</a></td>
+<td>DISCRETE_CLUST_1</td>
+<td>EEC_URBTERZNTY_DISCRETE_CLUST_1</td>
+<td>Newer (post 1950) high-rise &lt;<a href="ECC_B.htm#ECC_BUILDING">BUILDING</a>&gt;s (20 to 50 &lt;<a href="ECC_F.htm#ECC_FLOOR_LEVEL">FLOOR_LEVEL</a>&gt;s) that often have "skins" of some decorative &lt;<a href="ECC_M.htm#ECC_MATERIAL">MATERIAL</a>&gt; (for example: glass); Discrete-cluster<sub>1</sub>. Typical use is for office &lt;<a href="ECC_B.htm#ECC_BUILDING">BUILDING</a>&gt;s, while some are &lt;<a href="ECC_H.htm#ECC_HOTEL">HOTEL</a>&gt;s. &lt;<a href="ECC_B.htm#ECC_BUILDING">BUILDING</a>&gt;s are spaced at approximately 13 metres.</td>
+<td>IR</td>
+<td>[UTZB]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_URBTERZNTY_DISCRETE_CLUST_2" id="EEC_URBTERZNTY_DISCRETE_CLUST_2">10</a></td>
+<td>DISCRETE_CLUST_2</td>
+<td>EEC_URBTERZNTY_DISCRETE_CLUST_2</td>
+<td>Close-set apartment &lt;<a href="ECC_B.htm#ECC_BUILDING">BUILDING</a>&gt;s (3 to 10 &lt;<a href="ECC_F.htm#ECC_FLOOR_LEVEL">FLOOR_LEVEL</a>&gt;s) with some set back from the lot &lt;<a href="ECC_B.htm#ECC_BOUNDARY">BOUNDARY</a>&gt;; Discrete-cluster<sub>2</sub>. &lt;<a href="ECC_B.htm#ECC_BUILDING">BUILDING</a>&gt;s are usually long and narrow with the narrow end to the &lt;<a href="ECC_S.htm#ECC_STREET">STREET</a>&gt;. Maximum spacing of the &lt;<a href="ECC_B.htm#ECC_BUILDING">BUILDING</a>&gt;s is 13 metres.</td>
+<td>IR</td>
+<td>[UTZB]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_URBTERZNTY_DISCRETE_CLUST_3" id="EEC_URBTERZNTY_DISCRETE_CLUST_3">11</a></td>
+<td>DISCRETE_CLUST_3</td>
+<td>EEC_URBTERZNTY_DISCRETE_CLUST_3</td>
+<td>Common single family detached &lt;<a href="ECC_S.htm#ECC_STRUCTURE">STRUCTURE</a>&gt;s occupying a minimum amount of &lt;<a href="ECC_L.htm#ECC_LAND">LAND</a>&gt;; Discrete-cluster<sub>3</sub>. &lt;<a href="ECC_H.htm#ECC_HOUSE">HOUSE</a>&gt;s are set back from the &lt;<a href="ECC_S.htm#ECC_STREET">STREET</a>&gt;, but have narrow separations between them, and narrow back yards. Maximum spacing of the &lt;<a href="ECC_B.htm#ECC_BUILDING">BUILDING</a>&gt;s is 13 metres, and &lt;<a href="ECC_B.htm#ECC_BUILDING">BUILDING</a>&gt;s are typically 1 to 3 &lt;<a href="ECC_F.htm#ECC_FLOOR_LEVEL">FLOOR_LEVEL</a>&gt;s.</td>
+<td>IR</td>
+<td>[UTZB]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_URBTERZNTY_DISCRETE_CLUST_4" id="EEC_URBTERZNTY_DISCRETE_CLUST_4">12</a></td>
+<td>DISCRETE_CLUST_4</td>
+<td>EEC_URBTERZNTY_DISCRETE_CLUST_4</td>
+<td>Narrow, close-set &lt;<a href="ECC_B.htm#ECC_BUILDING">BUILDING</a>&gt;s (2 to 10 &lt;<a href="ECC_F.htm#ECC_FLOOR_LEVEL">FLOOR_LEVEL</a>&gt;s) adjoining &lt;<a href="ECC_R.htm#ECC_RAILWAY_TRACK">RAILWAY_TRACK</a>&gt;s with docks for access by &lt;<a href="ECC_G.htm#ECC_GROUND_VEHICLE">GROUND_VEHICLE</a>&gt;s; Discrete-cluster<sub>4</sub>. &lt;<a href="ECC_B.htm#ECC_BUILDING">BUILDING</a>&gt;s are often long and narrow, with the narrow end abutting the &lt;<a href="ECC_R.htm#ECC_RAILWAY_TRACK">RAILWAY_TRACK</a>&gt;s. Maximum spacing of the &lt;<a href="ECC_B.htm#ECC_BUILDING">BUILDING</a>&gt;s is 13 metres.</td>
+<td>IR</td>
+<td>[UTZB]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_URBTERZNTY_DISCRETE_CLUST_5" id="EEC_URBTERZNTY_DISCRETE_CLUST_5">13</a></td>
+<td>DISCRETE_CLUST_5</td>
+<td>EEC_URBTERZNTY_DISCRETE_CLUST_5</td>
+<td>Detached &lt;<a href="ECC_B.htm#ECC_BUILDING">BUILDING</a>&gt;s (1 to 5 &lt;<a href="ECC_F.htm#ECC_FLOOR_LEVEL">FLOOR_LEVEL</a>&gt;s) set back from the &lt;<a href="ECC_S.htm#ECC_STREET">STREET</a>&gt; to provide parking and access; Discrete-cluster<sub>5</sub>. These &lt;<a href="ECC_B.htm#ECC_BUILDING">BUILDING</a>&gt;s often exhibit store &lt;<a href="ECC_W.htm#ECC_WINDOW">WINDOW</a>&gt;s at front. The majority of the &lt;<a href="ECC_T.htm#ECC_TERRAIN">TERRAIN</a>&gt; is used for parking &lt;<a href="ECC_G.htm#ECC_GROUND_VEHICLE">GROUND_VEHICLE</a>&gt;s. Maximum spacing of the &lt;<a href="ECC_B.htm#ECC_BUILDING">BUILDING</a>&gt;s is 13 metres.</td>
+<td>IR</td>
+<td>[UTZB]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_URBTERZNTY_DISCRETE_CLUST_6" id="EEC_URBTERZNTY_DISCRETE_CLUST_6">14</a></td>
+<td>DISCRETE_CLUST_6</td>
+<td>EEC_URBTERZNTY_DISCRETE_CLUST_6</td>
+<td>Master planned development with specifically set &lt;<a href="ECC_B.htm#ECC_BUILDING">BUILDING</a>&gt;s of 1 to 7 &lt;<a href="ECC_F.htm#ECC_FLOOR_LEVEL">FLOOR_LEVEL</a>&gt;s, and vegetated &lt;<a href="ECC_S.htm#ECC_SITE">SITE</a>&gt;s that provide elegantly designed &lt;<a href="ECC_F.htm#ECC_FACILITY">FACILITY</a>&gt;s and a sense of openness; Discrete-cluster<sub>6</sub>. Uses include &lt;<a href="ECC_S.htm#ECC_SCHOOL_BUILDING">SCHOOL_BUILDING</a>&gt;s, colleges, &lt;<a href="ECC_H.htm#ECC_HOSPITAL_BUILDING">HOSPITAL_BUILDING</a>&gt;s, or &lt;<a href="ECC_C.htm#ECC_CHURCH">CHURCH</a>&gt;s. Maximum spacing of the &lt;<a href="ECC_B.htm#ECC_BUILDING">BUILDING</a>&gt;s is 13 metres.</td>
+<td>IR</td>
+<td>[UTZB]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_URBTERZNTY_DISCRETE_CLUST_8" id="EEC_URBTERZNTY_DISCRETE_CLUST_8">15</a></td>
+<td>DISCRETE_CLUST_8</td>
+<td>EEC_URBTERZNTY_DISCRETE_CLUST_8</td>
+<td>Outer city; Discrete-cluster<sub>8</sub>.</td>
+<td>IR</td>
+<td>[UTZB]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_URBTERZNTY_DISCRETE_OPEN_1" id="EEC_URBTERZNTY_DISCRETE_OPEN_1">16</a></td>
+<td>DISCRETE_OPEN_1</td>
+<td>EEC_URBTERZNTY_DISCRETE_OPEN_1</td>
+<td>Large &lt;<a href="ECC_B.htm#ECC_BUILDING">BUILDING</a>&gt;s (1 to 4 &lt;<a href="ECC_F.htm#ECC_FLOOR_LEVEL">FLOOR_LEVEL</a>&gt;s) with a distinctive lack of exterior &lt;<a href="ECC_W.htm#ECC_WINDOW">WINDOW</a>&gt;s, internally partitioned into individual &lt;<a href="ECC_R.htm#ECC_RETAIL_FACILITY">RETAIL_FACILITY</a>&gt;s, and surrounded by extensive &lt;<a href="ECC_V.htm#ECC_VEHICLE_LOT">VEHICLE_LOT</a>&gt;s; Discrete-open<sub>1</sub>. The main &lt;<a href="ECC_B.htm#ECC_BUILDING">BUILDING</a>&gt; is normally located in the centre or at the rear of the &lt;<a href="ECC_V.htm#ECC_VEHICLE_LOT">VEHICLE_LOT</a>&gt;, with &lt;<a href="ECC_V.htm#ECC_VEHICLE_LOT">VEHICLE_LOT</a>&gt;s consuming approximately 70 percent of the &lt;<a href="ECC_T.htm#ECC_TERRAIN">TERRAIN</a>&gt;. Typical use is for shopping malls, professional/business parks. Spacing between &lt;<a href="ECC_B.htm#ECC_BUILDING">BUILDING</a>&gt;s is 13 metres or greater.</td>
+<td>IR</td>
+<td>[UTZB]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_URBTERZNTY_DISCRETE_OPEN_2" id="EEC_URBTERZNTY_DISCRETE_OPEN_2">17</a></td>
+<td>DISCRETE_OPEN_2</td>
+<td>EEC_URBTERZNTY_DISCRETE_OPEN_2</td>
+<td>Evenly spaced &lt;<a href="ECC_B.htm#ECC_BUILDING">BUILDING</a>&gt;s in planned settings supporting fairly high population densities yet providing collective open space between &lt;<a href="ECC_B.htm#ECC_BUILDING">BUILDING</a>&gt;s; Discrete-open<sub>2</sub>. Intervening ground space is landscaped or &lt;<a href="ECC_V.htm#ECC_VEHICLE_LOT">VEHICLE_LOT</a>&gt;s. Typical spacing between &lt;<a href="ECC_B.htm#ECC_BUILDING">BUILDING</a>&gt;s is 13 metres with &lt;<a href="ECC_B.htm#ECC_BUILDING">BUILDING</a>&gt;s being 2 to 40 &lt;<a href="ECC_F.htm#ECC_FLOOR_LEVEL">FLOOR_LEVEL</a>&gt;s.</td>
+<td>IR</td>
+<td>[UTZB]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_URBTERZNTY_DISCRETE_OPEN_3" id="EEC_URBTERZNTY_DISCRETE_OPEN_3">18</a></td>
+<td>DISCRETE_OPEN_3</td>
+<td>EEC_URBTERZNTY_DISCRETE_OPEN_3</td>
+<td>Single family detached &lt;<a href="ECC_B.htm#ECC_BUILDING">BUILDING</a>&gt;s occupying a minimum amount of &lt;<a href="ECC_L.htm#ECC_LAND">LAND</a>&gt;; Discrete-open<sub>3</sub>. &lt;<a href="ECC_B.htm#ECC_BUILDING">BUILDING</a>&gt;s are set back on all sides. This zone is similar to &lt;&lt;&lt;<a href="EAC_U.htm#EEC_URBTERZNTY_DISCRETE_CLUST_3">DISCRETE_CLUST_3</a>&gt;&gt;&gt; with the difference being that Discrete-open<sub>3</sub> signifies more space between &lt;<a href="ECC_B.htm#ECC_BUILDING">BUILDING</a>&gt;s, and often more &lt;<a href="ECC_V.htm#ECC_VEGETATION">VEGETATION</a>&gt;. Spacing between &lt;<a href="ECC_B.htm#ECC_BUILDING">BUILDING</a>&gt;s is 13 metres or greater, with &lt;<a href="ECC_B.htm#ECC_BUILDING">BUILDING</a>&gt;s being 1 to 3 &lt;<a href="ECC_F.htm#ECC_FLOOR_LEVEL">FLOOR_LEVEL</a>&gt;s.</td>
+<td>IR</td>
+<td>[UTZB]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_URBTERZNTY_DISCRETE_OPEN_4" id="EEC_URBTERZNTY_DISCRETE_OPEN_4">19</a></td>
+<td>DISCRETE_OPEN_4</td>
+<td>EEC_URBTERZNTY_DISCRETE_OPEN_4</td>
+<td>Modern industrial space with access for &lt;<a href="ECC_T.htm#ECC_TRUCK">TRUCK</a>&gt;s and parking space, typically used for industry or storage; Discrete-open<sub>4</sub>. &lt;<a href="ECC_B.htm#ECC_BUILDING">BUILDING</a>&gt;s are widely separated and have paved &lt;<a href="ECC_S.htm#ECC_SURFACE">SURFACE</a>&gt;s around them. Spacing between &lt;<a href="ECC_B.htm#ECC_BUILDING">BUILDING</a>&gt;s is 13 metres or greater, and &lt;<a href="ECC_B.htm#ECC_BUILDING">BUILDING</a>&gt;s are 1 to 4 &lt;<a href="ECC_F.htm#ECC_FLOOR_LEVEL">FLOOR_LEVEL</a>&gt;s.</td>
+<td>IR</td>
+<td>[UTZB]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_URBTERZNTY_DISCRETE_OPEN_5" id="EEC_URBTERZNTY_DISCRETE_OPEN_5">20</a></td>
+<td>DISCRETE_OPEN_5</td>
+<td>EEC_URBTERZNTY_DISCRETE_OPEN_5</td>
+<td>Modern, large, &lt;<a href="ECC_C.htm#ECC_COMMERCIAL_BUILDING">COMMERCIAL_BUILDING</a>&gt;s (1 to 5 &lt;<a href="ECC_F.htm#ECC_FLOOR_LEVEL">FLOOR_LEVEL</a>&gt;s) with large &lt;<a href="ECC_V.htm#ECC_VEHICLE_LOT">VEHICLE_LOT</a>&gt;s and located along wide &lt;<a href="ECC_S.htm#ECC_STREET">STREET</a>&gt;s; Discrete-open<sub>5</sub>. Typically used for large &lt;<a href="ECC_R.htm#ECC_RETAIL_FACILITY">RETAIL_FACILITY</a>&gt;s, &lt;<a href="ECC_E.htm#ECC_EQUIPMENT">EQUIPMENT</a>&gt;, automobile dealerships, and &lt;<a href="ECC_R.htm#ECC_RESTAURANT">RESTAURANT</a>&gt;s. Space between the &lt;<a href="ECC_B.htm#ECC_BUILDING">BUILDING</a>&gt;s is 13 metres or greater.</td>
+<td>IR</td>
+<td>[UTZB]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_URBTERZNTY_DISCRETE_OPEN_6" id="EEC_URBTERZNTY_DISCRETE_OPEN_6">21</a></td>
+<td>DISCRETE_OPEN_6</td>
+<td>EEC_URBTERZNTY_DISCRETE_OPEN_6</td>
+<td>Sizeable, master planned development with large &lt;<a href="ECC_B.htm#ECC_BUILDING">BUILDING</a>&gt;s and maintained heavily vegetated &lt;<a href="ECC_S.htm#ECC_SITE">SITE</a>&gt;s that provide elegantly designed &lt;<a href="ECC_F.htm#ECC_FACILITY">FACILITY</a>&gt;s and a sense of openness; Discrete-open<sub>6</sub>. Often used for schools, colleges, &lt;<a href="ECC_H.htm#ECC_HOSPITAL_BUILDING">HOSPITAL_BUILDING</a>&gt;s, &lt;<a href="ECC_C.htm#ECC_CHURCH">CHURCH</a>&gt;s, and administrative &lt;<a href="ECC_F.htm#ECC_FACILITY">FACILITY</a>&gt;s. Spacing between &lt;<a href="ECC_B.htm#ECC_BUILDING">BUILDING</a>&gt;s is 13 metres or greater, and &lt;<a href="ECC_B.htm#ECC_BUILDING">BUILDING</a>&gt;s are typically 1 to 7 &lt;<a href="ECC_F.htm#ECC_FLOOR_LEVEL">FLOOR_LEVEL</a>&gt;s.</td>
+<td>IR</td>
+<td>[UTZB]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_URBTERZNTY_DOES_NOT_CONFORM" id="EEC_URBTERZNTY_DOES_NOT_CONFORM">22</a></td>
+<td>DOES_NOT_CONFORM</td>
+<td>EEC_URBTERZNTY_DOES_NOT_CONFORM</td>
+<td>Configuration does not conform to any urban terrain zone.</td>
+<td>IR</td>
+<td>[UTZB]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_URBTERZNTY_WIDELY_SPACED_BUILDINGS" id="EEC_URBTERZNTY_WIDELY_SPACED_BUILDINGS">23</a></td>
+<td>WIDELY_SPACED_BUILDINGS</td>
+<td>EEC_URBTERZNTY_WIDELY_SPACED_BUILDINGS</td>
+<td>Widely separated detached &lt;<a href="ECC_B.htm#ECC_BUILDING">BUILDING</a>&gt;s of an unknown type or function.</td>
+<td>IR</td>
+<td>[UTZB]</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_USAGE_REGION">USAGE_REGION</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [UTZB]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_USABLE_LENGTH" id="EAC_USABLE_LENGTH">USABLE_LENGTH</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_USABLE_LENGTH
+</p><p>
+<b>EDCS Attribute Code</b>: 1496
+</p><p>
+<b>Definition</b>:
+<br>
+The usable &lt;&lt;<a href="EAC_L.htm#EAC_LENGTH">LENGTH</a>&gt;&gt; of an &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: REAL
+</p><p>
+
+<b>EDCS Unit Equivalence Class Label:</b> <a href="units.htm#EQC_LENGTH">LENGTH</a><P>
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ABSTRACT_OBJECT">ABSTRACT_OBJECT</a>, <a href="groups.htm#EGC_GEN_DIMENSION">DIMENSION</a>
+</p><p>
+<b>Reference Type</b>: n/a
+</p><p>
+<b>Reference</b>: none
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_USAGE" id="EAC_USAGE">USAGE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_USAGE
+</p><p>
+<b>EDCS Attribute Code</b>: 1497
+</p><p>
+<b>Definition</b>:
+<br>
+The primary user, function, or controlling authority of an &lt;<a href="ECC_O.htm#ECC_OBJECT">OBJECT</a>&gt;.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_ADVERTISING_BILLBOARD" id="EEC_USAGE_ADVERTISING_BILLBOARD">1</a></td>
+<td>ADVERTISING_BILLBOARD</td>
+<td>EEC_USAGE_ADVERTISING_BILLBOARD</td>
+<td>Advertising billboard.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:17]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_AERODROME_TERMINAL" id="EEC_USAGE_AERODROME_TERMINAL">2</a></td>
+<td>AERODROME_TERMINAL</td>
+<td>EEC_USAGE_AERODROME_TERMINAL</td>
+<td>&lt;<a href="ECC_A.htm#ECC_AERODROME_TERMINAL">AERODROME_TERMINAL</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[FACC, Annex B, USE:73]</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_AGRICULTURE" id="EEC_USAGE_AGRICULTURE">3</a></td>
+<td>AGRICULTURE</td>
+<td>EEC_USAGE_AGRICULTURE</td>
+<td>Agriculture.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:45]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_AID_TO_NAVIGATION_CHANGEOVER" id="EEC_USAGE_AID_TO_NAVIGATION_CHANGEOVER">4</a></td>
+<td>AID_TO_NAVIGATION_CHANGEOVER</td>
+<td>EEC_USAGE_AID_TO_NAVIGATION_CHANGEOVER</td>
+<td>&lt;<a href="ECC_A.htm#ECC_AID_TO_NAVIGATION">AID_TO_NAVIGATION</a>&gt; changeover.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:91]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_AIRCRAFT_CONTROL" id="EEC_USAGE_AIRCRAFT_CONTROL">5</a></td>
+<td>AIRCRAFT_CONTROL</td>
+<td>EEC_USAGE_AIRCRAFT_CONTROL</td>
+<td>Housing the &lt;<a href="ECC_E.htm#ECC_EQUIPMENT">EQUIPMENT</a>&gt; and &lt;<a href="ECC_P.htm#ECC_PERSONNEL">PERSONNEL</a>&gt; designed for the safe takeoff and landing of &lt;<a href="ECC_A.htm#ECC_AIRCRAFT">AIRCRAFT</a>&gt;; aircraft control.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_AIRCRAFT_FACILITY" id="EEC_USAGE_AIRCRAFT_FACILITY">6</a></td>
+<td>AIRCRAFT_FACILITY</td>
+<td>EEC_USAGE_AIRCRAFT_FACILITY</td>
+<td>Aircraft facility / airport reference point.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:121]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_AIRCRAFT_HANGAR_APRON" id="EEC_USAGE_AIRCRAFT_HANGAR_APRON">7</a></td>
+<td>AIRCRAFT_HANGAR_APRON</td>
+<td>EEC_USAGE_AIRCRAFT_HANGAR_APRON</td>
+<td>&lt;<a href="ECC_A.htm#ECC_APRON">APRON</a>&gt; associated with an &lt;<a href="ECC_A.htm#ECC_AIRCRAFT_HANGAR">AIRCRAFT_HANGAR</a>&gt;.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:97]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_ALERT_APRON_OR_HARDSTAND" id="EEC_USAGE_ALERT_APRON_OR_HARDSTAND">8</a></td>
+<td>ALERT_APRON_OR_HARDSTAND</td>
+<td>EEC_USAGE_ALERT_APRON_OR_HARDSTAND</td>
+<td>Alert &lt;<a href="ECC_A.htm#ECC_APRON">APRON</a>&gt; and/or &lt;<a href="ECC_H.htm#ECC_HARD_STANDING">HARD_STANDING</a>&gt;.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:95]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_ALTERNATE_ENTRY" id="EEC_USAGE_ALTERNATE_ENTRY">9</a></td>
+<td>ALTERNATE_ENTRY</td>
+<td>EEC_USAGE_ALTERNATE_ENTRY</td>
+<td>Alternate &lt;&lt;&lt;<a href="EAC_U.htm#EEC_USAGE_ENTRY">ENTRY</a>&gt;&gt;&gt;.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:150]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_ALTERNATE_ENTRY_OR_EXIT" id="EEC_USAGE_ALTERNATE_ENTRY_OR_EXIT">10</a></td>
+<td>ALTERNATE_ENTRY_OR_EXIT</td>
+<td>EEC_USAGE_ALTERNATE_ENTRY_OR_EXIT</td>
+<td>&lt;&lt;&lt;<a href="EAC_U.htm#EEC_USAGE_ALTERNATE_ENTRY">ALTERNATE_ENTRY</a>&gt;&gt;&gt; and/or &lt;&lt;&lt;<a href="EAC_U.htm#EEC_USAGE_ALTERNATE_EXIT">ALTERNATE_EXIT</a>&gt;&gt;&gt;.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:152]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_ALTERNATE_EXIT" id="EEC_USAGE_ALTERNATE_EXIT">11</a></td>
+<td>ALTERNATE_EXIT</td>
+<td>EEC_USAGE_ALTERNATE_EXIT</td>
+<td>Alternate &lt;&lt;&lt;<a href="EAC_U.htm#EEC_USAGE_EXIT">EXIT</a>&gt;&gt;&gt;.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:151]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_ALTIMETER_CHANGE" id="EEC_USAGE_ALTIMETER_CHANGE">12</a></td>
+<td>ALTIMETER_CHANGE</td>
+<td>EEC_USAGE_ALTIMETER_CHANGE</td>
+<td>Altimeter change.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:92]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_ANCHOR_POINT" id="EEC_USAGE_ANCHOR_POINT">13</a></td>
+<td>ANCHOR_POINT</td>
+<td>EEC_USAGE_ANCHOR_POINT</td>
+<td>Anchor point.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:148]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_ANIMAL_SANCTUARY" id="EEC_USAGE_ANIMAL_SANCTUARY">14</a></td>
+<td>ANIMAL_SANCTUARY</td>
+<td>EEC_USAGE_ANIMAL_SANCTUARY</td>
+<td>Sanctuary for &lt;<a href="ECC_N.htm#ECC_NON_HUMAN_ANIMAL">NON_HUMAN_ANIMAL</a>&gt;s.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:68]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_APARTMENT" id="EEC_USAGE_APARTMENT">15</a></td>
+<td>APARTMENT</td>
+<td>EEC_USAGE_APARTMENT</td>
+<td>Apartment.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:12]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_ARCP" id="EEC_USAGE_ARCP">16</a></td>
+<td>ARCP</td>
+<td>EEC_USAGE_ARCP</td>
+<td>ARCP.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:144]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_ARIP" id="EEC_USAGE_ARIP">17</a></td>
+<td>ARIP</td>
+<td>EEC_USAGE_ARIP</td>
+<td>ARIP.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:143]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_AS_FILL" id="EEC_USAGE_AS_FILL">18</a></td>
+<td>AS_FILL</td>
+<td>EEC_USAGE_AS_FILL</td>
+<td>As fill.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:136]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_AVALANCHE" id="EEC_USAGE_AVALANCHE">19</a></td>
+<td>AVALANCHE</td>
+<td>EEC_USAGE_AVALANCHE</td>
+<td>Avalanche.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:60]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_BASE_FLIGHT_APRON" id="EEC_USAGE_BASE_FLIGHT_APRON">20</a></td>
+<td>BASE_FLIGHT_APRON</td>
+<td>EEC_USAGE_BASE_FLIGHT_APRON</td>
+<td>Base flight &lt;<a href="ECC_A.htm#ECC_APRON">APRON</a>&gt;.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:98]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_BUTTS" id="EEC_USAGE_BUTTS">21</a></td>
+<td>BUTTS</td>
+<td>EEC_USAGE_BUTTS</td>
+<td>Butts.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:900]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_CABLE_PIPE_SIGN" id="EEC_USAGE_CABLE_PIPE_SIGN">22</a></td>
+<td>CABLE_PIPE_SIGN</td>
+<td>EEC_USAGE_CABLE_PIPE_SIGN</td>
+<td>Sign indicating a &lt;<a href="ECC_E.htm#ECC_ELECTRICAL_CABLE">ELECTRICAL_CABLE</a>&gt; or &lt;<a href="ECC_P.htm#ECC_PIPELINE">PIPELINE</a>&gt;.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:997]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_CAUSEWAY" id="EEC_USAGE_CAUSEWAY">23</a></td>
+<td>CAUSEWAY</td>
+<td>EEC_USAGE_CAUSEWAY</td>
+<td>As a &lt;<a href="ECC_C.htm#ECC_CAUSEWAY">CAUSEWAY</a>&gt;.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:127]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_CITY" id="EEC_USAGE_CITY">24</a></td>
+<td>CITY</td>
+<td>EEC_USAGE_CITY</td>
+<td>&lt;<a href="ECC_C.htm#ECC_CITY">CITY</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[FACC, Annex B, USE:16]</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_CLOCK" id="EEC_USAGE_CLOCK">25</a></td>
+<td>CLOCK</td>
+<td>EEC_USAGE_CLOCK</td>
+<td>Clock.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:157]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_CLOSED" id="EEC_USAGE_CLOSED">26</a></td>
+<td>CLOSED</td>
+<td>EEC_USAGE_CLOSED</td>
+<td>Closed.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:20]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_COMMERCE" id="EEC_USAGE_COMMERCE">27</a></td>
+<td>COMMERCE</td>
+<td>EEC_USAGE_COMMERCE</td>
+<td>Commerce.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:42]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_COMMERCE_OR_RECREATION" id="EEC_USAGE_COMMERCE_OR_RECREATION">28</a></td>
+<td>COMMERCE_OR_RECREATION</td>
+<td>EEC_USAGE_COMMERCE_OR_RECREATION</td>
+<td>&lt;&lt;&lt;<a href="EAC_U.htm#EEC_USAGE_COMMERCE">COMMERCE</a>&gt;&gt;&gt; and/or &lt;&lt;&lt;<a href="EAC_U.htm#EEC_USAGE_RECREATION">RECREATION</a>&gt;&gt;&gt;.</td>
+<td>IR</td>
+<td>[DFAD, 350, "Commercial/Recreational Assoc. Struct."]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_COMMUNAL" id="EEC_USAGE_COMMUNAL">29</a></td>
+<td>COMMUNAL</td>
+<td>EEC_USAGE_COMMUNAL</td>
+<td>Communal.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:114]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_COMMUNICATION" id="EEC_USAGE_COMMUNICATION">30</a></td>
+<td>COMMUNICATION</td>
+<td>EEC_USAGE_COMMUNICATION</td>
+<td>Relating to the transmission or receipt of messages via electronic signals, either by wire or wireless means; communication.</td>
+<td>IR</td>
+<td>[DFAD, 560, "Commun. Transmission Assoc. Struct."]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_COMPASS_ADJUSTMENT" id="EEC_USAGE_COMPASS_ADJUSTMENT">31</a></td>
+<td>COMPASS_ADJUSTMENT</td>
+<td>EEC_USAGE_COMPASS_ADJUSTMENT</td>
+<td>Compass adjustment.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:154]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_COMPASS_ROSE_HARDSTAND" id="EEC_USAGE_COMPASS_ROSE_HARDSTAND">32</a></td>
+<td>COMPASS_ROSE_HARDSTAND</td>
+<td>EEC_USAGE_COMPASS_ROSE_HARDSTAND</td>
+<td>Compass rose &lt;<a href="ECC_H.htm#ECC_HARD_STANDING">HARD_STANDING</a>&gt;.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:109]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_COMPULSORY_REPORT_POINTS" id="EEC_USAGE_COMPULSORY_REPORT_POINTS">33</a></td>
+<td>COMPULSORY_REPORT_POINTS</td>
+<td>EEC_USAGE_COMPULSORY_REPORT_POINTS</td>
+<td>Compulsory reporting points.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:93]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_CONTAINER" id="EEC_USAGE_CONTAINER">34</a></td>
+<td>CONTAINER</td>
+<td>EEC_USAGE_CONTAINER</td>
+<td>&lt;<a href="ECC_C.htm#ECC_CONTAINER">CONTAINER</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[FACC, Annex B, USE:132]</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_DECOY" id="EEC_USAGE_DECOY">35</a></td>
+<td>DECOY</td>
+<td>EEC_USAGE_DECOY</td>
+<td>Decoy.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:48]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_DEPOT_APRON" id="EEC_USAGE_DEPOT_APRON">36</a></td>
+<td>DEPOT_APRON</td>
+<td>EEC_USAGE_DEPOT_APRON</td>
+<td>Depot &lt;<a href="ECC_A.htm#ECC_APRON">APRON</a>&gt;.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:101]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_DISPERSAL_HARDSTAND" id="EEC_USAGE_DISPERSAL_HARDSTAND">37</a></td>
+<td>DISPERSAL_HARDSTAND</td>
+<td>EEC_USAGE_DISPERSAL_HARDSTAND</td>
+<td>Dispersal &lt;<a href="ECC_H.htm#ECC_HARD_STANDING">HARD_STANDING</a>&gt;.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:103]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_DRAG_STRIP" id="EEC_USAGE_DRAG_STRIP">38</a></td>
+<td>DRAG_STRIP</td>
+<td>EEC_USAGE_DRAG_STRIP</td>
+<td>Drag strip.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:992]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_DRINKING_WATER" id="EEC_USAGE_DRINKING_WATER">39</a></td>
+<td>DRINKING_WATER</td>
+<td>EEC_USAGE_DRINKING_WATER</td>
+<td>&lt;<a href="ECC_W.htm#ECC_WATER">WATER</a>&gt; that is safe for human consumption; potable or drinking water.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:995]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_DUGOUT" id="EEC_USAGE_DUGOUT">40</a></td>
+<td>DUGOUT</td>
+<td>EEC_USAGE_DUGOUT</td>
+<td>Dugout.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:994]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_DYKE" id="EEC_USAGE_DYKE">41</a></td>
+<td>DYKE</td>
+<td>EEC_USAGE_DYKE</td>
+<td>&lt;<a href="ECC_D.htm#ECC_DYKE">DYKE</a>&gt;.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:69]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_ENGINE_RUN_UP_HARDSTAND" id="EEC_USAGE_ENGINE_RUN_UP_HARDSTAND">42</a></td>
+<td>ENGINE_RUN_UP_HARDSTAND</td>
+<td>EEC_USAGE_ENGINE_RUN_UP_HARDSTAND</td>
+<td>Engine run up &lt;<a href="ECC_H.htm#ECC_HARD_STANDING">HARD_STANDING</a>&gt;.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:107]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_ENGINE_TEST_PAD" id="EEC_USAGE_ENGINE_TEST_PAD">43</a></td>
+<td>ENGINE_TEST_PAD</td>
+<td>EEC_USAGE_ENGINE_TEST_PAD</td>
+<td>Engine test pad or &lt;<a href="ECC_A.htm#ECC_APRON">APRON</a>&gt;.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:99]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_ENTRY" id="EEC_USAGE_ENTRY">44</a></td>
+<td>ENTRY</td>
+<td>EEC_USAGE_ENTRY</td>
+<td>Entry.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:81]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_ENTRY_OR_STARTING" id="EEC_USAGE_ENTRY_OR_STARTING">45</a></td>
+<td>ENTRY_OR_STARTING</td>
+<td>EEC_USAGE_ENTRY_OR_STARTING</td>
+<td>&lt;&lt;&lt;<a href="EAC_U.htm#EEC_USAGE_ENTRY">ENTRY</a>&gt;&gt;&gt; and/or starting.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:147]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_EXIT" id="EEC_USAGE_EXIT">46</a></td>
+<td>EXIT</td>
+<td>EEC_USAGE_EXIT</td>
+<td>Exit.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:82]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_EXIT_OR_END" id="EEC_USAGE_EXIT_OR_END">47</a></td>
+<td>EXIT_OR_END</td>
+<td>EEC_USAGE_EXIT_OR_END</td>
+<td>&lt;&lt;&lt;<a href="EAC_U.htm#EEC_USAGE_EXIT">EXIT</a>&gt;&gt;&gt; and/or end.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:146]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_FEDERAL" id="EEC_USAGE_FEDERAL">48</a></td>
+<td>FEDERAL</td>
+<td>EEC_USAGE_FEDERAL</td>
+<td>Federal.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:25]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_FEEDER" id="EEC_USAGE_FEEDER">49</a></td>
+<td>FEEDER</td>
+<td>EEC_USAGE_FEEDER</td>
+<td>Feeder.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:84]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_FILL" id="EEC_USAGE_FILL">50</a></td>
+<td>FILL</td>
+<td>EEC_USAGE_FILL</td>
+<td>Fill.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:139]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_FILTRATION_POND" id="EEC_USAGE_FILTRATION_POND">51</a></td>
+<td>FILTRATION_POND</td>
+<td>EEC_USAGE_FILTRATION_POND</td>
+<td>Filtration pond.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:993]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_FINAL_APPROACH_FIX" id="EEC_USAGE_FINAL_APPROACH_FIX">52</a></td>
+<td>FINAL_APPROACH_FIX</td>
+<td>EEC_USAGE_FINAL_APPROACH_FIX</td>
+<td>Final approach fix.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:86]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_FIREBREAK" id="EEC_USAGE_FIREBREAK">53</a></td>
+<td>FIREBREAK</td>
+<td>EEC_USAGE_FIREBREAK</td>
+<td>Firebreak.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:122]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_FIRING_IN_HARDSTAND" id="EEC_USAGE_FIRING_IN_HARDSTAND">54</a></td>
+<td>FIRING_IN_HARDSTAND</td>
+<td>EEC_USAGE_FIRING_IN_HARDSTAND</td>
+<td>Firing in &lt;<a href="ECC_H.htm#ECC_HARD_STANDING">HARD_STANDING</a>&gt;.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:108]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_FLOOD_BARRAGE" id="EEC_USAGE_FLOOD_BARRAGE">55</a></td>
+<td>FLOOD_BARRAGE</td>
+<td>EEC_USAGE_FLOOD_BARRAGE</td>
+<td>&lt;<a href="ECC_F.htm#ECC_FLOOD_BARRAGE">FLOOD_BARRAGE</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_FLOOD_CONTROL" id="EEC_USAGE_FLOOD_CONTROL">56</a></td>
+<td>FLOOD_CONTROL</td>
+<td>EEC_USAGE_FLOOD_CONTROL</td>
+<td>Flood control and/or rate measurement.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:142]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_FOREST_PRESERVE" id="EEC_USAGE_FOREST_PRESERVE">57</a></td>
+<td>FOREST_PRESERVE</td>
+<td>EEC_USAGE_FOREST_PRESERVE</td>
+<td>&lt;<a href="ECC_F.htm#ECC_FOREST_PRESERVE">FOREST_PRESERVE</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_GOVERNMENT" id="EEC_USAGE_GOVERNMENT">58</a></td>
+<td>GOVERNMENT</td>
+<td>EEC_USAGE_GOVERNMENT</td>
+<td>Pertaining to the administration and control of a political unit; government.</td>
+<td>IR</td>
+<td>[DFAD, 680, "Govt./Institutional Assoc. Struct. (Gen.)"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_GOVERNMENT_OR_INSTITUTION" id="EEC_USAGE_GOVERNMENT_OR_INSTITUTION">59</a></td>
+<td>GOVERNMENT_OR_INSTITUTION</td>
+<td>EEC_USAGE_GOVERNMENT_OR_INSTITUTION</td>
+<td>&lt;&lt;&lt;<a href="EAC_U.htm#EEC_USAGE_GOVERNMENT">GOVERNMENT</a>&gt;&gt;&gt; and/or &lt;&lt;&lt;<a href="EAC_U.htm#EEC_USAGE_INSTITUTION">INSTITUTION</a>&gt;&gt;&gt;.</td>
+<td>IR</td>
+<td>[DFAD, 680, "Govt./Institutional Assoc. Struct. (Gen.)"]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_HIGH_ALTITUDE_ENROUTE" id="EEC_USAGE_HIGH_ALTITUDE_ENROUTE">60</a></td>
+<td>HIGH_ALTITUDE_ENROUTE</td>
+<td>EEC_USAGE_HIGH_ALTITUDE_ENROUTE</td>
+<td>High altitude enroute.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:75]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_HIGHWAY_SIGN" id="EEC_USAGE_HIGHWAY_SIGN">61</a></td>
+<td>HIGHWAY_SIGN</td>
+<td>EEC_USAGE_HIGHWAY_SIGN</td>
+<td>Highway sign.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:19]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_HOTEL" id="EEC_USAGE_HOTEL">62</a></td>
+<td>HOTEL</td>
+<td>EEC_USAGE_HOTEL</td>
+<td>&lt;<a href="ECC_H.htm#ECC_HOTEL">HOTEL</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_INDIGENOUS_BURIAL_GROUND" id="EEC_USAGE_INDIGENOUS_BURIAL_GROUND">63</a></td>
+<td>INDIGENOUS_BURIAL_GROUND</td>
+<td>EEC_USAGE_INDIGENOUS_BURIAL_GROUND</td>
+<td>&lt;<a href="ECC_I.htm#ECC_INDIGENOUS_BURIAL_GROUND">INDIGENOUS_BURIAL_GROUND</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_INDUSTRY" id="EEC_USAGE_INDUSTRY">64</a></td>
+<td>INDUSTRY</td>
+<td>EEC_USAGE_INDUSTRY</td>
+<td>Industry.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:41]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_INITIAL_APPROACH_FIX" id="EEC_USAGE_INITIAL_APPROACH_FIX">65</a></td>
+<td>INITIAL_APPROACH_FIX</td>
+<td>EEC_USAGE_INITIAL_APPROACH_FIX</td>
+<td>Initial approach fix.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:85]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_INSTITUTION" id="EEC_USAGE_INSTITUTION">66</a></td>
+<td>INSTITUTION</td>
+<td>EEC_USAGE_INSTITUTION</td>
+<td>Institution.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:43]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_INSULAR" id="EEC_USAGE_INSULAR">67</a></td>
+<td>INSULAR</td>
+<td>EEC_USAGE_INSULAR</td>
+<td>Insular.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:32]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_INTAKE" id="EEC_USAGE_INTAKE">68</a></td>
+<td>INTAKE</td>
+<td>EEC_USAGE_INTAKE</td>
+<td>Intake.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:118]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_INTERNATIONAL" id="EEC_USAGE_INTERNATIONAL">69</a></td>
+<td>INTERNATIONAL</td>
+<td>EEC_USAGE_INTERNATIONAL</td>
+<td>Involving more than one country; covering more than one national &lt;<a href="ECC_R.htm#ECC_REGION">REGION</a>&gt;; international.</td>
+<td>IR</td>
+<td>[S57A, Attribute, JRSDTN:1]</td>
+<td>[FACC, Annex B, USE:23]</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_INTERSTATE" id="EEC_USAGE_INTERSTATE">70</a></td>
+<td>INTERSTATE</td>
+<td>EEC_USAGE_INTERSTATE</td>
+<td>Interstate.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:37]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_IRRIGATION" id="EEC_USAGE_IRRIGATION">71</a></td>
+<td>IRRIGATION</td>
+<td>EEC_USAGE_IRRIGATION</td>
+<td>Irrigation.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:124]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_JOINT" id="EEC_USAGE_JOINT">72</a></td>
+<td>JOINT</td>
+<td>EEC_USAGE_JOINT</td>
+<td>Joint military and civilian.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:22]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_LEVEE" id="EEC_USAGE_LEVEE">73</a></td>
+<td>LEVEE</td>
+<td>EEC_USAGE_LEVEE</td>
+<td>&lt;<a href="ECC_L.htm#ECC_LEVEE">LEVEE</a>&gt;.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:69]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_LEVEE_OR_DYKE" id="EEC_USAGE_LEVEE_OR_DYKE">74</a></td>
+<td>LEVEE_OR_DYKE</td>
+<td>EEC_USAGE_LEVEE_OR_DYKE</td>
+<td>&lt;&lt;&lt;<a href="EAC_U.htm#EEC_USAGE_LEVEE">LEVEE</a>&gt;&gt;&gt; or &lt;&lt;&lt;<a href="EAC_U.htm#EEC_USAGE_DYKE">DYKE</a>&gt;&gt;&gt;.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:69]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_LIMITED" id="EEC_USAGE_LIMITED">75</a></td>
+<td>LIMITED</td>
+<td>EEC_USAGE_LIMITED</td>
+<td>Limited.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:50]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_LOW_ALTITUDE_ENROUTE" id="EEC_USAGE_LOW_ALTITUDE_ENROUTE">76</a></td>
+<td>LOW_ALTITUDE_ENROUTE</td>
+<td>EEC_USAGE_LOW_ALTITUDE_ENROUTE</td>
+<td>Low altitude enroute.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:74]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_LOW_HIGH_ALTITUDE_ENROUTE" id="EEC_USAGE_LOW_HIGH_ALTITUDE_ENROUTE">77</a></td>
+<td>LOW_HIGH_ALTITUDE_ENROUTE</td>
+<td>EEC_USAGE_LOW_HIGH_ALTITUDE_ENROUTE</td>
+<td>Low and high altitude enroute.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:76]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_MAINTENANCE_HARDSTAND" id="EEC_USAGE_MAINTENANCE_HARDSTAND">78</a></td>
+<td>MAINTENANCE_HARDSTAND</td>
+<td>EEC_USAGE_MAINTENANCE_HARDSTAND</td>
+<td>Maintenance &lt;<a href="ECC_H.htm#ECC_HARD_STANDING">HARD_STANDING</a>&gt;.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:110]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_MANDATORY" id="EEC_USAGE_MANDATORY">79</a></td>
+<td>MANDATORY</td>
+<td>EEC_USAGE_MANDATORY</td>
+<td>Mandatory or compulsory; enforced.</td>
+<td>IR</td>
+<td>[S57A, Attribute, STATUS:9]</td>
+<td>[FACC, Annex B, USE:159]</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_MARINE" id="EEC_USAGE_MARINE">80</a></td>
+<td>MARINE</td>
+<td>EEC_USAGE_MARINE</td>
+<td>A portion of the &lt;<a href="ECC_O.htm#ECC_OCEAN">OCEAN</a>&gt; regularly used for the movement of &lt;<a href="ECC_H.htm#ECC_HUMAN">HUMAN</a>&gt;s or &lt;<a href="ECC_C.htm#ECC_CARGO">CARGO</a>&gt;; marine.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:57]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_MARINE_STATION" id="EEC_USAGE_MARINE_STATION">81</a></td>
+<td>MARINE_STATION</td>
+<td>EEC_USAGE_MARINE_STATION</td>
+<td>Marine station.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:160]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_MEDICAL" id="EEC_USAGE_MEDICAL">82</a></td>
+<td>MEDICAL</td>
+<td>EEC_USAGE_MEDICAL</td>
+<td>Medical.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:140]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_MILEAGE_BREAK_DOWN" id="EEC_USAGE_MILEAGE_BREAK_DOWN">83</a></td>
+<td>MILEAGE_BREAK_DOWN</td>
+<td>EEC_USAGE_MILEAGE_BREAK_DOWN</td>
+<td>Mileage break down.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:90]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_MILITARY" id="EEC_USAGE_MILITARY">84</a></td>
+<td>MILITARY</td>
+<td>EEC_USAGE_MILITARY</td>
+<td>Military.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:8]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_MILITARY_DISTRICT" id="EEC_USAGE_MILITARY_DISTRICT">85</a></td>
+<td>MILITARY_DISTRICT</td>
+<td>EEC_USAGE_MILITARY_DISTRICT</td>
+<td>Military district.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:129]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_MINING" id="EEC_USAGE_MINING">86</a></td>
+<td>MINING</td>
+<td>EEC_USAGE_MINING</td>
+<td>For &lt;<a href="ECC_H.htm#ECC_HUMAN">HUMAN</a>&gt;s and supplies in support of mining operations.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[SOED, "mining"]</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_MISSED_APPROACH_POINT" id="EEC_USAGE_MISSED_APPROACH_POINT">87</a></td>
+<td>MISSED_APPROACH_POINT</td>
+<td>EEC_USAGE_MISSED_APPROACH_POINT</td>
+<td>Missed approach point.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:88]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_MIXED_URBAN" id="EEC_USAGE_MIXED_URBAN">88</a></td>
+<td>MIXED_URBAN</td>
+<td>EEC_USAGE_MIXED_URBAN</td>
+<td>&lt;<a href="ECC_M.htm#ECC_MIXED_URBAN_REGION">MIXED_URBAN_REGION</a>&gt; or &lt;<a href="ECC_B.htm#ECC_BUILT_UP_REGION">BUILT_UP_REGION</a>&gt; on &lt;<a href="ECC_L.htm#ECC_LAND">LAND</a>&gt;.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:128]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_MOTEL" id="EEC_USAGE_MOTEL">89</a></td>
+<td>MOTEL</td>
+<td>EEC_USAGE_MOTEL</td>
+<td>&lt;<a href="ECC_M.htm#ECC_MOTEL">MOTEL</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_NATIONAL" id="EEC_USAGE_NATIONAL">90</a></td>
+<td>NATIONAL</td>
+<td>EEC_USAGE_NATIONAL</td>
+<td>Administered or controlled by a single nation; national.</td>
+<td>IR</td>
+<td>[S57A, Attribute, JRSDTN:2]</td>
+<td>[FACC, Annex B, USE:4]</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_NATIONAL_SUBDIVISION" id="EEC_USAGE_NATIONAL_SUBDIVISION">91</a></td>
+<td>NATIONAL_SUBDIVISION</td>
+<td>EEC_USAGE_NATIONAL_SUBDIVISION</td>
+<td>A subdivision of a &lt;&lt;&lt;<a href="EAC_U.htm#EEC_USAGE_NATIONAL">NATIONAL</a>&gt;&gt;&gt; &lt;<a href="ECC_R.htm#ECC_REGION">REGION</a>&gt;.</td>
+<td>PR</td>
+<td>[S57A, Attribute, JRSDTN:3]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_NAVIGATION_CHECK_POINT" id="EEC_USAGE_NAVIGATION_CHECK_POINT">92</a></td>
+<td>NAVIGATION_CHECK_POINT</td>
+<td>EEC_USAGE_NAVIGATION_CHECK_POINT</td>
+<td>Navigation check point.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:145]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_NOMAD" id="EEC_USAGE_NOMAD">93</a></td>
+<td>NOMAD</td>
+<td>EEC_USAGE_NOMAD</td>
+<td>For nomadic people and their supplies.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_NON_COMPULSORY_REPORT_POINTS" id="EEC_USAGE_NON_COMPULSORY_REPORT_POINTS">94</a></td>
+<td>NON_COMPULSORY_REPORT_POINTS</td>
+<td>EEC_USAGE_NON_COMPULSORY_REPORT_POINTS</td>
+<td>Non-compulsory reporting points.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:94]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_NON_MILITARY" id="EEC_USAGE_NON_MILITARY">95</a></td>
+<td>NON_MILITARY</td>
+<td>EEC_USAGE_NON_MILITARY</td>
+<td>Civilian or public; non-military.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:49]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_NON_PRECISION_INSTRUMENT_APPROACH" id="EEC_USAGE_NON_PRECISION_INSTRUMENT_APPROACH">96</a></td>
+<td>NON_PRECISION_INSTRUMENT_APPROACH</td>
+<td>EEC_USAGE_NON_PRECISION_INSTRUMENT_APPROACH</td>
+<td>Non-precision instrument approach.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:79]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_OIL_EXPLORATION" id="EEC_USAGE_OIL_EXPLORATION">97</a></td>
+<td>OIL_EXPLORATION</td>
+<td>EEC_USAGE_OIL_EXPLORATION</td>
+<td>For &lt;<a href="ECC_H.htm#ECC_HUMAN">HUMAN</a>&gt;s and supplies in support of the search for, or production of, hydrocarbon based fuels such as oil or gas.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_OPEN" id="EEC_USAGE_OPEN">98</a></td>
+<td>OPEN</td>
+<td>EEC_USAGE_OPEN</td>
+<td>Open.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:13]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_OPERATIONAL_APRON" id="EEC_USAGE_OPERATIONAL_APRON">99</a></td>
+<td>OPERATIONAL_APRON</td>
+<td>EEC_USAGE_OPERATIONAL_APRON</td>
+<td>Operational &lt;<a href="ECC_A.htm#ECC_APRON">APRON</a>&gt; or &lt;<a href="ECC_H.htm#ECC_HARD_STANDING">HARD_STANDING</a>&gt;.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:96]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_OUTFALL" id="EEC_USAGE_OUTFALL">100</a></td>
+<td>OUTFALL</td>
+<td>EEC_USAGE_OUTFALL</td>
+<td>Outfall.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:117]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_PAD_HARDSTAND" id="EEC_USAGE_PAD_HARDSTAND">101</a></td>
+<td>PAD_HARDSTAND</td>
+<td>EEC_USAGE_PAD_HARDSTAND</td>
+<td>Pad &lt;<a href="ECC_H.htm#ECC_HARD_STANDING">HARD_STANDING</a>&gt;.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:104]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_PARKING_HARDSTAND" id="EEC_USAGE_PARKING_HARDSTAND">102</a></td>
+<td>PARKING_HARDSTAND</td>
+<td>EEC_USAGE_PARKING_HARDSTAND</td>
+<td>Parking &lt;<a href="ECC_H.htm#ECC_HARD_STANDING">HARD_STANDING</a>&gt;.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:106]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_POWER" id="EEC_USAGE_POWER">103</a></td>
+<td>POWER</td>
+<td>EEC_USAGE_POWER</td>
+<td>Power.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:53]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_PRECISION_INSTRUMENT_APPROACH" id="EEC_USAGE_PRECISION_INSTRUMENT_APPROACH">104</a></td>
+<td>PRECISION_INSTRUMENT_APPROACH</td>
+<td>EEC_USAGE_PRECISION_INSTRUMENT_APPROACH</td>
+<td>Precision instrument approach.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:80]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_PRIMARY" id="EEC_USAGE_PRIMARY">105</a></td>
+<td>PRIMARY</td>
+<td>EEC_USAGE_PRIMARY</td>
+<td>Primary or 1st order.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:26]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_PRISONER" id="EEC_USAGE_PRISONER">106</a></td>
+<td>PRISONER</td>
+<td>EEC_USAGE_PRISONER</td>
+<td>Prisoner.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:62]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_PRIVATE" id="EEC_USAGE_PRIVATE">107</a></td>
+<td>PRIVATE</td>
+<td>EEC_USAGE_PRIVATE</td>
+<td>Not in public ownership or operation; private.</td>
+<td>IR</td>
+<td>[S57A, Attribute, STATUS:8]</td>
+<td>[FACC, Annex B, USE:6]</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_PROHIBITED_AREA" id="EEC_USAGE_PROHIBITED_AREA">108</a></td>
+<td>PROHIBITED_AREA</td>
+<td>EEC_USAGE_PROHIBITED_AREA</td>
+<td>&lt;<a href="ECC_P.htm#ECC_PROHIBITED_REGION">PROHIBITED_REGION</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_PROVINCIAL" id="EEC_USAGE_PROVINCIAL">109</a></td>
+<td>PROVINCIAL</td>
+<td>EEC_USAGE_PROVINCIAL</td>
+<td>Provincial.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:33]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_PUBLIC" id="EEC_USAGE_PUBLIC">110</a></td>
+<td>PUBLIC</td>
+<td>EEC_USAGE_PUBLIC</td>
+<td>Belonging to, available to, used or shared by, the community as a whole and not restricted to private use; public.</td>
+<td>PR</td>
+<td>[S57A, Attribute, STATUS:14]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_QUATERNARY" id="EEC_USAGE_QUATERNARY">111</a></td>
+<td>QUATERNARY</td>
+<td>EEC_USAGE_QUATERNARY</td>
+<td>Quaternary or 4th order.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:111]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_QUINTARY" id="EEC_USAGE_QUINTARY">112</a></td>
+<td>QUINTARY</td>
+<td>EEC_USAGE_QUINTARY</td>
+<td>Quintary or 5th order.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:112]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_RADAR" id="EEC_USAGE_RADAR">113</a></td>
+<td>RADAR</td>
+<td>EEC_USAGE_RADAR</td>
+<td>Radar.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:89]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_RECREATION" id="EEC_USAGE_RECREATION">114</a></td>
+<td>RECREATION</td>
+<td>EEC_USAGE_RECREATION</td>
+<td>Recreation.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:120]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_RECREATION_OR_INDUSTRY" id="EEC_USAGE_RECREATION_OR_INDUSTRY">115</a></td>
+<td>RECREATION_OR_INDUSTRY</td>
+<td>EEC_USAGE_RECREATION_OR_INDUSTRY</td>
+<td>&lt;&lt;&lt;<a href="EAC_U.htm#EEC_USAGE_RECREATION">RECREATION</a>&gt;&gt;&gt; and/or &lt;&lt;&lt;<a href="EAC_U.htm#EEC_USAGE_INDUSTRY">INDUSTRY</a>&gt;&gt;&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_REFUELLING_HARDSTAND" id="EEC_USAGE_REFUELLING_HARDSTAND">116</a></td>
+<td>REFUELLING_HARDSTAND</td>
+<td>EEC_USAGE_REFUELLING_HARDSTAND</td>
+<td>Refuelling &lt;<a href="ECC_H.htm#ECC_HARD_STANDING">HARD_STANDING</a>&gt;.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:105]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_REFUGEE" id="EEC_USAGE_REFUGEE">117</a></td>
+<td>REFUGEE</td>
+<td>EEC_USAGE_REFUGEE</td>
+<td>Refugee.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:61]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_REGIONAL" id="EEC_USAGE_REGIONAL">118</a></td>
+<td>REGIONAL</td>
+<td>EEC_USAGE_REGIONAL</td>
+<td>Regional.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:113]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_RESERVE" id="EEC_USAGE_RESERVE">119</a></td>
+<td>RESERVE</td>
+<td>EEC_USAGE_RESERVE</td>
+<td>&lt;<a href="ECC_R.htm#ECC_RESERVE">RESERVE</a>&gt; or reservation.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:70]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_RESERVED" id="EEC_USAGE_RESERVED">120</a></td>
+<td>RESERVED</td>
+<td>EEC_USAGE_RESERVED</td>
+<td>Reserved and set apart for some specific use.</td>
+<td>IR</td>
+<td>[S57A, Attribute, STATUS:6]</td>
+<td>[FACC, Annex B, USE:158]</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_RESIDENCE" id="EEC_USAGE_RESIDENCE">121</a></td>
+<td>RESIDENCE</td>
+<td>EEC_USAGE_RESIDENCE</td>
+<td>Residence.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:44]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_RESIDENCE_OR_AGRICULTURE" id="EEC_USAGE_RESIDENCE_OR_AGRICULTURE">122</a></td>
+<td>RESIDENCE_OR_AGRICULTURE</td>
+<td>EEC_USAGE_RESIDENCE_OR_AGRICULTURE</td>
+<td>&lt;&lt;&lt;<a href="EAC_U.htm#EEC_USAGE_RESIDENCE">RESIDENCE</a>&gt;&gt;&gt; and/or &lt;&lt;&lt;<a href="EAC_U.htm#EEC_USAGE_AGRICULTURE">AGRICULTURE</a>&gt;&gt;&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_RESTRICTED" id="EEC_USAGE_RESTRICTED">123</a></td>
+<td>RESTRICTED</td>
+<td>EEC_USAGE_RESTRICTED</td>
+<td>Restricted.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:21]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_RETAIL" id="EEC_USAGE_RETAIL">124</a></td>
+<td>RETAIL</td>
+<td>EEC_USAGE_RETAIL</td>
+<td>Designed for the sale of goods directly to the public.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[SOED, "retail", A]</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_RETAINING" id="EEC_USAGE_RETAINING">125</a></td>
+<td>RETAINING</td>
+<td>EEC_USAGE_RETAINING</td>
+<td>Retaining.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:125]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_ROCK_SHED" id="EEC_USAGE_ROCK_SHED">126</a></td>
+<td>ROCK_SHED</td>
+<td>EEC_USAGE_ROCK_SHED</td>
+<td>&lt;<a href="ECC_R.htm#ECC_ROCK_SHED">ROCK_SHED</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[FACC, Annex B, USE:116]</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_SCHOOL" id="EEC_USAGE_SCHOOL">127</a></td>
+<td>SCHOOL</td>
+<td>EEC_USAGE_SCHOOL</td>
+<td>School.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:901]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_SCOREBOARD" id="EEC_USAGE_SCOREBOARD">128</a></td>
+<td>SCOREBOARD</td>
+<td>EEC_USAGE_SCOREBOARD</td>
+<td>Scoreboard.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:18]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_SEAPLANE_RUN" id="EEC_USAGE_SEAPLANE_RUN">129</a></td>
+<td>SEAPLANE_RUN</td>
+<td>EEC_USAGE_SEAPLANE_RUN</td>
+<td>&lt;<a href="ECC_S.htm#ECC_SEAPLANE_RUN">SEAPLANE_RUN</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[FACC, Annex B, USE:998]</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_SECONDARY" id="EEC_USAGE_SECONDARY">130</a></td>
+<td>SECONDARY</td>
+<td>EEC_USAGE_SECONDARY</td>
+<td>Secondary or 2nd order.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:30]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_SINGLE_POINT_MOORING" id="EEC_USAGE_SINGLE_POINT_MOORING">131</a></td>
+<td>SINGLE_POINT_MOORING</td>
+<td>EEC_USAGE_SINGLE_POINT_MOORING</td>
+<td>Single point mooring.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:133]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_SNOW_SHED" id="EEC_USAGE_SNOW_SHED">132</a></td>
+<td>SNOW_SHED</td>
+<td>EEC_USAGE_SNOW_SHED</td>
+<td>&lt;<a href="ECC_S.htm#ECC_SNOW_SHED">SNOW_SHED</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[FACC, Annex B, USE:115]</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_STATE" id="EEC_USAGE_STATE">133</a></td>
+<td>STATE</td>
+<td>EEC_USAGE_STATE</td>
+<td>State.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:5]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_STOL_APPROACH" id="EEC_USAGE_STOL_APPROACH">134</a></td>
+<td>STOL_APPROACH</td>
+<td>EEC_USAGE_STOL_APPROACH</td>
+<td>STOL approach.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:77]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_STUB_APRON" id="EEC_USAGE_STUB_APRON">135</a></td>
+<td>STUB_APRON</td>
+<td>EEC_USAGE_STUB_APRON</td>
+<td>Stub &lt;<a href="ECC_A.htm#ECC_APRON">APRON</a>&gt;.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:102]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_TELEGRAPH" id="EEC_USAGE_TELEGRAPH">136</a></td>
+<td>TELEGRAPH</td>
+<td>EEC_USAGE_TELEGRAPH</td>
+<td>Telegraph.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:51]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_TELEPHONE" id="EEC_USAGE_TELEPHONE">137</a></td>
+<td>TELEPHONE</td>
+<td>EEC_USAGE_TELEPHONE</td>
+<td>Telephone.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:52]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_TEMPORARY_RESIDENCE" id="EEC_USAGE_TEMPORARY_RESIDENCE">138</a></td>
+<td>TEMPORARY_RESIDENCE</td>
+<td>EEC_USAGE_TEMPORARY_RESIDENCE</td>
+<td>Temporary residence. EXAMPLES &lt;<a href="ECC_H.htm#ECC_HOTEL">HOTEL</a>&gt;, &lt;<a href="ECC_M.htm#ECC_MOTEL">MOTEL</a>&gt;.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:11]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_TERMINUS" id="EEC_USAGE_TERMINUS">139</a></td>
+<td>TERMINUS</td>
+<td>EEC_USAGE_TERMINUS</td>
+<td>Terminus.</td>
+<td>IR</td>
+<td>[FAD, Annex B, USE:4]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_TERMINUS_OR_TERMINAL" id="EEC_USAGE_TERMINUS_OR_TERMINAL">140</a></td>
+<td>TERMINUS_OR_TERMINAL</td>
+<td>EEC_USAGE_TERMINUS_OR_TERMINAL</td>
+<td>&lt;&lt;&lt;<a href="EAC_U.htm#EEC_USAGE_TERMINUS">TERMINUS</a>&gt;&gt;&gt; or &lt;&lt;&lt;<a href="EAC_U.htm#EEC_USAGE_AERODROME_TERMINAL">AERODROME_TERMINAL</a>&gt;&gt;&gt;.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:73]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_TERTIARY" id="EEC_USAGE_TERTIARY">141</a></td>
+<td>TERTIARY</td>
+<td>EEC_USAGE_TERTIARY</td>
+<td>Tertiary or3rd order.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:31]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_TIMEBALL" id="EEC_USAGE_TIMEBALL">142</a></td>
+<td>TIMEBALL</td>
+<td>EEC_USAGE_TIMEBALL</td>
+<td>Timeball.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:156]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_TOURIST" id="EEC_USAGE_TOURIST">143</a></td>
+<td>TOURIST</td>
+<td>EEC_USAGE_TOURIST</td>
+<td>Tourist.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:123]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_TRANSACTION" id="EEC_USAGE_TRANSACTION">144</a></td>
+<td>TRANSACTION</td>
+<td>EEC_USAGE_TRANSACTION</td>
+<td>Transaction.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:83]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_TRANSIENT_APRON" id="EEC_USAGE_TRANSIENT_APRON">145</a></td>
+<td>TRANSIENT_APRON</td>
+<td>EEC_USAGE_TRANSIENT_APRON</td>
+<td>Transient &lt;<a href="ECC_A.htm#ECC_APRON">APRON</a>&gt;.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:100]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_TRANSPORTATION" id="EEC_USAGE_TRANSPORTATION">146</a></td>
+<td>TRANSPORTATION</td>
+<td>EEC_USAGE_TRANSPORTATION</td>
+<td>Transportation.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:130]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_TRIANGULATION" id="EEC_USAGE_TRIANGULATION">147</a></td>
+<td>TRIANGULATION</td>
+<td>EEC_USAGE_TRIANGULATION</td>
+<td>Triangulation.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:996]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_TRIBAL" id="EEC_USAGE_TRIBAL">148</a></td>
+<td>TRIBAL</td>
+<td>EEC_USAGE_TRIBAL</td>
+<td>Tribal.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:7]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_TURNING" id="EEC_USAGE_TURNING">149</a></td>
+<td>TURNING</td>
+<td>EEC_USAGE_TURNING</td>
+<td>Turning.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:153]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_UNIDENTIFIED_AIRSTRIP" id="EEC_USAGE_UNIDENTIFIED_AIRSTRIP">150</a></td>
+<td>UNIDENTIFIED_AIRSTRIP</td>
+<td>EEC_USAGE_UNIDENTIFIED_AIRSTRIP</td>
+<td>Unidentified &lt;<a href="ECC_A.htm#ECC_AIRSTRIP">AIRSTRIP</a>&gt;.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:24]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_UNPOPULATED" id="EEC_USAGE_UNPOPULATED">151</a></td>
+<td>UNPOPULATED</td>
+<td>EEC_USAGE_UNPOPULATED</td>
+<td>Unpopulated.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:990]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_UTILITY_OR_COMMUNICATION" id="EEC_USAGE_UTILITY_OR_COMMUNICATION">152</a></td>
+<td>UTILITY_OR_COMMUNICATION</td>
+<td>EEC_USAGE_UTILITY_OR_COMMUNICATION</td>
+<td>Utility and/or &lt;&lt;&lt;<a href="EAC_U.htm#EEC_USAGE_COMMUNICATION">COMMUNICATION</a>&gt;&gt;&gt;.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:134]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_VESSEL_BERTH" id="EEC_USAGE_VESSEL_BERTH">153</a></td>
+<td>VESSEL_BERTH</td>
+<td>EEC_USAGE_VESSEL_BERTH</td>
+<td>&lt;<a href="ECC_V.htm#ECC_VESSEL_BERTH">VESSEL_BERTH</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_VISUAL_APPROACH" id="EEC_USAGE_VISUAL_APPROACH">154</a></td>
+<td>VISUAL_APPROACH</td>
+<td>EEC_USAGE_VISUAL_APPROACH</td>
+<td>Visual approach.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:78]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_USAGE_VISUAL_DESCENT_POINT" id="EEC_USAGE_VISUAL_DESCENT_POINT">155</a></td>
+<td>VISUAL_DESCENT_POINT</td>
+<td>EEC_USAGE_VISUAL_DESCENT_POINT</td>
+<td>Visual descent point.</td>
+<td>IR</td>
+<td>[FACC, Annex B, USE:87]</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_ABSTRACT_OBJECT">ABSTRACT_OBJECT</a>, <a href="groups.htm#EGC_GEN_ADMINISTRATION">ADMINISTRATION</a>, <a href="groups.htm#EGC_GEN_USAGE_REGION">USAGE_REGION</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FACC, Annex B: USE]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<b>EDCS Attribute Label</b>: <a name="EAC_UTILITY_USE" id="EAC_UTILITY_USE">UTILITY_USE</a>
+<p>
+<b>EDCS Attribute Symbolic Constant</b>: EAC_UTILITY_USE
+</p><p>
+<b>EDCS Attribute Code</b>: 1498
+</p><p>
+<b>Definition</b>:
+<br>
+The type of a &lt;<a href="ECC_F.htm#ECC_FACILITY">FACILITY</a>&gt; that is primarily used for utility provision purposes.
+<p>
+<b>EDCS Attribute Value Data Type</b>: ENUMERATION
+</p><p>
+<table border="1" cellspacing="0" cellpadding="3" width="100%">
+<tr>
+<th align="left">Code</th>
+<th align="left">Label</th>
+<th align="left">Symbolic constant</th>
+<th align="left">Definition</th>
+<th align="left">Reference type</th>
+<th align="left">Reference</th>
+<th align="left">Supplemental references</th>
+</tr>
+<tr>
+<td><a name="EEC_UTILUSE_DRINKING_WATER" id="EEC_UTILUSE_DRINKING_WATER">1</a></td>
+<td>DRINKING_WATER</td>
+<td>EEC_UTILUSE_DRINKING_WATER</td>
+<td>Drinking water.</td>
+<td>IR</td>
+<td>[FAD, Annex B, UUC:7]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_UTILUSE_OUTBUILDING" id="EEC_UTILUSE_OUTBUILDING">2</a></td>
+<td>OUTBUILDING</td>
+<td>EEC_UTILUSE_OUTBUILDING</td>
+<td>&lt;<a href="ECC_O.htm#ECC_OUTBUILDING">OUTBUILDING</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[FAD, Annex B, UUC:9]</td>
+</tr>
+<tr>
+<td><a name="EEC_UTILUSE_OUTFALL" id="EEC_UTILUSE_OUTFALL">3</a></td>
+<td>OUTFALL</td>
+<td>EEC_UTILUSE_OUTFALL</td>
+<td>Outfall.</td>
+<td>IR</td>
+<td>[FAD, Annex B, UUC:5]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_UTILUSE_POWER" id="EEC_UTILUSE_POWER">4</a></td>
+<td>POWER</td>
+<td>EEC_UTILUSE_POWER</td>
+<td>Power.</td>
+<td>IR</td>
+<td>[FAD, Annex B, UUC:4]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_UTILUSE_TELEGRAPH" id="EEC_UTILUSE_TELEGRAPH">5</a></td>
+<td>TELEGRAPH</td>
+<td>EEC_UTILUSE_TELEGRAPH</td>
+<td>Telegraph.</td>
+<td>IR</td>
+<td>[FAD, Annex B, UUC:1]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_UTILUSE_TELEPHONE" id="EEC_UTILUSE_TELEPHONE">6</a></td>
+<td>TELEPHONE</td>
+<td>EEC_UTILUSE_TELEPHONE</td>
+<td>Telephone.</td>
+<td>IR</td>
+<td>[FAD, Annex B, UUC:2]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_UTILUSE_TRIANGULATION" id="EEC_UTILUSE_TRIANGULATION">7</a></td>
+<td>TRIANGULATION</td>
+<td>EEC_UTILUSE_TRIANGULATION</td>
+<td>Triangulation.</td>
+<td>IR</td>
+<td>[FAD, Annex B, UUC:8]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_UTILUSE_UTILITY_COMMUNICATION" id="EEC_UTILUSE_UTILITY_COMMUNICATION">8</a></td>
+<td>UTILITY_COMMUNICATION</td>
+<td>EEC_UTILUSE_UTILITY_COMMUNICATION</td>
+<td>Utilities and communication.</td>
+<td>IR</td>
+<td>[FAD, Annex B, UUC:3]</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_UTILUSE_WATER_INTAKE" id="EEC_UTILUSE_WATER_INTAKE">9</a></td>
+<td>WATER_INTAKE</td>
+<td>EEC_UTILUSE_WATER_INTAKE</td>
+<td>&lt;<a href="ECC_W.htm#ECC_WATER_INTAKE">WATER_INTAKE</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>[FAD, Annex B, UUC:6]</td>
+</tr>
+<tr>
+<td><a name="EEC_UTILUSE_WASTE_PROCESSING" id="EEC_UTILUSE_WASTE_PROCESSING">10</a></td>
+<td>WASTE_PROCESSING</td>
+<td>EEC_UTILUSE_WASTE_PROCESSING</td>
+<td>&lt;<a href="ECC_W.htm#ECC_WASTE_PROCESSING_FACILITY">WASTE_PROCESSING_FACILITY</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a name="EEC_UTILUSE_WATER_TREATMENT" id="EEC_UTILUSE_WATER_TREATMENT">11</a></td>
+<td>WATER_TREATMENT</td>
+<td>EEC_UTILUSE_WATER_TREATMENT</td>
+<td>&lt;<a href="ECC_W.htm#ECC_WATER_TREATMENT_FACILITY">WATER_TREATMENT_FACILITY</a>&gt;.</td>
+<td>n/a</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table><br>
+
+
+<b>EDCS Group Labels</b>: <a href="groups.htm#EGC_GEN_INFRASTRUCTURE">INFRASTRUCTURE</a>
+</p><p>
+<b>Reference Type</b>: IR
+</p><p>
+<b>Reference</b>: [FAD, Annex B: UUC]
+</p><p>
+<b>Supplemental References</b>: none
+</p><p>
+<hr>
+
+<font color="#ff0000">Return to:</font>
+<b><a href="#Top">Top of page</a></b>,
+<b><a href="EAC_T.htm">Previous EAC Page (T)</a></b>,
+<b><a href="EAC_V.htm">Next EAC Page (V)</a></b>,
+<b><a href="EAC.htm">Attribute Index</a></b>,
+<b><a href="../edcs.htm#SDK">EDCS Home</a></b>
+<br><br>
+<table border="2" width="100%" bgcolor="#0000ff">
+<tr><td>
+<table width="100%" bgcolor="#0000ff">
+<tr>
+<td align="left"><font color="#00ffff"><small>
+Last updated:
+July 1, 2011
+</small></font></td>
+<td align="right"><font color="#00ffff"><small>
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</small></font></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

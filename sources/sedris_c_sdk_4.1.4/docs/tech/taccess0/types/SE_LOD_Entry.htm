@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE_LOD_Entry</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Types
+</font>
+<br>
+<font color="#ffffff">
+SE_LOD_Entry
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<PRE>
+/*
+ * STRUCT: SE_LOD_Entry
+ *
+ *   This data type specifies the parameters for iterating over
+ *   an LOD by specifying the control values for such a search.
+ */
+</PRE>
+<span class="Code">typedef struct 
+<br>
+{</span>
+<br>
+<table class="CFunctionPrototype">
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../drm/types/SE_LOD_Data_Type.htm">SE_LOD_Data_Type</a></td>
+        <td class="CFunction"><a name="lod_entry_type"></a>lod_entry_type;</td></tr>
+<tr> <td class="CFunction">   </td><td class="CFunction">union</td></tr>
+<tr> <td class="CFunction">   </td><td class="CFunction">{</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../../drm/classes/DistanceLODData.htm">SE_Distance_LOD_Data_Fields</a></td>
+            <td class="CFunction"><a name="distance"></a>distance;</td><td class="CFunction"><sup><A href="#Notes_distance">1</A></sup></td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../../drm/classes/IndexLODData.htm">SE_Index_LOD_Data_Fields</a></td>
+            <td class="CFunction"><a name="index"></a>index;</td><td class="CFunction"><sup><A href="#Notes_index">2</A></sup></td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../../drm/classes/MapScaleLODData.htm">SE_Map_Scale_LOD_Data_Fields</a></td>
+            <td class="CFunction"><a name="map_scale"></a>map_scale;</td><td class="CFunction"><sup><A href="#Notes_map_scale">3</A></sup></td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SE_Volume_LOD_Entry.htm">SE_Volume_LOD_Entry</a></td>
+            <td class="CFunction"><a name="volume"></a>volume;</td><td class="CFunction"><sup><A href="#Notes_volume">4</A></sup></td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../../drm/classes/SpatialResolutionLODData.htm">SE_Spatial_Resolution_LOD_Data_Fields</a></td>
+            <td class="CFunction"><a
+            name="spatial_resolution"></a>spatial_resolution;</td><td class="CFunction"><sup><A href="#Notes_spatial_resolution">5</A></sup></td></tr>
+<tr><td class="CFunction"></td> <td class="CFunction">} <a
+        name="lod"></a>lod;</td></tr>
+</table>
+<span class="Code">
+} SE_LOD_Entry;</span>
+<br>
+
+<br>
+<HR>
+<H2>Field Notes</H2>
+<h4><a href="#distance" name="Notes_distance">distance</a></h4>
+<P>
+ Specifies a minimum and maximum distance.
+</P>
+<h4><a href="#index" name="Notes_index">index</a></h4>
+<P>
+ Specifies a single index.  To specify multiple indices, create
+ multiple <A href="SE_LOD_Entry.htm">SE_LOD_Entry</A>s, each one defining a single index.
+</P>
+<h4><a href="#map_scale" name="Notes_map_scale">map_scale</a></h4>
+<P>
+ Specifies a map scale.
+</P>
+<h4><a href="#volume" name="Notes_volume">volume</a></h4>
+<P>
+ Specifies a volume for which the branch is applicable.
+</P>
+<h4><a href="#spatial_resolution" name="Notes_spatial_resolution">spatial_resolution</a></h4>
+<P>
+ Specifies a spatial resolution.
+</P>
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SE_ITR_Behaviour.htm">SE_ITR_Behaviour</a>.
+<strong>Next:</strong> <a href="SE_LOD_Select_Parameters.htm">SE_LOD_Select_Parameters</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

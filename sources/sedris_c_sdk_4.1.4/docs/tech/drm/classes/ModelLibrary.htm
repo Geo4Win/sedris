@@ -1,0 +1,159 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Model Library</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Model Library
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Model Library</h2>
+<h3>Superclass - <a href="Library.htm">&lt;Library&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies the complete list of the unique
+ <A href="Model.htm">&lt;Model&gt;</A> instance(s) that are stored in the transmittal.
+ By traversing this library the user can retrieve the generic instances
+ of all <A href="Model.htm">&lt;Model&gt;</A> instances.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet10.pdf"><strong>10</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet01.pdf"><strong>1</strong></A>
+</LI>
+<LI><A href="sheet02.pdf"><strong>2</strong></A>
+</LI>
+</UL>
+
+<h3>Example</h3>
+<OL>
+<LI><P>
+ A <A href="ModelLibrary.htm">&lt;Model Library&gt;</A> instance might contain a set of
+ <A href="Model.htm">&lt;Model&gt;</A> instances representing different kinds of
+ ground vehicles.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ Consider a consumer who wishes to pre-process all
+ <A href="Model.htm">&lt;Model&gt;</A> components of a particular
+ <A href="ModelLibrary.htm">&lt;Model Library&gt;</A> instance for efficiency
+ reasons. Is there a way to uniquely identify
+ <A href="Model.htm">&lt;Model&gt;</A> instances, so that a consumer can detect
+ whether a given <A href="Model.htm">&lt;Model&gt;</A> instance
+ has already been processed?
+</B></DT>
+<DD><P>
+ Yes. The <A href="Model.htm">&lt;Model&gt;</A> instances can be placed in a
+ lookup table in the consuming application, then referenced by
+ the model instances. There are at least two ways to do this
+ via the API.
+</P>
+<OL>
+<LI><P>
+ If the API implementation being used supports the
+ DRM object ID capability, the
+ DRM object ID of the <A href="Model.htm">&lt;Model&gt;</A>
+ instance can be used as a lookup.  The
+ <A href="Model.htm">&lt;Model&gt;</A> instances can
+ be stored in a sorted table or
+ hash table with the index based on the string value of the
+ DRM object ID.
+</P></LI>
+<LI><P>
+ Alternately, retrieve all the
+ <A href="GeometryModel.htm">&lt;Geometry Model&gt;</A> instances and
+ <A href="FeatureModel.htm">&lt;Feature Model&gt;</A> instances within the
+ given <A href="ModelLibrary.htm">&lt;Model Library&gt;</A> instance and place them
+ in an array while assigning each the index into the array entry through
+ the use of the API function
+ <A href="../../taccess0/functions/SE_SetUserData.htm">SE_SetUserData()</A>. When a
+ <A href="GeometryModelInstance.htm">&lt;Geometry Model Instance&gt;</A> or
+ <A href="FeatureModelInstance.htm">&lt;Feature Model Instance&gt;</A> is
+ encountered, retrieve the associated
+ <A href="GeometryModel.htm">&lt;Geometry Model&gt;</A> or
+ <A href="FeatureModel.htm">&lt;Feature Model&gt;</A>, then retrieve the
+ array index using the API function SE_GetUserData().  The
+ user data will be valid as long as the
+ <A href="GeometryModel.htm">&lt;Geometry Model&gt;</A> (or
+ <A href="FeatureModel.htm">&lt;Feature Model&gt;</A>, as the case may be)
+ has not been freed.
+</P></LI>
+</OL>
+</DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Composed of (two-way)</h3>
+<UL>
+<li>one or more {ordered} <a href="Model.htm">&lt;Model&gt;</a> instances</li>
+</UL>
+
+<h3>Composed of (two-way metadata) (inherited)</h3>
+<UL>
+<li>zero or one <a href="Identification.htm">&lt;Identification&gt;</a> instance</li>
+</UL>
+<h3>Component of (two-way)</h3>
+<UL>
+<li>one <a href="TransmittalRoot.htm">&lt;Transmittal Root&gt;</a> instance</li>
+</UL>
+
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+
+<hr>
+<strong>Prev:</strong> <A href="ModelInstanceTemplateIndex.htm">Model Instance Template Index</A>.
+<strong>Next:</strong> <A href="MovingLightBehaviour.htm">Moving Light Behaviour</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

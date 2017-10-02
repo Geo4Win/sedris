@@ -1,0 +1,11 @@
+{
+global:
+    EDCS_MapUtilGetImplVerInfo;
+    EDCS_PrintAttributeWithValueEntry;
+    EDCS_PrintMappingEntry;
+    EDCS_PrintValueCharacteristicCodeEntry;
+    EDCS_PrintMappingEntryTypeCode;
+    EDCS_PrintMappingTypeCode;
+local:
+    *;
+};

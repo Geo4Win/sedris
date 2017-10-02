@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>EDCS_Organization_Schema_Dictionary_Entry</title>
+<link rel="stylesheet" href="../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>EDCS Reference Manual</big></big>
+<br>
+<!-- EDCS spec. 4.4 -->
+<font color="#ffffff">
+Types
+</font>
+<br>
+<font color="#ffffff">
+EDCS_Organization_Schema_Dictionary_Entry
+</font>
+</th></tr>
+</table></div>
+
+<!-- EDCS SDK Release 4.4.0 -->
+
+<PRE>
+/*
+ * STRUCT: EDCS_Organization_Schema_Dictionary_Entry
+ *
+ *   This data type is used to hold EO Dictionary Entries.
+ */
+</PRE>
+<span class="Code">typedef struct 
+<br>
+{</span>
+<br>
+<table class="CFunctionPrototype">
+<tr><td class="CFunction">         </td> <td class="CFunction"></td> <td class="CFunction"><a href="EDCS_Organization_Schema_Code.htm">EDCS_Organization_Schema_Code</a></td>
+              <td class="CFunction"><a name="code"></a>code;</td></tr>
+<tr><td class="CFunction">         </td> <td class="CFunction"></td> <td class="CFunction"><a href="EDCS_Organization_Schema_Label.htm">EDCS_Organization_Schema_Label</a></td>
+              <td class="CFunction"><a name="label"></a>label;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction">const</td> <td class="CFunction"><a href="EDCS_Character.htm">EDCS_Character</a></td>
+        <td class="CFunction">*<a
+        name="symbolic_constant"></a>symbolic_constant;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction">const</td> <td class="CFunction"><a href="EDCS_Character.htm">EDCS_Character</a></td>
+        <td class="CFunction">*<a name="definition"></a>definition;</td></tr>
+<tr><td class="CFunction">         </td> <td class="CFunction"></td> <td class="CFunction"><a href="EDCS_Count.htm">EDCS_Count</a></td>
+              <td class="CFunction"><a name="eg_count"></a>eg_count;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction">const</td> <td class="CFunction"><a href="EDCS_Group_Dictionary_Entry.htm">EDCS_Group_Dictionary_Entry</a></td>
+        <td class="CFunction">*<a name="eg_list"></a>eg_list;</td></tr>
+<tr><td class="CFunction">         </td> <td class="CFunction"></td> <td class="CFunction"><a href="EDCS_Reference_Type.htm">EDCS_Reference_Type</a></td>
+              <td class="CFunction"><a
+              name="reference_type"></a>reference_type;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction">const</td> <td class="CFunction"><a href="EDCS_Character.htm">EDCS_Character</a></td>
+        <td class="CFunction">*<a name="reference"></a>reference;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction">const</td> <td class="CFunction"><a href="EDCS_Character.htm">EDCS_Character</a></td>
+        <td class="CFunction">*<a
+        name="supplemental_references"></a>supplemental_references;</td></tr>
+<tr><td class="CFunction">         </td> <td class="CFunction"></td> <td class="CFunction"><a href="EDCS_Concept_Status.htm">EDCS_Concept_Status</a></td>
+              <td class="CFunction"><a
+              name="concept_status"></a>concept_status;</td></tr>
+</table>
+<span class="Code">
+} EDCS_Organization_Schema_Dictionary_Entry;</span>
+<br>
+
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="EDCS_Organization_Schema_Code.htm">EDCS_Organization_Schema_Code</a>.
+<strong>Next:</strong> <a href="EDCS_Organization_Schema_Label.htm">EDCS_Organization_Schema_Label</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE GetPackedHierarchy</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+SE GetPackedHierarchy
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../types/SE_Return_Code.htm">SE_Return_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SE_GetPackedHierarchy</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/SE_Object.htm">SE_Object</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="root_object"></a>root_object,</td><td class="CFunction"><sup><A href="#Notes_root_object">1</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../../drm/types/SE_Boolean.htm">SE_Boolean</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="directly_attach_table_components"></a>directly_attach_table_components,</td><td class="CFunction"><sup><A href="#Notes_directly_attach_table_components">2</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../../drm/types/SE_Boolean.htm">SE_Boolean</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="process_inheritance"></a>process_inheritance,</td><td class="CFunction"><sup><A href="#Notes_process_inheritance">3</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../../drm/types/SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="hierarchy_depth"></a>hierarchy_depth,</td><td class="CFunction"><sup><A href="#Notes_hierarchy_depth">4</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/SE_ITR_Behaviour.htm">SE_ITR_Behaviour</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="itr_traversal"></a>itr_traversal,</td><td class="CFunction"><sup><A href="#Notes_itr_traversal">5</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/SE_Store.htm">SE_Store</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="store"></a>store,</td><td class="CFunction"><sup><A href="#Notes_store">6</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/SE_Packed_Hierarchy.htm">SE_Packed_Hierarchy</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="hierarchy_out_ptr"></a>hierarchy_out_ptr</td><td class="CFunction"><sup><A href="#Notes_hierarchy_out_ptr">7</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+  Retrieves a sub-hierarchy rooted at a given object into a set of data
+  structures that can be directly traversed by the calling application
+  using &quot;C&quot; pointer dereferencing.
+</P><P>
+  NOTE: Model instances are not followed.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A>
+</td><td class="Status">
+ and the requested packed hierarchy is returned.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A>
+</td><td class="Status">
+ and the status code is set appropriately if the call failed.
+</td></tr>
+</table>
+
+<h3>Status Codes</h3>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A>
+   is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_SUCCESS">SE_STATCODE_SUCCESS</A>
+</td><td class="Status">
+ set if valid parameters were passed in and call was successful.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_DIFFERENT_TRANSMITTAL">SE_STATCODE_DIFFERENT_TRANSMITTAL</A>
+</td><td class="Status">
+ set if valid parameters were passed in but one or more objects
+ encountered were contained in a different transmittal to
+ <A href="#root_object">root_object</A>.
+</td></tr>
+</table>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A>
+   is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_UNRESOLVED_OUTPUT_OBJECT">SE_STATCODE_UNRESOLVED_OUTPUT_OBJECT</A>
+</td><td class="Status">
+ set if valid parameters were passed in but one or more objects
+ encountered were not resolved. In this case, the
+ <A href="../types/SE_Packed_Hierarchy_Object.htm#status_code">status_code</A> field is
+ set to <A href="../types/SE_Status_Code.htm#SE_STATCODE_UNRESOLVED_INPUT_OBJECT">SE_STATCODE_UNRESOLVED_INPUT_OBJECT</A> in
+ the <A href="../types/SE_Packed_Hierarchy_Object.htm">SE_Packed_Hierarchy_Object</A> data structures for those
+ objects that are unresolved.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_UNRESOLVED_INPUT_OBJECT">SE_STATCODE_UNRESOLVED_INPUT_OBJECT</A>
+</td><td class="Status">
+ set if <A href="#root_object">root_object</A> is unresolved.
+</td></tr>
+<tr><td class="Status">
+ <A href="../types/SE_Status_Code.htm#SE_STATCODE_C_ENUMERATION_VALUE_INVALID">SE_STATCODE_C_ENUMERATION_VALUE_INVALID</A>
+</td><td class="Status">
+ set if <A href="#itr_traversal">itr_traversal</A> is not a valid value.
+</td></tr>
+<tr><td class="Status">
+  <A href="../types/SE_Status_Code.htm#SE_STATCODE_C_STORE_INVALID">SE_STATCODE_C_STORE_INVALID</A>
+</td><td class="Status">
+  set if <A href="#store">store</A> is not a handle to
+ a valid <A href="../types/SE_Store.htm">SE_Store</A>.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_INACTIONABLE_FAILURE">SE_STATCODE_INACTIONABLE_FAILURE</A>
+</td><td class="Status">
+ set if the call fails for any other reason.
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#root_object" name="Notes_root_object">1</a></sup>
+ the object to use as the root of the sub-hierarchy.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#directly_attach_table_components" name="Notes_directly_attach_table_components">2</a></sup>
+ see SE_InitializeComponentIterator's
+    comments on directly_attach_table_components.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#process_inheritance" name="Notes_process_inheritance">3</a></sup>
+ if true, then inherited components will be
+    considered as well as 'immediate' components.  If SE_FALSE, then
+    only 'immediate' components will be considered.
+
+    For example, by setting this process_inheritance parameter to
+    SE_TRUE, a user may ask for an &lt;Inline Colour&gt; component of a
+    &lt;Polygon&gt; without worrying about whether the &lt;Inline Colour&gt;
+    instance was an 'immediate' or 'inherited' component of the
+    &lt;Polygon&gt;.
+
+    An 'immediate' component will always take precedence over an
+    'inherited' component.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#hierarchy_depth" name="Notes_hierarchy_depth">4</a></sup>
+ the depth to which the sub-hierarchy is
+    extracted below the root object.  A value of 1 indicates that only
+    the components of the root object are to be returned.  A value of 0
+    indicates that the entire sub-hierarchy of the root object is to be
+    returned.
+
+    NOTE: Care must be taken when passing &quot;0&quot; for the hierarchy_depth
+          parameter.  The sub-hierarchies of non-primitive root objects
+          can be potentially large, require large amounts of memory
+          to represent, and/or take a long time to return.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#itr_traversal" name="Notes_itr_traversal">5</a></sup>
+ the user must choose how
+    the function will behave when it encounters an Inter-Transmittal
+    Reference (ITR). The function could automatically resolve such
+    references and continue the search within the new transmittal;
+    report all ITR references without resolving them; or just ignore
+    them completely and continue to search within the current
+    transmittal.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#store" name="Notes_store">6</a></sup>
+ the store that will manage the fields memory
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#hierarchy_out_ptr" name="Notes_hierarchy_out_ptr">7</a></sup>
+ a pointer to a SE_Packed_Hierarchy structure which
+    the function will fill in with the hierarchy data.
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SE_GetObjectReferenceCount.htm">SE_GetObjectReferenceCount</a>.
+<strong>Next:</strong> <a href="SE_GetPublishedLabels.htm">SE_GetPublishedLabels</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

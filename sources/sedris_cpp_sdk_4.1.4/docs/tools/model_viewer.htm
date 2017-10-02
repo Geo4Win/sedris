@@ -1,0 +1,172 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>SEDRIS SDK - Model Viewer Tool</title>
+</head>
+<body bgcolor="#ffffff">
+
+<div align="center"><h1><a name="top" id="top">Model Viewer Tool</a></h1></div>
+<div align="center">
+<h3>
+SEDRIS C++ SDK Release 4.1.4
+</h3>
+<h3>
+July 1, 2011
+</h3>
+</div>
+
+<p align="center">
+<a href="model_viewer_1.jpg">
+<img alt="Sample image" src="model_viewer_1.jpg" width="212" height="224"></a>&nbsp;&nbsp;&nbsp;
+<a href="model_viewer_2.gif">
+<img alt="Sample image" src="model_viewer_2.gif" width="212" height="224"></a>
+</p>
+
+<ol>
+<li><a href="#short">Synopsis</a></li>
+<li><a href="#descr">Description</a></li>
+<li><a href="#options">Options</a></li>
+<li><a href="#examples">Examples</a></li>
+<li><a href="#samplerun">Sample Run</a></li>
+<li><a href="#environ">Environment</a></li>
+<li><a href="#seealso">See Also</a></li>
+</ol>
+<br>
+
+<h2><a name="short" id="short">SYNOPSIS</a></h2>
+<blockquote>
+<pre><b>model_viewer</b> [ <a href="#options">options</a> ] transmittal
+</pre>
+</blockquote>
+
+<h2><a name="descr" id="descr">DESCRIPTION</a></h2>
+<blockquote>
+<p><b>Model Viewer</b> displays the 3D geometry (including colours,
+textures, level-of-detail, state, articulated parts, and shading) of
+the &lt;Model&gt;s and &lt;Image&gt;s of the
+given transmittal using OpenGL. Other data, such as such as
+&lt;Data Tables&gt;, features, geometry under &lt;Environment Root&gt;,
+and topology are not viewable with this program.
+The GLUT libraries are required to compile this application (see
+<a href="../buildkit.htm#reqmts">Build Requirements</a>).
+Editing of data is not supported by this application.</p>
+
+<p>Information about the images and models being loaded from the
+SEDRIS transmittal are printed to stdout. Once the images
+and models are loaded, the viewer will open the 3D-view window
+and proceeds to sequence through and display
+all of the images loaded. After all of the images have been
+displayed, the first root model in the model library is displayed.
+The window then waits for user control from the keyboard. The
+3D-view window can be moved, resized, minimized, and maximized.
+When the 3D-view window is selected, the models and images can be
+selected, viewed, and controlled via keyboard and mouse commands.
+
+<p>The mouse controls for the viewer are as follows (LMB = Left Mouse Button):</p>
+<ul>
+   <li>LMB: drag to rotate model</li>
+   <li>LMB + Shift key: move up/down to zoom out/in</li>
+   <li>LMB + Control key: drag to translate model parallel to the view</li>
+   <li>LMB + Alt key: move left/right to tilt model to the left/right</li>
+</ul>
+
+<p>See also Part 5, Volume 5 of the SEDRIS Documentation Set, the
+<a href="../tech/p5v5.htm">Model Viewer User's Guide</a>.</p>
+</blockquote>
+
+<h2><a name="options" id="options">OPTIONS</a></h2>
+<blockquote>
+<dl>
+<dt><b>-e &lt;file name&gt;</b></dt>
+   <dd><p>Specified the file name for the root model extents output.</p></dd>
+
+<dt><b>-nt</b></dt>
+   <dd><p>Don't load textures.</p></dd>
+
+<dt><b>-nm</b></dt>
+   <dd><p>Don't load models.</p></dd>
+</dl>
+</blockquote>
+
+<h2><a name="examples" id="examples">EXAMPLES</a></h2>
+<blockquote>
+<dl>
+<dt><b>model_viewer transmittals/test.stf</b></dt>
+   <dd><p>Loads all the models and textures in transmittal
+   &quot;test.stf&quot;.</p></dd>
+<dt><b>model_viewer -nm transmittals/test.stf</b></dt>
+   <dd><p>Only loads the textures in transmittal &quot;test.stf&quot;.</p></dd>
+</dl>
+</blockquote>
+
+<h2><a name="samplerun" id="samplerun">SAMPLE RUN</a></h2>
+<blockquote>
+<p>The following command (initiated in the &quot;transmittals&quot;
+directory):</p>
+<blockquote><pre>model_viewer test.stf</pre>
+</blockquote>
+produces the following output:
+<blockquote>
+<pre>Opened SEDRIS Transmittal test.stf.
+Please be patient while the textures are loaded
+
+The Textures will be listed as they are loaded.
+
+Now loading textures.  Please wait...
+Warning - can't find an &lt;Image Library&gt;, turning off texture processing
+
+There are 0 SEDRIS Images in the Transmittal.
+
+0 textures loaded.
+
+There are 1 SEDRIS Models in the Transmittal.
+Only the names of root models will be printed as they are loaded.
+
+model 0 = Test Model
+
+There are 1 root models in the Transmittal
+
+...Indexing root model 0
+Closed SEDRIS Transmittal test.stf.
+
+
+
+################# Calculating root model extents ################
+#
+#model_name             height  length  width
+#
+Test Model              0.000000        31.000000       23.000000
+#################################################################
+
+        Display Mode = Models
+
+model (1 of 1) = Test Model (0 levels)
+Current Level of Detail index = 0
+Current range  = 0.00  (model has NO LOD ranges)
+</pre>
+</blockquote>
+and the following image:
+<center><a href="model_viewer_s.png"><img alt="Sample image" src="model_viewer_s.png"
+width="212" height="224"></a></center>
+</blockquote>
+
+<h2><a name="environ" id="environ">ENVIRONMENT</a></h2>
+<blockquote>
+See the SEDRIS SDK <a href="../index.htm#runtime">Runtime
+Environment</a> variables.
+</blockquote>
+
+<h2><a name="seealso" id="seealso">SEE ALSO</a></h2>
+<blockquote>
+<a href="rules_checker.htm">Rules Checker</a>,
+<a href="syntax_checker.htm">Syntax Checker</a>
+<a href="depth.htm">Depth</a>,
+<a href="index.htm">Tools And Utilities</a> document
+</blockquote>
+
+<p>
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</p>
+</body>
+</html>

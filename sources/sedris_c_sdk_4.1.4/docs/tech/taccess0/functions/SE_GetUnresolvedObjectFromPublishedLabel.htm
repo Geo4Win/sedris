@@ -1,0 +1,161 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE GetUnresolvedObjectFromPublishedLabel</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+SE GetUnresolvedObjectFromPublishedLabel
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../types/SE_Return_Code.htm">SE_Return_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SE_GetUnresolvedObjectFromPublishedLabel</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1"><td class="CFunction">const&nbsp;</td><td class="CFunction"><a href="../../drm/types/SE_URN.htm">SE_URN</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="transmittal_name"></a>transmittal_name,</td><td class="CFunction"><sup><A href="#Notes_transmittal_name">1</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">const&nbsp;</td><td class="CFunction"><a href="../../drm/types/SE_String.htm">SE_String</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="object_label"></a>object_label,</td><td class="CFunction"><sup><A href="#Notes_object_label">2</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../types/SE_Encoding.htm">SE_Encoding</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="encoding"></a>encoding,</td><td class="CFunction"><sup><A href="#Notes_encoding">3</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../types/SE_Object.htm">SE_Object</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="object"></a>object</td><td class="CFunction"><sup><A href="#Notes_object">4</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+  This function creates an unresolved reference to a DRM object based on
+  the combination of transmittal_name and object_label as supported in
+  the specified encoding.
+</P><P>
+  This function does not validate the reference to ensure that it can be
+  resolved.  This behavior is intentional in order to allow referencing
+  well known published DRM objects, without requiring the
+  transmittal containing the DRM object to be accessible.  Care must be
+  taken to ensure the reference is indeed correct.  The
+  <A href="SE_ResolveObject.htm">SE_ResolveObject()</A> function is
+  available to do this, but requires that the referenced transmittal
+  be accessible.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A>
+</td><td class="Status">
+ and the object is returned.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A>
+</td><td class="Status">
+ and the status code is set appropriately if the call failed.
+</td></tr>
+</table>
+
+<h3>Status Codes</h3>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A> is returned:</B>
+</P><P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_SUCCESS">SE_STATCODE_SUCCESS</A>
+</td><td class="Status">
+ set if valid parameters were specified and all operations succeeded.
+</td></tr>
+</table>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A> is returned:</B>
+</P><P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_INVALID_TRANSMITTAL_NAME">SE_STATCODE_INVALID_TRANSMITTAL_NAME</A>
+</td><td class="Status">
+ set if the transmittal URN was not valid according to the SEDRIS URN
+ syntax rules.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_INVALID_OBJECT_LABEL">SE_STATCODE_INVALID_OBJECT_LABEL</A>
+</td><td class="Status">
+ set if <A href="#object_label">object_label</A> was not
+ valid according to the label syntax rules.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_INACTIONABLE_FAILURE">SE_STATCODE_INACTIONABLE_FAILURE</A>
+</td><td class="Status">
+ set if the call fails for any reason.
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#transmittal_name" name="Notes_transmittal_name">1</a></sup>
+ the fully qualified URN of the transmittal that
+    contains the labeled object.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#object_label" name="Notes_object_label">2</a></sup>
+ the label under which the object was published.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#encoding" name="Notes_encoding">3</a></sup>
+ identifies the API implementation encoding
+    to use when retrieving these objects.  If the specified API can't find
+    the objects, then the API will return a status code indicating why they
+    could not be found.
+
+    See also SE_GetEncoding().
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#object" name="Notes_object">4</a></sup>
+ a pointer to an SE_Object variable from the user, in
+     which the object handle will be stored.
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SE_GetUniqueTransmittalID.htm">SE_GetUniqueTransmittalID</a>.
+<strong>Next:</strong> <a href="SE_GetUserData.htm">SE_GetUserData</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

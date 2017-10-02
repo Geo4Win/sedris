@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Separating Plane Related Organizing Principle</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX B - Constraints
+</font>
+<br>
+<font color="#ffffff">
+Separating Plane Related Organizing Principle
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h3>Definition</h3>
+<OL type='a'>
+<LI><P>
+ The <A href="../classes/Location3D.htm">&lt;Location 3D&gt;</A> components of a <A href="../classes/SeparatingPlane.htm">&lt;Separating Plane&gt;</A>
+ instance shall specify a plane.
+</P></LI>
+<LI><P>
+ For any <A href="../classes/SeparatingPlaneRelatedGeometry.htm">&lt;Separating Plane Related Geometry&gt;</A> instance
+ <span class="ConstructName">S</span>,
+</P>
+<OL type='1'>
+<LI><P>
+ No two <A href="../classes/SeparatingPlaneRelations.htm">&lt;Separating Plane Relations&gt;</A> components of
+ <span class="ConstructName">S</span> shall specify coplanar
+ <A href="../classes/SeparatingPlane.htm">&lt;Separating Plane&gt;</A> components.
+</P></LI>
+<LI><P>
+ For each <A href="../classes/SeparatingPlaneRelations.htm">&lt;Separating Plane Relations&gt;</A> component
+ <span class="ConstructName">R</span> of <span class="ConstructName">S</span>,
+</P>
+<OL type='i'>
+<LI><P>
+ Every primitive within each branch of <span class="ConstructName">R</span> shall
+ have a spatial extent overlapping that of the half-space specified
+ by the branch.
+</P></LI>
+<LI><P>
+ If <span class="ConstructName">S</span>'s
+ <A href="../classes/SeparatingPlaneRelatedGeometry.htm#strict_organizing_principle">strict_organizing_principle</A>
+ = <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A>,
+ every primitive within each branch of <span class="ConstructName">R</span>
+ shall have a spatial extent fully contained within the half-space
+ specified by the <A href="../classes/SeparatingPlaneData.htm">&lt;Separating Plane Data&gt;</A> link object
+ corresponding to the branch. If <span class="ConstructName">S</span>'s
+<A href="../classes/SeparatingPlaneRelatedGeometry.htm#strict_organizing_principle">strict_organizing_principle</A>
+ = <A href="../types/SE_Boolean.htm#SE_FALSE">SE_FALSE</A>, no guarantees exist as to how
+ accurately the DRM objects of the component tree rooted at
+ <span class="ConstructName">S</span> were placed into their sorted &quot;bins&quot;,
+ apart from that specified by 2.2.1
+</P></LI>
+</OL>
+</LI>
+</OL>
+</LI>
+</OL>
+
+<h3>Rationale</h3>
+<P>
+ A <A href="../classes/SeparatingPlane.htm">&lt;Separating Plane&gt;</A> instance exists to specify a plane.
+</P><P>
+ The purpose of a <A href="../classes/SeparatingPlaneRelatedGeometry.htm">&lt;Separating Plane Related Geometry&gt;</A>
+ instance is to organize geometry instances based on their relationships
+ with the specified set of <A href="../classes/SeparatingPlane.htm">&lt;Separating Plane&gt;</A> instances.
+ For this purpose to be fulfilled, each primitive shall at
+ least overlap the half-space &quot;bin&quot; into which it is placed
+ by the organization, and if the organizing principle is
+ strictly followed, it shall be entirely contained within
+ that &quot;bin&quot;.
+</P>
+<h3>Example</h3>
+<p>
+No example supplied.
+</p>
+<h3>FAQs</h3>
+<p>
+No FAQs supplied.
+</p>
+
+<hr>
+<strong>Prev:</strong> <A href="RequiredReferenceVectorLocation.htm">Required Reference Vector Location</A>.
+<strong>Next:</strong> <A href="SpatialAxisConstraints.htm">Spatial Axis Constraints</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

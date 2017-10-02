@@ -1,0 +1,428 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<head>
+<title>EDCS SDK - Release Notes</title>
+<META NAME="Author" CONTENT="SAIC">
+<style type="text/css">
+<!--
+td.shaded_dark { background-color:#c0c0c0; }
+td.shaded_light { text-align:left; background-color:#e0e0e0; }
+-->
+</style>
+</head>
+<body bgcolor="#ffffff">
+
+<div align="center"><h1><a name="top" id="top">Release Notes</a></h1></div>
+<div align="center">
+<h3>
+EDCS SDK Release 4.4.0
+</h3>
+<h3>
+July 1, 2011
+</h3>
+</div>
+
+<p>
+<ol>
+<li><a href="#intro">Introduction</a>
+</li>
+<li><a href="#distrib">Distribution Packages</a>
+</li>
+<li><a href="#install">Installation</a>
+</li>
+<li><a href="#docs">SDK Documentation</a>
+</li>
+<li><a href="#apps">Applications</a>
+</li>
+<li><a href="#upgrades">Included Upgrades</a>
+</li>
+<li><a href="#bugs">Bug Reports and Feedback</a>
+</li>
+<li><a href="#webpages">Web Pages</a>
+</li>
+</ol>
+
+<h3><a name="intro" id="intro">Introduction</a></h3>
+<blockquote><p>
+Thank you for downloading this release of the EDCS Software Development Kit
+(EDCS SDK). The EDCS SDK is the development environment for creating
+applications that use the Environmental Data Coding Specification (EDCS). The
+purpose of the EDCS is to insure that environmental concepts are:
+</p>
+<ul>
+<li>unambiguously defined,
+</li>
+<li>flexibly denoted and encoded, and
+</li>
+<li>easily bound in exchange formats, and to programming languages.
+</li>
+</ul>
+
+<p>
+This release has been tested on multiple platforms, such as Linux, Irix, Sun,
+and Windows 98/Me/NT/2000. For detailed information on platform and compiler
+versions supported see the <a href="buildkit.htm#platform">Build Kit</a>.
+</p><p>
+EDCS 4.3 is a superset of EDCS 4.2, just as EDCS 4.2 was a superset of EDCS 4.1
+and EDCS 4.1 was a superset of EDCS 4.0.
+No mapping is needed from EDCS 4.2 to EDCS 4.3, just as no mapping was needed
+from EDCS 4.1 to EDCS 4.2.
+</p><p>
+For help, comments, and bug reports please send email to
+<a href="mailto:help@sedris.org">help@sedris.org</a>. If you are an associate,
+please use <a href="mailto:se-coders@sedris.org">se-coders@sedris.org</a>.
+</p><p>
+Return to: <a href="#top">Top</a>
+</p></blockquote>
+
+<h3><a name="distrib" id="distrib">Distribution Packages</a></h3>
+<blockquote><p>
+This version of the SDK is being made available in multiple distribution
+formats. In addition to source code, pre-compiled binaries for all supported
+platforms can be downloaded from the SEDRIS web site
+(<a href="http://www.sedris.org">www.sedris.org</a>).
+</p><p>
+The following matrix table shows the contents of the different packages and
+the directories you will find in them (note that the links on the column
+headers take you to the directories, so they may not work depending on your
+distribution and, as in the case of a source distribution, on whether
+you have compiled the libraries and/or applications):
+</p>
+
+<div align="center">
+<table width="90%" border="1" cellpadding="3">
+<tr valign="top">
+<th>Package and Contents</th>
+<td class="shaded_light" width="40"><b>bin</b>:
+<p>
+Compiled binaries for applications
+</p></td>
+<td class="shaded_light" width="40"><b>docs</b>:
+<p>
+Documentation, including Release Notes and Reference Manual
+</p></td>
+<td class="shaded_light" width="40"><b>include</b>:
+<p>
+Header files for applications and libraries</td>
+</p></td>
+<td class="shaded_light" width="40"><b>lib</b>:
+<p>
+Compiled binaries for libraries
+</p></td>
+<td class="shaded_light" width="40"><b>src</b>:
+<p>
+Source code and headers for libraries and applications
+</p></td>
+</tr>
+<tr>
+<td class="shaded_light"><b>Complete Suite·Source</b>:
+<ul>
+<li>Libraries
+</li>
+<li>Applications
+</li>
+<li>Documentation
+</li>
+</ul></td>
+<td class="shaded_dark">&nbsp;</td>
+<td align="center">X</td>
+<td class="shaded_dark">&nbsp;</td>
+<td class="shaded_dark">&nbsp;</td>
+<td align="center">X</td>
+</tr><tr>
+<td class="shaded_light"><b>Complete Suite Binary</b>:
+<ul>
+<li>Libraries and available extensions
+<li>Applications
+<li>Documentation
+</ul></td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td class="shaded_dark">&nbsp;</td>
+</tr>
+</table>
+</div>
+<p>
+Return to: <a href="#top">Top</a>
+</p></blockquote>
+
+<h3><a name="install" id="install">Installation</a></h3>
+<blockquote><p>
+The EDCS SDK is distributed as a GNU-zipped tar file for Unix systems and a Zip
+file in Win32 systems.
+</p><p>
+<b>Note:</b> If you have an earlier version of the SDK and you haven't changed
+its default installation directory, you may want to do it now because this version of
+the SDK may overwrite it.
+</p><p>
+To install, extract the contents of the compressed file:
+</p>
+<dl>
+<dt><b>Unix</b>
+<dd><p>
+Use the &quot;tar&quot; and &quot;gzip&quot; commands to extract the contents
+of the SDK:
+<blockquote><pre>gunzip -c sdk_file.tar.gz | tar xf -</pre></blockquote>
+using the appropriate filename for &quot;sdk_file.tar.gz&quot;.
+</p><p>
+If you have GNU tar installed, you can use the following command instead:
+</p>
+<blockquote><pre>tar xzf sdk_file.tar.gz</pre></blockquote>
+<p>
+<dt><b>Win32</b>
+<dd><p>
+Use <a href="http://www.winzip.com">WinZip</a> or other
+decompression utility to extract the contents of the downloaded file.
+</p></dd>
+</dl>
+
+<p>
+If you are installing the EDCS SDK under the SEDRIS SDK, you will need to
+extract the contents of the file into the &quot;sedris/src/lib&quot; directory
+of the SEDRIS SDK, so that the extraction process puts all the files in the
+&quot;sedris/src/lib/edcs&quot; directory.
+</p><p>
+See the <a href="buildkit.htm">Build Kit</a> page for information on how to
+compile and link the software, and how to link your applications or libraries
+against this SDK.
+</p><p>
+Note that the file name for binary releases includes the OS/System architecture
+type as part of the name. After extracting the software, users should see a
+top-level &quot;edcs&quot; directory. Binary releases associated with
+different OS/architecture can be installed on a common &quot;edcs&quot;
+directory. This is to allow users who work on several platforms to install all
+the releases under a common &quot;edcs&quot; directory in a shared network
+drive. In that case, on each installation, the non-OS-specific files are
+replaced by the new release and the OS specific libraries and executables are
+stored under their respective sub-directories under the &quot;lib&quot; and
+&quot;bin&quot; directories discriminated by their
+platform/version/architecture combination.
+</p><p>
+Return to: <a href="#top">Top</a>
+</p></blockquote>
+
+<h3><a name="docs" id="docs">SDK Documentation</a></h3>
+<blockquote>
+<p>The SDK Documentation is divided into the following areas:
+<dl>
+<dt><a href="index.htm">Release Notes</a> (this document)</dt>
+<dd>Describes the capabilities of this
+  release, its contents, and supported platforms and compilers.
+</dd>
+<dt><a href="buildkit.htm">Build Kit</a></dt>
+<dd>Details the build options and procedures
+  for compiling and linking the software.</dd>
+<dt><a href="fixes.htm">Fixes And Limitations</a></dt>
+     <dd>Describes the fixes and known limitations of this release.</dd>
+<dt><a href="edcs.htm">EDCS Reference Manual</a></dt>
+<dd>Provides links to detailed documents
+  for the EDCS and mappings from other encodings.</dd>
+<dt><a href="migration_index.htm">Migration Guide</a></dt>
+<dd>Provides information to migrate applications
+  from EDCS SDK Release 4.0.x to Release 4.1/4.2.</dd>
+</dl>
+<p>
+Return to: <a href="#top">Top</a>
+</p></blockquote>
+
+<h3><a name="apps" id="apps">Applications</a></h3>
+<blockquote><p>
+This release includes a sample application that demonstrate the use of the
+EDCS SDK.
+</p><p>
+<b>Applications:</b>
+</p>
+<blockquote>
+<dl>
+<dt>Sample EDCS Access</dt>
+<dd>An application that accesses the EDCS API to get some
+EDCS Classification Codes and EDCS Attribute Codes and displays their
+information.<br /><br /></dd>
+</dl>
+</blockquote>
+<p>
+Return to: <a href="#top">Top</a>
+</p></blockquote>
+
+<h3><a name="upgrades" id="upgrades">Included Upgrades</a></h3>
+<blockquote><p>
+An SCR is the means by which users make their requests for
+EDCS technology changes as either a functional enhancement
+or a software problem, including EDCS registry submissions.
+Users can make such requests via the
+<a href="http://www.sedris.org/fbk2trpl.htm">SCR Form Web Site</a>.
+SEDRIS Associates can review the status of the SCRs at the
+<a href="http://www.sedris.org">SEDRIS website</a> while the
+non-associates can obtain their status by sending a request
+for information about specific SCRs to
+<a href="mailto:se-scrccb@sedris.org">se-scrccb@sedris.org</a>.
+</p><p>
+Please see <a href="fixes.htm">Fixes and Limitations</a> for
+detailed information on software fixes and known
+limitations/defects.
+</p>
+<table border="1" width="70%" cellpadding="3">
+<tr>
+<th bgcolor="#e0e0e0">SEDRIS Change Requests (SCRs) addressed</th>
+<td valign="middle">
+None.
+</td>
+</tr>
+<tr>
+<th bgcolor="#e0e0e0">New EDCS Classification Codes</th>
+<td valign="middle">
+<ul>
+<li><a href="dictionary/ECC_C.htm#ECC_CAVE_NEXUS">ECC_CAVE_NEXUS</a>
+</li>
+<li><a href="dictionary/ECC_E.htm#ECC_EXTERIOR_WALL_OPENING">ECC_EXTERIOR_WALL_OPENING</a>
+</li>
+<li><a href="dictionary/ECC_S.htm#ECC_SENSOR">ECC_SENSOR</a>
+</li>
+<li><a href="dictionary/ECC_W.htm#ECC_WEAPON_TURRET_DEFILADE_POSITION">ECC_WEAPON_TURRET_DEFILADE_POSITION</a>
+</li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<th bgcolor="#e0e0e0">New EDCS Attribute Codes</th>
+<td valign="middle">
+<ul>
+<li><a href="dictionary/EAC_A.htm#EAC_ACTIVE_DURATION">EAC_ACTIVE_DURATION</a>
+</li>
+<li><a href="dictionary/EAC_A.htm#EAC_AIR_SOUND_SPEED">EAC_AIR_SOUND_SPEED</a>
+</li>
+<li><a href="dictionary/EAC_B.htm#EAC_BREACH_MARKED">EAC_BREACH_MARKED</a>
+</li>
+<li><a href="dictionary/EAC_F.htm#EAC_FIGHTING_POSITION_TYPE">EAC_FIGHTING_POSITION_TYPE</a>
+</li>
+<li><a href="dictionary/EAC_P.htm#EAC_PLATOON_ACCOMMODATION_AVAILABILITY_COUNT">EAC_PLATOON_ACCOMMODATION_AVAILABILITY_COUNT</a>
+</li>
+<li><a href="dictionary/EAC_S.htm#EAC_SECURITY_SYSTEM_TYPE">EAC_SECURITY_SYSTEM_TYPE</a>
+</li>
+<li><a href="dictionary/EAC_S.htm#EAC_SOUND_SPEED">EAC_SOUND_SPEED</a>
+</li>
+<li><a href="dictionary/EAC_W.htm#EAC_WALL_CONSTRUCTION_TYPE">EAC_WALL_CONSTRUCTION_TYPE</a>
+</li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<th bgcolor="#e0e0e0">New EDCS Enumerant Codes</th>
+<td valign="middle">
+<ul>
+<li>for <a href="dictionary/EAC_F.htm#EAC_FIGHTING_POSITION_TYPE">EAC_FIGHTING_POSITION_TYPE</a>:
+<ul>
+<li><a href="dictionary/EAC_F.htm#EEC_FIGHTINGPOSTY_ALTERNATE">EEC_FIGHTINGPOSTY_ALTERNATE</a>
+</li>
+<li><a href="dictionary/EAC_F.htm#EEC_FIGHTINGPOSTY_PRIMARY">EEC_FIGHTINGPOSTY_PRIMARY</a>
+</li>
+<li><a href="dictionary/EAC_F.htm#EEC_FIGHTINGPOSTY_SUPPLEMENTARY">EEC_FIGHTINGPOSTY_SUPPLEMENTARY</a>
+<br /><br /></li>
+</ul>
+</li>
+
+<li>for <a href="dictionary/EAC_R.htm#EAC_RAILING_TYPE">EAC_RAILING_TYPE</a>:
+<ul>
+<li><a href="dictionary/EAC_R.htm#EEC_RAILINGTY_ESCALATOR_HANDRAIL">EEC_RAILINGTY_ESCALATOR_HANDRAIL</a>
+<br /><br /></li>
+</ul>
+</li>
+
+<li>for <a href="dictionary/EAC_S.htm#EAC_SECURITY_SYSTEM_TYPE">EAC_SECURITY_SYSTEM_TYPE</a>:
+<ul>
+<li><a href="dictionary/EAC_S.htm#EEC_SECUSYSTY_ALARM_SCREEN">EEC_SECUSYSTY_ALARM_SCREEN</a>
+</li>
+<li><a href="dictionary/EAC_S.htm#EEC_SECUSYSTY_AUDIO_DETECTOR">EEC_SECUSYSTY_AUDIO_DETECTOR</a>
+</li>
+<li><a href="dictionary/EAC_S.htm#EEC_SECUSYSTY_DOOR_SWITCH">EEC_SECUSYSTY_DOOR_SWITCH</a>
+</li>
+<li><a href="dictionary/EAC_S.htm#EEC_SECUSYSTY_MOTION_SENSOR">EEC_SECUSYSTY_MOTION_SENSOR</a>
+</li>
+<li><a href="dictionary/EAC_S.htm#EEC_SECUSYSTY_PRESSURE_PAD">EEC_SECUSYSTY_PRESSURE_PAD</a>
+</li>
+<li><a href="dictionary/EAC_S.htm#EEC_SECUSYSTY_VIBRATION_SENSOR">EEC_SECUSYSTY_VIBRATION_SENSOR</a>
+</li>
+<li><a href="dictionary/EAC_S.htm#EEC_SECUSYSTY_WINDOW_FOIL">EEC_SECUSYSTY_WINDOW_FOIL</a>
+<br /><br /></li>
+</ul>
+</li>
+
+<li>for <a href="dictionary/EAC_T.htm#EAC_TERRAIN_OBSTACLE_TYPE">EAC_TERRAIN_OBSTACLE_TYPE</a>:
+<ul>
+<li><a href="dictionary/EAC_T.htm#EEC_TEROBSTTY_FORTIFICATION_WALL">EEC_TEROBSTTY_FORTIFICATION_WALL</a>
+<br /><br /></li>
+</ul>
+</li>
+
+<li>for <a href="dictionary/EAC_W.htm#EAC_WALL_CONSTRUCTION_TYPE">EAC_WALL_CONSTRUCTION_TYPE</a>:
+<ul>
+<li><a href="dictionary/EAC_W.htm#EEC_WALLCNSTCTTY_CONCRETE">EEC_WALLCNSTCTTY_CONCRETE</a>
+</li>
+<li><a href="dictionary/EAC_W.htm#EEC_WALLCNSTCTTY_GLASS">EEC_WALLCNSTCTTY_GLASS</a>
+</li>
+<li><a href="dictionary/EAC_W.htm#EEC_WALLCNSTCTTY_GYPSUM_ON_METAL">EEC_WALLCNSTCTTY_GYPSUM_ON_METAL</a>
+</li>
+<li><a href="dictionary/EAC_W.htm#EEC_WALLCNSTCTTY_GYPSUM_ON_WOOD">EEC_WALLCNSTCTTY_GYPSUM_ON_WOOD</a>
+</li>
+<li><a href="dictionary/EAC_W.htm#EEC_WALLCNSTCTTY_HOLLOW_CONCRETE_BLOCK">EEC_WALLCNSTCTTY_HOLLOW_CONCRETE_BLOCK</a>
+</li>
+<li><a href="dictionary/EAC_W.htm#EEC_WALLCNSTCTTY_HOLLOW_FIRED_CLAY_BLOCK">EEC_WALLCNSTCTTY_HOLLOW_FIRED_CLAY_BLOCK</a>
+</li>
+<li><a href="dictionary/EAC_W.htm#EEC_WALLCNSTCTTY_LATH_PLASTER">EEC_WALLCNSTCTTY_LATH_PLASTER</a>
+</li>
+<li><a href="dictionary/EAC_W.htm#EEC_WALLCNSTCTTY_MASONRY">EEC_WALLCNSTCTTY_MASONRY</a>
+</li>
+<li><a href="dictionary/EAC_W.htm#EEC_WALLCNSTCTTY_PREFABRICATED_CONCRETE_TILT_UP">EEC_WALLCNSTCTTY_PREFABRICATED_CONCRETE_TILT_UP</a>
+</li>
+<li><a href="dictionary/EAC_W.htm#EEC_WALLCNSTCTTY_REINFORCED_CONCRETE">EEC_WALLCNSTCTTY_REINFORCED_CONCRETE</a>
+</li>
+<li><a href="dictionary/EAC_W.htm#EEC_WALLCNSTCTTY_SANDBAGS">EEC_WALLCNSTCTTY_SANDBAGS</a>
+</li>
+<li><a href="dictionary/EAC_W.htm#EEC_WALLCNSTCTTY_WOOD_PRODUCT">EEC_WALLCNSTCTTY_WOOD_PRODUCT</a>
+</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+<p>
+Return to: <a href="#top">Top</a>
+</p></blockquote>
+
+<h3><a name="bugs" id="bugs">Bug Reports and Feedback</a></h3>
+<blockquote><p>
+Questions, comments, and bug reports should be sent to
+<a href="mailto:help@sedris.org">help@sedris.org</a>.
+</p><p>
+If you are an associate, please send email to
+<a href="mailto:se-coders@sedris.org">se-coders@sedris.org</a>.
+</p><p>
+Return to: <a href="#top">Top</a>
+</p></blockquote>
+
+<h3><a name="webpages" id="webpages">Web Pages</a></h3>
+<blockquote><p>
+These links require Internet access.
+</p>
+<ul>
+<li><a href="http://www.sedris.org/">SEDRIS (www.sedris.org)</a>
+</li>
+<li><a href="http://tools.sedris.org/">SEDRIS Tools</a>
+</li>
+<li><a href="http://www.sedris.org/pro_trpl.htm">SEDRIS Documents</a>
+</li>
+</ul>
+<p>
+Return to: <a href="#top">Top</a>
+</p></blockquote>
+
+<p>
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</p>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE_DRM_Status_Code</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX C - Types
+</font>
+<br>
+<font color="#ffffff">
+SE_DRM_Status_Code
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<PRE>
+/*
+ * REGISTERABLE ENUM: SE_DRM_Status_Code
+ *
+ *   This data type is used to specify error conditions for all
+ *   DRM functions that can fail and that retrieve meta-data for
+ *   DRM types and classes.
+ */
+</PRE><span class="Code">
+typedef <a href="SE_Short_Integer.htm">SE_Short_Integer</a> SE_DRM_Status_Code;
+</span>
+<table>
+<tr><th>Enumerant</th> <th>Definition</th> <th>Value</th></tr>
+<tr><td class="CFunction"><a name="SE_DRM_STAT_CODE_SUCCESS">SE_DRM_STAT_CODE_SUCCESS</a></td>
+<td class="CFunction"><PRE>
+ All parameters were valid.
+</PRE></td>
+<td class="CFunction">1</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_DRM_STAT_CODE_INVALID_CLASS">SE_DRM_STAT_CODE_INVALID_CLASS</a></td>
+<td class="CFunction"><PRE>
+ An invalid class was specified
+ (e.g., an out-of-range CLASS was used)
+</PRE></td>
+<td class="CFunction">2</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_DRM_STAT_CODE_INVALID_CLASS_FIELD">SE_DRM_STAT_CODE_INVALID_CLASS_FIELD</a></td>
+<td class="CFunction"><PRE>
+ A non-existent field was specified for a class.
+</PRE></td>
+<td class="CFunction">3</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_DRM_STAT_CODE_INVALID_DEST_COLOUR_MODEL">SE_DRM_STAT_CODE_INVALID_DEST_COLOUR_MODEL</a></td>
+<td class="CFunction"><PRE>
+ An invalid colour model was specified as the target
+ for a colour conversion.
+</PRE></td>
+<td class="CFunction">4</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_DRM_STAT_CODE_INVALID_ENUMERANT">SE_DRM_STAT_CODE_INVALID_ENUMERANT</a></td>
+<td class="CFunction"><PRE>
+ An invalid enumerant was specified for an enumerated type.
+</PRE></td>
+<td class="CFunction">5</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_DRM_STAT_CODE_INVALID_SOURCE_COLOUR">SE_DRM_STAT_CODE_INVALID_SOURCE_COLOUR</a></td>
+<td class="CFunction"><PRE>
+ An invalid colour was specified as an input parameter.
+</PRE></td>
+<td class="CFunction">6</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_DRM_STAT_CODE_INVALID_TYPE">SE_DRM_STAT_CODE_INVALID_TYPE</a></td>
+<td class="CFunction"><PRE>
+ An invalid type was specified
+ (e.g., an out-of-range TYPE was used)
+</PRE></td>
+<td class="CFunction">7</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_DRM_STAT_CODE_INVALID_TYPE_CLASSIFICATION">SE_DRM_STAT_CODE_INVALID_TYPE_CLASSIFICATION</a></td>
+<td class="CFunction"><PRE>
+ The type specified had an invalid type classification
+ for the requested operation
+</PRE></td>
+<td class="CFunction">8</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_DRM_STAT_CODE_INVALID_TYPE_FIELD">SE_DRM_STAT_CODE_INVALID_TYPE_FIELD</a></td>
+<td class="CFunction"><PRE>
+ A non-existent field was specified for a type
+</PRE></td>
+<td class="CFunction">9</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_DRM_STAT_CODE_INVALID_VERSION">SE_DRM_STAT_CODE_INVALID_VERSION</a></td>
+<td class="CFunction"><PRE>
+ The specified DRM version was invalid
+</PRE></td>
+<td class="CFunction">10</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_DRM_STAT_CODE_NULL_REQUIRED_PARAMETER">SE_DRM_STAT_CODE_NULL_REQUIRED_PARAMETER</a></td>
+<td class="CFunction"><PRE>
+ A required pointer argument was NULL
+</PRE></td>
+<td class="CFunction">11</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_DRM_STAT_CODE_FAILURE">SE_DRM_STAT_CODE_FAILURE</a></td>
+<td class="CFunction"><PRE>
+ A failure condition occurred which was not covered
+ by the above status codes
+</PRE></td>
+<td class="CFunction">12</td>
+</TR>
+</table>
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SE_DRM_Field_Structure.htm">SE_DRM_Field_Structure</a>.
+<strong>Next:</strong> <a href="SE_DRM_Type.htm">SE_DRM_Type</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

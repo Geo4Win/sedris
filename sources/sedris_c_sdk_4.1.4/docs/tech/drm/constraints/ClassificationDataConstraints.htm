@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Classification Data Constraints</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX B - Constraints
+</font>
+<br>
+<font color="#ffffff">
+Classification Data Constraints
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h3>Definition</h3>
+<OL type='a'>
+<LI><P>
+ For a <A href="../classes/UnionOfFeatures.htm">&lt;Union Of Features&gt;</A> instance <span class="ConstructName">F</span>:
+</P>
+<OL type='1'>
+<LI><P>
+ If <span class="ConstructName">F</span> has a directly attached
+ <A href="../classes/ClassificationData.htm">&lt;Classification Data&gt;</A> component,
+ the <A href="../classes/UnionOfFeatures.htm#union_reason">union_reason</A>
+ field of <span class="ConstructName">F</span> shall not have value
+ <A href="../types/SE_Union_Reason.htm#SE_UNIONREAS_OTHER">SE_UNIONREAS_OTHER</A>.
+</P></LI>
+<LI><P>
+ If <span class="ConstructName">F</span> has an inherited
+ <A href="../classes/ClassificationData.htm">&lt;Classification Data&gt;</A> component,
+ the <A href="../classes/UnionOfFeatures.htm#union_reason">union_reason</A>
+ field of <span class="ConstructName">F</span> shall not have value
+ <A href="../types/SE_Union_Reason.htm#SE_UNIONREAS_OTHER">SE_UNIONREAS_OTHER</A>.
+</P></LI>
+<LI><P>
+ Otherwise, the <A href="../classes/UnionOfFeatures.htm#union_reason">union_reason</A>
+ field of <span class="ConstructName">F</span> shall have value
+ <A href="../types/SE_Union_Reason.htm#SE_UNIONREAS_OTHER">SE_UNIONREAS_OTHER</A>.
+</P></LI>
+</OL>
+</LI>
+<LI><P>
+ For a <A href="../classes/UnionOfGeometry.htm">&lt;Union Of Geometry&gt;</A> instance <span class="ConstructName">G</span>:
+</P>
+<OL type='1'>
+<LI><P>
+ If <span class="ConstructName">G</span> has a directly attached
+ <A href="../classes/ClassificationData.htm">&lt;Classification Data&gt;</A> component,
+ the <A href="../classes/UnionOfGeometry.htm#union_reason">union_reason</A>
+ field of <span class="ConstructName">G</span> shall not have value
+ <A href="../types/SE_Union_Reason.htm#SE_UNIONREAS_OTHER">SE_UNIONREAS_OTHER</A>.
+</P></LI>
+<LI><P>
+ If <span class="ConstructName">G</span> has an inherited
+ <A href="../classes/ClassificationData.htm">&lt;Classification Data&gt;</A> component,
+ the <A href="../classes/UnionOfGeometry.htm#union_reason">union_reason</A>
+ field of <span class="ConstructName">G</span> shall not have value
+ <A href="../types/SE_Union_Reason.htm#SE_UNIONREAS_OTHER">SE_UNIONREAS_OTHER</A>.
+</P></LI>
+<LI><P>
+ Otherwise, the
+ <A href="../classes/UnionOfGeometry.htm#union_reason">union_reason</A>
+ field of <span class="ConstructName">G</span> shall have value
+ <A href="../types/SE_Union_Reason.htm#SE_UNIONREAS_OTHER">SE_UNIONREAS_OTHER</A>.
+</P></LI>
+</OL>
+</LI>
+</OL>
+
+<h3>Rationale</h3>
+ The only permitted cases are those where a
+ <A href="../classes/ClassificationData.htm">&lt;Classification Data&gt;</A> instance
+ is present to indicate either the
+ <A href="../types/SE_Union_Reason.htm#SE_UNIONREAS_CLASSIFIED_OBJECT">SE_UNIONREAS_CLASSIFIED_OBJECT</A> or
+<A href="../types/SE_Union_Reason.htm#SE_UNIONREAS_COLLECTION_OF_CLASSIFIED_OBJECTS">SE_UNIONREAS_COLLECTION_OF_CLASSIFIED_OBJECTS</A>
+ cases, or where no
+ <A href="../classes/ClassificationData.htm">&lt;Classification Data&gt;</A> instance is present
+ and the union is there for some
+ non-semantic/non-environmental-object related reason.
+<h3>Example</h3>
+<OL>
+<LI><P>
+ Consider a <A href="../classes/UnionOfFeatures.htm">&lt;Union Of Features&gt;</A> instance <span class="ConstructName">F</span>
+ that is a component of a <A href="../classes/ClassificationRelatedFeatures.htm">&lt;Classification Related Features&gt;</A>
+ instance. The
+ <A href="../classes/UnionOfFeatures.htm#union_reason">union_reason</A> field
+ value of <span class="ConstructName">F</span> cannot be
+ <A href="../types/SE_Union_Reason.htm#SE_UNIONREAS_OTHER">SE_UNIONREAS_OTHER</A>,
+ because <span class="ConstructName">F</span> inherits the
+ <A href="../classes/ClassificationData.htm">&lt;Classification Data&gt;</A> link object of its branch.
+</P></LI>
+<LI><P>
+ Consider a <A href="../classes/UnionOfGeometryHierarchy.htm">&lt;Union Of Geometry Hierarchy&gt;</A> instance
+ <span class="ConstructName">UGH</span> with
+ <A href="../classes/UnionOfGeometryHierarchy.htm#union_reason">union_reason</A> =
+ <A href="../types/SE_Union_Reason.htm#SE_UNIONREAS_COLLECTION_OF_CLASSIFIED_OBJECTS">SE_UNIONREAS_COLLECTION_OF_CLASSIFIED_OBJECTS</A>,
+ with a <A href="../classes/UnionOfPrimitiveGeometry.htm">&lt;Union Of Primitive Geometry&gt;</A> component
+ <span class="ConstructName">UPG</span>. The
+ <A href="../classes/UnionOfPrimitiveGeometry.htm#union_reason">union_reason</A>
+ field value of <span class="ConstructName">UPG</span> cannot be
+ <A href="../types/SE_Union_Reason.htm#SE_UNIONREAS_OTHER">SE_UNIONREAS_OTHER</A>, because
+ <span class="ConstructName">UPG</span> inherits the
+ <A href="../classes/ClassificationData.htm">&lt;Classification Data&gt;</A> component of <span class="ConstructName">UGH</span>.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<p>
+No FAQs supplied.
+</p>
+
+<hr>
+<strong>Prev:</strong> <A href="CharacteristicsOfPropertyTableReference.htm">Characteristics Of Property Table Reference</A>.
+<strong>Next:</strong> <A href="ColourMappingConstraints.htm">Colour Mapping Constraints</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

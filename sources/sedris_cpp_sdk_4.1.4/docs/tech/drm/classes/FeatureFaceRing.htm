@@ -1,0 +1,163 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Feature Face Ring</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Feature Face Ring
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Feature Face Ring</h2>
+<h3>Superclass - <a href="SEDRISAbstractBase.htm">&lt;SEDRIS Abstract Base&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies the one-directional
+ topological relationship from a
+ <A href="FeatureFace.htm">&lt;Feature Face&gt;</A> instance to the ordered
+ collection of one or more
+ <A href="FeatureEdge.htm">&lt;Feature Edge&gt;</A> instances that
+ define one of its boundaries (outer or inner).
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet12.pdf"><strong>12</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+This class appears on only one page of the DRM class diagram.
+<h3>Example</h3>
+<OL>
+<LI><P>
+ Consider an <A href="ArealFeature.htm">&lt;Areal Feature&gt;</A> instance <span class="ConstructName">L</span>
+ representing an environmental object classified as <A href="../../../../src/lib/edcs/docs/dictionary/ECC_L.htm#ECC_LAKE">ECC_LAKE</A>.
+ The topology of <span class="ConstructName">L</span> is represented by a
+ regular <A href="FeatureFace.htm">&lt;Feature Face&gt;</A> instance, the
+ outer boundary of which is defined by two
+ <A href="FeatureEdge.htm">&lt;Feature Edge&gt;</A> instances, one defining
+ the north shore of the lake, the other
+ defining the south shore.
+</P><P>
+ To indicate that these two <A href="FeatureEdge.htm">&lt;Feature Edge&gt;</A>
+ instances define the outer boundary of the lake,
+ each is a component of an external <A href="FeatureFaceRing.htm">&lt;Feature Face Ring&gt;</A>
+ instance through an <A href="EdgeDirection.htm">&lt;Edge Direction&gt;</A> link object
+ that indicates its orientation with respect to the
+ <A href="FeatureFaceRing.htm">&lt;Feature Face Ring&gt;</A> instance.
+ The <A href="FeatureFaceRing.htm">&lt;Feature Face Ring&gt;</A> instance is in turn a component
+ of the <A href="FeatureFace.htm">&lt;Feature Face&gt;</A> instance specifying
+ the topology of L. These relationships are depicted in
+<a href="#Figure16">Figure 16</a>:
+</P>
+<DIV align="center">
+<p>
+<A name="Figure16"></A>
+<IMG SRC="../Images/FeatFaceRingEx1.png"
+     ALT="Feature Face Ring, Example 1">
+</p>
+<p class=FigureCaption>Figure 16 &#8212; &lt;DRM Feature Face Ring&gt; example</p>
+</DIV>
+</LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ When are <A href="FeatureFaceRing.htm">&lt;Feature Face Ring&gt;</A> instances
+ required?
+</B></DT>
+<DD><P>
+ All <A href="FeatureFace.htm">&lt;Feature Face&gt;</A> instances are required to
+ have at least one <A href="FeatureFaceRing.htm">&lt;Feature Face Ring&gt;</A>
+ component, regardless of feature topology level.  A
+ regular <A href="FeatureFace.htm">&lt;Feature Face&gt;</A> instance shall have a
+ <A href="FeatureFaceRing.htm">&lt;Feature Face Ring&gt;</A> component that
+ defines its outer boundary, and may have any number of
+ <A href="FeatureFaceRing.htm">&lt;Feature Face Ring&gt;</A> components
+ that define inner boundaries (that is, &quot;holes&quot;)
+ within the <A href="FeatureFace.htm">&lt;Feature Face&gt;</A> instance.  A
+ universal <A href="FeatureFace.htm">&lt;Feature Face&gt;</A> instance
+ has no
+ external <A href="FeatureFaceRing.htm">&lt;Feature Face Ring&gt;</A> component, but
+ will have one or more
+ internal <A href="FeatureFaceRing.htm">&lt;Feature Face Ring&gt;</A> components.
+</P></DD>
+<DT><B>
+ Can the same <A href="FeatureEdge.htm">&lt;Feature Edge&gt;</A> instance appear more
+ than once in the collection of <A href="FeatureEdge.htm">&lt;Feature Edge&gt;</A>
+ instances making up a
+ <A href="FeatureFaceRing.htm">&lt;Feature Face Ring&gt;</A> instance?
+</B></DT>
+<DD><P>
+ Yes.  A <A href="FeatureEdge.htm">&lt;Feature Edge&gt;</A> instance can appear up to
+ twice in a <A href="FeatureFaceRing.htm">&lt;Feature Face Ring&gt;</A> instance,
+ once with each orientation.
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/FaceRingEdgeConsistency.htm">&lt;&lt;Face Ring Edge Consistency&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Associated to (one-way)</h3>
+<UL>
+<li>one or more {ordered} <a href="FeatureEdge.htm">&lt;Feature Edge&gt;</a> instances, each through the use of an <a href="EdgeDirection.htm">&lt;Edge Direction&gt;</a> link object</li>
+</UL>
+
+<h3>Component of (two-way)</h3>
+<UL>
+<li>one <a href="FeatureFace.htm">&lt;Feature Face&gt;</a> instance</li>
+</UL>
+
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+
+<hr>
+<strong>Prev:</strong> <A href="FeatureFace.htm">Feature Face</A>.
+<strong>Next:</strong> <A href="FeatureHierarchy.htm">Feature Hierarchy</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

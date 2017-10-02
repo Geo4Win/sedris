@@ -1,0 +1,186 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Feature Node</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Feature Node
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Feature Node</h2>
+<h3>Superclass - <a href="FeatureTopology.htm">&lt;Feature Topology&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class is a zero-dimensional
+ <A href="FeatureTopology.htm">&lt;Feature Topology&gt;</A> instance specifying the location of a
+ <A href="PointFeature.htm">&lt;Point Feature&gt;</A> instance and/or an endpoint of one or more
+ <A href="FeatureEdge.htm">&lt;Feature Edge&gt;</A> instances.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet12.pdf"><strong>12</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet08.pdf"><strong>8</strong></A>
+</LI>
+</UL>
+
+<h3>Example</h3>
+<OL>
+<LI><P>
+ A single <A href="FeatureNode.htm">&lt;Feature Node&gt;</A> instance represents
+ the location of a small building.
+</P></LI>
+<LI><P>
+ The <A href="FeatureNode.htm">&lt;Feature Node&gt;</A> instance represents
+ the intersection of two roads.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ When are <A href="FeatureNode.htm">&lt;Feature Node&gt;</A> instances required?
+</B></DT>
+<DD><P>
+ <A href="FeatureNode.htm">&lt;Feature Node&gt;</A> instances are required
+ whenever either <A href="PointFeature.htm">&lt;Point Feature&gt;</A> or
+ <A href="FeatureEdge.htm">&lt;Feature Edge&gt;</A> instances are present, regardless
+ of the feature topology level.
+</P></DD>
+<DT><B>
+ Are there any geometric constraints on the
+ <A href="Location.htm">&lt;Location&gt;</A> component of a
+ <A href="FeatureNode.htm">&lt;Feature Node&gt;</A> instance?
+</B></DT>
+<DD><P>
+ Yes.  At all feature topology levels greater than zero, different
+ <A href="FeatureNode.htm">&lt;Feature Node&gt;</A> instances cannot share the same
+ <A href="Location.htm">&lt;Location&gt;</A> component.
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/PropertyConstraints.htm">&lt;&lt;Property Constraints&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ConstraintsOnAssociates.htm">&lt;&lt;Constraints On Associates&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ContainedNodeConstraints.htm">&lt;&lt;Contained Node Constraints&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ValidNodeEdgeRelationships.htm">&lt;&lt;Valid Node Edge Relationships&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Associated with (two-way)</h3>
+<UL>
+<li>zero or more <a href="FeatureEdge.htm">&lt;Feature Edge&gt;</a> instances, each through the use of an <a href="EdgeDirection.htm">&lt;Edge Direction&gt;</a> link object<sup><A href="#Notes_asn_biFeature_Edge" name="asn_biFeature_Edge">1</A></sup></li>
+<li>zero or one <a href="FeatureFace.htm">&lt;Feature Face&gt;</a> instance<sup><A href="#Notes_asn_biFeature_Face" name="asn_biFeature_Face">2</A></sup></li>
+<li>zero or more <a href="FeatureNode.htm">&lt;Feature Node&gt;</a> instances</li>
+<li>zero or one <a href="FeatureVolume.htm">&lt;Feature Volume&gt;</a> instance<sup><A href="#Notes_asn_biFeature_Volume" name="asn_biFeature_Volume">3</A></sup></li>
+<li>zero or more <a href="PointFeature.htm">&lt;Point Feature&gt;</a> instances</li>
+</UL>
+
+<h3>Composed of (two-way) (inherited)</h3>
+<UL>
+<li>zero or more <a href="PropertyValue.htm">&lt;Property Value&gt;</a> instances</li>
+</UL>
+<h3>Composed of (two-way)</h3>
+<UL>
+<li>one <a href="Location.htm">&lt;Location&gt;</a> instance</li>
+</UL>
+
+<h3>Component of (two-way) (inherited)</h3>
+<UL>
+<li>one or more <a href="UnionOfFeatureTopology.htm">&lt;Union Of Feature Topology&gt;</a> instances</li>
+</UL>
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<hr>
+<h2>Notes</h2>
+<h3>Associated with Notes</h3>
+<br>
+<h4><a href="#asn_biFeature_Edge" name="Notes_asn_biFeature_Edge">Feature_Edge</a></h4>
+ This relationship indicates the collection of
+ <A href="FeatureEdge.htm">&lt;Feature Edge&gt;</A> instances that are bounded by the
+ <A href="FeatureNode.htm">&lt;Feature Node&gt;</A> instance, if any. For each
+ <A href="FeatureEdge.htm">&lt;Feature Edge&gt;</A> instance associated with the
+ <A href="FeatureNode.htm">&lt;Feature Node&gt;</A> instance through the use of
+ an <A href="EdgeDirection.htm">&lt;Edge Direction&gt;</A> link object with
+ a <A href="EdgeDirection.htm#forwards">forwards</A> field value of
+ <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A>, the <A href="FeatureNode.htm">&lt;Feature Node&gt;</A> instance
+ is the starting node of the <A href="FeatureEdge.htm">&lt;Feature Edge&gt;</A> instance. For
+ each <A href="FeatureEdge.htm">&lt;Feature Edge&gt;</A> instance associated with the
+ <A href="FeatureNode.htm">&lt;Feature Node&gt;</A> through the use of
+ an <A href="EdgeDirection.htm">&lt;Edge Direction&gt;</A> link object with
+ a <A href="EdgeDirection.htm#forwards">forwards</A> field value of
+ <A href="../types/SE_Boolean.htm#SE_FALSE">SE_FALSE</A>, the
+ <A href="FeatureNode.htm">&lt;Feature Node&gt;</A> instance is the ending node of the
+ <A href="FeatureEdge.htm">&lt;Feature Edge&gt;</A> instance.
+</P>
+<br>
+<h4><a href="#asn_biFeature_Face" name="Notes_asn_biFeature_Face">Feature_Face</a></h4>
+ This relationship indicates that the <A href="FeatureNode.htm">&lt;Feature Node&gt;</A>
+ instance is contained in the <A href="FeatureFace.htm">&lt;Feature Face&gt;</A>
+ instance.
+</P>
+<br>
+<h4><a href="#asn_biFeature_Volume" name="Notes_asn_biFeature_Volume">Feature_Volume</a></h4>
+ This relationship indicates that the <A href="FeatureNode.htm">&lt;Feature Node&gt;</A>
+ instance is contained in the <A href="FeatureVolume.htm">&lt;Feature Volume&gt;</A>
+ instance.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="FeatureModelInstance.htm">Feature Model Instance</A>.
+<strong>Next:</strong> <A href="FeatureRepresentation.htm">Feature Representation</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

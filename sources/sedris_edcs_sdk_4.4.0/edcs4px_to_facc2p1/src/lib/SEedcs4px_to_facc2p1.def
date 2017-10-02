@@ -1,0 +1,10 @@
+LIBRARY edcs4px_to_facc2p1
+EXPORTS
+EDCS_to_FACC_InitMappingInfo
+EDCS_to_FACC_ShutdownMappingInfo
+EDCS_to_FACC_MapClassificationCode
+EDCS_to_FACC_MapAttributeCode
+EDCS_to_FACC_MapAttributeWithValue
+EDCS_to_FACC_PrintMappingType
+EDCS_to_FACC_PrintFACCValueType
+EDCS_to_FACC_GetLibVersion

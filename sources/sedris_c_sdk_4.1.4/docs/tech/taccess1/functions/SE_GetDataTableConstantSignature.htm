@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE GetDataTableConstantSignature</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX B - Transmittal Access Level 1 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+SE GetDataTableConstantSignature
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../../taccess0/types/SE_Status_Code.htm">SE_Status_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SE_GetDataTableConstantSignature</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../../taccess0/types/SE_Object.htm">SE_Object</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"> </td><td class="CFunction"><a name="data_table"></a>data_table,</td><td class="CFunction"><sup><A href="#Notes_data_table">1</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../../drm/types/SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction">*</td><td class="CFunction"><a name="constant_element_count_out_ptr"></a>constant_element_count_out_ptr,</td><td class="CFunction"><sup><A href="#Notes_constant_element_count_out_ptr">2</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../../drm/classes/TablePropertyDescription.htm">SE_Table_Property_Description_Fields</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction">*</td><td class="CFunction"><a name="prop_array_out_ptr"></a>prop_array_out_ptr,</td><td class="CFunction"><sup><A href="#Notes_prop_array_out_ptr">3</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../../../../src/lib/edcs/docs/types/EDCS_Attribute_Value.htm">EDCS_Attribute_Value</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction">*</td><td class="CFunction"><a name="constant_value_array_out_ptr"></a>constant_value_array_out_ptr</td><td class="CFunction"><sup><A href="#Notes_constant_value_array_out_ptr">4</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+  Retrieves the <A href="../../drm/classes/TablePropertyDescription.htm">&lt;Table Property Description&gt;</A> components
+  of the <A href="../../drm/classes/DataTable.htm">&lt;Data Table&gt;</A> instance that are
+  of constant value throughout the table, calculates the
+  constant_element_count, and retrieves the arrays used to specify the
+  constant <A href="../../drm/classes/PropertyCharacteristic.htm">&lt;Property Characteristic&gt;</A> instances.
+</P><P>
+  Memory allocated by this function should be freed via
+  <A href="SE_FreeDataTableConstantSignature.htm">SE_FreeDataTableConstantSignature()</A>.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../../taccess0/types/SE_Status_Code.htm#SE_STATCODE_SUCCESS">SE_STATCODE_SUCCESS</A>
+</td><td class="Status">
+ and the output parameters are allocated and set to the appropriate
+ values, if valid parameters were passed in and all operations succeed.
+</td></tr>
+<tr><td class="Status">
+<A href="../../taccess0/types/SE_Status_Code.htm#SE_STATCODE_UNRESOLVED_INPUT_OBJECT">SE_STATCODE_UNRESOLVED_INPUT_OBJECT</A>
+</td><td class="Status">
+ and no changes are made, if <A href="#data_table">data_table</A>
+ is an unresolved DRM object.
+</td></tr>
+<tr><td class="Status">
+<A href="../../taccess0/types/SE_Status_Code.htm#SE_STATCODE_UNRESOLVED_OUTPUT_OBJECT">SE_STATCODE_UNRESOLVED_OUTPUT_OBJECT</A>
+</td><td class="Status">
+ and no changes are made, if an unresolved object was encountered and
+ could not be resolved.
+</td></tr>
+<tr><td class="Status">
+<A href="../../taccess0/types/SE_Status_Code.htm#SE_STATCODE_NO_OBJECT">SE_STATCODE_NO_OBJECT</A>
+</td><td class="Status">
+ and no changes are made, if the <A href="../../drm/classes/DataTable.htm">&lt;Data Table&gt;</A> has no
+ <A href="../../drm/classes/TablePropertyDescription.htm">&lt;Table Property Description&gt;</A> components of constant value.
+</td></tr>
+<tr><td class="Status">
+<A href="../../taccess0/types/SE_Status_Code.htm#SE_STATCODE_INACTIONABLE_FAILURE">SE_STATCODE_INACTIONABLE_FAILURE</A>
+</td><td class="Status">
+ and no changes are made, if
+<OL>
+<LI>an invalid <A href="../../drm/classes/TablePropertyDescription.htm">&lt;Table Property Description&gt;</A>
+ or <A href="../../drm/classes/PropertyCharacteristic.htm">&lt;Property Characteristic&gt;</A> is encountered, or
+</LI>
+<LI> the call fails for any other reason.
+</LI>
+</OL>
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#data_table" name="Notes_data_table">1</a></sup>
+ the &lt;Data Table&gt; whose signature is being retrieved
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#constant_element_count_out_ptr" name="Notes_constant_element_count_out_ptr">2</a></sup>
+ pointer to a variable in the user's
+    memory space, which is set to the number of constant_elements per
+    cell (and which is also the size of the arrays that follow)
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#prop_array_out_ptr" name="Notes_prop_array_out_ptr">3</a></sup>
+ pointer to an array of constant_element_count
+    &lt;Table Property Description&gt; fields, one for each constant element
+    of a table
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#constant_value_array_out_ptr" name="Notes_constant_value_array_out_ptr">4</a></sup>
+ pointer to an array of
+    constant_element_count &lt;Property Characteristic&gt; values
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SE_FreeDataTableSubExtent.htm">SE_FreeDataTableSubExtent</a>.
+<strong>Next:</strong> <a href="SE_GetDataTableSignature.htm">SE_GetDataTableSignature</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE_Long_Float_Value</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX C - Types
+</font>
+<br>
+<font color="#ffffff">
+SE_Long_Float_Value
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<PRE>
+/*
+ * STRUCT: SE_Long_Float_Value
+ *
+ *  Used to store single and interval values using the
+ *   EDCS_Long_Float type.
+ */
+</PRE>
+<span class="Code">typedef struct 
+<br>
+{</span>
+<br>
+<table class="CFunctionPrototype">
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../../../src/lib/edcs/docs/types/EDCS_Numeric_Value_Type.htm">EDCS_Numeric_Value_Type</a></td>
+        <td class="CFunction"><a
+        name="numeric_value_type"></a>numeric_value_type;</td></tr>
+<tr> <td class="CFunction">   </td><td class="CFunction">union</td></tr>
+<tr> <td class="CFunction">   </td><td class="CFunction">{</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../../../../src/lib/edcs/docs/types/EDCS_Long_Float.htm">EDCS_Long_Float</a></td>
+            <td class="CFunction"><a name="single_value"></a>single_value;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../../../../src/lib/edcs/docs/types/EDCS_Long_Float_Interval.htm">EDCS_Long_Float_Interval</a></td>
+            <td class="CFunction"><a
+            name="open_interval"></a>open_interval;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../../../../src/lib/edcs/docs/types/EDCS_Long_Float_Interval.htm">EDCS_Long_Float_Interval</a></td>
+            <td class="CFunction"><a
+            name="ge_lt_interval"></a>ge_lt_interval;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../../../../src/lib/edcs/docs/types/EDCS_Long_Float_Interval.htm">EDCS_Long_Float_Interval</a></td>
+            <td class="CFunction"><a
+            name="gt_le_interval"></a>gt_le_interval;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../../../../src/lib/edcs/docs/types/EDCS_Long_Float_Interval.htm">EDCS_Long_Float_Interval</a></td>
+            <td class="CFunction"><a
+            name="closed_interval"></a>closed_interval;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../../../../src/lib/edcs/docs/types/EDCS_Long_Float.htm">EDCS_Long_Float</a></td>
+            <td class="CFunction"><a
+            name="gt_semi_interval"></a>gt_semi_interval;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../../../../src/lib/edcs/docs/types/EDCS_Long_Float.htm">EDCS_Long_Float</a></td>
+            <td class="CFunction"><a
+            name="ge_semi_interval"></a>ge_semi_interval;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../../../../src/lib/edcs/docs/types/EDCS_Long_Float.htm">EDCS_Long_Float</a></td>
+            <td class="CFunction"><a
+            name="lt_semi_interval"></a>lt_semi_interval;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../../../../src/lib/edcs/docs/types/EDCS_Long_Float.htm">EDCS_Long_Float</a></td>
+            <td class="CFunction"><a
+            name="le_semi_interval"></a>le_semi_interval;</td></tr>
+<tr><td class="CFunction"></td> <td class="CFunction">} <a
+        name="value"></a>value;</td></tr>
+</table>
+<span class="Code">
+} SE_Long_Float_Value;</span>
+<br>
+
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SE_Long_Float_Interval_Value.htm">SE_Long_Float_Interval_Value</a>.
+<strong>Next:</strong> <a href="SE_LSR_Transformation_Axis.htm">SE_LSR_Transformation_Axis</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

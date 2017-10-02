@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>EDCS Use Summary Item</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+EDCS Use Summary Item
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: EDCS Use Summary Item</h2>
+<h3>Superclass - <a href="SEDRISAbstractBase.htm">&lt;SEDRIS Abstract Base&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ Within the scope being summarized, an instance of this DRM class
+ can specify either an ECC with an optional set of EACs, or just
+ an individual EAC.
+</P><P>
+ The <A href="ClassificationData.htm">&lt;Classification Data&gt;</A> instance,
+ which may be qualified by <A href="PropertyValue.htm">&lt;Property Value&gt;</A>
+ instances, represents the (potentially qualified) classification being
+ described, if any.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet20.pdf"><strong>20</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+This class appears on only one page of the DRM class diagram.
+<h3>Example</h3>
+<OL>
+<LI><P>
+ A transmittal containing two different <A href="Model.htm">&lt;Model&gt;</A> instances,
+ one classified using <A href="../../../../src/lib/edcs/docs/dictionary/ECC_T.htm#ECC_TREED_TRACT">ECC_TREED_TRACT</A> with
+ <A href="PropertyValue.htm">&lt;Property Value&gt;</A> components and the other classified using
+ <A href="../../../../src/lib/edcs/docs/dictionary/ECC_R.htm#ECC_RESERVOIR">ECC_RESERVOIR</A> with <A href="PropertyValue.htm">&lt;Property Value&gt;</A> components
+ as depicted in <a href="#Figure15">Figure 15</a>:
+</P>
+<DIV align="center">
+<p>
+<A name="Figure15"></A>
+<IMG SRC="../Images/EUSI_Ex1.png" ALT="EDCS Use Summary Item, Example 1">
+</p>
+<p class=FigureCaption>Figure 15 &#8212; &lt;DRM EDCS Use Summary Item&gt; example</p>
+</DIV>
+</LI>
+</OL>
+
+<h3>FAQs</h3>
+<p>
+No FAQs supplied.
+</p>
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Composed of (two-way)</h3>
+<UL>
+<li>zero or one <a href="ClassificationData.htm">&lt;Classification Data&gt;</a> instance</li>
+<li>zero or more <a href="PropertyDescription.htm">&lt;Property Description&gt;</a> instances</li>
+</UL>
+
+<h3>Component of (two-way)</h3>
+<UL>
+<li>zero or more <a href="BaseSummaryItem.htm">&lt;Base Summary Item&gt;</a> instances</li>
+<li>zero or one <a href="TransmittalSummary.htm">&lt;Transmittal Summary&gt;</a> instance</li>
+</UL>
+
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_String.htm">SE_String</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="description">description</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_description">1</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Fields Notes</h3>
+<h4><a href="#description" name="Notes_description">description</a></h4>
+<P>
+ The <A href="#description">description</A>
+ specifies an abstract, human-readable description of the
+ overall classification specified by the given instance.
+ The <A href="#description">description</A> may be empty.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="ECSurfaceLocation.htm">EC Surface Location</A>.
+<strong>Next:</strong> <A href="EdgeDirection.htm">Edge Direction</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

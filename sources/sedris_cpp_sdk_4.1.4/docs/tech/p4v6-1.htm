@@ -1,0 +1,437 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>P4V6 - Section 1</title>
+<META name="Author" CONTENT="SAIC">
+<link rel="stylesheet" type="text/css" href="../styles/SDK_SEDRIS.css">
+</head>
+<body>
+
+<a name="Top" id="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th class="doc_set_header">
+<big><big>
+Data Tables Technical Guide
+</big></big>
+<br />
+<font color="#ffffff">
+Section 1 - INTRODUCTION
+</font>
+</th></tr>
+</table>
+</div>
+
+<div class="CenterDiv">
+<table class="doc_set_toc">
+<tr>
+<th class="doc_set_toc_outline_number"><a name="11" id="11">1.1</a></th>
+<th class="doc_set_toc_outline_description">Overview</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"></th>
+<td class="doc_set_toc_outline_description"><p>
+This document is a technical guide that deals with the
+<a href="drm/classes/DataTable.htm">&lt;Data Table&gt;</a>
+mechanism in the SEDRIS DRM, as well as associated functions.
+</p><p>
+The SEDRIS DRM defines classes, class relationships, and constraints that
+specify various forms of data representation, including that used for
+tabular and gridded data. The specification of these relationships and
+constraints, however, does not in itself provide the insight needed to
+fully exploit these data representation capabilities. The intent of this
+technical guide is to provide that insight through a presentation of the
+background motivating the DRM design for
+<a href="drm/classes/DataTable.htm">&lt;Data Table&gt;</a>s and
+a discussion of the classes, their relationships, and the API functions
+used to create and extract these constructs, including examples.
+</p><p>
+Section 2, Background and Motivation, serves as an introduction to
+some of the concepts that motivate the various data table definitions.
+</p><p>
+Section 3, Data Representation Model Definitions, describes each of
+the classes related to
+<a href="drm/classes/DataTable.htm">&lt;Data Table&gt;</a> instances,
+including those related to the concrete subclasses
+<a href="drm/classes/PropertyTable.htm">&lt;Property Table&gt;</a> and
+<a href="drm/classes/PropertyGrid.htm">&lt;Property Grid&gt;</a>.
+These classes capture the information discussed in section 2.
+</p><p>
+Section 4, Putting It All Together, presents some examples of how
+instances of the DRM classes described in section 3 can be combined
+to represent
+<a href="drm/classes/PropertyTable.htm">&lt;Property Table&gt;</a>
+instances,
+<a href="drm/classes/PropertyGrid.htm">&lt;Property Grid&gt;</a>
+instances, and related information.
+</p><p>
+Section 5,
+<a href="drm/classes/FiniteElementMesh.htm">&lt;Finite Element Mesh&gt;</a>,
+describes the class that
+is specialized to represent finite element mesh data.
+</p><p>
+Section 6, Where To Go From Here, directs the reader to additional
+sources of information.
+</p></td></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="12" id="12">1.2</a></th>
+<th class="doc_set_toc_outline_description">Prerequisites</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"></th>
+<td class="doc_set_toc_outline_description"><p>
+It is recommended that the following documents from the SEDRIS
+Technology Documentation Set (<i>see</i> Section 1.2) be reviewed
+prior to reading this document.
+
+<ul>
+<li>Part 3: <i>SEDRIS Basics</i>
+<br /><br />
+</li>
+
+<li>Part 4, Volume 1: <i>Technical Overview</i>
+<br /><br />
+</li>
+
+<li>Part 4, Volume 2: <a href="drm/index.htm"><i>The SEDRIS Data Representation Model</i></a>
+<br /><br />
+</li>
+
+<li>Part 4, Volume 3: <a href="drm/p4v3.htm"><i>Examples of Using the Data Representation Model</i></a>
+<br /><br />
+</li>
+
+<li>Part 4, Volume 12: <a href="p4v12.htm"><i>Application Programmer's Interface Overview</i></a></li>
+</li>
+</UL>
+<p>
+Familiarity with UML notation, as used for the SEDRIS Data Representation
+Model, is assumed. References are made to Part 4, Volume 10,
+<i>Environmental Classification, Attribute, and State Coding Specification</i>,
+and Part 4, Volume 11, <i>Spatial Reference Model</i>, but only a working
+knowledge of the EDCS and SRM are assumed.
+</p><p>
+This technical guide is a supplement to
+<a href="drm/index.htm">Part 4, Volume 2,
+<i>The SEDRIS Data Representation Model</i></a>, and also to
+<a href="p4v12.htm">Part 4, Volume 12,
+<i>Application Programmer's Interface Overview</i></a>,
+so they should be read before reading this document. Reviewing
+<a href="drm/classes/DataTable.htm">&lt;Data Table&gt;</a>
+examples from Part 4, Volume 3,
+<i>Examples of Using the SEDRIS Data Representation Model</i> as a
+collateral source is also recommended.
+</p></td></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="13" id="13">1.3</a></th>
+<th class="doc_set_toc_outline_description">
+For Additional Information on SEDRIS
+</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"></th>
+<td class="doc_set_toc_outline_description"><p>
+This document is part of a larger set of overview and technical documents
+on SEDRIS, the Technology Documentation Set. The Technology Documentation
+Set describes the why, what, and how of SEDRIS.
+</p><p>
+The Technology Documentation Set, listed below, is available at the
+SEDRIS web site (<i><a href="http://www.sedris.org">www.sedris.org</a></i>).
+An overview of the contents of each &quot;part&quot; of the documentation
+set is provided in Part 1. A detailed description of the individual
+&quot;volumes&quot; contained in Part 4 is provided in Volume 1.
+</p>
+<ul>
+<li>Part 1: <i>Introduction to SEDRIS and the Technology Documentation Set</i>
+<br /><br />
+</li>
+
+<li>Part 2: <i>SEDRIS and The Synthetic Environment Domain</i>
+<br /><br />
+</li>
+
+<li>Part 3: <i>SEDRIS Basics</i>
+<br /><br />
+</li>
+
+<li>Part 4: <i>Technical Reference Set</i></li>
+
+<ul>
+<li>Volume 1: <i>Technical Overview</i></li>
+
+<li>Volume 2: <a href="drm/index.htm">
+              <i>The SEDRIS Data Representation Model</i></a>
+</li>
+
+<li>Volume 3: <a href="drm/p4v3.htm">
+              <i>Examples of Using the Data Representation Model</i></a>
+</li>
+
+<li>Volume 4: <a href="p4v4.htm"><i>Topology Technical Guide</i></a>
+</li>
+
+<li>Volume 5: <a href="p4v5.htm"><i>Control Link Technical Guide</i></li></a>
+
+<li>Volume 6: <i>Data Tables Technical Guide</i>
+              <font color="#ff0000">(This document)</font>
+</li>
+
+<li>Volume 8: <a href="p4v8.htm">
+              <i>Images and Colour Models Technical Guide</i></a>
+</li>
+
+<li>Volume 9: <a href="drm/p4v9.htm">
+              <i>Attribute Inheritance and Context Technical Guide</i></li></a>
+
+<li>Volume 10: <a href="../../src/lib/edcs/docs/edcs.htm">
+               <i>Environmental Data Coding Specification (EDCS)
+                  Reference Manual</i></a>
+</li>
+
+<li>Volume 11: <i><a href="../../src/lib/srm/docs/srm_ref_manual.htm">
+               SRM Reference Manual</a></i></li>
+
+<li>Volume 12: <a href="p4v12.htm">
+               <i>Application Programmer's Interface Overview</i></a>
+</li>
+
+<li>Volume 13: <a href="p4v13.htm">
+               <i>How to Extract Data from SEDRIS Transmittals</i></a>
+</li>
+
+<li>Volume 14: <a href="p4v14.htm">
+               <i>How to Produce SEDRIS Transmittals</i></a>
+</li>
+
+<li>Volume 15: <i>SEDRIS Transmittal Format Description</i></li>
+
+<li>Volume 16: <i>Guide to the Build Kit</i></li>
+
+<li>Volume 17: <a href="p4v17.htm"><i>SEDRIS Reference Manual</i></a>
+</li>
+
+<li>Volume 18: <i>Reference Implementation Listings</i></li>
+</UL>
+
+<br />
+
+<li>Part 5: <i>Tools and Utilities User's Guide Set</i></li>
+
+<ul>
+<li>Volume 1: <i>Browser User's Guide</i></li>
+
+<li>Volume 2: <a href="p5v2.htm"><i>Checker User's Guide</i></li></a>
+
+<li>Volume 3: <a href="p5v3.htm"><i>Depth User's Guide</i></li></a>
+
+<li>Volume 4: <i>Feature Viewer User's Guide</i></li>
+
+<li>Volume 5: <a href="p5v5.htm"><i>Model Viewer User's Guide</i></li></a>
+
+<li>Volume 6: <i>Netscape Plug-In User's Guide</i></li>
+
+<li>Volume 7: <i>Ocean Profile User's Guide</i></li>
+
+<li>Volume 8: <i>SEE-IT User's Guide</i></li>
+
+<li>Volume 9: <i>Side-By-Side Viewer User's Guide</i></li>
+
+<li>Volume 10: <i>Wind Map User's Guide</i></li>
+
+<li>Volume 11:
+    <i>API Implementations and Format Conversions User's Guide</i></li>
+</UL>
+
+<br />
+
+<li>Part 6: <i>Procedures and Processes Manual </i></li>
+</UL>
+</td></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="14" id="14">1.4</a></th>
+<th class="doc_set_toc_outline_description">Document Conventions and Notations</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"></th>
+<td class="doc_set_toc_outline_description"><p>
+Throughout the SEDRIS Technology Documentation Set, special conventions and
+notations are implemented in the written text of documents to distinguish
+between and add emphasis to various computer-related or SEDRIS-specific
+terms. The table below defines these conventions and notations.
+</p></td></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"></th>
+<td class="doc_set_toc_outline_description"><div class="CenterDiv">
+
+<table class="doc_set_convention">
+<tr>
+<th class="doc_set_convention_header_convention">
+CONVENTION
+</th>
+
+<th class="doc_set_convention_header_example">
+EXAMPLES
+</th>
+
+<th class="doc_set_convention_header_definition">
+DEFINITIONS
+</th>
+</tr>
+
+<tr>
+    <td class="doc_set_convention_data_convention">Reverse video</td>
+
+    <td class="doc_set_convention_data_example">
+    <table cellspacing="0" cellpadding="0" bgcolor="#000000">
+    <tr><td>
+    <font color="#000000">_</font><b><font color="#ffffff">Open</font></b>_
+    </td></tr>
+    </table>
+    </td>
+
+    <td class="doc_set_convention_data_definition">
+    window buttons/selections/choices/<i>etc</i>.</td>
+</tr>
+
+<tr>
+    <td class="doc_set_convention_data_convention" rowspan="2">
+    &lt;Key or Class&gt;</td>
+
+    <td class="doc_set_convention_data_example">
+    &lt;Shift&gt;
+    </td>
+
+    <td class="doc_set_convention_data_definition">
+    keys on the keyboard
+    </td>
+</tr>
+<tr>
+  <td class="doc_set_convention_data_example">
+  &lt;<a href="drm/classes/ColourData.htm">Colour Data</a>&gt;
+  </td>
+
+  <td class="doc_set_convention_data_definition">
+  SEDRIS DRM class names
+  </td>
+</tr>
+
+<tr>
+    <td class="doc_set_convention_data_convention" rowspan="3">
+<span class="Code">Courier font</span>
+</td>
+
+<td class="doc_set_convention_data_example">
+    <span class="Code">src/lib/api_impl/ ...</span>
+</td>
+
+<td class="doc_set_convention_data_definition">
+    directory, file, transmittal, library names
+</tr>
+<tr>
+  <td class="doc_set_convention_data_example">
+  <span class="Code">gmake env</span></td>
+  <td class="doc_set_convention_data_definition">
+  command line input</td>
+</tr>
+<tr>
+  <td class="doc_set_convention_data_example">
+  <span class="Code">&quot;false&quot;</span></td>
+
+  <td class="doc_set_convention_data_definition">
+  variable names, values, and coding examples</td>
+</td>
+</tr>
+
+<tr>
+<td class="doc_set_convention_data_convention" rowspan="4">
+    <i>italics</i></td>
+
+<td class="doc_set_convention_data_example">
+    <i>www.sedris.org</i>
+</td>
+    <td class="doc_set_convention_data_definition">
+    Internet addresses
+</td>
+</tr>
+
+<tr>
+<td class="doc_set_convention_data_example">
+    <i>gmake</i>
+</td>
+<td class="doc_set_convention_data_definition">
+    software, window, mode, function, option, <i>etc</i>. names
+</td>
+</tr>
+
+<tr>
+<td class="doc_set_convention_data_example">
+    Part 1: <i>Intro to</i>
+</td>
+
+<td class="doc_set_convention_data_definition">
+    document/section titles
+</td>
+</tr>
+
+<tr>
+<td class="doc_set_convention_data_example">
+  <i>not always</i>
+</td>
+
+<td class="doc_set_convention_data_definition">
+  for emphasis
+</td>
+</tr>
+
+<tr>
+  <td class="doc_set_convention_data_convention">
+  &quot;quotes&quot;</td>
+
+  <td class="doc_set_convention_data_example">
+  &quot;generic&quot;</td>
+
+  <td class="doc_set_convention_data_definition">
+  highlight or call attention to</td>
+</tr>
+</table>
+</div></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+
+<p>
+<hr>
+<font color="#ff0000">Return to:</font><a href="#Top">Top of this Page</a></b>,
+    <b><a href="p4v6.htm">Table of Contents</a></b>
+<br /><br />
+
+<div class="CenterDiv">
+<table class="doc_set_header">
+<tr><td>
+<table class="doc_set_header">
+<tr><td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td>
+</tr>
+</table>
+</td></tr>
+</table>
+</div>
+</body>
+</html>

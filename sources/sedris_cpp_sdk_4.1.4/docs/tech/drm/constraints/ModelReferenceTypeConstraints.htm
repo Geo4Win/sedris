@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Model Reference Type Constraints</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX B - Constraints
+</font>
+<br>
+<font color="#ffffff">
+Model Reference Type Constraints
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<h3>Definition</h3>
+<P>
+ The following constraints apply.
+</P>
+<OL type='a'>
+<LI><P>
+ If a <A href="../classes/Model.htm">&lt;Model&gt;</A> instance has
+ a <A href="../classes/Model.htm#model_reference_type">model_reference_type</A> field
+ value of <A href="../types/SE_Model_Reference_Type.htm#SE_MODREFTYP_ROOT">SE_MODREFTYP_ROOT</A> or
+ <A href="../types/SE_Model_Reference_Type.htm#SE_MODREFTYP_ROOT_AND_COMPONENT">SE_MODREFTYP_ROOT_AND_COMPONENT</A>,
+ the <A href="../classes/Model.htm#name">name</A> field value of the <A href="../classes/Model.htm">&lt;Model&gt;</A>
+ instance shall be unique among the <A href="../classes/Model.htm">&lt;Model&gt;</A> components of its
+ <A href="../classes/ModelLibrary.htm">&lt;Model Library&gt;</A> aggregate.
+</P></LI>
+<LI><P>
+ If a <A href="../classes/Model.htm">&lt;Model&gt;</A> instance <span class="ConstructName">M</span> has a
+ <A href="../classes/Model.htm#model_reference_type">model_reference_type</A> field
+ value of <A href="../types/SE_Model_Reference_Type.htm#SE_MODREFTYP_COMPONENT">SE_MODREFTYP_COMPONENT</A>,
+ the following also apply:
+</P>
+<OL type='1'>
+<LI><P>
+ Any <A href="../classes/GeometryModelInstance.htm">&lt;Geometry Model Instance&gt;</A> instance or
+ <A href="../classes/FeatureModelInstance.htm">&lt;Feature Model Instance&gt;</A> instance
+ referencing <span class="ConstructName">M</span> shall be in the scope
+ of another <A href="../classes/Model.htm">&lt;Model&gt;</A> instance,
+</P></LI>
+<LI><P>
+ the <A href="../classes/Model.htm#dynamic_model_processing">dynamic_model_processing</A>
+ flag of <span class="ConstructName">M</span> shall be <A href="../types/SE_Boolean.htm#SE_FALSE">SE_FALSE</A>.
+</P></LI>
+</OL>
+</LI>
+</OL>
+
+<h3>Rationale</h3>
+<OL>
+<LI><P>
+ The <A href="../classes/Model.htm#model_reference_type">model_reference_type</A>
+ of <A href="../classes/Model.htm">&lt;Model&gt;</A> indicates whether a given
+ instance can be instanced as a free-standing object, as a
+ component of another <A href="../classes/Model.htm">&lt;Model&gt;</A> instance, or both.
+</P></LI>
+<LI><P>
+ All potentially free-standing <A href="../classes/Model.htm">&lt;Model&gt;</A> instances
+ within the scope of
+ a given <A href="../classes/ModelLibrary.htm">&lt;Model Library&gt;</A> instance
+ are required to have unique names,
+ so that such <A href="../classes/Model.htm">&lt;Model&gt;</A> instances can be
+ unambiguously and easily identified.
+</P></LI>
+<LI><P>
+ A <A href="../classes/Model.htm">&lt;Model&gt;</A> instance that cannot be instanced as
+ a free-standing object can only be referenced within other
+ <A href="../classes/Model.htm">&lt;Model&gt;</A> instances.
+</P></LI>
+<LI><P>
+ The
+ <A href="../classes/Model.htm#dynamic_model_processing">dynamic_model_processing</A>
+ flag of
+ <A href="../classes/Model.htm">&lt;Model&gt;</A> is used only at the &quot;top&quot; level of
+ <A href="../classes/Model.htm">&lt;Model&gt;</A> data, that is, at the level
+ where a <A href="../classes/Model.htm">&lt;Model&gt;</A> instance represents a
+ free-standing object.
+</P></LI>
+</OL>
+<h3>Example</h3>
+<OL>
+<LI><P>
+ Consider a <A href="../classes/ModelLibrary.htm">&lt;Model Library&gt;</A> instance
+ ML that contains a <A href="../classes/Model.htm">&lt;Model&gt;</A> component with
+ <A href="../classes/Model.htm#name">name</A> set to &quot;plane&quot; and
+ <A href="../classes/Model.htm#model_reference_type">model_reference_type</A>
+ set to
+ <A href="../types/SE_Model_Reference_Type.htm#SE_MODREFTYP_ROOT">SE_MODREFTYP_ROOT</A>.
+ The name &quot;plane&quot; cannot be
+ used for any other <A href="../classes/Model.htm">&lt;Model&gt;</A> component of ML.
+</LI>
+</OL>
+
+<h3>FAQs</h3>
+<p>
+No FAQs supplied.
+</p>
+
+<hr>
+<strong>Prev:</strong> <A href="MandatoryMetadata.htm">Mandatory Metadata</A>.
+<strong>Next:</strong> <A href="ModelSRF.htm">Model SRF</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

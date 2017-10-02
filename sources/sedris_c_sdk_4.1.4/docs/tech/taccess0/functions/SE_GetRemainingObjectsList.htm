@@ -1,0 +1,174 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE GetRemainingObjectsList</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+SE GetRemainingObjectsList
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../types/SE_Return_Code.htm">SE_Return_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SE_GetRemainingObjectsList</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/SE_Iterator.htm">SE_Iterator</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="iterator"></a>iterator,</td><td class="CFunction"><sup><A href="#Notes_iterator">1</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/SE_Remaining_Objects_List.htm">SE_Remaining_Objects_List</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="remaining_objects_out_ptr"></a>remaining_objects_out_ptr</td><td class="CFunction"><sup><A href="#Notes_remaining_objects_out_ptr">2</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+ This function iterates over the remaining DRM objects available
+ through the iterator specified by
+<A href="#iterator">iterator</A>, returning all of
+ the remaining DRM objects at one time. Following this call, the
+ iterator is left such that no more DRM objects will be returned
+ by the iterator.
+</P><P>
+ The <A href="../types/SE_Remaining_Objects_List.htm#object_count">object_count</A>
+ field of the output parameter is set to the
+ number of DRM objects remaining in the iterator prior to the
+ call, and is the number of items in each of the other array
+ fields in the output record. The nth entry in the
+<A href="../types/SE_Remaining_Objects_List.htm#remaining_objects_list">remaining_objects_list</A>
+ and
+<A href="../types/SE_Remaining_Objects_List.htm#remaining_link_objects_list">remaining_link_objects_list</A>
+ arrays
+ correspond to the nth DRM object returned by the iterator and
+ its related link object, if one exists. The nth entry in the
+<A href="../types/SE_Remaining_Objects_List.htm#object_status_list">object_status_list</A>
+ and
+<A href="../types/SE_Remaining_Objects_List.htm#link_object_status_list">link_object_status_list</A>
+ arrays correspond
+  to the status codes indicating the results of the DRM object
+  retrieval for the nth DRM object.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A>
+</td><td class="Status">
+ and the remaining objects list is returned.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A>
+</td><td class="Status">
+ and the status code is set appropriately if the call failed.
+</td></tr>
+</table>
+
+<h3>Status Codes</h3>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A> is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_SUCCESS">SE_STATCODE_SUCCESS</A>
+</td><td class="Status">
+ set if valid parameters were passed in and the call was successful.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_DIFFERENT_TRANSMITTAL">SE_STATCODE_DIFFERENT_TRANSMITTAL</A>
+</td><td class="Status">
+ set if valid parameters were passed in, but one or more objects
+ encountered were contained in different transmittals than
+ <A href="#iterator">iterator</A>'s start object.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_NO_OBJECT">SE_STATCODE_NO_OBJECT</A>
+</td><td class="Status">
+ set if <A href="#iterator">iterator</A> is out of objects to return.
+</td></tr>
+</table>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A> is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_UNRESOLVED_OUTPUT_OBJECT">SE_STATCODE_UNRESOLVED_OUTPUT_OBJECT</A>
+</td><td class="Status">
+ set if valid parameters were passed in,
+ but one or more objects encountered were not resolved.
+</P>
+<table class="Status" border="0">
+<tr>
+<th>NOTE</th>
+<td class="Status"> Unresolved objects can be identified using calls to the function
+     <A href="SE_ObjectIsResolved.htm">SE_ObjectIsResolved()</A>.
+</td></tr>
+</table>
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_INACTIONABLE_FAILURE">SE_STATCODE_INACTIONABLE_FAILURE</A>
+</td><td class="Status">
+ set if
+<OL>
+ <LI> the iterator is not valid, or
+ <LI> the call fails for any other reason.
+</LI>
+</OL>
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#iterator" name="Notes_iterator">1</a></sup>
+ the iterator whose remaining objects are being requested.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#remaining_objects_out_ptr" name="Notes_remaining_objects_out_ptr">2</a></sup>
+ a pointer to a variable in the user's memory
+    space, into which the next object list will be copied.
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SE_GetRelationCounts.htm">SE_GetRelationCounts</a>.
+<strong>Next:</strong> <a href="SE_GetRemainingPackedHierarchiesList.htm">SE_GetRemainingPackedHierarchiesList</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

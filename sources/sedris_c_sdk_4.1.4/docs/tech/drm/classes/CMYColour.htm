@@ -1,0 +1,167 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>CMY Colour</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+CMY Colour
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: CMY Colour</h2>
+<h3>Superclass - <a href="ColourData.htm">&lt;Colour Data&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies the actual cyan, magenta, and
+ yellow data values for a colour defined within the CMY colour model.
+ These values shall be
+ in the range [0.0, 1.0].
+</P><P class=Note>
+NOTE&nbsp; 
+ The CMY colour model is closely related to the RGB colour
+ model. Cyan is the complement of red (cyan = 1.0 - red);
+ magenta, of green (magenta = 1.0 - green); and
+ yellow, of blue (yellow = 1.0 - blue)
+</p>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet14.pdf"><strong>14</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+This class appears on only one page of the DRM class diagram.
+<h3>Example</h3>
+<OL>
+<LI><P>
+ A <A href="CMYColour.htm">&lt;CMY Colour&gt;</A> instance representing pure black
+ has a <A href="#cmy_data">cmy_data</A> field with a value of
+ <A href="../types/SE_CMY_Data.htm#cyan">cyan</A> = 1.0,
+ <A href="../types/SE_CMY_Data.htm#magenta">magenta</A> = 1.0,
+ <A href="../types/SE_CMY_Data.htm#yellow">yellow</A> = 1.0.
+</P></LI>
+<LI><P>
+ A <A href="CMYColour.htm">&lt;CMY Colour&gt;</A> instance representing red
+ has a <A href="#cmy_data">cmy_data</A> field with a value of
+ <A href="../types/SE_CMY_Data.htm#cyan">cyan</A> = 0.0,
+ <A href="../types/SE_CMY_Data.htm#magenta">magenta</A> = 1.0,
+ <A href="../types/SE_CMY_Data.htm#yellow">yellow</A>  =  1.0.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ How can a data consumer who does not use the CMY colour model
+ retrieve the colour values in the colour model he or she does use?
+</B></DT>
+<DD><P>
+ The specific procedure to be followed depends on the colour model
+ used by the consuming application.
+<P></P>
+ If the data consumer uses a colour model directly supported by
+ the DRM, the Level 0 API can be instructed to change all
+ <A href="ColourData.htm">&lt;Colour Data&gt;</A> instances to the desired
+ colour model before any
+ <A href="ColourData.htm">&lt;Colour Data&gt;</A> instances are retrieved.
+<P></P>
+ Otherwise, the Level 0 API can be instructed to change all
+ <A href="ColourData.htm">&lt;Colour Data&gt;</A> instances to an appropriate
+ colour model before any
+ <A href="ColourData.htm">&lt;Colour Data&gt;</A> instances are retrieved,
+ and upon retrieval the consuming application can invoke the
+ appropriate utility function provided in the DRM API to convert
+ to the desired colour model.
+</P></DD>
+<DT><B>
+ Where can users go for further information on colour in the DRM?
+</B></DT>
+<DD><P>
+ See <A href="../../p4v8.htm">P4V8</A>
+ of the SEDRIS Documentation Set for further information.
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Composed of (two-way)</h3>
+<UL>
+<li>zero or one <a href="CMYColourControlLink.htm">&lt;CMY Colour Control Link&gt;</a> instance</li>
+</UL>
+
+<h3>Component of (two-way) (inherited)</h3>
+<UL>
+<li>zero or more <a href="AmbientColour.htm">&lt;Ambient Colour&gt;</a> instances</li>
+<li>zero or more <a href="DiffuseColour.htm">&lt;Diffuse Colour&gt;</a> instances</li>
+<li>zero or more <a href="EmissiveColour.htm">&lt;Emissive Colour&gt;</a> instances</li>
+<li>zero or more <a href="SpecularColour.htm">&lt;Specular Colour&gt;</a> instances</li>
+</UL>
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_CMY_Data.htm">SE_CMY_Data</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="cmy_data">cmy_data</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_cmy_data">1</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Fields Notes</h3>
+<h4><a href="#cmy_data" name="Notes_cmy_data">cmy_data</a></h4>
+<P>
+ The <A href="#cmy_data">cmy_data</A> field specifies
+ the CMY colour coordinate. For a <A href="CMYColour.htm">&lt;CMY Colour&gt;</A>
+ instance with a <A href="CMYColourControlLink.htm">&lt;CMY Colour Control Link&gt;</A>
+ component, the value of the <A href="#cmy_data">cmy_data</A> field
+ is obtained from the control link.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="CM3DLocation.htm">CM 3D Location</A>.
+<strong>Next:</strong> <A href="CMYColourControlLink.htm">CMY Colour Control Link</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

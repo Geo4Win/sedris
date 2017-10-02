@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<title>FACC_2p1_Enumerant_Mapping_Structure</title>
+<link rel="stylesheet" href="../../../docs/styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th class="doc_set_header">
+<big><big>EDCS Reference Manual</big></big>
+<br>
+<font color="#ffffff">
+Concept Mapping from FACC 2.1 to EDCS 4.4
+<!-- FACC 2.1 to EDCS 4.4 Mapping SDK Release 4.4.0.0 -->
+<!-- EDCS spec. 4.4 -->
+<br>
+Types
+<br>
+FACC_2p1_Enumerant_Mapping_Structure
+</font>
+</TH></tr>
+</table>
+</div>
+
+<PRE>
+/*
+ * STRUCT: FACC_2p1_Enumerant_Mapping_Structure
+ *
+ *   Provides forward mapping information for the given
+ *   concept to an EDCS Enumerant.
+ */
+</PRE>
+<table class="CFunctionPrototype">
+<tr><td class="CFunction">typedef</td> <td class="CFunction">struct</td></tr>
+<tr><td class="CFunction">{</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="FACC_2p1_Mapping_Type_Code.htm">FACC_2p1_Mapping_Type_Code</a></td> 
+        <td class="CFunction"><a name="map_type">map_type</a>;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../../docs/types/EDCS_Attribute_Code.htm">EDCS_Attribute_Code</a></td>    
+        <td class="CFunction"><a name="ea_code">ea_code</a>;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../../docs/types/EDCS_Enumerant_Code.htm">EDCS_Enumerant_Code</a></td>    
+        <td class="CFunction"><a name="ee_code">ee_code</a>;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../../docs/types/EDCS_Integer.htm">EDCS_Integer</a></td>           
+        <td class="CFunction"><a name="num_entries">num_entries</a>;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../../edcs_mapping_util/docs/types/EDCS_Mapping_Entry.htm">EDCS_Mapping_Entry</a></td>    
+        <td class="CFunction">*<a name="entry_list">entry_list</a>;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../../docs/types/EDCS_Character.htm">EDCS_Character</a></td>        
+        <td class="CFunction">*<a name="information">information</a>;</td></tr>
+</table>
+} FACC_2p1_Enumerant_Mapping_Structure;<br>
+
+<br><br>
+<strong>Up:</strong><a href="../facc2p1_edcs4px.htm#Part5">Index</a>.
+<br><br>
+<table class="doc_set_header">
+<tr><td>
+<table class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="left" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

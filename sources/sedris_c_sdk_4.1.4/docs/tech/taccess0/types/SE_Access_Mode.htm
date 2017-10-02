@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE_Access_Mode</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Types
+</font>
+<br>
+<font color="#ffffff">
+SE_Access_Mode
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<PRE>
+/*
+ * ENUM: SE_Access_Mode
+ *
+ *   This data type specifies how a transmittal is to be opened.
+ */
+</PRE>
+<span class="Code">typedef enum
+<br>
+{
+</span>
+
+<table class="CFunctionPrototype">
+    <tr><td class="CFunction"></td><td class="CFunction"><a name="SE_AM_READ_ONLY"></a>SE_AM_READ_ONLY,</td><td class="CFunction"><sup><A href="#Notes_SE_AM_READ_ONLY">1</A></sup></td></tr>
+    <tr><td class="CFunction"></td><td class="CFunction"><a name="SE_AM_UPDATE"></a>SE_AM_UPDATE,</td><td class="CFunction"><sup><A href="#Notes_SE_AM_UPDATE">2</A></sup></td></tr>
+    <tr><td class="CFunction"></td><td class="CFunction"><a name="SE_AM_CREATE"></a>SE_AM_CREATE</td><td class="CFunction"><sup><A href="#Notes_SE_AM_CREATE">3</A></sup></td></tr>
+</table>
+<span class="Code">
+} SE_Access_Mode;
+</span>
+<br>
+<br>
+<hr>
+<h2>Enumerant Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#SE_AM_READ_ONLY" name="Notes_SE_AM_READ_ONLY">1</a></sup>
+ The transmittal is to be opened with only read access.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#SE_AM_UPDATE" name="Notes_SE_AM_UPDATE">2</a></sup>
+ An existing transmittal is to be opened with the ability to
+ make changes in the content.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#SE_AM_CREATE" name="Notes_SE_AM_CREATE">3</a></sup>
+ A new empty transmittal is to be opened with the ability to
+ add and subsequently change content.
+</p>
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SE_Absolute_Time_Interval_Entry.htm">SE_Absolute_Time_Interval_Entry</a>.
+<strong>Next:</strong> <a href="SE_Alternate_Hierarchy_Parameters.htm">SE_Alternate_Hierarchy_Parameters</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

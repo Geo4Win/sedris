@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE SetColourModel</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+SE SetColourModel
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../types/SE_Return_Code.htm">SE_Return_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SE_SetColourModel</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../../drm/types/SE_Colour_Model.htm">SE_Colour_Model</a>&nbsp;</td> <td class="CFunction"><a name="new_colour_model"></a>new_colour_model</td><td class="CFunction"><sup><A href="#Notes_new_colour_model">1</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+ Sets the colour model that will be used to represent all
+ <A href="../../drm/classes/ColourData.htm">&lt;Colour Data&gt;</A> instances retrieved after this function is called.
+ This function has no effect on <A href="../../drm/classes/ColourData.htm">&lt;Colour Data&gt;</A> instances that were
+ returned to the user before this function was called. By default (if this
+ function is not called), colours are returned to the user in the format in
+ which the colours were defined in the transmittal from which the colours
+ were extracted.  So, if a transmittal contains HSV colours, then by default
+ these colours will be returned to the user as
+ <A href="../../drm/classes/HSVColour.htm">&lt;HSV Colour&gt;</A> instances. If the user calls the
+ <A href="SE_SetColourModel.htm">SE_SetColourModel()</A> function and sets
+ the colour model to <A href="../../drm/types/SE_Colour_Model.htm#SE_COLRMOD_RGB">SE_COLRMOD_RGB</A>, then all
+ colours returned after this call would be returned as
+ <A href="../../drm/classes/RGBColour.htm">&lt;RGB Colour&gt;</A> instances.
+</P><P>
+ The colour model used for returning <A href="../../drm/classes/ColourData.htm">&lt;Colour Data&gt;</A> instances
+ can be changed as often as the user desires.  After changing colour models,
+ if the user wants to return to the 'default' colour model (for all
+ transmittals, go back to using the colour model that was used by the
+ producer of each transmittal) then call the
+ <A href="SE_UseDefaultColourModel.htm">SE_UseDefaultColourModel()</A>
+ function.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A>
+</td><td class="Status">
+ and the colour model is set.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A>
+</td><td class="Status">
+ and the status code is set appropriately if the call failed.
+</td></tr>
+</table>
+
+<h3>Status Codes</h3>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A> is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_SUCCESS">SE_STATCODE_SUCCESS</A>
+</td><td class="Status">
+ set if <A href="#new_colour_model">new_colour_model</A> is valid
+ and the call was successful.
+</td></tr>
+</table>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A> is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_INACTIONABLE_FAILURE">SE_STATCODE_INACTIONABLE_FAILURE</A>
+</td><td class="Status">
+ set if <A href="#new_colour_model">new_colour_model</A> is
+ invalid or the call fails for any other reason.
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#new_colour_model" name="Notes_new_colour_model">1</a></sup>
+ the colour model to use from now on (or until another
+    call is made to either this function or the SE_UseDefaultColourModel()
+    function).
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SE_ResolveTransmittalName.htm">SE_ResolveTransmittalName</a>.
+<strong>Next:</strong> <a href="SE_SetFirstErrorMessage.htm">SE_SetFirstErrorMessage</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

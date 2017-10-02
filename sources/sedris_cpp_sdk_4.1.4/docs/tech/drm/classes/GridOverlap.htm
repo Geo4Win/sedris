@@ -1,0 +1,460 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Grid Overlap</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Grid Overlap
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Grid Overlap</h2>
+<h3>Superclass - <a href="SEDRISAbstractBase.htm">&lt;SEDRIS Abstract Base&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies how the data provider
+ intended the consumer to resolve data ambiguity at a location
+ falling within a grid cell for two or more
+ <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instances,
+ such that the ambiguity cannot be resolved by other means.
+</P><P>
+ An ambiguity occurs at a location <span class="ConstructName">L</span> lying
+ within two <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instances
+ <span class="ConstructName">A</span> and <span class="ConstructName">B</span> if all five
+ of the following conditions hold:
+</P>
+<OL type='a'>
+<LI>
+ <span class="ConstructName">A</span> and <span class="ConstructName">B</span> are not
+ disjoint due to any higher-level organizing structure in the
+ transmittal, such as membership under different branches of
+ an <A href="AlternateHierarchyRelatedGeometry.htm">&lt;Alternate Hierarchy Related Geometry&gt;</A> instance,
+ or disjoint <A href="TimeConstraintsData.htm">&lt;Time Constraints Data&gt;</A> instances.
+</LI>
+<LI>
+ Cells of <span class="ConstructName">A</span> and <span class="ConstructName">B</span>
+ overlap the same spatial location.
+</LI>
+<LI>
+ <span class="ConstructName">A</span> and <span class="ConstructName">B</span> have matching
+ <A href="ClassificationData.htm">&lt;Classification Data&gt;</A> components.
+</LI>
+<LI>
+ At least one <A href="TablePropertyDescription.htm">&lt;Table Property Description&gt;</A> component of
+ <span class="ConstructName">A</span> has a
+ <A href="TablePropertyDescription.htm#meaning">meaning</A> matching a
+ <A href="TablePropertyDescription.htm">&lt;Table Property Description&gt;</A> component of
+ <span class="ConstructName">B</span>.
+</LI>
+<LI>
+ Both <span class="ConstructName">A</span> and <span class="ConstructName">B</span> actually
+ have data for those matching <A href="TablePropertyDescription.htm">&lt;Table Property Description&gt;</A>
+ components at <span class="ConstructName">L</span>.
+</LI>
+</OL>
+<P>
+ When such an ambiguity occurs, the <A href="GridOverlap.htm">&lt;Grid Overlap&gt;</A> instance
+ for <span class="ConstructName">A</span> and the <A href="GridOverlap.htm">&lt;Grid Overlap&gt;</A> instance
+ for <span class="ConstructName">B</span> shall indicate how the data provider intended
+ the consumer to calculate the cell values at each overlapping cell
+ corresponding to the applicable
+ <A href="TablePropertyDescription.htm">&lt;Table Property Description&gt;</A> instances.
+</P><P>
+ Resolution only occurs within an overlay group. An overlay group is a
+ set of <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instances that are identified by
+ the <A href="#overlay_group">overlay_group</A> fields of their
+ respective <A href="GridOverlap.htm">&lt;Grid Overlap&gt;</A> components as requiring common
+ processing of ambiguity. Within an overlay group, the
+ <A href="#priority">priority</A> fields of their respective
+ <A href="GridOverlap.htm">&lt;Grid Overlap&gt;</A> components determine the sequence in which
+ the <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance cell data is processed.
+ Priorities within an overlay group need not be consecutive, but
+ they shall be unique. The <A href="#operation">operation</A> field
+ specifies how the cell data interact with each other.
+</P><P>
+ Each overlay group shall have exactly one
+ <A href="GridOverlap.htm">&lt;Grid Overlap&gt;</A> instance with
+ <A href="#priority">priority</A> = 0.
+ The <A href="#operation">operation</A>
+ field value for <A href="#priority">priority</A> = 0 shall be
+ <A href="../types/SE_Grid_Overlap_Operator.htm#SE_GROVLOP_BASE">SE_GROVLOP_BASE</A>.
+</P><P>
+ To resolve an ambiguity, identify the corresponding overlay group
+ and process as follows:
+</P><BLOCKQUOTE><P>
+<STRONG>STEP 1:</STRONG>
+</P><P>
+ Start with <A href="#priority">priority</A> = 0.
+ Extract cell data from the <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A>
+ instance that has this <A href="GridOverlap.htm">&lt;Grid Overlap&gt;</A>
+ instance as a component; this becomes the current data.
+</P><P>
+<STRONG>STEP 2:</STRONG>
+</P><P>
+ Find the next higher <A href="#priority">priority</A> field value.
+ Extract the cell data from the <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance
+ that has this <A href="GridOverlap.htm">&lt;Grid Overlap&gt;</A> instance as a component.
+ Operate on this and the current data according to the
+ <A href="#operation">operation</A> field of the
+ <A href="GridOverlap.htm">&lt;Grid Overlap&gt;</A> instance.
+ The result of applying the operations specified by the
+ <A href="#operation">operation</A> field becomes the
+ current data for the next step.
+</P><P>
+<STRONG>STEP 3:</STRONG>
+</P><P>
+ Look for next higher priority.  If found, go to step 2.  Otherwise use
+ the current data.
+</P></BLOCKQUOTE>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet06.pdf"><strong>6</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+This class appears on only one page of the DRM class diagram.
+<h3>Example</h3>
+<OL>
+<LI><P>
+ A low resolution <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance
+ <span class="ConstructName">A</span> covers a large area, and contains smaller
+ (but higher resolution) grids <span class="ConstructName">B</span>,
+ <span class="ConstructName">C</span>, and <span class="ConstructName">D</span>.  The
+ scheme specified for the <A href="GridOverlap.htm">&lt;Grid Overlap&gt;</A> components
+ of <span class="ConstructName">A</span>, <span class="ConstructName">B</span>,
+ <span class="ConstructName">C</span>, and <span class="ConstructName">D</span> is:
+</P>
+<TABLE border=1>
+<TR>
+<TD align=center><A href="PropertyGrid.htm">&lt;Property Grid&gt;</A></TD>
+<TD align=center><A href="#overlay_group">overlay_group</A></TD>
+<TD align=center><A href="#priority">priority</A></TD>
+<TD><A href="#operation">operation</A></TD>
+</TR>
+<TR>
+<TD align=center><span class="ConstructName">A</span></TD>
+<TD align=center>10</TD>
+<TD align=center>0</TD>
+<TD>
+ <A href="../types/SE_Grid_Overlap_Operator.htm#SE_GROVLOP_BASE">SE_GROVLOP_BASE</A>
+</TD>
+</TR>
+<TR>
+<TD align=center><span class="ConstructName">B</span></TD>
+<TD align=center>10</TD>
+<TD align=center>1</TD>
+<TD>
+ <A href="../types/SE_Grid_Overlap_Operator.htm#SE_GROVLOP_REPLACE">SE_GROVLOP_REPLACE</A>
+</TD>
+</TR>
+<TR>
+<TD align=center><span class="ConstructName">A</span></TD>
+<TD align=center>20</TD>
+<TD align=center>0</TD>
+<TD>
+ <A href="../types/SE_Grid_Overlap_Operator.htm#SE_GROVLOP_BASE">SE_GROVLOP_BASE</A>
+</TD>
+</TR>
+<TR>
+<TD align=center><span class="ConstructName">C</span></TD>
+<TD align=center>20</TD>
+<TD align=center>1</TD>
+<TD>
+ <A href="../types/SE_Grid_Overlap_Operator.htm#SE_GROVLOP_REPLACE">SE_GROVLOP_REPLACE</A>
+</TD>
+</TR>
+<TR>
+<TD align=center><span class="ConstructName">D</span></TD>
+<TD align=center>20</TD>
+<TD align=center>2</TD>
+<TD>
+ <A href="../types/SE_Grid_Overlap_Operator.htm#SE_GROVLOP_REPLACE">SE_GROVLOP_REPLACE</A>
+</TD>
+</TR>
+</TABLE>
+<P>
+ In the intersection of <span class="ConstructName">A</span> &amp;
+ <span class="ConstructName">B</span> where the
+ <A href="#overlay_group">overlay_group</A> is 10,
+ <span class="ConstructName">B</span> data overrides <span class="ConstructName">A</span>.
+</P><P>
+ For <A href="#overlay_group">overlay_group</A> 20,
+ the following is specified:
+</P>
+<OL type='a'>
+<LI>
+ In intersection <span class="ConstructName">A</span> &amp;
+ <span class="ConstructName">C</span>, <span class="ConstructName">C</span> data
+ overrides <span class="ConstructName">A</span>.
+</LI>
+<LI>
+ In intersection <span class="ConstructName">A</span> &amp;
+ <span class="ConstructName">D</span>, <span class="ConstructName">D</span> data
+ overrides <span class="ConstructName">A</span>.
+</LI>
+<LI>
+ In intersection <span class="ConstructName">A</span> &amp;
+ <span class="ConstructName">C</span> &amp; <span class="ConstructName">D</span>,
+ <span class="ConstructName">D</span> data overrides others.
+</LI>
+</OL>
+<P>
+ <span class="ConstructName">B</span> should not intersect either
+ <span class="ConstructName">C</span> or <span class="ConstructName">D</span>
+ as this scheme will not provide ambiguity resolution.
+</P></LI>
+<LI><P>
+ A seamount is modelled as a <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A>
+ instance <span class="ConstructName">M</span> of elevation offsets
+ above the underlying bathymetry in <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A>
+ instances <span class="ConstructName">A</span> and <span class="ConstructName">B</span>,
+ where <span class="ConstructName">A</span> and <span class="ConstructName">B</span>
+ overlap. The scheme specified by the <A href="GridOverlap.htm">&lt;Grid Overlap&gt;</A>
+ components of <span class="ConstructName">A</span>, <span class="ConstructName">B</span>,
+ <span class="ConstructName">M</span> is:
+</P>
+<TABLE border=1>
+<TR>
+<TD align=center><A href="PropertyGrid.htm">&lt;Property Grid&gt;</A></TD>
+<TD align=center><A href="#overlay_group">overlay_group</A></TD>
+<TD align=center><A href="#priority">priority</A></TD>
+<TD><A href="#operation">operation</A></TD>
+</TR>
+<TR>
+<TD align=center><span class="ConstructName">A</span></TD>
+<TD align=center>1</TD>
+<TD align=center>0</TD>
+<TD>
+ <A href="../types/SE_Grid_Overlap_Operator.htm#SE_GROVLOP_BASE">SE_GROVLOP_BASE</A>
+</TD>
+</TR>
+<TR>
+<TD align=center><span class="ConstructName">B</span></TD>
+<TD align=center>1</TD>
+<TD align=center>1</TD>
+<TD>
+ <A href="../types/SE_Grid_Overlap_Operator.htm#SE_GROVLOP_MEAN">SE_GROVLOP_MEAN</A>
+</TD>
+</TR>
+<TR>
+<TD align=center><span class="ConstructName">M</span></TD>
+<TD align=center>1</TD>
+<TD align=center>999</TD>
+<TD>
+ <A href="../types/SE_Grid_Overlap_Operator.htm#SE_GROVLOP_ADD">SE_GROVLOP_ADD</A>
+</TD>
+</TR>
+<TR>
+<TD align=center><span class="ConstructName">B</span></TD>
+<TD align=center>2</TD>
+<TD align=center>0</TD>
+<TD>
+ <A href="../types/SE_Grid_Overlap_Operator.htm#SE_GROVLOP_BASE">SE_GROVLOP_BASE</A>
+</TD>
+</TR>
+<TR>
+<TD align=center><span class="ConstructName">M</span></TD>
+<TD align=center>2</TD>
+<TD align=center>999</TD>
+<TD>
+ <A href="../types/SE_Grid_Overlap_Operator.htm#SE_GROVLOP_ADD">SE_GROVLOP_ADD</A>
+</TD>
+</TR>
+</TABLE>
+<P>
+ For <A href="#overlay_group">overlay_group</A> 1,
+ the following is specified:
+</P>
+<OL type='a'>
+<LI>
+ In intersection <span class="ConstructName">A</span> & <span class="ConstructName">M</span> and outside
+ of <span class="ConstructName">B</span>, add <span class="ConstructName">M</span> offsets to
+ <span class="ConstructName">A</span> bathymetry values.
+</LI>
+<LI>
+ In intersection <span class="ConstructName">A</span> & <span class="ConstructName">B</span>, average
+ <span class="ConstructName">A</span> and <span class="ConstructName">B</span> bathymetry values.
+</LI>
+<LI>
+ In intersection <span class="ConstructName">A</span> & <span class="ConstructName">B</span> &
+ <span class="ConstructName">M</span>, first average <span class="ConstructName">A</span> and
+ <span class="ConstructName">B</span> bathymetry values, and then add offsets from
+ <span class="ConstructName">M</span> to the average.
+</LI>
+</OL>
+<P>
+ For <A href="#overlay_group">overlay_group</A> 2,
+ in intersection <span class="ConstructName">B</span> & <span class="ConstructName">M</span>
+ and outside of <span class="ConstructName">A</span>, add
+ <span class="ConstructName">M</span> offsets to <span class="ConstructName">B</span>
+ bathymetry values.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ Are there real datasets that require this capability?
+</B></DT>
+<DD><P>
+ There are numerous numerical models in the atmosphere and ocean
+ community that start by computing a coarse grid over a large
+ area, then use this grid as boundary and initial conditions
+ for calculating a more finely-sampled grid over a smaller area.
+ In many cases, the process is repeated several times, producing
+ a &quot;nest&quot; of grids that all cover the same area.  It is also
+ possible to implement variable-resolution grids in the DRM by
+ constructing a base grid covering a large region at a coarse sample
+ spacing suitable for describing &quot;ambient&quot; conditions, and
+ then to inset finer grids at locations with detailed features of interest.
+</P></DD>
+<DT><B>
+ When are <A href="GridOverlap.htm">&lt;Grid Overlap&gt;</A> instances
+ required, and when are they optional?
+</B></DT>
+<DD><P>
+ A <A href="GridOverlap.htm">&lt;Grid Overlap&gt;</A> instance is required whenever
+ multiple <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instances contain
+ values for equivalent
+ <A href="TablePropertyDescription.htm">&lt;Table Property Description&gt;</A>
+ instances at the same location within the simulated environment.
+</P><P>
+ If their absence will not cause ambiguity in the transmittal,
+ <A href="GridOverlap.htm">&lt;Grid Overlap&gt;</A> instances are not needed.
+ If the <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instances are explicitly
+ disjoint due to some higher organizing structure, such as
+ mutually exclusive branches of
+ an <A href="AggregateGeometry.htm">&lt;Aggregate Geometry&gt;</A> instance,
+ there is no ambiguity and a
+ <A href="GridOverlap.htm">&lt;Grid Overlap&gt;</A> instance is not required. If
+ <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instances
+ covering the same location have no equivalent
+ <A href="TablePropertyDescription.htm">&lt;Table Property Description&gt;</A>
+ instances, they do not create ambiguity and do not need a
+ <A href="GridOverlap.htm">&lt;Grid Overlap&gt;</A> instance.
+</P></DD>
+<DT><B>
+ Can a <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance have more than
+ one <A href="GridOverlap.htm">&lt;Grid Overlap&gt;</A> instance?
+</B></DT>
+<DD><P>
+ Yes.  A base <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance could have
+ disjoint overlaps with several different &quot;insets&quot;.
+ Although it is usually possible to choose priority
+ levels within a single group to resolve the ambiguities, use of multiple
+ groups may make the situation clearer and easier for the consumer. There
+ are also less common situations of multiple overlaps that cannot be
+ resolved using a single group.
+</P></DD>
+<DT><B>
+ What happens when cells of overlapping grids are not spatially
+ aligned with each other?
+</B></DT>
+<DD><P>
+ The operation rules described in the definition apply at a
+ single point location, so alignment of cells is not strictly
+ required.  However, it is likely that combining values from misaligned
+ cells will not produce a sensible value.  As basic guidance, preparers
+ of transmittals should avoid this situation when possible, since it is
+ confusing to consumers.  Grids should be resampled before preparing the
+ transmittal so as to achieve alignment whenever possible.
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Component of (two-way)</h3>
+<UL>
+<li>one <a href="PropertyGrid.htm">&lt;Property Grid&gt;</a> instance</li>
+</UL>
+
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Short_Integer_Positive.htm">SE_Short_Integer_Positive</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="overlay_group">overlay_group</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_overlay_group">1</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Short_Integer_Unsigned.htm">SE_Short_Integer_Unsigned</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="priority">priority</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_priority">2</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Grid_Overlap_Operator.htm">SE_Grid_Overlap_Operator</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="operation">operation</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_operation">3</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Fields Notes</h3>
+<h4><a href="#overlay_group" name="Notes_overlay_group">overlay_group</a></h4>
+<P>
+ The <A href="#overlay_group">overlay_group</A>
+ field specifies the overlay group within which the resolution
+ process is to occur.
+</P>
+<h4><a href="#priority" name="Notes_priority">priority</a></h4>
+<P>
+ The <A href="#priority">priority</A> field
+ specifies a priority that is meaningful within the specified
+ <A href="#overlay_group">overlay_group</A>.
+</P>
+<h4><a href="#operation" name="Notes_operation">operation</a></h4>
+<P>
+ The <A href="#operation">operation</A> field
+ specifies the operation to be performed on
+ the data during the resolution process.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="GeometryVolume.htm">Geometry Volume</A>.
+<strong>Next:</strong> <A href="HAEC3DLocation.htm">HAEC 3D Location</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

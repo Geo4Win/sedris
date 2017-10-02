@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE_Volume_Extent_Entry</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Types
+</font>
+<br>
+<font color="#ffffff">
+SE_Volume_Extent_Entry
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<PRE>
+/*
+ * STRUCT: SE_Volume_Extent_Entry
+ *
+ *   Used to represent a &lt;Volume Extent&gt; for an SE_Volume_LOD_Entry.
+ */
+</PRE>
+<span class="Code">typedef struct 
+<br>
+{</span>
+<br>
+<table class="CFunctionPrototype">
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Volumetric_Shape.htm">SE_Volumetric_Shape</a></td>
+        <td class="CFunction"><a name="volume_type"></a>volume_type;</td></tr>
+<tr> <td class="CFunction">   </td><td class="CFunction">union</td></tr>
+<tr> <td class="CFunction">   </td><td class="CFunction">{</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SE_Cylindrical_Volume_Extent_Entry.htm">SE_Cylindrical_Volume_Extent_Entry</a></td>
+            <td class="CFunction"><a name="cylinder"></a>cylinder;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SE_Parallelepiped_Volume_Extent_Entry.htm">SE_Parallelepiped_Volume_Extent_Entry</a></td>
+            <td class="CFunction"><a
+            name="parallelepiped"></a>parallelepiped;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="../../drm/classes/SphericalVolumeExtent.htm">SE_Spherical_Volume_Extent_Fields</a></td>
+            <td class="CFunction"><a name="sphere"></a>sphere;</td></tr>
+<tr><td class="CFunction"></td> <td class="CFunction">} <a
+        name="volume_extent_data"></a>volume_extent_data;</td></tr>
+</table>
+<span class="Code">
+} SE_Volume_Extent_Entry;</span>
+<br>
+
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SE_User_Data.htm">SE_User_Data</a>.
+<strong>Next:</strong> <a href="SE_Volume_LOD_Entry.htm">SE_Volume_LOD_Entry</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

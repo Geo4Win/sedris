@@ -1,0 +1,530 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>APPENDIX D - Functions</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX D - Functions
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<p>
+<hr>
+<DIV align="center"><table border=0 width="100%">
+<TR>
+<td><a href="#A">A</a></td>
+<td>B</td>
+<td><a href="#C">C</a></td>
+<td>D</td>
+<td><a href="#E">E</a></td>
+<td><a href="#F">F</a></td>
+<td><a href="#G">G</a></td>
+<td><a href="#H">H</a></td>
+<td><a href="#I">I</a></td>
+<td>J</td>
+<td>K</td>
+<td>L</td>
+<td>M</td>
+<td>N</td>
+<td>O</td>
+<td><a href="#P">P</a></td>
+<td>Q</td>
+<td><a href="#R">R</a></td>
+<td><a href="#S">S</a></td>
+<td>T</td>
+<td>U</td>
+<td><a href="#V">V</a></td>
+<td>W</td>
+<td>X</td>
+<td><a href="#Y">Y</a></td>
+<td>Z</td>
+</TR>
+</table></DIV>
+<hr>
+<br>
+<dl>
+<dt><a name="A"><a href="SE_AllocCharacterArray.htm">SE_Alloc Character Array</a></a></dt>
+<dt><a name="C"><a href="SE_CMYKtoCMY.htm">SE_CMYK to CMY</a></a></dt>
+<dt><a href="SE_CMYtoCMYK.htm">SE_CMY to CMYK</a></dt>
+<dt><a href="SE_CanInheritComponents.htm">SE_Can Inherit Components</a></dt>
+<dt><a href="SE_CloneAddress.htm">SE_Clone Address</a></dt>
+<dt><a href="SE_CloneCIOnlineResource.htm">SE_Clone CI Online Resource</a></dt>
+<dt><a href="SE_CloneContactInformation.htm">SE_Clone Contact Information</a></dt>
+<dt><a href="SE_CloneDataQualityElement.htm">SE_Clone Data Quality Element</a></dt>
+<dt><a href="SE_CloneFields.htm">SE_Clone Fields</a></dt>
+<dt><a href="SE_CloneSingleValue.htm">SE_Clone Single Value</a></dt>
+<dt><a href="SE_CloneString.htm">SE_Clone String</a></dt>
+<dt><a href="SE_CloneTelephoneInformation.htm">SE_Clone Telephone Information</a></dt>
+<dt><a href="SE_CloneTextFont.htm">SE_Clone Text Font</a></dt>
+<dt><a href="SE_CloneURL.htm">SE_Clone URL</a></dt>
+<dt><a href="SE_CloneURN.htm">SE_Clone URN</a></dt>
+<dt><a href="SE_CompareCharacters.htm">SE_Compare Characters</a></dt>
+<dt><a href="SE_CompareCountIntervalValues.htm">SE_Compare Count Interval Values</a></dt>
+<dt><a href="SE_CompareElementTypes.htm">SE_Compare Element Types</a></dt>
+<dt><a href="SE_CompareIntegerIntervalValues.htm">SE_Compare Integer Interval Values</a></dt>
+<dt><a href="SE_CompareIntervalValues.htm">SE_Compare Interval Values</a></dt>
+<dt><a href="SE_CompareLocales.htm">SE_Compare Locales</a></dt>
+<dt><a href="SE_CompareLongFloatIntervalValues.htm">SE_Compare Long Float Interval Values</a></dt>
+<dt><a href="SE_ComparePropertyCodes.htm">SE_Compare Property Codes</a></dt>
+<dt><a href="SE_CompareSingleValues.htm">SE_Compare Single Values</a></dt>
+<dt><a href="SE_CompareStrings.htm">SE_Compare Strings</a></dt>
+<dt><a href="SE_CompareURNs.htm">SE_Compare URNs</a></dt>
+<dt><a href="SE_ConvertColourDataToFields.htm">SE_Convert Colour Data To Fields</a></dt>
+<dt><a href="SE_ConvertColourToGivenModel.htm">SE_Convert Colour To Given Model</a></dt>
+<dt><a href="SE_ConvertCoordinateToFields.htm">SE_Convert Coordinate To Fields</a></dt>
+<dt><a href="SE_ConvertFieldsToColourData.htm">SE_Convert Fields To Colour Data</a></dt>
+<dt><a href="SE_ConvertFieldsToCoordinate.htm">SE_Convert Fields To Coordinate</a></dt>
+<dt><a href="SE_CreateObjectReferenceFromSRFContextInfo.htm">SE_Create Object Reference From SRF Context Info</a></dt>
+<dt><a name="E"><a href="SE_EnumNameToAPI.htm">SE_Enum Name To API</a></a></dt>
+<dt><a href="SE_EnumNameToAxisAlignment.htm">SE_Enum Name To Axis Alignment</a></dt>
+<dt><a href="SE_EnumNameToBoolean.htm">SE_Enum Name To Boolean</a></dt>
+<dt><a href="SE_EnumNameToCIOnlineFunctionCode.htm">SE_Enum Name To CI OnlineFunctionCode</a></dt>
+<dt><a href="SE_EnumNameToCIRoleCode.htm">SE_Enum Name To CI RoleCode</a></dt>
+<dt><a href="SE_EnumNameToCameraProjectionType.htm">SE_Enum Name To Camera Projection Type</a></dt>
+<dt><a href="SE_EnumNameToColourBinding.htm">SE_Enum Name To Colour Binding</a></dt>
+<dt><a href="SE_EnumNameToColourModel.htm">SE_Enum Name To Colour Model</a></dt>
+<dt><a href="SE_EnumNameToDRMClass.htm">SE_Enum Name To DRM Class</a></dt>
+<dt><a href="SE_EnumNameToDRMStatusCode.htm">SE_Enum Name To DRM Status Code</a></dt>
+<dt><a href="SE_EnumNameToDRMType.htm">SE_Enum Name To DRM Type</a></dt>
+<dt><a href="SE_EnumNameToDataTableDataValueType.htm">SE_Enum Name To Data Table Data Value Type</a></dt>
+<dt><a href="SE_EnumNameToElementTypeCode.htm">SE_Enum Name To Element Type Code</a></dt>
+<dt><a href="SE_EnumNameToFeatureTopologyLevel.htm">SE_Enum Name To Feature Topology Level</a></dt>
+<dt><a href="SE_EnumNameToFieldModifier.htm">SE_Enum Name To Field Modifier</a></dt>
+<dt><a href="SE_EnumNameToFontStyle.htm">SE_Enum Name To Font Style</a></dt>
+<dt><a href="SE_EnumNameToFunctionalAssociationMeaningType.htm">SE_Enum Name To Functional Association Meaning Type</a></dt>
+<dt><a href="SE_EnumNameToGeometricCentreCode.htm">SE_Enum Name To Geometric Centre Code</a></dt>
+<dt><a href="SE_EnumNameToGeometryTopologyLevel.htm">SE_Enum Name To Geometry Topology Level</a></dt>
+<dt><a href="SE_EnumNameToGridOverlapOperator.htm">SE_Enum Name To Grid Overlap Operator</a></dt>
+<dt><a href="SE_EnumNameToHSMultiplicityCode.htm">SE_Enum Name To HS Multiplicity Code</a></dt>
+<dt><a href="SE_EnumNameToImageComponentType.htm">SE_Enum Name To Image Component Type</a></dt>
+<dt><a href="SE_EnumNameToImageMappingMethod.htm">SE_Enum Name To Image Mapping Method</a></dt>
+<dt><a href="SE_EnumNameToImageProjectionType.htm">SE_Enum Name To Image Projection Type</a></dt>
+<dt><a href="SE_EnumNameToImageScanDirection.htm">SE_Enum Name To Image Scan Direction</a></dt>
+<dt><a href="SE_EnumNameToImageScanDirectionZ.htm">SE_Enum Name To Image Scan Direction Z</a></dt>
+<dt><a href="SE_EnumNameToImageSignature.htm">SE_Enum Name To Image Signature</a></dt>
+<dt><a href="SE_EnumNameToImageWrap.htm">SE_Enum Name To Image Wrap</a></dt>
+<dt><a href="SE_EnumNameToIndexCode.htm">SE_Enum Name To Index Code</a></dt>
+<dt><a href="SE_EnumNameToInterpolationType.htm">SE_Enum Name To Interpolation Type</a></dt>
+<dt><a href="SE_EnumNameToIntervalType.htm">SE_Enum Name To Interval Type</a></dt>
+<dt><a href="SE_EnumNameToIntervalValueType.htm">SE_Enum Name To Interval Value Type</a></dt>
+<dt><a href="SE_EnumNameToLODDataType.htm">SE_Enum Name To LOD Data Type</a></dt>
+<dt><a href="SE_EnumNameToLSRTransformationAxis.htm">SE_Enum Name To LSR Transformation Axis</a></dt>
+<dt><a href="SE_EnumNameToMDClassificationCode.htm">SE_Enum Name To MD ClassificationCode</a></dt>
+<dt><a href="SE_EnumNameToMDKeywordTypeCode.htm">SE_Enum Name To MD KeywordTypeCode</a></dt>
+<dt><a href="SE_EnumNameToMDRestrictionCode.htm">SE_Enum Name To MD RestrictionCode</a></dt>
+<dt><a href="SE_EnumNameToMediaFormat.htm">SE_Enum Name To Media Format</a></dt>
+<dt><a href="SE_EnumNameToModelReferenceType.htm">SE_Enum Name To Model Reference Type</a></dt>
+<dt><a href="SE_EnumNameToMonth.htm">SE_Enum Name To Month</a></dt>
+<dt><a href="SE_EnumNameToMultiplicity.htm">SE_Enum Name To Multiplicity</a></dt>
+<dt><a href="SE_EnumNameToOctant.htm">SE_Enum Name To Octant</a></dt>
+<dt><a href="SE_EnumNameToOrderingReason.htm">SE_Enum Name To Ordering Reason</a></dt>
+<dt><a href="SE_EnumNameToPixelFillMethod.htm">SE_Enum Name To Pixel Fill Method</a></dt>
+<dt><a href="SE_EnumNameToPointLightDisplayType.htm">SE_Enum Name To Point Light Display Type</a></dt>
+<dt><a href="SE_EnumNameToPredefinedFunction.htm">SE_Enum Name To Predefined Function</a></dt>
+<dt><a href="SE_EnumNameToPresentIn.htm">SE_Enum Name To Present In</a></dt>
+<dt><a href="SE_EnumNameToPropertyCodeType.htm">SE_Enum Name To Property Code Type</a></dt>
+<dt><a href="SE_EnumNameToQuadrant.htm">SE_Enum Name To Quadrant</a></dt>
+<dt><a href="SE_EnumNameToReferenceSurfaceElevationSelect.htm">SE_Enum Name To Reference Surface Elevation Select</a></dt>
+<dt><a href="SE_EnumNameToReferenceSurfaceLODSelect.htm">SE_Enum Name To Reference Surface LOD Select</a></dt>
+<dt><a href="SE_EnumNameToReferenceVectorType.htm">SE_Enum Name To Reference Vector Type</a></dt>
+<dt><a href="SE_EnumNameToSeason.htm">SE_Enum Name To Season</a></dt>
+<dt><a href="SE_EnumNameToShadingMethod.htm">SE_Enum Name To Shading Method</a></dt>
+<dt><a href="SE_EnumNameToSingleValueType.htm">SE_Enum Name To Single Value Type</a></dt>
+<dt><a href="SE_EnumNameToSoundFormat.htm">SE_Enum Name To Sound Format</a></dt>
+<dt><a href="SE_EnumNameToSpacingType.htm">SE_Enum Name To Spacing Type</a></dt>
+<dt><a href="SE_EnumNameToSpatialAssociationMeaningType.htm">SE_Enum Name To Spatial Association Meaning Type</a></dt>
+<dt><a href="SE_EnumNameToSpatialIndexSpacingUnit.htm">SE_Enum Name To Spatial Index Spacing Unit</a></dt>
+<dt><a href="SE_EnumNameToStateMismatchBehaviour.htm">SE_Enum Name To State Mismatch Behaviour</a></dt>
+<dt><a href="SE_EnumNameToSymbolFormat.htm">SE_Enum Name To Symbol Format</a></dt>
+<dt><a href="SE_EnumNameToTimeConfiguration.htm">SE_Enum Name To Time Configuration</a></dt>
+<dt><a href="SE_EnumNameToTimeDataType.htm">SE_Enum Name To Time Data Type</a></dt>
+<dt><a href="SE_EnumNameToTimeOfDay.htm">SE_Enum Name To Time Of Day</a></dt>
+<dt><a href="SE_EnumNameToTimeSignificance.htm">SE_Enum Name To Time Significance</a></dt>
+<dt><a href="SE_EnumNameToTypeClassification.htm">SE_Enum Name To Type Classification</a></dt>
+<dt><a href="SE_EnumNameToUnderlineStyle.htm">SE_Enum Name To Underline Style</a></dt>
+<dt><a href="SE_EnumNameToUnionReason.htm">SE_Enum Name To Union Reason</a></dt>
+<dt><a href="SE_EnumNameToVariableCode.htm">SE_Enum Name To Variable Code</a></dt>
+<dt><a name="F"><a href="SE_FreeAddress.htm">SE_Free Address</a></a></dt>
+<dt><a href="SE_FreeCIOnlineResource.htm">SE_Free CI Online Resource</a></dt>
+<dt><a href="SE_FreeCharacterArray.htm">SE_Free Character Array</a></dt>
+<dt><a href="SE_FreeContactInformation.htm">SE_Free Contact Information</a></dt>
+<dt><a href="SE_FreeDataQualityElement.htm">SE_Free Data Quality Element</a></dt>
+<dt><a href="SE_FreeFields.htm">SE_Free Fields</a></dt>
+<dt><a href="SE_FreeSingleValue.htm">SE_Free Single Value</a></dt>
+<dt><a href="SE_FreeString.htm">SE_Free String</a></dt>
+<dt><a href="SE_FreeTelephoneInformation.htm">SE_Free Telephone Information</a></dt>
+<dt><a href="SE_FreeTextFont.htm">SE_Free Text Font</a></dt>
+<dt><a href="SE_FreeURL.htm">SE_Free URL</a></dt>
+<dt><a href="SE_FreeURN.htm">SE_Free URN</a></dt>
+<dt><a href="SE_FuncAdd.htm">SE_Func Add</a></dt>
+<dt><a href="SE_FuncDiv.htm">SE_Func Div</a></dt>
+<dt><a href="SE_FuncEqual.htm">SE_Func Equal</a></dt>
+<dt><a href="SE_FuncGT.htm">SE_Func GT</a></dt>
+<dt><a href="SE_FuncGTE.htm">SE_Func GTE</a></dt>
+<dt><a href="SE_FuncLT.htm">SE_Func LT</a></dt>
+<dt><a href="SE_FuncLTE.htm">SE_Func LTE</a></dt>
+<dt><a href="SE_FuncMod.htm">SE_Func Mod</a></dt>
+<dt><a href="SE_FuncMultiply.htm">SE_Func Multiply</a></dt>
+<dt><a href="SE_FuncNotEqual.htm">SE_Func Not Equal</a></dt>
+<dt><a href="SE_FuncSubtract.htm">SE_Func Subtract</a></dt>
+<dt><a name="G"><a href="SE_GeneralClassCount.htm">SE_General Class Count</a></a></dt>
+<dt><a href="SE_GeneralDRMClassStringToDRMClass.htm">SE_General DRM Class String To DRM Class</a></dt>
+<dt><a href="SE_GeneralEnumerantName.htm">SE_General Enumerant Name</a></dt>
+<dt><a href="SE_GeneralFieldCountForClass.htm">SE_General Field Count For Class</a></dt>
+<dt><a href="SE_GeneralFieldCountForType.htm">SE_General Field Count For Type</a></dt>
+<dt><a href="SE_GeneralFieldIndexForClass.htm">SE_General Field Index For Class</a></dt>
+<dt><a href="SE_GeneralGetAggregateOfType.htm">SE_General Get Aggregate Of Type</a></dt>
+<dt><a href="SE_GeneralGetAssociateOfType.htm">SE_General Get Associate Of Type</a></dt>
+<dt><a href="SE_GeneralGetClassStructure.htm">SE_General Get Class Structure</a></dt>
+<dt><a href="SE_GeneralGetComponentOfType.htm">SE_General Get Component Of Type</a></dt>
+<dt><a href="SE_GeneralGetDRMClassString.htm">SE_General Get DRM Class String</a></dt>
+<dt><a href="SE_GeneralGetDRMTypeStructure.htm">SE_General Get DRM Type Structure</a></dt>
+<dt><a href="SE_GeneralGetTypeClassification.htm">SE_General Get Type Classification</a></dt>
+<dt><a href="SE_GeneralIsAbstractClass.htm">SE_General Is Abstract Class</a></dt>
+<dt><a href="SE_GeneralIsLegalAggregate.htm">SE_General Is Legal Aggregate</a></dt>
+<dt><a href="SE_GeneralIsLegalAssociate.htm">SE_General Is Legal Associate</a></dt>
+<dt><a href="SE_GeneralIsLegalComponent.htm">SE_General Is Legal Component</a></dt>
+<dt><a href="SE_GeneralIsLinkClass.htm">SE_General Is Link Class</a></dt>
+<dt><a href="SE_GeneralLegalAggregatesCount.htm">SE_General Legal Aggregates Count</a></dt>
+<dt><a href="SE_GeneralLegalAggregatesList.htm">SE_General Legal Aggregates List</a></dt>
+<dt><a href="SE_GeneralLegalAssociationsCount.htm">SE_General Legal Associations Count</a></dt>
+<dt><a href="SE_GeneralLegalAssociationsList.htm">SE_General Legal Associations List</a></dt>
+<dt><a href="SE_GeneralLegalComponentsCount.htm">SE_General Legal Components Count</a></dt>
+<dt><a href="SE_GeneralLegalComponentsList.htm">SE_General Legal Components List</a></dt>
+<dt><a href="SE_GeneralPredefinedFunctionDefinition.htm">SE_General Predefined Function Definition</a></dt>
+<dt><a href="SE_GeneralTypeBasicType.htm">SE_General Type Basic Type</a></dt>
+<dt><a href="SE_GeneralTypeCount.htm">SE_General Type Count</a></dt>
+<dt><a href="SE_GeneralTypeName.htm">SE_General Type Name</a></dt>
+<dt><a href="SE_GeneralithEnumerantInType.htm">SE_Generalith Enumerant In Type</a></dt>
+<dt><a href="SE_GeneralithFieldInClass.htm">SE_Generalith Field In Class</a></dt>
+<dt><a href="SE_GeneralithFieldInType.htm">SE_Generalith Field In Type</a></dt>
+<dt><a href="SE_GetDRMImplVerInfo.htm">SE_Get DRM Impl Ver Info</a></dt>
+<dt><a href="SE_GetErrorFilePtr.htm">SE_Get Error File Ptr</a></dt>
+<dt><a href="SE_GetMinWidth.htm">SE_Get Min Width</a></dt>
+<dt><a href="SE_GetOutFilePtr.htm">SE_Get Out File Ptr</a></dt>
+<dt><a href="SE_GetPrecision.htm">SE_Get Precision</a></dt>
+<dt><a href="SE_GetSRFTCodeFromSRFContextInfo.htm">SE_Get SRFT Code From SRF Context Info</a></dt>
+<dt><a name="H"><a href="SE_HLStoRGB.htm">SE_HLS to RGB</a></a></dt>
+<dt><a name="I"><a href="SE_IsInheritable.htm">SE_Is Inheritable</a></a></dt>
+<dt><a href="SE_IsStringEmpty.htm">SE_Is String Empty</a></dt>
+<dt><a name="P"><a href="SE_PrintAPI.htm">SE_Print API</a></a></dt>
+<dt><a href="SE_PrintAddress.htm">SE_Print Address</a></dt>
+<dt><a href="SE_PrintAxisAlignment.htm">SE_Print Axis Alignment</a></dt>
+<dt><a href="SE_PrintBoolean.htm">SE_Print Boolean</a></dt>
+<dt><a href="SE_PrintByte.htm">SE_Print Byte</a></dt>
+<dt><a href="SE_PrintBytePositive.htm">SE_Print Byte Positive</a></dt>
+<dt><a href="SE_PrintByteUnsigned.htm">SE_Print Byte Unsigned</a></dt>
+<dt><a href="SE_PrintCIOnlineFunctionCode.htm">SE_Print CI OnlineFunctionCode</a></dt>
+<dt><a href="SE_PrintCIOnlineResource.htm">SE_Print CI OnlineResource</a></dt>
+<dt><a href="SE_PrintCIRoleCode.htm">SE_Print CI RoleCode</a></dt>
+<dt><a href="SE_PrintCMYData.htm">SE_Print CMY Data</a></dt>
+<dt><a href="SE_PrintCMYKData.htm">SE_Print CMYK Data</a></dt>
+<dt><a href="SE_PrintCameraProjectionType.htm">SE_Print Camera Projection Type</a></dt>
+<dt><a href="SE_PrintCharacter.htm">SE_Print Character</a></dt>
+<dt><a href="SE_PrintColourBinding.htm">SE_Print Colour Binding</a></dt>
+<dt><a href="SE_PrintColourData.htm">SE_Print Colour Data</a></dt>
+<dt><a href="SE_PrintColourMapping.htm">SE_Print Colour Mapping</a></dt>
+<dt><a href="SE_PrintColourModel.htm">SE_Print Colour Model</a></dt>
+<dt><a href="SE_PrintContactInformation.htm">SE_Print Contact Information</a></dt>
+<dt><a href="SE_PrintCountIntervalValue.htm">SE_Print Count Interval Value</a></dt>
+<dt><a href="SE_PrintDRMClass.htm">SE_Print DRM Class</a></dt>
+<dt><a href="SE_PrintDRMClassFields.htm">SE_Print DRM Class Fields</a></dt>
+<dt><a href="SE_PrintDRMStatusCode.htm">SE_Print DRM Status Code</a></dt>
+<dt><a href="SE_PrintDRMType.htm">SE_Print DRM Type</a></dt>
+<dt><a href="SE_PrintDataQualityElement.htm">SE_Print Data Quality Element</a></dt>
+<dt><a href="SE_PrintDataTableDataValueType.htm">SE_Print Data Table Data Value Type</a></dt>
+<dt><a href="SE_PrintDisplaySide.htm">SE_Print Display Side</a></dt>
+<dt><a href="SE_PrintDisplayStyle.htm">SE_Print Display Style</a></dt>
+<dt><a href="SE_PrintElementType.htm">SE_Print Element Type</a></dt>
+<dt><a href="SE_PrintElementTypeCode.htm">SE_Print Element Type Code</a></dt>
+<dt><a href="SE_PrintEnumerantStructure.htm">SE_Print Enumerant Structure</a></dt>
+<dt><a href="SE_PrintFeatureTopologyLevel.htm">SE_Print Feature Topology Level</a></dt>
+<dt><a href="SE_PrintFieldModifier.htm">SE_Print Field Modifier</a></dt>
+<dt><a href="SE_PrintFloat.htm">SE_Print Float</a></dt>
+<dt><a href="SE_PrintFontStyle.htm">SE_Print Font Style</a></dt>
+<dt><a href="SE_PrintFunctionalAssociationMeaningType.htm">SE_Print Functional Association Meaning Type</a></dt>
+<dt><a href="SE_PrintGeometricCentreCode.htm">SE_Print Geometric Centre Code</a></dt>
+<dt><a href="SE_PrintGeometryTopologyLevel.htm">SE_Print Geometry Topology Level</a></dt>
+<dt><a href="SE_PrintGridOverlapOperator.htm">SE_Print Grid Overlap Operator</a></dt>
+<dt><a href="SE_PrintHLSData.htm">SE_Print HLS Data</a></dt>
+<dt><a href="SE_PrintHSMultiplicityCode.htm">SE_Print HS Multiplicity Code</a></dt>
+<dt><a href="SE_PrintHSVData.htm">SE_Print HSV Data</a></dt>
+<dt><a href="SE_PrintImageComponentType.htm">SE_Print Image Component Type</a></dt>
+<dt><a href="SE_PrintImageMIPExtents.htm">SE_Print Image MIP Extents</a></dt>
+<dt><a href="SE_PrintImageMappingMethod.htm">SE_Print Image Mapping Method</a></dt>
+<dt><a href="SE_PrintImageProjectionType.htm">SE_Print Image Projection Type</a></dt>
+<dt><a href="SE_PrintImageScanDirection.htm">SE_Print Image Scan Direction</a></dt>
+<dt><a href="SE_PrintImageScanDirectionZ.htm">SE_Print Image Scan Direction Z</a></dt>
+<dt><a href="SE_PrintImageSignature.htm">SE_Print Image Signature</a></dt>
+<dt><a href="SE_PrintImageWrap.htm">SE_Print Image Wrap</a></dt>
+<dt><a href="SE_PrintIndexCode.htm">SE_Print Index Code</a></dt>
+<dt><a href="SE_PrintInteger.htm">SE_Print Integer</a></dt>
+<dt><a href="SE_PrintIntegerIntervalValue.htm">SE_Print Integer Interval Value</a></dt>
+<dt><a href="SE_PrintIntegerPositive.htm">SE_Print Integer Positive</a></dt>
+<dt><a href="SE_PrintIntegerUnsigned.htm">SE_Print Integer Unsigned</a></dt>
+<dt><a href="SE_PrintInterpolationType.htm">SE_Print Interpolation Type</a></dt>
+<dt><a href="SE_PrintIntervalType.htm">SE_Print Interval Type</a></dt>
+<dt><a href="SE_PrintIntervalValue.htm">SE_Print Interval Value</a></dt>
+<dt><a href="SE_PrintIntervalValueType.htm">SE_Print Interval Value Type</a></dt>
+<dt><a href="SE_PrintLODDataType.htm">SE_Print LOD Data Type</a></dt>
+<dt><a href="SE_PrintLSRTransformationAxis.htm">SE_Print LSR Transformation Axis</a></dt>
+<dt><a href="SE_PrintLocale.htm">SE_Print Locale</a></dt>
+<dt><a href="SE_PrintLongFloat.htm">SE_Print Long Float</a></dt>
+<dt><a href="SE_PrintLongFloatIntervalValue.htm">SE_Print Long Float Interval Value</a></dt>
+<dt><a href="SE_PrintLongFloatValue.htm">SE_Print Long Float Value</a></dt>
+<dt><a href="SE_PrintMDClassificationCode.htm">SE_Print MD ClassificationCode</a></dt>
+<dt><a href="SE_PrintMDKeywordTypeCode.htm">SE_Print MD KeywordTypeCode</a></dt>
+<dt><a href="SE_PrintMDRestrictionCode.htm">SE_Print MD RestrictionCode</a></dt>
+<dt><a href="SE_PrintMediaFormat.htm">SE_Print Media Format</a></dt>
+<dt><a href="SE_PrintModelReferenceType.htm">SE_Print Model Reference Type</a></dt>
+<dt><a href="SE_PrintMonth.htm">SE_Print Month</a></dt>
+<dt><a href="SE_PrintMultiplicity.htm">SE_Print Multiplicity</a></dt>
+<dt><a href="SE_PrintOctant.htm">SE_Print Octant</a></dt>
+<dt><a href="SE_PrintOctet.htm">SE_Print Octet</a></dt>
+<dt><a href="SE_PrintOrderingReason.htm">SE_Print Ordering Reason</a></dt>
+<dt><a href="SE_PrintPixelFillMethod.htm">SE_Print Pixel Fill Method</a></dt>
+<dt><a href="SE_PrintPointLightDisplayType.htm">SE_Print Point Light Display Type</a></dt>
+<dt><a href="SE_PrintPolygonFlag.htm">SE_Print Polygon Flag</a></dt>
+<dt><a href="SE_PrintPredefFuncArgStructure.htm">SE_Print Predef Func Arg Structure</a></dt>
+<dt><a href="SE_PrintPredefFuncStructure.htm">SE_Print Predef Func Structure</a></dt>
+<dt><a href="SE_PrintPredefinedFunction.htm">SE_Print Predefined Function</a></dt>
+<dt><a href="SE_PrintPresentIn.htm">SE_Print Present In</a></dt>
+<dt><a href="SE_PrintPresentationDomain.htm">SE_Print Presentation Domain</a></dt>
+<dt><a href="SE_PrintPropertyCode.htm">SE_Print Property Code</a></dt>
+<dt><a href="SE_PrintPropertyCodeType.htm">SE_Print Property Code Type</a></dt>
+<dt><a href="SE_PrintQuadrant.htm">SE_Print Quadrant</a></dt>
+<dt><a href="SE_PrintRGBData.htm">SE_Print RGB Data</a></dt>
+<dt><a href="SE_PrintReferenceSurfaceElevationSelect.htm">SE_Print Reference Surface Elevation Select</a></dt>
+<dt><a href="SE_PrintReferenceSurfaceLODSelect.htm">SE_Print Reference Surface LOD Select</a></dt>
+<dt><a href="SE_PrintReferenceVectorType.htm">SE_Print Reference Vector Type</a></dt>
+<dt><a href="SE_PrintRotationData.htm">SE_Print Rotation Data</a></dt>
+<dt><a href="SE_PrintSRFContextInfo.htm">SE_Print SRF Context Info</a></dt>
+<dt><a href="SE_PrintSeason.htm">SE_Print Season</a></dt>
+<dt><a href="SE_PrintShadingMethod.htm">SE_Print Shading Method</a></dt>
+<dt><a href="SE_PrintShortInteger.htm">SE_Print Short Integer</a></dt>
+<dt><a href="SE_PrintShortIntegerPositive.htm">SE_Print Short Integer Positive</a></dt>
+<dt><a href="SE_PrintShortIntegerUnsigned.htm">SE_Print Short Integer Unsigned</a></dt>
+<dt><a href="SE_PrintSingleValue.htm">SE_Print Single Value</a></dt>
+<dt><a href="SE_PrintSingleValueType.htm">SE_Print Single Value Type</a></dt>
+<dt><a href="SE_PrintSoundFormat.htm">SE_Print Sound Format</a></dt>
+<dt><a href="SE_PrintSpacingType.htm">SE_Print Spacing Type</a></dt>
+<dt><a href="SE_PrintSpatialAssociationMeaningType.htm">SE_Print Spatial Association Meaning Type</a></dt>
+<dt><a href="SE_PrintSpatialIndexSpacingUnit.htm">SE_Print Spatial Index Spacing Unit</a></dt>
+<dt><a href="SE_PrintStateMismatchBehaviour.htm">SE_Print State Mismatch Behaviour</a></dt>
+<dt><a href="SE_PrintString.htm">SE_Print String</a></dt>
+<dt><a href="SE_PrintSymbolFormat.htm">SE_Print Symbol Format</a></dt>
+<dt><a href="SE_PrintTelephoneInformation.htm">SE_Print Telephone Information</a></dt>
+<dt><a href="SE_PrintTextFont.htm">SE_Print Text Font</a></dt>
+<dt><a href="SE_PrintTimeConfiguration.htm">SE_Print Time Configuration</a></dt>
+<dt><a href="SE_PrintTimeDataType.htm">SE_Print Time Data Type</a></dt>
+<dt><a href="SE_PrintTimeDayOfYearValue.htm">SE_Print Time Day Of Year Value</a></dt>
+<dt><a href="SE_PrintTimeMDHMSValue.htm">SE_Print Time MD HMS Value</a></dt>
+<dt><a href="SE_PrintTimeMDHMValue.htm">SE_Print Time MD HM Value</a></dt>
+<dt><a href="SE_PrintTimeMDHValue.htm">SE_Print Time MD H Value</a></dt>
+<dt><a href="SE_PrintTimeMValue.htm">SE_Print Time M Value</a></dt>
+<dt><a href="SE_PrintTimeOfDay.htm">SE_Print Time Of Day</a></dt>
+<dt><a href="SE_PrintTimeSignificance.htm">SE_Print Time Significance</a></dt>
+<dt><a href="SE_PrintTimeValue.htm">SE_Print Time Value</a></dt>
+<dt><a href="SE_PrintTimeYDHMSValue.htm">SE_Print Time YD HMS Value</a></dt>
+<dt><a href="SE_PrintTimeYDHMValue.htm">SE_Print Time YD HM Value</a></dt>
+<dt><a href="SE_PrintTimeYDHValue.htm">SE_Print Time YD H Value</a></dt>
+<dt><a href="SE_PrintTimeYDValue.htm">SE_Print Time YD Value</a></dt>
+<dt><a href="SE_PrintTimeYMDHMSValue.htm">SE_Print Time YMD HMS Value</a></dt>
+<dt><a href="SE_PrintTimeYMDHMValue.htm">SE_Print Time YMD HM Value</a></dt>
+<dt><a href="SE_PrintTimeYMDHValue.htm">SE_Print Time YMD H Value</a></dt>
+<dt><a href="SE_PrintTimeYMDValue.htm">SE_Print Time YMD Value</a></dt>
+<dt><a href="SE_PrintTimeYValue.htm">SE_Print Time Y Value</a></dt>
+<dt><a href="SE_PrintTypeClassification.htm">SE_Print Type Classification</a></dt>
+<dt><a href="SE_PrintURL.htm">SE_Print URL</a></dt>
+<dt><a href="SE_PrintURN.htm">SE_Print URN</a></dt>
+<dt><a href="SE_PrintUnderlineStyle.htm">SE_Print Underline Style</a></dt>
+<dt><a href="SE_PrintUnionReason.htm">SE_Print Union Reason</a></dt>
+<dt><a href="SE_PrintVariableCode.htm">SE_Print Variable Code</a></dt>
+<dt><a href="SE_PrintYIQData.htm">SE_Print YIQ Data</a></dt>
+<dt><a name="R"><a href="SE_RGBtoHLS.htm">SE_RGB to HLS</a></a></dt>
+<dt><a href="SE_RGBtoYIQ.htm">SE_RGB to YIQ</a></dt>
+<dt><a name="S"><a href="SE_SRFContextInfoEqual.htm">SE_SRF Context Info Equal</a></a></dt>
+<dt><a href="SE_SetErrorFilePtr.htm">SE_Set Error File Ptr</a></dt>
+<dt><a href="SE_SetFieldsToDefault.htm">SE_Set Fields To Default</a></dt>
+<dt><a href="SE_SetMinWidth.htm">SE_Set Min Width</a></dt>
+<dt><a href="SE_SetOutFilePtr.htm">SE_Set Out File Ptr</a></dt>
+<dt><a href="SE_SetPrecision.htm">SE_Set Precision</a></dt>
+<dt><a href="SE_SetRotateMatrix3x3.htm">SE_Set Rotate Matrix 3x3</a></dt>
+<dt><a href="SE_SetRotateMatrix4x4.htm">SE_Set Rotate Matrix 4x4</a></dt>
+<dt><a href="SE_SetScaleMatrix3x3.htm">SE_Set Scale Matrix 3x3</a></dt>
+<dt><a href="SE_SetScaleMatrix4x4.htm">SE_Set Scale Matrix 4x4</a></dt>
+<dt><a href="SE_SetString.htm">SE_Set String</a></dt>
+<dt><a href="SE_SetTranslateMatrix3x3.htm">SE_Set Translate Matrix 3x3</a></dt>
+<dt><a href="SE_SetTranslateMatrix4x4.htm">SE_Set Translate Matrix 4x4</a></dt>
+<dt><a href="SE_SetURL.htm">SE_Set URL</a></dt>
+<dt><a href="SE_SetURN.htm">SE_Set URN</a></dt>
+<dt><a href="SE_SingleValueToBoolean.htm">SE_Single Value To Boolean</a></dt>
+<dt><a href="SE_SingleValueToCount.htm">SE_Single Value To Count</a></dt>
+<dt><a href="SE_SingleValueToEnumerantCode.htm">SE_Single Value To Enumerant Code</a></dt>
+<dt><a href="SE_SingleValueToInteger.htm">SE_Single Value To Integer</a></dt>
+<dt><a href="SE_SingleValueToLongFloat.htm">SE_Single Value To Long Float</a></dt>
+<dt><a href="SE_SingleValueToString.htm">SE_Single Value To String</a></dt>
+<dt><a href="SE_SuperClass.htm">SE_Super Class</a></dt>
+<dt><a name="V"><a href="SE_ValidAPI.htm">SE_Valid API</a></a></dt>
+<dt><a href="SE_ValidAddress.htm">SE_Valid Address</a></dt>
+<dt><a href="SE_ValidAxisAlignment.htm">SE_Valid Axis Alignment</a></dt>
+<dt><a href="SE_ValidBoolean.htm">SE_Valid Boolean</a></dt>
+<dt><a href="SE_ValidBytePositive.htm">SE_Valid Byte Positive</a></dt>
+<dt><a href="SE_ValidCIOnlineFunctionCode.htm">SE_Valid CI OnlineFunctionCode</a></dt>
+<dt><a href="SE_ValidCIOnlineResource.htm">SE_Valid CI OnlineResource</a></dt>
+<dt><a href="SE_ValidCIRoleCode.htm">SE_Valid CI RoleCode</a></dt>
+<dt><a href="SE_ValidCMYData.htm">SE_Valid CMY Data</a></dt>
+<dt><a href="SE_ValidCMYKData.htm">SE_Valid CMYK Data</a></dt>
+<dt><a href="SE_ValidCameraProjectionType.htm">SE_Valid Camera Projection Type</a></dt>
+<dt><a href="SE_ValidColourBinding.htm">SE_Valid Colour Binding</a></dt>
+<dt><a href="SE_ValidColourData.htm">SE_Valid Colour Data</a></dt>
+<dt><a href="SE_ValidColourMapping.htm">SE_Valid Colour Mapping</a></dt>
+<dt><a href="SE_ValidColourModel.htm">SE_Valid Colour Model</a></dt>
+<dt><a href="SE_ValidContactInformation.htm">SE_Valid Contact Information</a></dt>
+<dt><a href="SE_ValidCoordinateForSRFContextInfo.htm">SE_Valid Coordinate For SRF Context Info</a></dt>
+<dt><a href="SE_ValidCountIntervalValue.htm">SE_Valid Count Interval Value</a></dt>
+<dt><a href="SE_ValidDRMClass.htm">SE_Valid DRM Class</a></dt>
+<dt><a href="SE_ValidDRMClassFields.htm">SE_Valid DRM Class Fields</a></dt>
+<dt><a href="SE_ValidDRMStatusCode.htm">SE_Valid DRM Status Code</a></dt>
+<dt><a href="SE_ValidDRMType.htm">SE_Valid DRM Type</a></dt>
+<dt><a href="SE_ValidDataQualityElement.htm">SE_Valid Data Quality Element</a></dt>
+<dt><a href="SE_ValidDataTableDataValueType.htm">SE_Valid Data Table Data Value Type</a></dt>
+<dt><a href="SE_ValidDisplaySide.htm">SE_Valid Display Side</a></dt>
+<dt><a href="SE_ValidDisplayStyle.htm">SE_Valid Display Style</a></dt>
+<dt><a href="SE_ValidElementType.htm">SE_Valid Element Type</a></dt>
+<dt><a href="SE_ValidElementTypeCode.htm">SE_Valid Element Type Code</a></dt>
+<dt><a href="SE_ValidEnumerantStructure.htm">SE_Valid Enumerant Structure</a></dt>
+<dt><a href="SE_ValidFeatureTopologyLevel.htm">SE_Valid Feature Topology Level</a></dt>
+<dt><a href="SE_ValidFieldModifier.htm">SE_Valid Field Modifier</a></dt>
+<dt><a href="SE_ValidFontStyle.htm">SE_Valid Font Style</a></dt>
+<dt><a href="SE_ValidFunctionalAssociationMeaningType.htm">SE_Valid Functional Association Meaning Type</a></dt>
+<dt><a href="SE_ValidGeometricCentreCode.htm">SE_Valid Geometric Centre Code</a></dt>
+<dt><a href="SE_ValidGeometryTopologyLevel.htm">SE_Valid Geometry Topology Level</a></dt>
+<dt><a href="SE_ValidGridOverlapOperator.htm">SE_Valid Grid Overlap Operator</a></dt>
+<dt><a href="SE_ValidHLSData.htm">SE_Valid HLS Data</a></dt>
+<dt><a href="SE_ValidHSMultiplicityCode.htm">SE_Valid HS Multiplicity Code</a></dt>
+<dt><a href="SE_ValidHSVData.htm">SE_Valid HSV Data</a></dt>
+<dt><a href="SE_ValidImageComponentType.htm">SE_Valid Image Component Type</a></dt>
+<dt><a href="SE_ValidImageMIPExtents.htm">SE_Valid Image MIP Extents</a></dt>
+<dt><a href="SE_ValidImageMappingMethod.htm">SE_Valid Image Mapping Method</a></dt>
+<dt><a href="SE_ValidImageProjectionType.htm">SE_Valid Image Projection Type</a></dt>
+<dt><a href="SE_ValidImageScanDirection.htm">SE_Valid Image Scan Direction</a></dt>
+<dt><a href="SE_ValidImageScanDirectionZ.htm">SE_Valid Image Scan Direction Z</a></dt>
+<dt><a href="SE_ValidImageSignature.htm">SE_Valid Image Signature</a></dt>
+<dt><a href="SE_ValidImageWrap.htm">SE_Valid Image Wrap</a></dt>
+<dt><a href="SE_ValidIndexCode.htm">SE_Valid Index Code</a></dt>
+<dt><a href="SE_ValidIntegerIntervalValue.htm">SE_Valid Integer Interval Value</a></dt>
+<dt><a href="SE_ValidIntegerPositive.htm">SE_Valid Integer Positive</a></dt>
+<dt><a href="SE_ValidInterpolationType.htm">SE_Valid Interpolation Type</a></dt>
+<dt><a href="SE_ValidIntervalType.htm">SE_Valid Interval Type</a></dt>
+<dt><a href="SE_ValidIntervalValue.htm">SE_Valid Interval Value</a></dt>
+<dt><a href="SE_ValidIntervalValueType.htm">SE_Valid Interval Value Type</a></dt>
+<dt><a href="SE_ValidLODDataType.htm">SE_Valid LOD Data Type</a></dt>
+<dt><a href="SE_ValidLSRTransformationAxis.htm">SE_Valid LSR Transformation Axis</a></dt>
+<dt><a href="SE_ValidLocale.htm">SE_Valid Locale</a></dt>
+<dt><a href="SE_ValidLongFloatIntervalValue.htm">SE_Valid Long Float Interval Value</a></dt>
+<dt><a href="SE_ValidLongFloatValue.htm">SE_Valid Long Float Value</a></dt>
+<dt><a href="SE_ValidMDClassificationCode.htm">SE_Valid MD ClassificationCode</a></dt>
+<dt><a href="SE_ValidMDKeywordTypeCode.htm">SE_Valid MD KeywordTypeCode</a></dt>
+<dt><a href="SE_ValidMDRestrictionCode.htm">SE_Valid MD RestrictionCode</a></dt>
+<dt><a href="SE_ValidMediaFormat.htm">SE_Valid Media Format</a></dt>
+<dt><a href="SE_ValidModelReferenceType.htm">SE_Valid Model Reference Type</a></dt>
+<dt><a href="SE_ValidMonth.htm">SE_Valid Month</a></dt>
+<dt><a href="SE_ValidMultiplicity.htm">SE_Valid Multiplicity</a></dt>
+<dt><a href="SE_ValidNonNullString.htm">SE_Valid Non Null String</a></dt>
+<dt><a href="SE_ValidOctant.htm">SE_Valid Octant</a></dt>
+<dt><a href="SE_ValidOrderingReason.htm">SE_Valid Ordering Reason</a></dt>
+<dt><a href="SE_ValidPixelFillMethod.htm">SE_Valid Pixel Fill Method</a></dt>
+<dt><a href="SE_ValidPointLightDisplayType.htm">SE_Valid Point Light Display Type</a></dt>
+<dt><a href="SE_ValidPolygonFlag.htm">SE_Valid Polygon Flag</a></dt>
+<dt><a href="SE_ValidPredefFuncArgStructure.htm">SE_Valid Predef Func Arg Structure</a></dt>
+<dt><a href="SE_ValidPredefFuncStructure.htm">SE_Valid Predef Func Structure</a></dt>
+<dt><a href="SE_ValidPredefinedFunction.htm">SE_Valid Predefined Function</a></dt>
+<dt><a href="SE_ValidPresentIn.htm">SE_Valid Present In</a></dt>
+<dt><a href="SE_ValidPresentationDomain.htm">SE_Valid Presentation Domain</a></dt>
+<dt><a href="SE_ValidPropertyCode.htm">SE_Valid Property Code</a></dt>
+<dt><a href="SE_ValidPropertyCodeType.htm">SE_Valid Property Code Type</a></dt>
+<dt><a href="SE_ValidQuadrant.htm">SE_Valid Quadrant</a></dt>
+<dt><a href="SE_ValidRGBData.htm">SE_Valid RGB Data</a></dt>
+<dt><a href="SE_ValidReferenceSurfaceElevationSelect.htm">SE_Valid Reference Surface Elevation Select</a></dt>
+<dt><a href="SE_ValidReferenceSurfaceLODSelect.htm">SE_Valid Reference Surface LOD Select</a></dt>
+<dt><a href="SE_ValidReferenceVectorType.htm">SE_Valid Reference Vector Type</a></dt>
+<dt><a href="SE_ValidSRFContextInfo.htm">SE_Valid SRF Context Info</a></dt>
+<dt><a href="SE_ValidSeason.htm">SE_Valid Season</a></dt>
+<dt><a href="SE_ValidShadingMethod.htm">SE_Valid Shading Method</a></dt>
+<dt><a href="SE_ValidShortIntegerPositive.htm">SE_Valid Short Integer Positive</a></dt>
+<dt><a href="SE_ValidSingleValue.htm">SE_Valid Single Value</a></dt>
+<dt><a href="SE_ValidSingleValueType.htm">SE_Valid Single Value Type</a></dt>
+<dt><a href="SE_ValidSoundFormat.htm">SE_Valid Sound Format</a></dt>
+<dt><a href="SE_ValidSpacingType.htm">SE_Valid Spacing Type</a></dt>
+<dt><a href="SE_ValidSpatialAssociationMeaningType.htm">SE_Valid Spatial Association Meaning Type</a></dt>
+<dt><a href="SE_ValidSpatialIndexSpacingUnit.htm">SE_Valid Spatial Index Spacing Unit</a></dt>
+<dt><a href="SE_ValidStateMismatchBehaviour.htm">SE_Valid State Mismatch Behaviour</a></dt>
+<dt><a href="SE_ValidString.htm">SE_Valid String</a></dt>
+<dt><a href="SE_ValidSymbolFormat.htm">SE_Valid Symbol Format</a></dt>
+<dt><a href="SE_ValidTelephoneInformation.htm">SE_Valid Telephone Information</a></dt>
+<dt><a href="SE_ValidTextFont.htm">SE_Valid Text Font</a></dt>
+<dt><a href="SE_ValidTimeConfiguration.htm">SE_Valid Time Configuration</a></dt>
+<dt><a href="SE_ValidTimeDataType.htm">SE_Valid Time Data Type</a></dt>
+<dt><a href="SE_ValidTimeDayOfYearValue.htm">SE_Valid Time Day Of Year Value</a></dt>
+<dt><a href="SE_ValidTimeMDHMSValue.htm">SE_Valid Time MD HMS Value</a></dt>
+<dt><a href="SE_ValidTimeMDHMValue.htm">SE_Valid Time MD HM Value</a></dt>
+<dt><a href="SE_ValidTimeMDHValue.htm">SE_Valid Time MD H Value</a></dt>
+<dt><a href="SE_ValidTimeMValue.htm">SE_Valid Time M Value</a></dt>
+<dt><a href="SE_ValidTimeOfDay.htm">SE_Valid Time Of Day</a></dt>
+<dt><a href="SE_ValidTimeSignificance.htm">SE_Valid Time Significance</a></dt>
+<dt><a href="SE_ValidTimeValue.htm">SE_Valid Time Value</a></dt>
+<dt><a href="SE_ValidTimeYDHMSValue.htm">SE_Valid Time YD HMS Value</a></dt>
+<dt><a href="SE_ValidTimeYDHMValue.htm">SE_Valid Time YD HM Value</a></dt>
+<dt><a href="SE_ValidTimeYDHValue.htm">SE_Valid Time YD H Value</a></dt>
+<dt><a href="SE_ValidTimeYDValue.htm">SE_Valid Time YD Value</a></dt>
+<dt><a href="SE_ValidTimeYMDHMSValue.htm">SE_Valid Time YMD HMS Value</a></dt>
+<dt><a href="SE_ValidTimeYMDHMValue.htm">SE_Valid Time YMD HM Value</a></dt>
+<dt><a href="SE_ValidTimeYMDHValue.htm">SE_Valid Time YMD H Value</a></dt>
+<dt><a href="SE_ValidTimeYMDValue.htm">SE_Valid Time YMD Value</a></dt>
+<dt><a href="SE_ValidTypeClassification.htm">SE_Valid Type Classification</a></dt>
+<dt><a href="SE_ValidURL.htm">SE_Valid URL</a></dt>
+<dt><a href="SE_ValidURN.htm">SE_Valid URN</a></dt>
+<dt><a href="SE_ValidUnderlineStyle.htm">SE_Valid Underline Style</a></dt>
+<dt><a href="SE_ValidUnionReason.htm">SE_Valid Union Reason</a></dt>
+<dt><a href="SE_ValidVariableCode.htm">SE_Valid Variable Code</a></dt>
+<dt><a name="Y"><a href="SE_YIQtoRGB.htm">SE_YIQ to RGB</a></a></dt>
+</dl>
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a></strong>,
+<strong><a href="../index.htm">Index</a></strong>
+<br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

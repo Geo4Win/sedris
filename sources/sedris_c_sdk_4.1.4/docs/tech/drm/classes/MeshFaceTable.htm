@@ -1,0 +1,294 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Mesh Face Table</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Mesh Face Table
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Mesh Face Table</h2>
+<h3>Superclass - <a href="SEDRISAbstractBase.htm">&lt;SEDRIS Abstract Base&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies a two-dimensional table
+ that defines the face elements of a
+ <A href="FiniteElementMesh.htm">&lt;Finite Element Mesh&gt;</A> instance in
+ terms of vertex numbers in the ordered <A href="Vertex.htm">&lt;Vertex&gt;</A>
+ component list of the
+ <A href="FiniteElementMesh.htm">&lt;Finite Element Mesh&gt;</A> instance and,
+ optionally, the topology of the face elements.
+</P><P>
+ The first data element specifies, for cell i, j, the index in the ordered
+ <A href="Vertex.htm">&lt;Vertex&gt;</A> list of the <A href="Vertex.htm">&lt;Vertex&gt;</A>
+ representing the j<sup>th</sup> vertex of the i<sup>th</sup> mesh
+ face. If the i<sup>th</sup> mesh face contains less than j vertices,
+ so that j is greater than the number of the last listed vertex of
+ mesh face i, the cell data element contains zero (0). The edges
+ of each mesh face i are implicitly defined by pairing vertex j to
+ vertex j + 1.
+</P><P>
+ For a given mesh face element index i and mesh face vertex index j, the
+ (i, j)<sup>th</sup> cell gives the vertex number that comprises the j<sup>th</sup> vertex of
+ the i<sup>th</sup> mesh face. The mesh face vertices are listed (j index) in
+ clockwise order around the outer perimeter of the mesh face, starting
+ and ending with a first vertex. If inner perimeter rings are present,
+ the vertex list along the second axis continues with inner perimeter
+ vertices in counterclockwise order starting and ending with a first
+ vertex on each inner ring.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet18.pdf"><strong>18</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+This class appears on only one page of the DRM class diagram.
+<h3>Example</h3>
+<OL>
+<LI><P>
+ Consider six <A href="Vertex.htm">&lt;Vertex&gt;</A> instances, used to
+ define a <A href="MeshFaceTable.htm">&lt;Mesh Face Table&gt;</A> instance, where
+ the mesh is diagrammed as depicted in <a href="#Figure33">Figure 33</a>:
+</P>
+<DIV align="center">
+<p>
+<A name="Figure33"></A>
+<IMG SRC="../Images/MeshFaceTable_Ex1.png" ALT="Mesh Face Table, Example 1">
+</p>
+<p class=FigureCaption>Figure 33 &#8212; &lt;DRM Mesh Face Table&gt; example</p>
+</DIV>
+<P>
+ In this example, there are six <A href="Vertex.htm">&lt;Vertex&gt;</A>
+ instances forming the vertices of the mesh, which has three
+ mesh faces (A, B, C).
+</P><P>
+ The corresponding
+ <A href="MeshFaceTable.htm">&lt;Mesh Face Table&gt;</A> instance,
+ without surface topology, is organized as follows,
+ where each individual cell contains a vertex
+ number.
+</P><P>
+<DIV align=center><TABLE border=1>
+<TR>
+   <TH COLSPAN=6 ALIGN=CENTER>Vertex number</TH>
+</TR>
+<TR>
+   <TD>&nbsp;</TD>
+   <TH>1</TH>
+   <TH>2</TH>
+   <TH>3</TH>
+   <TH>4</TH>
+   <TH>5</TH>
+</TR>
+<TR>
+   <TH>1 (Mesh Face A)</TH>
+   <TD align=center>1</TD>
+   <TD align=center>2</TD>
+   <TD align=center>4</TD>
+   <TD align=center>1</TD>
+   <TD align=center>0</TD>
+</TR>
+<TR>
+   <TH>2 (Mesh Face B)</TH>
+   <TD align=center>2</TD>
+   <TD align=center>3</TD>
+   <TD align=center>6</TD>
+   <TD align=center>5</TD>
+   <TD align=center>2</TD>
+</TR>
+<TR>
+   <TH>3 (Mesh Face C)</TH>
+   <TD align=center>4</TD>
+   <TD align=center>2</TD>
+   <TD align=center>5</TD>
+   <TD align=center>4</TD>
+   <TD align=center>0</TD>
+</TR>
+</TABLE></DIV>
+</LI>
+<LI><P>
+ Consider the
+ <A href="MeshFaceTable.htm">&lt;Mesh Face Table&gt;</A>
+ instance from the previous example, with the addition
+ of surface topology indicated by
+ <A href="#adjacent_face_table_present">adjacent_face_table_present</A>
+ set to <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A>.
+ In this instance, each individual cell contains
+ a {vertex number, adjacent mesh face number} pair.
+</P>
+<DIV align=center><TABLE border=1>
+<TR>
+ <TH COLSPAN=6 ALIGN=CENTER>Vertex number</TH>
+</TR>
+<TR>
+ <TD>&nbsp;</TD>
+ <TH>1</TH>
+ <TH>2</TH>
+ <TH>3</TH>
+ <TH>4</TH>
+ <TH>5</TH>
+</TR>
+<TR>
+ <TH>1 (Mesh Face A)</TH>
+ <TD align=center>1, 0</TD>
+ <TD align=center>2, 3</TD>
+ <TD align=center>4, 0</TD>
+ <TD align=center>1, 0</TD>
+ <TD align=center>0, 0</TD>
+</TR>
+<TR>
+ <TH>2 (Mesh Face B)</TH>
+ <TD align=center>2, 0</TD>
+ <TD align=center>3, 0</TD>
+ <TD align=center>6, 0</TD>
+ <TD align=center>5, 3</TD>
+ <TD align=center>2, 0</TD>
+</TR>
+<TR>
+ <TH>3 (Mesh Face C)</TH>
+ <TD align=center>4, 1</TD>
+ <TD align=center>2, 2</TD>
+ <TD align=center>5, 0</TD>
+ <TD align=center>4, 0</TD>
+ <TD align=center>0, 0</TD>
+</TR>
+</TABLE>
+</DIV>
+</LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ Where can users obtain further information about the
+ <A href="MeshFaceTable.htm">&lt;Mesh Face Table&gt;</A> class and its usage?
+</B></DT>
+<DD><P>
+ See <A href="../../p4v6.htm">P4V6</A>
+ of the SEDRIS Documentation Set for detailed information on
+ <A href="MeshFaceTable.htm">&lt;Mesh Face Table&gt;</A> instance manipulation.
+</P></DD>
+<DT><B>
+ The <A href="MeshFaceTable.htm">&lt;Mesh Face Table&gt;</A> class does not
+ have a field for the actual cells of a
+ <A href="MeshFaceTable.htm">&lt;Mesh Face Table&gt;</A> instance. Where are they,
+ and how are they accessed?
+</B></DT>
+<DD><P>
+ The actual cells of a <A href="MeshFaceTable.htm">&lt;Mesh Face Table&gt;</A>
+ instance are hidden by the API implementation being used to
+ provide the <A href="MeshFaceTable.htm">&lt;Mesh Face Table&gt;</A> instance. See the
+ <A href="../../taccess0/functions/SE_PutMeshFaceTableData.htm">SE_PutMeshFaceTableData()</A>
+ function in the level 0 API
+ for <A href="MeshFaceTable.htm">&lt;Mesh Face Table&gt;</A> instance production,
+ and the level 0 function
+ <A href="../../taccess0/functions/SE_GetMeshFaceTableData.htm">SE_GetMeshFaceTableData()</A>
+ for consumption.
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Component of (two-way)</h3>
+<UL>
+<li>one <a href="FiniteElementMesh.htm">&lt;Finite Element Mesh&gt;</a> instance</li>
+</UL>
+
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Integer_Positive.htm">SE_Integer_Positive</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="mesh_face_count">mesh_face_count</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_mesh_face_count">1</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Integer_Positive.htm">SE_Integer_Positive</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="maximum_vertices_per_face">maximum_vertices_per_face</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_maximum_vertices_per_face">2</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Boolean.htm">SE_Boolean</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="adjacent_face_table_present">adjacent_face_table_present</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_adjacent_face_table_present">3</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Fields Notes</h3>
+<h4><a href="#mesh_face_count" name="Notes_mesh_face_count">mesh_face_count</a></h4>
+<P>
+ The <A href="#mesh_face_count">mesh_face_count</A>
+ field specifies the total number of mesh faces in the
+ <A href="MeshFaceTable.htm">&lt;Mesh Face Table&gt;</A> instance.
+</P>
+<h4><a href="#maximum_vertices_per_face" name="Notes_maximum_vertices_per_face">maximum_vertices_per_face</a></h4>
+<P>
+ The <A href="#maximum_vertices_per_face">maximum_vertices_per_face</A>
+ field specifies the maximum
+ number of vertices in any one face element.
+</P>
+<h4><a href="#adjacent_face_table_present" name="Notes_adjacent_face_table_present">adjacent_face_table_present</a></h4>
+<P>
+ If the
+ <A href="#adjacent_face_table_present">adjacent_face_table_present</A>
+ field is set to <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A>, the given
+ <A href="FiniteElementMesh.htm">&lt;Finite Element Mesh&gt;</A> instance
+ contains face adjacency information in a separate table termed the
+ <I>adjacent face table</I>, which has the same dimensions as the
+ mesh face table. The values in the adjacent face table are positive
+ integer values that specify face indexes that represent the row in the
+ mesh face table.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="MapScaleLODData.htm">Map Scale LOD Data</A>.
+<strong>Next:</strong> <A href="Model.htm">Model</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

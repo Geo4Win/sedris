@@ -1,0 +1,172 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Inline Colour</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Inline Colour
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Inline Colour</h2>
+<h3>Superclass - <a href="Colour.htm">&lt;Colour&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class is a <A href="Colour.htm">&lt;Colour&gt;</A>
+ instance that is specified inline in the sense that
+ it is completely specified as a component of the coloured object
+ without referring to any <A href="ColourTable.htm">&lt;Colour Table&gt;</A>
+ instance.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet14.pdf"><strong>14</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+This class appears on only one page of the DRM class diagram.
+<h3>Example</h3>
+<OL>
+<LI><P>
+ Consider a <A href="Polygon.htm">&lt;Polygon&gt;</A> instance with both
+ an <A href="ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</A> component and
+ an <A href="InlineColour.htm">&lt;Inline Colour&gt;</A> component where the
+ <A href="#colour_mapping">colour_mapping</A>
+ field of the <A href="InlineColour.htm">&lt;Inline Colour&gt;</A> component
+ is {<A href="../types/SE_Colour_Mapping.htm#Front_Image_Blend">Front_Image_Blend</A>}.
+ This indicates that the colour is to be applied to the front
+ of the <A href="Polygon.htm">&lt;Polygon&gt;</A> instance
+ and is to be combined with the texture mapping information provided by the
+ <A href="ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</A> instance.
+</P></LI>
+<LI><P>
+ Consider a <A href="Polygon.htm">&lt;Polygon&gt;</A> instance with
+ an <A href="InlineColour.htm">&lt;Inline Colour&gt;</A> component where the
+ <A href="InlineColour.htm">&lt;Inline Colour&gt;</A> instance has
+ <A href="#colour_mapping">colour_mapping</A> =
+ { <A href="../types/SE_Colour_Mapping.htm#Back_Primary">Back_Primary</A> }.
+ This colour is used for the back face of the
+ <A href="Polygon.htm">&lt;Polygon&gt;</A> instance.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ Why do <A href="ColourTable.htm">&lt;Colour Table&gt;</A> instances have
+ <A href="PrimitiveColour.htm">&lt;Primitive Colour&gt;</A> components rather
+ than <A href="InlineColour.htm">&lt;Inline Colour&gt;</A> components?
+</B></DT>
+<DD><P>
+ Because a <A href="ColourIndex.htm">&lt;Colour Index&gt;</A> instance and
+ an <A href="InlineColour.htm">&lt;Inline Colour&gt;</A> instance both specify
+ a <A href="#colour_mapping">colour_mapping</A> field
+ and potentially both specify
+ <A href="Translucency.htm">&lt;Translucency&gt;</A> components.
+</P><P>
+ Consequently, <A href="PrimitiveColour.htm">&lt;Primitive Colour&gt;</A> exists
+ so that 'just the colour' can be specified by
+ an entry within a <A href="ColourTable.htm">&lt;Colour Table&gt;</A> instance.
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ColourMappingConstraints.htm">&lt;&lt;Colour Mapping Constraints&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/PresentationDomainConstraints.htm">&lt;&lt;Presentation Domain Constraints&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Composed of (two-way) (inherited)</h3>
+<UL>
+<li>zero or one <a href="PresentationDomain.htm">&lt;Presentation Domain&gt;</a> instance<sup><A href="#Notes_cmp_Presentation_Domain" name="cmp_Presentation_Domain">1</A></sup></li>
+<li>zero or one <a href="Translucency.htm">&lt;Translucency&gt;</a> instance</li>
+</UL>
+<h3>Composed of (two-way)</h3>
+<UL>
+<li>one <a href="PrimitiveColour.htm">&lt;Primitive Colour&gt;</a> instance</li>
+</UL>
+
+<h3>Component of (two-way) (inherited)</h3>
+<UL>
+<li>zero or more <a href="AggregateFeature.htm">&lt;Aggregate Feature&gt;</a> instances</li>
+<li>zero or more <a href="AggregateGeometry.htm">&lt;Aggregate Geometry&gt;</a> instances</li>
+<li>zero or more <a href="PrimitiveFeature.htm">&lt;Primitive Feature&gt;</a> instances</li>
+<li>zero or more <a href="PrimitiveGeometry.htm">&lt;Primitive Geometry&gt;</a> instances</li>
+<li>zero or more <a href="PropertySet.htm">&lt;Property Set&gt;</a> instances</li>
+<li>zero or more <a href="Vertex.htm">&lt;Vertex&gt;</a> instances</li>
+</UL>
+<h2><a name="inherited_field">Inherited Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Colour_Mapping.htm">SE_Colour_Mapping</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="colour_mapping">colour_mapping</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_colour_mapping">2</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Composed of Notes</h3>
+<br>
+<h4><a href="#cmp_Presentation_Domain" name="Notes_cmp_Presentation_Domain">Presentation_Domain</a></h4>
+ If present, the <A href="PresentationDomain.htm">&lt;Presentation Domain&gt;</A>
+ component identifies the type of sensor for which the
+ <A href="Colour.htm">&lt;Colour&gt;</A> instance is applicable.
+</P>
+<h3>Fields Notes</h3>
+<h4><a href="#colour_mapping" name="Notes_colour_mapping">colour_mapping</a></h4>
+<P>
+ The <A href="#colour_mapping">colour_mapping</A> field
+ specifies the set of <A href="../types/SE_Colour_Mapping.htm">SE_Colour_Mapping</A>
+ members applicable to the <A href="Colour.htm">&lt;Colour&gt;</A> instance.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="InfiniteLight.htm">Infinite Light</A>.
+<strong>Next:</strong> <A href="InterfaceTemplate.htm">Interface Template</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

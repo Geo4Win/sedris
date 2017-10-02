@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE_Classification_Parameters</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Types
+</font>
+<br>
+<font color="#ffffff">
+SE_Classification_Parameters
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<PRE>
+/*
+ * STRUCT: SE_Classification_Parameters
+ *
+ *   This data type specifies hierarchical search criteria.
+ *
+ *   The array members shall be distinct.
+ *
+ *   When used within an SE_Hierarchy_Select_Parameters record, this
+ *   data type is used to select which branches to traverse from a
+ *   &lt;Classification Related Features&gt; instance or
+ *   &lt;Classification Related Geometry&gt; instance when encountered by a
+ *   component iterator.  All branches with a link object containing a
+ *   classification tag listed in the given classification_array
+ *   will be traversed.
+ *
+ *   When used within an SE_Hierarchy_Order_Parameters record, this
+ *   data type controls the traversal order of the branches from a
+ *   &lt;Classification Related Features&gt; instance or
+ *   &lt;Classification Related Geometry&gt; instance when encountered by a
+ *   component iterator. Any occurrences of branches that are traversed
+ *   but are not mentioned in this traversal order array will be traversed
+ *   in any order after all of the branches that are mentioned in this
+ *   array are traversed.
+ *
+ *   Additional information is available in the
+ *   &lt;Classification Related Features&gt;,
+ *   &lt;Classification Related Geometry&gt;, and &lt;Classification Data&gt;
+ *   classes.
+ */
+</PRE>
+<span class="Code">typedef struct 
+<br>
+{</span>
+<br>
+<table class="CFunctionPrototype">
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../drm/types/SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a></td>
+        <td class="CFunction"><a
+        name="classification_count"></a>classification_count;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Classification_Entry.htm">SE_Classification_Entry</a></td>
+        <td class="CFunction">*<a
+        name="classification_array"></a>classification_array;</td></tr>
+</table>
+<span class="Code">
+} SE_Classification_Parameters;</span>
+<br>
+
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SE_Classification_Entry.htm">SE_Classification_Entry</a>.
+<strong>Next:</strong> <a href="SE_Continuous_LOD_Select_Choice.htm">SE_Continuous_LOD_Select_Choice</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Property Set Index</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Property Set Index
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Property Set Index</h2>
+<h3>Superclass - <a href="SEDRISAbstractBase.htm">&lt;SEDRIS Abstract Base&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies the means of referencing the
+ contents of a <A href="PropertySet.htm">&lt;Property Set&gt;</A> instance
+ that is contained in a
+ <A href="PropertySetTable.htm">&lt;Property Set Table&gt;</A> instance.
+</P><P>
+ A <A href="PropertySetIndex.htm">&lt;Property Set Index&gt;</A> instance
+ specifies an index into the primary
+ <A href="PropertySetTable.htm">&lt;Property Set Table&gt;</A> component of the
+ <A href="PropertySetTableGroup.htm">&lt;Property Set Table Group&gt;</A> instance to which it is
+ associated. The <A href="PropertySetTableGroup.htm">&lt;Property Set Table Group&gt;</A> instance
+ specifies which of its <A href="PropertySetTable.htm">&lt;Property Set Table&gt;</A> components
+ is being used, while the
+ <A href="PropertySetIndex.htm">&lt;Property Set Index&gt;</A> instance specifies
+ which <A href="PropertySet.htm">&lt;Property Set&gt;</A> component within that
+ primary <A href="PropertySetTable.htm">&lt;Property Set Table&gt;</A> instance
+ is being referenced.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet19.pdf"><strong>19</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet03.pdf"><strong>3</strong></A>
+</LI>
+<LI><A href="sheet08.pdf"><strong>8</strong></A>
+</LI>
+</UL>
+
+<h3>Example</h3>
+<OL>
+<LI><P>
+ Consider a <A href="PropertySetTableGroup.htm">&lt;Property Set Table Group&gt;</A> instance, such that
+ the k<sup>th</sup> <A href="PropertySet.htm">&lt;Property Set&gt;</A> component of its primary
+ <A href="PropertySetTable.htm">&lt;Property Set Table&gt;</A> component consists of
+ <A href="Colour.htm">&lt;Colour&gt;</A> components and
+ <A href="ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</A> components
+ for sandy ground under normal, OTW viewing conditions.
+</P><P>
+ A terrain <A href="Polygon.htm">&lt;Polygon&gt;</A> instance that references this
+ set does so by having a <A href="PropertySetIndex.htm">&lt;Property Set Index&gt;</A> component
+ that is associated to the
+ <A href="PropertySetTableGroup.htm">&lt;Property Set Table Group&gt;</A> instance
+ and the <A href="#index">index</A> value of which is
+ set to k.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ Does a <A href="PropertySetIndex.htm">&lt;Property Set Index&gt;</A> instance
+ specify a one-based index?
+</B></DT>
+<DD><P>
+ Yes.
+</P></DD>
+<DT><B>
+ Consider a DRM object, the properties which are specified by a
+ <A href="PropertySetIndex.htm">&lt;Property Set Index&gt;</A>. How can
+ a consumer get access to the actual property objects being referred to?
+</B></DT>
+<DD><P>
+ A consumer can access the actual property objects contained within
+ the <A href="PropertySetTable.htm">&lt;Property Set Table&gt;</A>, as though
+ they had been directly attached to the object. See
+ <A href="../../taccess0/functions/SE_InitializeComponentIterator.htm">SE_InitializeComponentIterator()</A>'s
+<A href="../../taccess0/functions/SE_InitializeComponentIterator.htm">directly_attach_table_components</A>
+ parameter, and
+ <A href="../../taccess0/functions/SE_GetComponent.htm">SE_GetComponent()</A>'s
+ <A href="../../taccess0/functions/SE_GetComponent.htm">directly_attach_table_components</A>
+ parameter.
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Associated to (one-way)</h3>
+<UL>
+<li>one <a href="PropertySetTableGroup.htm">&lt;Property Set Table Group&gt;</a> instance</li>
+</UL>
+
+<h3>Composed of (two-way)</h3>
+<UL>
+<li>zero or one <a href="PropertySetIndexControlLink.htm">&lt;Property Set Index Control Link&gt;</a> instance<sup><A href="#Notes_cmp_Property_Set_Index_Control_Link" name="cmp_Property_Set_Index_Control_Link">1</A></sup></li>
+</UL>
+
+<h3>Component of (two-way)</h3>
+<UL>
+<li>zero or more <a href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</a> instances</li>
+<li>zero or more <a href="GeometryRepresentation.htm">&lt;Geometry Representation&gt;</a> instances</li>
+</UL>
+
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Integer_Positive.htm">SE_Integer_Positive</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="index">index</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_index">2</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Composed of Notes</h3>
+<br>
+<h4><a href="#cmp_Property_Set_Index_Control_Link" name="Notes_cmp_Property_Set_Index_Control_Link">Property_Set_Index_Control_Link</a></h4>
+ If a <A href="PropertySetIndex.htm">&lt;Property Set Index&gt;</A> instance
+ is subject to dynamic control (that is, if its
+ <A href="PropertySetIndex.htm#index">index</A> value can vary),
+ it has a
+ <A href="PropertySetIndexControlLink.htm">&lt;Property Set Index Control Link&gt;</A> component
+ to express that control mechanism.
+</P>
+<h3>Fields Notes</h3>
+<h4><a href="#index" name="Notes_index">index</a></h4>
+<P>
+ The <A href="#index">index</A> field specifies which
+ <A href="PropertySet.htm">&lt;Property Set&gt;</A> instance is being referenced within the
+ primary <A href="PropertySetTable.htm">&lt;Property Set Table&gt;</A> component of the associated
+ <A href="PropertySetTableGroup.htm">&lt;Property Set Table Group&gt;</A> instance. For a
+ <A href="PropertySetIndex.htm">&lt;Property Set Index&gt;</A> instance with a
+ <A href="PropertySetIndexControlLink.htm">&lt;Property Set Index Control Link&gt;</A> component
+ <span class="ConstructName">X</span>, the value of the <A href="#index">index</A>
+ field is obtained from <span class="ConstructName">X</span>.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="PropertySet.htm">Property Set</A>.
+<strong>Next:</strong> <A href="PropertySetIndexControlLink.htm">Property Set Index Control Link</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

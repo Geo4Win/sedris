@@ -1,0 +1,153 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE GetObjectReferenceCount</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+SE GetObjectReferenceCount
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../types/SE_Return_Code.htm">SE_Return_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SE_GetObjectReferenceCount</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/SE_Object.htm">SE_Object</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="object"></a>object,</td><td class="CFunction"><sup><A href="#Notes_object">1</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../../drm/types/SE_Integer.htm">SE_Integer</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="reference_count"></a>reference_count</td><td class="CFunction"><sup><A href="#Notes_reference_count">2</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+  Returns the number of currently outstanding
+  <A href="../types/SE_Object.htm">SE_Object</A> references for the given object.
+  A user can have multiple references (multiple
+  <A href="../types/SE_Object.htm">SE_Object</A>s) to the same object by having
+  the same object returned to the user from multiple iterators or
+  from multiple calls to other Level 0 functions which return
+  <A href="../types/SE_Object.htm">SE_Object</A>s.  An object is 'active' as long
+  as the user has at least one <A href="../types/SE_Object.htm">SE_Object</A> to
+  the object. That is, an object is active until the user calls
+  <A href="SE_FreeObject.htm">SE_FreeObject()</A> for as many times as
+  the user received <A href="../types/SE_Object.htm">SE_Object</A>s for that object.
+</P><P>
+  For example, if a user called <A href="SE_GetNextObject.htm">
+  SE_GetNextObject()</A> five times and was returned <A href="../types/SE_Object.htm">SE_Object</A>
+  SE_Objects</A> to the same object five times, then the API counts
+  that the user has five <A href="../types/SE_Object.htm">SE_Object</A>s for that
+  object.  The object will not be 'returned' to the API until the user
+  calls <A href="SE_FreeObject.htm">SE_FreeObject()</A> five times for
+  that object - once for every time the user received a
+  <A href="../types/SE_Object.htm">SE_Object</A> to that object.
+</P><P>
+  This function can be used by the user to determine if the user already has
+  a pointer to an object just returned from any of the Level 0 calls that
+  return objects (e.g. <A href="SE_GetNextObject.htm">
+  SE_GetNextObject()</A>,
+  <A href="SE_GetNthComponent.htm">
+      SE_GetNthComponent()</A>.
+  This function can also help the user interact with the
+  <A href="SE_SetUserData.htm">SE_SetUserData()</A> and
+  <A href="SE_GetUserData.htm">SE_GetUserData()</A> functions. See those
+  function descriptions for details.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A>
+</td><td class="Status">
+ and the reference count is returned.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A>
+</td><td class="Status">
+ and the status code is set appropriately if the call failed.
+</td></tr>
+</table>
+
+<h3>Status Codes</h3>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A>
+   is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_SUCCESS">SE_STATCODE_SUCCESS</A>
+</td><td class="Status">
+ set if valid parameters were passed in.
+</td></tr>
+</table>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A>
+   is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_INACTIONABLE_FAILURE">SE_STATCODE_INACTIONABLE_FAILURE</A>
+</td><td class="Status">
+ set if the call fails for any reason.
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#object" name="Notes_object">1</a></sup>
+ the DRM object for which the number of 'active
+    user references' will be returned.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#reference_count" name="Notes_reference_count">2</a></sup>
+ a pointer to the variable in the user's memory
+    space where the answer will be stored.
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SE_GetObjectIDString.htm">SE_GetObjectIDString</a>.
+<strong>Next:</strong> <a href="SE_GetPackedHierarchy.htm">SE_GetPackedHierarchy</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

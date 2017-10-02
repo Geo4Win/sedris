@@ -1,0 +1,204 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Geometry Volume</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Geometry Volume
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Geometry Volume</h2>
+<h3>Superclass - <a href="GeometryTopology.htm">&lt;Geometry Topology&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class is a three-dimensional
+ <A href="GeometryTopology.htm">&lt;Geometry Topology&gt;</A>
+ instance used to represent an enclosed region of space that is
+ bounded by four or more <A href="GeometryFace.htm">&lt;Geometry Face&gt;</A>
+ instances.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet13.pdf"><strong>13</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet05.pdf"><strong>5</strong></A>
+</LI>
+</UL>
+
+<h3>Example</h3>
+<OL>
+<LI><P>
+ Consider a <A href="Polyhedron.htm">&lt;Polyhedron&gt;</A> instance representing a
+ building. It has:
+</P>
+<OL type='a'>
+<LI>a collection of <A href="Polygon.htm">&lt;Polygon&gt;</A>
+ instances that define its geometric shape;
+</LI>
+<LI>an associated <A href="GeometryVolume.htm">&lt;Geometry Volume&gt;</A> instance that defines
+ its topological relationships;
+</LI>
+<LI>a <A href="ClassificationData.htm">&lt;Classification Data&gt;</A> component
+ that classifies it as an <A href="../../../../src/lib/edcs/docs/dictionary/ECC_B.htm#ECC_BUILDING">ECC_BUILDING</A>;
+</LI>
+<LI><A href="PropertyValue.htm">&lt;Property Value&gt;</A> components that
+ describe its characteristics, such as material composition, and
+</LI>
+<LI>a <A href="Label.htm">&lt;Label&gt;</A> instance that identifies it as
+ &quot;The Empire State Building&quot;.
+</LI>
+</OL>
+</LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ When are <A href="GeometryVolume.htm">&lt;Geometry Volume&gt;</A> instances
+ required?
+</B></DT>
+<DD><P>
+ <A href="GeometryVolume.htm">&lt;Geometry Volume&gt;</A> instances are
+ required only when the geometry topology level is five.
+</P></DD>
+<DT><B>
+ Are there any geometric constraints on
+ <A href="GeometryVolume.htm">&lt;Geometry Volume&gt;</A> instances?
+</B></DT>
+<DD><P>
+ Yes.  <A href="GeometryVolume.htm">&lt;Geometry Volume&gt;</A> instances
+ must always have closed  external boundaries (defined by their
+ <A href="Polygon.htm">&lt;Polygon&gt;</A> components), and their interiors
+ must be fully connected.  At geometry topology level 5, the
+ interiors of <A href="GeometryVolume.htm">&lt;Geometry Volume&gt;</A>
+ instances may not intersect or overlap one another, and
+ <A href="GeometryVolume.htm">&lt;Geometry Volume&gt;</A> instances may
+ meet only along one or more common
+ <A href="GeometryFace.htm">&lt;Geometry Face&gt;</A> instances.
+</P></DD>
+<DT><B>
+ Can <A href="GeometryVolume.htm">&lt;Geometry Volume&gt;</A> instances
+ exist at any geometry topology level?
+</B></DT>
+<DD><P>
+ Yes. <A href="GeometryVolume.htm">&lt;Geometry Volume&gt;</A> instances
+ may exist at any geometry topology level. At geometry topology
+ level 5, the collection of
+ <A href="GeometryVolume.htm">&lt;Geometry Volume&gt;</A> instances must
+ exhaustively and exclusively partition the 3D topological space,
+ such that exactly two
+ <A href="GeometryVolume.htm">&lt;Geometry Volume&gt;</A> instances shall
+ be bounded by each <A href="GeometryFace.htm">&lt;Geometry Face&gt;</A>
+ instance.
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ConstraintsOnAssociates.htm">&lt;&lt;Constraints On Associates&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ContainedEdgeConstraints.htm">&lt;&lt;Contained Edge Constraints&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ContainedNodeConstraints.htm">&lt;&lt;Contained Node Constraints&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/FacesBorderingVolumes.htm">&lt;&lt;Faces Bordering Volumes&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/VolumeShellFaceConsistency.htm">&lt;&lt;Volume Shell Face Consistency&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Associated with (two-way)</h3>
+<UL>
+<li>zero or more <a href="GeometryEdge.htm">&lt;Geometry Edge&gt;</a> instances<sup><A href="#Notes_asn_biGeometry_Edge" name="asn_biGeometry_Edge">1</A></sup></li>
+<li>4 or more <a href="GeometryFace.htm">&lt;Geometry Face&gt;</a> instances, each through the use of a <a href="FaceDirection.htm">&lt;Face Direction&gt;</a> link object<sup><A href="#Notes_asn_biGeometry_Face" name="asn_biGeometry_Face">2</A></sup></li>
+<li>zero or more <a href="GeometryNode.htm">&lt;Geometry Node&gt;</a> instances<sup><A href="#Notes_asn_biGeometry_Node" name="asn_biGeometry_Node">3</A></sup></li>
+<li>one or more <a href="Polyhedron.htm">&lt;Polyhedron&gt;</a> instances</li>
+</UL>
+
+<h3>Component of (two-way) (inherited)</h3>
+<UL>
+<li>one or more <a href="UnionOfGeometryTopology.htm">&lt;Union Of Geometry Topology&gt;</a> instances</li>
+</UL>
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<hr>
+<h2>Notes</h2>
+<h3>Associated with Notes</h3>
+<br>
+<h4><a href="#asn_biGeometry_Edge" name="Notes_asn_biGeometry_Edge">Geometry_Edge</a></h4>
+ If a <A href="GeometryVolume.htm">&lt;Geometry Volume&gt;</A> instance
+ has an association relationship with a
+ <A href="GeometryEdge.htm">&lt;Geometry Edge&gt;</A> instance,
+ that <A href="GeometryEdge.htm">&lt;Geometry Edge&gt;</A>
+ instance is contained within the
+ <A href="GeometryVolume.htm">&lt;Geometry Volume&gt;</A> instance.
+</P>
+<br>
+<h4><a href="#asn_biGeometry_Face" name="Notes_asn_biGeometry_Face">Geometry_Face</a></h4>
+ These <A href="GeometryFace.htm">&lt;Geometry Face&gt;</A> instances specify the boundary of
+ the <A href="GeometryVolume.htm">&lt;Geometry Volume&gt;</A> instance.
+</P>
+<br>
+<h4><a href="#asn_biGeometry_Node" name="Notes_asn_biGeometry_Node">Geometry_Node</a></h4>
+ If a <A href="GeometryVolume.htm">&lt;Geometry Volume&gt;</A>
+ instance has an association relationship with a
+ <A href="GeometryNode.htm">&lt;Geometry Node&gt;</A> instance, that
+ <A href="GeometryNode.htm">&lt;Geometry Node&gt;</A> instance is
+ contained within the <A href="GeometryVolume.htm">&lt;Geometry Volume&gt;</A> instance.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="GeometryTopologyHierarchy.htm">Geometry Topology Hierarchy</A>.
+<strong>Next:</strong> <A href="GridOverlap.htm">Grid Overlap</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

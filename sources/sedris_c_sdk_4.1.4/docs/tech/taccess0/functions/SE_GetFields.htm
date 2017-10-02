@@ -1,0 +1,164 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE GetFields</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+SE GetFields
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../types/SE_Return_Code.htm">SE_Return_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SE_GetFields</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/SE_Object.htm">SE_Object</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="object"></a>object,</td><td class="CFunction"><sup><A href="#Notes_object">1</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/SE_Store.htm">SE_Store</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="store_in"></a>store_in,</td><td class="CFunction"><sup><A href="#Notes_store_in">2</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../../drm/types/SE_FIELDS_PTR.htm">SE_FIELDS_PTR</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="fields"></a>fields</td><td class="CFunction"><sup><A href="#Notes_fields">3</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+ Retrieves a pointer to the field data of an object.  The
+ <A href="../../drm/types/SE_DRM_Class_Fields.htm">SE_DRM_Class_Fields</A> data structure is a union of all the
+ different field structures from all the different classes.  This
+ all-inclusive union and the structures that compose it are defined in the
+ &quot;sedris.h&quot; file.  The memory required to store the fields
+ structure well as any memory referenced by pointers within the fields
+ structure are allocated within a store that is provided by the caller.
+ The returned data is valid until the store is used in another API call,
+ or the store is freed with the <A href="SE_FreeStore.htm">SE_FreeStore()</A>
+ function.  See the comments for the function
+ <A href="SE_CreateStore.htm">SE_CreateStore()</A> for details on the
+ function and behavior of stores.
+</P><P>
+ <STRONG>WARNING</STRONG>:  Because some of the fields contained in the
+ union portion of the <A href="../../drm/types/SE_DRM_Class_Fields.htm">SE_DRM_Class_Fields</A> structure are
+ pointers to dynamically allocated memory, it is
+ <EM>HIGHLY INADVISABLE</EM> to use a member-wise structure copy in order to
+ duplicate the <A href="../../drm/types/SE_DRM_Class_Fields.htm">SE_DRM_Class_Fields</A> structure.  In order to
+ reliably duplicate this data, developers should use the
+ <A href="../../drm/functions/SE_CloneFields.htm">SE_CloneFields()</A> function.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A>
+</td><td class="Status">
+ and the requested fields are returned
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A>
+</td><td class="Status">
+ and the status code is set appropriately if the call failed.
+</td></tr>
+</table>
+
+<h3>Status Codes</h3>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A> is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_SUCCESS">SE_STATCODE_SUCCESS</A>
+</td><td class="Status">
+ set if valid parameters were passed in and all operations succeeded.
+</td></tr>
+</table>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A> is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_UNRESOLVED_OUTPUT_OBJECT">SE_STATCODE_UNRESOLVED_OUTPUT_OBJECT</A>
+</td><td class="Status">
+ set if <A href="#object">object</A> is an unresolved object
+ (see <A href="../types/SE_Object.htm">SE_Object</A>'s comments for details
+ on how this condition occurs).
+</td></tr>
+<tr><td class="Status">
+  <A href="../types/SE_Status_Code.htm#SE_STATCODE_C_STORE_INVALID">SE_STATCODE_C_STORE_INVALID</A>
+</td><td class="Status">
+  set if <A href="#store_in">store_in</A> is not a handle to
+ a valid <A href="../types/SE_Store.htm">SE_Store</A>.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_INACTIONABLE_FAILURE">SE_STATCODE_INACTIONABLE_FAILURE</A>
+</td><td class="Status">
+ set if the call fails for any other reason.
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#object" name="Notes_object">1</a></sup>
+ the object whose fields are desired.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#store_in" name="Notes_store_in">2</a></sup>
+ the store to be used to allocate the SE_DRM_Class_Fields structure as
+    well as any dynamically allocated data within it.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#fields" name="Notes_fields">3</a></sup>
+ a pointer to the variable in the user's memory
+    where an SE_FIELDS_PTR will be copied.  This SE_FIELDS_PTR
+    will point to the fields of the object, in the API's memory space
+    associates with store_in.  Do *not* free any data pointed to by this
+    pointer.  Do *not* free this pointer.  Instead, call SE_FreeStore()
+    for the store_in, or use the store_in in another function that returns
+    data.
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SE_GetEncoding.htm">SE_GetEncoding</a>.
+<strong>Next:</strong> <a href="SE_GetImageData.htm">SE_GetImageData</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

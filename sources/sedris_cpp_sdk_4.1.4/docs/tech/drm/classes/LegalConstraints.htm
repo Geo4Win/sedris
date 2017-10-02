@@ -1,0 +1,183 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Legal Constraints</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Legal Constraints
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Legal Constraints</h2>
+<h3>Superclass - <a href="SEDRISAbstractBase.htm">&lt;SEDRIS Abstract Base&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies any access and/or usage
+ constraints for its containing DRM object, provided in a form
+ compatible with <A href="../bibliography.htm#I19115">ISO 19115</A>.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet20.pdf"><strong>20</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+This class appears on only one page of the DRM class diagram.
+<h3>Example</h3>
+<OL>
+<LI><P>
+ Given a <A href="TransmittalRoot.htm">&lt;Transmittal Root&gt;</A> instance that has
+ restricted access (no access by non-U.S. citizens) and is for
+ official use only, its
+<A href="LegalConstraints.htm">&lt;Legal Constraints&gt;</A> instance's information might be
+<BR>
+  <A href="#use_limitation_count">use_limitation_count</A>
+      = <span class="Code">0</span>;
+<BR>
+  <A href="#use_limitation">use_limitation</A>
+      = <span class="Code">NULL</span>;
+<BR>
+ <A href="#access_constraints">access_constraints</A>
+ = <A href="../types/SE_MD_RestrictionCode.htm#SE_MD_RESTRICTCOD_RESTRICTED">SE_MD_RESTRICTCOD_RESTRICTED</A>;
+<BR>
+ <A href="#use_constraints">use_constraints</A>
+ = <A href="../types/SE_MD_RestrictionCode.htm#SE_MD_RESTRICTCOD_OTHER_RESTRICTIONS">SE_MD_RESTRICTCOD_OTHER_RESTRICTIONS</A>;
+<BR>
+ <A href="#other_constraints">other_constraints</A>
+ = <span class="Code">&quot;For Official Use Only&quot;;</span>
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<p>
+No FAQs supplied.
+</p>
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/MandatoryMetadata.htm">&lt;&lt;Mandatory Metadata&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Component of (two-way)</h3>
+<UL>
+<li>one or more <a href="Identification.htm">&lt;Identification&gt;</a> instances</li>
+</UL>
+
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Short_Integer_Unsigned.htm">SE_Short_Integer_Unsigned</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="use_limitation_count">use_limitation_count</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_use_limitation_count">1</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_String.htm">SE_String</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="use_limitation">use_limitation</a>[];</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_use_limitation">2</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_MD_RestrictionCode.htm">SE_MD_RestrictionCode</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="access_constraints">access_constraints</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_access_constraints">3</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_MD_RestrictionCode.htm">SE_MD_RestrictionCode</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="use_constraints">use_constraints</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_use_constraints">4</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_String.htm">SE_String</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="other_constraints">other_constraints</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_other_constraints">5</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Fields Notes</h3>
+<h4><a href="#use_limitation_count" name="Notes_use_limitation_count">use_limitation_count</a></h4>
+<P>
+ The <A href="#use_limitation_count">use_limitation_count</A>
+ field specifies the number of use limitations specified in
+ <A href="#use_limitation">use_limitation</A>.
+</P>
+<h4><a href="#use_limitation" name="Notes_use_limitation">use_limitation</a></h4>
+<P>
+ If non-empty, each entry of the
+ <A href="#use_limitation">use_limitation</A> field
+ specifies a limitation affecting the fitness for use
+ of the resource being described by the
+ <A href="LegalConstraints.htm">&lt;Legal Constraints&gt;</A> instance.
+</P>
+<h4><a href="#access_constraints" name="Notes_access_constraints">access_constraints</a></h4>
+<P>
+ The <A href="#access_constraints">access_constraints</A> field
+ expresses access constraints applied to assure the protection of
+ privacy or intellectual property, and any special restrictions or
+ limitations on obtaining the resource being described by the
+ <A href="LegalConstraints.htm">&lt;Legal Constraints&gt;</A> instance.
+</P>
+<h4><a href="#use_constraints" name="Notes_use_constraints">use_constraints</a></h4>
+<P>
+ The <A href="#use_constraints">use_constraints</A> field
+ expresses constraints applied to assure the protection of
+ privacy or intellectual property, and any special restrictions
+ or limitations or warnings on using the resource being
+ described by the <A href="LegalConstraints.htm">&lt;Legal Constraints&gt;</A> instance.
+</P>
+<h4><a href="#other_constraints" name="Notes_other_constraints">other_constraints</a></h4>
+<P>
+ The <A href="#other_constraints">other_constraints</A>
+ field specifies other restrictions and legal prerequisites
+ for accessing and using the resource being described by
+ the <A href="LegalConstraints.htm">&lt;Legal Constraints&gt;</A> instance.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="LCE3DLocation.htm">LCE 3D Location</A>.
+<strong>Next:</strong> <A href="Library.htm">Library</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

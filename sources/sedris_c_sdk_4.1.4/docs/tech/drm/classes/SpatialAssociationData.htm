@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Spatial Association Data</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Spatial Association Data
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Spatial Association Data</h2>
+<h3>Superclass - <a href="BaseSpatialAssociationData.htm">&lt;Base Spatial Association Data&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class is a link object that specifies the
+ semantic meaning of the association relationship with which it is bound.
+ This semantic meaning specifies a spatial relationship.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet09.pdf"><strong>9</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+This class appears on only one page of the DRM class diagram.
+<h3>Example</h3>
+<OL>
+<LI><P>
+ Consider two <A href="LinearFeature.htm">&lt;Linear Feature&gt;</A> instances, one representing
+ a river and the other representing a bridge crossing the river. A
+ <A href="SpatialAssociationData.htm">&lt;Spatial Association Data&gt;</A> link object on an association
+ from the bridge to the river has <A href="#meaning">meaning</A>
+ field set to
+ <A href="../types/SE_Spatial_Association_Meaning_Type.htm#SE_SPATASSMEANTYP_COMPLETELY_ABOVE">SE_SPATASSMEANTYP_COMPLETELY_ABOVE</A>.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<p>
+No FAQs supplied.
+</p>
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+</UL>
+<h2><a name="inherited_field">Inherited Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Spatial_Association_Meaning_Type.htm">SE_Spatial_Association_Meaning_Type</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="meaning">meaning</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_meaning">1</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Fields Notes</h3>
+<h4><a href="#meaning" name="Notes_meaning">meaning</a></h4>
+<P>
+ The <A href="#meaning">meaning</A> field
+ specifies the semantic meaning of the association relationship
+ with which the
+ <A href="BaseSpatialAssociationData.htm">&lt;Base Spatial Association Data&gt;</A>
+ instance is bound.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="Source.htm">Source</A>.
+<strong>Next:</strong> <A href="SpatialExtent.htm">Spatial Extent</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

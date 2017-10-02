@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Variable Meaning Constraints</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX B - Constraints
+</font>
+<br>
+<font color="#ffffff">
+Variable Meaning Constraints
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<h3>Definition</h3>
+<P>
+ For a <A href="../classes/Variable.htm">&lt;Variable&gt;</A> instance V, the following
+ conditions shall hold.
+</P>
+<OL type='a'>
+<LI><P>
+ The <A href="../classes/Variable.htm#value_type">value_type</A> of
+ <span class="ConstructName">V</span> shall be consistent with the
+ <A href="../classes/Variable.htm#meaning">meaning</A> field.
+</P></LI>
+<LI><P>
+ If <span class="ConstructName">V</span> specifies a real-valued EA or real-valued
+ <A href="../types/SE_Variable_Code.htm">SE_Variable_Code</A> <span class="ConstructName">M</span> as its
+ <A href="../classes/Variable.htm#meaning">meaning</A>, the
+ <A href="../classes/Variable.htm#value_unit">value_unit</A> of
+ <span class="ConstructName">V</span> shall specify a
+ unit belonging to the EDCS Unit Equivalence class to which
+ <span class="ConstructName">M</span> is bound.
+</P></LI>
+<LI><P>
+ If <span class="ConstructName">V</span> does not specify a real-valued EA or
+ real-valued <A href="../types/SE_Variable_Code.htm">SE_Variable_Code</A> as its
+ <A href="../classes/Variable.htm#meaning">meaning</A>, the
+ <A href="../classes/Variable.htm#value_unit">value_unit</A> and
+ <A href="../classes/Variable.htm#value_scale">value_scale</A> of
+ <span class="ConstructName">V</span> shall be set to <A href="../../../../src/lib/edcs/docs/dictionary/units.htm#EUC_UNITLESS">EUC_UNITLESS</A> and
+ <A href="../../../../src/lib/edcs/docs/dictionary/units.htm#ESC_UNI">ESC_UNI</A>, respectively.
+</P></LI>
+</OL>
+
+<h3>Rationale</h3>
+<P>
+ A <A href="../classes/Variable.htm">&lt;Variable&gt;</A> instance shall specify valid
+ and consistent unit and data type information.
+</P>
+<h3>Example</h3>
+<p>
+No example supplied.
+</p>
+<h3>FAQs</h3>
+<p>
+No FAQs supplied.
+</p>
+
+<hr>
+<strong>Prev:</strong> <A href="ValidNodeEdgeRelationships.htm">Valid Node Edge Relationships</A>.
+<strong>Next:</strong> <A href="VolumeShellFaceConsistency.htm">Volume Shell Face Consistency</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

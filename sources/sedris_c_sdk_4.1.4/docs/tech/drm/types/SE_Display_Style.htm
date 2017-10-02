@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE_Display_Style</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX C - Types
+</font>
+<br>
+<font color="#ffffff">
+SE_Display_Style
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<PRE>
+/*
+ * SET: SE_Display_Style
+ *
+ *   This data type is used in &lt;Rendering Properties&gt; instances to choose a
+ *   style in which to render geometric objects (usually &lt;Polygon&gt;
+ *   instances).
+ */
+</PRE>
+<span class="Code">typedef union
+<br>
+{
+<br>
+SE_Integer_Unsigned member;
+<br>
+struct
+<br>
+{</span>
+<br>
+<table class="CFunctionPrototype">
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a> : 1&nbsp;</td>
+            <td class="CFunction"><a name="Solid"></a>Solid;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a> : 1&nbsp;</td>
+            <td class="CFunction"><a name="Wireframe"></a>Wireframe;</td></tr>
+</table>
+<span class="Code">
+    } member;
+} SE_Display_Style;</span>
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SE_Display_Side.htm">SE_Display_Side</a>.
+<strong>Next:</strong> <a href="SE_DRM_Class.htm">SE_DRM_Class</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

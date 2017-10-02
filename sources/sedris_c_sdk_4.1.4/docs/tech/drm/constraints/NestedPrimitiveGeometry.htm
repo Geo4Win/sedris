@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Nested Primitive Geometry</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX B - Constraints
+</font>
+<br>
+<font color="#ffffff">
+Nested Primitive Geometry
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h3>Definition</h3>
+<P>
+ When a
+ <A href="../classes/PrimitiveGeometry.htm">&lt;Primitive Geometry&gt;</A> instance has a
+ <A href="../classes/UnionOfPrimitiveGeometry.htm">&lt;Union Of Primitive Geometry&gt;</A> component,
+ the resulting geometry shall lie on the surface of the
+ parent geometry.
+</P><P>
+ Allowed nesting combinations are:
+<OL type='a'>
+<LI><P>
+ <A href="../classes/Polygon.htm">&lt;Polygon&gt;</A> can nest:<BR>
+ <A href="../classes/Polygon.htm">&lt;Polygon&gt;</A>, <A href="../classes/Ellipse.htm">&lt;Ellipse&gt;</A>, <A href="../classes/Line.htm">&lt;Line&gt;</A>, <A href="../classes/Arc.htm">&lt;Arc&gt;</A>,
+ <A href="../classes/Point.htm">&lt;Point&gt;</A>,  and <A href="../classes/FiniteElementMesh.htm">&lt;Finite Element Mesh&gt;</A>.
+</P></LI>
+<LI><P>
+ <A href="../classes/Ellipse.htm">&lt;Ellipse&gt;</A> can nest:<BR>
+ <A href="../classes/Polygon.htm">&lt;Polygon&gt;</A>, <A href="../classes/Ellipse.htm">&lt;Ellipse&gt;</A>, <A href="../classes/Line.htm">&lt;Line&gt;</A>, <A href="../classes/Arc.htm">&lt;Arc&gt;</A>,
+ <A href="../classes/Point.htm">&lt;Point&gt;</A>, and <A href="../classes/FiniteElementMesh.htm">&lt;Finite Element Mesh&gt;</A>.
+</P></LI>
+<LI><P>
+ <A href="../classes/Line.htm">&lt;Line&gt;</A> can nest:<BR>
+<A href="../classes/Line.htm">&lt;Line&gt;</A>, <A href="../classes/Arc.htm">&lt;Arc&gt;</A>, and <A href="../classes/Point.htm">&lt;Point&gt;</A>.
+</P></LI>
+<LI><P>
+ <A href="../classes/Arc.htm">&lt;Arc&gt;</A> can nest:<BR>
+<A href="../classes/Line.htm">&lt;Line&gt;</A>, <A href="../classes/Arc.htm">&lt;Arc&gt;</A>, and <A href="../classes/Point.htm">&lt;Point&gt;</A>.
+</P></LI>
+<LI><P>
+ <A href="../classes/Point.htm">&lt;Point&gt;</A> can nest:<BR>
+<A href="../classes/Point.htm">&lt;Point&gt;</A>.
+</P></LI>
+<LI><P>
+ <A href="../classes/VolumeObject.htm">&lt;Volume Object&gt;</A> can nest:<BR>
+<A href="../classes/FiniteElementMesh.htm">&lt;Finite Element Mesh&gt;</A> as an interior 3-D mesh
+</P></LI>
+<LI><P>
+ <A href="../classes/FiniteElementMesh.htm">&lt;Finite Element Mesh&gt;</A> cannot nest.
+</P></LI>
+</OL>
+
+<h3>Rationale</h3>
+<P>
+ When a <A href="../classes/PrimitiveGeometry.htm">&lt;Primitive Geometry&gt;</A> instance contains a
+ <A href="../classes/UnionOfPrimitiveGeometry.htm">&lt;Union Of Primitive Geometry&gt;</A> instance for
+ nesting reasons, the relationship means that the union represents a
+ &quot;subface&quot; of the
+ <A href="../classes/PrimitiveGeometry.htm">&lt;Primitive Geometry&gt;</A> instance,
+ <I>i.e.</I>, it is part of the
+ <A href="../classes/PrimitiveGeometry.htm">&lt;Primitive Geometry&gt;</A> instance.
+</P>
+<h3>Example</h3>
+<p>
+No example supplied.
+</p>
+<h3>FAQs</h3>
+<p>
+No FAQs supplied.
+</p>
+
+<hr>
+<strong>Prev:</strong> <A href="ModelSRF.htm">Model SRF</A>.
+<strong>Next:</strong> <A href="NonCyclicAggregations.htm">Non Cyclic Aggregations</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

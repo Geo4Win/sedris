@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE SuperClass</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX D - Functions
+</font>
+<br>
+<font color="#ffffff">
+SE SuperClass
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../types/SE_DRM_Class.htm">SE_DRM_Class</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SE_SuperClass</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/SE_DRM_Class.htm">SE_DRM_Class</a>&nbsp;</td> <td class="CFunction"><a name="drm_class"></a>drm_class</td><td class="CFunction"><sup><A href="#Notes_drm_class">1</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+  Identifies the superclass of the given DRM class, if any.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+ tag of <A href="#drm_class">drm_class</A>' superclass
+</td><td class="Status">
+ if a valid parameter was passed in.
+</td></tr>
+<tr><td class="Status">
+ <A href="../types/SE_DRM_Class.htm#SE_CLS_DRM_NULL">SE_CLS_DRM_NULL</A>
+</td><td class="Status">
+ if <A href="#drm_class">drm_class</A> is not valid, or is valid
+ but has no superclass.
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#drm_class" name="Notes_drm_class">1</a></sup>
+ represents a DRM class.
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SE_SingleValueToString.htm">SE_SingleValueToString</a>.
+<strong>Next:</strong> <a href="SE_ValidAPI.htm">SE_ValidAPI</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

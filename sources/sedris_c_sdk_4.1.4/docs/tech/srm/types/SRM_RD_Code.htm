@@ -1,0 +1,947 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SRM_RD_Code</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SRM Reference Manual</big></big>
+<br>
+<!-- SRM spec. 4.1 -->
+<font color="#ffffff">
+Types
+</font>
+<br>
+<font color="#ffffff">
+SRM_RD_Code
+</font>
+</th></tr>
+</table></div>
+
+<!-- SRM SDK Release 4.1.4 -->
+
+<PRE>
+/*!
+ * REGISTERABLE ENUM: SRM_RD_Code
+ *
+ *  Reference Datum
+ */
+</PRE><span class="Code">
+typedef <a href="SRM_Integer.htm">SRM_Integer</a> SRM_RD_Code;
+</span>
+<table>
+<tr><th>Enumerant</th> <th>Definition</th> <th>Value</th></tr>
+<tr><td class="CFunction"><a name="SRM_RDCOD_ORIGIN_2D">SRM_RDCOD_ORIGIN_2D</a></td>
+<td class="CFunction"><PRE>
+ Origin in 2D
+</PRE></td>
+<td class="CFunction">1</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_X_UNIT_POINT_2D">SRM_RDCOD_X_UNIT_POINT_2D</a></td>
+<td class="CFunction"><PRE>
+ x-axis unit point in 2D
+</PRE></td>
+<td class="CFunction">2</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_Y_UNIT_POINT_2D">SRM_RDCOD_Y_UNIT_POINT_2D</a></td>
+<td class="CFunction"><PRE>
+ y-axis unit point in 2D
+</PRE></td>
+<td class="CFunction">3</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_ORIGIN_3D">SRM_RDCOD_ORIGIN_3D</a></td>
+<td class="CFunction"><PRE>
+ Origin in 3D
+</PRE></td>
+<td class="CFunction">4</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_X_UNIT_POINT_3D">SRM_RDCOD_X_UNIT_POINT_3D</a></td>
+<td class="CFunction"><PRE>
+ x-axis unit point in 3D
+</PRE></td>
+<td class="CFunction">5</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_Y_UNIT_POINT_3D">SRM_RDCOD_Y_UNIT_POINT_3D</a></td>
+<td class="CFunction"><PRE>
+ y-axis unit point in 3D
+</PRE></td>
+<td class="CFunction">6</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_Z_UNIT_POINT_3D">SRM_RDCOD_Z_UNIT_POINT_3D</a></td>
+<td class="CFunction"><PRE>
+ z-axis unit point in 3D
+</PRE></td>
+<td class="CFunction">7</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_X_AXIS_2D">SRM_RDCOD_X_AXIS_2D</a></td>
+<td class="CFunction"><PRE>
+ x-axis in 2D
+</PRE></td>
+<td class="CFunction">8</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_Y_AXIS_2D">SRM_RDCOD_Y_AXIS_2D</a></td>
+<td class="CFunction"><PRE>
+ y-axis in 2D
+</PRE></td>
+<td class="CFunction">9</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_X_AXIS_3D">SRM_RDCOD_X_AXIS_3D</a></td>
+<td class="CFunction"><PRE>
+ x-axis in 3D
+</PRE></td>
+<td class="CFunction">10</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_Y_AXIS_3D">SRM_RDCOD_Y_AXIS_3D</a></td>
+<td class="CFunction"><PRE>
+ y-axis in 3D
+</PRE></td>
+<td class="CFunction">11</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_Z_AXIS_3D">SRM_RDCOD_Z_AXIS_3D</a></td>
+<td class="CFunction"><PRE>
+ z-axis in 3D
+</PRE></td>
+<td class="CFunction">12</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_XY_PLANE_3D">SRM_RDCOD_XY_PLANE_3D</a></td>
+<td class="CFunction"><PRE>
+ xy-plane
+</PRE></td>
+<td class="CFunction">13</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_XZ_PLANE_3D">SRM_RDCOD_XZ_PLANE_3D</a></td>
+<td class="CFunction"><PRE>
+ xz-plane
+</PRE></td>
+<td class="CFunction">14</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_YZ_PLANE_3D">SRM_RDCOD_YZ_PLANE_3D</a></td>
+<td class="CFunction"><PRE>
+ yz-plane
+</PRE></td>
+<td class="CFunction">15</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_ADRASTEA_2000">SRM_RDCOD_ADRASTEA_2000</a></td>
+<td class="CFunction"><PRE>
+ Adrastea (satellite of Jupiter)
+</PRE></td>
+<td class="CFunction">16</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_AIRY_1830">SRM_RDCOD_AIRY_1830</a></td>
+<td class="CFunction"><PRE>
+ Airy
+</PRE></td>
+<td class="CFunction">17</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_AMALTHEA_2000">SRM_RDCOD_AMALTHEA_2000</a></td>
+<td class="CFunction"><PRE>
+ Amalthea (satellite of Jupiter)
+</PRE></td>
+<td class="CFunction">18</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_ANANKE_1988">SRM_RDCOD_ANANKE_1988</a></td>
+<td class="CFunction"><PRE>
+ Ananke (satellite of Jupiter)
+</PRE></td>
+<td class="CFunction">19</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_APL_4r5_1968">SRM_RDCOD_APL_4r5_1968</a></td>
+<td class="CFunction"><PRE>
+ APL 4.5
+</PRE></td>
+<td class="CFunction">20</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_ARIEL_1988">SRM_RDCOD_ARIEL_1988</a></td>
+<td class="CFunction"><PRE>
+ Ariel (satellite of Uranus)
+</PRE></td>
+<td class="CFunction">21</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_ATLAS_1988">SRM_RDCOD_ATLAS_1988</a></td>
+<td class="CFunction"><PRE>
+ Atlas (satellite of Saturn)
+</PRE></td>
+<td class="CFunction">22</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_AUSTRALIAN_NATIONAL_1966">SRM_RDCOD_AUSTRALIAN_NATIONAL_1966</a></td>
+<td class="CFunction"><PRE>
+ Australian national
+</PRE></td>
+<td class="CFunction">23</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_AVERAGE_TERRESTRIAL_1977">SRM_RDCOD_AVERAGE_TERRESTRIAL_1977</a></td>
+<td class="CFunction"><PRE>
+ Average terrestrial system
+</PRE></td>
+<td class="CFunction">24</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_BELINDA_1988">SRM_RDCOD_BELINDA_1988</a></td>
+<td class="CFunction"><PRE>
+ Belinda (satellite of Uranus)
+</PRE></td>
+<td class="CFunction">25</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_BESSEL_1841_ETHIOPIA">SRM_RDCOD_BESSEL_1841_ETHIOPIA</a></td>
+<td class="CFunction"><PRE>
+ Bessel (Ethiopia, Indonesia, Japan, and Korea)
+</PRE></td>
+<td class="CFunction">26</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_BESSEL_1841_NAMIBIA">SRM_RDCOD_BESSEL_1841_NAMIBIA</a></td>
+<td class="CFunction"><PRE>
+ Bessel (Namibia)
+</PRE></td>
+<td class="CFunction">27</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_BIANCA_1988">SRM_RDCOD_BIANCA_1988</a></td>
+<td class="CFunction"><PRE>
+ Bianca (satellite of Uranus)
+</PRE></td>
+<td class="CFunction">28</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_CALLISTO_2000">SRM_RDCOD_CALLISTO_2000</a></td>
+<td class="CFunction"><PRE>
+ Callisto (satellite of Jupiter)
+</PRE></td>
+<td class="CFunction">29</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_CALYPSO_1988">SRM_RDCOD_CALYPSO_1988</a></td>
+<td class="CFunction"><PRE>
+ Calypso (satellite of Saturn)
+</PRE></td>
+<td class="CFunction">30</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_CARME_1988">SRM_RDCOD_CARME_1988</a></td>
+<td class="CFunction"><PRE>
+ Carme (satellite of Jupiter)
+</PRE></td>
+<td class="CFunction">31</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_CHARON_1991">SRM_RDCOD_CHARON_1991</a></td>
+<td class="CFunction"><PRE>
+ Charon (satellite of Pluto)
+</PRE></td>
+<td class="CFunction">32</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_CLARKE_1858">SRM_RDCOD_CLARKE_1858</a></td>
+<td class="CFunction"><PRE>
+ Clarke
+</PRE></td>
+<td class="CFunction">33</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_CLARKE_1858_MODIFIED">SRM_RDCOD_CLARKE_1858_MODIFIED</a></td>
+<td class="CFunction"><PRE>
+ Clarke - modified
+</PRE></td>
+<td class="CFunction">34</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_CLARKE_1866">SRM_RDCOD_CLARKE_1866</a></td>
+<td class="CFunction"><PRE>
+ Clarke
+</PRE></td>
+<td class="CFunction">35</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_CLARKE_1880">SRM_RDCOD_CLARKE_1880</a></td>
+<td class="CFunction"><PRE>
+ Clarke
+</PRE></td>
+<td class="CFunction">36</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_CLARKE_1880_CAPE">SRM_RDCOD_CLARKE_1880_CAPE</a></td>
+<td class="CFunction"><PRE>
+ Clarke - Cape
+</PRE></td>
+<td class="CFunction">37</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_CLARKE_1880_FIJI">SRM_RDCOD_CLARKE_1880_FIJI</a></td>
+<td class="CFunction"><PRE>
+ Clarke - Fiji
+</PRE></td>
+<td class="CFunction">38</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_CLARKE_1880_IGN">SRM_RDCOD_CLARKE_1880_IGN</a></td>
+<td class="CFunction"><PRE>
+ Clarke - IGN
+</PRE></td>
+<td class="CFunction">39</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_CLARKE_1880_PALESTINE">SRM_RDCOD_CLARKE_1880_PALESTINE</a></td>
+<td class="CFunction"><PRE>
+ Clarke - Palestine
+</PRE></td>
+<td class="CFunction">40</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_CLARKE_1880_SYRIA">SRM_RDCOD_CLARKE_1880_SYRIA</a></td>
+<td class="CFunction"><PRE>
+ Clarke - Syria
+</PRE></td>
+<td class="CFunction">41</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_COAMPS_1998">SRM_RDCOD_COAMPS_1998</a></td>
+<td class="CFunction"><PRE>
+ Coupled Ocean/Atmospheric Mesoscale Prediction System (COAMPSTM)
+</PRE></td>
+<td class="CFunction">42</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_CORDELIA_1988">SRM_RDCOD_CORDELIA_1988</a></td>
+<td class="CFunction"><PRE>
+ Cordelia (satellite of Uranus)
+</PRE></td>
+<td class="CFunction">43</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_CRESSIDA_1988">SRM_RDCOD_CRESSIDA_1988</a></td>
+<td class="CFunction"><PRE>
+ Cressida (satellite of Uranus)
+</PRE></td>
+<td class="CFunction">44</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_DANISH_1876">SRM_RDCOD_DANISH_1876</a></td>
+<td class="CFunction"><PRE>
+ Danish - Andrae
+</PRE></td>
+<td class="CFunction">45</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_DEIMOS_1988">SRM_RDCOD_DEIMOS_1988</a></td>
+<td class="CFunction"><PRE>
+ Deimos (satellite of Mars)
+</PRE></td>
+<td class="CFunction">46</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_DELAMBRE_1810">SRM_RDCOD_DELAMBRE_1810</a></td>
+<td class="CFunction"><PRE>
+ Delambre
+</PRE></td>
+<td class="CFunction">47</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_DESDEMONA_1988">SRM_RDCOD_DESDEMONA_1988</a></td>
+<td class="CFunction"><PRE>
+ Desdemona (satellite of Uranus)
+</PRE></td>
+<td class="CFunction">48</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_DESPINA_1991">SRM_RDCOD_DESPINA_1991</a></td>
+<td class="CFunction"><PRE>
+ Despina (satellite of Neptune)
+</PRE></td>
+<td class="CFunction">49</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_DIONE_1982">SRM_RDCOD_DIONE_1982</a></td>
+<td class="CFunction"><PRE>
+ Dione (satellite of Saturn)
+</PRE></td>
+<td class="CFunction">50</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_ELARA_1988">SRM_RDCOD_ELARA_1988</a></td>
+<td class="CFunction"><PRE>
+ Elara (satellite of Jupiter)
+</PRE></td>
+<td class="CFunction">51</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_ENCELADUS_1994">SRM_RDCOD_ENCELADUS_1994</a></td>
+<td class="CFunction"><PRE>
+ Enceladus (satellite of Saturn)
+</PRE></td>
+<td class="CFunction">52</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_EPIMETHEUS_1988">SRM_RDCOD_EPIMETHEUS_1988</a></td>
+<td class="CFunction"><PRE>
+ Epimetheus (satellite of Saturn)
+</PRE></td>
+<td class="CFunction">53</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_EROS_2000">SRM_RDCOD_EROS_2000</a></td>
+<td class="CFunction"><PRE>
+ Eros (asteroid 433, a minor planet)
+</PRE></td>
+<td class="CFunction">54</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_EUROPA_2000">SRM_RDCOD_EUROPA_2000</a></td>
+<td class="CFunction"><PRE>
+ Europa (satellite of Jupiter)
+</PRE></td>
+<td class="CFunction">55</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_EVEREST_ADJ_1937">SRM_RDCOD_EVEREST_ADJ_1937</a></td>
+<td class="CFunction"><PRE>
+ Everest 1830 - adjusted
+</PRE></td>
+<td class="CFunction">56</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_EVEREST_1948">SRM_RDCOD_EVEREST_1948</a></td>
+<td class="CFunction"><PRE>
+ Everest
+</PRE></td>
+<td class="CFunction">57</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_EVEREST_1956">SRM_RDCOD_EVEREST_1956</a></td>
+<td class="CFunction"><PRE>
+ Everest
+</PRE></td>
+<td class="CFunction">58</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_EVEREST_REVISED_1962">SRM_RDCOD_EVEREST_REVISED_1962</a></td>
+<td class="CFunction"><PRE>
+ Everest 1830 - revised definition
+</PRE></td>
+<td class="CFunction">59</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_EVEREST_1969">SRM_RDCOD_EVEREST_1969</a></td>
+<td class="CFunction"><PRE>
+ Everest
+</PRE></td>
+<td class="CFunction">60</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_EVEREST_BRUNEI_1967">SRM_RDCOD_EVEREST_BRUNEI_1967</a></td>
+<td class="CFunction"><PRE>
+ Everest 1830 - 1967 definition (Brunei and East Malaysia - Sabah and
+ Sarawak)
+</PRE></td>
+<td class="CFunction">61</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_FISCHER_1960">SRM_RDCOD_FISCHER_1960</a></td>
+<td class="CFunction"><PRE>
+ Fischer - Mercury
+</PRE></td>
+<td class="CFunction">62</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_FISCHER_1968">SRM_RDCOD_FISCHER_1968</a></td>
+<td class="CFunction"><PRE>
+ Fischer
+</PRE></td>
+<td class="CFunction">63</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_GALATEA_1991">SRM_RDCOD_GALATEA_1991</a></td>
+<td class="CFunction"><PRE>
+ Galatea (satellite of Neptune)
+</PRE></td>
+<td class="CFunction">64</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_GANYMEDE_2000">SRM_RDCOD_GANYMEDE_2000</a></td>
+<td class="CFunction"><PRE>
+ Ganymede (satellite of Jupiter)
+</PRE></td>
+<td class="CFunction">65</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_GASPRA_1991">SRM_RDCOD_GASPRA_1991</a></td>
+<td class="CFunction"><PRE>
+ Gaspra (asteroid 951, a minor planet)
+</PRE></td>
+<td class="CFunction">66</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_GRS_1967">SRM_RDCOD_GRS_1967</a></td>
+<td class="CFunction"><PRE>
+ Geodetic Reference System (GRS)
+</PRE></td>
+<td class="CFunction">67</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_GRS_1980">SRM_RDCOD_GRS_1980</a></td>
+<td class="CFunction"><PRE>
+ Geodetic Reference System (GRS)
+</PRE></td>
+<td class="CFunction">68</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_HELENE_1992">SRM_RDCOD_HELENE_1992</a></td>
+<td class="CFunction"><PRE>
+ Helene (satellite of Saturn)
+</PRE></td>
+<td class="CFunction">69</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_HELMERT_1906">SRM_RDCOD_HELMERT_1906</a></td>
+<td class="CFunction"><PRE>
+ Helmert
+</PRE></td>
+<td class="CFunction">70</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_HIMALIA_1988">SRM_RDCOD_HIMALIA_1988</a></td>
+<td class="CFunction"><PRE>
+ Himalia (satellite of Jupiter)
+</PRE></td>
+<td class="CFunction">71</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_HOUGH_1960">SRM_RDCOD_HOUGH_1960</a></td>
+<td class="CFunction"><PRE>
+ Hough
+</PRE></td>
+<td class="CFunction">72</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_HYPERION_2000">SRM_RDCOD_HYPERION_2000</a></td>
+<td class="CFunction"><PRE>
+ Hyperion (satellite of Saturn)
+</PRE></td>
+<td class="CFunction">73</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_IAG_1975">SRM_RDCOD_IAG_1975</a></td>
+<td class="CFunction"><PRE>
+ International Association of Geodesy (IAG) best estimate
+</PRE></td>
+<td class="CFunction">74</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_IAPETUS_1988">SRM_RDCOD_IAPETUS_1988</a></td>
+<td class="CFunction"><PRE>
+ Iapetus (satellite of Saturn)
+</PRE></td>
+<td class="CFunction">75</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_IDA_1991">SRM_RDCOD_IDA_1991</a></td>
+<td class="CFunction"><PRE>
+ Ida (asteroid 293, a minor planet)
+</PRE></td>
+<td class="CFunction">76</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_INDONESIAN_1974">SRM_RDCOD_INDONESIAN_1974</a></td>
+<td class="CFunction"><PRE>
+ Indonesian
+</PRE></td>
+<td class="CFunction">77</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_INTERNATIONAL_1924">SRM_RDCOD_INTERNATIONAL_1924</a></td>
+<td class="CFunction"><PRE>
+ International
+</PRE></td>
+<td class="CFunction">78</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_IO_2000">SRM_RDCOD_IO_2000</a></td>
+<td class="CFunction"><PRE>
+ Io (satellite of Jupiter)
+</PRE></td>
+<td class="CFunction">79</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_JANUS_1988">SRM_RDCOD_JANUS_1988</a></td>
+<td class="CFunction"><PRE>
+ Janus (satellite of Saturn)
+</PRE></td>
+<td class="CFunction">80</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_JULIET_1988">SRM_RDCOD_JULIET_1988</a></td>
+<td class="CFunction"><PRE>
+ Juliet (satellite of Uranus)
+</PRE></td>
+<td class="CFunction">81</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_JUPITER_1988">SRM_RDCOD_JUPITER_1988</a></td>
+<td class="CFunction"><PRE>
+ Jupiter
+</PRE></td>
+<td class="CFunction">82</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_KLEOPATRA_2000">SRM_RDCOD_KLEOPATRA_2000</a></td>
+<td class="CFunction"><PRE>
+ Kleopatra (asteroid 216, a minor planet)
+</PRE></td>
+<td class="CFunction">83</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_KRASSOVSKY_1940">SRM_RDCOD_KRASSOVSKY_1940</a></td>
+<td class="CFunction"><PRE>
+ Krassovsky
+</PRE></td>
+<td class="CFunction">84</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_KRAYENHOFF_1827">SRM_RDCOD_KRAYENHOFF_1827</a></td>
+<td class="CFunction"><PRE>
+ Krayenhoff
+</PRE></td>
+<td class="CFunction">85</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_LARISSA_1991">SRM_RDCOD_LARISSA_1991</a></td>
+<td class="CFunction"><PRE>
+ Larissa (satellite of Neptune)
+</PRE></td>
+<td class="CFunction">86</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_LEDA_1988">SRM_RDCOD_LEDA_1988</a></td>
+<td class="CFunction"><PRE>
+ Leda (satellite of Jupiter)
+</PRE></td>
+<td class="CFunction">87</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_LYSITHEA_1988">SRM_RDCOD_LYSITHEA_1988</a></td>
+<td class="CFunction"><PRE>
+ Lysithea (satellite of Jupiter)
+</PRE></td>
+<td class="CFunction">88</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_MARS_2000">SRM_RDCOD_MARS_2000</a></td>
+<td class="CFunction"><PRE>
+ Mars
+</PRE></td>
+<td class="CFunction">89</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_MARS_SPHERE_2000">SRM_RDCOD_MARS_SPHERE_2000</a></td>
+<td class="CFunction"><PRE>
+ Mars
+</PRE></td>
+<td class="CFunction">90</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_MASS_1999">SRM_RDCOD_MASS_1999</a></td>
+<td class="CFunction"><PRE>
+ MASS
+</PRE></td>
+<td class="CFunction">91</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_MERCURY_1988">SRM_RDCOD_MERCURY_1988</a></td>
+<td class="CFunction"><PRE>
+ Mercury
+</PRE></td>
+<td class="CFunction">92</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_METIS_2000">SRM_RDCOD_METIS_2000</a></td>
+<td class="CFunction"><PRE>
+ Metis (satellite of Jupiter)
+</PRE></td>
+<td class="CFunction">93</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_MIMAS_1994">SRM_RDCOD_MIMAS_1994</a></td>
+<td class="CFunction"><PRE>
+ Mimas (satellite of Saturn)
+</PRE></td>
+<td class="CFunction">94</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_MIRANDA_1988">SRM_RDCOD_MIRANDA_1988</a></td>
+<td class="CFunction"><PRE>
+ Miranda (satellite of Uranus)
+</PRE></td>
+<td class="CFunction">95</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_MM5_1997">SRM_RDCOD_MM5_1997</a></td>
+<td class="CFunction"><PRE>
+ Mesoscale (weather) Model 5 (MM5), Air Force Weather Agency (AFWA), US
+</PRE></td>
+<td class="CFunction">96</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_MODIFIED_AIRY_1849">SRM_RDCOD_MODIFIED_AIRY_1849</a></td>
+<td class="CFunction"><PRE>
+ Modified Airy
+</PRE></td>
+<td class="CFunction">97</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_MODIFIED_FISCHER_1960">SRM_RDCOD_MODIFIED_FISCHER_1960</a></td>
+<td class="CFunction"><PRE>
+ Modified Fischer
+</PRE></td>
+<td class="CFunction">98</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_MODTRAN_MIDLATITUDE_1989">SRM_RDCOD_MODTRAN_MIDLATITUDE_1989</a></td>
+<td class="CFunction"><PRE>
+ MODTRAN (midlatitude regions)
+</PRE></td>
+<td class="CFunction">99</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_MODTRAN_SUBARCTIC_1989">SRM_RDCOD_MODTRAN_SUBARCTIC_1989</a></td>
+<td class="CFunction"><PRE>
+ MODTRAN (subarctic regions)
+</PRE></td>
+<td class="CFunction">100</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_MODTRAN_TROPICAL_1989">SRM_RDCOD_MODTRAN_TROPICAL_1989</a></td>
+<td class="CFunction"><PRE>
+ MODTRAN (tropical regions)
+</PRE></td>
+<td class="CFunction">101</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_MOON_1991">SRM_RDCOD_MOON_1991</a></td>
+<td class="CFunction"><PRE>
+ Moon (satellite of Earth)
+</PRE></td>
+<td class="CFunction">102</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_MULTIGEN_FLAT_EARTH_1989">SRM_RDCOD_MULTIGEN_FLAT_EARTH_1989</a></td>
+<td class="CFunction"><PRE>
+ Multigen flat Earth
+</PRE></td>
+<td class="CFunction">103</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_NAIAD_1991">SRM_RDCOD_NAIAD_1991</a></td>
+<td class="CFunction"><PRE>
+ Naiad (satellite of Neptune)
+</PRE></td>
+<td class="CFunction">104</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_NEPTUNE_1991">SRM_RDCOD_NEPTUNE_1991</a></td>
+<td class="CFunction"><PRE>
+ Neptune
+</PRE></td>
+<td class="CFunction">105</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_NEREID_1991">SRM_RDCOD_NEREID_1991</a></td>
+<td class="CFunction"><PRE>
+ Nereid (satellite of Neptune)
+</PRE></td>
+<td class="CFunction">106</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_NOGAPS_1988">SRM_RDCOD_NOGAPS_1988</a></td>
+<td class="CFunction"><PRE>
+ Navy Operational Global Atmospheric Prediction System (NOGAPS), US
+</PRE></td>
+<td class="CFunction">107</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_OBERON_1988">SRM_RDCOD_OBERON_1988</a></td>
+<td class="CFunction"><PRE>
+ Oberon (satellite of Uranus)
+</PRE></td>
+<td class="CFunction">108</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_OPHELIA_1988">SRM_RDCOD_OPHELIA_1988</a></td>
+<td class="CFunction"><PRE>
+ Ophelia (satellite of Uranus)
+</PRE></td>
+<td class="CFunction">109</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_PAN_1991">SRM_RDCOD_PAN_1991</a></td>
+<td class="CFunction"><PRE>
+ Pan (satellite of Saturn)
+</PRE></td>
+<td class="CFunction">110</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_PANDORA_1988">SRM_RDCOD_PANDORA_1988</a></td>
+<td class="CFunction"><PRE>
+ Pandora (satellite of Saturn)
+</PRE></td>
+<td class="CFunction">111</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_PASIPHAE_1988">SRM_RDCOD_PASIPHAE_1988</a></td>
+<td class="CFunction"><PRE>
+ Pasiphae (satellite of Jupiter)
+</PRE></td>
+<td class="CFunction">112</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_PHOBOS_1988">SRM_RDCOD_PHOBOS_1988</a></td>
+<td class="CFunction"><PRE>
+ Phobos (satellite of Mars)
+</PRE></td>
+<td class="CFunction">113</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_PHOEBE_1988">SRM_RDCOD_PHOEBE_1988</a></td>
+<td class="CFunction"><PRE>
+ Phoebe (satellite of Saturn)
+</PRE></td>
+<td class="CFunction">114</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_PLESSIS_MODIFIED_1817">SRM_RDCOD_PLESSIS_MODIFIED_1817</a></td>
+<td class="CFunction"><PRE>
+ Plessis - Modified
+</PRE></td>
+<td class="CFunction">115</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_PLUTO_1994">SRM_RDCOD_PLUTO_1994</a></td>
+<td class="CFunction"><PRE>
+ Pluto
+</PRE></td>
+<td class="CFunction">116</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_PORTIA_1988">SRM_RDCOD_PORTIA_1988</a></td>
+<td class="CFunction"><PRE>
+ Portia (satellite of Uranus)
+</PRE></td>
+<td class="CFunction">117</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_PROMETHEUS_1988">SRM_RDCOD_PROMETHEUS_1988</a></td>
+<td class="CFunction"><PRE>
+ Prometheus (satellite of Saturn)
+</PRE></td>
+<td class="CFunction">118</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_PROTEUS_1991">SRM_RDCOD_PROTEUS_1991</a></td>
+<td class="CFunction"><PRE>
+ Proteus (satellite of Neptune)
+</PRE></td>
+<td class="CFunction">119</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_PUCK_1988">SRM_RDCOD_PUCK_1988</a></td>
+<td class="CFunction"><PRE>
+ Puck (satellite of Uranus)
+</PRE></td>
+<td class="CFunction">120</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_RHEA_1988">SRM_RDCOD_RHEA_1988</a></td>
+<td class="CFunction"><PRE>
+ Rhea (satellite of Saturn)
+</PRE></td>
+<td class="CFunction">121</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_ROSALIND_1988">SRM_RDCOD_ROSALIND_1988</a></td>
+<td class="CFunction"><PRE>
+ Rosalind (satellite of Uranus)
+</PRE></td>
+<td class="CFunction">122</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_SATURN_1988">SRM_RDCOD_SATURN_1988</a></td>
+<td class="CFunction"><PRE>
+ Saturn
+</PRE></td>
+<td class="CFunction">123</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_SINOPE_1988">SRM_RDCOD_SINOPE_1988</a></td>
+<td class="CFunction"><PRE>
+ Sinope (satellite of Jupiter)
+</PRE></td>
+<td class="CFunction">124</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_SOUTH_AMERICAN_1969">SRM_RDCOD_SOUTH_AMERICAN_1969</a></td>
+<td class="CFunction"><PRE>
+ South american
+</PRE></td>
+<td class="CFunction">125</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_SOVIET_GEODETIC_1985">SRM_RDCOD_SOVIET_GEODETIC_1985</a></td>
+<td class="CFunction"><PRE>
+ Soviet geodetic system
+</PRE></td>
+<td class="CFunction">126</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_SOVIET_GEODETIC_1990">SRM_RDCOD_SOVIET_GEODETIC_1990</a></td>
+<td class="CFunction"><PRE>
+ Soviet geodetic system
+</PRE></td>
+<td class="CFunction">127</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_STRUVE_1860">SRM_RDCOD_STRUVE_1860</a></td>
+<td class="CFunction"><PRE>
+ Struve
+</PRE></td>
+<td class="CFunction">128</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_SUN_1992">SRM_RDCOD_SUN_1992</a></td>
+<td class="CFunction"><PRE>
+ Sun
+</PRE></td>
+<td class="CFunction">129</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_TELESTO_1988">SRM_RDCOD_TELESTO_1988</a></td>
+<td class="CFunction"><PRE>
+ Telesto (satellite of Saturn)
+</PRE></td>
+<td class="CFunction">130</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_TETHYS_1991">SRM_RDCOD_TETHYS_1991</a></td>
+<td class="CFunction"><PRE>
+ Tethys (satellite of Saturn)
+</PRE></td>
+<td class="CFunction">131</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_THALASSA_1991">SRM_RDCOD_THALASSA_1991</a></td>
+<td class="CFunction"><PRE>
+ Thalassa (satellite of Neptune)
+</PRE></td>
+<td class="CFunction">132</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_THEBE_2000">SRM_RDCOD_THEBE_2000</a></td>
+<td class="CFunction"><PRE>
+ Thebe (satellite of Jupiter)
+</PRE></td>
+<td class="CFunction">133</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_TITAN_1982">SRM_RDCOD_TITAN_1982</a></td>
+<td class="CFunction"><PRE>
+ Titan (satellite of Saturn)
+</PRE></td>
+<td class="CFunction">134</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_TITANIA_1988">SRM_RDCOD_TITANIA_1988</a></td>
+<td class="CFunction"><PRE>
+ Titania (satellite of Uranus)
+</PRE></td>
+<td class="CFunction">135</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_TRITON_1991">SRM_RDCOD_TRITON_1991</a></td>
+<td class="CFunction"><PRE>
+ Triton (satellite of Neptune)
+</PRE></td>
+<td class="CFunction">136</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_UMBRIEL_1988">SRM_RDCOD_UMBRIEL_1988</a></td>
+<td class="CFunction"><PRE>
+ Umbriel (satellite of Uranus)
+</PRE></td>
+<td class="CFunction">137</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_URANUS_1988">SRM_RDCOD_URANUS_1988</a></td>
+<td class="CFunction"><PRE>
+ Uranus
+</PRE></td>
+<td class="CFunction">138</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_VENUS_1991">SRM_RDCOD_VENUS_1991</a></td>
+<td class="CFunction"><PRE>
+ Venus
+</PRE></td>
+<td class="CFunction">139</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_WALBECK_AMS_1963">SRM_RDCOD_WALBECK_AMS_1963</a></td>
+<td class="CFunction"><PRE>
+ Walbeck 1819 - AMS
+</PRE></td>
+<td class="CFunction">140</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_WALBECK_PLANHEFT_1942">SRM_RDCOD_WALBECK_PLANHEFT_1942</a></td>
+<td class="CFunction"><PRE>
+ Walbeck 1819 - Planheft
+</PRE></td>
+<td class="CFunction">141</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_WAR_OFFICE_1924">SRM_RDCOD_WAR_OFFICE_1924</a></td>
+<td class="CFunction"><PRE>
+ War Office - McCaw
+</PRE></td>
+<td class="CFunction">142</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_WGS_1960">SRM_RDCOD_WGS_1960</a></td>
+<td class="CFunction"><PRE>
+ World Geodetic System 1960
+</PRE></td>
+<td class="CFunction">143</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_WGS_1966">SRM_RDCOD_WGS_1966</a></td>
+<td class="CFunction"><PRE>
+ World Geodetic System 1966
+</PRE></td>
+<td class="CFunction">144</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_WGS_1984">SRM_RDCOD_WGS_1984</a></td>
+<td class="CFunction"><PRE>
+ World geodetic system
+</PRE></td>
+<td class="CFunction">145</td>
+</TR>
+<tr><td class="CFunction"><a name="SRM_RDCOD_WGS_1972">SRM_RDCOD_WGS_1972</a></td>
+<td class="CFunction"><PRE>
+ World geodetic system
+</PRE></td>
+<td class="CFunction">146</td>
+</TR>
+</table>
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SRM_PS_Parameters.htm">SRM_PS_Parameters</a>.
+<strong>Next:</strong> <a href="SRM_RT_Code.htm">SRM_RT_Code</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

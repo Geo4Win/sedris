@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SRM DeriveCoordinate2DFrom3D</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SRM Reference Manual</big></big>
+<br>
+<!-- SRM spec. 4.1 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+SRM DeriveCoordinate2DFrom3D
+</font>
+</th></tr>
+</table></div>
+
+<!-- SRM SDK Release 4.1.4 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../types/SRM_Status_Code.htm">SRM_Status_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SRM_DeriveCoordinate2DFrom3D</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1"><td class="CFunction">const&nbsp;</td><td class="CFunction"><a href="../types/SRM_Coordinate.htm">SRM_Coordinate</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="coord_3d_ptr"></a>coord_3d_ptr,</td><td class="CFunction"><sup><A href="#Notes_coord_3d_ptr">1</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../types/SRM_Coordinate.htm">SRM_Coordinate</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="coord_2d_ptr"></a>coord_2d_ptr</td><td class="CFunction"><sup><A href="#Notes_coord_2d_ptr">2</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+  Given a 3D coordinate, expressed in an SRF that has a corresponding 2D
+  SRF, constructs the corresponding 2D representation (i.e., without the
+  z/elevation portion of the 3D, in the proper 2D SRF).
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SRM_Status_Code.htm#SRM_STATCOD_SUCCESS">SRM_STATCOD_SUCCESS</A>
+</td><td class="Status">
+ and <A href="#coord_2d_ptr">*coord_2d_ptr</A> is set to the
+ appropriate result, if valid parameters were passed in.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SRM_Status_Code.htm#SRM_STATCOD_INVALID_TARGET_COORDINATE">SRM_STATCOD_INVALID_TARGET_COORDINATE</A>
+</td><td class="Status">
+ and <A href="#coord_2d_ptr">*coord_2d_ptr</A> is left
+ unchanged, if <A href="#coord_2d_ptr">coord_2d_ptr</A> is NULL.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SRM_Status_Code.htm#SRM_STATCOD_INVALID_SOURCE_COORDINATE">SRM_STATCOD_INVALID_SOURCE_COORDINATE</A>
+</td><td class="Status">
+ and <A href="#coord_2d_ptr">*coord_2d_ptr</A> is left
+ unchanged if <A href="#coord_3d_ptr">coord_3d_ptr</A> is NULL,
+ or is expressed in a 3D SRF that has no corresponding 2D SRF.
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#coord_3d_ptr" name="Notes_coord_3d_ptr">1</a></sup>
+ pointer to the 3D coordinate for which we are obtaining the
+ corresponding 2D coordinate.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#coord_2d_ptr" name="Notes_coord_2d_ptr">2</a></sup>
+ pointer to the 2D coordinate that we are deriving.
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SRM_CrossProduct.htm">SRM_CrossProduct</a>.
+<strong>Next:</strong> <a href="SRM_DotProduct.htm">SRM_DotProduct</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

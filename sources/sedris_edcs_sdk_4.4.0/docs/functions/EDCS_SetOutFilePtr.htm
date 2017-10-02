@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>EDCS SetOutFilePtr</title>
+<link rel="stylesheet" href="../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>EDCS Reference Manual</big></big>
+<br>
+<!-- EDCS spec. 4.4 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+EDCS SetOutFilePtr
+</font>
+</th></tr>
+</table></div>
+
+<!-- EDCS SDK Release 4.4.0 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../types/EDCS_Status_Code.htm">EDCS_Status_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">EDCS_SetOutFilePtr</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1">    <td class="CFunction">FILE&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="out_file_ptr"></a>out_file_ptr</td><td class="CFunction"><sup><A href="#Notes_out_file_ptr">1</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+   Sets the FILE pointer to which output is directed.
+<P>
+<table class="Status" border="0">
+<tr><th valign="top">WARNING:</th>
+<td class="Status">If you close this file after calling this function,
+            remember that the EDCS_xxx functions will still
+            try to use it.
+</td></tr>
+</table>
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/EDCS_Status_Code.htm#EDCS_SC_SUCCESS">EDCS_SC_SUCCESS</A>
+</td><td class="Status">
+ and the FILE pointer is set, if
+ <A href="#out_file_ptr">out_file_ptr</A> is non-NULL.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/EDCS_Status_Code.htm#EDCS_SC_OTHER_FAILURE">EDCS_SC_OTHER_FAILURE</A>
+</td><td class="Status">
+ and nothing is changed, if
+ <A href="#out_file_ptr">out_file_ptr</A> is NULL.
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#out_file_ptr" name="Notes_out_file_ptr">1</a></sup>
+ stream to which output is to be directed
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="EDCS_SetMinWidth.htm">EDCS_SetMinWidth</a>.
+<strong>Next:</strong> <a href="EDCS_SetPrecision.htm">EDCS_SetPrecision</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

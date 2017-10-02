@@ -1,0 +1,193 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE CreateSpatialSearchBoundary</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+SE CreateSpatialSearchBoundary
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../types/SE_Return_Code.htm">SE_Return_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SE_CreateSpatialSearchBoundary</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../types/SE_Encoding.htm">SE_Encoding</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="encoding"></a>encoding,</td><td class="CFunction"><sup><A href="#Notes_encoding">1</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">const&nbsp;</td><td class="CFunction"><a href="../types/SE_Search_Bounds.htm">SE_Search_Bounds</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="search_bounds"></a>search_bounds,</td><td class="CFunction"><sup><A href="#Notes_search_bounds">2</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../types/SE_Search_Bounds_Closure.htm">SE_Search_Bounds_Closure</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="search_bounds_closure"></a>search_bounds_closure,</td><td class="CFunction"><sup><A href="#Notes_search_bounds_closure">3</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../types/SE_Search_Type.htm">SE_Search_Type</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="search_quality"></a>search_quality,</td><td class="CFunction"><sup><A href="#Notes_search_quality">4</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../types/SE_Object_Inclusion.htm">SE_Object_Inclusion</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="inclusion"></a>inclusion,</td><td class="CFunction"><sup><A href="#Notes_inclusion">5</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../types/SE_Search_Dimension.htm">SE_Search_Dimension</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="search_dimension"></a>search_dimension,</td><td class="CFunction"><sup><A href="#Notes_search_dimension">6</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../types/SE_Search_Boundary.htm">SE_Search_Boundary</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="search_boundary"></a>search_boundary</td><td class="CFunction"><sup><A href="#Notes_search_boundary">7</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+  Creates a search boundary to limit the scope of a component iterator's
+  search; the search boundary can be used in a later call to
+<A href="SE_InitializeComponentIterator.htm">SE_InitializeComponentIterator()</A>
+ to limit the spatial area that the iterator will search.
+</P><P>
+  Spatial search boundaries can be freed at any time; a search boundary does
+  <EM>not</EM> need to stay in existence until the iterator(s) that depend
+  on that boundary are freed. (An iterator retains a copy of any search
+  boundary used to initialize that iterator).
+</P><P>
+  If no spatial search boundary is supplied, then the set of objects over
+  which the iterator will iterate will be determined solely by the search
+  rules and the starting object of the search.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A>
+</td><td class="Status">
+ and the spatial search boundary is created.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A>
+</td><td class="Status">
+ and the status code is set appropriately if the call failed.
+</td></tr>
+</table>
+
+<h3>Status Codes</h3>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A> is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_SUCCESS">SE_STATCODE_SUCCESS</A>
+</td><td class="Status">
+ set if valid parameters were passed in and memory allocation succeeded.
+</td></tr>
+</table>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A> is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+ <A href="../types/SE_Status_Code.htm#SE_STATCODE_C_ENUMERATION_VALUE_INVALID">SE_STATCODE_C_ENUMERATION_VALUE_INVALID</A>
+</td><td class="Status">
+ set if an invalid
+ <A href="#search_bounds_closure">search_bounds_closure</A>,
+ <A href="#search_quality">search_quality</A>,
+ <A href="#inclusion">inclusion</A>, or
+ <A href="#search_dimension">search_dimension</A> was specified, or
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_INACTIONABLE_FAILURE">SE_STATCODE_INACTIONABLE_FAILURE</A>
+</td><td class="Status">
+ set if
+<OL>
+<LI> an invalid boundary was specified by the bounds parameter (e.g.,
+     the minimal and maximal points aren't in the same SRF),
+</LI>
+<LI> the call failed for any other reason.
+</LI>
+</OL>
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#encoding" name="Notes_encoding">1</a></sup>
+ - identifies the API implementation encoding
+    to use when creating this spatial search boundary.  If the specified API
+    can't create the search boundary, then the API will return a status code
+    indicating why it could not be created.  If encoding
+    is NULL, then the API implementation encoding to be used must be
+    statically bound at compile time.
+
+    See also SE_GetEncoding().
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#search_bounds" name="Notes_search_bounds">2</a></sup>
+ the boundary definition; defines the spatial search area
+    by ranges in each of its coordinates. If the search is 2D, the height
+    values are ignored. See SE_Search_Bounds for more details.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#search_bounds_closure" name="Notes_search_bounds_closure">3</a></sup>
+ whether the spatial search area includes all its
+    boundaries (fully closed) or only the lower endpoints (partly closed).
+    See SE_Search_Bounds_Closure for more details.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#search_quality" name="Notes_search_quality">4</a></sup>
+ whether to use a point, bounding box, or exact search.
+    See SE_Search_Type for more details.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#inclusion" name="Notes_inclusion">5</a></sup>
+ whether the inclusion test for the search specifies only
+    fully included objects (objects completely inside the search boundary)
+    or partly included objects (which include fully included objects as a
+    subset). See SE_Object_Inclusion for more details.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#search_dimension" name="Notes_search_dimension">6</a></sup>
+ whether 2D, 3D, or both 2D and 3D kinds of objects are
+    considered. See SE_Search_Dimension for more details.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#search_boundary" name="Notes_search_boundary">7</a></sup>
+ pointer to the newly created search boundary.
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SE_CreateSearchFilter.htm">SE_CreateSearchFilter</a>.
+<strong>Next:</strong> <a href="SE_CreateStore.htm">SE_CreateStore</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

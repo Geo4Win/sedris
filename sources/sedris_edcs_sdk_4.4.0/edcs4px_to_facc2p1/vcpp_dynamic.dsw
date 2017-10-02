@@ -1,0 +1,113 @@
+Microsoft Developer Studio Workspace File, Format Version 6.00
+# WARNING: DO NOT EDIT OR DELETE THIS WORKSPACE FILE!
+
+###############################################################################
+
+Project: "all_sdk"=.\src\all_sdk.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name map_EDCS_attribute
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name map_EDCS_attribute_value
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name map_EDCS_class
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name map_EDCS_enumerant
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "lib_map_dynamic"=.\src\lib\lib_map_dynamic.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "map_EDCS_attribute"=.\src\apps\map_EDCS_attribute\map_EDCS_attribute_dynamic.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name lib_map_dynamic
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "map_EDCS_attribute_value"=.\src\apps\map_EDCS_attribute_value\map_EDCS_attribute_value_dynamic.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name lib_map_dynamic
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "map_EDCS_class"=.\src\apps\map_EDCS_class\map_EDCS_class_dynamic.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name lib_map_dynamic
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "map_EDCS_enumerant"=.\src\apps\map_EDCS_enumerant\map_EDCS_enumerant_dynamic.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name lib_map_dynamic
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+}}}
+
+Package=<3>
+{{{
+}}}
+
+###############################################################################
+

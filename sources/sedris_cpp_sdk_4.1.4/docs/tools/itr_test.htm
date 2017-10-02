@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>SEDRIS SDK - ITR Test Utility</title>
+</head>
+<body bgcolor="#ffffff">
+
+<div align="center"><h1><a name="top" id="top">ITR Test Utility</a></h1></div>
+<div align="center">
+<h3>
+SEDRIS C++ SDK Release 4.1.4
+</h3>
+<h3>
+July 1, 2011
+</h3>
+</div>
+
+<ol>
+<li><a href="#short">Synopsis</a></li>
+<li><a href="#descr">Description</a></li>
+<li><a href="#options">Options</a></li>
+<li><a href="#examples">Examples</a></li>
+<li><a href="#environ">Environment</a></li>
+<li><a href="#seealso">See Also</a></li>
+</ol>
+<br>
+
+<h2><a name="short" id="short">SYNOPSIS</a></h2>
+<blockquote>
+<pre><b>itr_test</b>
+</pre>
+</blockquote>
+
+<h2><a name="descr" id="descr">DESCRIPTION</a></h2>
+<blockquote><p>
+<b>ITR Test</b> uses ITR-related API calls to create three different
+STF transmittals named from &quot;itr_testA.stf&quot; through
+&quot;itr_testC.stf&quot;, then creates two ITR links between them.
+</p><p>
+The transmittal &quot;itr_testA.stf&quot; contains a &lt;Model Library&gt; and
+a &lt;Model&gt; with name &quot;AIRPLANE&quot;. Transmittal itr_testB.stf
+contains a &lt;Model&gt; named &quot;WING&quot; and transmittal itr_testC.stf
+has a &lt;Model&gt; named &quot;LANDING GEAR&quot;. The
+&lt;Geometry Model&gt; component of the &quot;AIRPLANE&quot; &lt;Model&gt;
+contains 2 &lt;Geometry Model Instance&gt; objects, one of which has
+an ITR association relationship to the &lt;Geometry Model&gt; of the
+&quot;WING&quot; &lt;Model&gt; while the other has an ITR association
+relationship to the &lt;Geometry Model&gt; of the &quot;LANDING GEAR&quot;
+&lt;Model&gt;. The &lt;Geometry Model&gt; components of the &quot;WING&quot;
+and &quot;LANDING GEAR&quot; &lt;Model&gt;s are published. The actual
+geometry data in the models are meaningless. A related sedris resolution file
+(itr_testA.rsl) is also created in the process.
+</p></blockquote>
+
+<h2><a name="options" id="options">OPTIONS</a></h2>
+<blockquote>
+None.
+</blockquote>
+
+<h2><a name="examples" id="examples">EXAMPLES</a></h2>
+<blockquote>
+<dl>
+<dt><b>itr_test</b></dt>
+   <dd><p>Creates the 3 transmittals and their corresponding ITR resolution file as described above.</p></dd>
+</dl>
+</blockquote>
+
+<h2><a name="environ" id="environ">ENVIRONMENT</a></h2>
+<blockquote>
+See the SEDRIS SDK <a href="../index.htm#runtime">Runtime Environment</a>
+variables.
+</blockquote>
+
+<h2><a name="seealso" id="seealso">SEE ALSO</a></h2>
+<blockquote>
+<a href="stf_test.htm">STF Test</a>,
+<a href="index.htm">Tools And Utilities</a> document
+</blockquote>
+
+<p>
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</p>
+</body>
+</html>

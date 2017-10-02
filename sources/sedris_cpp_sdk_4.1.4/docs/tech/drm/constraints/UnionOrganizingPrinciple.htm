@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Union Organizing Principle</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX B - Constraints
+</font>
+<br>
+<font color="#ffffff">
+Union Organizing Principle
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<h3>Definition</h3>
+<OL type='a'>
+<LI><P>
+ For a <A href="../classes/UnionOfPrimitiveGeometry.htm">&lt;Union Of Primitive Geometry&gt;</A> instance U, the
+ <A href="../classes/UnionOfPrimitiveGeometry.htm#strict_organizing_principle">strict_organizing_principle</A>
+ and
+ <A href="../classes/UnionOfPrimitiveGeometry.htm#unique_descendants">unique_descendants</A>
+ field values shall be
+ <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A>, and all U's
+ <A href="../classes/PrimitiveGeometry.htm">&lt;Primitive Geometry&gt;</A> components shall
+ be distinct.
+</P></LI>
+<LI><P>
+ For a
+ <A href="../classes/UnionOfFeatureTopology.htm">&lt;Union Of Feature Topology&gt;</A>
+ instance U, all U's <A href="../classes/FeatureTopology.htm">&lt;Feature Topology&gt;</A>
+ components shall be distinct.
+</P></LI>
+<LI><P>
+ For a <A href="../classes/UnionOfGeometryTopology.htm">&lt;Union Of Geometry Topology&gt;</A>
+ instance U, all U's <A href="../classes/GeometryTopology.htm">&lt;Geometry Topology&gt;</A>
+ components shall be distinct.
+</P></LI>
+<LI><P>
+ For a
+ <A href="../classes/UnionOfGeometryHierarchy.htm">&lt;Union Of Geometry Hierarchy&gt;</A>
+ instance U, all U's
+ <A href="../classes/GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> components
+ shall be distinct. Furthermore, no two
+ <A href="../classes/GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> components of
+ U shall organize exactly the same collection of geometric data.
+</P></LI>
+</OL>
+
+<h3>Rationale</h3>
+<OL type='1'>
+<LI><P>
+ All members of a union shall be distinct to avoid semantic ambiguity.
+</P></LI>
+<LI><P>
+ In the case of two <A href="../classes/UnionOfGeometryHierarchy.htm">&lt;Union Of Geometry Hierarchy&gt;</A>
+ components attempting to
+ provide alternate representations of the same underlying
+ data, the appropriate representation mechanism is
+ <A href="../classes/AlternateHierarchyRelatedGeometry.htm">&lt;Alternate Hierarchy Related Geometry&gt;</A>.
+</P></LI>
+</OL>
+<h3>Example</h3>
+<OL>
+<LI><P>
+ Consider a <A href="../classes/UnionOfGeometryHierarchy.htm">&lt;Union Of Geometry Hierarchy&gt;</A>
+ instance for which the
+ <A href="../classes/UnionOfGeometryHierarchy.htm#ordering_reason">ordering_reason</A>
+ is semantically significant. The same
+ <A href="../classes/GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> instance cannot appear
+ twice in the union, because the semantic meaning of
+ that instance would be ambiguous.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<p>
+No FAQs supplied.
+</p>
+
+<hr>
+<strong>Prev:</strong> <A href="TimeIntervalCalculation.htm">Time Interval Calculation</A>.
+<strong>Next:</strong> <A href="ValidNodeEdgeRelationships.htm">Valid Node Edge Relationships</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,301 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Constraints On Associates</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX B - Constraints
+</font>
+<br>
+<font color="#ffffff">
+Constraints On Associates
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h3>Definition</h3>
+<P>
+ DRM objects are constrained in taking associate DRM objects
+ as follows.
+</P>
+<OL type='a'>
+<LI><P>
+ Let <span class="ConstructName">M</span> be a <A href="../classes/Model.htm">&lt;Model&gt;</A> instance.
+</P>
+<OL type='1'>
+<LI><P>
+ Let <span class="ConstructName">M</span> have a <A href="../classes/FeatureModel.htm">&lt;Feature Model&gt;</A> component
+ <span class="ConstructName">F</span>, and let <span class="ConstructName">F1</span> be a
+ <A href="../classes/FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> instance in the component tree of
+ <span class="ConstructName">F</span> and <span class="ConstructName">T</span> be a
+ <A href="../classes/FeatureTopology.htm">&lt;Feature Topology&gt;</A> instance in the component tree
+ of <span class="ConstructName">F</span>.
+</P>
+<OL type='i'>
+<LI><P>
+ <span class="ConstructName">F1</span> shall not associate to a
+ <A href="../classes/FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> instance outside the
+ component tree of <span class="ConstructName">F</span>.
+</P></LI>
+<LI><P>
+ No <A href="../classes/FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> instance outside the
+ component tree of <span class="ConstructName">F</span> shall associate to
+ <span class="ConstructName">F1</span>.
+</P></LI>
+<LI><P>
+ <span class="ConstructName">F1</span> shall not associate to a
+ <A href="../classes/FeatureTopology.htm">&lt;Feature Topology&gt;</A> instance outside the component tree of
+ <span class="ConstructName">F</span>.
+</P></LI>
+<LI><P>
+ No <A href="../classes/FeatureTopology.htm">&lt;Feature Topology&gt;</A> instance outside the component tree
+ of <span class="ConstructName">F</span> shall associate to <span class="ConstructName">F1</span>.
+</P></LI>
+<LI><P>
+ <span class="ConstructName">T</span> shall not associate to a
+ <A href="../classes/FeatureTopology.htm">&lt;Feature Topology&gt;</A> instance outside the component tree of
+ <span class="ConstructName">F</span>.
+</P></LI>
+<LI><P>
+ No <A href="../classes/FeatureTopology.htm">&lt;Feature Topology&gt;</A> instance outside the component tree of
+ <span class="ConstructName">F</span> shall associate to <span class="ConstructName">T</span>.
+</P></LI>
+</OL>
+</LI>
+<LI><P>
+ Let <span class="ConstructName">M</span> have a <A href="../classes/GeometryModel.htm">&lt;Geometry Model&gt;</A> component
+ <span class="ConstructName">G</span>, and let <span class="ConstructName">G1</span> be a
+ <A href="../classes/GeometryRepresentation.htm">&lt;Geometry Representation&gt;</A> instance in the component tree of
+ <span class="ConstructName">G</span> and <span class="ConstructName">T</span> be a
+ <A href="../classes/GeometryTopology.htm">&lt;Geometry Topology&gt;</A> instance in the component tree
+ of <span class="ConstructName">G</span>.
+</P>
+<OL type='i'>
+<LI><P>
+ <span class="ConstructName">G1</span> shall not associate to a
+ <A href="../classes/GeometryRepresentation.htm">&lt;Geometry Representation&gt;</A> instance outside the component tree
+ of <span class="ConstructName">G</span>.
+</P></LI>
+<LI><P>
+ No <A href="../classes/GeometryRepresentation.htm">&lt;Geometry Representation&gt;</A> instance outside the
+ component tree of <span class="ConstructName">G</span> shall associate to
+ <span class="ConstructName">G1</span>.
+</P></LI>
+<LI><P>
+ <span class="ConstructName">G1</span> shall not associate to a
+ <A href="../classes/GeometryTopology.htm">&lt;Geometry Topology&gt;</A> instance outside the component tree of
+ <span class="ConstructName">G</span>.
+</P></LI>
+<LI><P>
+ No <A href="../classes/GeometryTopology.htm">&lt;Geometry Topology&gt;</A> instance outside the component tree of
+ <span class="ConstructName">G</span> shall associate to <span class="ConstructName">G1</span>.
+</P></LI>
+<LI><P>
+ <span class="ConstructName">T</span> shall not associate to a
+ <A href="../classes/GeometryTopology.htm">&lt;Geometry Topology&gt;</A> instance outside the component tree of
+ <span class="ConstructName">G</span>.
+</P></LI>
+<LI><P>
+ No <A href="../classes/GeometryTopology.htm">&lt;Geometry Topology&gt;</A> instance outside the component tree of
+ <span class="ConstructName">F</span> shall associate to <span class="ConstructName">T</span>.
+</P></LI>
+</OL>
+</LI>
+<LI><P>
+ Let <span class="ConstructName">M</span> have both a <A href="../classes/FeatureModel.htm">&lt;Feature Model&gt;</A> component
+ <span class="ConstructName">F</span> and a <A href="../classes/GeometryModel.htm">&lt;Geometry Model&gt;</A> component
+ <span class="ConstructName">G</span>. Let <span class="ConstructName">F1</span> be a
+ <A href="../classes/FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> instance in the component tree of
+ <span class="ConstructName">F</span> and let <span class="ConstructName">G1</span> be a
+ <A href="../classes/GeometryRepresentation.htm">&lt;Geometry Representation&gt;</A> instance in the component tree of
+ <span class="ConstructName">G</span>.
+</P>
+<OL type='i'>
+<LI><P>
+ <span class="ConstructName">F1</span> shall not associate to a
+ <A href="../classes/GeometryRepresentation.htm">&lt;Geometry Representation&gt;</A> instance outside the component tree of
+ <span class="ConstructName">G</span>.
+</P></LI>
+<LI><P>
+ No <A href="../classes/GeometryRepresentation.htm">&lt;Geometry Representation&gt;</A> instance outside the component tree
+ of <span class="ConstructName">G</span> shall associate to <span class="ConstructName">F1</span>.
+</P></LI>
+<LI><P>
+ <span class="ConstructName">G1</span> shall not associate to a
+ <A href="../classes/FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> instance outside the component tree of
+ <span class="ConstructName">F</span>.
+</P></LI>
+<LI><P>
+ No <A href="../classes/FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> instance outside the component tree
+ of <span class="ConstructName">F</span> shall associate to <span class="ConstructName">G1</span>.
+</P></LI>
+</OL>
+</LI>
+<LI><P>
+ Let <span class="ConstructName">M</span> have an <A href="../classes/InterfaceTemplate.htm">&lt;Interface Template&gt;</A> component
+ <span class="ConstructName">T</span>.
+</P>
+<OL type='i'>
+<LI><P>
+ For every <A href="../classes/Variable.htm">&lt;Variable&gt;</A> instance <span class="ConstructName">V</span> in the
+ component tree of <span class="ConstructName">M</span>, <span class="ConstructName">V</span> shall
+ associate exactly once with <span class="ConstructName">T</span>.
+</P></LI>
+<LI><P>
+ If <span class="ConstructName">V</span> is a <A href="../classes/Variable.htm">&lt;Variable&gt;</A> instance that does
+ not appear in the component tree of <span class="ConstructName">M</span>,
+ <span class="ConstructName">T</span> shall not associate with <span class="ConstructName">V</span>.
+</P></LI>
+</OL>
+</LI>
+<LI><P>Let <span class="ConstructName">M</span> have
+ a <A href="../classes/FeatureModel.htm">&lt;Feature Model&gt;</A> component <span class="ConstructName">F</span>,
+ and let <span class="ConstructName">X</span> be an instance of
+ <A href="../classes/FeatureModelInstance.htm">&lt;Feature Model Instance&gt;</A> in the component tree of
+ <span class="ConstructName">M</span>. <span class="ConstructName">X</span> shall not
+ associate to <span class="ConstructName">F</span>.
+</P></LI>
+<LI><P>Let <span class="ConstructName">M</span> have
+ a <A href="../classes/GeometryModel.htm">&lt;Geometry Model&gt;</A> component <span class="ConstructName">G</span>,
+ and let <span class="ConstructName">X</span> be an instance of
+ <A href="../classes/GeometryModelInstance.htm">&lt;Geometry Model Instance&gt;</A> in the component tree of
+ <span class="ConstructName">M</span>. <span class="ConstructName">X</span> shall not
+ associate to <span class="ConstructName">G</span>.
+</P></LI>
+</OL>
+</LI>
+<LI><P>
+ Let <span class="ConstructName">R</span> be an <A href="../classes/EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instance.
+</P>
+<OL type='1'>
+<LI><P>
+ Let <span class="ConstructName">R2</span> be an <A href="../classes/EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instance,
+ where the <A href="../classes/EnvironmentRoot.htm#srf_context_info">srf_context_info</A>
+ of <span class="ConstructName">R</span> does not match that of <span class="ConstructName">R2</span>.
+</P>
+<OL type='i'>
+<LI><P>
+ Let <span class="ConstructName">R</span> have a <A href="../classes/FeatureHierarchy.htm">&lt;Feature Hierarchy&gt;</A> component
+ <span class="ConstructName">F</span>, and let <span class="ConstructName">X</span> be a
+ <A href="../classes/FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> instance in the component tree of
+ <span class="ConstructName">F</span>. Let <span class="ConstructName">R2</span> have a
+ <A href="../classes/FeatureHierarchy.htm">&lt;Feature Hierarchy&gt;</A> component <span class="ConstructName">F2</span>, and
+ let <span class="ConstructName">X2</span> be a <A href="../classes/FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> instance
+ in the component tree of <span class="ConstructName">F2</span>. <span class="ConstructName">X</span>
+ shall not associate to <span class="ConstructName">X2</span>, and <span class="ConstructName">X2</span>
+ shall not associate to <span class="ConstructName">X</span>.
+</P></LI>
+<LI><P>
+ Let <span class="ConstructName">R</span> have a <A href="../classes/GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> component
+ <span class="ConstructName">G</span>, and let <span class="ConstructName">Y</span> be a
+ <A href="../classes/GeometryRepresentation.htm">&lt;Geometry Representation&gt;</A> instance in the component tree of
+ <span class="ConstructName">G</span>. Let <span class="ConstructName">R2</span> have a
+ <A href="../classes/GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> component <span class="ConstructName">G2</span>, and
+ let <span class="ConstructName">Y2</span> be a <A href="../classes/GeometryRepresentation.htm">&lt;Geometry Representation&gt;</A> instance
+ in the component tree of <span class="ConstructName">G2</span>. <span class="ConstructName">Y</span>
+ shall not associate to <span class="ConstructName">Y2</span>, and <span class="ConstructName">Y2</span>
+ shall not associate to <span class="ConstructName">Y</span>.
+</P></LI>
+<LI><P>
+ Let <span class="ConstructName">R</span> have a <A href="../classes/FeatureHierarchy.htm">&lt;Feature Hierarchy&gt;</A> component
+ <span class="ConstructName">F</span>, and let <span class="ConstructName">X</span> be a
+ <A href="../classes/FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> instance in the component tree of
+ <span class="ConstructName">F</span>. Let <span class="ConstructName">R2</span> have a
+ <A href="../classes/GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> component <span class="ConstructName">G2</span>, and
+ let <span class="ConstructName">Y2</span> be a <A href="../classes/GeometryRepresentation.htm">&lt;Geometry Representation&gt;</A> instance
+ in the component tree of <span class="ConstructName">G2</span>. <span class="ConstructName">X</span>
+ shall not associate to <span class="ConstructName">Y2</span>, and <span class="ConstructName">Y2</span>
+ shall not associate to <span class="ConstructName">X</span>.
+</P></LI>
+</OL>
+</LI>
+<LI><P>
+ Let <span class="ConstructName">R</span> have an <A href="../classes/InterfaceTemplate.htm">&lt;Interface Template&gt;</A> component
+ <span class="ConstructName">T</span>.
+<OL type='i'>
+<LI><P>
+ For every <A href="../classes/Variable.htm">&lt;Variable&gt;</A> instance <span class="ConstructName">V</span> in the
+ component tree of <span class="ConstructName">R</span>, <span class="ConstructName">V</span> shall
+ associate exactly once with <span class="ConstructName">T</span>.
+</P></LI>
+<LI><P>
+ If <span class="ConstructName">V</span> is a <A href="../classes/Variable.htm">&lt;Variable&gt;</A> instance that does not
+ appear in the component tree of <span class="ConstructName">R</span>,
+ <span class="ConstructName">T</span> shall not associate with <span class="ConstructName">V</span>.
+</P></LI>
+</OL>
+</LI>
+</OL>
+</LI>
+</OL>
+
+<h3>Rationale</h3>
+<P>
+ Consider the <A href="../classes/FeatureRepresentation.htm">&lt;Feature Representation&gt;</A>
+ with
+ <A href="../classes/GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> association. This
+ association means that the
+ <A href="../classes/FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> is an alternate
+ representation of the <A href="../classes/GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A>.
+ A terrain <A href="../classes/FeatureRepresentation.htm">&lt;Feature Representation&gt;</A>
+ represents some part of the
+ terrain, not a part of some <A href="../classes/Model.htm">&lt;Model&gt;</A>; a
+ <A href="../classes/Model.htm">&lt;Model&gt;</A> feature represents some abstraction of the
+ <A href="../classes/Model.htm">&lt;Model&gt;</A> rather than a feature of the terrain.
+</P>
+<h3>Example</h3>
+<OL>
+<LI><P>
+ Consider a transmittal with an <A href="../classes/EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instance
+ <span class="ConstructName">R</span> and a <A href="../classes/ModelLibrary.htm">&lt;Model Library&gt;</A> instance
+ <span class="ConstructName">L</span>. Let &quot;F15&quot; be a <A href="../classes/Model.htm">&lt;Model&gt;</A>
+ component of <span class="ConstructName">L</span>, under which <A href="../classes/Polygon.htm">&lt;Polygon&gt;</A>
+ instances exist. No <A href="../classes/FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> instance under
+ <span class="ConstructName">R</span> may associate with an &quot;F15&quot;
+ <A href="../classes/Polygon.htm">&lt;Polygon&gt;</A> instance, since a terrain
+ <A href="../classes/FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> instance
+ cannot at the same time represent a generic
+ &quot;F15&quot; <A href="../classes/Polygon.htm">&lt;Polygon&gt;</A> instance.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<p>
+No FAQs supplied.
+</p>
+
+<hr>
+<strong>Prev:</strong> <A href="ConformalBehaviourConstraints.htm">Conformal Behaviour Constraints</A>.
+<strong>Next:</strong> <A href="ConstraintsOnComponents.htm">Constraints On Components</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

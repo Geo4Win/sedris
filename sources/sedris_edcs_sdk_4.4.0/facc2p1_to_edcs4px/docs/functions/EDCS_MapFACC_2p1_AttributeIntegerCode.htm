@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en">
+<head>
+<title>EDCS MapFACC_2p1_AttributeIntegerCode</title>
+<link rel="stylesheet" href="../../../docs/styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div align="center">
+<table border="2" class="doc_set_header">
+<tr><th class="doc_set_header">
+<big><big>EDCS Reference Manual</big></big>
+<br>
+<font color="#ffffff">
+Concept Mapping from FACC 2.1 to EDCS 4.4
+<!-- FACC 2.1 to EDCS 4.4 Mapping SDK Release 4.4.0.0 -->
+<!-- EDCS spec. 4.4 -->
+<br>
+Functions
+<br>
+EDCS MapFACC_2p1_AttributeIntegerCode
+</font>
+</th></tr>
+</table>
+</div>
+
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan="4">extern <a href="../../../docs/types/EDCS_Status_Code.htm">EDCS_Status_Code</a></td></tr>
+<tr><td class="CFunction" colspan="4">EDCS_MapFACC_2p1_AttributeIntegerCode</td></tr>
+<tr><td class="CFunction">(</td>
+<tr><td class="CFunction">const</td><td class="CFunction"><a href="../types/FACC_2p1_Attribute_Code.htm">FACC_2p1_Attribute_Code</a></td> <td class="CFunction"> </td><td class="CFunction">*</td><td class="CFunction"><a name="fac_code_in_ptr">fac_code_in_ptr</a>,</td><td class="CFunction"> <a href="#Notes284b78">(notes)</a></td></tr>
+<tr><td class="CFunction">const</td><td class="CFunction"><a href="../types/FACC_2p1_Attribute_Integer_Code.htm">FACC_2p1_Attribute_Integer_Code</a></td> <td class="CFunction"> </td><td class="CFunction">*</td><td class="CFunction"><a name="fac_enum_code_in">fac_enum_code_in</a>,</td><td class="CFunction"> <a href="#Notes284bd0">(notes)</a></td></tr>
+<tr><td class="CFunction">const</td><td class="CFunction"><a href="../types/FACC_2p1_Enumerant_Mapping_Structure.htm">FACC_2p1_Enumerant_Mapping_Structure</a></td> <td class="CFunction">*</td><td class="CFunction">*</td><td class="CFunction"><a name="mapping_info_out_ptr">mapping_info_out_ptr</a></td><td class="CFunction"> <a href="#Notes284c58">(notes)</a></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<H3>Definition</H3>
+<P>
+Retrieves mapping information for the given FACC Attribute Integer Code.
+</P>
+<H3>Returns</H3>
+<P> <table class="Status">
+<tr><td class="Status">
+<a href="../../../docs/types/EDCS_Status_Code.htm#EDCS_SC_SUCCESS">EDCS_SC_SUCCESS</a>
+</td><td class="Status">and a handle to the requested mapping information is copied into
+<a href="#mapping_info_out_ptr">*mapping_info_out_ptr</a>, if valid parameters were passed in.
+</td></tr>
+<tr><td class="Status">
+<a href="../../../docs/types/EDCS_Status_Code.htm#EDCS_SC_NULL_REQUIRED_PARAMETER">
+EDCS_SC_NULL_REQUIRED_PARAMETER</a></td> <td class="Status">and
+<a href="#mapping_info_out_ptr">*mapping_info_out_ptr</a> is left unaltered, if any parameter was NULL.
+</td></tr>
+<tr><td class="Status">
+<a href="../../../docs/types/EDCS_Status_Code.htm#EDCS_SC_INVALID_CODE">
+  EDCS_SC_INVALID_CODE</a></td> <td class="Status">and
+<a href="#mapping_info_out_ptr">*mapping_info_out_ptr</a> is set to NULL, if
+<a href="#fac_enum_code_in">fac_enum_code_in</a>
+ does not correspond to a valid attribute integer code.
+</td></tr>
+</table>
+
+<HR><H2>Parameters Notes</H2>
+<P><h4><a href="#fac_code_in_ptr" name="Notes284b78">fac_code_in_ptr</a></h4>
+<p>
+ the FACC 2.1 Attribute Code whose enumerations mapping information is
+    being retrieved
+</p>
+<P><h4><a href="#fac_enum_code_in" name="Notes284bd0">fac_enum_code_in</a></h4>
+<p>
+ the FACC 2.1 attribute integer whose mapping information is
+    being retrieved
+</p>
+<P><h4><a href="#mapping_info_out_ptr" name="Notes284c58">mapping_info_out_ptr</a></h4>
+<p>
+ pointer to a pointer variable in the user's
+    memory space where a handle to the mapping information will be
+    copied
+</p>
+<HR>
+<p>
+<strong>Up:</strong><a href="../facc2p1_edcs4px.htm#Part5">Index</a>.
+<br><br>
+<table class="doc_set_header">
+<tr><td>
+<table class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="left" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

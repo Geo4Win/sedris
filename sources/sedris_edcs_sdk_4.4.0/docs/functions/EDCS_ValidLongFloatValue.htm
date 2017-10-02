@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>EDCS ValidLongFloatValue</title>
+<link rel="stylesheet" href="../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>EDCS Reference Manual</big></big>
+<br>
+<!-- EDCS spec. 4.4 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+EDCS ValidLongFloatValue
+</font>
+</th></tr>
+</table></div>
+
+<!-- EDCS SDK Release 4.4.0 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../types/EDCS_Boolean.htm">EDCS_Boolean</a></td></tr>
+<tr><td class="CFunction" colspan = "4">EDCS_ValidLongFloatValue</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1"><td class="CFunction">const&nbsp;</td><td class="CFunction"><a href="../types/EDCS_Long_Float_Value.htm">EDCS_Long_Float_Value</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="value_ptr"></a>value_ptr,</td><td class="CFunction"><sup><A href="#Notes_value_ptr">1</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../types/EDCS_Boolean.htm">EDCS_Boolean</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="print_error"></a>print_error,</td><td class="CFunction"><sup><A href="#Notes_print_error">2</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../types/EDCS_Count.htm">EDCS_Count</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="error_count_ptr"></a>error_count_ptr</td><td class="CFunction"><sup><A href="#Notes_error_count_ptr">3</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+Checks the information in the given <A href="../types/EDCS_Long_Float_Value.htm">EDCS_Long_Float_Value</A>
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/EDCS_Boolean.htm#EDCS_TRUE">EDCS_TRUE</A> - if <A href="#value_ptr">value_ptr</A>is non-NULL and <A href="#value_ptr">*value_ptr</A> containsvalid information
+</td></tr>
+<tr><td class="Status">
+<A href="../types/EDCS_Boolean.htm#EDCS_FALSE">EDCS_FALSE</A> otherwise
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#value_ptr" name="Notes_value_ptr">1</a></sup>
+ pointer to EDCS_Long_Float_Value whose contents are
+    to be checked
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#print_error" name="Notes_print_error">2</a></sup>
+ whether to print error messages
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#error_count_ptr" name="Notes_error_count_ptr">3</a></sup>
+ pointer to a variable in which the error
+    count for this structure is stored; if NULL, no counting is performed
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="EDCS_ValidLongFloatInterval.htm">EDCS_ValidLongFloatInterval</a>.
+<strong>Next:</strong> <a href="EDCS_ValidNonNullString.htm">EDCS_ValidNonNullString</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Feature Representation</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Feature Representation
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Abstract Class Name: Feature Representation</h2>
+<h3>Superclass - <a href="SEDRISAbstractBase.htm">&lt;SEDRIS Abstract Base&gt;</a></h3>
+<h3>Subclasses</h3>
+<UL>
+<LI>
+<a href="FeatureHierarchy.htm">&lt;Feature Hierarchy&gt;</a> 
+</LI>
+<LI>
+<a href="PrimitiveFeature.htm">&lt;Primitive Feature&gt;</a> 
+</LI>
+</UL>
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class represents an entity in the environment,
+ or an organized collection of such entities, that specifies the
+ properties of the entity in terms of its spatial connectivity.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet08.pdf"><strong>8</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet03.pdf"><strong>3</strong></A>
+</LI>
+<LI><A href="sheet06.pdf"><strong>6</strong></A>
+</LI>
+<LI><A href="sheet10.pdf"><strong>10</strong></A>
+</LI>
+<LI><A href="sheet23.pdf"><strong>23</strong></A>
+</LI>
+</UL>
+
+<h3>Example</h3>
+<OL>
+<LI><P>
+ A wide variety of spatially located entities, including roads, railroads,
+ streams, rivers, lakes, bridges, buildings, built-up areas, forests, fields,
+ political boundaries, powerlines, and airfields can be abstractly
+ represented as
+ <A href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> instances.
+ <A href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> instances
+ may be organized
+ into thematic layers, if desired.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ Are there any limits on the size of a feature?
+</B></DT>
+<DD><P>
+ No.  <A href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</A>
+ instances are conceptual entities.  There
+ are no limits on the size of a single feature, and very few limits on what
+ can be considered to be a single feature.  For example, the entire
+ Interstate highway system of the United States could be considered to be a
+ single high-level feature, if that were useful in a particular context.
+ However, there are some limits on individual
+ <A href="PrimitiveFeature.htm">&lt;Primitive Feature&gt;</A> instances.
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ConstraintsOnAssociates.htm">&lt;&lt;Constraints On Associates&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ConstraintsOnComponents.htm">&lt;&lt;Constraints On Components&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/PrecedenceofPropertySetIndex.htm">&lt;&lt;Precedence of Property Set Index&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/PropertyConstraints.htm">&lt;&lt;Property Constraints&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Associated to (one-way)</h3>
+<UL>
+<li>zero or more <a href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</a> instances, each through the use of a <a href="BaseAssociationData.htm">&lt;Base Association Data&gt;</a> link object<sup><A href="#Notes_asn_toFeature_Representation" name="asn_toFeature_Representation">1</A></sup></li>
+<li>zero or more <a href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</a> instances, each through the use of a <a href="BaseAssociationData.htm">&lt;Base Association Data&gt;</a> link object<sup><A href="#Notes_asn_toGeometry_Hierarchy" name="asn_toGeometry_Hierarchy">2</A></sup></li>
+<li>zero or more <a href="PropertyGrid.htm">&lt;Property Grid&gt;</a> instances, each through the use of a <a href="BaseAssociationData.htm">&lt;Base Association Data&gt;</a> link object<sup><A href="#Notes_asn_toProperty_Grid" name="asn_toProperty_Grid">3</A></sup></li>
+</UL>
+
+<h3>Associated by (one-way)</h3>
+<UL>
+<li>zero or more <a href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</a> instances, each through the use of a <a href="BaseAssociationData.htm">&lt;Base Association Data&gt;</a> link object<sup><A href="#Notes_asn_fromFeature_Representation" name="asn_fromFeature_Representation">4</A></sup></li>
+<li>zero or more <a href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</a> instances, each through the use of a <a href="BaseAssociationData.htm">&lt;Base Association Data&gt;</a> link object<sup><A href="#Notes_asn_fromGeometry_Hierarchy" name="asn_fromGeometry_Hierarchy">5</A></sup></li>
+<li>zero or more <a href="PropertyGrid.htm">&lt;Property Grid&gt;</a> instances, each through the use of a <a href="BaseAssociationData.htm">&lt;Base Association Data&gt;</a> link object<sup><A href="#Notes_asn_fromProperty_Grid" name="asn_fromProperty_Grid">6</A></sup></li>
+</UL>
+
+<h3>Composed of (two-way)</h3>
+<UL>
+<li>zero or one <a href="ClassificationData.htm">&lt;Classification Data&gt;</a> instance</li>
+<li>zero or more <a href="Label.htm">&lt;Label&gt;</a> instances</li>
+<li>zero or more {ordered} <a href="PropertySetIndex.htm">&lt;Property Set Index&gt;</a> instances</li>
+<li>zero or more <a href="PropertyTable.htm">&lt;Property Table&gt;</a> instances</li>
+<li>zero or more <a href="PropertyTableReference.htm">&lt;Property Table Reference&gt;</a> instances</li>
+<li>zero or more <a href="PropertyValue.htm">&lt;Property Value&gt;</a> instances</li>
+<li>zero or one <a href="RenderingPriorityLevel.htm">&lt;Rendering Priority Level&gt;</a> instance</li>
+</UL>
+
+<h3>Composed of (two-way metadata)</h3>
+<UL>
+<li>zero or one <a href="DataQuality.htm">&lt;Data Quality&gt;</a> instance</li>
+<li>zero or one <a href="Identification.htm">&lt;Identification&gt;</a> instance</li>
+<li>zero or one <a href="TimeConstraintsData.htm">&lt;Time Constraints Data&gt;</a> instance</li>
+</UL>
+
+<h3>Component of (two-way)</h3>
+<UL>
+<li>zero or more <a href="UnionOfFeatures.htm">&lt;Union Of Features&gt;</a> instances</li>
+</UL>
+
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<hr>
+<h2>Notes</h2>
+<h3>Associated to Notes</h3>
+<br>
+<h4><a href="#asn_toFeature_Representation" name="Notes_asn_toFeature_Representation">Feature_Representation</a></h4>
+ An association between two
+ <A href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> instances
+ indicates that the environmental object(s) that they
+ represent have the semantic relationship indicated by
+ the <A href="BaseAssociationData.htm">&lt;Base Association Data&gt;</A>
+ link object on the association relationship.
+</P>
+<br>
+<h4><a href="#asn_toGeometry_Hierarchy" name="Notes_asn_toGeometry_Hierarchy">Geometry_Hierarchy</a></h4>
+ An association between a
+ <A href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> instance and a
+ <A href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> instance
+ indicates that the environmental object(s) that they
+ represent have the semantic relationship indicated by
+ the <A href="BaseAssociationData.htm">&lt;Base Association Data&gt;</A>
+ link object on the association relationship.
+</P>
+<br>
+<h4><a href="#asn_toProperty_Grid" name="Notes_asn_toProperty_Grid">Property_Grid</a></h4>
+ An association between a
+ <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance and a
+ <A href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> instance
+ indicates that the environmental object(s) represented by the
+ <A href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> instance
+ and the <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance
+ (or some specific cell data within that
+ <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance) have the
+ semantic relationship indicated by the
+ <A href="BaseAssociationData.htm">&lt;Base Association Data&gt;</A> link object
+ on the association relationship. Each associated
+ <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance indicates
+ whether the entire <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A>
+ instance or only some specific cell data within it is participating
+ in the relationship in question.
+</P>
+<h3>Associated from Notes</h3>
+<br>
+<h4><a href="#asn_fromFeature_Representation" name="Notes_asn_fromFeature_Representation">Feature_Representation</a></h4>
+ An association between two
+ <A href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> instances
+ indicates that the environmental object(s) that they
+ represent have the semantic relationship indicated by
+ the <A href="BaseAssociationData.htm">&lt;Base Association Data&gt;</A>
+ link object on the association relationship.
+</P>
+<br>
+<h4><a href="#asn_fromGeometry_Hierarchy" name="Notes_asn_fromGeometry_Hierarchy">Geometry_Hierarchy</a></h4>
+ An association between a
+ <A href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> instance and a
+ <A href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> instance
+ indicates that the environmental object(s) that they
+ represent have the semantic relationship indicated by
+ the <A href="BaseAssociationData.htm">&lt;Base Association Data&gt;</A>
+ link object on the association relationship.
+</P>
+<br>
+<h4><a href="#asn_fromProperty_Grid" name="Notes_asn_fromProperty_Grid">Property_Grid</a></h4>
+ An association between a
+ <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance and a
+ <A href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> instance
+ indicates that the environmental object(s) represented by the
+ <A href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> instance
+ and the <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance
+ (or some specific cell data within that
+ <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance) have the
+ semantic relationship indicated by the
+ <A href="BaseAssociationData.htm">&lt;Base Association Data&gt;</A> link object
+ on the association relationship. Each associated
+ <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance indicates
+ whether the entire <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A>
+ instance or only some specific cell data within it is participating
+ in the relationship in question.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="FeatureNode.htm">Feature Node</A>.
+<strong>Next:</strong> <A href="FeatureTopology.htm">Feature Topology</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

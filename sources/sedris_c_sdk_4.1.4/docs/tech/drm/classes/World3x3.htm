@@ -1,0 +1,265 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>World 3x3</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+World 3x3
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: World 3x3</h2>
+<h3>Superclass - <a href="SEDRISAbstractBase.htm">&lt;SEDRIS Abstract Base&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies a nine-element matrix
+ containing scaling and rotation data as part of
+ a <A href="WorldTransformation.htm">&lt;World Transformation&gt;</A> instance.
+ The direction of rotation is determined by the right-hand rule.
+</P><P>
+ Translation data is not provided by a <A href="World3x3.htm">&lt;World 3x3&gt;</A>
+ instance, because a <A href="World3x3.htm">&lt;World 3x3&gt;</A> instance
+ only exists as a component of a
+ <A href="WorldTransformation.htm">&lt;World Transformation&gt;</A> instance.
+ The translation component of a
+ <A href="WorldTransformation.htm">&lt;World Transformation&gt;</A> instance
+ is provided by the mandatory <A href="Location.htm">&lt;Location&gt;</A> component
+ of the <A href="WorldTransformation.htm">&lt;World Transformation&gt;</A> instance.
+ The <A href="WorldTransformation.htm">&lt;World Transformation&gt;</A> instance is applied
+ as specified in
+ <A href="../representing_models.htm">Representing models within an environment</A>.
+</P><P>
+ <A href="WorldTransformation.htm">&lt;World Transformation&gt;</A> instances
+ usually exist in the scope of
+ an <A href="EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instance
+ defining a non-LSR SRF. Consequently,
+ <A href="World3x3.htm">&lt;World 3x3&gt;</A> instances usually
+ exist within a 'world' SRF, hence the name.
+</P><P>
+ The matrix multiplication order is defined by
+ <span class="ConstructName">w</span> =
+ <span class="ConstructName">M</span> &times; <span class="ConstructName">v</span>,
+ where <span class="ConstructName">M</span> is the matrix of the
+ <A href="World3x3.htm">&lt;World 3x3&gt;</A> instance, <span class="ConstructName">v</span> is the
+ original location column vector, and <span class="ConstructName">w</span>
+ is the resulting location column vector.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet07.pdf"><strong>7</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+This class appears on only one page of the DRM class diagram.
+<h3>Example</h3>
+<OL>
+<LI><P>
+ A <A href="World3x3.htm">&lt;World 3x3&gt;</A> instance specifies the scale and rotation
+ applied to a <A href="Model.htm">&lt;Model&gt;</A> instance when placing an instance.
+</P></LI>
+<LI><P>
+ Consider a model of a house. A <A href="World3x3.htm">&lt;World 3x3&gt;</A> instance is used
+ as part of a <A href="WorldTransformation.htm">&lt;World Transformation&gt;</A> instance that rotates
+ the instantiation of the house on Bourbon Street to face east.  Another
+ <A href="World3x3.htm">&lt;World 3x3&gt;</A> instance is used as part of a
+ <A href="WorldTransformation.htm">&lt;World Transformation&gt;</A> instance that scales another instance
+ of the house model larger and rotates it to face west on the other side
+ of the street.
+</P></LI>
+<LI><P>
+ See the <A href="Local4x4.htm">&lt;Local 4x4&gt;</A> class for more examples and
+ explanations of matrix structure.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ How is the transformation matrix stored?
+</B></DT>
+<DD><P>
+ The DRM specifies matrices in <EM>row</EM> major order; that is,
+ the first three elements correspond to the first row of the matrix,
+ the following three elements correspond to the second row of the
+ matrix, and so on (just as a float[3][3] in C is organized). Hence,
+ if mat[][] is the matrix being used, mat[i][j] is the element in
+ row i and column j of the matrix.
+</P></DD>
+<DT><B>
+ What is the multiplication order for <A href="World3x3.htm">&lt;World 3x3&gt;</A> instances?
+</B></DT>
+<DD><P>
+ If <span class="ConstructName">M</span> is the matrix specified by a
+ <A href="World3x3.htm">&lt;World 3x3&gt;</A> instance and <span class="ConstructName">v</span> is a
+ column location vector, the Level 0 API transforms <span class="ConstructName">v</span>
+ to a column location vector <span class="ConstructName">w</span> by setting
+ <span class="ConstructName">w</span> =
+ <span class="ConstructName">M</span> &times; <span class="ConstructName">v</span>.
+</P>
+<DIV align="center">
+<p>
+<A name="Figure77"></A>
+<IMG SRC="../Images/PstM_ex2.jpg" ALT="post multiply example 2">
+</p>
+<p class=FigureCaption>Figure 77 &#8212; &lt;DRM World 3x3&gt; example</p>
+</DIV>
+</DD>
+<DT><B>
+ After applying a <A href="WorldTransformation.htm">&lt;World Transformation&gt;</A> instance
+ to a <A href="GeometryModelInstance.htm">&lt;Geometry Model Instance&gt;</A> instance, a data consumer
+ found the <A href="GeometryModelInstance.htm">&lt;Geometry Model Instance&gt;</A> instance oriented in
+ a different direction than expected. Why?
+</B></DT>
+<DD><P>
+ There are at least two possibilities.
+</P>
+<OL>
+<LI>
+ Check that the rotation angles had the correct sign,
+ given that the right hand rule is in effect.
+</LI>
+<LI>
+ The <A href="World3x3.htm">&lt;World 3x3&gt;</A> component of the
+ <A href="WorldTransformation.htm">&lt;World Transformation&gt;</A> instance
+ may have been constructed using invalid assumptions
+ about the order of multiplication defined in the DRM.
+ In this case, transposing the matrix of the
+ <A href="World3x3.htm">&lt;World 3x3&gt;</A> instance solves the
+ problem, provided that the rotation angles were correct (see 1).
+</LI>
+</OL>
+</DD>
+<DT><B>
+ Why is a <A href="World3x3.htm">&lt;World 3x3&gt;</A> instance allowed to have a
+ <A href="Location.htm">&lt;Location&gt;</A> component, considering that
+ <A href="WorldTransformation.htm">&lt;World Transformation&gt;</A> itself
+ is required to have a <A href="Location.htm">&lt;Location&gt;</A> component?
+</B></DT>
+<DD><P>
+ Consider a transmittal containing
+ an <A href="EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instance <span class="ConstructName">E</span>
+ specified in a CD SRF. This transmittal also contains
+ a <A href="ModelLibrary.htm">&lt;Model Library&gt;</A> instance with a
+ a <A href="Model.htm">&lt;Model&gt;</A> component specified <span class="ConstructName">M</span>
+ in an LSR SRF. <span class="ConstructName">M</span> is instanced in the
+ component tree of <span class="ConstructName">E</span> such that the v-axis of
+ the SRF of <span class="ConstructName">M</span> is oriented to geodetic north.
+</P><P>
+ Now consider a consumer who wishes to consume this transmittal
+ in Augmented UTM rather than geodetic. If the <A href="World3x3.htm">&lt;World 3x3&gt;</A>
+ instance is left as-is during the transformation performed by the
+ API, it will now orient the v-axis of <span class="ConstructName">M</span> to
+ Augmented UTM north rather than the geodetic north.  This will
+ change the orientation of the object from the originally intended
+ direction.
+</P><P>
+ Since geodetic space does not have a vector structure, a canonical
+ LTP space shall be embedded within geodetic space to convert the
+ values of the matrix of the <A href="World3x3.htm">&lt;World 3x3&gt;</A> instance during
+ the coordinate conversion/transformation operation. Since a
+ <A href="Location.htm">&lt;Location&gt;</A> instance is required to define a canonical
+ LTP space, conversion of the <A href="World3x3.htm">&lt;World 3x3&gt;</A>
+ instance shall be performed with respect to
+ a <A href="Location.htm">&lt;Location&gt;</A> instance.
+ Allowing the <A href="World3x3.htm">&lt;World 3x3&gt;</A> instance
+ to have a <A href="Location.htm">&lt;Location&gt;</A> component
+ allows the <A href="World3x3.htm">&lt;World 3x3&gt;</A> instance to inherit the
+ <A href="Location.htm">&lt;Location&gt;</A> component of its parent
+ <A href="WorldTransformation.htm">&lt;World Transformation&gt;</A> instance,
+ and thus define the necessary location for a coordinate conversion/
+ transformation operation.
+</P></DD>
+<DT><B>
+ Is a matrix in the DRM the same as a matrix in OpenGL?
+</B></DT>
+<DD><P>
+ No. A matrix in the DRM is specified in row major order,
+ while in OpenGL, matrices are specified in column major
+ order (as in the glMultMatrix function). Consequently,
+ to correctly apply DRM transformations in OpenGL
+ programs, each matrix shall be reordered, and in the
+ case of <A href="World3x3.htm">&lt;World 3x3&gt;</A>, the implicit
+ (0, 0, 0, 1) rightmost
+ column and bottommost row shall be supplied explicitly.
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Composed of (two-way)</h3>
+<UL>
+<li>zero or one <a href="Location.htm">&lt;Location&gt;</a> instance</li>
+</UL>
+
+<h3>Component of (two-way)</h3>
+<UL>
+<li>zero or more <a href="WorldTransformation.htm">&lt;World Transformation&gt;</a> instances</li>
+</UL>
+
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../../srm/types/SRM_Matrix_3x3.htm">SRM_Matrix_3x3</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="world_3x3">world_3x3</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_world_3x3">1</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Fields Notes</h3>
+<h4><a href="#world_3x3" name="Notes_world_3x3">world_3x3</a></h4>
+<P>
+ The <A href="#world_3x3">world_3x3</A> field specifies
+ a non-singular rotation and scale matrix.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="VolumetricFeature.htm">Volumetric Feature</A>.
+<strong>Next:</strong> <A href="WorldTransformation.htm">World Transformation</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

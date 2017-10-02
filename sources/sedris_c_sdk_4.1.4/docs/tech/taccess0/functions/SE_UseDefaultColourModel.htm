@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE UseDefaultColourModel</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+SE UseDefaultColourModel
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../types/SE_Return_Code.htm">SE_Return_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SE_UseDefaultColourModel</td></tr>
+<tr><td class="CFunction">(void);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+ This function places the API into the default colour model state, in
+ which <A href="../../drm/classes/ColourData.htm">&lt;Colour Data&gt;</A> instances are returned based entirely
+ on the colour model specified in the
+ <A href="../../drm/classes/TransmittalSummary.htm">&lt;Transmittal Summary&gt;</A> component of the
+ <A href="../../drm/classes/TransmittalRoot.htm">&lt;Transmittal Root&gt;</A> instance of the transmittal from which
+ the <A href="../../drm/classes/ColourData.htm">&lt;Colour Data&gt;</A> instances are extracted.
+ The API will remain in this state until
+ <A href="SE_SetColourModel.htm">SE_SetColourModel()</A> is invoked
+ that takes the API out of the current colour model state and places
+ it into whatever colour model was specified in the
+ <A href="SE_SetColourModel.htm">SE_SetColourModel()</A> call.
+</P><P>
+ EXAMPLE If the transmittal was defined with RGB colours, then
+ <A href="../../drm/classes/RGBColour.htm">&lt;RGB Colour&gt;</A> instances will be returned as
+ <A href="../../drm/classes/ColourData.htm">&lt;Colour Data&gt;</A> instances once
+ <A href="SE_UseDefaultColourModel.htm">SE_UseDefaultColourModel()</A>
+ is called.
+</P><P>
+ The <A href="SE_GetColourModel.htm">SE_GetColourModel()</A> function
+ may be invoked to find out what the default colour model is, either
+ immediately after an invocation of
+ <A href="SE_UseDefaultColourModel.htm">SE_UseDefaultColourModel()</A>,
+ or at any time before an invocation to
+ <A href="SE_SetColourModel.htm">SE_SetColourModel()</A> is made.
+</P><P>
+ This function changes the internal state of the API, determining the
+ colour model used to define <A href="../../drm/classes/ColourData.htm">&lt;Colour Data&gt;</A> instances
+ returned by this API.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A>
+</td><td class="Status">
+ all operations succeeded.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A>
+</td><td class="Status">
+ and the status code is set appropriately if the call failed.
+</td></tr>
+</table>
+
+<h3>Status Codes</h3>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A> is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_SUCCESS">SE_STATCODE_SUCCESS</A>
+</td><td class="Status">
+ set upon successful completion.
+</td></tr>
+</table>
+</P><P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A> is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status"><A href="../types/SE_Status_Code.htm#SE_STATCODE_INACTIONABLE_FAILURE">SE_STATCODE_INACTIONABLE_FAILURE</A>
+</td><td class="Status">set upon failure.
+</td></tr>
+</table>
+
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SE_UnpublishObject.htm">SE_UnpublishObject</a>.
+<strong>Next:</strong> <a href="SE_UseDefaultSRFContextInfo.htm">SE_UseDefaultSRFContextInfo</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

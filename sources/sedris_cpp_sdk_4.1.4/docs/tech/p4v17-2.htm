@@ -1,0 +1,1432 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>P4V17 - Section 2</title>
+<meta name="Author" content="SAIC">
+<link rel="stylesheet" type="text/css" href="../styles/SDK_SEDRIS.css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>
+SEDRIS Reference Manual
+</big></big>
+<br>
+<font color="#FFFFFF">
+Section 2 - STANDARD SEDRIS FUNCTIONS AND DATA STRUCTURES
+</font>
+</th></tr>
+</table>
+
+<table class="doc_set_toc">
+<tr><th class="doc_set_toc_outline_number">
+<a name="21">2.1</a>
+</th><th class="doc_set_toc_outline_description">
+Introduction
+</th>
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+This section deals with the standard SEDRIS function calls, as well as
+critical data structures. The parameters associated with each function
+call are detailed, and the resultant processing is described. The
+function calls are listed alphabetically, each in a separate appendix
+associated with its SEDRIS component. Note that SRM and EDCS are
+separate stand-alone entities, so for information specific to SRM
+or EDCS, see their individual reference manuals. The DRM, while
+it is the heart of SEDRIS, also has its own reference manual
+(SEDRIS Documentation Set <B><a href="drm/index.htm">Part 4, Volume 2</a></B>)
+in regard to its data representation aspects,
+such as its data structures and classes.
+</p><p>
+Function call information corresponds to the source code files shown
+in the table below.
+</p>
+<div class="CenterDiv">
+<table border="1" cellspacing="2" cellpadding="4" bgcolor="#FFFFFF">
+<tr bgcolor="#808080"><th scope="col" width="150" align="center">
+<font color="#FFFFFF">
+COMPONENT
+</font>
+</th><th scope="col" align="center">
+<font color="#FFFFFF">
+SOURCE CODE FILES
+</font>
+</th></tr>
+<tr>
+<td bgcolor="#FFFF80" align="center">Transmittal Access Level 0 API</td>
+<td>se_extract.h
+<br>
+se_extract_print.h
+<br>
+se_extract_types.h
+<br>
+se_extract_valid.h
+<br>
+se_extract_util.h
+<br>
+se_insert.h
+<br>
+se_insert_print.h
+<br>
+se_insert_types.h
+<br>
+</td>
+</tr>
+<tr>
+<td bgcolor="#FFFF80" align="center">Transmittal Access Level 1 API</td>
+<td>
+se_read1_data_table.h
+<br>
+se_read1_error.h
+<br>
+se_read1_image.h
+<br>
+se_read1_print.h
+<br>
+se_read1_utils.h
+<br>
+se_read1_valid.h
+<br>
+se_write1.h
+<br>
+</td>
+</tr>
+</table>
+</div>
+
+<p>
+<font color="#FF0000">
+NOTES:
+<ol>
+<li>For items that follow, names in all uppercase indicate enumerants.</li>
+<li>A greater level of comprehension can be achieved by reviewing the
+    appendices detailing the functions and data types of the associated
+    modules.</li>
+</ol>
+</font></td>
+</tr>
+
+<tr><th class="doc_set_toc_outline_number">
+<a name="22">2.2</a>
+</th><th class="doc_set_toc_outline_description">
+Data Representation Model (DRM) Functions and Data Structures
+</th></tr>
+
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+See <B><a href="drm/index.htm">Part 4, Volume 2</a>:
+<I>The SEDRIS Data Representation Model</I></B>.
+</p></td></tr>
+
+<tr><th class="doc_set_toc_outline_number">
+<a name="23">2.3</a>
+</th><th class="doc_set_toc_outline_description">
+Transmittal Access Level 0 API Functions and Data Structures
+</th></tr>
+
+<tr><td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description">
+<table border="0">
+<tr><th class="doc_set_toc_outline_number">
+<a name="231">2.3.1</a>
+</th><th class="doc_set_toc_outline_description">
+Overview
+</th></tr>
+
+<tr><td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description">
+The Transmittal Access Level 0 API functions and data structures are
+listed alphabetically in <a href="taccess0/index.htm">Appendix B</a>.
+</td>
+</tr>
+
+<tr><th class="doc_set_toc_outline_number">
+<a name="232">2.3.2</a>
+</th><th class="doc_set_toc_outline_description">
+Iterators
+</th></tr>
+
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description">
+<table class="doc_set_toc">
+<tr><th class="doc_set_toc_outline_number">
+<a name="2321">2.3.2.1</a>
+</th>
+<th class="doc_set_toc_outline_description">
+Overview
+</th></tr>
+
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+Iterators are the heart of the Transmittal Access Level 0 API. Stepping through the list
+provided by an iterator is a multi-step process, as outlined below.
+</p>
+<ul>
+<li><p>Specify any search filter needed to limit the search
+(this is optional; <i>see</i> <a href="#2321">next section</a>
+for details).
+</p></li>
+
+<li><p>
+Call one of the following functions to create the iterator, passing in the
+start object of the search (depending on the type of iterator needed):
+</p>
+<ul>
+<li><p>
+<a href="taccess0/functions/SE_InitializeAggregateIterator.htm">SE_InitializeAggregateIterator()</a>,
+to iterate over the aggregates of which the start object is a component,
+</p></li>
+
+<li><p>
+<a href="taccess0/functions/SE_InitializeAssociateIterator.htm">SE_InitializeAssociateIterator()</a>,
+to iterate over the associates of the start object,
+</p></li>
+
+<li><p>
+<a href="taccess0/functions/SE_InitializeComponentIterator.htm">SE_InitializeComponentIterator()</a>,
+to iterate over the components of the start object, <i>or</i>
+</p></li>
+
+<li><p>
+<a href="taccess0/functions/SE_InitializeInheritedComponentIterator.htm">SE_InitializeInheritedComponentIterator()</a>,
+to iterate over the inherited components of the start object.
+</p></li>
+</ul>
+</li>
+
+<li><p>If a search filter was specified, and if the user will not be
+using it to create more iterators, the user frees it at this point.
+(The iterator maintains a copy of the search filter in the API's memory
+space, so that freeing a search filter while an iterator still exists
+that uses it causes no problems.) If the search filter isn't freed at
+this point, remember that it must be freed eventually, to avoid
+&quot;orphaning&quot; the memory associated with the search filter.
+</p></li>
+
+<li><p>
+Use <a href="taccess0/functions/SE_GetNextObject.htm">SE_GetNextObject()</a>
+to retrieve objects from the iterator. Don't forget to call
+<a href="taccess0/functions/SE_FreeObject.htm">SE_FreeObject()</a>
+for each object retrieved, including the link objects.
+</p><p>
+Repeat this step as needed.
+</p></li>
+
+<li><p>When finished retrieving objects from the iterator, call
+<a href="taccess0/functions/SE_FreeIterator.htm">SE_FreeIterator()</a>
+to release the iterator that was allocated by the third step.
+</p></li>
+</ul>
+</td>
+</tr>
+
+<tr><th class="doc_set_toc_outline_number">
+<a name="2322">2.3.2.2</a>
+</th><th class="doc_set_toc_outline_description">
+Search Filters and the Search Macros
+</th></tr>
+
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+Any iterator may specify a set of search rules to limit its search by
+way of a search filter, although some search rules only apply to
+specific kinds of iterators. This is a two step process.
+</p>
+<ul>
+<li><p>Specify any search rules needed to limit the search. The
+search macros (<i>see</i>
+<a href="taccess0/types/SE_Search_Rule_Type.htm">SE_Search_Rule_Type</a>
+for a list) can be used to specify search rules. They are designed to make
+arrays of search rules more readable. By using these macros, search rules can
+appear to be defined with in-fix notation expressions even though the macros
+actually build up a post-fix notation expression stored in an array.
+</p></li>
+
+<li><p>Pass the array of search rules to
+<a href="taccess0/functions/SE_CreateSearchFilter.htm">SE_CreateSearchFilter()</a>
+to create a search filter. (Note that a search filter is valid only
+for the API implementation for which it was created.)
+</p></li>
+</ul>
+
+<p>
+The real work of creating a search filter, therefore, lies in
+creating its search rules. To simplify the specification of
+search rules, the SEDRIS API implementation provides various
+macros.
+</p><p>
+Searches can be based on any of the following:
+<ul>
+<li>whether an object is of a particular class,
+</li>
+<li>whether an object of a specific class has an instance
+    of another, possibly different, class as a component,
+</li>
+<li>the value of one of the fields of an object,
+</li>
+<li>the value of one of the fields of a class of component
+    of an object,
+</li>
+<li>the passing of a user-defined test function,
+</li>
+<li>the existence of any associations,
+</li>
+<li>the existence of associations to objects of a
+    particular class, and
+</li>
+<li>any combination of 'ANDing', 'ORing', or
+    'NOTing' these conditions.
+</li>
+</ul>
+<p>
+Searches are always started from a single 'start object' passed in as a
+parameter to a functions used to initialize iterators, such as
+<a href="taccess0/functions/SE_InitializeAggregateIterator.htm">SE_InitializeAggregateIterator()</a>,
+<a href="taccess0/functions/SE_InitializeAssociateIterator.htm">SE_InitializeAssociateIterator()</a>,
+<a href="taccess0/functions/SE_InitializeComponentIterator.htm">SE_InitializeComponentIterator()</a>, and
+<a href="taccess0/functions/SE_InitializeInheritedComponentIterator.htm">SE_InitializeInheritedComponentIterator()</a>.
+</p><p>
+By default, searches in a Component Iterator start from the given start
+object and search the entire tree, in a breadth-first manner, returning
+all objects that meet the given search criteria (all objects that pass
+the search rules and fall within the given spatial boundaries).  A limit
+can be placed on the number of levels 'down' that a component iterator
+will search by using the maximum search depth macro.  By ANDing the
+maximum search depth rule with other rules, the maximum search depth can
+apply to the entire search or to portions of a search (see examples
+in the table below).
+</p><p>
+<table border="1">
+<tr>
+<th>Search&nbsp;Description</th>
+<th>Search Rules</th>
+</tr>
+<tr>
+<td><p>
+    As an example of a search based on object class, this set of rules
+    is used to find all
+    <a href="drm/classes/Polygon.htm">&lt;Polygon&gt;</a>
+    instances within the given scope.
+</p></td>
+<td>
+<span class="Code">
+SE_Search_Rule rules[] =
+{
+<br>
+    SE_DRM_CLASS_MATCH(POLYGON)
+<br>
+    SE_END
+<br>
+};
+</span>
+</td>
+</tr>
+
+<tr>
+<td><p>A set of rules designed to find all objects in the
+    given scope that have associations to other objects.
+</p></td>
+<td>
+<span class="Code">
+SE_Search_Rule rules[] =
+<br>
+{
+<br>
+    SE_ASSOCIATE
+<br>
+    SE_END
+<br>
+};
+</span>
+</td>
+</tr>
+
+<tr>
+<td><p>As an example of a search based on whether instances of a
+ given class have instances of a specific (possibly different)
+ class as components, this set of rules is designed to find all
+ <a href="drm/classes/LinearFeature.htm">&lt;Linear Feature&gt;</a>
+ instances in the given scope that have
+ <a href="drm/classes/PropertyValue.htm">&lt;Property Value&gt;</a>
+ components.
+</p></td>
+<td>
+<span class="Code">
+SE_Search_Rule rules[] =
+<br>
+{
+<br>
+    SE_COMPONENT_DRM_CLASS_MATCH(LINEAR_FEATURE, PROPERTY_VALUE)
+<br>
+    SE_END
+<br>
+};
+</span>
+</td>
+</tr>
+
+<tr>
+<td><p>
+As an example of a combination of simple rules, including a
+constraint on the maximum search depth, this set of rules finds
+any object that is either a
+<a href="drm/classes/AggregateFeature.htm">&lt;Aggregate Feature&gt;</a>
+instance (that is, an instance of any
+concrete subclass of
+<a href="drm/classes/AggregateFeature.htm">&lt;Aggregate Feature&gt;</a>) or a
+<a href="drm/classes/PrimitiveFeature.htm">&lt;Primitive Feature&gt;</a>
+instance (that is, an instance of any
+concrete subclass of
+<a href="drm/classes/PrimitiveFeature.htm">&lt;Primitive Feature&gt;</a>)
+within 4 levels of the start object.
+</p></td>
+<td>
+<span class="Code">
+SE_Search_Rule rules[] =
+<br>
+{
+<br>
+    SE_AND
+<br>
+    (
+<br>
+        SE_OR
+<br>
+        (
+<br>
+            SE_DRM_CLASS_MATCH(AGGREGATE_FEATURE),
+<br>
+            SE_DRM_CLASS_MATCH(PRIMITIVE_FEATURE)
+<br>
+        ),
+<br>
+        SE_MAX_SEARCH_DEPTH(4)
+<br>
+    )
+<br>
+    SE_END
+<br>
+};
+</span>
+</td>
+</tr>
+
+<tr>
+<td><p>This is an example of a combination of search rules, including
+a constraint on the maximum search depth. This set of search rules
+finds any object that is either an
+<a href="drm/classes/AggregateGeometry.htm">&lt;Aggregate Geometry&gt;</a>
+instance (that is, an instance of any concrete subclass of
+<a href="drm/classes/AggregateGeometry.htm">&lt;Aggregate Geometry&gt;</a>)
+within 4 levels from the start object
+of the search, or is a
+<a href="drm/classes/FeatureRepresentation.htm">&lt;Feature Representation&gt;</a>
+instance within 3 levels of the start object.
+</p></td>
+<td>
+<span class="Code">
+SE_Search_Rule rules[] =
+<br>
+{
+<br>
+    SE_OR
+<br>
+    (
+<br>
+        SE_AND
+<br>
+        (
+<br>
+            SE_DRM_CLASS_MATCH(AGGREGATE_GEOMETRY),
+<br>
+            SE_MAX_SEARCH_DEPTH(4)
+<br>
+        ),
+<br>
+        SE_AND
+<br>
+        (
+<br>
+            SE_DRM_CLASS_MATCH(FEATURE),
+<br>
+            SE_MAX_SEARCH_DEPTH(3)
+<br>
+        )
+<br>
+    )
+<br>
+    SE_END
+<br>
+};
+</span>
+</td>
+</tr>
+
+<tr>
+<td><p>
+As an example of a set of search rules that detect all instances
+of a given class such that each instance
+I has a component of another (possibly different class)
+C, where the instance of C has field values matching
+specific criteria, this set of search rules finds all
+<a href="drm/classes/Model.htm">&lt;Model&gt;</a> instances
+in the given scope with
+an <a href="drm/classes/OverloadPriorityIndex.htm">&lt;Overload Priority Index&gt;</a>
+component with a value not equal to 1.
+</p></td>
+<td>
+<span class="Code">
+static SRM_Short_Integer search_value = 1;
+<br>
+<br>
+SE_Search_Rule rules[] =
+<br>
+{
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;SE_OBJECT_AND
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SE_COMPONENT_DRM_CLASS_MATCH(MODEL, OVERLOAD_PRIORITY_INDEX),
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SE_NOT
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SE_COMPONENT_FIELD_MATCH
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MODEL,
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OVERLOAD_PRIORITY_INDEX,
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Overload_Priority_Index,
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;overload_priority,
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&search_value,
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SE_SEARCHVALTYP_SHORT_INTEGER
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;)
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;SE_END
+<br>
+};
+</span>
+</td>
+</tr>
+
+<tr>
+<td><p>
+As an example of a search based on the class of object
+that then determines whether a field of that object
+falls within a specified range of values, this set of
+search rules is designed to find all
+<a href="drm/classes/CDSurfaceLocation.htm">&lt;CD Surface Location&gt;</a>
+instances between 50 degrees latitude, 30 degrees longitude, and
+60 degrees latitude, 40 degrees longitude.
+</p></td>
+<td>
+<span class="Code">
+static SRM_Long_Float latitude1  = 50, latitude2  = 60;
+<br>
+static SRM_Long_Float longitude1 = 30, longitude2 = 40;
+<br>
+<br>
+SE_Search_Rule rules[] =
+<br>
+{
+<br>
+    SE_AND
+<br>
+    (
+<br>
+        SE_FIELD_RANGE
+<br>
+        (
+<br>
+            CD_SURFACE_LOCATION,
+<br>
+            geodetic_latitude,
+<br>
+            &latitude1,
+<br>
+            &latitude2,
+<br>
+            SE_SEARCHVALTYP_LONG_FLOAT
+<br>
+        ),
+<br>
+        SE_FIELD_RANGE
+<br>
+        (
+<br>
+            CD_SURFACE_LOCATION,
+<br>
+            geodetic_longitude,
+<br>
+            &longitude1,
+<br>
+            &longitude2,
+<br>
+            SE_SEARCHVALTYP_LONG_FLOAT
+<br>
+        )
+<br>
+    )
+<br>
+};
+</span>
+</td>
+</tr>
+
+<tr>
+<td><p>
+As an example of a search based on finding objects of a given class
+that have components of a specific (possibly different) class, and
+as an example of a search condition based on the passing of a
+user-defined test function, this set of search rules is designed to
+find all <a href="drm/classes/LinearFeature.htm">&lt;Linear Feature&gt;</a>
+instances that have at least one
+<a href="drm/classes/PropertyValue.htm">&lt;Property Value&gt;</a>
+component that passes a given predicate test. (The predicate test
+is designed to check for certain values of
+<a href="drm/classes/PropertyValue.htm">&lt;Property Value&gt;</a>,
+most probably.)
+</p><p>
+The application must define the test_func function.  A NULL is
+ being passed for the user-test-data to this testing function - implying
+ that this testing function does not take advantage of user-supplied test
+ data.
+</p></td>
+<td>
+<span class="Code">
+   SE_Boolean test_func (SE_Object test_object,
+                         SE_Object,
+                         void*);
+<br><br>
+SE_Search_Rule rules[] =
+<table>
+<tr><td>
+{
+</td>
+<td></td>
+</tr>
+<tr><td></td><td>
+    SE_AND
+</td></tr>
+<tr><td></td><td>
+    (
+</td></tr>
+<tr><td></td><td>
+          SE_COMPONENT_DRM_CLASS_MATCH(LINEAR_FEATURE, PROPERTY_VALUE),
+</td></tr>
+<tr><td></td><td>
+          SE_PREDICATE_MATCH(test_func, NULL)
+</td></tr>
+<tr><td></td><td>
+    )
+</td></tr>
+<tr><td></td><td>
+    SE_END
+</td></tr>
+<tr><td>
+};
+</td><td></td></tr>
+</table>
+</span>
+</td>
+</tr>
+
+<tr>
+<td><p>
+Find all <a href="drm/classes/ArealFeature.htm">&lt;Areal Feature&gt;</a>
+instances in the given scope; in addition, find only the
+<a href="drm/classes/LinearFeature.htm">&lt;Linear Feature&gt;</a>
+instances in the given scope with at least one
+<a href="drm/classes/PropertyValue.htm">&lt;Property Value&gt;</a>
+component that passes the given predicate test. (The application must
+define the test_func function).  This particular test function does
+not examine the link class object and also does not use any
+user-supplied test data.
+</p></td>
+<td>
+<PRE>
+   SE_Boolean test_func (SE_Object test_object,
+                         SE_Object,
+                         void*);
+
+SE_Search_Rule rules[] =
+{
+    SE_OR
+    (
+        SE_DRM_CLASS_MATCH(AREAL_FEATURE),
+        SE_AND
+        (
+            SE_COMPONENT_DRM_CLASS_MATCH(LINEAR_FEATURE, PROPERTY_VALUE),
+            SE_PREDICATE_MATCH(test_func, NULL)
+        )
+    )
+    SE_END
+};
+</PRE>
+</td>
+</tr>
+</table>
+
+</p><p>
+The use of these macros is <EM>VERY</EM> strongly recommended rather
+than 'building the rules manually', that is, without the aid of
+these macros. Consider the following example.
+</p><p>
+
+<table border="1">
+<tr>
+<th>Search Description</th>
+<th>Using Macros</th>
+<th>Without Using Macros</th>
+</tr>
+
+<td><p> This set of search rules finds any object that is either an
+<a href="drm/classes/AggregateGeometry.htm">&lt;Aggregate Geometry&gt;</a>
+instance (that is, an instance of any concrete subclass of
+<a href="drm/classes/AggregateGeometry.htm">&lt;Aggregate Geometry&gt;</a>)
+or a
+<a href="drm/classes/FeatureRepresentation.htm">&lt;Feature Representation&gt;</a>
+instance within 4 levels of the start object of the search.
+</p></td>
+
+<td>
+<span class="Code">
+SE_Search_Rule rules[] =
+{
+<br>
+    SE_AND
+<br>
+    (
+<br>
+        SE_OR
+<br>
+        (
+<br>
+            SE_DRM_CLASS_MATCH
+<br>
+            (
+<br>
+                AGGREGATE_GEOMTETRY
+<br>
+            ),
+<br>
+            SE_DRM_CLASS_MATCH
+<br>
+            (
+<br>
+                PRIMITIVE_FEATURE
+<br>
+            )
+<br>
+        ),
+<br>
+        SE_MAX_SEARCH_DEPTH(4)
+<br>
+    )
+<br>
+    SE_END
+<br>
+};
+</span>
+</td>
+
+<td>
+<span class="Code">
+<a href="taccess0/types/SE_Search_Rule.htm">SE_Search_Rule</a> *rules;
+<br><br>
+rules = (<a href="taccess0/types/SE_Search_Rule.htm">SE_Search_Rule</a> *)
+<br>
+calloc(6,
+sizeof(<a href="taccess0/types/SE_Search_Rule.htm">SE_Search_Rule</a>));
+<br><br>
+rules[0].rule_type        =
+<a href="taccess0/types/SE_Search_Rule.htm#SE_SEARCHRULTYP_DRM_CLASS">SE_SEARCHRULTYP_DRM_CLASS</a>;
+<br>
+rules[0].object_drm_class = SE_CLS_DRM_AGGREGATE_FEATURE;
+<br><br>
+rules[1].rule_type        = SE_SEARCHRULTYP_DRM_CLASS;
+<br>
+rules[1].object_drm_class = SE_CLS_DRM_PRIMITIVE_FEATURE;
+<br><br>
+rules[2].rule_type = SE_SEARCHRULTYP_OR;
+<br><br>
+rules[3].rule_type = SE_SEARCHRULTYP_MAX_SEARCH_DEPTH;
+<br>
+rules[3].max_depth = 4;
+<br><br>
+rules[4].rule_type = SE_SEARCHRULTYP_AND;
+<br><br>
+rules[5].rule_type = SE_SEARCHRULTYP_END;
+</span>
+</td>
+</tr>
+</table>
+
+</p></td>
+</tr>
+
+<tr><th class="doc_set_toc_outline_number">
+<a name="2323">2.3.2.3</a>
+</th><th class="doc_set_toc_outline_description">
+Component Iterators: Selection Parameters
+</th></tr>
+
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+<a href="taccess0/functions/SE_InitializeComponentIterator.htm">SE_InitializeComponentIterator()</a>'s
+<a href="taccess0/types/SE_Hierarchy_Select_Parameters.htm">SE_Hierarchy_Select_Parameters</a>
+argument
+(<span class="Code">
+<a href="taccess0/functions/SE_InitializeComponentIterator.htm#select_parameters_ptr">select_parameters_ptr</a>
+</span>) can be used to
+restrict the scope of a search. If the parameter is &quot;NULL&quot;, it
+is ignored. If it is non-NULL, then it is used to determine which
+components to traverse when an
+<a href="drm/classes/AggregateFeature.htm">&lt;Aggregate Feature&gt;</a>
+or <a href="drm/classes/AggregateGeometry.htm">&lt;Aggregate Geometry&gt;</a>
+instance is encountered.
+</p><p>
+The <a href="taccess0/types/SE_Hierarchy_Select_Parameters.htm">
+SE_Hierarchy_Select_Parameters</a> type is defined in se_extract_types.h
+in the Transmittal Access Level 0 API. To use this structure:
+</p>
+<ul>
+<li><p>Use
+<a href="taccess0_util/functions/SE_InitializeHierarchySelectParameters.htm">
+SE_InitializeHierarchySelectParameters()</a> (a helper function) to
+initialize this structure, or initialize it yourself.
+</p></li>
+
+<li><p>Fill out the fields of
+<span class="Code">
+<a href="taccess0/types/SE_Hierarchy_Select_Parameters.htm#general_hierarchy_mask">
+general_hierarchy_mask</a></span> to specify which
+of the remaining fields will be used. All the field values must be
+set. (Exception: if
+<a href="taccess0/types/SE_General_Hierarchy_Select.htm#time_related">time_related</a>
+is &quot;SE_FALSE&quot;, the related
+booleans are ignored, and if
+<a href="taccess0/types/SE_General_Hierarchy_Select.htm#lod_related">
+lod_related</a> is
+&quot;SE_FALSE&quot;, its related booleans are ignored).
+</p></li>
+
+<li><p>For each of the fields within the
+<span class="Code">
+<a href="taccess0/types/SE_Hierarchy_Select_Parameters.htm#general_hierarchy_mask">
+general_hierarchy_mask</a></span>, the corresponding
+<span class="Code">_branches</span> field <b><em>MUST</em></b> be
+initialized. (Otherwise, the iterator will be using garbage values to
+prune its search).
+</p></li>
+</ul>
+<p>
+To clarify the use of
+<a href="taccess0/types/SE_Hierarchy_Select_Parameters.htm">
+SE_Hierarchy_Select_Parameters</a>, consider the
+following example. Suppose that a search is being created to retrieve
+only the geometry and features associated with trees (specifically,
+with the EDCS Classification Codes represented by
+<a href="../../src/lib/edcs/docs/dictionary/ECC_T.htm#ECC_TREE">ECC_TREE</a>
+and <a href="../../src/lib/edcs/docs/dictionary/ECC_F.htm#ECC_FOREST">ECC_FOREST</a>).
+The selection parameters would be created as follows.
+</p><p>
+<big>
+<pre>
+SE_Hierarchy_Select_Parameters  select_param;
+SE_General_Hierarchy_Select    *mask_ptr = NULL;
+SE_Classification_Parameters   *cl_ptr = NULL;
+
+SE_InitializeHierarchySelectParameters(&amp;select_param);
+
+mask_ptr = &amp;select_param.general_hierarchy_mask
+
+mask_ptr-&gt;classification_related = SE_TRUE;
+
+mask_ptr-&gt;union_of_features = SE_TRUE;
+
+mask_ptr-&gt;union_of_geometry_hierarchies = SE_TRUE;
+
+mask_ptr-&gt;union_of_geometry_primitives = SE_TRUE;
+</pre>
+</big>
+
+<p>Now fill out the _branches fields that we've indicated we'd use - in this case, just
+classification_branches.
+
+<p>
+<big>
+<pre>
+
+cl_ptr = &amp;select_param.classification_branches;
+
+cl_ptr-&gt;classification_count = 2;
+
+cl_ptr-&gt;classification_array = (SE_Classification_Data_Fields *)
+
+calloc(SE_Classification_Data_Fields, 2);
+
+cl_ptr-&gt;classification_array[0].tag = ECC_TREE;
+
+cl_ptr-&gt;classification_array[0].tag = ECC_FOREST;
+</pre>
+</big>
+<p>
+Consider the result when this <span class="Code">select_param</span>
+is passed to <a href="taccess0/functions/SE_InitializeComponentIterator.htm">
+SE_InitializeComponentIterator()</a>.
+</p>
+<ul>
+<li><p>Any <a href="drm/classes/ClassificationRelatedGeometry.htm">
+&lt;Classification Related Geometry&gt;</a> or
+<a href="drm/classes/ClassificationRelatedFeatures.htm">
+&lt;Classification Related Features&gt;</a> encountered will
+have its components' link objects check against the
+<span class="Code">
+<a href="taccess0/types/SE_Classification_Parameters.htm#classification_array">
+classification_array</a></span> specified in
+<span class="Code">select_param</span>. If such a link does not
+match any of the entries in
+<span class="Code">
+<a href="taccess0/types/SE_Classification_Parameters.htm#classification_array">
+classification_array</a></span>, then that branch
+is discarded (pruned).
+</p></li>
+
+<li><p>Any <a href="drm/classes/UnionOfFeatures.htm">&lt;Union Of Features&gt;</a>,
+<a href="drm/classes/UnionOfGeometryHierarchy.htm">
+&lt;Union Of Geometry Hierarchy&gt;</a>,
+or <a href="drm/classes/UnionOfPrimitiveGeometry.htm">
+&lt;Union Of Primitive Geometry&gt;</a> encountered will be followed.
+</p></li>
+
+<li><p>Any other  <a href="drm/classes/AggregateGeometry.htm">
+&lt;Aggregate Geometry&gt;</a> or <a href="drm/classes/AggregateFeature.htm">
+&lt;Aggregate Feature&gt;</a>
+instances will be ignored. For example, if a
+<a href="drm/classes/SpatialIndexRelatedGeometry.htm">
+&lt;Spatial Index Related Geometry&gt;</a> is encountered, none of its
+branches will be followed, because its entry within the selection mask is
+false.
+</p></li>
+
+<li><p>No other class of object will be affected.
+</p></li>
+</ul>
+</td>
+</tr>
+
+
+<tr><th class="doc_set_toc_outline_number">
+<a name="2324">2.3.2.4</a>
+</th><th class="doc_set_toc_outline_description">
+Component Iterators: Ordering Parameters
+</th></tr>
+
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+<a href="taccess0/functions/SE_InitializeComponentIterator.htm">
+SE_InitializeComponentIterator()</a>'s
+<a href="taccess0/types/SE_Hierarchy_Order_Parameters.htm">SE_Hierarchy_Order_Parameters</a>
+argument
+(<span class="Code"><a href="taccess0/functions/SE_InitializeComponentIterator.htm#traversal_order_parameters_ptr">traversal_order_parameters_ptr</a></span>)
+can be used
+to control the order in which the branches of an aggregate will be searched.
+If the parameter is &quot;NULL&quot;, it is ignored. If it is non-NULL, then
+it is used to determine the traversal order of the branches when an
+<a href="drm/classes/AggregateFeature.htm">&lt;Aggregate Feature&gt;</a> or
+<a href="drm/classes/AggregateGeometry.htm">&lt;Aggregate Geometry&gt;</a>
+instance is encountered.
+</p><p>
+The <a href="taccess0/types/SE_Hierarchy_Order_Parameters.htm">
+SE_Hierarchy_Order_Parameters</a> type is defined in se_extract_types.h in
+the Transmittal Access Level 0 API. To use this structure:
+</p>
+<ul>
+<li><p>Use
+<a href="taccess0_util/functions/SE_InitializeHierarchyOrderParameters.htm">
+SE_InitializeHierarchyOrderParameters()</a> (a helper function) to
+initialize this structure, or initialize it yourself.
+</p></li>
+
+<li><p>Fill out the field values in
+<span class="Code">
+<a href="taccess0/types/SE_Hierarchy_Order_Parameters.htm#general_hierarchy_mask">
+general_hierarchy_mask</a></span> to specify which
+of the rest of the fields will be used. All of the fields must be
+initialized.
+</p></li>
+
+<li><p>For each of the fields within the
+<span class="Code">
+<a href="taccess0/types/SE_Hierarchy_Order_Parameters.htm#general_hierarchy_mask">
+general_hierarchy_mask</a></span>, the corresponding
+<span class="Code">_traversal_order</span> field <b><em>MUST</em></b>
+be initialized. (Otherwise, the iterator will be using garbage values to
+determine the traversal order).
+</p></li>
+</ul>
+</td>
+</tr>
+
+<tr><th class="doc_set_toc_outline_number">
+<a name="2325">2.3.2.5</a>
+</th><th class="doc_set_toc_outline_description">
+Component Iterators: Search Boundaries
+</th></tr>
+
+<tr><td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+A component iterator, unlike the other types of iterators, may use
+spatial search boundaries to restrict the scope of its search. To use
+such a boundary, several extra steps are required before initializing the
+iterator.
+</p>
+<ul>
+<li><p>Specify the search bounds in an
+<a href="taccess0/types/SE_Search_Bounds.htm">SE_Search_Bounds</a>
+variable. The search bounds must be specified using the SRF that
+will be in effect when the iterator is in use.
+</p></li>
+
+<li><p>Pass the search bounds to
+<a href="taccess0/functions/SE_CreateSpatialSearchBoundary.htm">
+SE_CreateSpatialSearchBoundary()</a>, which will allocate and create
+the search boundary itself. (This boundary must be freed later by
+<a href="taccess0/functions/SE_FreeSpatialSearchBoundary.htm">
+SE_FreeSpatialSearchBoundary()</a>).
+</p></li>
+
+<li><p>Pass the search boundary to
+<a href="taccess0/functions/SE_InitializeComponentIterator.htm">
+SE_InitializeComponentIterator()</a> for any iterator that should be
+restricted to search only that search boundary's specified
+spatial area. Once the iterator has been created, the search boundary
+may be freed safely, since the iterator maintains a copy of the
+search boundary in the API's memory space.
+</p></li>
+
+<li><p>While search bounds are in use, do <b><i>NOT</i></b>
+ reset the API's SRF parameters.
+</p></li>
+</ul>
+<p>
+<i>See</i> <a href="#233">Search Bounds</a> for more details.
+</p></td></tr>
+</table>
+</td></tr>
+
+<tr><th class="doc_set_toc_outline_number">
+<a name="233">2.3.3</a>
+</th><th class="doc_set_toc_outline_description">
+Level 0 Read API: Search Bounds
+</th></tr>
+
+<tr><td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description">
+<table  class="doc_set_toc">
+<tr><th  class="doc_set_toc_outline_number">
+<a name="2331">2.3.3.1</a>
+</th><th class="doc_set_toc_outline_description">
+Overview
+</th></tr>
+
+<tr><td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+A search boundary has several characteristics that must be determined
+before the search is performed:
+</p>
+<ol>
+<li><p>the area (or volume) to be searched,
+</p></li>
+<li><p>whether the boundary of the search area is part of the search area,
+</p></li>
+<li><p>whether to include objects that touch the boundary of the
+search area,
+</p></li>
+<li><p>the dimensionality of the search (2-D or Surface <i>vs</i>. 3D),
+<i>and</i>
+</p></li>
+<li><p>how an object is to be approximated.
+</p></li>
+</ol>
+<p>
+The area (or volume) to be searched is specified via the
+<a href="taccess0/types/SE_Search_Bounds.htm">SE_Search_Bounds</a> structure,
+and by specifying whether the search area's boundary is part of the
+search area. The SE_Search_Bounds structure specifies the ranges of the
+coordinates to be considered in the search. (To create unlimited
+search areas, use
+<a href="drm/constants/SE_NEGATIVE_INFINITY.htm">SE_NEGATIVE_INFINITY</a>
+and <a href="drm/constants/SE_POSITIVE_INFINITY.htm">SE_POSITIVE_INFINITY</a>,
+as appropriate.)
+</p><p>
+Given the search bounds, SEDRIS allows for two possibilities via
+<a href="taccess0/types/SE_Search_Bounds_Closure.htm">SE_Search_Bounds_Closure</a>.
+The search bounds can be either fully or
+partly closed. <I>Fully closed</I> search bounds are topologically closed,
+so that the entire boundary is included. This is appropriate for finding all
+objects in an area of interest, since the objects on the border may affect
+the interior of the search bounds. <I>Partly closed</I> search bounds, on
+the other hand, are topologically half-closed; that is, only the lower
+endpoints of the coordinate ranges are in the search bounds. This is useful
+if a large area is being tessellated, so that each point will belong to
+exactly one tile of the tesselation.
+</p><p>
+Apart from specifying whether the boundary of the search bounds is
+included within the bounds, the user must specify how to handle boundary
+cases (<i>see</i> <a href="taccess0/types/SE_Object_Inclusion.htm">
+SE_Object_Inclusion</a>). An object can be fully contained within the
+search bounds (<i>i.e.</i>, the intersection of the search bounds
+and the object equals the object), or partly contained within the
+search bounds (<i>i.e.</i>, the intersection of the object and the
+search bounds is non-empty). Full inclusion implies partial inclusion.
+Consequently, a search specified with
+<a href="taccess0/types/SE_Object_Inclusion.htm#SE_OBJINCL_PARTIALLY_INCLUDED">SE_OBJINCL_PARTIALLY_INCLUDED</a>
+is less restrictive than a search specified
+with <a href="taccess0/types/SE_Object_Inclusion.htm#SE_OBJINCL_FULLY_INCLUDED">SE_OBJINCL_FULLY_INCLUDED</a>.
+(To check whether an object includes the
+search bounds, <i>see</i>
+<a href="taccess0/functions/SE_DetermineSpatialInclusion.htm">SE_DetermineSpatialInclusion()</a>).
+</p><p>
+Search dimensionality (specified by
+<a href="taccess0/types/SE_Search_Dimension.htm">SE_Search_Dimensionality</a>)
+determines whether the search considers
+2D objects only, 3D objects only, or both. Note that
+<a href="taccess0/types/SE_Search_Dimension.htm#SE_SEARCH_DIM_TWO_DIMENSIONAL_OR_SURFACE">
+SE_SEARCH_DIM_TWO_DIMENSIONAL_OR_SURFACE</a> is only valid for SRFs that support
+<a href="drm/classes/Location2D.htm">&lt;Location 2D&gt;s</a> or
+<a href="drm/classes/LocationSurface.htm">&lt;Location Surface&gt;s</a>, such as
+Celestiodetic (CD). For a 2D or Surface search, the height / elevation portion of both
+the search bounds and of any 3D objects encountered will be ignored.
+</p><p>
+Finally, the user must specify how objects are to be approximated
+during the search (<i>see</i> <a href="taccess0/types/SE_Search_Type.htm">
+SE_Search_Type</a>). SEDRIS provides two kinds of approximation:
+<i>point searches</i> and <i>bounding box</i> searches. (A third type of
+search, <i>exact search</i>, is described in the interface, but is not
+yet available; this type would use the exact representation of the object
+rather than an approximation).
+</p><p>
+The following classes of objects can be approximated for a spatial search:
+</p>
+<ul>
+<li><a href="drm/classes/AggregateFeature.htm">&lt;Aggregate Feature&gt;</a>
+</li>
+<li><a href="drm/classes/AggregateGeometry.htm">&lt;Aggregate Geometry&gt;</a>
+</li>
+<li><a href="drm/classes/FeatureEdge.htm">&lt;Feature Edge&gt;</a>
+</li>
+<li><a href="drm/classes/FeatureFace.htm">&lt;Feature Face&gt;</a>
+</li>
+<li><a href="drm/classes/FeatureModelInstance.htm">&lt;Feature Model Instance&gt;</a>
+</li>
+<li><a href="drm/classes/FeatureNode.htm">&lt;Feature Node&gt;</a>
+</li>
+<li><a href="drm/classes/GeometryModelInstance.htm">&lt;Geometry Model Instance&gt;</a>
+<li><a href="drm/classes/PropertyGridHookPoint.htm">&lt;Property Grid Hook Point&gt;</a>
+<li><a href="drm/classes/PrimitiveFeature.htm">&lt;Primitive Feature&gt;</a>
+</li>
+<li><a href="drm/classes/PrimitiveGeometry.htm">&lt;Primitive Geometry&gt;</a>
+</li>
+<li><a href="drm/classes/BasePositionalLight.htm">&lt;Base Positional Light&gt;</a>
+</li>
+<li><a href="drm/classes/PropertyGrid.htm">&lt;Property Grid&gt;</a>
+</li>
+</ul>
+<p>
+For details on the specific functions involved in specifying and using
+search bounds, <i>see</i>
+<a href="taccess0/functions/SE_CreateSpatialSearchBoundary.htm">SE_CreateSpatialSearchBoundary()</a>,
+<a href="taccess0/functions/SE_DetermineSpatialInclusion.htm">
+SE_DetermineSpatialInclusion()</a>.
+</p>
+</td>
+</tr>
+
+<tr><th class="doc_set_toc_outline_number">
+<a name="2332">2.3.3.2</a>
+</th>
+<th class="doc_set_toc_outline_description">
+Point Searching
+</th></tr>
+
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+For point searching, a non-aggregate SEDRIS object is approximated by a
+single point. In general, this search point is the average of the
+<a href="drm/classes/Location.htm">&lt;Location&gt;</a> components of the
+object being represented. This type of search is fast, but may not be
+sufficiently accurate. (Note that for point searches, full and partial
+inclusion have the same meaning.)
+</p><p>
+For an aggregate object whose components are all of the same dimensionality,
+the search point is constructed as the average of the component
+search points. For an aggregate object containing both 2D, Surface, and 3D
+components, however, three unions are maintained, one for each of the
+component types.
+</p><p>
+For point searches, coordinate system transformations introduce no
+distortion; this is not the case for bounding boxes.
+</p></td>
+</tr>
+
+<tr><th class="doc_set_toc_outline_number">
+<a name="2333">2.3.3.3</a>
+</th><th class="doc_set_toc_outline_description">
+Bounding Box Searching
+</th></tr>
+
+
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+Bounding box searches are more accurate than point searches. To construct
+the bounding box for a non-aggregate object, the extrema for each coordinate
+in the object's native SRF are computed, and used to create a 2D or 3D box.
+This box then represents the object in the search.
+</p><p>
+For an aggregate object whose components are all of the same dimensionality,
+the bounding box is constructed as the union of the component bounding boxes.
+For an aggregate object containing both 2D, Surface, and 3D components,
+however, three unions are maintained, one for each of the component types.
+</p><p>
+Bounding box searches introduce complications when
+coordinate system transformations are involved. The
+faces and edges of a bounding box can be distorted by the transformation
+(<i>e.g.</i>, a straight line in one SRF may be a curve in a different SRF).
+</p><p>
+The rest of this segment describes the algorithms used for bounding
+box searches.
+</p><p>
+In an attempt to overcome the distortion issue, the ideas of inscribed and
+circumscribed boxes were introduced. For an arbitrary shape, an
+<i>inscribed box</i> is the largest box that fits inside the shape, while a
+<i>circumscribed box</i> is the smallest box that contains the shape.
+</p><p>
+In the algorithms below, &quot;the search succeeds&quot; means that
+the iterator will pass the object as being inside the boundary;
+&quot;the search fails&quot; means that the object will be rejected.
+</p><p>
+For a full inclusion bounding box search, first find the object's
+bounding box in its native SRF, then convert the vertices of the box to
+the user's SRF. If any vertex is outside the search boundary, reject this
+object. If the search continues, compute the circumscribed bounding box
+of the object; if it is within the search bounds, this object is accepted
+by the search. Otherwise, compute the inscribed search box of the
+search bounds in the object's SRF; if the object's bounding box is inside
+the inscribed search boundary, the search succeeds for the object;
+otherwise, it fails.
+</p><p>
+For a partial inclusion bounding box search, first find the object's
+bounding box in its native SRF, then convert the vertices of the box to
+the user's SRF. If any vertex is inside the search boundary, the search
+succeeds for this object. If the search continues, compute the
+inscribed bounding box of the object; if it intersects the search bounds,
+this object is accepted by the search. Otherwise, compute the circumscribed
+search box of the search bounds in the object's SRF; if the object's bounding box intersects the circumscribed
+search boundary, the search succeeds for the object; otherwise, it fails.
+</p></td>
+</tr>
+</table>
+</td>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="234">2.3.4</a></th>
+
+<th class="doc_set_toc_outline_description">
+Transmittal Access Level 0 API Functions and Data Structures
+</th></tr>
+
+<tr><td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+To create a transmittal using the Transmittal Access API, you must
+pay careful attention to the order of operations. First, create the
+transmittal with a call to
+<a href="taccess0/functions/SE_OpenTransmittalByLocation.htm">SE_OpenTransmittalByLocation()</a> or
+<a href="taccess0/functions/SE_OpenTransmittalByName.htm">SE_OpenTransmittalByName()</a>:
+</p>
+<big>
+<pre>
+status = <a href="taccess0/functions/SE_OpenTransmittalByLocation.htm">SE_OpenTransmittalByLocation</a>
+         ( filename_location, SE_ENCODING_SRF, SE_AM_CREATE, &transmittal );
+</pre>
+</big>
+<p>
+This call creates a transmittal containing no objects using the API
+implmentation indicated by the impl_id. The
+<a href="drm/classes/TransmittalRoot.htm">&lt;Transmittal Root&gt;,</a>
+like any object, must be created before it can have any component objects
+attached. Consequently, the first task is to finish creating the
+<a href="drm/classes/TransmittalRoot.htm">&lt;Transmittal Root&gt;</a>.
+</p>
+<big>
+<pre>
+status = SE_CreateObject(transmittal, &amp;transmittal_root);
+
+if (status == SE_STATCODE_SUCCESS)
+    status = SE_PutFields(transmittalroot, &amp;new_fields);
+</pre>
+</big>
+<p>
+where new_fields is
+an <a href="drm/types/SE_DRM_Class_Fields.htm">SE_DRM_Class_Fields</a>
+variable containing the fields for
+the new <a href="drm/classes/TransmittalRoot.htm">&lt;Transmittal Root&gt;</a>.
+</p><p>
+For any object, to change its field values from the default values for
+an object of that object's class, call
+<a href="taccess0/functions/SE_PutFields.htm">SE_PutFields()</a>
+for that object.
+</p><p>
+So for any transmittal, the correct sequence of function calls is:
+</p>
+<ul>
+<li><a href="taccess0/functions/SE_OpenTransmittalByLocation.htm">SE_OpenTransmittalByLocation()</a></li>
+<li><a href="taccess0/functions/SE_CreateObject.htm">SE_CreateObject()</a></li>
+<li><a href="taccess0/functions/SE_PutFields.htm">SE_PutFields()</a></li>
+</ul>
+<p>
+for the <a href="drm/classes/TransmittalRoot.htm">&lt;Transmittal Root&gt;</a>,
+then create any components for the
+<a href="drm/classes/TransmittalRoot.htm">&lt;Transmittal Root&gt;</a>.
+</p><p>
+For any object, <a href="taccess0/functions/SE_CreateObject.htm">
+SE_CreateObject()</a> must initially be called to create
+the object. The correct sequence of function calls is:
+</p>
+<ul>
+<li><a href="taccess0/functions/SE_CreateObject.htm">SE_CreateObject</a></li>
+<li><a href="taccess0/functions/SE_PutFields.htm">SE_PutFields</a>
+    (optional; only if you don't want the default fields values)
+</li>
+<li>Add the object as a component of some object that's already in
+the transmittal (except for
+<a href="drm/classes/TransmittalRoot.htm">&lt;Transmittal Root&gt;</a>,
+which is passed to
+<a href="taccess0/functions/SE_SetRootObject.htm">SE_SetRootObject()</a>)
+</li>
+<li>(<i>optional</i>) add any associations between this object and
+    objects that are already in the transmittal, if there are any
+</li>
+</ul>
+<p>
+For an <a href="drm/classes/Image.htm">&lt;Image&gt;</a> instance,
+there is an extra step. Once the
+<a href="drm/classes/Image.htm">&lt;Image&gt;</a>
+has been added to the transmittal, you must call
+<a href="taccess0/functions/SE_PutImageData.htm">SE_PutImageData()</a>
+to add the pixels / texels of
+the <a href="drm/classes/Image.htm">&lt;Image&gt;</a>
+to the object.
+</p><p>
+The most complicated operation is to add a
+<a href="drm/classes/DataTable.htm">&lt;Data Table&gt;</a> to a
+transmittal. Here the sequence is:
+</p>
+<ul>
+<li><a href="taccess0/functions/SE_CreateObject.htm">SE_CreateObject()</a>
+to create the <a href="drm/classes/DataTable.htm">
+&lt;Data Table&gt;</a> instance</li>
+<li><a href="taccess0/functions/SE_PutFields.htm">SE_PutFields()</a>
+to set the fields of the
+<a href="drm/classes/DataTable.htm">&lt;Data Table&gt;</a></li>
+<li>Add all the 'structural' components of the
+<a href="drm/classes/DataTable.htm">&lt;Data Table&gt;</a></li>
+<ul>
+<li>Create the
+ <a href="drm/classes/ClassificationData.htm">&lt;Classification Data&gt;</a>
+ component of the <a href="drm/classes/DataTable.htm">&lt;Data Table&gt;</a>,
+ set its fields, and add it as a
+ component of the <a href="drm/classes/DataTable.htm">&lt;Data Table&gt;</a>;
+</li>
+<li>Create all the <a href="drm/classes/Axis.htm">&lt;Axis&gt;</a> components
+    of the <a href="drm/classes/DataTable.htm">&lt;Data Table&gt;</a>,
+    set their fields, and add them as components
+    of the <a href="drm/classes/DataTable.htm">&lt;Data Table&gt;</a>
+</li>
+<li>
+Create all the <a href="drm/classes/TablePropertyDescription.htm">&lt;Table Property Description&gt;</a>
+components of the
+    <a href="drm/classes/DataTable.htm">&lt;Data Table&gt;</a>,
+    set their fields, and add them as components of
+    the <a href="drm/classes/DataTable.htm">&lt;Data Table&gt;</a>
+</li>
+</ul>
+<li>Call the
+<a href="taccess0/functions/SE_PutDataTableData.htm">SE_PutDataTableData()</a>
+function to add the cells of the
+    <a href="drm/classes/DataTable.htm">&lt;Data Table&gt;</a>.
+</li>
+</ul>
+</td></tr>
+</table>
+</td></tr>
+
+<tr><td class="doc_set_toc_outline_number"><a name="24">2.4</a></td>
+<th class="doc_set_toc_outline_description">
+Transmittal Access Level 1 API Functions and Data Structures
+</th></tr>
+
+<tr><td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description">
+The Transmittal Access Level 1 API functions and data structures are listed
+alphabetically in <a href="taccess1/index.htm">Appendix C</a>.
+</td>
+</tr>
+</table>
+</div>
+
+<br>
+<hr>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a></strong>,
+<strong><a href="p4v17.htm">Table of Contents</a></strong>
+<br><br>
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr>
+<td>
+<table border="0" class="doc_set_header">
+<tr>
+<td class="doc_set_footer" align="left">
+Last updated: July 1, 2011
+</td>
+<td class="doc_set_footer" align="right">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+</body>
+</html>

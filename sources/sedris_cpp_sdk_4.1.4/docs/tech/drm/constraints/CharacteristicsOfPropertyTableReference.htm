@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Characteristics Of Property Table Reference</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX B - Constraints
+</font>
+<br>
+<font color="#ffffff">
+Characteristics Of Property Table Reference
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<h3>Definition</h3>
+<P>
+ For any <A href="../classes/PropertyTableReference.htm">&lt;Property Table Reference&gt;</A> instance <span class="ConstructName">R</span>
+ specifying a <A href="../classes/PropertyTable.htm">&lt;Property Table&gt;</A> instance <span class="ConstructName">T</span>:
+</P>
+<OL type='a'>
+<LI><P>
+ <span class="ConstructName">T</span> shall be a component of a
+ <A href="../classes/DataTableLibrary.htm">&lt;Data Table Library&gt;</A> instance.
+</P></LI>
+<LI><P>
+ <span class="ConstructName">T</span> shall have an <A href="../classes/Axis.htm">&lt;Axis&gt;</A> component,
+ the <A href="../classes/Axis.htm#axis_type">axis_type</A> of which corresponds to
+ that specified by <span class="ConstructName">R</span>.
+</P></LI>
+<LI><P>
+ The <A href="../classes/Axis.htm">&lt;Axis&gt;</A> instance thus specified shall have
+ <A href="../classes/Axis.htm#axis_value_count">axis_value_count</A> greater than or
+ equal to
+ (<A href="../classes/PropertyTableReference.htm#index_on_axis">index_on_axis</A> + 1),
+ where <A href="../classes/PropertyTableReference.htm#index_on_axis">index_on_axis</A>
+ is that specified by <span class="ConstructName">R</span>.
+</P></LI>
+</OL>
+
+<h3>Rationale</h3>
+<P>
+ A <A href="../classes/PropertyTableReference.htm">&lt;Property Table Reference&gt;</A> instance specifies
+ an N-1 dimensional slice of an N dimensional
+ <A href="../classes/PropertyTable.htm">&lt;Property Table&gt;</A> component of a
+ <A href="../classes/DataTableLibrary.htm">&lt;Data Table Library&gt;</A> instance. Consequently,
+ the <A href="../classes/Axis.htm">&lt;Axis&gt;</A> instance and tick mark value specified by the
+ <A href="../classes/PropertyTableReference.htm">&lt;Property Table Reference&gt;</A> instance
+ shall correspond to part of the
+ <A href="../classes/PropertyTable.htm">&lt;Property Table&gt;</A> instance being referenced.
+</P>
+<h3>Example</h3>
+<p>
+No example supplied.
+</p>
+<h3>FAQs</h3>
+<p>
+No FAQs supplied.
+</p>
+
+<hr>
+<strong>Prev:</strong> <A href="AnimationRelatedOrganizingPrinciple.htm">Animation Related Organizing Principle</A>.
+<strong>Next:</strong> <A href="ClassificationDataConstraints.htm">Classification Data Constraints</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

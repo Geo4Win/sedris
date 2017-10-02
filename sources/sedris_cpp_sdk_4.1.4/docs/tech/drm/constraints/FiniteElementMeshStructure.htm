@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Finite Element Mesh Structure</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX B - Constraints
+</font>
+<br>
+<font color="#ffffff">
+Finite Element Mesh Structure
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<h3>Definition</h3>
+<P>
+ For a <A href="../classes/FiniteElementMesh.htm">&lt;Finite Element Mesh&gt;</A> instance
+ <span class="ConstructName">F</span> with a <A href="../classes/MeshFaceTable.htm">&lt;Mesh Face Table&gt;</A> component
+ <span class="ConstructName">M</span>, the following conditions shall hold.
+</P>
+<OL type='a'>
+<LI><P>
+ Each <A href="../classes/Vertex.htm">&lt;Vertex&gt;</A> component of <span class="ConstructName">F</span>
+ shall appear exactly once as a component of <span class="ConstructName">F</span>.
+</P></LI>
+<LI><P>
+ No two <A href="../classes/Vertex.htm">&lt;Vertex&gt;</A> components of <span class="ConstructName">F</span>
+ shall occupy the same position in space.
+</P></LI>
+<LI><P>
+ If <span class="ConstructName">F</span> has a <A href="../classes/PropertyTable.htm">&lt;Property Table&gt;</A> component
+ <span class="ConstructName">P</span> such that <span class="ConstructName">P</span>'s
+ <A href="../classes/ClassificationData.htm">&lt;Classification Data&gt;</A> component classifies <span class="ConstructName">P</span>
+ as an <A href="../../../../src/lib/edcs/docs/dictionary/ECC_M.htm#ECC_MESH_NODE_PROPERTY_SET">ECC_MESH_NODE_PROPERTY_SET</A>, <span class="ConstructName">P</span>
+ shall be the only <A href="../classes/PropertyTable.htm">&lt;Property Table&gt;</A> component of
+ <span class="ConstructName">F</span> that is so classified, and shall
+ have the structure specified in the definition of the
+ <A href="../classes/FiniteElementMesh.htm">&lt;Finite Element Mesh&gt;</A> class for a
+ <A href="../classes/PropertyTable.htm">&lt;Property Table&gt;</A> instance of its classification.
+</P></LI>
+<LI><P>
+ If <span class="ConstructName">F</span> has a <A href="../classes/PropertyTable.htm">&lt;Property Table&gt;</A> component
+ <span class="ConstructName">P</span> such that <span class="ConstructName">P</span>'s
+ <A href="../classes/ClassificationData.htm">&lt;Classification Data&gt;</A> component classifies <span class="ConstructName">P</span>
+ as an <A href="../../../../src/lib/edcs/docs/dictionary/ECC_M.htm#ECC_MESH_FACE_PROPERTY_SET">ECC_MESH_FACE_PROPERTY_SET</A>, <span class="ConstructName">P</span>
+ shall be the only <A href="../classes/PropertyTable.htm">&lt;Property Table&gt;</A> component of
+ <span class="ConstructName">F</span> that is so classified, and shall
+ have the structure specified in the definition of the
+ <A href="../classes/FiniteElementMesh.htm">&lt;Finite Element Mesh&gt;</A> class for a
+ <A href="../classes/PropertyTable.htm">&lt;Property Table&gt;</A> instance of its classification.
+</P></LI>
+<LI><P>
+ If <span class="ConstructName">F</span> has a <A href="../classes/PropertyTable.htm">&lt;Property Table&gt;</A> component
+ <span class="ConstructName">P</span> such that <span class="ConstructName">P</span>'s
+ <A href="../classes/ClassificationData.htm">&lt;Classification Data&gt;</A> component classifies <span class="ConstructName">P</span>
+ as an <A href="../../../../src/lib/edcs/docs/dictionary/ECC_M.htm#ECC_MESH_SOLID_SET">ECC_MESH_SOLID_SET</A>, <span class="ConstructName">P</span>
+ shall be the only <A href="../classes/PropertyTable.htm">&lt;Property Table&gt;</A> component of
+ <span class="ConstructName">F</span> that is so classified, and shall
+ have the structure specified in the definition of the
+ <A href="../classes/FiniteElementMesh.htm">&lt;Finite Element Mesh&gt;</A> class for a
+ <A href="../classes/PropertyTable.htm">&lt;Property Table&gt;</A> instance of its classification.
+</P></LI>
+<LI><P>
+ If <span class="ConstructName">F</span> has a <A href="../classes/PropertyTable.htm">&lt;Property Table&gt;</A> component
+ <span class="ConstructName">P</span> such that <span class="ConstructName">P</span>'s
+ <A href="../classes/ClassificationData.htm">&lt;Classification Data&gt;</A> component classifies <span class="ConstructName">P</span>
+ as  an <A href="../../../../src/lib/edcs/docs/dictionary/ECC_M.htm#ECC_MESH_SOLID_PROPERTY_SET">ECC_MESH_SOLID_PROPERTY_SET</A>, <span class="ConstructName">P</span>
+ shall be the only <A href="../classes/PropertyTable.htm">&lt;Property Table&gt;</A>
+ component of <span class="ConstructName">F</span> that is so classified,
+ and shall have the structure specified in the definition of the
+ <A href="../classes/FiniteElementMesh.htm">&lt;Finite Element Mesh&gt;</A> class for a
+ <A href="../classes/PropertyTable.htm">&lt;Property Table&gt;</A> instance of its classification.
+</P></LI>
+</OL>
+
+<h3>Rationale</h3>
+<OL type='1'>
+<LI><P>
+ All the <A href="../classes/Vertex.htm">&lt;Vertex&gt;</A> components of a
+ <A href="../classes/FiniteElementMesh.htm">&lt;Finite Element Mesh&gt;</A> instance are
+ required to be distinct in order to form a geometrically valid mesh.
+</P></LI>
+<LI><P>
+ The components of a
+ <A href="../classes/FiniteElementMesh.htm">&lt;Finite Element Mesh&gt;</A> instance are
+ required to comply with the conditions specified in the definition
+ of the <A href="../classes/FiniteElementMesh.htm">&lt;Finite Element Mesh&gt;</A> and
+ <A href="../classes/MeshFaceTable.htm">&lt;Mesh Face Table&gt;</A> classes.
+</P></LI>
+</OL>
+<h3>Example</h3>
+<p>
+No example supplied.
+</p>
+<h3>FAQs</h3>
+<p>
+No FAQs supplied.
+</p>
+
+<hr>
+<strong>Prev:</strong> <A href="FeatureEdgeConstraints.htm">Feature Edge Constraints</A>.
+<strong>Next:</strong> <A href="GeneralAxisConstraints.htm">General Axis Constraints</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

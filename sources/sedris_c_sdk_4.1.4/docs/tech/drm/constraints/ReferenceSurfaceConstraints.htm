@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Reference Surface Constraints</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX B - Constraints
+</font>
+<br>
+<font color="#ffffff">
+Reference Surface Constraints
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h3>Definition</h3>
+<P>
+ Consider a <A href="../classes/ReferenceSurface.htm">&lt;Reference Surface&gt;</A> instance <span class="ConstructName">R</span>.
+</P>
+<OL type='a'>
+<LI><P>
+ <span class="ConstructName">R</span> shall appear in the scope of a DRM object that
+ specifies a 3D SRF.
+</P></LI>
+<LI><P>
+ <span class="ConstructName">R</span> shall not appear in the component tree of any
+ <A href="../classes/Model.htm">&lt;Model&gt;</A> instance specified in an LSR SRF.
+</P></LI>
+<LI><P>
+ Let <span class="ConstructName">S</span> be the <A href="../classes/GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> instance
+ to which <span class="ConstructName">R</span> is associated such that
+ <span class="ConstructName">S</span> specifies the reference surface of
+ <span class="ConstructName">R</span>.
+</P>
+<OL type='1'>
+<LI><P>
+ The SRF within which <span class="ConstructName">S</span> is specified shall match
+ that within which <span class="ConstructName">R</span> is specified, unless
+ <span class="ConstructName">S</span> is a <A href="../classes/PropertyGridHookPoint.htm">&lt;Property Grid Hook Point&gt;</A> instance.
+</P></LI>
+<LI><P>
+ If <span class="ConstructName">S</span> is a <A href="../classes/PropertyGridHookPoint.htm">&lt;Property Grid Hook Point&gt;</A>
+ instance, <span class="ConstructName">S</span> shall have at least one
+ <A href="../classes/PropertyGrid.htm">&lt;Property Grid&gt;</A> component <span class="ConstructName">G</span> such that
+ the following apply.
+</P>
+<OL type='i'>
+<LI><P>
+ The SRF within which <span class="ConstructName">S</span> is specified shall match
+ that specified by <span class="ConstructName">G</span>.
+</P></LI>
+<LI><P>
+ <span class="ConstructName">G</span> shall have two spatial
+ <A href="../classes/Axis.htm">&lt;Axis&gt;</A> components corresponding to the
+ primary and secondary coordinates
+ of the SRF specified by <span class="ConstructName">G</span>.
+</P></LI>
+<LI><P>
+ <span class="ConstructName">G</span> shall have a
+ <A href="../classes/TablePropertyDescription.htm">&lt;Table Property Description&gt;</A> component for height,
+ elevation, or bathymetry.
+</P></LI>
+<LI><P>
+ The qualified classification specified by <span class="ConstructName">G</span>
+ shall match that specified by <span class="ConstructName">R</span>.
+</P></LI>
+</OL>
+</LI>
+<LI><P>
+ If <span class="ConstructName">S</span> is a <A href="../classes/LODRelatedGeometry.htm">&lt;LOD Related Geometry&gt;</A> instance,
+ the <A href="../classes/LODRelatedGeometry.htm#lod_data_type">lod_data_type</A>
+ field of <span class="ConstructName">S</span> shall not have the value
+ <A href="../types/SE_LOD_Data_Type.htm#SE_LODDATTYP_VOLUME">SE_LODDATTYP_VOLUME</A>.
+</P></LI>
+</OL>
+</LI>
+</OL>
+
+<h3>Rationale</h3>
+<p>
+No Rationale supplied.
+</p>
+<h3>Example</h3>
+<p>
+No example supplied.
+</p>
+<h3>FAQs</h3>
+<p>
+No FAQs supplied.
+</p>
+
+<hr>
+<strong>Prev:</strong> <A href="QuadrantRelatedOrganizingPrinciple.htm">Quadrant Related Organizing Principle</A>.
+<strong>Next:</strong> <A href="RequiredReferenceVectorLocation.htm">Required Reference Vector Location</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

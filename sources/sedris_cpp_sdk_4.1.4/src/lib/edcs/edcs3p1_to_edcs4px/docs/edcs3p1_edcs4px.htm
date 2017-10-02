@@ -1,0 +1,432 @@
+<!DOCTYPE HTML PUBLIC="-//W3C/DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>EDCS Reference Manual</title>
+<link rel="stylesheet" type="text/css" href="../../docs/styles/SDK_SEDRIS.css">
+</head>
+<body>
+<!-- EDCS 3.1 to EDCS 4.4 Mapping SDK Release 4.4.0.0 -->
+<!-- EDCS spec. 4.4 -->
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th><font color="#00ffff">
+<big><big>
+EDCS Reference Manual
+</big></big></font>
+<br />
+<font color="#ffffff">
+Concept Mapping from EDCS 3.x to EDCS 4.x
+</font></th></tr>
+</table></div>
+<a name="Top" id="Top"></a>
+<p>
+This document describes how environmental concepts are mapped from the EDCS Version 3.x
+(including, in particular, EDCS Version 3.1) to EDCS Version 4.x.
+</p>
+
+<h2>Table of Contents</h2>
+
+<h3><a href="#Part1">Part 1: Concept Mapping from EDCS Version 3.x to Version 4.x</a></h3>
+<ol>
+<li><a href="#Denoting Concepts">Denoting Concepts</a></li>
+<li><a href="#Attribute Value Characteristics">Attribute Value Characteristics</a></li>
+<li><a href="#EDCS Data Types">EDCS Data Types</a></li>
+<li><a href="#Mapping Concepts">Mapping Concepts</a></li>
+</ol>
+<h3><a href="#Part2">Part 2: Mapping Tables for EDCS Version 3.x to EDCS Version 4.x</a></h3>
+
+<h3><a href="#Part3">Part 3: Mapping API for EDCS Version 3.x to EDCS Version 4.x</a></h3>
+<ol>
+<li><a href="#Functions">Mapping API Functions</a></li>
+<li><a href="#Data Structures">Mapping API Data Structures</a></li>
+<li><a href="#Use Examples">Mapping API Use Examples</a></li>
+</ol>
+
+<hr>
+<h3><a name="Part1" id="Part1">Part 1: Concept Mapping from EDCS Version 3.x to Version 4.x</a></h3>
+<h4><a name="Denoting Concepts" id="Denoting Concepts">1. Denoting Concepts</a></h4>
+<p>
+The EDCS Version 4.x has no significant changes from EDCS Version 3.x in the
+manner in which EDCS concepts (classifications, attributes, enumerants, and
+units of measure) are denoted -- i.e., how each unique concept may be
+referenced by either humans or software.
+</p>
+<H4><a name="Attribute Value Characteristics" id="Attribute Value Characteristics">2. Attribute Value Characteristics</a></H4>
+<p>
+In EDCS Version 3.x, there was a dictionary called the
+EDCS Attribute Value Metadata dictionary that contained concepts which were
+descriptions of the attribute data value rather than the
+attribute data value itself.
+</p><p>
+In EDCS Version 4.x, the EDCS Attribute Value Metadata dictionary has been
+renamed to the EDCS Attribute Value Characteristics Dictionary, but
+the meaning of the concepts within the dictionary remain the same. Also,
+one concept has been removed from the dictionary (SIGNFICANT_DIGITS),
+and others have had their codes changed.   See the mapping tables for
+the EDCS Attribute Value Metadata concepts.
+</p>
+<h4><a name="EDCS Data Types" id="EDCS Data Types">3. EDCS Data Types</a></h4>
+<p>
+With EDCS Version 4.x, several additional datatypes have been added to help
+store the various types of values are associated with EDCS Attributes.  For
+a full description of the data types and where they are used see the
+<a href="../../docs/types/index.htm">EDCS 4.x Types HTML documentation</a>.
+</p>
+
+<h4><a name="Mapping Concepts" id="Mapping Concepts">4. Mapping Concepts</a></h4>
+<p>
+While the concepts encoded using the EDCS Version 3.x are encoded the same
+way for EDCS Version 4.x, many of the concepts themselves have had their
+labels and/or codes changed.  However, essentially all concepts supported
+by EDCS Version 3.x are also supported by EDCS Version 4.x, albeit sometimes
+using a combination of several EDCS Version 4.x "atomic" concepts.
+In many cases the EDCS 3.1 concept label will be exactly the same as the
+EDCS 4.x concept label, but the code for those labels will be different.
+</p><p>
+The tables at the end of this section document the mapping of concepts from
+EDCS Version 3.x to EDCS Version 4.x.  In the significant majority of cases,
+the concept mapping is one-to-one and direct.
+In some cases, however, the mapping is more complex.
+</p><p>
+These tables document the mappings for each of the concept types in
+EDCS Version 3.x:
+classifications, attributes, enumerants, groups, and metadata.  In addition to
+listing the "EDCS 3.1 <i><strong>Code</strong></i>" and
+"EDCS 3.1 <i>"<strong>Label</strong>"</i>" for each concept, each table
+includes the columns "EDCS 4.x Concept Mapping Type",
+"EDCS 4.x Concept Mapping Information", and "Additional Notes".
+</p>
+<ul>
+<li>
+The value of "EDCS 4.x Concept Mapping Type" defines how to interpret and
+use the information listed in "EDCS 4.x Concept Mapping Information".
+</li>
+<li>
+The value of &quot;Additional Notes&quot; includes human-interpretable
+information that either clarifies the rationale behind the mapping type,
+or provides additional information for special cases.
+</li>
+</ul>
+<p>
+The Concept Mapping Types are as follows:
+</p>
+<ul>
+<li><p>
+<strong>ONE_TO_ZERO</strong> - The EDCS Version 3.x concept does not exist
+in the EDCS Version 4.x. The &quot;EDCS 4.x Concept Mapping Information&quot;
+column will be empty.
+</p></li>
+<li><p>
+<strong><a name="ONE_TO_ONE" id="ONE_TO_ONE">ONE_TO_ONE</a></strong> -
+The EDCS Version 3.x concept is mapped directly to a single EDCS Version 4.x
+concept.  The "EDCS 4.x Concept Mapping Information" column will contain the
+<i><strong>symbolic constant</strong></i> of the appropriate EDCS Version 4.x concept.
+</p></li>
+<li><p>
+<strong><a name="ONE_TO_MANY" id="ONE_TO_MANY">ONE_TO_MANY</a></strong> -
+The EDCS Version 3.x concept possibly maps to two or more different
+EDCS Version 4.x concepts. The &quot;EDCS 4.x Concept Mapping Information&quot;
+column will be empty and the &quot;Additional Notes&quot; column
+will contain information about the possible EDCS Version 4.x concepts.
+</p><p>
+<i>Example:</i>
+<ul TYPE="circle">
+<li><u>EDCS 3.x Attribute <i>maps to</i> two different EDCS 4.x Attributes</u>
+<br /><br />
+<strong>EAC_EXTREME_AIR_TEMPERATURE</strong>
+<br />
+<i>maps to</i><br />
+<br />
+<a href="../../docs/dictionary/EAC_E.htm#EAC_EXTREME_HIGH_AIR_TEMPERATURE">EAC_EXTREME_HIGH_AIR_TEMPERATURE</a>
+<i>or</i><br />
+<a href="../../docs/dictionary/EAC_E.htm#EAC_EXTREME_LOW_AIR_TEMPERATURE">EAC_EXTREME_LOW_AIR_TEMPERATURE</a>
+</p></li>
+</ul>
+</li>
+<li><p>
+<strong><a name="CHANGE_IN_DATATYPE" id="CHANGE_IN_DATATYPE">CHANGE_IN_DATATYPE</a></strong> -
+The EDCS Version 3.x concept is mapped directly to a single
+EDCS Version 4.x concept, however the data type used to represent the value of the
+concept has changed.
+</p><p>
+<i>Examples:</i>
+<ul TYPE="circle">
+<li><p><u>EDCS 3.x Attribute value of type ENUMERANT <i>maps to</i> EDCS 4.x Attribute value of type BOOLEAN</u>
+</p><p>
+<strong>EAC_UNCOVERING_HEIGHT_INFORMATION</strong><br />
+&nbsp;&nbsp;&nbsp;&nbsp;with ENUMERANT value of
+<strong>EEC_UNCVRHGTINF_KNOWN</strong>
+<br />
+<i>maps to</i><br />
+<a href="../../docs/dictionary/EAC_U.htm#EAC_UNCOVERING_HEIGHT_KNOWN">EAC_UNCOVERING_HEIGHT_KNOWN</a>
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;with the BOOLEAN value of <strong>TRUE</strong>
+</p></li>
+<li><p><u>EDCS 3.x Attribute value of type ENUMERANT <i>maps to</i>
+EDCS 4.x Attribute value of type CONSTRAINED_STRING</u>
+</p><p>
+<strong>EAC_NATIONAL_PAINT_SCHEME</strong>
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;with ENUMERANT value of <strong>EEC_NATLPAINTSCHEM_ARGENTINA</strong><br />
+<i>maps to</i>
+<br />
+<a href="../../docs/dictionary/EAC_N.htm#EAC_NATIONAL_PAINT_SCHEME">EAC_NATIONAL_PAINT_SCHEME</a>
+with the CONSTRAINED_STRING value of <strong>&quot;ARGENTINA&quot;</strong>
+</p></li>
+</ul>
+</li>
+<li><p>
+<strong>SPECIAL_CASE</strong> - These cases will require some human reasoning to determine the best way to realize
+the EDCS Version 3.x concept in EDCS Version 4.x.  Both the "EDCS 4.x Concept Mapping Information" column and "Additional Notes" column contains information giving recommendations regarding how to handle the specific case.
+</p></li>
+</ul>
+<p>
+When the Concept Mapping Type is <A href="#ONE_TO_ONE">ONE_TO_ONE</a> or
+<A href="#CHANGE_IN_DATATYPE">CHANGE_IN_DATATYPE</a>, then the
+"EDCS 4.x Concept Mapping Information" column has very specific formatted
+information in it.   It will be one or more of the following possibilities
+(multiple concepts will be of this form, separated by semicolons):
+</p>
+<ul>
+<li><p>
+<strong>(<i>Classification</i>)</strong>
+<br />
+The <i><strong>symbolic constant</strong></i> of a single
+EDCS Version 4.x classification concept; there will be no
+additional information.
+</p></li>
+<li><p>
+<strong>(<i>Attribute</i>)</strong>
+<br />
+The <i><strong>symbolic constant</strong></i> of a single
+EDCS Version 4.x attribution concept; there will be no
+additional information.
+</p></li>
+<li><p><strong>(<i>Attribute</i>) -
+(<font color="red">value</font>)</strong>
+<br />
+The <i><strong>label</strong></i> of a single EDCS Version 4.x attribute
+concept with a specific (<font color="red">value</font>).
+The type of the (<font color="red">value</font>) by default is
+<strong>ENUMERANT</strong>, and
+the value displayed will be the <i><strong>label</strong></i> of the
+<strong>ENUMERANT</strong>.
+However, if the Concept Mapping Type is <A href="#CHANGE_IN_DATATYPE">CHANGE_IN_DATATYPE</a>
+then then value will be proceded by the type.
+</p><p>
+<i>Examples:</i><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ACOUSTIC_CENTRE_FREQUENCY_BAND - BAND_1_HZ<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NATIONAL_PAINT_SCHEME - constrained string "LAO_PEOPLES_DEM_REPUBLIC"<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UNCOVERING_HEIGHT_KNOWN - boolean EDCS_TRUE
+</p></li>
+</ul>
+
+<hr>
+
+<h3><a name="Part2" id="Part2">Part 2: Mapping Tables for EDCS Version 3.1 to EDCS Version 4.x</a></h3>
+<ul>
+<li><a href="class_migration.htm">Classification Mapping Table</a></li>
+<li><a href="attribute_migration.htm">Attribute Mapping Table</a></li>
+<li>Enumerant Mapping Tables - Due to the sheer size of these tables,
+they have been split up alphabetically as follows:<br />
+<ul>
+<li><a href="enum_migration_A_to_F.htm">Enumerants from A through F</a></li>
+<li><a href="enum_migration_G_to_L.htm">Enumerants from G through L</a></li>
+<li><a href="enum_migration_M_to_R.htm">Enumerants from M through R</a></li>
+<li><a href="enum_migration_S_to_U.htm">Enumerants from S through U</a></li>
+<li><a href="enum_migration_V_to_Z.htm">Enumerants from V through Z</a></li>
+</ul>
+</li>
+<li><a href="group_migration.htm">Group Mapping Table</a></li>
+<li><a href="metadata_migration.htm">Metadata Mapping Table</a></li>
+</ul>
+
+<hr>
+<h3><a name="Part3" id="Part3">Part 3: Mapping API for EDCS Version 3.x to EDCS Version 4.x</a></h3>
+<p>
+This section describes the EDCS Version 3.x to EDCS Version 4.x Mapping API
+functions, data structures, and use examples.
+</p>
+<h4><a name="Functions" id="Functions">1.</a> <a href="functions/index.htm">Mapping API Functions</a></h4>
+<h4><a name="Data Structures" id="Data Structures">2.</a> <a href="types/index.htm">Mapping API Data Structures</a></h4>
+<ul>
+<li>
+EDCS 4.x common mapping data structures used in the main structures:<br />
+<ul>
+<li><a href="../../docs/types/EDCS_Attribute_Value.htm">EDCS_Attribute_Value</a></li>
+</ul>
+</li>
+</ul>
+<h4><a name="Use Examples" id="Use Examples">3. Mapping API Use Examples</a></h4>
+<ul>
+<li>Concept mapping from EDCS Version 3.x classifications
+<ul><li><p>
+<a href="../src/apps/sample_class_mapping/map_3p1_classification.c">map_3p1_classification.c</a>:
+A sample program taking a list of EDCS Version 3.x
+classification codes or labels on the command line, and
+printing out the associated EDCS Version 4.x concept mapping information.
+</p><p>
+<i>Example: To retrieve mapping information for ECC_ANTENNA
+and ECC_ANTENNA_SUPPORT_MAST:
+</p><p>
+&nbsp;&nbsp;&nbsp;&nbsp;"<strong>map_3p1_classification</strong> ANTENNA ANTENNA_SUPPORT_MAST"
+<br />
+<strong>OR</strong>
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;"<strong>map_3p1_classification</strong> 60 61"
+</p><p>
+Example Output:
+</p><p>
+&nbsp;&nbsp;&nbsp;&nbsp;"EDCS 3.1 classification ANTENNA maps exactly to
+the EDCS 4.x classification symbolic constant
+<a href="../../docs/dictionary/ECC_A.htm#ECC_AERIAL">ECC_AERIAL</a>
+</p><p>
+&nbsp;&nbsp;&nbsp;&nbsp; EDCS 3.1 classification ANTENNA_SUPPORT_MAST
+maps exactly to the EDCS 4.x classification symbolic constant
+<a href="../../docs/dictionary/ECC_A.htm#ECC_AERIAL_SUPPORT_MAST">ECC_AERIAL_SUPPORT_MAST</a>"
+</i>
+</p></li></ul>
+</li>
+<li>Concept mapping from EDCS Version 3.x attributes
+<ul><li><p>
+<a href="../src/apps/sample_attribute_mapping/map_3p1_attribute.c">map_3p1_attribute.c</a>:
+A sample program taking a list of EDCS Version 3.x
+attribute codes or labels on the command line, and printing out the
+associated EDCS Version 4.x concept mapping information.
+</p><p>
+<i>Example: To retrieve mapping information for
+EAC_MEDIAN and EAC_MEDIAN_WIDTH:<br /><br />
+&nbsp;&nbsp;&nbsp;&nbsp;"<strong>map_3p1_attribute</strong> MEDIAN MEDIAN_WIDTH"<br />
+<strong>OR</strong><br />
+&nbsp;&nbsp;&nbsp;&nbsp;"<strong>map_3p1_attribute</strong> 657 658"
+</p><p>
+Example Output:
+</p><p>
+&nbsp;&nbsp;&nbsp;&nbsp;"EDCS 3.1 attribute MEDIAN maps exactly to
+the EDCS 4.x attribute symbolic constant
+<a href="../../docs/dictionary/EAC_L.htm#EAC_LAND_TRNSP_MEDIAN_PRESENT">EAC_LAND_TRNSP_MEDIAN_PRESENT</a>.
+</p><p>
+&nbsp;&nbsp;&nbsp;&nbsp;EDCS 3.1 attribute MEDIAN_WIDTH maps exactly to
+the EDCS 4.x attribute symbolic constant
+<a href="../../docs/dictionary/EAC_L.htm#EAC_LAND_TRNSP_MEDIAN_WIDTH">EAC_LAND_TRNSP_MEDIAN_WIDTH</a>."
+</i>
+</p></li>
+</ul>
+</li>
+<li>Concept mapping from EDCS Version 3.x attribute enumerants
+<ul><li><p>
+<a href="../src/apps/sample_enumerant_mapping/map_3p1_enumerant.c">map_3p1_enumerant.c</a>:
+A sample program taking a list of comma separated pairs of
+EDCS Version 3.x attribute codes and enumerant codes or attribute labels
+and enumerant labels on the command line, and printing out the
+associated EDCS Version 4.x concept mapping information.
+</p><p>
+<i>Example: To find mapping information for
+EAC_COMMUNICATION_TYPE with the enumerant value of EEC_COMMTY_BEACON, and
+EAC_CLOUD_CEILING_METHOD with the value of EEC_CLDCEILMETH_RADAR:
+</p><p>
+&nbsp;&nbsp;&nbsp;&nbsp;"<strong>map_3p1_enumerant</strong> COMMUNICATION_TYPE,BEACON 196,7
+</p><p>
+Example Output:
+</p><p>
+&nbsp;&nbsp;&nbsp;&nbsp;EDCS 3.1 attribute COMMUNICATION_TYPE with
+enumerant BEACON maps exactly to the EDCS 4.x attribute symbolic constant
+<a href="../../docs/dictionary/EAC_C.htm#EAC_COMMUNICATION_STRUCTURE_TYPE">EAC_COMMUNICATION_STRUCTURE_TYPE</a>
+with the enumerant symbolic constant
+<a href="../../docs/dictionary/EAC_C.htm#EEC_COMMSTRTY_BEACON">EEC_COMMSTRTY_BEACON</a>
+</p><p>
+&nbsp;&nbsp;&nbsp;&nbsp;EDCS 3.1 attribute CLOUD_CEILING_METHOD with
+enumerant RADAR maps exactly to the EDCS 4.x attribute symbolic constant
+<a href="../../docs/dictionary/EAC_A.htm#EAC_ATM_CEILING_METHOD">EAC_ATM_CEILING_METHOD</a>
+with the enumerant symbolic constant
+<a href="../../docs/dictionary/EAC_A.htm#EEC_ATMCEILMETH_RADAR">EEC_ATMCEILMETH_RADAR</a>
+</i>
+</p></li>
+</ul>
+</li>
+<li><p>
+Concept mapping from EDCS Version 3.x groups
+<ul><li><p>
+<a href="../src/apps/sample_group_mapping/map_3p1_group.c">map_3p1_group.c</a>:
+A sample program taking a list of EDCS Version 3.x
+group codes or labels on the command line, and printing out the
+associated EDCS Version 4.x concept mapping information.
+</p><p>
+<i>Example: To retrieve mapping information for
+EGC_GEN_ABSTRACT_CONCEPT and EGC_GEN_BATHYMETRY:
+</p><p>
+&nbsp;&nbsp;&nbsp;&nbsp;"<strong>map_3p1_group</strong> ABSTRACT_CONCEPT BATHYMETRY"
+<br />
+<strong>OR</strong>
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;"<strong>map_3p1_group</strong> 1 13"
+</p><p>
+Example Output:
+</p><p>
+&nbsp;&nbsp;&nbsp;&nbsp;EDCS 3.1 group ABSTRACT_CONCEPT maps exactly to
+the EDCS 4.x group symbolic constant
+<a href="../../docs/dictionary/groups.htm#EGC_GEN_ABSTRACT_OBJECT">EGC_GEN_ABSTRACT_OBJECT</a>
+</p><p>
+&nbsp;&nbsp;&nbsp;&nbsp;EDCS 3.1 group BATHYMETRY maps exactly to the
+EDCS 4.x group symbolic constant
+<a href="../../docs/dictionary/groups.htm#EGC_GEN_WATERBODY_FLOOR">EGC_GEN_WATERBODY_FLOOR</a>
+</i>
+</p></li></ul>
+</li>
+
+<li><p>
+Concept mapping from EDCS Version 3.x metadata
+<ul>
+<li><p>
+<a href="../src/apps/sample_value_characteristic_mapping/map_3p1_value_characteristic.c">map_3p1_value_characteristic.c</a>:
+A sample program taking a list of EDCS Version 3.x
+metadata codes or labels on the command line, and printing out the
+associated EDCS Version 4.x concept mapping information.
+</p><p>
+<i>Example: To retrieve mapping information for
+SIGNIFICANT_DIGITS and TOLERANCE:
+</p><p>
+&nbsp;&nbsp;&nbsp;&nbsp;"<strong>map_3p1_value_characteristic</strong> SIGNIFICANT_DIGITS TOLERANCE"<br />
+<strong>OR</strong><br />
+&nbsp;&nbsp;&nbsp;&nbsp;"<strong>map_3p1_value_characteristic</strong> 12 13"
+</p><p>
+Example Output:
+</p><p>
+&nbsp;&nbsp;&nbsp;&nbsp;"EDCS 3.1 metadata SIGNIFICANT_DIGITS maps to
+no EDCS 4.x concept.  The concept was deleted.
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;"Notes: No mapping
+</p><p>
+&nbsp;&nbsp;&nbsp;&nbsp;EDCS 3.1 metadata TOLERANCE maps exactly to
+the EDCS 4.x metadata symbolic constant
+<a href="../../docs/dictionary/characteristic.htm#EVC_TOLERANCE">EVC_TOLERANCE</a>
+</i>
+</p></li>
+</ul>
+</li>
+</ul>
+
+<hr>
+<font color="#ff0000">Return to</font>:
+<strong><a href="index.htm">Migration Index</a></strong>,
+<strong><a href="../../docs/edcs.htm#Mapping">EDCS Home</a></strong>
+<br /><br />
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr><td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right"  class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td>
+</tr>
+</table>
+</td></tr>
+</table>
+</div>
+</body>
+</html>

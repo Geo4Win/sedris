@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE_ITR_Behaviour</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Types
+</font>
+<br>
+<font color="#ffffff">
+SE_ITR_Behaviour
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<PRE>
+/*
+ * ENUM: SE_ITR_Behaviour
+ *
+ *   This data type specifies the desired traversal for an iterator or
+ *   function when an ITR reference is encountered.
+ */
+</PRE>
+<span class="Code">typedef enum
+<br>
+{
+</span>
+
+<table class="CFunctionPrototype">
+    <tr><td class="CFunction"></td><td class="CFunction"><a name="SE_ITRBEH_RESOLVE"></a>SE_ITRBEH_RESOLVE,</td><td class="CFunction"><sup><A href="#Notes_SE_ITRBEH_RESOLVE">1</A></sup></td></tr>
+    <tr><td class="CFunction"></td><td class="CFunction"><a name="SE_ITRBEH_REPORT"></a>SE_ITRBEH_REPORT,</td><td class="CFunction"><sup><A href="#Notes_SE_ITRBEH_REPORT">2</A></sup></td></tr>
+    <tr><td class="CFunction"></td><td class="CFunction"><a name="SE_ITRBEH_IGNORE"></a>SE_ITRBEH_IGNORE</td><td class="CFunction"><sup><A href="#Notes_SE_ITRBEH_IGNORE">3</A></sup></td></tr>
+</table>
+<span class="Code">
+} SE_ITR_Behaviour;
+</span>
+<br>
+<br>
+<hr>
+<h2>Enumerant Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#SE_ITRBEH_RESOLVE" name="Notes_SE_ITRBEH_RESOLVE">1</a></sup>
+ ITR references are resolved automatically as they are encountered.
+ A transmittal that has been opened in this way cannot be updated.
+ The transmittal shall be explicitly opened for writing or
+ modification for SE_ITRBEH_RESOLVE SE_ITR_Behaviour to occur.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#SE_ITRBEH_REPORT" name="Notes_SE_ITRBEH_REPORT">2</a></sup>
+ ITR references are reported as they are encountered, but are not
+ resolved.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#SE_ITRBEH_IGNORE" name="Notes_SE_ITRBEH_IGNORE">3</a></sup>
+ ITR references are ignored and traversal acts as though the
+ transmittal were standalone, continuing to search within the
+ current transmittal.
+</p>
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SE_Iterator.htm">SE_Iterator</a>.
+<strong>Next:</strong> <a href="SE_LOD_Entry.htm">SE_LOD_Entry</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

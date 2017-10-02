@@ -1,0 +1,218 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE GetComponent</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+SE GetComponent
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../types/SE_Return_Code.htm">SE_Return_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SE_GetComponent</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/SE_Object.htm">SE_Object</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="aggregate_object"></a>aggregate_object,</td><td class="CFunction"><sup><A href="#Notes_aggregate_object">1</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../../drm/types/SE_DRM_Class.htm">SE_DRM_Class</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="drm_class"></a>drm_class,</td><td class="CFunction"><sup><A href="#Notes_drm_class">2</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../../drm/types/SE_Boolean.htm">SE_Boolean</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="directly_attach_table_components"></a>directly_attach_table_components,</td><td class="CFunction"><sup><A href="#Notes_directly_attach_table_components">3</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../../drm/types/SE_Boolean.htm">SE_Boolean</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="process_inheritance"></a>process_inheritance,</td><td class="CFunction"><sup><A href="#Notes_process_inheritance">4</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/SE_ITR_Behaviour.htm">SE_ITR_Behaviour</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="itr_traversal"></a>itr_traversal,</td><td class="CFunction"><sup><A href="#Notes_itr_traversal">5</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/SE_Object.htm">SE_Object</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="component_object"></a>component_object,</td><td class="CFunction"><sup><A href="#Notes_component_object">6</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/SE_Object.htm">SE_Object</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="link_object"></a>link_object</td><td class="CFunction"><sup><A href="#Notes_link_object">7</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+ Retrieves a component object of a specified DRM class or of any DRM class
+ (if not specified with <A href="#drm_class">drm_class</A>) for the
+ given DRM object (<A href="#aggregate_object">aggregate_object</A>).
+ For example, if <A href="SE_GetComponent.htm">SE_GetComponent()</A> is
+ called with a <A href="../../drm/classes/Vertex.htm">&lt;Vertex&gt;</A> instance then a handle to the
+ <A href="../../drm/classes/Location.htm">&lt;Location&gt;</A> component will be returned at
+ *<A href="#component_object">component_object</A>.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A>
+</td><td class="Status">
+ and the requested object is returned, if valid parameters were
+ passed in and all operations succeeded.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A>
+</td><td class="Status">
+ and the status code is set appropriately if the call failed.
+</td></tr>
+</table>
+
+<h3>Status Codes</h3>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A> is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_SUCCESS">SE_STATCODE_SUCCESS</A>
+</td><td class="Status">
+ set if valid parameters were passed in, only one object was found
+ that satisfied the specified criteria, and no ITR references
+ were involved.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_DIFFERENT_TRANSMITTAL">SE_STATCODE_DIFFERENT_TRANSMITTAL</A>
+</td><td class="Status">
+ set if valid parameters were passed in, the user requested that the
+ API automatically resolve inter-transmittal references (ITR),
+ an ITR reference was encountered in searching for the component, and
+ the iterator successfully resolved it and retrieved the component
+ from the new, different transmittal.
+</td></tr>
+</table>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A> is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_UNRESOLVED_OUTPUT_OBJECT">SE_STATCODE_UNRESOLVED_OUTPUT_OBJECT</A>
+</td><td class="Status">
+ set if valid parameters were passed in and only one object was found
+ that satisfied the specified criteria, but the component object is
+ unresolved.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_UNRESOLVED_INPUT_OBJECT">SE_STATCODE_UNRESOLVED_INPUT_OBJECT</A>
+</td><td class="Status">
+ set if <A href="#aggregate_object">aggregate_object</A> is unresolved.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_NO_OBJECT">SE_STATCODE_NO_OBJECT</A>
+</td><td class="Status">
+ set if no component of the desired DRM class could be found.
+</td></tr>
+<tr><td class="Status">
+ <A href="../types/SE_Status_Code.htm#SE_STATCODE_C_ENUMERATION_VALUE_INVALID">SE_STATCODE_C_ENUMERATION_VALUE_INVALID</A>
+</td><td class="Status">
+ set if <A href="#drm_class">drm_class</A> or
+ <A href="#itr_traversal">itr_traversal</A> was not valid,
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_INACTIONABLE_FAILURE">SE_STATCODE_INACTIONABLE_FAILURE</A>
+</td><td class="Status">
+ set if the call fails for any other reason.
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#aggregate_object" name="Notes_aggregate_object">1</a></sup>
+ the object from which the user wants one component.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#drm_class" name="Notes_drm_class">2</a></sup>
+ the type of component the user wants.  This is
+    a required parameter in this call. SE_CLS_DRM_NULL is not allowed.
+    Asking for an object of an abstract type is allowed. In that case,
+    the API will look for a concrete component that is a 'kind-of'
+    (a subclass) of the given abstract type.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#directly_attach_table_components" name="Notes_directly_attach_table_components">3</a></sup>
+ see SE_InitializeComponentIterator's
+    comments on directly_attach_table_components.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#process_inheritance" name="Notes_process_inheritance">4</a></sup>
+ if true, then inherited components will be
+    considered as well as 'immediate' components.  If SE_FALSE, then only
+    'immediate' components will be considered.  For example, by setting
+    this process_inheritance parameter to SE_TRUE, this allows a user to
+    ask for the &lt;Inline Colour&gt; component of a &lt;Polygon&gt; without worrying
+    about whether the &lt;Inline Colour&gt; component was an 'immediate' or
+    'inherited' component of the &lt;Polygon&gt;.  An 'immediate' component will
+    always take precedence over an 'inherited' component.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#itr_traversal" name="Notes_itr_traversal">5</a></sup>
+ the user must choose how
+    the function will behave when it encounters an Inter-Transmittal
+    Reference (ITR). The function could automatically resolve such
+    references and continue the search within the new transmittal;
+    report all ITR references without resolving them; or just ignore
+    them completely and continue to search within the current
+    transmittal.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#component_object" name="Notes_component_object">6</a></sup>
+ pointer to a variable in the user's memory space to
+    which a handle the component will be copied, if there is a component.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#link_object" name="Notes_link_object">7</a></sup>
+ if not NULL, then a
+    handle to the link class object (a.k.a. association class object)
+    traversed to reach the component will be copied to
+    *link_object. If no link class object was
+    attached to the link used to reach the component object, then
+    *link_object will be set to NULL.
+
+    If the user passes in NULL for link_object, then
+    link class objects will be ignored (and *link_object
+    will not be affected).
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SE_GetColourModel.htm">SE_GetColourModel</a>.
+<strong>Next:</strong> <a href="SE_GetContextTransformation.htm">SE_GetContextTransformation</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE_General_Hierarchy_Select</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Types
+</font>
+<br>
+<font color="#ffffff">
+SE_General_Hierarchy_Select
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<PRE>
+/*
+ * STRUCT: SE_General_Hierarchy_Select
+ *
+ *   This data type specifies whether any components of the given
+ *   &lt;Aggregate Geometry&gt; and &lt;Aggregate Feature&gt; instances should be
+ *   traversed by a component iterator.
+ *
+ *   For instances of &lt;Aggregate Feature&gt; and &lt;Aggregate Geometry&gt;
+ *   (each referred to as a *hierarchy* in the following specification)
+ *   for which inclusion rules can be specified:
+ *
+ *   a. If an instance of hierarchy has an SE_Hierarchy_Inclusion value
+ *      of SE_HIERINC_EXCLUDE_ALL, the rules within the
+ *      SE_Hierarchy_Select_Parameters for that type of hierarchy are not
+ *      evaluated.  DRM objects of that hierarchy type and the components
+ *      of those hierarchies are always excluded from the search space of
+ *      the iterator.
+ *
+ *   b. If an instance of hierarchy has an SE_Hierarchy_Inclusion value
+ *      of SE_HIERINC_INCLUDE_ALL, the rules within the
+ *      SE_Hierarchy_Select_Parameters for that type of hierarchy are not
+ *      evaluated.  DRM objects of that hierarchy type and the components
+ *      of those hierarchy objects are always included in the search space
+ *      of the iterator.
+ *
+ *   c. If an instance of hierarchy has an SE_Hierarchy_Inclusion value
+ *      of SE_HIERINC_EVALUATE_RULES, the rules within the
+ *      SE_Hierarchy_Select_Parameters for that type of hierarchy are
+ *      evaluated for each hierarchy component attached to the hierarchy.
+ *      Only hierarchy components whose link objects pass the rules are
+ *      included in the search space of the iterator.
+ *
+ *   For types of hierarchies for which inclusion rules cannot be specified:
+ *
+ *   a. If an instance of hierarchy has a value of SE_FALSE, all instances
+ *      of that hierarchy class and the components of those hierarchies
+ *      are always excluded from the search space of the iterator.
+ *
+ *   b. If an instance of hierarchy has a value of SE_TRUE, all instances
+ *      of that hierarchy class and the components of those hierarchies
+ *      are always included in the search space of the iterator.
+ */
+</PRE>
+<span class="Code">typedef struct 
+<br>
+{</span>
+<br>
+<table class="CFunctionPrototype">
+<tr><td>   </td><td>/*</td></tr>
+<tr><td>   </td> <td colspan = 3>* Hierarchy classes for which inclusion rules can be specified:</td></tr>
+<tr><td>   </td><td> */</td></tr>
+
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Hierarchy_Inclusion.htm">SE_Hierarchy_Inclusion</a></td>
+        <td class="CFunction"><a
+        name="alternate_hierarchy"></a>alternate_hierarchy;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Hierarchy_Inclusion.htm">SE_Hierarchy_Inclusion</a></td>
+        <td class="CFunction"><a
+        name="animation_related"></a>animation_related;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Hierarchy_Inclusion.htm">SE_Hierarchy_Inclusion</a></td>
+        <td class="CFunction"><a
+        name="classification_related"></a>classification_related;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Hierarchy_Inclusion.htm">SE_Hierarchy_Inclusion</a></td>
+        <td class="CFunction"><a
+        name="continuous_lod_related"></a>continuous_lod_related;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Hierarchy_Inclusion.htm">SE_Hierarchy_Inclusion</a></td>
+        <td class="CFunction"><a name="octant_related"></a>octant_related;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Hierarchy_Inclusion.htm">SE_Hierarchy_Inclusion</a></td>
+        <td class="CFunction"><a
+        name="quadrant_related"></a>quadrant_related;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Hierarchy_Inclusion.htm">SE_Hierarchy_Inclusion</a></td>
+        <td class="CFunction"><a
+        name="separating_plane"></a>separating_plane;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Hierarchy_Inclusion.htm">SE_Hierarchy_Inclusion</a></td>
+        <td class="CFunction"><a
+        name="spatial_index_related"></a>spatial_index_related;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Hierarchy_Inclusion.htm">SE_Hierarchy_Inclusion</a></td>
+        <td class="CFunction"><a name="state_related"></a>state_related;</td></tr>
+<tr><td>   </td><td>/*</td></tr>
+<tr><td>   </td> <td colspan = 3>* Hierarchy types for which inclusion rules can be specified</td></tr>
+<TR> <td>   </td> <td colspan = 3>* for various subclasses of the hierarchies:</td></tr>
+<tr><td>   </td><td> */</td></tr>
+
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../drm/types/SE_Boolean.htm">SE_Boolean</a></td>
+        <td class="CFunction"><a name="lod_related"></a>lod_related;</td><td class="CFunction"><sup><A href="#Notes_lod_related">1</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Hierarchy_Inclusion.htm">SE_Hierarchy_Inclusion</a></td>
+        <td class="CFunction"><a
+        name="lod_distance_related"></a>lod_distance_related;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Hierarchy_Inclusion.htm">SE_Hierarchy_Inclusion</a></td>
+        <td class="CFunction"><a
+        name="lod_index_related"></a>lod_index_related;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Hierarchy_Inclusion.htm">SE_Hierarchy_Inclusion</a></td>
+        <td class="CFunction"><a
+        name="lod_map_scale_related"></a>lod_map_scale_related;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Hierarchy_Inclusion.htm">SE_Hierarchy_Inclusion</a></td>
+        <td class="CFunction"><a
+        name="lod_spatial_resolution_related"></a>lod_spatial_resolution_related;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Hierarchy_Inclusion.htm">SE_Hierarchy_Inclusion</a></td>
+        <td class="CFunction"><a
+        name="lod_volume_related"></a>lod_volume_related;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../drm/types/SE_Boolean.htm">SE_Boolean</a></td>
+        <td class="CFunction"><a name="time_related"></a>time_related;</td><td class="CFunction"><sup><A href="#Notes_time_related">2</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Hierarchy_Inclusion.htm">SE_Hierarchy_Inclusion</a></td>
+        <td class="CFunction"><a
+        name="time_related_by_season"></a>time_related_by_season;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Hierarchy_Inclusion.htm">SE_Hierarchy_Inclusion</a></td>
+        <td class="CFunction"><a
+        name="time_related_by_time_interval"></a>time_related_by_time_interval;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Hierarchy_Inclusion.htm">SE_Hierarchy_Inclusion</a></td>
+        <td class="CFunction"><a
+        name="time_related_by_time_of_day"></a>time_related_by_time_of_day;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Hierarchy_Inclusion.htm">SE_Hierarchy_Inclusion</a></td>
+        <td class="CFunction"><a
+        name="time_related_by_time_point"></a>time_related_by_time_point;</td></tr>
+<tr><td>   </td><td>/*</td></tr>
+<tr><td>   </td> <td colspan = 3>* Hierarchy types for which inclusion rules cannot be specified:</td></tr>
+<tr><td>   </td><td> */</td></tr>
+
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../drm/types/SE_Boolean.htm">SE_Boolean</a></td>
+        <td class="CFunction"><a
+        name="perimeter_related"></a>perimeter_related;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../drm/types/SE_Boolean.htm">SE_Boolean</a></td>
+        <td class="CFunction"><a
+        name="union_of_features"></a>union_of_features;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../drm/types/SE_Boolean.htm">SE_Boolean</a></td>
+        <td class="CFunction"><a
+        name="union_of_geometry_hierarchies"></a>union_of_geometry_hierarchies;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../drm/types/SE_Boolean.htm">SE_Boolean</a></td>
+        <td class="CFunction"><a
+        name="union_of_geometry_primitives"></a>union_of_geometry_primitives;</td></tr>
+</table>
+<span class="Code">
+} SE_General_Hierarchy_Select;</span>
+<br>
+
+<br>
+<HR>
+<H2>Field Notes</H2>
+<h4><a href="#lod_related" name="Notes_lod_related">lod_related</a></h4>
+<P>
+ if false, assume each of the next five fields are set to
+ <A href="SE_Hierarchy_Inclusion.htm#SE_HIERINC_EXCLUDE_ALL">SE_HIERINC_EXCLUDE_ALL</A>
+</P>
+<h4><a href="#time_related" name="Notes_time_related">time_related</a></h4>
+<P>
+ if false, assume each of the next five fields are set to
+ <A href="SE_Hierarchy_Inclusion.htm#SE_HIERINC_EXCLUDE_ALL">SE_HIERINC_EXCLUDE_ALL</A>
+</P>
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SE_General_Hierarchy_Order.htm">SE_General_Hierarchy_Order</a>.
+<strong>Next:</strong> <a href="SE_Hierarchy_Inclusion.htm">SE_Hierarchy_Inclusion</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

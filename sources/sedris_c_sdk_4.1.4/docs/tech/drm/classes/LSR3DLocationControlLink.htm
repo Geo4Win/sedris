@@ -1,0 +1,204 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>LSR 3D Location Control Link</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+LSR 3D Location Control Link
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: LSR 3D Location Control Link</h2>
+<h3>Superclass - <a href="ControlLink.htm">&lt;Control Link&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class is a specialized
+ <A href="ControlLink.htm">&lt;Control Link&gt;</A> instance used to provide
+ the connection between an ordered aggregation
+ of <A href="Expression.htm">&lt;Expression&gt;</A> components and
+ the target fields of the <A href="LSR3DLocation.htm">&lt;LSR 3D Location&gt;</A>
+ instances that aggregate it.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet17.pdf"><strong>17</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet15.pdf"><strong>15</strong></A>
+</LI>
+</UL>
+
+<h3>Example</h3>
+<OL>
+<LI><P>
+ Consider a building <A href="Model.htm">&lt;Model&gt;</A> instance that may be referenced
+ on terrain polygons that are at various different orientations. Each
+ building wall shall meet the terrain, leaving no gaps. This means that
+ the lengths of the walls of the building shall be adjusted by different
+ amounts in each instance to match the slope of the ground.
+</P><P>
+ The location of each <A href="Vertex.htm">&lt;Vertex&gt;</A> component at the base of
+ a <A href="Polygon.htm">&lt;Polygon&gt;</A> instance representing a wall can be adjusted by
+ using an <A href="LSR3DLocationControlLink.htm">&lt;LSR 3D Location Control Link&gt;</A> component of the
+ <A href="LSR3DLocation.htm">&lt;LSR 3D Location&gt;</A> instance that specifies the location of the
+ <A href="Vertex.htm">&lt;Vertex&gt;</A> instance. Each
+ <A href="LSR3DLocationControlLink.htm">&lt;LSR 3D Location Control Link&gt;</A> instance itself has a
+ <A href="Variable.htm">&lt;Variable&gt;</A> component, which specifies the new location value.
+ These <A href="Variable.htm">&lt;Variable&gt;</A> components shall be set separately for each
+ instance to match the terrain upon which the instance is positioned.
+ This calls for the <A href="Variable.htm">&lt;Variable&gt;</A> components to be set from
+ outside the building <A href="Model.htm">&lt;Model&gt;</A> instance, so all of these
+ <A href="Variable.htm">&lt;Variable&gt;</A> instances in the
+ building <A href="Model.htm">&lt;Model&gt;</A> instance shall be associated with the
+ <A href="InterfaceTemplate.htm">&lt;Interface Template&gt;</A> component of the
+ <A href="Model.htm">&lt;Model&gt;</A> instance.
+</P></LI>
+<LI><P>
+ See also the <A href="InterfaceTemplate.htm">&lt;Interface Template&gt;</A> class and the
+ <A href="ModelInstanceTemplateIndex.htm">&lt;Model Instance Template Index&gt;</A> class.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<p>
+No FAQs supplied.
+</p>
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ControlLinkConstraints.htm">&lt;&lt;Control Link Constraints&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Composed of (two-way) (inherited)</h3>
+<UL>
+<li>one or more {ordered} <a href="Expression.htm">&lt;Expression&gt;</a> instances</li>
+</UL>
+<h3>Component of (two-way)</h3>
+<UL>
+<li>one or more <a href="LSR3DLocation.htm">&lt;LSR 3D Location&gt;</a> instances</li>
+</UL>
+
+<h2><a name="inherited_field">Inherited Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_String.htm">SE_String</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="description">description</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_description">1</A></sup></p></td>
+</tr>
+</table>
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="u_expression_index">u_expression_index</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_u_expression_index">2</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="v_expression_index">v_expression_index</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_v_expression_index">3</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="w_expression_index">w_expression_index</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_w_expression_index">4</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Fields Notes</h3>
+<h4><a href="#description" name="Notes_description">description</a></h4>
+<P>
+ The <A href="#description">description</A> field
+ specifies a text description of the purpose of the
+ <A href="ControlLink.htm">&lt;Control Link&gt;</A> instance.
+</P>
+<h4><a href="#u_expression_index" name="Notes_u_expression_index">u_expression_index</a></h4>
+<P>
+ The <A href="#u_expression_index">u_expression_index</A> field
+ is a one-based index into the ordered aggregation of
+ <A href="Expression.htm">&lt;Expression&gt;</A> components and is used to select the specific
+ <A href="Expression.htm">&lt;Expression&gt;</A> component (if any) that controls the
+ <A href="../../srm/types/SRM_Euclidean_3D_Coordinate.htm#u">u</A> field values of the
+ <A href="LSR3DLocation.htm#coordinate">coordinate</A>
+ field(s) of the target <A href="LSR3DLocation.htm">&lt;LSR 3D Location&gt;</A> instances.
+ If the value is zero, the
+ <A href="../../srm/types/SRM_Euclidean_3D_Coordinate.htm#u">u</A> field of those
+ <A href="LSR3DLocation.htm">&lt;LSR 3D Location&gt;</A> instance(s) is not controlled.
+</P>
+<h4><a href="#v_expression_index" name="Notes_v_expression_index">v_expression_index</a></h4>
+<P>
+ The <A href="#v_expression_index">v_expression_index</A> field
+ is a one-based index into the ordered aggregation of
+ <A href="Expression.htm">&lt;Expression&gt;</A> components and is used to select the specific
+ <A href="Expression.htm">&lt;Expression&gt;</A> component (if any) that controls the
+ <A href="../../srm/types/SRM_Euclidean_3D_Coordinate.htm#v">v</A> field values of the
+ <A href="LSR3DLocation.htm#coordinate">coordinate</A>
+ field(s) of the target <A href="LSR3DLocation.htm">&lt;LSR 3D Location&gt;</A> instances.
+ If the value is zero, the
+ <A href="../../srm/types/SRM_Euclidean_3D_Coordinate.htm#v">v</A> field of those
+ <A href="LSR3DLocation.htm">&lt;LSR 3D Location&gt;</A> instance(s) is not controlled.
+</P>
+<h4><a href="#w_expression_index" name="Notes_w_expression_index">w_expression_index</a></h4>
+<P>
+ The <A href="#w_expression_index">w_expression_index</A> field
+ is a one-based index into the ordered aggregation of
+ <A href="Expression.htm">&lt;Expression&gt;</A> components and is used to select the specific
+ <A href="Expression.htm">&lt;Expression&gt;</A> component (if any) that controls the
+ <A href="../../srm/types/SRM_Euclidean_3D_Coordinate.htm#w">w</A> field values of the
+ <A href="LSR3DLocation.htm#coordinate">coordinate</A>
+ field(s) of the target <A href="LSR3DLocation.htm">&lt;LSR 3D Location&gt;</A> instances.
+ If the value is zero, the
+ <A href="../../srm/types/SRM_Euclidean_3D_Coordinate.htm#w">w</A> field of those
+ <A href="LSR3DLocation.htm">&lt;LSR 3D Location&gt;</A> instance(s) is not controlled.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="LSR3DLocation.htm">LSR 3D Location</A>.
+<strong>Next:</strong> <A href="LSRTransformation.htm">LSR Transformation</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

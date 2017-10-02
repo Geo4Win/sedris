@@ -1,0 +1,173 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE GetRemainingPackedHierarchiesList</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+SE GetRemainingPackedHierarchiesList
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../types/SE_Return_Code.htm">SE_Return_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SE_GetRemainingPackedHierarchiesList</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/SE_Iterator.htm">SE_Iterator</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="iterator"></a>iterator,</td><td class="CFunction"><sup><A href="#Notes_iterator">1</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../../drm/types/SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="hierarchy_depth"></a>hierarchy_depth,</td><td class="CFunction"><sup><A href="#Notes_hierarchy_depth">2</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/SE_Remaining_Packed_Hierarchies_List.htm">SE_Remaining_Packed_Hierarchies_List</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="remaining_hierarchies"></a>remaining_hierarchies</td><td class="CFunction"><sup><A href="#Notes_remaining_hierarchies">3</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+ This function iterates over the remaining objects available through
+ the iterator specified by <A href="#iterator">iterator</A> and
+ returns packed hierarchies
+ for all of them at one time. The number of remaining packed hierarchies
+ and each packed hierarchy are returned in
+<A href="#remaining_hierarchies">remaining_hierarchies</A>.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A>
+</td><td class="Status">
+ and the data is returned.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A>
+</td><td class="Status">
+ and the status code is set appropriately if the call failed.
+</td></tr>
+</table>
+
+<h3>Status Codes</h3>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A> is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_SUCCESS">SE_STATCODE_SUCCESS</A>
+</td><td class="Status">
+ set if valid parameters were passed in and the call was successful.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_DIFFERENT_TRANSMITTAL">SE_STATCODE_DIFFERENT_TRANSMITTAL</A>
+</td><td class="Status">
+ set if valid parameters were passed in, objects were left that have
+ not yet been returned, and one or more objects encountered were
+ contained in different transmittals than the iterator's
+ start object.
+</td></tr>
+</table>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A> is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_UNRESOLVED_OUTPUT_OBJECT">SE_STATCODE_UNRESOLVED_OUTPUT_OBJECT</A>
+</td><td class="Status">
+ set if valid parameters were passed in, objects were left that have
+ not yet been returned, and one or more objects encountered were not
+ resolved. In this case, the
+ <A href="../types/SE_Packed_Hierarchy_Object.htm#status_code">status_code</A> field
+ is set to
+ <A href="../types/SE_Status_Code.htm#SE_STATCODE_UNRESOLVED_OUTPUT_OBJECT">SE_STATCODE_UNRESOLVED_OUTPUT_OBJECT</A> in each of
+ the <A href="../types/SE_Packed_Hierarchy_Object.htm">SE_Packed_Hierarchy_Object</A> data structures for those objects
+ that are unresolved.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_NO_OBJECT">SE_STATCODE_NO_OBJECT</A>
+</td><td class="Status">
+ set if the iterator is out of objects to return.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_INACTIONABLE_FAILURE">SE_STATCODE_INACTIONABLE_FAILURE</A>
+</td><td class="Status">
+ set if
+<OL>
+<LI><A href="#iterator">iterator</A> is not valid, or
+</LI>
+<LI> the call fails for any other reason.
+</LI>
+</OL>
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#iterator" name="Notes_iterator">1</a></sup>
+ the iterator whose remaining objects will be the root of each
+    hierarchy returned.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#hierarchy_depth" name="Notes_hierarchy_depth">2</a></sup>
+ the depth to which the sub-hierarchy of each remaining
+    object is extracted below that object.  A value of 1 indicates that only
+    the components of each remaining object are to be returned.  A value of
+    0 indicates that the entire sub-hierarchy of each remaining object is
+    to be returned.
+
+    NOTE: Care must be taken when passing &quot;0&quot; for the hierarchy_depth
+          parameter.  The sub-hierarchies of non-primitive root objects can
+          be potentially large, require large amounts of memory to
+          to represent, and/or take a long time to return.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#remaining_hierarchies" name="Notes_remaining_hierarchies">3</a></sup>
+ a pointer to a
+    SE_Remaining_Packed_Hierarchies_List structure that the function will
+    fill in with the hierarchy list data.
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SE_GetRemainingObjectsList.htm">SE_GetRemainingObjectsList</a>.
+<strong>Next:</strong> <a href="SE_GetRootObject.htm">SE_GetRootObject</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

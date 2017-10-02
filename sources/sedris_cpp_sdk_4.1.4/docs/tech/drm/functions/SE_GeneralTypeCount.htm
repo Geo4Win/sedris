@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE GeneralTypeCount</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX D - Functions
+</font>
+<br>
+<font color="#ffffff">
+SE GeneralTypeCount
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../types/SE_DRM_Status_Code.htm">SE_DRM_Status_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SE_GeneralTypeCount</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/SE_Short_Integer_Positive.htm">SE_Short_Integer_Positive</a>&nbsp;</td> <td class="CFunction"><a name="major_drm_version"></a>major_drm_version,</td><td class="CFunction"><sup><A href="#Notes_major_drm_version">1</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/SE_Byte_Unsigned.htm">SE_Byte_Unsigned</a>&nbsp;</td> <td class="CFunction"><a name="minor_drm_version"></a>minor_drm_version</td><td class="CFunction"><sup><A href="#Notes_minor_drm_version">2</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+  Returns the count of SEDRIS 'typedefs' that are listed by the
+  <A href="../types/SE_DRM_Type.htm">SE_DRM_Type</A> enumeration and have their
+ meta-data available for inspection through
+ <A href="SE_GeneralGetDRMTypeStructure.htm">SE_GeneralGetDRMTypeStructure()</A>.
+ The meta-data available includes: the number and values and names of values
+ for an enumerated type, the number and types and names of fields
+ for a struct, ...
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+count of types for the specified version of the DRM
+</td><td class="Status">
+ if a valid, supported version is specified
+</td></tr>
+<tr><td class="Status">
+ 0
+</td><td class="Status">
+ if the specified version of the DRM is not supported
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#major_drm_version" name="Notes_major_drm_version">1</a></sup>
+ major DRM version number of the DRM version for which this
+ function is being called
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#minor_drm_version" name="Notes_minor_drm_version">2</a></sup>
+ minor DRM version number of the DRM version for which this
+ function is being called
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SE_GeneralTypeBasicType.htm">SE_GeneralTypeBasicType</a>.
+<strong>Next:</strong> <a href="SE_GeneralTypeName.htm">SE_GeneralTypeName</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

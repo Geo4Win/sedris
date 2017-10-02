@@ -1,0 +1,348 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Index Codes within Tables</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX B - Constraints
+</font>
+<br>
+<font color="#ffffff">
+Index Codes within Tables
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<h3>Definition</h3>
+<OL type='a'>
+<LI><P>
+ Consider a <A href="../classes/DataTable.htm">&lt;Data Table&gt;</A> instance <span class="ConstructName">D</span>
+ with a <A href="../classes/TablePropertyDescription.htm">&lt;Table Property Description&gt;</A> component
+ <span class="ConstructName">X</span>, where <span class="ConstructName">X</span> has
+ <A href="../classes/TablePropertyDescription.htm#meaning">meaning</A> value
+ of <A href="../types/SE_Index_Code.htm#SE_IDXCODE_DATA_TABLE_LIBRARY">SE_IDXCODE_DATA_TABLE_LIBRARY</A>.
+</P><P>
+ For each corresponding cell value <span class="ConstructName">C</span> in
+ <span class="ConstructName">D</span>, if <span class="ConstructName">C</span> is not a sentinel
+ value for missing or excluded, <span class="ConstructName">C</span> is an index
+ into the ordered set of <A href="../classes/DataTable.htm">&lt;Data Table&gt;</A> components of a
+ <A href="../classes/DataTableLibrary.htm">&lt;Data Table Library&gt;</A> instance where
+</P>
+<OL type='1'>
+<LI><P>
+ The transmittal in which <span class="ConstructName">D</span> resides shall have a
+ <A href="../classes/DataTableLibrary.htm">&lt;Data Table Library&gt;</A> instance <span class="ConstructName">L</span>,
+</P></LI>
+<LI><P>
+ <span class="ConstructName">L</span> shall have at least N ordered
+ <A href="../classes/DataTable.htm">&lt;Data Table&gt;</A> components,
+</P></LI>
+<LI><P>
+ The N<sup>th</sup> <A href="../classes/DataTable.htm">&lt;Data Table&gt;</A> component of
+ <span class="ConstructName">L</span> shall have a
+ <A href="../classes/ClassificationData.htm">&lt;Classification Data&gt;</A> component, the
+ <A href="../classes/ClassificationData.htm#tag">tag</A> of which matches the
+ <A href="../classes/TablePropertyDescription.htm#component_data_table_ecc">component_data_table_ecc</A>
+ of <span class="ConstructName">X</span>.
+</P>
+<OL type='i'>
+<LI><P>
+ If the <A href="../classes/ClassificationData.htm">&lt;Classification Data&gt;</A> component of the referenced
+ N<sup>th</sup>
+ <A href="../classes/DataTable.htm">&lt;Data Table&gt;</A> instance has no <A href="../classes/PropertyValue.htm">&lt;Property Value&gt;</A>
+ components, <span class="ConstructName">X</span> shall have none.
+</P></LI>
+<LI><P>
+ If the <A href="../classes/ClassificationData.htm">&lt;Classification Data&gt;</A> component of the referenced
+ N<sup>th</sup>
+ <A href="../classes/DataTable.htm">&lt;Data Table&gt;</A> instance has j <A href="../classes/PropertyValue.htm">&lt;Property Value&gt;</A>
+ components, <span class="ConstructName">X</span> shall have exactly j matching
+ <A href="../classes/PropertyValue.htm">&lt;Property Value&gt;</A> components.
+</P></LI>
+</OL>
+</LI>
+</OL>
+</LI>
+<LI><P>
+ Consider a <A href="../classes/DataTable.htm">&lt;Data Table&gt;</A> instance <span class="ConstructName">D</span>, with a
+ <A href="../classes/TablePropertyDescription.htm">&lt;Table Property Description&gt;</A> component <span class="ConstructName">X</span>,
+ where <span class="ConstructName">X</span> has
+ <A href="../classes/TablePropertyDescription.htm#meaning">meaning</A> value of
+ <A href="../types/SE_Index_Code.htm#SE_IDXCODE_DATA_TABLE_COMPONENT">SE_IDXCODE_DATA_TABLE_COMPONENT</A>.
+</P><P>
+ For each corresponding cell value <span class="ConstructName">C</span> in
+ <span class="ConstructName">D</span>,
+ if <span class="ConstructName">C</span> is not a sentinel value for missing
+ or excluded, <span class="ConstructName">C</span> is an index into the ordered set
+ of <A href="../classes/DataTable.htm">&lt;Data Table&gt;</A> components of <span class="ConstructName">D</span>, where
+</P>
+<OL type='1'>
+<LI><P>
+ <span class="ConstructName">D</span> shall have at least
+ N ordered <A href="../classes/DataTable.htm">&lt;Data Table&gt;</A> components,
+</P></LI>
+<LI><P>
+ The N<sup>th</sup> <A href="../classes/DataTable.htm">&lt;Data Table&gt;</A>
+ component of <span class="ConstructName">D</span>
+ shall have a <A href="../classes/ClassificationData.htm">&lt;Classification Data&gt;</A> component, the
+ <A href="../classes/ClassificationData.htm#tag">tag</A> of which matches the
+ <A href="../classes/TablePropertyDescription.htm#component_data_table_ecc">component_data_table_ecc</A>
+ of <span class="ConstructName">X</span>.
+</P>
+<OL type='i'>
+<LI><P>
+ If the <A href="../classes/ClassificationData.htm">&lt;Classification Data&gt;</A> component of the
+ referenced N<sup>th</sup>
+ <A href="../classes/DataTable.htm">&lt;Data Table&gt;</A> instance has
+ no <A href="../classes/PropertyValue.htm">&lt;Property Value&gt;</A> components,
+ <span class="ConstructName">X</span> shall have none.
+</P></LI>
+<LI><P>
+ If the <A href="../classes/ClassificationData.htm">&lt;Classification Data&gt;</A> component of
+ the referenced N<sup>th</sup> <A href="../classes/DataTable.htm">&lt;Data Table&gt;</A>
+ instance has j <A href="../classes/PropertyValue.htm">&lt;Property Value&gt;</A> components,
+ <span class="ConstructName">X</span> shall have exactly j matching
+ <A href="../classes/PropertyValue.htm">&lt;Property Value&gt;</A> instances.
+</P></LI>
+</OL>
+</LI>
+</OL>
+</LI>
+<LI><P>
+ Consider a <A href="../classes/DataTable.htm">&lt;Data Table&gt;</A> instance
+ <span class="ConstructName">D</span>, with a
+ <A href="../classes/TablePropertyDescription.htm">&lt;Table Property Description&gt;</A> component
+ <span class="ConstructName">X</span>, where <span class="ConstructName">X</span> has a
+ <A href="../classes/TablePropertyDescription.htm#meaning">meaning</A>
+ value of
+ <A href="../types/SE_Index_Code.htm#SE_IDXCODE_PROP_TABLE_REF_COMPONENT">SE_IDXCODE_PROP_TABLE_REF_COMPONENT</A>.
+</P><P>
+ For each corresponding cell value <span class="ConstructName">C</span> in
+ <span class="ConstructName">D</span>, if <span class="ConstructName">C</span> is not a
+ sentinel value for missing or excluded,
+ <span class="ConstructName">C</span> is an index into the ordered set
+ of <A href="../classes/PropertyTableReference.htm">&lt;Property Table Reference&gt;</A>
+ components of <span class="ConstructName">D</span>, where
+</P>
+<OL type='1'>
+<LI><P>
+ <span class="ConstructName">D</span> shall have at least
+ N ordered
+ <A href="../classes/PropertyTableReference.htm">&lt;Property Table Reference&gt;</A> components,
+</P></LI>
+<LI><P>
+ The N<sup>th</sup>
+ <A href="../classes/PropertyTableReference.htm">&lt;Property Table Reference&gt;</A> component
+ of <span class="ConstructName">D</span> shall refer to a
+ <A href="../classes/PropertyTable.htm">&lt;Property Table&gt;</A> instance such that
+ the <A href="../classes/ClassificationData.htm#tag">tag</A> of its
+ <A href="../classes/ClassificationData.htm">&lt;Classification Data&gt;</A> component matches the
+<A href="../classes/TablePropertyDescription.htm#component_data_table_ecc">component_data_table_ecc</A>
+ of <span class="ConstructName">X</span>.
+</P>
+<OL type='i'>
+<LI><P>
+ If the <A href="../classes/ClassificationData.htm">&lt;Classification Data&gt;</A> component of the referenced
+ <A href="../classes/PropertyTable.htm">&lt;Property Table&gt;</A> instance has no
+ <A href="../classes/PropertyValue.htm">&lt;Property Value&gt;</A> components, <span class="ConstructName">X</span> shall
+ have none.
+</P></LI>
+<LI><P>
+ If the <A href="../classes/ClassificationData.htm">&lt;Classification Data&gt;</A> component of the referenced
+ <A href="../classes/PropertyTable.htm">&lt;Property Table&gt;</A> instance has j
+ <A href="../classes/PropertyValue.htm">&lt;Property Value&gt;</A> components,
+ <span class="ConstructName">X</span> shall have exactly j matching
+ <A href="../classes/PropertyValue.htm">&lt;Property Value&gt;</A> components.
+</P></LI>
+</OL>
+</LI>
+</OL>
+<LI><P>
+ Consider a <A href="../classes/DataTable.htm">&lt;Data Table&gt;</A> instance <span class="ConstructName">D</span>, with a
+ <A href="../classes/TablePropertyDescription.htm">&lt;Table Property Description&gt;</A> component <span class="ConstructName">X</span>,
+ where <span class="ConstructName">X</span> has
+ <A href="../classes/TablePropertyDescription.htm#meaning">meaning</A> value
+ specified by an EAC. If <span class="ConstructName">X</span> has
+ <A href="../classes/PropertyValue.htm">&lt;Property Value&gt;</A> components,
+ they qualify the <A href="../classes/TablePropertyDescription.htm#meaning">meaning</A>
+ value of <span class="ConstructName">X</span>.
+</P></LI>
+<LI><P>
+ A <A href="../classes/TablePropertyDescription.htm">&lt;Table Property Description&gt;</A> instance that is not
+ covered by b, c, d, or e above shall have no
+ <A href="../classes/PropertyValue.htm">&lt;Property Value&gt;</A> components.
+</P></LI>
+<LI><P>
+ Consider a <A href="../classes/DataTable.htm">&lt;Data Table&gt;</A> instance <span class="ConstructName">D</span>, with a
+ <A href="../classes/TablePropertyDescription.htm">&lt;Table Property Description&gt;</A> component <span class="ConstructName">X</span>,
+ where <span class="ConstructName">X</span> has
+ a <A href="../classes/TablePropertyDescription.htm#meaning">meaning</A> value of
+ <A href="../types/SE_Index_Code.htm#SE_IDXCODE_IMAGE_MAPPING_FUNCTION">SE_IDXCODE_IMAGE_MAPPING_FUNCTION</A>.
+</P><P>
+ For each corresponding cell value <span class="ConstructName">C</span> in
+ <span class="ConstructName">D</span>, if N is not a
+ sentinel value for missing or excluded,
+ N is an index into the ordered set of
+ <A href="../classes/ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</A> components of
+ <span class="ConstructName">D</span>, where <span class="ConstructName">D</span> shall have
+ at least N ordered
+ <A href="../classes/ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</A> components.
+</P></LI>
+</OL>
+
+<h3>Rationale</h3>
+<OL>
+<LI><P>
+ The <A href="../types/SE_Index_Code.htm">SE_Index_Code</A> enumerants that exist to
+ allow cells within <A href="../classes/DataTable.htm">&lt;Data Table&gt;</A> instances to
+ reference <A href="../classes/DataTableLibrary.htm">&lt;Data Table Library&gt;</A>
+ <A href="../classes/DataTable.htm">&lt;Data Table&gt;</A> components,
+ <A href="../classes/DataTable.htm">&lt;Data Table&gt;</A> components,
+ <A href="../classes/PropertyTableReference.htm">&lt;Property Table Reference&gt;</A> components,
+ and
+ <A href="../classes/ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</A> components
+ are meaningless for all other
+ <A href="../classes/Property.htm">&lt;Property&gt;</A> contexts.
+</P></LI>
+<LI><P>
+ The only function of <A href="../classes/PropertyValue.htm">&lt;Property Value&gt;</A> components for
+ <A href="../classes/TablePropertyDescription.htm">&lt;Table Property Description&gt;</A> instances is to provide
+ elaboration for the
+ <A href="../classes/TablePropertyDescription.htm#meaning">meaning</A> field as
+ needed, since in general, referenced <A href="../classes/DataTable.htm">&lt;Data Table&gt;</A>
+ instances are distinguished only by their classification (which may
+ be elaborated).
+</P></LI>
+</OL>
+<h3>Example</h3>
+<OL>
+<LI><P>
+ Consider a <A href="../classes/PropertyTable.htm">&lt;Property Table&gt;</A> instance
+ containing two
+ <A href="../classes/TablePropertyDescription.htm">&lt;Table Property Description&gt;</A>
+ instances defining indexes to sub-tables
+ (that is, two elements in each cell are such indexes, and the
+ <A href="../classes/PropertyTable.htm">&lt;Property Table&gt;</A> itself has two
+ component <A href="../classes/PropertyTable.htm">&lt;Property Table&gt;</A> instances).
+</P><P>
+ The first index references sub-tables classified by
+ <A href="../../../../src/lib/edcs/docs/dictionary/ECC_W.htm#ECC_WATERBODY_ACOUSTIC_PROPERTY_SET">ECC_WATERBODY_ACOUSTIC_PROPERTY_SET</A> with
+ <A href="../classes/PropertyValue.htm">&lt;Property Value&gt;</A> elaboration
+ <A href="../../../../src/lib/edcs/docs/dictionary/EAC_F.htm#EAC_FREQUENCY">EAC_FREQUENCY</A> = 100 Hz.
+</P><P>
+ The second index references sub-tables classified by
+ <A href="../../../../src/lib/edcs/docs/dictionary/ECC_W.htm#ECC_WATERBODY_ACOUSTIC_PROPERTY_SET">ECC_WATERBODY_ACOUSTIC_PROPERTY_SET</A> with
+ <A href="../classes/PropertyValue.htm">&lt;Property Value&gt;</A> elaboration
+ <A href="../../../../src/lib/edcs/docs/dictionary/EAC_F.htm#EAC_FREQUENCY">EAC_FREQUENCY</A> = 2000 Hz.
+</P>
+<PRE>
+    &lt;Property Table&gt;
+     &lt;&gt;
+     |
+     |
+     |---- &lt;Table Property Description&gt;
+     |     meaning =
+     |        { SE_ELEMTYPCOD_INDEX,
+     |          { SE_IDXCODE_DATA_TABLE_COMPONENT }}
+     |      &lt;&gt;
+     |      |
+     |     &lt;Classification Data&gt;
+     |     ECC_WATERBODY_ACOUSTIC_PROPERTY_SET
+     |      &lt;&gt;
+     |      |
+     |      |---- &lt;Property Value&gt;
+     |      |     meaning = {SE_PROPCODTYP_ATTRIBUTE,
+     |      |                 {EAC_PROPERTY_SET_SPATIAL_DOMAIN}
+     |      |     value = {EDCS_AVT_ENUMERATION,
+     |      |               {EEC_PRPSETSPATDMN_SURFACE}}
+     |      |
+     |      |---- &lt;Property Value&gt;
+     |      |     meaning = {SE_PROPCODTYP_ATTRIBUTE,
+     |      |                 {EAC_WATERBODY_PROPERTY_SET_ACOUSTIC_TYPE}
+     |      |     value = {EDCS_AVT_ENUMERATION,
+     |      |               {EEC_WTRBDPRPSTACTY_LOSS}}
+     |      |
+     |      |---- &lt;Property Value&gt;
+     |            meaning = {SE_PROPCODTYP_ATTRIBUTE,
+     |                        {EAC_FREQUENCY}
+     |            value   = {EDCS_AVT_REAL,
+     |                       {EUC_HERTZ, ESC_UNI,
+     |                        {EDCS_NVT_SINGLE_VALUE, {100.0}}
+     |                       }
+     |                      }
+     |
+     |
+     |---- &lt;Table Property Description&gt;
+           meaning =
+              { SE_ELEMTYPCOD_INDEX,
+                { SE_IDXCODE_DATA_TABLE_COMPONENT }}
+            &lt;&gt;
+            |
+           &lt;Classification Data&gt;
+           ECC_WATERBODY_ACOUSTIC_PROPERTY_SET
+            &lt;&gt;
+            |
+            |---- &lt;Property Value&gt;
+            |     meaning = {SE_PROPCODTYP_ATTRIBUTE,
+            |                 {EAC_PROPERTY_SET_SPATIAL_DOMAIN}
+            |     value = {EDCS_AVT_ENUMERATION,
+            |               {EEC_PRPSETSPATDMN_SURFACE}}
+            |
+            |---- &lt;Property Value&gt;
+            |     meaning = {SE_PROPCODTYP_ATTRIBUTE,
+            |                 {EAC_WATERBODY_PROPERTY_SET_ACOUSTIC_TYPE}
+            |     value = {EDCS_AVT_ENUMERATION,
+            |               {EEC_WTRBDPRPSTACTY_LOSS}}
+            |
+            |---- &lt;Property Value&gt;
+                  meaning = {SE_PROPCODTYP_ATTRIBUTE,
+                              {EAC_FREQUENCY}
+                  value   = {EDCS_AVT_REAL,
+                             {EUC_HERTZ, ESC_UNI,
+                              {EDCS_NVT_SINGLE_VALUE, {2000.0}}
+                            }
+                            }
+</PRE>
+</LI>
+</OL>
+
+<h3>FAQs</h3>
+<p>
+No FAQs supplied.
+</p>
+
+<hr>
+<strong>Prev:</strong> <A href="ImageMappingFunctionsandTextureCoordinates.htm">Image Mapping Functions and Texture Coordinates</A>.
+<strong>Next:</strong> <A href="InheritanceRuleForLocation.htm">Inheritance Rule For Location</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

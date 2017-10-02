@@ -1,0 +1,232 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Primitive Colour</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Primitive Colour
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Primitive Colour</h2>
+<h3>Superclass - <a href="SEDRISAbstractBase.htm">&lt;SEDRIS Abstract Base&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies a single colour, consisting
+ of individual ambient, diffuse, emissive, and specular components.
+ See <i>4.15.3 Colours and lighting</i> of ISO/IEC 18023-1.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet14.pdf"><strong>14</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+This class appears on only one page of the DRM class diagram.
+<h3>Example</h3>
+<OL>
+<LI><P>
+ Consider a <A href="GeometryModelInstance.htm">&lt;Geometry Model Instance&gt;</A>
+ instance of a computer monitor, placed on top of a
+ <A href="GeometryModelInstance.htm">&lt;Geometry Model Instance&gt;</A> instance
+ of a desk.
+ A <A href="PositionalLight.htm">&lt;Positional Light&gt;</A> instance
+ affecting the two objects is located so that the illumination is directed
+ from above. Assume that these instances are present within
+ an environment simulating an ordinary room.
+</P><P>
+ Each <A href="Polygon.htm">&lt;Polygon&gt;</A> instance within the desk
+ <A href="Model.htm">&lt;Model&gt;</A> instance has an <A href="InlineColour.htm">&lt;Inline Colour&gt;</A>
+ component, which in turn has
+ a <A href="PrimitiveColour.htm">&lt;Primitive Colour&gt;</A> component with both
+ an <A href="AmbientColour.htm">&lt;Ambient Colour&gt;</A> component and a
+ <A href="DiffuseColour.htm">&lt;Diffuse Colour&gt;</A> component. Due to the
+ <A href="DiffuseColour.htm">&lt;Diffuse Colour&gt;</A> component,
+ the area of the desk
+ under the monitor that is visible to the observer appears to be in shadow.
+ However, the shadowy area is not totally blacked out because the
+ <A href="AmbientColour.htm">&lt;Ambient Colour&gt;</A> instance simulates the effect
+ due to light reflected from the other parts of the environment
+ (<I>e.g.</I>, walls, ceiling, and other objects) that reach
+ that area.
+</P></LI>
+<LI><P>
+ Consider a <A href="Line.htm">&lt;Line&gt;</A> instance used to simulate a line of
+ runway lights. The <A href="Colour.htm">&lt;Colour&gt;</A> component of the
+ <A href="Line.htm">&lt;Line&gt;</A> instance resolves to a
+ <A href="PrimitiveColour.htm">&lt;Primitive Colour&gt;</A> instance
+ consisting primarily (possibly completely) of
+ an <A href="EmissiveColour.htm">&lt;Emissive Colour&gt;</A> instance
+ since the <A href="Line.htm">&lt;Line&gt;</A> instance is pretending to emit
+ light.
+</P></LI>
+<LI><P>
+ Consider a collection of <A href="Polygon.htm">&lt;Polygon&gt;</A> instances used to
+ represent the surface of a sunlit lake. The <A href="Colour.htm">&lt;Colour&gt;</A>
+ components of these <A href="Polygon.htm">&lt;Polygon&gt;</A> instances resolve to
+ <A href="PrimitiveColour.htm">&lt;Primitive Colour&gt;</A> instances, each of which consists of
+ an <A href="AmbientColour.htm">&lt;Ambient Colour&gt;</A> component,
+ a <A href="DiffuseColour.htm">&lt;Diffuse Colour&gt;</A> component, and
+ a <A href="SpecularColour.htm">&lt;Specular Colour&gt;</A> component.
+</P><P>
+ The <A href="AmbientColour.htm">&lt;Ambient Colour&gt;</A> component prevents any
+ <A href="Polygon.htm">&lt;Polygon&gt;</A> instances in shadow from appearing black,
+ while the <A href="DiffuseColour.htm">&lt;Diffuse Colour&gt;</A> component
+ provides most of the normal appearance of a lit object. However,
+ since water is a reflective substance, its colour requires a
+ <A href="SpecularColour.htm">&lt;Specular Colour&gt;</A>
+ component to simulate light reflected from the water.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ Does the DRM use the OpenGL lighting model?
+</B></DT>
+<DD><P>
+ No, although the terminology is similar. The DRM handles transparency
+ somewhat differently than OpenGL does, among other things. For a description
+ of the OpenGL lighting model, see <A href="../bibliography.htm#OPENGL">[OPENGL]</A>, Chapter 5
+ &quot;Lighting&quot;.
+</P></DD>
+<DT><B>
+ Consider a data provider with a very simple illumination model,
+ with no objects that glow in the dark or otherwise emit light, and
+ no reflections. How is this represented using the DRM?
+</B></DT>
+<DD><P>
+ The question has eliminated any concerns about
+ <A href="EmissiveColour.htm">&lt;Emissive Colour&gt;</A> components and
+ <A href="SpecularColour.htm">&lt;Specular Colour&gt;</A> components -- the
+ <A href="PrimitiveColour.htm">&lt;Primitive Colour&gt;</A> instances will not have them.
+ Having said that, the data provider is down to two choices --
+ <A href="AmbientColour.htm">&lt;Ambient Colour&gt;</A> and
+ <A href="DiffuseColour.htm">&lt;Diffuse Colour&gt;</A>. Here is a simplified
+ description of the effects each will provide (<I>i.e.</I>,
+ considering only one light source).
+</P><P>
+ <A href="AmbientColour.htm">&lt;Ambient Colour&gt;</A> is independent of the positions
+ of either the light source or the observer. That is, an object with only
+ <A href="AmbientColour.htm">&lt;Ambient Colour&gt;</A> appears uniformly lit across its
+ surface, regardless of where the light source is or where the observer is.
+ (This can create a very artificial-looking effect, since it distorts some of
+ the visual cues that provide depth perception.)
+</P><P>
+ <A href="DiffuseColour.htm">&lt;Diffuse Colour&gt;</A>, on the other hand, depends on
+ the angle of the lit object to the light source (although not on the
+ observer's position). An object with only
+ <A href="DiffuseColour.htm">&lt;Diffuse Colour&gt;</A>
+ will appear to be lighted on the side facing the light source,
+ while the opposite side will be in shadow. The effect is consistent with the
+ visual cues used to determine shape-from-shading in various image analysis
+ methods.
+</P><P>
+ Note that a <A href="PrimitiveColour.htm">&lt;Primitive Colour&gt;</A> instance can
+ have both an <A href="AmbientColour.htm">&lt;Ambient Colour&gt;</A> component and a
+ <A href="DiffuseColour.htm">&lt;Diffuse Colour&gt;</A> component. This indicates that
+ even if part of the environmental object being represented is in shadow,
+ it is still somewhat visible. See example #1.
+</P></DD>
+<DT><B>
+ Where are the RGB values in all this?!?
+</B></DT>
+<DD><P>
+ Each of the components of
+ a <A href="PrimitiveColour.htm">&lt;Primitive Colour&gt;</A> instance
+ has, in turn, a <A href="ColourData.htm">&lt;Colour Data&gt;</A> component, which is
+ either an <A href="RGBColour.htm">&lt;RGB Colour&gt;</A> instance,
+ an <A href="HSVColour.htm">&lt;HSV Colour&gt;</A> instance, or a
+ <A href="CMYColour.htm">&lt;CMY Colour&gt;</A> instance, depending on which
+ colour model is being used.
+</P></DD>
+<DT><B>
+ Why do <A href="ColourTable.htm">&lt;Colour Table&gt;</A> instances have
+ <A href="PrimitiveColour.htm">&lt;Primitive Colour&gt;</A> components instead of
+ <A href="InlineColour.htm">&lt;Inline Colour&gt;</A> components?
+</B></DT>
+<DD><P>
+ <A href="ColourTable.htm">&lt;Colour Table&gt;</A> instances used to be composed of
+ <A href="InlineColour.htm">&lt;Inline Colour&gt;</A> instances, but problems
+ arose since both <A href="ColourIndex.htm">&lt;Colour Index&gt;</A> and
+ <A href="InlineColour.htm">&lt;Inline Colour&gt;</A> instances can have
+ <A href="Translucency.htm">&lt;Translucency&gt;</A> components.
+ When a <A href="ColourIndex.htm">&lt;Colour Index&gt;</A> instance that has a
+ <A href="Translucency.htm">&lt;Translucency&gt;</A> component refers to an entry
+ in a <A href="ColourTable.htm">&lt;Colour Table&gt;</A> instance, the
+ interpretation is clearer if the
+ <A href="ColourTable.htm">&lt;Colour Table&gt;</A> instance's entry cannot specify
+ any additional <A href="Translucency.htm">&lt;Translucency&gt;</A> instances.
+ Consequently, <A href="PrimitiveColour.htm">&lt;Primitive Colour&gt;</A> exists
+ so that &quot;just the colour&quot; can be put into a
+ <A href="ColourTable.htm">&lt;Colour Table&gt;</A> instance.
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Composed of (two-way)</h3>
+<UL>
+<li>zero or one <a href="AmbientColour.htm">&lt;Ambient Colour&gt;</a> instance</li>
+<li>zero or one <a href="DiffuseColour.htm">&lt;Diffuse Colour&gt;</a> instance</li>
+<li>zero or one <a href="EmissiveColour.htm">&lt;Emissive Colour&gt;</a> instance</li>
+<li>zero or one <a href="SpecularColour.htm">&lt;Specular Colour&gt;</a> instance</li>
+</UL>
+
+<h3>Component of (two-way)</h3>
+<UL>
+<li>zero or one <a href="ColourTable.htm">&lt;Colour Table&gt;</a> instance</li>
+<li>zero or more <a href="InlineColour.htm">&lt;Inline Colour&gt;</a> instances</li>
+</UL>
+
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+
+<hr>
+<strong>Prev:</strong> <A href="PresentationDomain.htm">Presentation Domain</A>.
+<strong>Next:</strong> <A href="PrimitiveFeature.htm">Primitive Feature</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

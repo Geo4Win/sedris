@@ -1,0 +1,163 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Edges Bordering Faces</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX B - Constraints
+</font>
+<br>
+<font color="#ffffff">
+Edges Bordering Faces
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h3>Definition</h3>
+<OL type='a'>
+<LI><P>
+ <A href="../classes/FeatureEdge.htm">&lt;Feature Edge&gt;</A> instances have the following relationship with
+ <A href="../classes/FeatureFace.htm">&lt;Feature Face&gt;</A> instances:
+</P>
+<OL type='1'>
+<LI><P>
+ At any feature topology level, if a <A href="../classes/FeatureEdge.htm">&lt;Feature Edge&gt;</A> instance
+ <span class="ConstructName">E</span> associates to a <A href="../classes/FeatureFace.htm">&lt;Feature Face&gt;</A> instance
+ <span class="ConstructName">F</span>, <span class="ConstructName">F</span> shall have a
+ <A href="../classes/FeatureFaceRing.htm">&lt;Feature Face Ring&gt;</A> component that associates
+ to <span class="ConstructName">E</span>.
+</P></LI>
+<LI><P>
+ At feature topology level 3 or higher,
+ if a <A href="../classes/FeatureFace.htm">&lt;Feature Face&gt;</A> instance <span class="ConstructName">F</span>
+ has a <A href="../classes/FeatureFaceRing.htm">&lt;Feature Face Ring&gt;</A> component that associates to a
+ <A href="../classes/FeatureEdge.htm">&lt;Feature Edge&gt;</A> instance <span class="ConstructName">E</span>,
+ <span class="ConstructName">E</span> shall associate to <span class="ConstructName">F</span>.
+</P></LI>
+</OL>
+</LI>
+<LI><P>
+ <A href="../classes/GeometryEdge.htm">&lt;Geometry Edge&gt;</A> instances have the following
+ relationship with <A href="../classes/GeometryFace.htm">&lt;Geometry Face&gt;</A> instances.
+</P>
+<OL type='1'>
+<LI><P>
+ At any geometry topology level, if a <A href="../classes/GeometryEdge.htm">&lt;Geometry Edge&gt;</A>
+ instance <span class="ConstructName">E</span> associates to a
+ <A href="../classes/GeometryFace.htm">&lt;Geometry Face&gt;</A> instance <span class="ConstructName">F</span>,
+ <span class="ConstructName">F</span> shall associate to <span class="ConstructName">E</span>.
+</P></LI>
+<LI><P>
+ At geometry topology level 3 or higher, if a
+ <A href="../classes/GeometryFace.htm">&lt;Geometry Face&gt;</A> instance <span class="ConstructName">F</span> associates
+ to a <A href="../classes/GeometryEdge.htm">&lt;Geometry Edge&gt;</A> instance <span class="ConstructName">E</span>,
+ <span class="ConstructName">E</span> shall associate to <span class="ConstructName">F</span>.
+</P></LI>
+</OL>
+</LI>
+</OL>
+
+<h3>Rationale</h3>
+<P>
+ The associations between <A href="../classes/FeatureEdge.htm">&lt;Feature Edge&gt;</A>
+ and <A href="../classes/FeatureFace.htm">&lt;Feature Face&gt;</A> implement
+ a boundary/co-boundary relationship.  This topological relationship
+ must be consistent, and must also be consistent with the geometric
+ representations of these objects.
+</P><P>
+ The associations between <A href="../classes/GeometryEdge.htm">&lt;Geometry Edge&gt;</A>
+ and <A href="../classes/GeometryFace.htm">&lt;Geometry Face&gt;</A> implement
+ a boundary/co-boundary relationship.  This topological relationship
+ must be consistent, and must also be consistent with the geometric
+ counterparts of these objects.
+</P>
+<h3>Example</h3>
+<OL>
+<LI><P>
+ A <A href="../classes/FeatureFace.htm">&lt;Feature Face&gt;</A> instance <span class="ConstructName">F1</span> is bounded
+ by two <A href="../classes/FeatureEdge.htm">&lt;Feature Edge&gt;</A> instances <span class="ConstructName">E1</span> and
+ <span class="ConstructName">E2</span>.  <span class="ConstructName">F1</span> is associated to both
+ <span class="ConstructName">E1</span> and <span class="ConstructName">E2</span>.  Also,
+ <span class="ConstructName">E1</span> and <span class="ConstructName">E2</span> are both associated
+ to <span class="ConstructName">F1</span>.
+</P></LI>
+<LI><P>
+ A <A href="../classes/GeometryFace.htm">&lt;Geometry Face&gt;</A> instance <span class="ConstructName">F1</span> is bounded
+ by two <A href="../classes/GeometryEdge.htm">&lt;Geometry Edge&gt;</A> instances <span class="ConstructName">E1</span> and
+ <span class="ConstructName">E2</span>.  <span class="ConstructName">F1</span> is associated to both
+ <span class="ConstructName">E1</span> and <span class="ConstructName">E2</span>.  Also,
+ <span class="ConstructName">E1</span> and <span class="ConstructName">E2</span> are
+ both associated to <span class="ConstructName">F1</span>.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ Can a <A href="../classes/FeatureEdge.htm">&lt;Feature Edge&gt;</A> instance be associated with a
+ <A href="../classes/FeatureFace.htm">&lt;Feature Face&gt;</A> instance more than once?
+</B></DT>
+<DD><P>
+ Yes.  A <A href="../classes/FeatureEdge.htm">&lt;Feature Edge&gt;</A> instance that &quot;dangles&quot;
+ into the interior of a <A href="../classes/FeatureFace.htm">&lt;Feature Face&gt;</A> instance
+ <span class="ConstructName">F</span> will appear twice in the collection of
+ <A href="../classes/FeatureEdge.htm">&lt;Feature Edge&gt;</A> instances that are associated
+ with the exterior <A href="../classes/FeatureFaceRing.htm">&lt;Feature Face Ring&gt;</A> component of
+ <span class="ConstructName">F</span>, once with each orientation. A
+ <A href="../classes/FeatureEdge.htm">&lt;Feature Edge&gt;</A> instance that
+ &quot;floats&quot; within the interior of a
+ <A href="../classes/FeatureFace.htm">&lt;Feature Face&gt;</A> instance <span class="ConstructName">F</span>
+ will appear twice in the collection of <A href="../classes/FeatureEdge.htm">&lt;Feature Edge&gt;</A>
+ instances that are associated with an interior
+ <A href="../classes/FeatureFaceRing.htm">&lt;Feature Face Ring&gt;</A> component of <span class="ConstructName">F</span>,
+ once with each orientation.
+</P></DD>
+<DT><B>
+ Can a <A href="../classes/GeometryEdge.htm">&lt;Geometry Edge&gt;</A> instance be associated with a
+ <A href="../classes/GeometryFace.htm">&lt;Geometry Face&gt;</A> instance more than once?
+</B></DT>
+<DD><P>
+ Yes.  A <A href="../classes/GeometryEdge.htm">&lt;Geometry Edge&gt;</A> instance that &quot;dangles&quot;
+ into the interior of a <A href="../classes/GeometryFace.htm">&lt;Geometry Face&gt;</A> instance
+ <span class="ConstructName">F</span> will appear twice
+ in the collection of <A href="../classes/GeometryEdge.htm">&lt;Geometry Edge&gt;</A> instances that are
+ associated with <span class="ConstructName">F</span>, once with each orientation.
+</P></DD>
+</DL>
+
+
+<hr>
+<strong>Prev:</strong> <A href="DistinctTimeSignificance.htm">Distinct Time Significance</A>.
+<strong>Next:</strong> <A href="EnvironmentRootSRF.htm">Environment Root SRF</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

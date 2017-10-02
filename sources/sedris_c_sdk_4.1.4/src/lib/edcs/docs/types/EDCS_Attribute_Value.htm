@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>EDCS_Attribute_Value</title>
+<link rel="stylesheet" href="../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>EDCS Reference Manual</big></big>
+<br>
+<!-- EDCS spec. 4.4 -->
+<font color="#ffffff">
+Types
+</font>
+<br>
+<font color="#ffffff">
+EDCS_Attribute_Value
+</font>
+</th></tr>
+</table></div>
+
+<!-- EDCS SDK Release 4.4.0 -->
+
+<PRE>
+/*
+ * STRUCT: EDCS_Attribute_Value
+ *
+ *   This data type is used to specify an EDCS Attribute value.
+ */
+</PRE>
+<span class="Code">typedef struct 
+<br>
+{</span>
+<br>
+<table class="CFunctionPrototype">
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="EDCS_Attribute_Value_Type.htm">EDCS_Attribute_Value_Type</a></td>
+        <td class="CFunction"><a
+        name="attribute_value_type"></a>attribute_value_type;</td></tr>
+<tr> <td class="CFunction">   </td><td class="CFunction">union</td></tr>
+<tr> <td class="CFunction">   </td><td class="CFunction">{</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="EDCS_Long_Float_Value.htm">EDCS_Long_Float_Value</a></td>
+            <td class="CFunction"><a name="real_value"></a>real_value;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="EDCS_Integer_Value.htm">EDCS_Integer_Value</a></td>
+            <td class="CFunction"><a
+            name="integer_value"></a>integer_value;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="EDCS_Count_Value.htm">EDCS_Count_Value</a></td>
+            <td class="CFunction"><a name="count_value"></a>count_value;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="EDCS_Integer.htm">EDCS_Integer</a></td>
+            <td class="CFunction"><a name="index_value"></a>index_value;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="EDCS_String.htm">EDCS_String</a></td>
+            <td class="CFunction"><a name="string_value"></a>string_value;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="EDCS_String.htm">EDCS_String</a></td>
+            <td class="CFunction"><a
+            name="constrained_string_value"></a>constrained_string_value;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="EDCS_String.htm">EDCS_String</a></td>
+            <td class="CFunction"><a name="key_value"></a>key_value;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="EDCS_Enumerant_Code.htm">EDCS_Enumerant_Code</a></td>
+            <td class="CFunction"><a
+            name="enumeration_value"></a>enumeration_value;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="EDCS_Boolean.htm">EDCS_Boolean</a></td>
+            <td class="CFunction"><a
+            name="boolean_value"></a>boolean_value;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="EDCS_Null.htm">EDCS_Null</a></td>
+            <td class="CFunction"><a name="null_value"></a>null_value;</td></tr>
+<tr><td class="CFunction"></td> <td class="CFunction">} <a
+        name="value"></a>value;</td></tr>
+</table>
+<span class="Code">
+} EDCS_Attribute_Value;</span>
+<br>
+
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="EDCS_Attribute_Label.htm">EDCS_Attribute_Label</a>.
+<strong>Next:</strong> <a href="EDCS_Attribute_Value_Type.htm">EDCS_Attribute_Value_Type</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

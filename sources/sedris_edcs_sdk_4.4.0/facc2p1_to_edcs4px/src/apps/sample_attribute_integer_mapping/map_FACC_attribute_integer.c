@@ -1,0 +1,355 @@
+/*
+ * FILE       : map_FACC_attribute_integer.c
+ *
+ * PROGRAMMERS: Kevin Wertman (SAIC)
+ *
+ * DESCRIPTION:
+ *     This simple program takes a series of 3 character FACC 2.1 attribute
+ *     code and FACC 2.1 enumerant pairs and prints out the mapping information
+ *     to map to EDCS 4.x.
+ *
+ * Usage:
+ *   map_FACC_attribute_integer code1,enum1 code2,enum2 code3,enum3 ... codeN,enum4
+ *
+ * Options: none
+ *
+ * examples:
+ *
+ * FACC 2.1 to EDCS 4.4 Mapping SDK Release 4.4.0.0 - July 1, 2011
+ * - EDCS spec. 4.4
+ */
+
+/*
+ *                             NOTICE
+ * 
+ * This software is provided openly and freely for use in representing and
+ * interchanging environmental data & databases.
+ * 
+ * This software was developed for use by the United States Government with
+ * unlimited rights.  The software was developed under contract
+ * DASG60-02-D-0006 TO-193 by Science Applications International Corporation.
+ * The software is unclassified and is deemed as Distribution A, approved
+ * for Public Release.
+ * 
+ * Use by others is permitted only upon the ACCEPTANCE OF THE TERMS AND
+ * CONDITIONS, AS STIPULATED UNDER THE FOLLOWING PROVISIONS:
+ * 
+ *    1. Recipient may make unlimited copies of this software and give
+ *       copies to other persons or entities as long as the copies contain
+ *       this NOTICE, and as long as the same copyright notices that
+ *       appear on, or in, this software remain.
+ * 
+ *    2. Trademarks. All trademarks belong to their respective trademark
+ *       holders.  Third-Party applications/software/information are
+ *       copyrighted by their respective owners.
+ * 
+ *    3. Recipient agrees to forfeit all intellectual property and
+ *       ownership rights for any version created from the modification
+ *       or adaptation of this software, including versions created from
+ *       the translation and/or reverse engineering of the software design.
+ * 
+ *    4. Transfer.  Recipient may not sell, rent, lease, or sublicense
+ *       this software.  Recipient may, however enable another person
+ *       or entity the rights to use this software, provided that this
+ *       AGREEMENT and NOTICE is furnished along with the software and
+ *       /or software system utilizing this software.
+ * 
+ *       All revisions, modifications, created by the Recipient, to this
+ *       software and/or related technical data shall be forwarded by the
+ *       Recipient to the Government at the following address:
+ * 
+ *         SMDC
+ *         Attention SEDRIS (TO193) TPOC
+ *         P.O. Box 1500
+ *         Huntsville, AL  35807-3801
+ * 
+ *         or via electronic mail to:  se-mgmt@sedris.org
+ * 
+ *    5. No Warranty. This software is being delivered to you AS IS
+ *       and there is no warranty, EXPRESS or IMPLIED, as to its use
+ *       or performance.
+ * 
+ *       The RECIPIENT ASSUMES ALL RISKS, KNOWN AND UNKNOWN, OF USING
+ *       THIS SOFTWARE.  The DEVELOPER EXPRESSLY DISCLAIMS, and the
+ *       RECIPIENT WAIVES, ANY and ALL PERFORMANCE OR RESULTS YOU MAY
+ *       OBTAIN BY USING THIS SOFTWARE OR DOCUMENTATION.  THERE IS
+ *       NO WARRANTY, EXPRESS OR, IMPLIED, AS TO NON-INFRINGEMENT OF
+ *       THIRD PARTY RIGHTS, MERCHANTABILITY, OR FITNESS FOR ANY
+ *       PARTICULAR PURPOSE.  IN NO EVENT WILL THE DEVELOPER, THE
+ *       UNITED STATES GOVERNMENT OR ANYONE ELSE ASSOCIATED WITH THE
+ *       DEVELOPMENT OF THIS SOFTWARE BE HELD LIABLE FOR ANY CONSEQUENTIAL,
+ *       INCIDENTAL OR SPECIAL DAMAGES, INCLUDING ANY LOST PROFITS
+ *       OR LOST SAVINGS WHATSOEVER.
+ */
+
+/*
+ * COPYRIGHT 2011, SCIENCE APPLICATIONS INTERNATIONAL CORPORATION.
+ *                 ALL RIGHTS RESERVED.
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+
+#include "edcs.h"
+#include "facc2p1_to_edcs4px.h"
+
+const char *const EdcsVersionString = "4.4.x";
+const char *const ToolName = "map_FACC_attribute_integer";
+const char *const ToolVersionString = "4.4.0.0";
+const char *const BaseToolString = "%s v%s\n    (compatible with EDCS SDK %s)\n\n\n";
+
+/*
+ *----------------------------------------------------------------------------
+ *
+ * FUNCTION: print_usage_and_exit
+ *
+ *----------------------------------------------------------------------------
+ */
+static void
+print_usage_and_exit
+(
+    void
+)
+{
+    printf(
+"Usage: map_FACC_attribute_integer code1,enum1 code2,enum2 code3,enum3 ... codeN,enum4\n");
+    exit(0);
+} /* end print_usage_and_exit */
+
+
+/*
+ *----------------------------------------------------------------------------
+ *----------------------------------------------------------------------------
+ */
+static void
+process_arguments
+(
+    int   argc,
+    char *argv[]
+)
+{
+    if (argc < 2)
+    {
+        print_usage_and_exit();
+    }
+    else
+    {
+       /*
+        * Must call this function once before any EDCS_Map* functions are used
+        */
+        if (EDCS_InitFACC_2p1_MappingInfo() != EDCS_SC_SUCCESS)
+        {
+            fprintf(stderr, "Initialization of FACC Mapping Code failed\n");
+            exit(-1);
+        }
+    }
+} /* end process_arguments */
+
+/*
+ *----------------------------------------------------------------------------
+ *----------------------------------------------------------------------------
+ */
+int main
+(
+    int   argc,
+    char *argv[]
+)
+{
+    const FACC_2p1_Enumerant_Mapping_Structure *mapping_info_out_ptr = NULL;
+
+    FACC_2p1_Attribute_Code         attribute_code;
+    FACC_2p1_Attribute_Integer_Code enumerant;
+
+    EDCS_Boolean     valid_input = EDCS_TRUE;
+    EDCS_Status_Code status;
+
+    char * code_str, * enum_str;
+    int i, j;
+
+    fprintf(stderr, BaseToolString, ToolName, ToolVersionString,
+            EdcsVersionString);
+
+    process_arguments(argc, argv);
+
+    for(i = 1; i < argc; i++)
+    {
+        valid_input = EDCS_TRUE;
+        code_str = argv[i];
+        enum_str = strchr(code_str, ',');
+
+        if (enum_str == NULL)
+        {
+            fprintf(stderr,
+                    "Couldn't find integer code for FACC code %s\n",
+                    code_str);
+            valid_input = EDCS_FALSE;
+        }
+        else
+        {
+            enum_str[0] = '\0';
+            enum_str++;
+
+            if (strlen(code_str) != 3)
+            {
+                fprintf(stderr, "Valid FACC 2.1 Attribute codes "\
+                        "have 3 characters %s has %d\n",
+                        code_str, strlen(code_str));
+                valid_input = EDCS_FALSE;
+            }
+            else
+            {
+                for(j = 0; j < (int) (strlen(enum_str) - 1); j++)
+                {
+                    if (!isdigit(enum_str[j]))
+                    {
+                        valid_input = EDCS_FALSE;
+                        fprintf(stderr, "Invalid input, enumerant codes "\
+                                "must be numeric. [%s]\n", enum_str);
+                    }
+                }
+            }
+        }
+
+        if (valid_input)
+        {
+            /* prepare the FACC_2p1_Attribute with the given code */
+            strncpy(attribute_code.tag, code_str, 3);
+            enumerant = atoi(enum_str);
+
+            status = EDCS_MapFACC_2p1_AttributeIntegerCode
+                     (&attribute_code, enumerant, &mapping_info_out_ptr);
+
+            printf("FACC 2.1 code %s with enumerant %d ",
+                   code_str, enumerant);
+            if (status == EDCS_SC_SUCCESS)
+            {
+                switch (mapping_info_out_ptr->map_type)
+                {
+                    case FACC_MAP_TYP_ONE_TO_ZERO:
+                    {
+                        printf("maps to no EDCS 4.x concept. "\
+                               "The concept was deleted.\n");
+                        break;
+                    }
+                    case FACC_MAP_TYP_ONE_TO_ONE:
+                    {
+                        printf("maps exactly to the EDCS 4.x "\
+                               "attribute symbolic constant %s "\
+                               "with the enumerant symbolic constant %s\n",
+                               EDCS_PrintAttributeCode
+                               (mapping_info_out_ptr->ea_code),
+                               EDCS_PrintEnumerantCode
+                               (mapping_info_out_ptr->ea_code,
+                                mapping_info_out_ptr->ee_code));
+                        break;
+                    }
+                    case FACC_MAP_TYP_SPECIAL_CASE:
+                    {
+                        if (mapping_info_out_ptr->ea_code == 0)
+                        {
+                            printf("has a special case mapping:\n");
+                        }
+                        else
+                        {
+                            printf("maps to the EDCS 4.x attribute "\
+                                   "symbolic constant %s with the "\
+                                   "enumerant symbolic constant %s with "
+                                   "the following special case info:\n",
+                                   EDCS_PrintAttributeCode
+                                   (mapping_info_out_ptr->ea_code),
+                                   EDCS_PrintEnumerantCode
+                                   (mapping_info_out_ptr->ea_code,
+                                    mapping_info_out_ptr->ee_code));
+                        }
+                        break;
+                    }
+                    case FACC_MAP_TYP_CHANGE_TO_CHARACTERISTIC:
+                    {
+                        printf("maps to the EDCS 4.x attribute "\
+                               "symbolic constant %s with the "\
+                               "attribute value EV symbolic "\
+                               "constant %s\n",
+                               EDCS_PrintAttributeCode
+                               (mapping_info_out_ptr->entry_list[0].
+                               u.characteristic_entry.ea_code),
+                               EDCS_PrintValueCharacteristicCode
+                               (mapping_info_out_ptr->entry_list[0].
+                               u.characteristic_entry.ev_code));
+                        break;
+                    }
+                    case FACC_MAP_TYP_ONE_TO_ONE_QUALIFIED:
+                    case FACC_MAP_TYP_ONE_TO_ONE_CONDITIONAL:
+                    case FACC_MAP_TYP_CHANGE_IN_DATATYPE:
+                    {
+                        switch (mapping_info_out_ptr->map_type)
+                        {
+                            case FACC_MAP_TYP_ONE_TO_ONE_CONDITIONAL:
+                                 printf("maps conditionally to the "\
+                                   "following EDCS 4.x concepts:\n");
+                                 break;
+                            case FACC_MAP_TYP_ONE_TO_ONE_QUALIFIED:
+                                 printf("maps to the EDCS 4.x attribute "\
+                                   "symbolic constant %s with the "\
+                                   "enumerant symbolic constant %d "\
+                                   "qualified by the "\
+                                   "following concept%s:\n",
+                                  EDCS_PrintAttributeCode
+                                  (mapping_info_out_ptr->ea_code),
+                                  EDCS_PrintEnumerantCode
+                                  (mapping_info_out_ptr->ea_code,
+                                   mapping_info_out_ptr->ee_code),
+                                  (mapping_info_out_ptr->num_entries > 1
+                                  ? "s" : ""));
+                                 break;
+                            case FACC_MAP_TYP_CHANGE_IN_DATATYPE:
+                                 printf("maps to an EDCS_Attribute_Code "\
+                                   "with a different datatype:\n");
+                                 break;
+                        } /* end switch */
+
+                        /*
+                         * when the mapping type is ONE_TO_ONE_QUALIFIED,
+                         * ONE_TO_ONE_CONDITIONAL, CHANGE_IN_DATATYPE, or
+                         * CHANGE_TO_METADATA, concepts will be contained
+                         * in the entry list of the mapping structure.
+                         * The ea_code and ee_code fields in the
+                         * mapping structure will be empty and devoid of
+                         * meaning.
+                         */
+                        for (j = 0;
+                             j < mapping_info_out_ptr->num_entries;
+                             j++)
+                        {
+                            EDCS_PrintMappingEntry
+                            (
+                                &(mapping_info_out_ptr->entry_list[j]),
+                                NULL, 0
+                            );
+                        }
+                    }
+                    break;
+                    default:
+                    {
+                        fprintf(stderr, "- Error: has an unhandled "\
+                                        "mapping type code %d\n",
+                                mapping_info_out_ptr->map_type);
+                        break;
+                    }
+                }
+                if (strlen(mapping_info_out_ptr->information) > 0)
+                {
+                    printf("Notes: %s\n", mapping_info_out_ptr->information);
+                }
+            }
+            else
+            {
+                fprintf(stderr, " failed with status %s\n",
+                        EDCS_PrintStatusCode(status));
+            }
+        }
+        printf("\n");
+    }
+    return 0;
+}

@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>EDCS GetHighestCodesUsed</title>
+<link rel="stylesheet" href="../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>EDCS Reference Manual</big></big>
+<br>
+<!-- EDCS spec. 4.4 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+EDCS GetHighestCodesUsed
+</font>
+</th></tr>
+</table></div>
+
+<!-- EDCS SDK Release 4.4.0 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../types/EDCS_Status_Code.htm">EDCS_Status_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">EDCS_GetHighestCodesUsed</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/EDCS_Dictionary_Type.htm">EDCS_Dictionary_Type</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="dictionary_name"></a>dictionary_name,</td><td class="CFunction"><sup><A href="#Notes_dictionary_name">1</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/EDCS_Integer.htm">EDCS_Integer</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="standard_code_out_ptr"></a>standard_code_out_ptr,</td><td class="CFunction"><sup><A href="#Notes_standard_code_out_ptr">2</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/EDCS_Integer.htm">EDCS_Integer</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="registered_code_out_ptr"></a>registered_code_out_ptr</td><td class="CFunction"><sup><A href="#Notes_registered_code_out_ptr">3</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+ Given a dictionary type, this function will return the highest code that
+ is in the ISO standard for that dictionary, and the highest code from
+ the EDCS registry that is in this implementation.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/EDCS_Status_Code.htm#EDCS_SC_SUCCESS">EDCS_SC_SUCCESS</A>
+</td><td class="Status">
+ and <A href="#standard_code_out_ptr">standard_code_out_ptr</A>
+ and <A href="#registered_code_out_ptr">registered_code_out_ptr</A>
+ will be set to their proper values if valid parameters were passed in.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/EDCS_Status_Code.htm#EDCS_SC_NULL_REQUIRED_PARAMETER">EDCS_SC_NULL_REQUIRED_PARAMETER</A>
+</td><td class="Status">
+ and both *<A href="#standard_code_out_ptr">standard_code_out_ptr</A>
+ and *<A href="#registered_code_out_ptr">registered_code_out_ptr</A>
+ are left unchanged, if either output parameter is NULL.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/EDCS_Status_Code.htm#EDCS_SC_INVALID_INPUT_DICTIONARY">EDCS_SC_INVALID_INPUT_DICTIONARY</A>
+</td><td class="Status">
+ and both *<A href="#standard_code_out_ptr">standard_code_out_ptr</A>
+ and *<A href="#registered_code_out_ptr">registered_code_out_ptr</A>
+ will be set to zero, if the
+ <A href="#dictionary_name">dictionary_name</A> input parameter
+ is not a valid <A href="../types/EDCS_Dictionary_Type.htm">EDCS_Dictionary_Type</A>.
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#dictionary_name" name="Notes_dictionary_name">1</a></sup>
+ the EDCS dictionary for which to retrieve code
+     information
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#standard_code_out_ptr" name="Notes_standard_code_out_ptr">2</a></sup>
+ pointer to user's memory space to which the highest
+     ISO standard code will be copied
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#registered_code_out_ptr" name="Notes_registered_code_out_ptr">3</a></sup>
+ pointer to user's memory space to which the highest
+     registered code will be copied
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="EDCS_GetErrorFilePtr.htm">EDCS_GetErrorFilePtr</a>.
+<strong>Next:</strong> <a href="EDCS_GetImplVerInfo.htm">EDCS_GetImplVerInfo</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

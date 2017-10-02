@@ -1,0 +1,184 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Rotation Control Link</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Rotation Control Link
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Rotation Control Link</h2>
+<h3>Superclass - <a href="ControlLink.htm">&lt;Control Link&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class is a specialized
+ <A href="ControlLink.htm">&lt;Control Link&gt;</A> instance
+ provides the connection between an ordered aggregation of
+ <A href="Expression.htm">&lt;Expression&gt;</A> components and the target fields
+ of one or more <A href="Rotation.htm">&lt;Rotation&gt;</A> instances.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet17.pdf"><strong>17</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet07.pdf"><strong>7</strong></A>
+</LI>
+</UL>
+
+<h3>Example</h3>
+<OL>
+<LI><P>
+ A <A href="Model.htm">&lt;Model&gt;</A> instance representing a weather vane has a
+ <A href="GeometryModel.htm">&lt;Geometry Model&gt;</A> component with a
+ <A href="UnionOfGeometryHierarchy.htm">&lt;Union Of Geometry Hierarchy&gt;</A> component, to which is
+ attached an <A href="LSRTransformation.htm">&lt;LSR Transformation&gt;</A> component
+ with a <A href="Rotation.htm">&lt;Rotation&gt;</A> component,
+ indicating that the weather vane can turn to match the direction that the
+ wind is blowing. The <A href="Rotation.htm">&lt;Rotation&gt;</A> instance has a
+ <A href="RotationControlLink.htm">&lt;Rotation Control Link&gt;</A> component,
+ which changes the angle of rotation to match the wind direction.
+</P></LI>
+<LI><P>
+ See the
+ <A href="PropertyTableReferenceControlLink.htm">&lt;Property Table Reference Control Link&gt;</A> class, second example.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<p>
+No FAQs supplied.
+</p>
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ControlLinkConstraints.htm">&lt;&lt;Control Link Constraints&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Composed of (two-way) (inherited)</h3>
+<UL>
+<li>one or more {ordered} <a href="Expression.htm">&lt;Expression&gt;</a> instances</li>
+</UL>
+<h3>Component of (two-way)</h3>
+<UL>
+<li>one or more <a href="Rotation.htm">&lt;Rotation&gt;</a> instances</li>
+</UL>
+
+<h2><a name="inherited_field">Inherited Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_String.htm">SE_String</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="description">description</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_description">1</A></sup></p></td>
+</tr>
+</table>
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Integer_Positive.htm">SE_Integer_Positive</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="expression_index">expression_index</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_expression_index">2</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="lower_expression_index">lower_expression_index</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_lower_expression_index">3</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="upper_expression_index">upper_expression_index</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_upper_expression_index">4</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Fields Notes</h3>
+<h4><a href="#description" name="Notes_description">description</a></h4>
+<P>
+ The <A href="#description">description</A> field
+ specifies a text description of the purpose of the
+ <A href="ControlLink.htm">&lt;Control Link&gt;</A> instance.
+</P>
+<h4><a href="#expression_index" name="Notes_expression_index">expression_index</a></h4>
+<P>
+ The <A href="#expression_index">expression_index</A>
+ field specifies which <A href="Expression.htm">&lt;Expression&gt;</A>
+ component specifies the <A href="Rotation.htm#angle">angle</A>
+ field value of the affected <A href="Rotation.htm">&lt;Rotation&gt;</A>
+ instances, by specifying a one-based index into the ordered
+ aggregation of <A href="Expression.htm">&lt;Expression&gt;</A> components.
+</P>
+<h4><a href="#lower_expression_index" name="Notes_lower_expression_index">lower_expression_index</a></h4>
+<P>
+ The <A href="#lower_expression_index">lower_expression_index</A> field
+ specifies which
+ <A href="Expression.htm">&lt;Expression&gt;</A>
+ component, if any, defines the lower limit of the
+ <A href="Rotation.htm#angle">angle</A> field value of the affected
+ <A href="Rotation.htm">&lt;Rotation&gt;</A> instances. A value of zero (0)
+ indicates that no lower limit is specified; otherwise, the
+ value specifies a one-based index into the ordered aggregation of
+ <A href="Expression.htm">&lt;Expression&gt;</A> components.
+</P>
+<h4><a href="#upper_expression_index" name="Notes_upper_expression_index">upper_expression_index</a></h4>
+<P>
+ The <A href="#upper_expression_index">upper_expression_index</A> field
+ specifies which <A href="Expression.htm">&lt;Expression&gt;</A>
+ component, if any, defines the upper limit of the
+ <A href="Rotation.htm#angle">angle</A> field value of the affected
+ <A href="Rotation.htm">&lt;Rotation&gt;</A> instances. A value of zero (0)
+ indicates that no upper limit is specified; otherwise, the
+ value specifies a one-based index into the ordered aggregation of
+ <A href="Expression.htm">&lt;Expression&gt;</A> components.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="Rotation.htm">Rotation</A>.
+<strong>Next:</strong> <A href="Scale.htm">Scale</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

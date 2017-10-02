@@ -1,0 +1,448 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE_Search_Rule_Type</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Types
+</font>
+<br>
+<font color="#ffffff">
+SE_Search_Rule_Type
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<PRE>
+/*
+ * REGISTERABLE ENUM: SE_Search_Rule_Type
+ *
+ *   The types of entries that can be used in an array of search
+ *   rules. These are used as values for the rule_type field within
+ *   SE_Search_Rule structure.
+ *
+ *   Unless otherwise specified, each rule type is valid for
+ *   all type of iterators.
+ */
+</PRE><span class="Code">
+typedef <a href="../../drm/types/SE_Short_Integer.htm">SE_Short_Integer</a> SE_Search_Rule_Type;
+</span>
+<table>
+<tr><th>Enumerant</th> <th>Definition</th> <th>Value</th></tr>
+<tr><td class="CFunction"><a name="SE_SEARCHRULETYP_END">SE_SEARCHRULETYP_END</a></td>
+<td class="CFunction"><PRE>
+ Indication of the end of a set/array of rules.
+</PRE></td>
+<td class="CFunction">1</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_SEARCHRULETYP_AND">SE_SEARCHRULETYP_AND</a></td>
+<td class="CFunction"><PRE>
+ Indicates that the results of the preceding pair of rules.
+ will be joined by a logical &quot;and&quot; operation.
+</PRE></td>
+<td class="CFunction">2</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_SEARCHRULETYP_OR">SE_SEARCHRULETYP_OR</a></td>
+<td class="CFunction"><PRE>
+ Indicates that the results of the preceding pair of rules
+ will be joined by a logical &quot;or&quot; operation.
+</PRE></td>
+<td class="CFunction">3</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_SEARCHRULETYP_NOT">SE_SEARCHRULETYP_NOT</a></td>
+<td class="CFunction"><PRE>
+ Indicates that the logical negation of the preceding
+ rule will be used.
+</PRE></td>
+<td class="CFunction">4</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_SEARCHRULETYP_OBJECT_AND">SE_SEARCHRULETYP_OBJECT_AND</a></td>
+<td class="CFunction"><PRE>
+ Indicates that the results preceding pair of rules will
+ be joined by a logical &quot;and&quot; operation, and that both
+ must be satisfied by the same set of objects (see the
+ macro SE_OBJECT_AND() for more details).
+</PRE></td>
+<td class="CFunction">5</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_SEARCHRULETYP_PREDICATE">SE_SEARCHRULETYP_PREDICATE</a></td>
+<td class="CFunction"><PRE>
+ Objects that satisfy a search rule of this type must satisfy
+ the user-defined function specified by the SE_Search_Rule
+ in question. The signature of the user-defined function must
+ match that specified by the SE_Predicate type definition (see).
+
+ Uses the following SE_Search_Rule fields:
+
+   rule_type - set to SE_SEARCHRULETYP_PREDICATE.
+
+   user_function - a pointer to the user-defined function that
+                   will be used to filter objects based on whether
+                   or not the user-defined function returns SE_TRUE
+                   or SE_FALSE when passed an SE_Object.
+
+   value_ptr - (optional) a pointer to some user-defined data.
+</PRE></td>
+<td class="CFunction">6</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_SEARCHRULETYP_DRM_CLASS">SE_SEARCHRULETYP_DRM_CLASS</a></td>
+<td class="CFunction"><PRE>
+ Objects that satisfy a search rule of this type must match the
+ DRM class specified by the SE_Search_Rule in question.
+
+ Uses the following SE_Search_Rule fields:
+
+   rule_type - set to SE_SEARCHRULETYP_DRM_CLASS.
+
+   object_drm_class - the &quot;DRM class&quot; of object for which
+    are searching.
+</PRE></td>
+<td class="CFunction">7</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_SEARCHRULETYP_FIELD">SE_SEARCHRULETYP_FIELD</a></td>
+<td class="CFunction"><PRE>
+ Objects that satisfy a search rule of this type must
+ - match the DRM class specified by the SE_Search_Rule
+ - exactly the specified value for a given field in the fields
+   of the object being tested. (For EDCS_String fields, this
+   means that they must have the same length and contain
+   the same contents, and string comparisons *are* case
+   sensitive.)
+
+ Uses the following SE_Search_Rule fields:
+
+   rule_type - set to SE_SEARCHRULETYP_FIELD
+
+   object_drm_class - the &quot;DRM class&quot; of object for which we are
+                      searching.
+
+   value_type - the type of value being tested (SE_Byte, SE_Float,
+                etc.); used to interpret value_ptr.
+
+   value_ptr - a pointer to the search value (this value will be checked
+               against the value of the specified field in the fields
+               of an object being tested).
+
+   field_offset - the offset of the chosen field within the fields
+                  of the given object.
+
+ Recommendations:
+ - Since it is rarely a good idea to test for exact equality with
+   floating point numbers, users are recommended to use range
+   matching rules for floating-point fields.
+ - When accessing an enumerated value, it will be cast to an SE_Integer
+   (the void pointer used to pass the value will be cast to a pointer to
+   an SE_Integer).
+</PRE></td>
+<td class="CFunction">8</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_SEARCHRULETYP_FIELD_RANGE">SE_SEARCHRULETYP_FIELD_RANGE</a></td>
+<td class="CFunction"><PRE>
+ Objects that satisfy a search rule of this type must match both
+ - the DRM class specified by the SE_Search_Rule
+ - the specified range of allowable values for a given field in
+   the fields of the object being tested.
+
+ Uses the following SE_Search_Rule fields:
+
+   rule_type - set to SE_SEARCHRULETYP_FIELD_RANGE
+
+   object_drm_class - the &quot;DRM class&quot; of object for which we are
+                      searching.
+
+   value_type - the type of value being tested (SE_Byte, SE_Float,
+                etc.); used to interpret value_ptr and second_value_ptr.
+
+   value_ptr - a pointer to the lower bound of the desired search value
+               (this value will be checked against the value of the
+               specified field in the fields of each object being tested).
+
+   second_value_ptr - a pointer to the upper bound of the search values.
+
+   field_offset - the offset of the chosen field within the fields
+                  of the given object.
+
+ Restrictions:
+ - A Field Range rule may not be used for a field of any enumerated
+   type, such as SE_Boolean or EDCS_Attribute_Code.
+
+ - For all legal field types, other than SE_String and EDCS_String,
+   both an upper bound and a lower bound value must be specified.
+
+ - For a field bound to a set type,
+   - The lower bound value is interpreted as a subset, as in &quot;match any
+     set field that contains this lower bound set.&quot;
+
+   - The upper bound value is interpreted as a superset, as in &quot;match any
+     set field that is contained by this upper bound
+     set.&quot;
+
+   - Either the upper bound or lower bound value may be an empty set,
+     but not both. If the lower bound set is empty, then only the
+     upper bound test is performed, and vice versa. If both bounds
+     are specified, then an object passes this test only if the
+     specified field passes both tests.
+
+   - For a field of type SE_String or EDCS_String,
+     - the lower bound is interpreted as a starter string, as in
+       &quot;match any string that starts with this lower bound string&quot;
+
+     - the upper bound is interpreted as a sub-string, as in
+       &quot;match any string that contains this upper bound string&quot;
+
+     For range rules, string comparisons are *not* case sensitive.
+
+     Either the lower bound or the upper bound may contain a null string,
+     (a string where characters == pointer to a string containing the
+     null byte and length == 0). A null string for a lower_bound
+     means that only the upper_bound test, and vice versa. If both
+     bounds are null strings, then the rule is invalid.
+
+     If both an upper_bound and lower_bound are specified in string search
+     (if neither the upper_bound nor the lower_bound are null strings),
+     then a string passes if and only if it passes both the upper_bound
+     and the lower_bound tests.
+</PRE></td>
+<td class="CFunction">9</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_SEARCHRULETYP_FIELD_ARRAY">SE_SEARCHRULETYP_FIELD_ARRAY</a></td>
+<td class="CFunction"><PRE>
+ Objects that satisfy a search rule of this type must match both
+ - the DRM class specified by the SE_Search_Rule
+ - one of the specified values in the given array, for a given field
+   in the fields of the object being tested.
+
+ See SE_SEARCHRULETYP_FIELD for further details.
+
+ Uses the following SE_Search_Rule fields:
+
+   rule_type - set to SE_SEARCHRULETYP_FIELD_ARRAY.
+
+   object_drm_class - the &quot;DRM class&quot; of object for which we are
+                      searching.
+
+   value_type - the type of value being tested (SE_Byte, SE_Float,
+                etc.); used to interpret value_ptr.
+
+   value_array_length - the number of entries in the given array of
+                        search values.
+
+   value_ptr - an array of search values (each value will be checked
+               against the value of the specified field in the fields
+               of an object being tested).
+
+   field_offset - the offset of the chosen field within the fields
+                  of the given object.
+
+ Recommendations:
+ - Since it is rarely a good idea to test for exact equality with
+   floating point numbers, users are recommended to use range
+   matching rules for floating-point fields.
+ - When accessing an enumerated value, it will be cast to an SE_Integer
+   (the void pointer used to pass the value will be cast to a pointer to
+   an SE_Integer).
+</PRE></td>
+<td class="CFunction">10</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_SEARCHRULETYP_COMPONENT">SE_SEARCHRULETYP_COMPONENT</a></td>
+<td class="CFunction"><PRE>
+ Objects that satisfy a search rule of this type must match the
+ DRM class specified by the SE_Search_Rule in question, and must
+ have one or more components belonging to another specified DRM class.
+
+ Uses the following SE_Search_Rule fields:
+
+   rule_type - set to SE_SEARCHRULETYP_COMPONENT_DRM_CLASS.
+
+   object_drm_class - the &quot;DRM class&quot; of object for which we are
+                      searching.
+
+   component_object_drm_class - the &quot;DRM class&quot; of component that
+      target object must have.
+</PRE></td>
+<td class="CFunction">11</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_SEARCHRULETYP_COMPONENT_FIELD">SE_SEARCHRULETYP_COMPONENT_FIELD</a></td>
+<td class="CFunction"><PRE>
+ Objects that satisfy a search rule of this type must
+ - match the DRM class specified by the SE_Search_Rule
+ - have one or more components of another given DRM class, where
+   those components match the specified value for a given field
+   in the fields of the component object being tested.
+
+ See SE_SEARCHRULETYP_FIELD for further details.
+
+ Uses the following SE_Search_Rule fields:
+
+   rule_type - set to SE_SEARCHRULETYP_COMPONENT_FIELD.
+
+   object_drm_class - the DRM class of object for which we are searching.
+
+   component_object_drm_class - the &quot;DRM class&quot; of component that each
+      target object must have.
+
+   field_offset - the offset of the chosen field within the fields
+                  of the target object's component.
+
+   value_type - the type of value being tested (SE_Byte, SE_Float,
+                etc.); used to interpret value_ptr.
+
+   value_ptr - a pointer to the search value (this value will be checked
+               against the value of the specified field in the
+               of the component object being tested).
+</PRE></td>
+<td class="CFunction">12</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_SEARCHRULETYP_COMPONENT_FIELD_RANGE">SE_SEARCHRULETYP_COMPONENT_FIELD_RANGE</a></td>
+<td class="CFunction"><PRE>
+ Objects that satisfy a search rule of this type must
+ - match the DRM class specified by the SE_Search_Rule
+ - have one or more components of another given DRM class, where
+   the specified field in the fields of each of those components
+   contains a value within the specified range of search values.
+
+ A Component Field Range rule may not be used for a field of type
+ EDCS_Attribute_Code or EDCS_Classification_Code.
+
+ Uses the following SE_Search_Rule fields:
+
+   rule_type - set to SE_SEARCHRULETYP_COMPONENT_FIELD_RANGE
+
+   object_drm_class - the DRM class of object for which we are searching.
+
+   component_object_drm_class - the DRM class of component the object
+                                is required to have.
+
+   field_offset - the offset of the chosen field within the fields
+                  of the target object's component.
+
+   value_type - the type of value being tested (SE_Byte, SE_Float,
+                etc.); used to interpret value_ptr.
+
+   value_ptr - a pointer to the lower bound of the search values.
+
+   second_value_ptr - a pointer to the upper bound of the search values.
+
+ Restrictions: See SE_SEARCHRULETYP_FIELD_RANGE.
+</PRE></td>
+<td class="CFunction">13</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_SEARCHRULETYP_COMPONENT_FIELD_ARRAY">SE_SEARCHRULETYP_COMPONENT_FIELD_ARRAY</a></td>
+<td class="CFunction"><PRE>
+ Objects that satisfy a search rule of this type must
+ - match the DRM class specified by the SE_Search_Rule
+ - have one or more components of another given DRM class, where the
+   specified field in the fields of each of those components
+   contains a value matching one of the specified values in the
+   given array.
+
+ Uses the following SE_Search_Rule fields:
+
+   rule_type - set to SE_SEARCHRULETYP_COMPONENT_FIELD_ARRAY
+
+   object_drm_class - the DRM class of object for which we are searching.
+
+   component_object_drm_class - the DRM class of component that the
+      target object must have.
+
+   field_offset - the offset of the chosen field within the fields
+                  of the target object's component.
+
+   value_type - the type of value being tested (SE_Byte, SE_Float,
+                etc.); used to interpret value_ptr.
+
+   value_array_length - the number of entries in the given array of
+                        search values.
+
+   value_ptr - a pointer to an array of search values (each value will be
+               checked against the value of the specified field in the
+               fields of an object being tested)
+
+ Recommendations: See SE_SEARCHRULETYP_FIELD_ARRAY.
+</PRE></td>
+<td class="CFunction">14</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_SEARCHRULETYP_ASSOCIATE">SE_SEARCHRULETYP_ASSOCIATE</a></td>
+<td class="CFunction"><PRE>
+ Objects that satisfy a search rule of this type must have associations
+ that can be traversed to one or more objects belonging to the given
+ DRM class.
+
+ Uses the following SE_Search_Rule fields:
+
+   rule_type - set to SE_SEARCHRULETYP_ASSOCIATE.
+
+   object_drm_class - the &quot;DRM class&quot; of object that must be at the other
+                 end of a traversable association from the target object.
+</PRE></td>
+<td class="CFunction">15</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_SEARCHRULETYP_MAX_SEARCH_DEPTH">SE_SEARCHRULETYP_MAX_SEARCH_DEPTH</a></td>
+<td class="CFunction"><PRE>
+ This type of rule is valid for only component-based iterators -
+     Component Iterator
+     Inherited Component Iterator
+     Simple Component Iterator
+
+ Objects that satisfy a search rule of this type must be within the
+ specified depth (distance) from the start object of the component
+ iterator using this rule.
+
+ Uses the following SE_Search_Rule fields:
+
+   rule_type - set to SE_SEARCHRULETYP_MAX_SEARCH_DEPTH.
+
+   max_depth - the maximum allowed distance from the start_object to
+               any object that is trying to satisfy this rule. (If
+               0, indicates an unlimited search depth.)
+</PRE></td>
+<td class="CFunction">16</td>
+</TR>
+</table>
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SE_Search_Rule.htm">SE_Search_Rule</a>.
+<strong>Next:</strong> <a href="SE_Search_Type.htm">SE_Search_Type</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

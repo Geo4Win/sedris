@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>EDCS 3p1ClassificationCodeFromLabel</title>
+<link rel="stylesheet" href="../../../docs/styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>EDCS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+Concept Mapping from EDCS 3.1 to EDCS 4.x
+<!-- EDCS spec. 4.4 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+EDCS 3p1ClassificationCodeFromLabel
+</font>
+</th></tr>
+</table></div>
+
+<!-- EDCS SDK Release 4.4.0 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../../../docs/types/EDCS_Status_Code.htm">EDCS_Status_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">EDCS_3p1ClassificationCodeFromLabel</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1"><td class="CFunction">const&nbsp;</td><td class="CFunction">char&nbsp;  </td> <td class="CFunction">*</td><td class="CFunction"><a name="ec_3p1_label_in"></a>ec_3p1_label_in,</td><td class="CFunction"><sup><A href="#Notes_ec_3p1_label_in">1</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">const&nbsp;</td><td class="CFunction"><a href="../../../docs/types/EDCS_Integer.htm">EDCS_Integer</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="ec_3p1_code_out"></a>ec_3p1_code_out</td><td class="CFunction"><sup><A href="#Notes_ec_3p1_code_out">2</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+ Retrieves integer-based classification code for the given EDCS 3.1
+ classification label.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../../../docs/types/EDCS_Status_Code.htm#EDCS_SC_SUCCESS">EDCS_SC_SUCCESS</A>
+</td><td class="Status">
+ and the requested classification code is copied into
+ *<A href="#ec_3p1_code_out">ec_3p1_code_out</A>,
+ if valid parameters were passed in.
+</td></tr>
+<tr><td class="Status">
+ <A href="../../../docs/types/EDCS_Status_Code.htm#EDCS_SC_NULL_REQUIRED_PARAMETER">EDCS_SC_NULL_REQUIRED_PARAMETER</A>
+</td><td class="Status">
+ and *<A href="#ec_3p1_code_out">ec_3p1_code_out</A>
+ is left unaltered, if any parameter was NULL.
+</td></tr>
+<tr><td class="Status">
+ <A href="../../../docs/types/EDCS_Status_Code.htm#EDCS_SC_INVALID_INPUT_LABEL">EDCS_SC_INVALID_INPUT_LABEL</A>
+</td><td class="Status">
+ and *<A href="#ec_3p1_code_out">ec_3p1_code_out</A> is
+ set to 0, if *<A href="#ec_3p1_label_in">ec_3p1_label_in</A>
+ does not correspond to a valid EDCS 3.1 classification.
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#ec_3p1_label_in" name="Notes_ec_3p1_label_in">1</a></sup>
+ the EDCS 3.1 classification label whose
+    EDCS 3.1 code is being retrieved.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#ec_3p1_code_out" name="Notes_ec_3p1_code_out">2</a></sup>
+ pointer to a pointer variable in the user's
+    memory space where the EDCS 3.1 classification code value
+    will be copied.
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="EDCS_3p1CharacteristicCodeFromLabel.htm">EDCS_3p1CharacteristicCodeFromLabel</a>.
+<strong>Next:</strong> <a href="EDCS_3p1EnumerantCodeFromLabel.htm">EDCS_3p1EnumerantCodeFromLabel</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Light Source Control Link</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Light Source Control Link
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Light Source Control Link</h2>
+<h3>Superclass - <a href="ControlLink.htm">&lt;Control Link&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies
+ an <A href="Expression.htm">&lt;Expression&gt;</A> instance, the value of which
+ determines the
+ <A href="LightSource.htm#active_light_value">active_light_value</A>
+ of all target <A href="LightSource.htm">&lt;Light Source&gt;</A> instances.
+ This controls whether those
+ <A href="LightSource.htm">&lt;Light Source&gt;</A> instances are on or off.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet17.pdf"><strong>17</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet21.pdf"><strong>21</strong></A>
+</LI>
+</UL>
+
+<h3>Example</h3>
+<OL>
+<LI><P>
+ A <A href="Model.htm">&lt;Model&gt;</A> instance representing a lighthouse has a
+ <A href="GeometryModel.htm">&lt;Geometry Model&gt;</A> component with a
+ <A href="UnionOfGeometryHierarchy.htm">&lt;Union Of Geometry Hierarchy&gt;</A> component, to
+ which is attached a <A href="SpotLight.htm">&lt;Spot Light&gt;</A> instance
+ representing the light of the lighthouse. The
+ <A href="SpotLight.htm">&lt;Spot Light&gt;</A> instance has a
+ <A href="LightSourceControlLink.htm">&lt;Light Source Control Link&gt;</A> component that
+ turns the light on or off, depending on the time of day and the weather.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ What does a
+ <A href="LightSourceControlLink.htm">&lt;Light Source Control Link&gt;</A>
+ instance control?
+</B></DT>
+<DD><P>
+ A <A href="LightSourceControlLink.htm">&lt;Light Source Control Link&gt;</A>
+ instance controls the
+ <A href="LightSource.htm#active_light_value">active_light_value</A>
+ stored in its <A href="LightSource.htm">&lt;Light Source&gt;</A> instance,
+ so that the <A href="LightSource.htm">&lt;Light Source&gt;</A>
+ instance can be turned on and off.
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ControlLinkConstraints.htm">&lt;&lt;Control Link Constraints&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Composed of (two-way) (inherited)</h3>
+<UL>
+<li>one or more {ordered} <a href="Expression.htm">&lt;Expression&gt;</a> instances</li>
+</UL>
+<h3>Component of (two-way)</h3>
+<UL>
+<li>one or more <a href="LightSource.htm">&lt;Light Source&gt;</a> instances</li>
+</UL>
+
+<h2><a name="inherited_field">Inherited Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_String.htm">SE_String</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="description">description</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_description">1</A></sup></p></td>
+</tr>
+</table>
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Integer_Positive.htm">SE_Integer_Positive</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="expression_index">expression_index</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_expression_index">2</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Fields Notes</h3>
+<h4><a href="#description" name="Notes_description">description</a></h4>
+<P>
+ The <A href="#description">description</A> field
+ specifies a text description of the purpose of the
+ <A href="ControlLink.htm">&lt;Control Link&gt;</A> instance.
+</P>
+<h4><a href="#expression_index" name="Notes_expression_index">expression_index</a></h4>
+<P>
+ The <A href="#expression_index">expression_index</A> field specifies which
+ <A href="Expression.htm">&lt;Expression&gt;</A> component's value controls
+ whether the controlled
+ <A href="LightSource.htm">&lt;Light Source&gt;</A> instance(s) are on or off.
+ If the <A href="Expression.htm">&lt;Expression&gt;</A> component
+ evaluates to <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A>, the
+ <A href="LightSource.htm">&lt;Light Source&gt;</A> instances are on.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="LightSource.htm">Light Source</A>.
+<strong>Next:</strong> <A href="Line.htm">Line</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

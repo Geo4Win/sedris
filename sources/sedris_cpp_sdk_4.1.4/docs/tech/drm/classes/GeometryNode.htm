@@ -1,0 +1,179 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Geometry Node</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Geometry Node
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Geometry Node</h2>
+<h3>Superclass - <a href="GeometryTopology.htm">&lt;Geometry Topology&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class is a zero-dimensional
+ <A href="GeometryTopology.htm">&lt;Geometry Topology&gt;</A> instance
+ specifying the topological location of various geometry representations
+ and/or an endpoint of one or more <A href="GeometryEdge.htm">&lt;Geometry Edge&gt;</A> instances.
+</P><P>
+ The location of a
+ <A href="GeometryNode.htm">&lt;Geometry Node&gt;</A> instance is the same as that
+ of the spatially located <A href="GeometryRepresentation.htm">&lt;Geometry Representation&gt;</A> instance
+ or <A href="Vertex.htm">&lt;Vertex&gt;</A> instance to which the node is associated. If the
+ <A href="GeometryNode.htm">&lt;Geometry Node&gt;</A> instance is associated to more than one such
+ DRM object, the DRM objects shall be collocated.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet13.pdf"><strong>13</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet05.pdf"><strong>5</strong></A>
+</LI>
+<LI><A href="sheet06.pdf"><strong>6</strong></A>
+</LI>
+<LI><A href="sheet18.pdf"><strong>18</strong></A>
+</LI>
+</UL>
+
+<h3>Example</h3>
+<OL>
+<LI><P>
+ The endpoints of a <A href="GeometryEdge.htm">&lt;Geometry Edge&gt;</A> instance
+ representing part of the lighting of a runway are specified by
+ <A href="GeometryNode.htm">&lt;Geometry Node&gt;</A> instances.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<p>
+No FAQs supplied.
+</p>
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ConstraintsOnAssociates.htm">&lt;&lt;Constraints On Associates&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ContainedNodeConstraints.htm">&lt;&lt;Contained Node Constraints&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ValidNodeEdgeRelationships.htm">&lt;&lt;Valid Node Edge Relationships&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Associated with (two-way)</h3>
+<UL>
+<li>zero or more <a href="Ellipse.htm">&lt;Ellipse&gt;</a> instances<sup><A href="#Notes_asn_biEllipse" name="asn_biEllipse">1</A></sup></li>
+<li>zero or more <a href="GeometryEdge.htm">&lt;Geometry Edge&gt;</a> instances, each through the use of an <a href="EdgeDirection.htm">&lt;Edge Direction&gt;</a> link object<sup><A href="#Notes_asn_biGeometry_Edge" name="asn_biGeometry_Edge">2</A></sup></li>
+<li>zero or one <a href="GeometryFace.htm">&lt;Geometry Face&gt;</a> instance<sup><A href="#Notes_asn_biGeometry_Face" name="asn_biGeometry_Face">3</A></sup></li>
+<li>zero or one <a href="GeometryVolume.htm">&lt;Geometry Volume&gt;</a> instance<sup><A href="#Notes_asn_biGeometry_Volume" name="asn_biGeometry_Volume">4</A></sup></li>
+<li>zero or more <a href="Point.htm">&lt;Point&gt;</a> instances</li>
+<li>zero or more <a href="PropertyGridHookPoint.htm">&lt;Property Grid Hook Point&gt;</a> instances</li>
+<li>zero or more <a href="Vertex.htm">&lt;Vertex&gt;</a> instances</li>
+<li>zero or more <a href="VolumeObject.htm">&lt;Volume Object&gt;</a> instances<sup><A href="#Notes_asn_biVolume_Object" name="asn_biVolume_Object">5</A></sup></li>
+</UL>
+
+<h3>Component of (two-way) (inherited)</h3>
+<UL>
+<li>one or more <a href="UnionOfGeometryTopology.htm">&lt;Union Of Geometry Topology&gt;</a> instances</li>
+</UL>
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<hr>
+<h2>Notes</h2>
+<h3>Associated with Notes</h3>
+<br>
+<h4><a href="#asn_biEllipse" name="Notes_asn_biEllipse">Ellipse</a></h4>
+ The <A href="GeometryNode.htm">&lt;Geometry Node&gt;</A> instance
+ corresponds to the <A href="Location.htm">&lt;Location&gt;</A> instance
+ representing the centre of each <A href="Ellipse.htm">&lt;Ellipse&gt;</A>
+ instance.
+</P>
+<br>
+<h4><a href="#asn_biGeometry_Edge" name="Notes_asn_biGeometry_Edge">Geometry_Edge</a></h4>
+ This relationship indicates the collection of
+ <A href="GeometryEdge.htm">&lt;Geometry Edge&gt;</A> instances that are bounded by the
+ <A href="GeometryNode.htm">&lt;Geometry Node&gt;</A> instance, if any. For each
+ <A href="GeometryEdge.htm">&lt;Geometry Edge&gt;</A> instance associated with the
+ <A href="GeometryNode.htm">&lt;Geometry Node&gt;</A> instance through the use of
+ an <A href="EdgeDirection.htm">&lt;Edge Direction&gt;</A> link object with
+ a <A href="EdgeDirection.htm#forwards">forwards</A> field value of
+ <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A>, the <A href="GeometryNode.htm">&lt;Geometry Node&gt;</A> instance
+ is the starting node of the <A href="GeometryEdge.htm">&lt;Geometry Edge&gt;</A> instance. For
+ each <A href="GeometryEdge.htm">&lt;Geometry Edge&gt;</A> instance associated with the
+ <A href="GeometryNode.htm">&lt;Geometry Node&gt;</A> instance through the use of
+ an <A href="EdgeDirection.htm">&lt;Edge Direction&gt;</A> link object with
+ a <A href="EdgeDirection.htm#forwards">forwards</A> field value of
+ <A href="../types/SE_Boolean.htm#SE_FALSE">SE_FALSE</A>, the <A href="GeometryNode.htm">&lt;Geometry Node&gt;</A> instance
+ is the ending node of the <A href="GeometryEdge.htm">&lt;Geometry Edge&gt;</A> instance.
+</P>
+<br>
+<h4><a href="#asn_biGeometry_Face" name="Notes_asn_biGeometry_Face">Geometry_Face</a></h4>
+ This is the <A href="GeometryFace.htm">&lt;Geometry Face&gt;</A> instance that
+ contains the <A href="GeometryNode.htm">&lt;Geometry Node&gt;</A> instance,
+ if one exists.
+</P>
+<br>
+<h4><a href="#asn_biGeometry_Volume" name="Notes_asn_biGeometry_Volume">Geometry_Volume</a></h4>
+ This is the <A href="GeometryVolume.htm">&lt;Geometry Volume&gt;</A> instance that
+ contains the <A href="GeometryNode.htm">&lt;Geometry Node&gt;</A> instance,
+ if any.
+</P>
+<br>
+<h4><a href="#asn_biVolume_Object" name="Notes_asn_biVolume_Object">Volume_Object</a></h4>
+ The <A href="GeometryNode.htm">&lt;Geometry Node&gt;</A> instance
+ corresponds to the <A href="Location.htm">&lt;Location&gt;</A> instance
+ representing the centre of each
+ <A href="VolumeObject.htm">&lt;Volume Object&gt;</A> instance.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="GeometryModelInstance.htm">Geometry Model Instance</A>.
+<strong>Next:</strong> <A href="GeometryRepresentation.htm">Geometry Representation</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

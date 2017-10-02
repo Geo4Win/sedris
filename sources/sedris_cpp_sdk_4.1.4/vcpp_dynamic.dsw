@@ -1,0 +1,204 @@
+Microsoft Developer Studio Workspace File, Format Version 6.00
+# WARNING: DO NOT EDIT OR DELETE THIS WORKSPACE FILE!
+
+###############################################################################
+
+Project: "all_sdk"=".\src\all_sdk.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name depth
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name itr_test
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name stf_test
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name model_viewer
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "depth"=".\src\apps\depth\depth_dynamic.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name sedris
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "itr_test"=".\src\apps\itr_test\itr_test_dynamic.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name sedris
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "lib_drm"=".\src\lib\drm\lib_drm.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "lib_edcs"=".\src\lib\edcs\src\lib\lib_edcs.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "lib_srm"=".\src\lib\srm\src\lib\lib_srm_dynamic_sedris_cpp.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "lib_ta_impl"=".\src\lib\taccess\implementation\lib_ta_impl_dynamic.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "lib_ta_interf"=".\src\lib\taccess\interface\lib_ta_interf_dynamic.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "lib_ta_support"=".\src\lib\taccess\support\lib_ta_support_dynamic.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "model_viewer"=".\src\apps\model_viewer\model_viewer_dynamic.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name sedris
+    End Project Dependency
+}}}
+
+
+###############################################################################
+
+Project: "sedris"=".\src\lib\sedris.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name lib_drm
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name lib_edcs
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name lib_ta_impl
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name lib_ta_interf
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name lib_ta_support
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name lib_srm
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "stf_test"=".\src\apps\stf_test\stf_test_dynamic.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name sedris
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+}}}
+
+Package=<3>
+{{{
+}}}
+
+###############################################################################
+

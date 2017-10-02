@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head><title>EDCS SDK - Migration Guide</title>
+<META http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<link rel="stylesheet" type="text/css" href="styles/SDK_SEDRIS.css">
+</head>
+<body text="#000000" vlink="#800080" alink="#ff0000" link="#0000ee" bgcolor="#ffffff">
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th align="center">
+<big><big>
+MIGRATION GUIDE
+</big></big>
+<br /><font color="#ffffff">
+EDCS SDK Release 4.0.x to Release 4.3
+</font>
+</th></tr>
+</table>
+</div>
+<a name="top" id="top"></a>
+<ol>
+<li><a href="#intro">Introduction</a>
+</li>
+<li><a href="#changes">Changes</a>
+</li>
+</ol>
+<h3><a name="intro" id="intro">Introduction</a></h3>
+<blockquote><p>
+This migration document describes the required changes to migrate
+applications developed using
+EDCS SDK Release 4.0.x to EDCS SDK Release 4.3
+(which is a superset of version 4.2, which was a superset of version 4.1).
+This document covers all aspects of the SDK.
+<b>New EDCS SDK users do not need to read this document.</b>
+</p><p>
+This document provides the key migration concepts and has links to the
+detailed changes such as function and name changes.
+</p><p>
+For general information about this release and items that require specific
+attention, see the <a href="index.htm">Release Notes</a>.
+</p><p>
+For help with the migration process or other questions and comments please
+send email to <a href="mailto:help@sedris.org">help@sedris.org</a>. If you are
+an associate, please send email to <a
+  href="mailto:se-coders@sedris.org">se-coders@sedris.org</a>.
+</p><p>
+Return to: <a href="#top">Top</a>
+</p></blockquote>
+
+<h3><a name="changes" id="changes">Changes</a></h3>
+<blockquote><p>
+This section summarizes the major changes to the EDCS technology component.
+For detailed information on EDCS changes see
+<a href="migration_edcs.htm">Migration Guide EDCS API</a>.
+</p><p>
+The following are the general EDCS changes:</p>
+<ul>
+<li>The library now depends on the EDCS Mapping Utilities SDK,
+which supplies types and helper functions that are common to
+any SDK that maps to EDCS.
+</li>
+<li>This version of EDCS is the implementation of the ISO EDCS specificaion
+version. Consequently, the concepts defined herein will be consistent
+with that specification.
+</li>
+<li>EDCS_Attribute_Value's EDCS_Value_Characteristic_Code field has been
+removed. Any object needing to specify this information shall specify a
+&lt;Property Characteristic&gt; component instead. See also &lt;&lt;Property
+Characteristic Constraints&gt;&gt; for the constraints affecting some of
+the most frequently asked questions.
+</li>
+</ul>
+<p>
+Return to : <a href="#top">Top</a>
+</p></blockquote>
+
+<hr />
+<br /><font color="#ff0000">Return to:</font>
+<b><a href="#top">Top of this page</a></b>
+<br /><br />
+<table class="doc_set_header">
+<tr><td>
+<table class="doc_set_header">
+<tr>
+<td align="left"><small><font color="#00ffffff">
+Last updated: July 1, 2011
+</font></small></td>
+<td align="right"><small><font color="#00ffffff">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</font></small></td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

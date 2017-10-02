@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE EnumNameToDRMClass</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX D - Functions
+</font>
+<br>
+<font color="#ffffff">
+SE EnumNameToDRMClass
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../types/SE_DRM_Status_Code.htm">SE_DRM_Status_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SE_EnumNameToDRMClass</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1"><td class="CFunction">const&nbsp;</td><td class="CFunction">char&nbsp;  </td> <td class="CFunction">*</td><td class="CFunction"><a name="enum_name_in_ptr"></a>enum_name_in_ptr,</td><td class="CFunction"><sup><A href="#Notes_enum_name_in_ptr">1</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../types/SE_DRM_Class.htm">SE_DRM_Class</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="result_out_ptr"></a>result_out_ptr</td><td class="CFunction"><sup><A href="#Notes_result_out_ptr">2</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+Retrieves the <A href="../types/SE_DRM_Class.htm">SE_DRM_Class</A> corresponding to the given string.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_DRM_Status_Code.htm#SE_DRM_STAT_CODE_SUCCESS">SE_DRM_STAT_CODE_SUCCESS</A>
+</td><td class="Status">
+and <A href="#result_out_ptr">*result_out_ptr</A> is set appropriately,
+if valid parameters were passed in and all operations succeeded.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_DRM_Status_Code.htm#SE_DRM_STAT_CODE_NULL_REQUIRED_PARAMETER">SE_DRM_STAT_CODE_NULL_REQUIRED_PARAMETER</A>
+</td><td class="Status">
+and no changes are made, if any parameter was NULL.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_DRM_Status_Code.htm#SE_DRM_STAT_CODE_FAILURE">SE_DRM_STAT_CODE_FAILURE</A>
+</td><td class="Status">
+and no changes are made, if
+<A href="#enum_name_in_ptr">enum_name_in_ptr</A>
+doesn't correspond to an enumerant.
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#enum_name_in_ptr" name="Notes_enum_name_in_ptr">1</a></sup>
+ enumerant name to be processed
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#result_out_ptr" name="Notes_result_out_ptr">2</a></sup>
+ pointer to a variable in the user's memory space
+   where the result will be stored.
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SE_EnumNameToColourModel.htm">SE_EnumNameToColourModel</a>.
+<strong>Next:</strong> <a href="SE_EnumNameToDRMStatusCode.htm">SE_EnumNameToDRMStatusCode</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

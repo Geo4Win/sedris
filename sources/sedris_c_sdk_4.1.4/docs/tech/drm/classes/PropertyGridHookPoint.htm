@@ -1,0 +1,305 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Property Grid Hook Point</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Property Grid Hook Point
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Property Grid Hook Point</h2>
+<h3>Superclass - <a href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class is used to include a
+ <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance within the
+ spatial scope of
+ an <A href="EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instance or
+ <A href="Model.htm">&lt;Model&gt;</A> instance. In particular, the origin
+ of the spatial axes of a
+ <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> component is located at the
+ <A href="Location.htm">&lt;Location&gt;</A> component of the
+ <A href="PropertyGridHookPoint.htm">&lt;Property Grid Hook Point&gt;</A> instance.
+</P><P>
+ Since a <A href="PropertyGridHookPoint.htm">&lt;Property Grid Hook Point&gt;</A>
+ instance separates a <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A>
+ instance's cell data from the
+ <A href="Location.htm">&lt;Location&gt;</A> instance of its origin,
+ <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instances can be
+ shared by several
+ <A href="PropertyGridHookPoint.htm">&lt;Property Grid Hook Point&gt;</A> instances.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet06.pdf"><strong>6</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet03.pdf"><strong>3</strong></A>
+</LI>
+<LI><A href="sheet07.pdf"><strong>7</strong></A>
+</LI>
+<LI><A href="sheet13.pdf"><strong>13</strong></A>
+</LI>
+</UL>
+
+<h3>Example</h3>
+<OL>
+<LI><P>
+ Consider a one-dimensional <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance
+ classified as <A href="../../../../src/lib/edcs/docs/dictionary/ECC_W.htm#ECC_WATERBODY_BATHYMETRY_PROPERTY_SET">ECC_WATERBODY_BATHYMETRY_PROPERTY_SET</A>
+ that contains a depth axis only.
+ The <A href="Location.htm">&lt;Location&gt;</A> component of the
+ <A href="PropertyGridHookPoint.htm">&lt;Property Grid Hook Point&gt;</A> instance
+ serves to position this grid into the currently scoped SRF.
+</P></LI>
+<LI><P>
+ Consider a two-dimensional <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance
+ classified as <A href="../../../../src/lib/edcs/docs/dictionary/ECC_T.htm#ECC_TERRAIN_ELEVATION">ECC_TERRAIN_ELEVATION</A> that contains
+ elevation relative to the south-west corner of the grid. The
+ <A href="PropertyGridHookPoint.htm">&lt;Property Grid Hook Point&gt;</A>
+ instance's <A href="Location.htm">&lt;Location&gt;</A> component serves to
+ position this grid corner into the currently scoped SRF.
+</P></LI>
+<LI><P>
+ A <A href="PropertyGridHookPoint.htm">&lt;Property Grid Hook Point&gt;</A> instance is used to
+ connect a <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance of
+ terrain elevation data from DTED to the geometry of
+ an <A href="EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instance.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ If a <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance has all three
+ spatial axes, isn't the
+ hook <A href="Location.htm">&lt;Location&gt;</A> component redundant?
+</B></DT>
+<DD><P>
+ No, the hook point <A href="Location.htm">&lt;Location&gt;</A> component serves several
+ purposes.
+</P>
+<OL>
+<LI><P>
+ Since the spatial axes are relative, the hook
+ <A href="Location.htm">&lt;Location&gt;</A> component provides the axis offset origins.
+</P></LI>
+<LI><P>
+ It makes a <A href="Location.htm">&lt;Location&gt;</A> instance associated with the
+ grid visible to API search filters (in the currently scoped SRF).
+</P></LI>
+</OL>
+</DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ConstraintsOnComponents.htm">&lt;&lt;Constraints On Components&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/NonCyclicAggregations.htm">&lt;&lt;Non Cyclic Aggregations&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/PrecedenceofPropertySetIndex.htm">&lt;&lt;Precedence of Property Set Index&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/PropertyConstraints.htm">&lt;&lt;Property Constraints&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ConstraintsOnAssociates.htm">&lt;&lt;Constraints On Associates&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ReferenceSurfaceConstraints.htm">&lt;&lt;Reference Surface Constraints&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Associated to (one-way) (inherited)</h3>
+<UL>
+<li>zero or more <a href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</a> instances, each through the use of a <a href="BaseAssociationData.htm">&lt;Base Association Data&gt;</a> link object<sup><A href="#Notes_asn_toFeature_Representation" name="asn_toFeature_Representation">1</A></sup></li>
+<li>zero or more <a href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</a> instances, each through the use of a <a href="BaseAssociationData.htm">&lt;Base Association Data&gt;</a> link object<sup><A href="#Notes_asn_toGeometry_Hierarchy" name="asn_toGeometry_Hierarchy">2</A></sup></li>
+</UL>
+<h3>Associated by (one-way) (inherited)</h3>
+<UL>
+<li>zero or more <a href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</a> instances, each through the use of a <a href="BaseAssociationData.htm">&lt;Base Association Data&gt;</a> link object<sup><A href="#Notes_asn_fromFeature_Representation" name="asn_fromFeature_Representation">3</A></sup></li>
+<li>zero or more <a href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</a> instances, each through the use of a <a href="BaseAssociationData.htm">&lt;Base Association Data&gt;</a> link object<sup><A href="#Notes_asn_fromGeometry_Hierarchy" name="asn_fromGeometry_Hierarchy">4</A></sup></li>
+<li>zero or one <a href="HierarchySummaryItem.htm">&lt;Hierarchy Summary Item&gt;</a> instance<sup><A href="#Notes_asn_fromHierarchy_Summary_Item" name="asn_fromHierarchy_Summary_Item">5</A></sup></li>
+<li>zero or more <a href="ReferenceSurface.htm">&lt;Reference Surface&gt;</a> instances<sup><A href="#Notes_asn_fromReference_Surface" name="asn_fromReference_Surface">6</A></sup></li>
+</UL>
+<h3>Associated with (two-way)</h3>
+<UL>
+<li>zero or one <a href="GeometryNode.htm">&lt;Geometry Node&gt;</a> instance</li>
+</UL>
+
+<h3>Composed of (two-way) (inherited)</h3>
+<UL>
+<li>zero or one <a href="ClassificationData.htm">&lt;Classification Data&gt;</a> instance</li>
+<li>zero or more {ordered} <a href="PropertySetIndex.htm">&lt;Property Set Index&gt;</a> instances</li>
+<li>zero or more <a href="PropertyTable.htm">&lt;Property Table&gt;</a> instances</li>
+<li>zero or more <a href="PropertyTableReference.htm">&lt;Property Table Reference&gt;</a> instances</li>
+<li>zero or more <a href="PropertyValue.htm">&lt;Property Value&gt;</a> instances</li>
+<li>zero or one <a href="ReferenceSurface.htm">&lt;Reference Surface&gt;</a> instance</li>
+<li>zero or more <a href="SoundInstance.htm">&lt;Sound Instance&gt;</a> instances</li>
+</UL>
+<h3>Composed of (two-way)</h3>
+<UL>
+<li>zero or more <a href="BaseLODData.htm">&lt;Base LOD Data&gt;</a> instances</li>
+<li>one <a href="Location.htm">&lt;Location&gt;</a> instance</li>
+<li>zero or one <a href="LSRTransformation.htm">&lt;LSR Transformation&gt;</a> instance<sup><A href="#Notes_cmp_LSR_Transformation" name="cmp_LSR_Transformation">7</A></sup></li>
+<li>one or more <a href="PropertyGrid.htm">&lt;Property Grid&gt;</a> instances</li>
+<li>zero or one <a href="SpatialExtent.htm">&lt;Spatial Extent&gt;</a> instance</li>
+</UL>
+
+<h3>Composed of (two-way metadata) (inherited)</h3>
+<UL>
+<li>zero or one <a href="TimeConstraintsData.htm">&lt;Time Constraints Data&gt;</a> instance</li>
+<li>zero or one <a href="DataQuality.htm">&lt;Data Quality&gt;</a> instance</li>
+<li>zero or one <a href="Identification.htm">&lt;Identification&gt;</a> instance</li>
+</UL>
+<h3>Component of (two-way) (inherited)</h3>
+<UL>
+<li>zero or more <a href="AlternateHierarchyRelatedGeometry.htm">&lt;Alternate Hierarchy Related Geometry&gt;</a> instances, each through the use of a <a href="HierarchyData.htm">&lt;Hierarchy Data&gt;</a> link object</li>
+<li>zero or more <a href="AnimationRelatedGeometry.htm">&lt;Animation Related Geometry&gt;</a> instances</li>
+<li>zero or more <a href="ClassificationRelatedGeometry.htm">&lt;Classification Related Geometry&gt;</a> instances, each through the use of a <a href="ClassificationData.htm">&lt;Classification Data&gt;</a> link object</li>
+<li>zero or one <a href="EnvironmentRoot.htm">&lt;Environment Root&gt;</a> instance</li>
+<li>zero or one <a href="GeometryModel.htm">&lt;Geometry Model&gt;</a> instance</li>
+<li>zero or more <a href="LODRelatedGeometry.htm">&lt;LOD Related Geometry&gt;</a> instances, each through the use of a <a href="BaseLODData.htm">&lt;Base LOD Data&gt;</a> link object</li>
+<li>zero or more <a href="OctantRelatedGeometry.htm">&lt;Octant Related Geometry&gt;</a> instances, each through the use of an <a href="OctantData.htm">&lt;Octant Data&gt;</a> link object</li>
+<li>zero or more <a href="PerimeterRelatedGeometry.htm">&lt;Perimeter Related Geometry&gt;</a> instances, each through the use of a <a href="PerimeterData.htm">&lt;Perimeter Data&gt;</a> link object</li>
+<li>zero or more <a href="QuadrantRelatedGeometry.htm">&lt;Quadrant Related Geometry&gt;</a> instances, each through the use of a <a href="QuadrantData.htm">&lt;Quadrant Data&gt;</a> link object</li>
+<li>zero or more <a href="SeparatingPlaneRelations.htm">&lt;Separating Plane Relations&gt;</a> instances, each through the use of a <a href="SeparatingPlaneData.htm">&lt;Separating Plane Data&gt;</a> link object</li>
+<li>zero or more <a href="SpatialIndexRelatedGeometry.htm">&lt;Spatial Index Related Geometry&gt;</a> instances, each through the use of a <a href="SpatialIndexData.htm">&lt;Spatial Index Data&gt;</a> link object</li>
+<li>zero or more <a href="StateRelatedGeometry.htm">&lt;State Related Geometry&gt;</a> instances, each through the use of a <a href="StateData.htm">&lt;State Data&gt;</a> link object</li>
+<li>zero or more <a href="TimeRelatedGeometry.htm">&lt;Time Related Geometry&gt;</a> instances, each through the use of a <a href="TimeConstraintsData.htm">&lt;Time Constraints Data&gt;</a> link object</li>
+<li>zero or more <a href="UnionOfGeometryHierarchy.htm">&lt;Union Of Geometry Hierarchy&gt;</a> instances</li>
+</UL>
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<hr>
+<h2>Notes</h2>
+<h3>Associated to Notes</h3>
+<br>
+<h4><a href="#asn_toFeature_Representation" name="Notes_asn_toFeature_Representation">Feature_Representation</a></h4>
+ An association between a
+ <A href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</A>
+ instance and a
+ <A href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> instance
+ indicates that the environmental object(s) that they
+ represent have the semantic relationship indicated by
+ the <A href="BaseAssociationData.htm">&lt;Base Association Data&gt;</A>
+ link object on the association relationship.
+</P>
+<br>
+<h4><a href="#asn_toGeometry_Hierarchy" name="Notes_asn_toGeometry_Hierarchy">Geometry_Hierarchy</a></h4>
+ An association between two
+ <A href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> instances
+ indicates that the environmental object(s) that they
+ represent have the semantic relationship indicated by
+ the <A href="BaseAssociationData.htm">&lt;Base Association Data&gt;</A>
+ link object on the association relationship.
+</P>
+<h3>Associated from Notes</h3>
+<br>
+<h4><a href="#asn_fromFeature_Representation" name="Notes_asn_fromFeature_Representation">Feature_Representation</a></h4>
+ An association between a
+ <A href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</A>
+ instance and a
+ <A href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> instance
+ indicates that the environmental object(s) that they
+ represent have the semantic relationship indicated by
+ the <A href="BaseAssociationData.htm">&lt;Base Association Data&gt;</A>
+ link object on the association relationship.
+</P>
+<br>
+<h4><a href="#asn_fromGeometry_Hierarchy" name="Notes_asn_fromGeometry_Hierarchy">Geometry_Hierarchy</a></h4>
+ An association between two
+ <A href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> instances
+ indicates that the environmental object(s) that they
+ represent have the semantic relationship indicated by
+ the <A href="BaseAssociationData.htm">&lt;Base Association Data&gt;</A>
+ link object on the association relationship.
+</P>
+<br>
+<h4><a href="#asn_fromHierarchy_Summary_Item" name="Notes_asn_fromHierarchy_Summary_Item">Hierarchy_Summary_Item</a></h4>
+ An association from a
+ <A href="HierarchySummaryItem.htm">&lt;Hierarchy Summary Item&gt;</A>
+ instance to a <A href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A>
+ instance indicates that the
+ <A href="HierarchySummaryItem.htm">&lt;Hierarchy Summary Item&gt;</A> instance
+ summarizes that <A href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A>
+ instance.
+</P>
+<br>
+<h4><a href="#asn_fromReference_Surface" name="Notes_asn_fromReference_Surface">Reference_Surface</a></h4>
+ An association from a
+ <A href="ReferenceSurface.htm">&lt;Reference Surface&gt;</A> instance to a
+ <A href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> instance indicates
+ that the <A href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A>
+ instance organizes the geometric objects that specify
+ the reference surface geometry of the
+ <A href="ReferenceSurface.htm">&lt;Reference Surface&gt;</A> instance.
+</P>
+<h3>Composed of Notes</h3>
+<br>
+<h4><a href="#cmp_LSR_Transformation" name="Notes_cmp_LSR_Transformation">LSR_Transformation</a></h4>
+ A <A href="PropertyGridHookPoint.htm">&lt;Property Grid Hook Point&gt;</A> instance can have
+ an <A href="LSRTransformation.htm">&lt;LSR Transformation&gt;</A> component only when each
+ <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> component of the
+ <A href="PropertyGridHookPoint.htm">&lt;Property Grid Hook Point&gt;</A> instance specifies
+ an LSR 3D SRF. In such a case, the
+ <A href="LSRTransformation.htm">&lt;LSR Transformation&gt;</A> component of the
+ <A href="PropertyGridHookPoint.htm">&lt;Property Grid Hook Point&gt;</A> instance does not apply to the
+ <A href="Location.htm">&lt;Location&gt;</A> component of the
+ <A href="PropertyGridHookPoint.htm">&lt;Property Grid Hook Point&gt;</A> instance, but to the spatial
+ locations within each of its <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A>
+ components.
+
+<hr>
+<strong>Prev:</strong> <A href="PropertyGrid.htm">Property Grid</A>.
+<strong>Next:</strong> <A href="PropertySet.htm">Property Set</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

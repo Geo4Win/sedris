@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE_SRF_Context_Info</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX C - Types
+</font>
+<br>
+<font color="#ffffff">
+SE_SRF_Context_Info
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<PRE>
+/*
+ * STRUCT: SE_SRF_Context_Info
+ *
+ *   Spatial Reference Frame Information
+ */
+</PRE>
+<span class="Code">typedef struct 
+<br>
+{</span>
+<br>
+<table class="CFunctionPrototype">
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../../../src/lib/edcs/docs/types/EDCS_Unit_Code.htm">EDCS_Unit_Code</a></td>
+        <td class="CFunction"><a name="angular_unit"></a>angular_unit;</td><td class="CFunction"><sup><A href="#Notes_angular_unit">1</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../../../src/lib/edcs/docs/types/EDCS_Unit_Code.htm">EDCS_Unit_Code</a></td>
+        <td class="CFunction"><a name="linear_unit"></a>linear_unit;</td><td class="CFunction"><sup><A href="#Notes_linear_unit">2</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../../../src/lib/edcs/docs/types/EDCS_Unit_Scale_Code.htm">EDCS_Unit_Scale_Code</a></td>
+        <td class="CFunction"><a name="linear_scale"></a>linear_scale;</td><td class="CFunction"><sup><A href="#Notes_linear_scale">3</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Boolean.htm">SE_Boolean</a></td>
+        <td class="CFunction"><a name="use_dss_code"></a>use_dss_code;</td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../srm/types/SRM_DSS_Code.htm">SRM_DSS_Code</a></td>
+        <td class="CFunction"><a name="dss_code"></a>dss_code;</td><td class="CFunction"><sup><A href="#Notes_dss_code">4</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="../../srm/types/SRM_SRF_Parameters_Info.htm">SRM_SRF_Parameters_Info</a></td>
+        <td class="CFunction"><a
+        name="srf_parameters_info"></a>srf_parameters_info;</td></tr>
+</table>
+<span class="Code">
+} SE_SRF_Context_Info;</span>
+<br>
+
+<br>
+<HR>
+<H2>Field Notes</H2>
+<h4><a href="#angular_unit" name="Notes_angular_unit">angular_unit</a></h4>
+<P>
+ The units that angular measurements are stored in for this SRF
+</P>
+<h4><a href="#linear_unit" name="Notes_linear_unit">linear_unit</a></h4>
+<P>
+ The units that linear measurements are stored in for this SRF
+</P>
+<h4><a href="#linear_scale" name="Notes_linear_scale">linear_scale</a></h4>
+<P>
+ The scale that linear measurements are stored in for this SRF
+</P>
+<h4><a href="#dss_code" name="Notes_dss_code">dss_code</a></h4>
+<P>
+ If <A href="#use_dss_code">use_dss_code</A> =
+ <A href="SE_Boolean.htm#SE_TRUE">SE_TRUE</A>, this specifies a
+ designated spatial surface (DSS).
+</P>
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SE_Spatial_Index_Spacing_Unit.htm">SE_Spatial_Index_Spacing_Unit</a>.
+<strong>Next:</strong> <a href="SE_State_Mismatch_Behaviour.htm">SE_State_Mismatch_Behaviour</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

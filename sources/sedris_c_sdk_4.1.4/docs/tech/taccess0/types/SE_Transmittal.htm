@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE_Transmittal</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Types
+</font>
+<br>
+<font color="#ffffff">
+SE_Transmittal
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<PRE>
+/*
+ * TYPEDEF: SE_Transmittal
+ *
+ *   Handle to a transmittal. The definition of a transmittal
+ *   is hidden by the implementation of this API. The user of this API simply
+ *   passes in and receives back an SE_Transmittal for functions that deal
+ *   with a transmittal.
+ *
+ *   A transmittal is a collection of DRM objects stored in a
+ *   particular format (or set of formats) that can be accessed via a
+ *   single implementation of the SEDRIS API. Typically, this implies
+ *   some set of media-based &quot;files&quot; or other units of allocation.
+ *   A key attribute of a transmittal is that when
+ *   conveyed from one location, system, or human organization, to another,
+ *   all the parts (files, etc.) must be conveyed together in order for the
+ *   data to be fully accessible by the software applications that invoke the
+ *   read (or write) API implementation. It is as if all the parts must be
+ *   considered as one physical entity. A transmittal may refer to
+ *   other transmittals for describing the portions of its
+ *   environmental data that are intentionally included in other
+ *   transmittals.
+ *
+ *   Note that a transmittal is distinct from a &quot;Unified Environment&quot;.
+ *
+ *   A unified environment is a logical collection of data describing a
+ *   representation of some aspect of an environment (natural, man-made, or
+ *   fictitious) used in a computer based application or other automated
+ *   systems. In SEDRIS, a Unified Environment is formed from DRM objects
+ *   and the relationships between these objects. A complete unified
+ *   environment may span multiple transmittals, via relationships
+ *   formed using Inter-Transmittal References (ITR).
+ */
+</PRE><span class="Code">
+typedef void *SE_Transmittal;
+</span>
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SE_Time_Select_Parameters.htm">SE_Time_Select_Parameters</a>.
+<strong>Next:</strong> <a href="SE_Traversal_Order.htm">SE_Traversal_Order</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

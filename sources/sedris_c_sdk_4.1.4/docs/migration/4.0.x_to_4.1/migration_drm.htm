@@ -1,0 +1,2384 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<head><title>Migration Guide for DRM</title>
+<link rel="stylesheet" type="text/css" href="../../styles/SDK_SEDRIS.css"
+</HEAD>
+<body>
+
+<a name="Top"></a>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<div class="CenterDiv">
+<table class="doc_set_header">
+<tr><th align="center">
+<big><big>
+MIGRATION GUIDE
+</big></big>
+<br><font color="#ffffff">
+DRM and DRM API
+</font>
+</th></tr>
+</table>
+</div>
+
+<p>
+Please note that all DRM source files carry, as part of
+their leader comment information, comments that specify
+the DRM release and the SEDRIS release to which they correspond.
+</p>
+<ol type='I'>
+<li><a href="#Type">Type Changes</a>
+</li>
+<li><a href="#Function">Function Changes</a>
+</li>
+</ol>
+<hr>
+<br>
+<p>
+The <font color="#008000">marked</font> items indicate areas that can
+be handled by the name change script.
+</p>
+<a name="Type"></a>
+<ol type='I'>
+<li><p>Type Changes.
+</p>
+<ol>
+<li>The following types were removed.
+<ul>
+<li><p>SRM_Byte
+</p></li>
+<li><p>SRM_Byte_Positive
+</p></li>
+<li><p>SRM_Byte_Unsigned
+</p></li>
+<li><p>SRM_Coordinate
+</p></li>
+<li><p>SRM_Direction
+</p></li>
+<li><p>SRM_Float
+</p></li>
+<li><p>SE_Image_Lookup_Signature
+</p></li>
+<li><p>SE_Image_Lookup_Type
+</p></li>
+<li><p>SRM_Orientation
+</p></li>
+<li><p>SRM_Short_Integer
+</p></li>
+<li><p>SRM_Short_Integer_Positive
+</p></li>
+<li><p>SRM_Short_Integer_Unsigned
+</p></li>
+</ul>
+</li>
+<li><p><font color="#008000">SE_Axis_Alignment maps to SE_Axis_Alignment.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SE_AXIS_ALNMNT_NONE</font></td>
+    <td><font color="#008000">SE_AXALGN_NONE</font></td></tr>
+<tr><td><font color="#008000">SE_AXIS_ALNMNT_LOWER</font></td>
+    <td><font color="#008000">SE_AXALGN_LOWER</font></td></tr>
+<tr><td><font color="#008000">SE_AXIS_ALNMNT_MEDIAN</font></td>
+    <td><font color="#008000">SE_AXALGN_MEDIAN</font></td></tr>
+<tr><td><font color="#008000">SE_AXIS_ALNMNT_UPPER</font></td>
+    <td><font color="#008000">SE_AXALGN_UPPER</font></td></tr>
+<tr><td><font color="#008000">SE_AXIS_ALNMNT_GEOMETRIC_MEAN</font></td>
+    <td><font color="#008000">SE_AXALGN_GEOMETRIC_MEAN</font></td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SE_Camera_Projection_Type maps to SE_Camera_Projection_Type.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SE_CAM_PROJ_TYP_ORTHOGRAPHIC</font></td>
+    <td><font color="#008000">SE_CAM_ORTHOGRAPHIC</font></td></tr>
+<tr><td><font color="#008000">SE_CAM_PROJ_TYP_PERSPECTIVE</font></td>
+    <td><font color="#008000">SE_CAM_PERSPECTIVE</font></td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SE_Colour_Binding maps to SE_Colour_Binding.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SE_CLR_BND_NORMAL</font></td>
+    <td><font color="#008000">SE_COLRB_NORMAL</font></td></tr>
+<tr><td><font color="#008000">SE_CLR_BND_PARENT_OVERRIDE</font></td>
+    <td><font color="#008000">SE_COLRB_PARENT_OVERRIDE</font></td></tr>
+</table>
+<br><br></li>
+<li><p>SE_Colour_Mapping
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>Lgt_Render_Bhvr_Primary</td> <td>Primary_Light_Rendering_Behaviour</td></tr>
+<tr><td>Lgt_Render_Bhvr_Secondary</td> <td>Secondary_Light_Rendering_Behaviour</td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SE_Colour_Model maps to SE_Colour_Model.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SE_CLR_MDL_RGB</font></td>
+    <td><font color="#008000">SE_COLRMOD_RGB</font></td></tr>
+<tr><td><font color="#008000">SE_CLR_MDL_CMY</font></td>
+    <td><font color="#008000">SE_COLRMOD_CMY</font></td></tr>
+<tr><td><font color="#008000">SE_CLR_MDL_HSV</font></td>
+    <td><font color="#008000">SE_COLRMOD_HSV</font></td></tr>
+</table>
+<br><br></li>
+<li><p>SE_Contact_Information split into multiple targets.
+</p>
+<ol type='a'>
+<li><p>SE_Contact_Information
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>voice_phone</td> <td>(merged into phone)</td></tr>
+<tr><td>fax_phone</td> <td>(merged into phone)</td></tr>
+<tr><td>tdd_tty_phone</td> <td>(merged into phone)</td></tr>
+</table>
+<br><br></li>
+<li><p>SE_Contact_Information maps to SE_Telephone_Information.
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>voice_phone</td> <td>split into: voice_count, voice</td></tr>
+<tr><td>fax_phone</td> <td>split into: facsimile_count, facsimile</td></tr>
+<tr><td>tdd_tty_phone</td> <td>split into: tdd_tty_count, tdd_tty</td></tr>
+<tr><td>address</td> <td>(none)</td></tr>
+<tr><td>online_resource</td> <td>(none)</td></tr>
+<tr><td>hours_of_service</td> <td>(none)</td></tr>
+<tr><td>contact_instructions</td> <td>(none)</td></tr>
+</table>
+<br><br></li>
+</ol>
+</li>
+<li><p>SE_Count_Interval_Value
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>value_type</td> <td>interval_type</td></tr>
+<tr><td>u</td> <td>value</td></tr>
+</table>
+<br><br></li>
+<li><p>SE_Data_Table_Data
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>element_index</td> <td>table_property_description_index</td></tr>
+<tr><td>dt_array</td> <td>value</td></tr>
+<tr><td>dt_array.float_values</td> <td>value.long_float_values</td></tr>
+<tr><td>EDCS_Count dt_array.index_values</td> <td>EDCS_Integer value.index_values</td></tr>
+<tr><td>dt_array.enumerant_values</td> <td>value.enumeration_values</td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SE_Data_Table_Data_Value_Type maps to SE_Data_Table_Data_Value_Type.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SE_DTD_VT_SINGLE_FLOAT</font></td>
+    <td><font color="#008000">SE_DTDATAVALTYP_SINGLE_LONG_FLOAT</font></td></tr>
+<tr><td><font color="#008000">SE_DTD_VT_FLOAT</font></td>
+    <td><font color="#008000">SE_DTDATAVALTYP_LONG_FLOAT</font></td></tr>
+<tr><td><font color="#008000">SE_DTD_VT_SINGLE_INTEGER</font></td>
+    <td><font color="#008000">SE_DTDATAVALTYP_SINGLE_INTEGER</font></td></tr>
+<tr><td><font color="#008000">SE_DTD_VT_INTEGER</font></td>
+    <td><font color="#008000">SE_DTDATAVALTYP_INTEGER</font></td></tr>
+<tr><td><font color="#008000">SE_DTD_VT_SINGLE_COUNT</font></td>
+    <td><font color="#008000">SE_DTDATAVALTYP_SINGLE_COUNT</font></td></tr>
+<tr><td><font color="#008000">SE_DTD_VT_COUNT</font></td>
+    <td><font color="#008000">SE_DTDATAVALTYP_COUNT</font></td></tr>
+<tr><td><font color="#008000">SE_DTD_VT_INDEX</font></td>
+    <td><font color="#008000">SE_DTDATAVALTYP_INDEX</font></td></tr>
+<tr><td><font color="#008000">SE_DTD_VT_STRING</font></td>
+    <td><font color="#008000">SE_DTDATAVALTYP_STRING</font></td></tr>
+<tr><td><font color="#008000">SE_DTD_VT_CONSTRAINED_STRING</font></td>
+    <td><font color="#008000">SE_DTDATAVALTYP_CONSTRAINED_STRING</font></td></tr>
+<tr><td><font color="#008000">SE_DTD_VT_KEY</font></td>
+    <td><font color="#008000">SE_DTDATAVALTYP_KEY</font></td></tr>
+<tr><td><font color="#008000">SE_DTD_VT_ENUMERATION</font></td>
+    <td><font color="#008000">SE_DTDATAVALTYP_ENUMERATION</font></td></tr>
+<tr><td><font color="#008000">SE_DTD_VT_BOOLEAN</font></td>
+    <td><font color="#008000">SE_DTDATAVALTYP_BOOLEAN</font></td></tr>
+<tr><td><font color="#008000">SE_DTD_VT_INDEX_CODE</font></td>
+    <td><font color="#008000">SE_DTDATAVALTYP_INDEX_CODE</font></td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SE_DRM_Class maps to SE_DRM_Class.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_NULL</font></td>
+    <td><font color="#008000">SE_CLS_DRM_NULL</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_ABSOLUTE_TIME</font></td>
+    <td><font color="#008000">SE_CLS_DRM_ABSOLUTE_TIME</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_ABSOLUTE_TIME_INTERVAL</font></td>
+    <td><font color="#008000">SE_CLS_DRM_ABSOLUTE_TIME_INTERVAL</font></td></tr>
+<tr><td>SE_DRM_CLS_ACCESS</td><td><font color="#008000">SE_CLS_DRM_LEGAL_CONSTRAINTS,
+    SE_CLS_DRM_SECURITY_CONSTRAINTS</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_AGGREGATE_FEATURE</font></td>
+    <td><font color="#008000">SE_CLS_DRM_AGGREGATE_FEATURE</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_AGGREGATE_GEOMETRY</font></td>
+    <td><font color="#008000">SE_CLS_DRM_AGGREGATE_GEOMETRY</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_ALTERNATE_HIERARCHY_RELATED_FEATURES</font></td>
+    <td><font color="#008000">SE_CLS_DRM_ALTERNATE_HIERARCHY_RELATED_FEATURES</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_ALTERNATE_HIERARCHY_RELATED_GEOMETRY</font></td>
+    <td><font color="#008000">SE_CLS_DRM_ALTERNATE_HIERARCHY_RELATED_GEOMETRY</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_AMBIENT_COLOUR</font></td>
+    <td><font color="#008000">SE_CLS_DRM_AMBIENT_COLOUR</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_ANIMATION_BEHAVIOUR</font></td>
+    <td><font color="#008000">SE_CLS_DRM_ANIMATION_BEHAVIOUR</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_ANIMATION_RELATED_GEOMETRY</font></td>
+    <td><font color="#008000">SE_CLS_DRM_ANIMATION_RELATED_GEOMETRY</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_ARC</font></td>
+    <td><font color="#008000">SE_CLS_DRM_ARC</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_AREAL_FEATURE</font></td>
+    <td><font color="#008000">SE_CLS_DRM_AREAL_FEATURE</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_ATTACHMENT_POINT</font></td>
+    <td><font color="#008000">SE_CLS_DRM_ATTACHMENT_POINT</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_AXIS</font></td>
+    <td><font color="#008000">SE_CLS_DRM_AXIS</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_AZ_2D_LOCATION</font></td>
+    <td><font color="#008000">SE_CLS_DRM_LSA_2D_LOCATION</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_BASE_ASSOCIATION_DATA</font></td>
+    <td><font color="#008000">SE_CLS_DRM_BASE_ASSOCIATION_DATA</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_BASE_LOD_DATA</font></td>
+    <td><font color="#008000">SE_CLS_DRM_BASE_LOD_DATA</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_BASE_POSITIONAL_LIGHT</font></td>
+    <td><font color="#008000">SE_CLS_DRM_BASE_POSITIONAL_LIGHT</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_BASE_SPATIAL_ASSOCIATION_DATA</font></td>
+    <td><font color="#008000">SE_CLS_DRM_BASE_SPATIAL_ASSOCIATION_DATA</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_BASE_SUMMARY_ITEM</font></td>
+    <td><font color="#008000">SE_CLS_DRM_BASE_SUMMARY_ITEM</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_BASE_TIME_DATA</font></td>
+    <td><font color="#008000">SE_CLS_DRM_BASE_TIME_DATA</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_BLEND_DIRECTIONAL_LIGHT</font></td>
+    <td><font color="#008000">SE_CLS_DRM_BLEND_DIRECTIONAL_LIGHT</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_BOUNDING_VOLUME</font></td>
+    <td><font color="#008000">SE_CLS_DRM_BOUNDING_VOLUME</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_BROWSE_MEDIA</font></td>
+    <td><font color="#008000">SE_CLS_DRM_BROWSE_MEDIA</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_CAMERA_POINT</font></td>
+    <td><font color="#008000">SE_CLS_DRM_CAMERA_POINT</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_CC_3D_LOCATION</font></td>
+    <td><font color="#008000">SE_CLS_DRM_CC_3D_LOCATION</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_CD_3D_LOCATION</font></td>
+    <td><font color="#008000">SE_CLS_DRM_CD_3D_LOCATION</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_CD_SURFACE_LOCATION</font></td>
+    <td><font color="#008000">SE_CLS_DRM_CD_SURFACE_LOCATION</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_CITATION</font></td>
+    <td><font color="#008000">SE_CLS_DRM_CITATION</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_CLASSIFICATION_DATA</font></td>
+    <td><font color="#008000">SE_CLS_DRM_CLASSIFICATION_DATA</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_CLASSIFICATION_RELATED_FEATURES</font></td>
+    <td><font color="#008000">SE_CLS_DRM_CLASSIFICATION_RELATED_FEATURES</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_CLASSIFICATION_RELATED_GEOMETRY</font></td>
+    <td><font color="#008000">SE_CLS_DRM_CLASSIFICATION_RELATED_GEOMETRY</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_CM_3D_LOCATION</font></td>
+    <td><font color="#008000">SE_CLS_DRM_CM_3D_LOCATION</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_CMY_COLOUR</font></td>
+    <td><font color="#008000">SE_CLS_DRM_CMY_COLOUR</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_CMY_COLOUR_CONTROL_LINK</font></td>
+    <td><font color="#008000">SE_CLS_DRM_CMY_COLOUR_CONTROL_LINK</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_COLLISION_VOLUME</font></td>
+    <td><font color="#008000">SE_CLS_DRM_COLLISION_VOLUME</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_COLOUR</font></td>
+    <td><font color="#008000">SE_CLS_DRM_COLOUR</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_COLOUR_DATA</font></td>
+    <td><font color="#008000">SE_CLS_DRM_COLOUR_DATA</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_COLOUR_INDEX</font></td>
+    <td><font color="#008000">SE_CLS_DRM_COLOUR_INDEX</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_COLOUR_INDEX_CONTROL_LINK</font></td>
+    <td><font color="#008000">SE_CLS_DRM_COLOUR_INDEX_CONTROL_LINK</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_COLOUR_SHININESS</font></td>
+    <td><font color="#008000">SE_CLS_DRM_COLOUR_SHININESS</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_COLOUR_TABLE</font></td>
+    <td><font color="#008000">SE_CLS_DRM_COLOUR_TABLE</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_COLOUR_TABLE_GROUP</font></td>
+    <td><font color="#008000">SE_CLS_DRM_COLOUR_TABLE_GROUP</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_COLOUR_TABLE_LIBRARY</font></td>
+    <td><font color="#008000">SE_CLS_DRM_COLOUR_TABLE_LIBRARY</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_CONE_DIRECTIONAL_LIGHT</font></td>
+    <td><font color="#008000">SE_CLS_DRM_CONE_DIRECTIONAL_LIGHT</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_CONFORMAL_BEHAVIOUR</font></td>
+    <td><font color="#008000">SE_CLS_DRM_CONFORMAL_BEHAVIOUR</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_CONTACT_POINT</font></td>
+    <td><font color="#008000">SE_CLS_DRM_CONTACT_POINT</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_CONTINUOUS_LOD_RELATED_GEOMETRY</font></td>
+    <td><font color="#008000">SE_CLS_DRM_CONTINUOUS_LOD_RELATED_GEOMETRY</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_CONTROL_LINK</font></td>
+    <td><font color="#008000">SE_CLS_DRM_CONTROL_LINK</font></td></tr>
+<tr><td>SE_DRM_CLS_CROSS_REFERENCE</td><td>&nbsp;</td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_CYLINDRICAL_VOLUME_EXTENT</font></td>
+    <td><font color="#008000">SE_CLS_DRM_CYLINDRICAL_VOLUME_EXTENT</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_DATA_QUALITY</font></td>
+    <td><font color="#008000">SE_CLS_DRM_DATA_QUALITY</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_DATA_TABLE</font></td>
+    <td><font color="#008000">SE_CLS_DRM_DATA_TABLE</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_DATA_TABLE_LIBRARY</font></td>
+    <td><font color="#008000">SE_CLS_DRM_DATA_TABLE_LIBRARY</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_DESCRIPTION</font></td>
+    <td><font color="#008000">SE_CLS_DRM_IDENTIFICATION</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_DIFFUSE_COLOUR</font></td>
+    <td><font color="#008000">SE_CLS_DRM_DIFFUSE_COLOUR</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_DIRECTIONAL_LIGHT_BEHAVIOUR</font></td>
+    <td><font color="#008000">SE_CLS_DRM_DIRECTIONAL_LIGHT_BEHAVIOUR</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_DISTANCE_LOD_DATA</font></td>
+    <td><font color="#008000">SE_CLS_DRM_DISTANCE_LOD_DATA</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_DRM_CLASS_SUMMARY_ITEM</font></td>
+    <td><font color="#008000">SE_CLS_DRM_DRM_CLASS_SUMMARY_ITEM</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_EC_AUGMENTED_3D_LOCATION</font></td>
+    <td><font color="#008000">SE_CLS_DRM_EC_AUGMENTED_3D_LOCATION</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_EC_SURFACE_LOCATION</font></td>
+    <td><font color="#008000">SE_CLS_DRM_EC_SURFACE_LOCATION</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_EDCS_USE_SUMMARY_ITEM</font></td>
+    <td><font color="#008000">SE_CLS_DRM_EDCS_USE_SUMMARY_ITEM</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_EDGE_DIRECTION</font></td>
+    <td><font color="#008000">SE_CLS_DRM_EDGE_DIRECTION</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_EI_3D_LOCATION</font></td>
+    <td><font color="#008000">SE_CLS_DRM_EI_3D_LOCATION</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_ELLIPSE</font></td>
+    <td><font color="#008000">SE_CLS_DRM_ELLIPSE</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_EMISSIVE_COLOUR</font></td>
+    <td><font color="#008000">SE_CLS_DRM_EMISSIVE_COLOUR</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_ENUMERATION_AXIS</font></td>
+    <td><font color="#008000">SE_CLS_DRM_ENUMERATION_AXIS</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_ENVIRONMENTAL_DOMAIN_SUMMARY</font></td>
+    <td><font color="#008000">SE_CLS_DRM_ENVIRONMENTAL_DOMAIN_SUMMARY</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_ENVIRONMENT_ROOT</font></td>
+    <td><font color="#008000">SE_CLS_DRM_ENVIRONMENT_ROOT</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_EXPRESSION</font></td>
+    <td><font color="#008000">SE_CLS_DRM_EXPRESSION</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_FACE_DIRECTION</font></td>
+    <td><font color="#008000">SE_CLS_DRM_FACE_DIRECTION</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_FADE_RANGE</font></td>
+    <td><font color="#008000">SE_CLS_DRM_FADE_RANGE</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_FEATURE_EDGE</font></td>
+    <td><font color="#008000">SE_CLS_DRM_FEATURE_EDGE</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_FEATURE_FACE</font></td>
+    <td><font color="#008000">SE_CLS_DRM_FEATURE_FACE</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_FEATURE_FACE_RING</font></td>
+    <td><font color="#008000">SE_CLS_DRM_FEATURE_FACE_RING</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_FEATURE_HIERARCHY</font></td>
+    <td><font color="#008000">SE_CLS_DRM_FEATURE_HIERARCHY</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_FEATURE_MODEL</font></td>
+    <td><font color="#008000">SE_CLS_DRM_FEATURE_MODEL</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_FEATURE_MODEL_INSTANCE</font></td>
+    <td><font color="#008000">SE_CLS_DRM_FEATURE_MODEL_INSTANCE</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_FEATURE_NODE</font></td>
+    <td><font color="#008000">SE_CLS_DRM_FEATURE_NODE</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_FEATURE_REPRESENTATION</font></td>
+    <td><font color="#008000">SE_CLS_DRM_FEATURE_REPRESENTATION</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_FEATURE_TOPOLOGY</font></td>
+    <td><font color="#008000">SE_CLS_DRM_FEATURE_TOPOLOGY</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_FEATURE_TOPOLOGY_HIERARCHY</font></td>
+    <td><font color="#008000">SE_CLS_DRM_FEATURE_TOPOLOGY_HIERARCHY</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_FEATURE_VOLUME</font></td>
+    <td><font color="#008000">SE_CLS_DRM_FEATURE_VOLUME</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_FEATURE_VOLUME_SHELL</font></td>
+    <td><font color="#008000">SE_CLS_DRM_FEATURE_VOLUME_SHELL</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_FINITE_ELEMENT_MESH</font></td>
+    <td><font color="#008000">SE_CLS_DRM_FINITE_ELEMENT_MESH</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_FLASHING_LIGHT_BEHAVIOUR</font></td>
+    <td><font color="#008000">SE_CLS_DRM_FLASHING_LIGHT_BEHAVIOUR</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_FUNCTIONAL_ASSOCIATION_DATA</font></td>
+    <td><font color="#008000">SE_CLS_DRM_FUNCTIONAL_ASSOCIATION_DATA</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_FUNCTION</font></td>
+    <td><font color="#008000">SE_CLS_DRM_FUNCTION</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_GEOMETRIC_CENTRE</font></td>
+    <td><font color="#008000">SE_CLS_DRM_GEOMETRIC_CENTRE</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_GEOMETRY_EDGE</font></td>
+    <td><font color="#008000">SE_CLS_DRM_GEOMETRY_EDGE</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_GEOMETRY_FACE</font></td>
+    <td><font color="#008000">SE_CLS_DRM_GEOMETRY_FACE</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_GEOMETRY_HIERARCHY</font></td>
+    <td><font color="#008000">SE_CLS_DRM_GEOMETRY_HIERARCHY</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_GEOMETRY_MODEL</font></td>
+    <td><font color="#008000">SE_CLS_DRM_GEOMETRY_MODEL</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_GEOMETRY_MODEL_INSTANCE</font></td>
+    <td><font color="#008000">SE_CLS_DRM_GEOMETRY_MODEL_INSTANCE</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_GEOMETRY_NODE</font></td>
+    <td><font color="#008000">SE_CLS_DRM_GEOMETRY_NODE</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_GEOMETRY_REPRESENTATION</font></td>
+    <td><font color="#008000">SE_CLS_DRM_GEOMETRY_REPRESENTATION</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_GEOMETRY_TOPOLOGY</font></td>
+    <td><font color="#008000">SE_CLS_DRM_GEOMETRY_TOPOLOGY</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_GEOMETRY_TOPOLOGY_HIERARCHY</font></td>
+    <td><font color="#008000">SE_CLS_DRM_GEOMETRY_TOPOLOGY_HIERARCHY</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_GEOMETRY_VOLUME</font></td>
+    <td><font color="#008000">SE_CLS_DRM_GEOMETRY_VOLUME</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_GRID_OVERLAP</font></td>
+    <td><font color="#008000">SE_CLS_DRM_GRID_OVERLAP</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_HAEC_3D_LOCATION</font></td>
+    <td><font color="#008000">SE_CLS_DRM_HAEC_3D_LOCATION</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_HEEC_3D_LOCATION</font></td>
+    <td><font color="#008000">SE_CLS_DRM_HEEC_3D_LOCATION</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_HEEQ_3D_LOCATION</font></td>
+    <td><font color="#008000">SE_CLS_DRM_HEEQ_3D_LOCATION</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_HIERARCHY_DATA</font></td>
+    <td><font color="#008000">SE_CLS_DRM_HIERARCHY_DATA</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_HIERARCHY_SUMMARY_ITEM</font></td>
+    <td><font color="#008000">SE_CLS_DRM_HIERARCHY_SUMMARY_ITEM</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_HSV_COLOUR</font></td>
+    <td><font color="#008000">SE_CLS_DRM_HSV_COLOUR</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_HSV_COLOUR_CONTROL_LINK</font></td>
+    <td><font color="#008000">SE_CLS_DRM_HSV_COLOUR_CONTROL_LINK</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_ICON</font></td>
+    <td><font color="#008000">SE_CLS_DRM_ICON</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_IMAGE</font></td>
+    <td><font color="#008000">SE_CLS_DRM_IMAGE</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_IMAGE_ANCHOR</font></td>
+    <td><font color="#008000">SE_CLS_DRM_IMAGE_ANCHOR</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_IMAGE_LIBRARY</font></td>
+    <td><font color="#008000">SE_CLS_DRM_IMAGE_LIBRARY</font></td></tr>
+<tr><td>SE_DRM_CLS_IMAGE_LOOKUP</td><td>&nbsp;</td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_IMAGE_MAPPING_FUNCTION</font></td>
+    <td><font color="#008000">SE_CLS_DRM_IMAGE_MAPPING_FUNCTION</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_IN_OUT</font></td>
+    <td><font color="#008000">SE_CLS_DRM_IN_OUT</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_INDEX_LOD_DATA</font></td>
+    <td><font color="#008000">SE_CLS_DRM_INDEX_LOD_DATA</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_INFINITE_LIGHT</font></td>
+    <td><font color="#008000">SE_CLS_DRM_INFINITE_LIGHT</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_INLINE_COLOUR</font></td>
+    <td><font color="#008000">SE_CLS_DRM_INLINE_COLOUR</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_INTERFACE_TEMPLATE</font></td>
+    <td><font color="#008000">SE_CLS_DRM_INTERFACE_TEMPLATE</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_INTERVAL_AXIS</font></td>
+    <td><font color="#008000">SE_CLS_DRM_INTERVAL_AXIS</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_IRREGULAR_AXIS</font></td>
+    <td><font color="#008000">SE_CLS_DRM_IRREGULAR_AXIS</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_KEYWORDS</font></td>
+    <td><font color="#008000">SE_CLS_DRM_KEYWORDS</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_LABEL</font></td>
+    <td><font color="#008000">SE_CLS_DRM_LABEL</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_LCC_AUGMENTED_3D_LOCATION</font></td>
+    <td><font color="#008000">SE_CLS_DRM_LCC_AUGMENTED_3D_LOCATION</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_LTSAS_3D_LOCATION</font></td>
+    <td><font color="#008000">SE_CLS_DRM_LTSAS_3D_LOCATION</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_LTSAS_SURFACE_LOCATION</font></td>
+    <td><font color="#008000">SE_CLS_DRM_LTSAS_SURFACE_LOCATION</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_LCC_SURFACE_LOCATION</font></td>
+    <td><font color="#008000">SE_CLS_DRM_LCC_SURFACE_LOCATION</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_LTSC_3D_LOCATION</font></td>
+    <td><font color="#008000">SE_CLS_DRM_LTSC_3D_LOCATION</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_LTSC_SURFACE_LOCATION</font></td>
+    <td><font color="#008000">SE_CLS_DRM_LTSC_SURFACE_LOCATION</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_LOD_RELATED_FEATURES</font></td>
+    <td><font color="#008000">SE_CLS_DRM_LOD_RELATED_FEATURES</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_LOD_RELATED_GEOMETRY</font></td>
+    <td><font color="#008000">SE_CLS_DRM_LOD_RELATED_GEOMETRY</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_LIBRARY</font></td>
+    <td><font color="#008000">SE_CLS_DRM_LIBRARY</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_LIGHT_RENDERING_BEHAVIOUR</font></td>
+    <td><font color="#008000">SE_CLS_DRM_LIGHT_RENDERING_BEHAVIOUR</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_LIGHT_RENDERING_PROPERTIES</font></td>
+    <td><font color="#008000">SE_CLS_DRM_LIGHT_RENDERING_PROPERTIES</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_LIGHT_RENDERING_PROPERTIES_CONTROL_LINK</font></td>
+    <td><font color="#008000">SE_CLS_DRM_LIGHT_RENDERING_PROPERTIES_CONTROL_LINK</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_LIGHT_SOURCE</font></td>
+    <td><font color="#008000">SE_CLS_DRM_LIGHT_SOURCE</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_LIGHT_SOURCE_CONTROL_LINK</font></td>
+    <td><font color="#008000">SE_CLS_DRM_LIGHT_SOURCE_CONTROL_LINK</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_LINE</font></td>
+    <td><font color="#008000">SE_CLS_DRM_LINE</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_LINEAGE</font></td>
+    <td><font color="#008000">SE_CLS_DRM_LINEAGE</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_LINEAR_FEATURE</font></td>
+    <td><font color="#008000">SE_CLS_DRM_LINEAR_FEATURE</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_LINEAR_GEOMETRY</font></td>
+    <td><font color="#008000">SE_CLS_DRM_LINEAR_GEOMETRY</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_LITERAL</font></td>
+    <td><font color="#008000">SE_CLS_DRM_LITERAL</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_LOBE_DATA</font></td>
+    <td><font color="#008000">SE_CLS_DRM_LOBE_DATA</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_LOCAL_4X4</font></td>
+    <td><font color="#008000">SE_CLS_DRM_LOCAL_4X4</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_LOCATION</font></td>
+    <td><font color="#008000">SE_CLS_DRM_LOCATION</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_LOCATION_2D</font></td>
+    <td><font color="#008000">SE_CLS_DRM_LOCATION_2D</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_LOCATION_3D</font></td>
+    <td><font color="#008000">SE_CLS_DRM_LOCATION_3D</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_LSR_2D_LOCATION</font></td>
+    <td><font color="#008000">SE_CLS_DRM_LSR_2D_LOCATION</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_LSR_3D_LOCATION</font></td>
+    <td><font color="#008000">SE_CLS_DRM_LSR_3D_LOCATION</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_LSR_3D_LOCATION_CONTROL_LINK</font></td>
+    <td><font color="#008000">SE_CLS_DRM_LSR_3D_LOCATION_CONTROL_LINK</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_LSR_TRANSFORMATION</font></td>
+    <td><font color="#008000">SE_CLS_DRM_LSR_TRANSFORMATION</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_LSR_TRANSFORMATION_STEP</font></td>
+    <td><font color="#008000">SE_CLS_DRM_LSR_TRANSFORMATION_STEP</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_LTSE_SURFACE_LOCATION</font></td>
+    <td><font color="#008000">SE_CLS_DRM_LTSE_SURFACE_LOCATION</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_LTSE_3D_LOCATION</font></td>
+    <td><font color="#008000">SE_CLS_DRM_LTSE_3D_LOCATION</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_M_AUGMENTED_3D_LOCATION</font></td>
+    <td><font color="#008000">SE_CLS_DRM_M_AUGMENTED_3D_LOCATION</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_M_SURFACE_LOCATION</font></td>
+    <td><font color="#008000">SE_CLS_DRM_M_SURFACE_LOCATION</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_MAP_SCALE_LOD_DATA</font></td>
+    <td><font color="#008000">SE_CLS_DRM_MAP_SCALE_LOD_DATA</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_MESH_FACE_TABLE</font></td>
+    <td><font color="#008000">SE_CLS_DRM_MESH_FACE_TABLE</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_MODEL</font></td>
+    <td><font color="#008000">SE_CLS_DRM_MODEL</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_MODEL_INSTANCE_TEMPLATE_INDEX</font></td>
+    <td><font color="#008000">SE_CLS_DRM_MODEL_INSTANCE_TEMPLATE_INDEX</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_MODEL_LIBRARY</font></td>
+    <td><font color="#008000">SE_CLS_DRM_MODEL_LIBRARY</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_MOVING_LIGHT_BEHAVIOUR</font></td>
+    <td><font color="#008000">SE_CLS_DRM_MOVING_LIGHT_BEHAVIOUR</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_OCTANT_DATA</font></td>
+    <td><font color="#008000">SE_CLS_DRM_OCTANT_DATA</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_OCTANT_RELATED_FEATURES</font></td>
+    <td><font color="#008000">SE_CLS_DRM_OCTANT_RELATED_FEATURES</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_OCTANT_RELATED_GEOMETRY</font></td>
+    <td><font color="#008000">SE_CLS_DRM_OCTANT_RELATED_GEOMETRY</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_OM_AUGMENTED_3D_LOCATION</font></td>
+    <td><font color="#008000">SE_CLS_DRM_OMS_AUGMENTED_3D_LOCATION</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_OM_SURFACE_LOCATION</font></td>
+    <td><font color="#008000">SE_CLS_DRM_OMS_SURFACE_LOCATION</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_OVERLOAD_PRIORITY_INDEX</font></td>
+    <td><font color="#008000">SE_CLS_DRM_OVERLOAD_PRIORITY_INDEX</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_PARALLELEPIPED_VOLUME_EXTENT</font></td>
+    <td><font color="#008000">SE_CLS_DRM_PARALLELEPIPED_VOLUME_EXTENT</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_PERIMETER_DATA</font></td>
+    <td><font color="#008000">SE_CLS_DRM_PERIMETER_DATA</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_PERIMETER_RELATED_FEATURE_TOPOLOGY</font></td>
+    <td><font color="#008000">SE_CLS_DRM_PERIMETER_RELATED_FEATURE_TOPOLOGY</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_PERIMETER_RELATED_FEATURES</font></td>
+    <td><font color="#008000">SE_CLS_DRM_PERIMETER_RELATED_FEATURES</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_PERIMETER_RELATED_GEOMETRY</font></td>
+    <td><font color="#008000">SE_CLS_DRM_PERIMETER_RELATED_GEOMETRY</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_PERIMETER_RELATED_GEOMETRY_TOPOLOGY</font></td>
+    <td><font color="#008000">SE_CLS_DRM_PERIMETER_RELATED_GEOMETRY_TOPOLOGY</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_POINT</font></td>
+    <td><font color="#008000">SE_CLS_DRM_POINT</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_POINT_FEATURE</font></td>
+    <td><font color="#008000">SE_CLS_DRM_POINT_FEATURE</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_POLAR_2D_LOCATION</font></td>
+    <td><font color="#008000">SE_CLS_DRM_LSP_2D_LOCATION</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_POLYGON</font></td>
+    <td><font color="#008000">SE_CLS_DRM_POLYGON</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_POLYGON_CONTROL_LINK</font></td>
+    <td><font color="#008000">SE_CLS_DRM_POLYGON_CONTROL_LINK</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_POLYHEDRON</font></td>
+    <td><font color="#008000">SE_CLS_DRM_POLYHEDRON</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_POSITIONAL_LIGHT</font></td>
+    <td><font color="#008000">SE_CLS_DRM_POSITIONAL_LIGHT</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_PREDEFINED_FUNCTION</font></td>
+    <td><font color="#008000">SE_CLS_DRM_PREDEFINED_FUNCTION</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_PRESENTATION_DOMAIN</font></td>
+    <td><font color="#008000">SE_CLS_DRM_PRESENTATION_DOMAIN</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_PRIMITIVE_COLOUR</font></td>
+    <td><font color="#008000">SE_CLS_DRM_PRIMITIVE_COLOUR</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_PRIMITIVE_FEATURE</font></td>
+    <td><font color="#008000">SE_CLS_DRM_PRIMITIVE_FEATURE</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_PRIMITIVE_GEOMETRY</font></td>
+    <td><font color="#008000">SE_CLS_DRM_PRIMITIVE_GEOMETRY</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_PRIMITIVE_SUMMARY_ITEM</font></td>
+    <td><font color="#008000">SE_CLS_DRM_PRIMITIVE_SUMMARY_ITEM</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_PROCESS_STEP</font></td>
+    <td><font color="#008000">SE_CLS_DRM_PROCESS_STEP</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_PROPERTY</font></td>
+    <td><font color="#008000">SE_CLS_DRM_PROPERTY</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_PROPERTY_CHARACTERISTIC</font></td>
+    <td><font color="#008000">SE_CLS_DRM_PROPERTY_CHARACTERISTIC</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_PROPERTY_DESCRIPTION</font></td>
+    <td><font color="#008000">SE_CLS_DRM_PROPERTY_DESCRIPTION</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_PROPERTY_GRID</font></td>
+    <td><font color="#008000">SE_CLS_DRM_PROPERTY_GRID</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_PROPERTY_GRID_HOOK_POINT</font></td>
+    <td><font color="#008000">SE_CLS_DRM_PROPERTY_GRID_HOOK_POINT</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_PROPERTY_SET</font></td>
+    <td><font color="#008000">SE_CLS_DRM_PROPERTY_SET</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_PROPERTY_SET_INDEX</font></td>
+    <td><font color="#008000">SE_CLS_DRM_PROPERTY_SET_INDEX</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_PROPERTY_SET_INDEX_CONTROL_LINK</font></td>
+    <td><font color="#008000">SE_CLS_DRM_PROPERTY_SET_INDEX_CONTROL_LINK</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_PROPERTY_SET_TABLE</font></td>
+    <td><font color="#008000">SE_CLS_DRM_PROPERTY_SET_TABLE</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_PROPERTY_SET_TABLE_GROUP</font></td>
+    <td><font color="#008000">SE_CLS_DRM_PROPERTY_SET_TABLE_GROUP</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_PROPERTY_SET_TABLE_LIBRARY</font></td>
+    <td><font color="#008000">SE_CLS_DRM_PROPERTY_SET_TABLE_LIBRARY</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_PROPERTY_TABLE</font></td>
+    <td><font color="#008000">SE_CLS_DRM_PROPERTY_TABLE</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_PROPERTY_TABLE_REFERENCE</font></td>
+    <td><font color="#008000">SE_CLS_DRM_PROPERTY_TABLE_REFERENCE</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_PROPERTY_TABLE_REFERENCE_CONTROL_LINK</font></td>
+    <td><font color="#008000">SE_CLS_DRM_PROPERTY_TABLE_REFERENCE_CONTROL_LINK</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_PROPERTY_VALUE</font></td>
+    <td><font color="#008000">SE_CLS_DRM_PROPERTY_VALUE</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_PROXIMITY_DATA</font></td>
+    <td><font color="#008000">SE_CLS_DRM_PROXIMITY_DATA</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_PS_AUGMENTED_3D_LOCATION</font></td>
+    <td><font color="#008000">SE_CLS_DRM_PS_AUGMENTED_3D_LOCATION</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_PS_SURFACE_LOCATION</font></td>
+    <td><font color="#008000">SE_CLS_DRM_PS_SURFACE_LOCATION</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_PSEUDO_CODE_FUNCTION</font></td>
+    <td><font color="#008000">SE_CLS_DRM_PSEUDO_CODE_FUNCTION</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_PYRAMID_DIRECTIONAL_LIGHT</font></td>
+    <td><font color="#008000">SE_CLS_DRM_PYRAMID_DIRECTIONAL_LIGHT</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_QUADRANT_DATA</font></td>
+    <td><font color="#008000">SE_CLS_DRM_QUADRANT_DATA</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_QUADRANT_RELATED_FEATURES</font></td>
+    <td><font color="#008000">SE_CLS_DRM_QUADRANT_RELATED_FEATURES</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_QUADRANT_RELATED_GEOMETRY</font></td>
+    <td><font color="#008000">SE_CLS_DRM_QUADRANT_RELATED_GEOMETRY</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_REFERENCE_ORIGIN</font></td>
+    <td><font color="#008000">SE_CLS_DRM_REFERENCE_ORIGIN</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_REFERENCE_SURFACE</font></td>
+    <td><font color="#008000">SE_CLS_DRM_REFERENCE_SURFACE</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_REFERENCE_VECTOR</font></td>
+    <td><font color="#008000">SE_CLS_DRM_REFERENCE_VECTOR</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_REFERENCE_VECTOR_CONTROL_LINK</font></td>
+    <td><font color="#008000">SE_CLS_DRM_REFERENCE_VECTOR_CONTROL_LINK</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_REGULAR_AXIS</font></td>
+    <td><font color="#008000">SE_CLS_DRM_REGULAR_AXIS</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_RELATIVE_TIME_INTERVAL</font></td>
+    <td><font color="#008000">SE_CLS_DRM_RELATIVE_TIME_INTERVAL</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_RELATIVE_TIME</font></td>
+    <td><font color="#008000">SE_CLS_DRM_RELATIVE_TIME</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_RENDERING_PRIORITY_LEVEL</font></td>
+    <td><font color="#008000">SE_CLS_DRM_RENDERING_PRIORITY_LEVEL</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_RENDERING_PROPERTIES</font></td>
+    <td><font color="#008000">SE_CLS_DRM_RENDERING_PROPERTIES</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_RESPONSIBLE_PARTY</font></td>
+    <td><font color="#008000">SE_CLS_DRM_RESPONSIBLE_PARTY</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_RGB_COLOUR</font></td>
+    <td><font color="#008000">SE_CLS_DRM_RGB_COLOUR</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_RGB_COLOUR_CONTROL_LINK</font></td>
+    <td><font color="#008000">SE_CLS_DRM_RGB_COLOUR_CONTROL_LINK</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_ROTATING_LIGHT_BEHAVIOUR</font></td>
+    <td><font color="#008000">SE_CLS_DRM_ROTATING_LIGHT_BEHAVIOUR</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_ROTATION</font></td>
+    <td><font color="#008000">SE_CLS_DRM_ROTATION</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_ROTATION_CONTROL_LINK</font></td>
+    <td><font color="#008000">SE_CLS_DRM_ROTATION_CONTROL_LINK</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_SEC_3D_LOCATION</font></td>
+    <td><font color="#008000">SE_CLS_DRM_SEC_3D_LOCATION</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_SMS_3D_LOCATION</font></td>
+    <td><font color="#008000">SE_CLS_DRM_SME_3D_LOCATION</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_SCALE</font></td>
+    <td><font color="#008000">SE_CLS_DRM_SCALE</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_SCALE_CONTROL_LINK</font></td>
+    <td><font color="#008000">SE_CLS_DRM_SCALE_CONTROL_LINK</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_SEASON</font></td>
+    <td><font color="#008000">SE_CLS_DRM_SEASON</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_SEDRIS_ABSTRACT_BASE</font></td>
+    <td><font color="#008000">SE_CLS_DRM_SEDRIS_ABSTRACT_BASE</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_SEPARATING_PLANE</font></td>
+    <td><font color="#008000">SE_CLS_DRM_SEPARATING_PLANE</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_SEPARATING_PLANE_DATA</font></td>
+    <td><font color="#008000">SE_CLS_DRM_SEPARATING_PLANE_DATA</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_SEPARATING_PLANE_RELATED_GEOMETRY</font></td>
+    <td><font color="#008000">SE_CLS_DRM_SEPARATING_PLANE_RELATED_GEOMETRY</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_SEPARATING_PLANE_RELATIONS</font></td>
+    <td><font color="#008000">SE_CLS_DRM_SEPARATING_PLANE_RELATIONS</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_SEQ_3D_LOCATION</font></td>
+    <td><font color="#008000">SE_CLS_DRM_SEQ_3D_LOCATION</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_SM_3D_LOCATION</font></td>
+    <td><font color="#008000">SE_CLS_DRM_SMD_3D_LOCATION</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_SOUND</font></td>
+    <td><font color="#008000">SE_CLS_DRM_SOUND</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_SOUND_INSTANCE</font></td>
+    <td><font color="#008000">SE_CLS_DRM_SOUND_INSTANCE</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_SOUND_INSTANCE_CONTROL_LINK</font></td>
+    <td><font color="#008000">SE_CLS_DRM_SOUND_INSTANCE_CONTROL_LINK</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_SOUND_LIBRARY</font></td>
+    <td><font color="#008000">SE_CLS_DRM_SOUND_LIBRARY</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_SOUND_VOLUME</font></td>
+    <td><font color="#008000">SE_CLS_DRM_SOUND_VOLUME</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_SOURCE</font></td>
+    <td><font color="#008000">SE_CLS_DRM_SOURCE</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_SPATIAL_ASSOCIATION_DATA</font></td>
+    <td><font color="#008000">SE_CLS_DRM_SPATIAL_ASSOCIATION_DATA</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_SPATIAL_EXTENT</font></td>
+    <td><font color="#008000">SE_CLS_DRM_SPATIAL_EXTENT</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_SPATIAL_INDEX_DATA</font></td>
+    <td><font color="#008000">SE_CLS_DRM_SPATIAL_INDEX_DATA</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_SPATIAL_INDEX_RELATED_FEATURE_TOPOLOGY</font></td>
+    <td><font color="#008000">SE_CLS_DRM_SPATIAL_INDEX_RELATED_FEATURE_TOPOLOGY</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_SPATIAL_INDEX_RELATED_FEATURES</font></td>
+    <td><font color="#008000">SE_CLS_DRM_SPATIAL_INDEX_RELATED_FEATURES</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_SPATIAL_INDEX_RELATED_GEOMETRY</font></td>
+    <td><font color="#008000">SE_CLS_DRM_SPATIAL_INDEX_RELATED_GEOMETRY</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_SPATIAL_INDEX_RELATED_GEOMETRY_TOPOLOGY</font></td>
+    <td><font color="#008000">SE_CLS_DRM_SPATIAL_INDEX_RELATED_GEOMETRY_TOPOLOGY</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_SPATIAL_RESOLUTION_LOD_DATA</font></td>
+    <td><font color="#008000">SE_CLS_DRM_SPATIAL_RESOLUTION_LOD_DATA</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_SPECULAR_COLOUR</font></td>
+    <td><font color="#008000">SE_CLS_DRM_SPECULAR_COLOUR</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_SPHERICAL_VOLUME_EXTENT</font></td>
+    <td><font color="#008000">SE_CLS_DRM_SPHERICAL_VOLUME_EXTENT</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_SPOT_LIGHT</font></td>
+    <td><font color="#008000">SE_CLS_DRM_SPOT_LIGHT</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_SRF_SUMMARY</font></td>
+    <td><font color="#008000">SE_CLS_DRM_SRF_SUMMARY</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_STAMP_BEHAVIOUR</font></td>
+    <td><font color="#008000">SE_CLS_DRM_STAMP_BEHAVIOUR</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_STATE_CONTROL_LINK</font></td>
+    <td><font color="#008000">SE_CLS_DRM_STATE_CONTROL_LINK</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_STATE_DATA</font></td>
+    <td><font color="#008000">SE_CLS_DRM_STATE_DATA</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_STATE_RELATED_FEATURES</font></td>
+    <td><font color="#008000">SE_CLS_DRM_STATE_RELATED_FEATURES</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_STATE_RELATED_GEOMETRY</font></td>
+    <td><font color="#008000">SE_CLS_DRM_STATE_RELATED_GEOMETRY</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_STROBING_LIGHT_BEHAVIOUR</font></td>
+    <td><font color="#008000">SE_CLS_DRM_STROBING_LIGHT_BEHAVIOUR</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_SURFACE_GEOMETRY</font></td>
+    <td><font color="#008000">SE_CLS_DRM_SURFACE_GEOMETRY</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_LOCATION_SURFACE</font></td>
+    <td><font color="#008000">SE_CLS_DRM_LOCATION_SURFACE</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_SYMBOL</font></td>
+    <td><font color="#008000">SE_CLS_DRM_SYMBOL</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_SYMBOL_LIBRARY</font></td>
+    <td><font color="#008000">SE_CLS_DRM_SYMBOL_LIBRARY</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_TABLE_PROPERTY_DESCRIPTION</font></td>
+    <td><font color="#008000">SE_CLS_DRM_TABLE_PROPERTY_DESCRIPTION</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_TACK_POINT</font></td>
+    <td><font color="#008000">SE_CLS_DRM_TACK_POINT</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_TEXT</font></td>
+    <td><font color="#008000">SE_CLS_DRM_TEXT</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_TEXTURE_COORDINATE</font></td>
+    <td><font color="#008000">SE_CLS_DRM_TEXTURE_COORDINATE</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_TEXTURE_COORDINATE_CONTROL_LINK</font></td>
+    <td><font color="#008000">SE_CLS_DRM_TEXTURE_COORDINATE_CONTROL_LINK</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_TIME_CONSTRAINTS_DATA</font></td>
+    <td><font color="#008000">SE_CLS_DRM_TIME_CONSTRAINTS_DATA</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_TIME_INTERVAL</font></td>
+    <td><font color="#008000">SE_CLS_DRM_TIME_INTERVAL</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_TIME_OF_DAY</font></td>
+    <td><font color="#008000">SE_CLS_DRM_TIME_OF_DAY</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_TIME_POINT</font></td>
+    <td><font color="#008000">SE_CLS_DRM_TIME_POINT</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_TIME_RELATED_FEATURES</font></td>
+    <td><font color="#008000">SE_CLS_DRM_TIME_RELATED_FEATURES</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_TIME_RELATED_GEOMETRY</font></td>
+    <td><font color="#008000">SE_CLS_DRM_TIME_RELATED_GEOMETRY</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_TM_AUGMENTED_3D_LOCATION</font></td>
+    <td><font color="#008000">SE_CLS_DRM_TM_AUGMENTED_3D_LOCATION</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_TM_SURFACE_LOCATION</font></td>
+    <td><font color="#008000">SE_CLS_DRM_TM_SURFACE_LOCATION</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_TRANSFORMATION</font></td>
+    <td><font color="#008000">SE_CLS_DRM_TRANSFORMATION</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_TRANSLATION</font></td>
+    <td><font color="#008000">SE_CLS_DRM_TRANSLATION</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_TRANSLATION_CONTROL_LINK</font></td>
+    <td><font color="#008000">SE_CLS_DRM_TRANSLATION_CONTROL_LINK</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_TRANSLUCENCY</font></td>
+    <td><font color="#008000">SE_CLS_DRM_TRANSLUCENCY</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_TRANSLUCENCY_CONTROL_LINK</font></td>
+    <td><font color="#008000">SE_CLS_DRM_TRANSLUCENCY_CONTROL_LINK</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_TRANSMITTAL_ROOT</font></td>
+    <td><font color="#008000">SE_CLS_DRM_TRANSMITTAL_ROOT</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_TRANSMITTAL_SUMMARY</font></td>
+    <td><font color="#008000">SE_CLS_DRM_TRANSMITTAL_SUMMARY</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_TWINKLING_LIGHT_BEHAVIOUR</font></td>
+    <td><font color="#008000">SE_CLS_DRM_TWINKLING_LIGHT_BEHAVIOUR</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_UNION_OF_FEATURE_TOPOLOGY</font></td>
+    <td><font color="#008000">SE_CLS_DRM_UNION_OF_FEATURE_TOPOLOGY</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_UNION_OF_FEATURES</font></td>
+    <td><font color="#008000">SE_CLS_DRM_UNION_OF_FEATURES</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_UNION_OF_GEOMETRY</font></td>
+    <td><font color="#008000">SE_CLS_DRM_UNION_OF_GEOMETRY</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_UNION_OF_GEOMETRY_HIERARCHY</font></td>
+    <td><font color="#008000">SE_CLS_DRM_UNION_OF_GEOMETRY_HIERARCHY</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_UNION_OF_GEOMETRY_TOPOLOGY</font></td>
+    <td><font color="#008000">SE_CLS_DRM_UNION_OF_GEOMETRY_TOPOLOGY</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_UNION_OF_PRIMITIVE_GEOMETRY</font></td>
+    <td><font color="#008000">SE_CLS_DRM_UNION_OF_PRIMITIVE_GEOMETRY</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_VARIABLE</font></td>
+    <td><font color="#008000">SE_CLS_DRM_VARIABLE</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_VERTEX</font></td>
+    <td><font color="#008000">SE_CLS_DRM_VERTEX</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_VOLUME</font></td>
+    <td><font color="#008000">SE_CLS_DRM_ENCLOSING_VOLUME</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_VOLUME_EXTENT</font></td>
+    <td><font color="#008000">SE_CLS_DRM_VOLUME_EXTENT</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_VOLUME_GEOMETRY</font></td>
+    <td><font color="#008000">SE_CLS_DRM_VOLUME_GEOMETRY</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_VOLUME_LOD_DATA</font></td>
+    <td><font color="#008000">SE_CLS_DRM_VOLUME_LOD_DATA</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_VOLUME_LIGHT_BEHAVIOUR</font></td>
+    <td><font color="#008000">SE_CLS_DRM_VOLUME_LIGHT_BEHAVIOUR</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_VOLUME_OBJECT</font></td>
+    <td><font color="#008000">SE_CLS_DRM_VOLUME_OBJECT</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_VOLUMETRIC_FEATURE</font></td>
+    <td><font color="#008000">SE_CLS_DRM_VOLUMETRIC_FEATURE</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_WORLD_3X3</font></td>
+    <td><font color="#008000">SE_CLS_DRM_WORLD_3X3</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_CLS_WORLD_TRANSFORMATION</font></td>
+    <td><font color="#008000">SE_CLS_DRM_WORLD_TRANSFORMATION</font></td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SE_DRM_Type maps to SE_DRM_Type.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SE_DRM_TYP_SRM_AZ_2D_COORDINATE</font></td>
+    <td><font color="#008000">SE_DRM_TYP_SRM_LSA_2D_COORDINATE</font></td></tr>
+<tr><td>SE_DRM_TYP_SRM_BYTE</td><td>&nbsp;</td></tr>
+<tr><td>SE_DRM_TYP_SRM_BYTE_POSITIVE</td><td>&nbsp;</td></tr>
+<tr><td>SE_DRM_TYP_SRM_BYTE_UNSIGNED</td><td>&nbsp;</td></tr>
+<tr><td>SE_DRM_TYP_SE_CONTACT_INFORMATION</td><td><font color="#008000">SE_DRM_TYP_SE_CONTACT_INFORMATION,
+    SE_DRM_TYP_SE_TELEPHONE_INFORMATION</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_TYP_SRM_COORD</font></td>
+    <td><font color="#008000">SE_DRM_TYP_SRM_COORDINATE</font></td></tr>
+<tr><td>SE_DRM_TYP_SRM_COORDINATE</td><td>&nbsp;</td></tr>
+<tr><td><font color="#008000">SE_DRM_TYP_SRM_COORDINATE_CODE</font></td>
+    <td><font color="#008000">SE_DRM_TYP_SRM_SPATIAL_COORDINATE_CODE</font></td></tr>
+<tr><td>SE_DRM_TYP_SRM_DIRECTION</td><td>&nbsp;</td></tr>
+<tr><td>SE_DRM_TYP_SRM_EC_SRF_PARAMETERS</td><td><font color="#008000">SE_DRM_TYP_SRM_EC_PARAMETERS,
+    SE_DRM_TYP_SRM_ORM_CODE,
+    SE_DRM_TYP_SRM_RT_CODE</font></td></tr>
+<tr><td>SE_DRM_TYP_SRM_FLOAT</td><td>&nbsp;</td></tr>
+<tr><td><font color="#008000">SE_DRM_TYP_SE_FLOAT_INTERVAL_VALUE</font></td>
+    <td><font color="#008000">SE_DRM_TYP_SE_LONG_FLOAT_INTERVAL_VALUE</font></td></tr>
+<tr><td>SE_DRM_TYP_SRM_HSR_CODE</td><td><font color="#008000">SE_DRM_TYP_SRM_RT_CODE</font></td></tr>
+<tr><td>SE_DRM_TYP_SE_IMAGE_LOOKUP_SIGNATURE</td><td>&nbsp;</td></tr>
+<tr><td>SE_DRM_TYP_SE_IMAGE_LOOKUP_TYPE</td><td>&nbsp;</td></tr>
+<tr><td><font color="#008000">SE_DRM_TYP_SE_KEYWORD_TYPE_CODE</font></td>
+    <td><font color="#008000">SE_DRM_TYP_SE_MD_KEYWORDTYPECODE</font></td></tr>
+<tr><td>SE_DRM_TYP_SRM_LCC_SRF_PARAMETERS</td><td><font color="#008000">SE_DRM_TYP_SRM_LCC_PARAMETERS,
+    SE_DRM_TYP_SRM_ORM_CODE,
+    SE_DRM_TYP_SRM_RT_CODE</font></td></tr>
+<tr><td>SE_DRM_TYP_EDCS_LONG_FLOAT_VALUE</td><td><font color="#008000">SE_DRM_TYP_EDCS_LONG_FLOAT_VALUE,
+    SE_DRM_TYP_SE_LONG_FLOAT_VALUE</font></td></tr>
+<tr><td>SE_DRM_TYP_SRM_LSR_2D_SRF_PARAMETERS</td><td><font color="#008000">SE_DRM_TYP_SRM_LSR_2D_PARAMETERS,
+    SE_DRM_TYP_SRM_ORM_CODE,
+    SE_DRM_TYP_SRM_RT_CODE</font></td></tr>
+<tr><td>SE_DRM_TYP_SRM_LSR_3D_SRF_PARAMETERS</td><td><font color="#008000">SE_DRM_TYP_SRM_LSR_3D_PARAMETERS,
+    SE_DRM_TYP_SRM_ORM_CODE,
+    SE_DRM_TYP_SRM_RT_CODE</font></td></tr>
+<tr><td>SE_DRM_TYP_SRM_LTSE_SRF_PARAMETERS</td><td><font color="#008000">SE_DRM_TYP_SRM_LTSE_PARAMETERS,
+    SE_DRM_TYP_SRM_ORM_CODE,
+    SE_DRM_TYP_SRM_RT_CODE</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_TYP_SRM_LT_PARAMETERS</font></td>
+    <td><font color="#008000">SE_DRM_TYP_SRM_LOCAL_TANGENT_PARAMETERS</font></td></tr>
+<tr><td>SE_DRM_TYP_SRM_LT_SRF_PARAMETERS</td><td><font color="#008000">SE_DRM_TYP_SRM_LOCAL_TANGENT_PARAMETERS,
+    SE_DRM_TYP_SRM_ORM_CODE,
+    SE_DRM_TYP_SRM_RT_CODE</font></td></tr>
+<tr><td>SE_DRM_TYP_SRM_MERCATOR_PARAMETERS</td><td><font color="#008000">SE_DRM_TYP_SRM_M_PARAMETERS,
+    SE_DRM_TYP_SRM_TM_PARAMETERS</font></td></tr>
+<tr><td>SE_DRM_TYP_SRM_MERCATOR_SRF_PARAMETERS</td><td><font color="#008000">SE_DRM_TYP_SRM_M_PARAMETERS,
+    SE_DRM_TYP_SRM_ORM_CODE,
+    SE_DRM_TYP_SRM_RT_CODE</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_TYP_SRM_OM_PARAMETERS</font></td>
+    <td><font color="#008000">SE_DRM_TYP_SRM_OBLIQUE_MERCATOR_PARAMETERS</font></td></tr>
+<tr><td>SE_DRM_TYP_SRM_OM_SRF_PARAMETERS</td><td><font color="#008000">SE_DRM_TYP_SRM_OBLIQUE_MERCATOR_PARAMETERS,
+    SE_DRM_TYP_SRM_ORM_CODE,
+    SE_DRM_TYP_SRM_RT_CODE</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_TYP_SE_ONLINE_FUNCTION_CODE</font></td>
+    <td><font color="#008000">SE_DRM_TYP_SE_CI_ONLINEFUNCTIONCODE</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_TYP_SE_ONLINE_RESOURCE</font></td>
+    <td><font color="#008000">SE_DRM_TYP_SE_CI_ONLINERESOURCE</font></td></tr>
+<tr><td>SE_DRM_TYP_SRM_ORIENTATION</td><td>&nbsp;</td></tr>
+<tr><td>SE_DRM_TYP_SRM_ORM_PARAMETERS</td><td><font color="#008000">SE_DRM_TYP_SRM_ORM_CODE,
+    SE_DRM_TYP_SRM_RT_CODE</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_TYP_SRM_POLAR_2D_COORDINATE</font></td>
+    <td><font color="#008000">SE_DRM_TYP_SRM_LSP_2D_COORDINATE</font></td></tr>
+<tr><td>SE_DRM_TYP_SRM_PS_SRF_PARAMETERS</td><td><font color="#008000">SE_DRM_TYP_SRM_PS_PARAMETERS,
+    SE_DRM_TYP_SRM_ORM_CODE,
+    SE_DRM_TYP_SRM_RT_CODE</font></td></tr>
+<tr><td>SE_DRM_TYP_EDCS_REAL_VALUE</td><td><font color="#008000">SE_DRM_TYP_EDCS_REAL_VALUE,
+    SE_DRM_TYP_EDCS_LONG_FLOAT_VALUE</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_TYP_SE_RESPONSIBLE_PARTY_ROLE_CODE</font></td>
+    <td><font color="#008000">SE_DRM_TYP_SE_CI_ROLECODE</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_TYP_SE_RESTRICTION_CODE</font></td>
+    <td><font color="#008000">SE_DRM_TYP_SE_MD_RESTRICTIONCODE</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_TYP_SE_RS_ELEVATION_SELECT</font></td>
+    <td><font color="#008000">SE_DRM_TYP_SE_REFERENCE_SURFACE_ELEVATION_SELECT</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_TYP_SE_RS_LOD_SELECT</font></td>
+    <td><font color="#008000">SE_DRM_TYP_SE_REFERENCE_SURFACE_LOD_SELECT</font></td></tr>
+<tr><td>SE_DRM_TYP_SRM_SSM_CODE</td><td><font color="#008000">SE_DRM_TYP_SRM_SRFSM_ALABAMA_SPCS_CODE,
+    SE_DRM_TYP_SRM_SRFSM_JAPAN_RECTANGULAR_PLANE_CS_CODE,
+    SE_DRM_TYP_SRM_SRFSM_LAMBERT_NTF_CODE,
+    SE_DRM_TYP_SRM_SRFSM_UPS_CODE,
+    SE_DRM_TYP_SRM_SRFSM_UTM_CODE,
+    SE_DRM_TYP_SRM_SRFSM_WISCONSIN_SPCS_CODE</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_TYP_EDCS_SCALE_CODE</font></td>
+    <td><font color="#008000">SE_DRM_TYP_EDCS_UNIT_SCALE_CODE</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_TYP_EDCS_SCALE_DICTIONARY_ENTRY</font></td>
+    <td><font color="#008000">SE_DRM_TYP_EDCS_UNIT_SCALE_DICTIONARY_ENTRY</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_TYP_EDCS_SCALE_LABEL</font></td>
+    <td><font color="#008000">SE_DRM_TYP_EDCS_UNIT_SCALE_LABEL</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_TYP_SE_SECURITY_CLASSIFICATION_CODE</font></td>
+    <td><font color="#008000">SE_DRM_TYP_SE_MD_CLASSIFICATIONCODE</font></td></tr>
+<tr><td>SE_DRM_TYP_SE_SECURITY_CONSTRAINTS</td><td><font color="#008000">SE_DRM_TYP_SE_MD_CLASSIFICATIONCODE,
+    SE_DRM_TYP_SE_STRING,
+    SE_DRM_TYP_SE_STRING,
+    SE_DRM_TYP_SE_STRING</font></td></tr>
+<tr><td>SE_DRM_TYP_SRM_SHORT_INTEGER</td><td>&nbsp;</td></tr>
+<tr><td>SE_DRM_TYP_SRM_SHORT_INTEGER_POSITIVE</td><td>&nbsp;</td></tr>
+<tr><td>SE_DRM_TYP_SRM_SHORT_INTEGER_UNSIGNED</td><td>&nbsp;</td></tr>
+<tr><td><font color="#008000">SE_DRM_TYP_SRM_SRF</font></td>
+    <td><font color="#008000">SE_DRM_TYP_SRM_OBJECT_REFERENCE</font></td></tr>
+<tr><td>SE_DRM_TYP_SRM_SRF_CODE</td><td><font color="#008000">SE_DRM_TYP_SRM_SRF_CODE,
+    SE_DRM_TYP_SRM_RT_CODE</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_TYP_SE_SRF_INFO</font></td>
+    <td><font color="#008000">SE_DRM_TYP_SE_SRF_CONTEXT_INFO</font></td></tr>
+<tr><td>SE_DRM_TYP_SRM_SRF_SET_INFO</td><td><font color="#008000">SE_DRM_TYP_SRM_SRFS_INFO,
+    SE_DRM_TYP_SRM_RT_CODE</font></td></tr>
+<tr><td>SE_DRM_TYP_SRM_SRF_TEMPLATE_PARAMETERS</td><td><font color="#008000">SE_DRM_TYP_SRM_SRFT_PARAMETERS,
+    SE_DRM_TYP_SRM_RT_CODE</font></td></tr>
+<tr><td>SE_DRM_TYP_SE_STRING</td><td><font color="#008000">SE_DRM_TYP_SE_STRING,
+    SE_DRM_TYP_SE_URL</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_TYP_SRM_VOS_CODE</font></td>
+    <td><font color="#008000">SE_DRM_TYP_SRM_DSS_CODE</font></td></tr>
+<tr><td><font color="#008000">SE_DRM_TYP_SRM_INTERVAL</font></td>
+    <td><font color="#008000">SE_DRM_TYP_SRM_INTERVAL_TYPE</font></td></tr>
+<tr><td>SE_DRM_TYP_SRM_LCE_3D_SRF_PARAMETERS</td><td><font color="#008000">SE_DRM_TYP_SRM_LCE_3D_PARAMETERS,
+    SE_DRM_TYP_SRM_ORM_CODE,
+    SE_DRM_TYP_SRM_RT_CODE</font></td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SE_Element_Type_Code maps to SE_Element_Type_Code.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SE_ELEM_CODE_TYP_ATTRIBUTE</font></td>
+    <td><font color="#008000">SE_ELEMTYPCOD_ATTRIBUTE</font></td></tr>
+<tr><td><font color="#008000">SE_ELEM_CODE_TYP_INDEX</font></td>
+    <td><font color="#008000">SE_ELEMTYPCOD_INDEX</font></td></tr>
+<tr><td><font color="#008000">SE_ELEM_CODE_TYP_VARIABLE</font></td>
+    <td><font color="#008000">SE_ELEMTYPCOD_VARIABLE</font></td></tr>
+</table>
+<br><br></li>
+<li><p>SE_Enumerant_Structure
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>(none)</td><td>abstract_name_ptr</td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SE_Feature_Topology_Level maps to SE_Feature_Topology_Level.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SE_FEAT_TOPO_LVL_ZERO</font></td>
+    <td><font color="#008000">SE_FTL_ZERO</font></td></tr>
+<tr><td><font color="#008000">SE_FEAT_TOPO_LVL_ONE</font></td>
+    <td><font color="#008000">SE_FTL_ONE</font></td></tr>
+<tr><td><font color="#008000">SE_FEAT_TOPO_LVL_TWO</font></td>
+    <td><font color="#008000">SE_FTL_TWO</font></td></tr>
+<tr><td><font color="#008000">SE_FEAT_TOPO_LVL_THREE</font></td>
+    <td><font color="#008000">SE_FTL_THREE</font></td></tr>
+<tr><td><font color="#008000">SE_FEAT_TOPO_LVL_FOUR</font></td>
+    <td><font color="#008000">SE_FTL_FOUR</font></td></tr>
+<tr><td><font color="#008000">SE_FEAT_TOPO_LVL_FIVE</font></td>
+    <td><font color="#008000">SE_FTL_FIVE</font></td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SE_Float_Interval_Value maps to SE_Long_Float_Interval_Value.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>value_type</td> <td>interval_type</td></tr>
+<tr><td>u</td> <td>value</td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SE_Font_Style maps to SE_Font_Style.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SE_FNT_STYL_NORMAL</font></td>
+    <td><font color="#008000">SE_FONT_NORMAL</font></td></tr>
+<tr><td><font color="#008000">SE_FNT_STYL_BOLD</font></td>
+    <td><font color="#008000">SE_FONT_BOLD</font></td></tr>
+<tr><td><font color="#008000">SE_FNT_STYL_ITALIC</font></td>
+    <td><font color="#008000">SE_FONT_ITALIC</font></td></tr>
+<tr><td><font color="#008000">SE_FNT_STYL_BOLD_ITALIC</font></td>
+    <td><font color="#008000">SE_FONT_BOLD_ITALIC</font></td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SE_Functional_Association_Meaning_Type maps to SE_Functional_Association_Meaning_Type.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SE_FUNC_AM_TYP_CONTROLS</font></td>
+    <td><font color="#008000">SE_FNASSMNTYP_CONTROLS</font></td></tr>
+<tr><td><font color="#008000">SE_FUNC_AM_TYP_CONTROLLED_BY</font></td>
+    <td><font color="#008000">SE_FNASSMNTYP_CONTROLLED_BY</font></td></tr>
+<tr><td><font color="#008000">SE_FUNC_AM_TYP_SUPPORTS</font></td>
+    <td><font color="#008000">SE_FNASSMNTYP_SUPPORTS</font></td></tr>
+<tr><td><font color="#008000">SE_FUNC_AM_TYP_SUPPORTED_BY</font></td>
+    <td><font color="#008000">SE_FNASSMNTYP_SUPPORTED_BY</font></td></tr>
+<tr><td><font color="#008000">SE_FUNC_AM_TYP_ATTACHED</font></td>
+    <td><font color="#008000">SE_FNASSMNTYP_ATTACHED</font></td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SE_Geometric_Centre_Code maps to SE_Geometric_Centre_Code.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SE_GEOM_CTR_CODE_CENTRE_OF_BUOYANCY</font></td>
+    <td><font color="#008000">SE_GEOMCTRCOD_CENTRE_OF_BUOYANCY</font></td></tr>
+<tr><td><font color="#008000">SE_GEOM_CTR_CODE_CENTRE_OF_MASS</font></td>
+    <td><font color="#008000">SE_GEOMCTRCOD_CENTRE_OF_MASS</font></td></tr>
+<tr><td><font color="#008000">SE_GEOM_CTR_CODE_CENTRE_OF_PRESSURE</font></td>
+    <td><font color="#008000">SE_GEOMCTRCOD_CENTRE_OF_PRESSURE</font></td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SE_Geometry_Topology_Level maps to SE_Geometry_Topology_Level.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SE_GEOM_TOPO_LVL_ZERO</font></td>
+    <td><font color="#008000">SE_GTL_ZERO</font></td></tr>
+<tr><td><font color="#008000">SE_GEOM_TOPO_LVL_ONE</font></td>
+    <td><font color="#008000">SE_GTL_ONE</font></td></tr>
+<tr><td><font color="#008000">SE_GEOM_TOPO_LVL_TWO</font></td>
+    <td><font color="#008000">SE_GTL_TWO</font></td></tr>
+<tr><td><font color="#008000">SE_GEOM_TOPO_LVL_THREE</font></td>
+    <td><font color="#008000">SE_GTL_THREE</font></td></tr>
+<tr><td><font color="#008000">SE_GEOM_TOPO_LVL_FOUR</font></td>
+    <td><font color="#008000">SE_GTL_FOUR</font></td></tr>
+<tr><td><font color="#008000">SE_GEOM_TOPO_LVL_FIVE</font></td>
+    <td><font color="#008000">SE_GTL_FIVE</font></td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SE_Grid_Overlap_Operator maps to SE_Grid_Overlap_Operator.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SE_GRD_OVRLP_OP_BASE</font></td>
+    <td><font color="#008000">SE_GROVLOP_BASE</font></td></tr>
+<tr><td><font color="#008000">SE_GRD_OVRLP_OP_REPLACE</font></td>
+    <td><font color="#008000">SE_GROVLOP_REPLACE</font></td></tr>
+<tr><td><font color="#008000">SE_GRD_OVRLP_OP_MERGE</font></td>
+    <td><font color="#008000">SE_GROVLOP_MERGE</font></td></tr>
+<tr><td><font color="#008000">SE_GRD_OVRLP_OP_ADD</font></td>
+    <td><font color="#008000">SE_GROVLOP_ADD</font></td></tr>
+<tr><td><font color="#008000">SE_GRD_OVRLP_OP_MEAN</font></td>
+    <td><font color="#008000">SE_GROVLOP_MEAN</font></td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SE_HS_Multiplicity_Code maps to SE_HS_Multiplicity_Code.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SE_HS_MLTPCTY_CODE_EXACT</font></td>
+    <td><font color="#008000">SE_HSMULCOD_EXACT</font></td></tr>
+<tr><td><font color="#008000">SE_HS_MLTPCTY_CODE_ORDER_OF_MAGNITUDE</font></td>
+    <td><font color="#008000">SE_HSMULCOD_ORDER_OF_MAGNITUDE</font></td></tr>
+<tr><td><font color="#008000">SE_HS_MLTPCTY_CODE_UNKNOWN</font></td>
+    <td><font color="#008000">SE_HSMULCOD_UNKNOWN</font></td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SE_Image_Component_Type maps to SE_Image_Component_Type.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SE_IMG_COMP_TYP_SIGNED_INTEGER</font></td>
+    <td><font color="#008000">SE_IMAGCOMP_SIGNED_INTEGER</font></td></tr>
+<tr><td><font color="#008000">SE_IMG_COMP_TYP_UNSIGNED_INTEGER</font></td>
+    <td><font color="#008000">SE_IMAGCOMP_UNSIGNED_INTEGER</font></td></tr>
+<tr><td><font color="#008000">SE_IMG_COMP_TYP_FLOATING_POINT</font></td>
+    <td><font color="#008000">SE_IMAGCOMP_FLOATING_POINT</font></td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SE_Image_Mapping_Method maps to SE_Image_Mapping_Method.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SE_IMG_MAPNG_METH_REPLACE</font></td>
+    <td><font color="#008000">SE_IMAGMAPMETH_REPLACE</font></td></tr>
+<tr><td><font color="#008000">SE_IMG_MAPNG_METH_DECAL</font></td>
+    <td><font color="#008000">SE_IMAGMAPMETH_DECAL</font></td></tr>
+<tr><td><font color="#008000">SE_IMG_MAPNG_METH_MODULATE</font></td>
+    <td><font color="#008000">SE_IMAGMAPMETH_MODULATE</font></td></tr>
+<tr><td><font color="#008000">SE_IMG_MAPNG_METH_BLEND</font></td>
+    <td><font color="#008000">SE_IMAGMAPMETH_BLEND</font></td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SE_Image_Projection_Type maps to SE_Image_Projection_Type.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SE_IMG_PROJ_TYP_PLANAR</font></td>
+    <td><font color="#008000">SE_IMAGPROJTYP_PLANAR</font></td></tr>
+<tr><td><font color="#008000">SE_IMG_PROJ_TYP_CYLINDRICAL</font></td>
+    <td><font color="#008000">SE_IMAGPROJTYP_CYLINDRICAL</font></td></tr>
+<tr><td><font color="#008000">SE_IMG_PROJ_TYP_SPHERICAL</font></td>
+    <td><font color="#008000">SE_IMAGPROJTYP_SPHERICAL</font></td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SE_Image_Scan_Direction maps to SE_Image_Scan_Direction.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SE_IMG_SCAN_DIR_RIGHT_UP</font></td>
+    <td><font color="#008000">SE_IMAGSCANDIR_RIGHT_UP</font></td></tr>
+<tr><td><font color="#008000">SE_IMG_SCAN_DIR_RIGHT_DOWN</font></td>
+    <td><font color="#008000">SE_IMAGSCANDIR_RIGHT_DOWN</font></td></tr>
+<tr><td><font color="#008000">SE_IMG_SCAN_DIR_DOWN_RIGHT</font></td>
+    <td><font color="#008000">SE_IMAGSCANDIR_DOWN_RIGHT</font></td></tr>
+<tr><td><font color="#008000">SE_IMG_SCAN_DIR_DOWN_LEFT</font></td>
+    <td><font color="#008000">SE_IMAGSCANDIR_DOWN_LEFT</font></td></tr>
+<tr><td><font color="#008000">SE_IMG_SCAN_DIR_LEFT_UP</font></td>
+    <td><font color="#008000">SE_IMAGSCANDIR_LEFT_UP</font></td></tr>
+<tr><td><font color="#008000">SE_IMG_SCAN_DIR_LEFT_DOWN</font></td>
+    <td><font color="#008000">SE_IMAGSCANDIR_LEFT_DOWN</font></td></tr>
+<tr><td><font color="#008000">SE_IMG_SCAN_DIR_UP_RIGHT</font></td>
+    <td><font color="#008000">SE_IMAGSCANDIR_UP_RIGHT</font></td></tr>
+<tr><td><font color="#008000">SE_IMG_SCAN_DIR_UP_LEFT</font></td>
+    <td><font color="#008000">SE_IMAGSCANDIR_UP_LEFT</font></td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SE_Image_Scan_Direction_Z maps to SE_Image_Scan_Direction_Z.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SE_IMG_SCAN_DIR_Z_NONE</font></td>
+    <td><font color="#008000">SE_IMAGSCANDIRZ_NONE</font></td></tr>
+<tr><td><font color="#008000">SE_IMG_SCAN_DIR_Z_Z_BACK</font></td>
+    <td><font color="#008000">SE_IMAGSCANDIRZ_Z_BACK</font></td></tr>
+<tr><td><font color="#008000">SE_IMG_SCAN_DIR_Z_Z_FRONT</font></td>
+    <td><font color="#008000">SE_IMAGSCANDIRZ_Z_FRONT</font></td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SE_Image_Signature maps to SE_Image_Signature.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SE_IMG_SIG_ALPHA</font></td>
+    <td><font color="#008000">SE_IMAGSIG_ALPHA</font></td></tr>
+<tr><td><font color="#008000">SE_IMG_SIG_LUMINANCE</font></td>
+    <td><font color="#008000">SE_IMAGSIG_LUMINANCE</font></td></tr>
+<tr><td><font color="#008000">SE_IMG_SIG_COLOUR_COORDINATE_1</font></td>
+    <td><font color="#008000">SE_IMAGSIG_COLOUR_COORDINATE_1</font></td></tr>
+<tr><td><font color="#008000">SE_IMG_SIG_COLOUR_COORDINATE_2</font></td>
+    <td><font color="#008000">SE_IMAGSIG_COLOUR_COORDINATE_2</font></td></tr>
+<tr><td><font color="#008000">SE_IMG_SIG_COLOUR_COORDINATE_3</font></td>
+    <td><font color="#008000">SE_IMAGSIG_COLOUR_COORDINATE_3</font></td></tr>
+<tr><td><font color="#008000">SE_IMG_SIG_BUMP_MAP_HEIGHT</font></td>
+    <td><font color="#008000">SE_IMAGSIG_BUMP_MAP_HEIGHT</font></td></tr>
+<tr><td><font color="#008000">SE_IMG_SIG_EDCS_CLASSIFICATION_CODE</font></td>
+    <td><font color="#008000">SE_IMAGSIG_EDCS_CLASSIFICATION_CODE</font></td></tr>
+<tr><td><font color="#008000">SE_IMG_SIG_LUMINANCE_AND_ALPHA</font></td>
+    <td><font color="#008000">SE_IMAGSIG_LUMINANCE_AND_ALPHA</font></td></tr>
+<tr><td><font color="#008000">SE_IMG_SIG_123COLOUR</font></td>
+    <td><font color="#008000">SE_IMAGSIG_123COLOUR</font></td></tr>
+<tr><td><font color="#008000">SE_IMG_SIG_123COLOUR_ALPHA</font></td>
+    <td><font color="#008000">SE_IMAGSIG_123COLOUR_ALPHA</font></td></tr>
+<tr><td><font color="#008000">SE_IMG_SIG_ONE_MATERIAL</font></td>
+    <td><font color="#008000">SE_IMAGSIG_ONE_MATERIAL</font></td></tr>
+<tr><td><font color="#008000">SE_IMG_SIG_TWO_MATERIALS</font></td>
+    <td><font color="#008000">SE_IMAGSIG_TWO_MATERIALS</font></td></tr>
+<tr><td><font color="#008000">SE_IMG_SIG_THREE_MATERIALS</font></td>
+    <td><font color="#008000">SE_IMAGSIG_THREE_MATERIALS</font></td></tr>
+<tr><td><font color="#008000">SE_IMG_SIG_IMAGE_INDEX</font></td>
+    <td><font color="#008000">SE_IMAGSIG_IMAGE_INDEX</font></td></tr>
+<tr><td><font color="#008000">SE_IMG_SIG_BUMP_MAP_UV</font></td>
+    <td><font color="#008000">SE_IMAGSIG_BUMP_MAP_UV</font></td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SE_Image_Wrap maps to SE_Image_Wrap.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SE_IMG_WRAP_CLAMP</font></td>
+    <td><font color="#008000">SE_IMAGWRAP_CLAMP</font></td></tr>
+<tr><td><font color="#008000">SE_IMG_WRAP_REPEAT</font></td>
+    <td><font color="#008000">SE_IMAGWRAP_REPEAT</font></td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SE_Index_Code maps to SE_Index_Code.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SE_INDEX_CODE_DATA_TABLE_COMPONENT</font></td>
+    <td><font color="#008000">SE_IDXCODE_DATA_TABLE_COMPONENT</font></td></tr>
+<tr><td><font color="#008000">SE_INDEX_CODE_DATA_TABLE_LIBRARY</font></td>
+    <td><font color="#008000">SE_IDXCODE_DATA_TABLE_LIBRARY</font></td></tr>
+<tr><td><font color="#008000">SE_INDEX_CODE_IMAGE_MAPPING_FUNCTION</font></td>
+    <td><font color="#008000">SE_IDXCODE_IMAGE_MAPPING_FUNCTION</font></td></tr>
+<tr><td><font color="#008000">SE_INDEX_CODE_PROP_TABLE_REF_COMPONENT</font></td>
+    <td><font color="#008000">SE_IDXCODE_PROP_TABLE_REF_COMPONENT</font></td></tr>
+</table>
+<br><br></li>
+<li><p>SE_Integer_Interval_Value
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>value_type</td> <td>interval_type</td></tr>
+<tr><td>u</td> <td>value</td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SE_Interpolation_Type maps to SE_Interpolation_Type.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SE_INTERPOLATION_TYP_BICUBIC_SPLINE</font></td>
+    <td><font color="#008000">SE_INTERPTYP_BICUBIC_SPLINE</font></td></tr>
+<tr><td><font color="#008000">SE_INTERPOLATION_TYP_DIAGONALIZATION</font></td>
+    <td><font color="#008000">SE_INTERPTYP_DIAGONALIZATION</font></td></tr>
+<tr><td><font color="#008000">SE_INTERPOLATION_TYP_DISALLOWED</font></td>
+    <td><font color="#008000">SE_INTERPTYP_DISALLOWED</font></td></tr>
+<tr><td><font color="#008000">SE_INTERPOLATION_TYP_KRIGING</font></td>
+    <td><font color="#008000">SE_INTERPTYP_KRIGING</font></td></tr>
+<tr><td><font color="#008000">SE_INTERPOLATION_TYP_LAGRANGIAN</font></td>
+    <td><font color="#008000">SE_INTERPTYP_LAGRANGIAN</font></td></tr>
+<tr><td><font color="#008000">SE_INTERPOLATION_TYP_LINEAR</font></td>
+    <td><font color="#008000">SE_INTERPTYP_LINEAR</font></td></tr>
+<tr><td><font color="#008000">SE_INTERPOLATION_TYP_METADATA_SPECIFIED</font></td>
+    <td><font color="#008000">SE_INTERPTYP_METADATA_SPECIFIED</font></td></tr>
+<tr><td><font color="#008000">SE_INTERPOLATION_TYP_NEAREST_NEIGHBOUR</font></td>
+    <td><font color="#008000">SE_INTERPTYP_NEAREST_NEIGHBOUR</font></td></tr>
+<tr><td><font color="#008000">SE_INTERPOLATION_TYP_NOT_SUPPLIED</font></td>
+    <td><font color="#008000">SE_INTERPTYP_NOT_SUPPLIED</font></td></tr>
+<tr><td><font color="#008000">SE_INTERPOLATION_TYP_OAML_DBDB_SPLINE_FIT</font></td>
+    <td><font color="#008000">SE_INTERPTYP_OAML_DBDB_SPLINE_FIT</font></td></tr>
+<tr><td>SE_INTERPOLATION_TYP_OAML_GDEM_POLYN_DEFORMATION</td><td>&nbsp;</td></tr>
+<tr><td><font color="#008000">SE_INTERPOLATION_TYP_QUADRATIC</font></td>
+    <td><font color="#008000">SE_INTERPTYP_QUADRATIC</font></td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SE_Interval_Type maps to SE_Interval_Type.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SE_IVT_OPEN_INTERVAL</font></td>
+    <td><font color="#008000">SE_INTRVLTYP_OPEN_INTERVAL</font></td></tr>
+<tr><td><font color="#008000">SE_IVT_GE_LT_INTERVAL</font></td>
+    <td><font color="#008000">SE_INTRVLTYP_GE_LT_INTERVAL</font></td></tr>
+<tr><td><font color="#008000">SE_IVT_GT_LE_INTERVAL</font></td>
+    <td><font color="#008000">SE_INTRVLTYP_GT_LE_INTERVAL</font></td></tr>
+<tr><td><font color="#008000">SE_IVT_CLOSED_INTERVAL</font></td>
+    <td><font color="#008000">SE_INTRVLTYP_CLOSED_INTERVAL</font></td></tr>
+<tr><td><font color="#008000">SE_IVT_GT_SEMI_INTERVAL</font></td>
+    <td><font color="#008000">SE_INTRVLTYP_GT_SEMI_INTERVAL</font></td></tr>
+<tr><td><font color="#008000">SE_IVT_GE_SEMI_INTERVAL</font></td>
+    <td><font color="#008000">SE_INTRVLTYP_GE_SEMI_INTERVAL</font></td></tr>
+<tr><td><font color="#008000">SE_IVT_LT_SEMI_INTERVAL</font></td>
+    <td><font color="#008000">SE_INTRVLTYP_LT_SEMI_INTERVAL</font></td></tr>
+<tr><td><font color="#008000">SE_IVT_LE_SEMI_INTERVAL</font></td>
+    <td><font color="#008000">SE_INTRVLTYP_LE_SEMI_INTERVAL</font></td></tr>
+</table>
+<br><br></li>
+<li><p>SE_Interval_Value
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>u</td> <td>value</td></tr>
+<tr><td>u.real_value</td> <td>value.long_float_value</td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SE_Interval_Value_Type maps to SE_Interval_Value_Type.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SE_IVT_FLOAT</font></td>
+    <td><font color="#008000">SE_INTRVLVALTYP_FLOAT</font></td></tr>
+<tr><td><font color="#008000">SE_IVT_INTEGER</font></td>
+    <td><font color="#008000">SE_INTRVLVALTYP_INTEGER</font></td></tr>
+<tr><td><font color="#008000">SE_IVT_COUNT</font></td>
+    <td><font color="#008000">SE_INTRVLVALTYP_COUNT</font></td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SE_Keyword_Type_Code maps to SE_MD_KeywordTypeCode.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SE_KEYWORD_DISCIPLINE</font></td>
+    <td><font color="#008000">SE_MD_KEYTYPCOD_DISCIPLINE</font></td></tr>
+<tr><td><font color="#008000">SE_KEYWORD_PLACE</font></td>
+    <td><font color="#008000">SE_MD_KEYTYPCOD_PLACE</font></td></tr>
+<tr><td><font color="#008000">SE_KEYWORD_STRATUM</font></td>
+    <td><font color="#008000">SE_MD_KEYTYPCOD_STRATUM</font></td></tr>
+<tr><td><font color="#008000">SE_KEYWORD_TEMPORAL</font></td>
+    <td><font color="#008000">SE_MD_KEYTYPCOD_TEMPORAL</font></td></tr>
+<tr><td><font color="#008000">SE_KEYWORD_THEME</font></td>
+    <td><font color="#008000">SE_MD_KEYTYPCOD_THEME</font></td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SE_LOD_Data_Type maps to SE_LOD_Data_Type.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SE_LOD_DATA_TYP_DISTANCE</font></td>
+    <td><font color="#008000">SE_LODDATTYP_DISTANCE</font></td></tr>
+<tr><td><font color="#008000">SE_LOD_DATA_TYP_INDEX</font></td>
+    <td><font color="#008000">SE_LODDATTYP_INDEX</font></td></tr>
+<tr><td><font color="#008000">SE_LOD_DATA_TYP_MAP_SCALE</font></td>
+    <td><font color="#008000">SE_LODDATTYP_MAP_SCALE</font></td></tr>
+<tr><td><font color="#008000">SE_LOD_DATA_TYP_VOLUME</font></td>
+    <td><font color="#008000">SE_LODDATTYP_VOLUME</font></td></tr>
+<tr><td><font color="#008000">SE_LOD_DATA_TYP_SPATIAL_RESOLUTION</font></td>
+    <td><font color="#008000">SE_LODDATTYP_SPATIAL_RESOLUTION</font></td></tr>
+</table>
+<br><br></li>
+<li><p>EDCS_Long_Float_Value split into multiple targets.
+</p>
+<ol type='a'>
+<li><p>EDCS_Long_Float_Value
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>u</td> <td>value</td></tr>
+<tr><td>(none)</td><td>unit</td></tr>
+<tr><td>(none)</td><td>unit_scale</td></tr>
+</table>
+<br><br></li>
+<li><p>EDCS_Long_Float_Value maps to SE_Long_Float_Value.
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>u</td> <td>value</td></tr>
+</table>
+<br><br></li>
+</ol>
+</li>
+<li><p><font color="#008000">SE_LSR_Transformation_Axis maps to SE_LSR_Transformation_Axis.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SE_LSR_TRNSFRM_AXIS_X</font></td>
+    <td><font color="#008000">SE_LSRAXIS_U</font></td></tr>
+<tr><td><font color="#008000">SE_LSR_TRNSFRM_AXIS_Y</font></td>
+    <td><font color="#008000">SE_LSRAXIS_V</font></td></tr>
+<tr><td><font color="#008000">SE_LSR_TRNSFRM_AXIS_Z</font></td>
+    <td><font color="#008000">SE_LSRAXIS_W</font></td></tr>
+<tr><td><font color="#008000">SE_LSR_TRNSFRM_AXIS_ALL</font></td>
+    <td><font color="#008000">SE_LSRAXIS_ALL</font></td></tr>
+<tr><td><font color="#008000">SE_LSR_TRNSFRM_AXIS_AXIS_REFERENCE_VECTOR</font></td>
+    <td><font color="#008000">SE_LSRAXIS_AXIS_REFERENCE_VECTOR</font></td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SE_Media_Format maps to SE_Media_Format.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SE_MED_FMT_AVI</font></td>
+    <td><font color="#008000">SE_MEDIAFMT_AVI</font></td></tr>
+<tr><td><font color="#008000">SE_MED_FMT_BIIF</font></td>
+    <td><font color="#008000">SE_MEDIAFMT_BIIF</font></td></tr>
+<tr><td><font color="#008000">SE_MED_FMT_BMP</font></td>
+    <td><font color="#008000">SE_MEDIAFMT_BMP</font></td></tr>
+<tr><td><font color="#008000">SE_MED_FMT_CGM</font></td>
+    <td><font color="#008000">SE_MEDIAFMT_CGM</font></td></tr>
+<tr><td><font color="#008000">SE_MED_FMT_GIF</font></td>
+    <td><font color="#008000">SE_MEDIAFMT_GIF</font></td></tr>
+<tr><td><font color="#008000">SE_MED_FMT_HTML</font></td>
+    <td><font color="#008000">SE_MEDIAFMT_HTML</font></td></tr>
+<tr><td><font color="#008000">SE_MED_FMT_JPEG</font></td>
+    <td><font color="#008000">SE_MEDIAFMT_JPEG</font></td></tr>
+<tr><td><font color="#008000">SE_MED_FMT_JPEG2000</font></td>
+    <td><font color="#008000">SE_MEDIAFMT_JPEG2000</font></td></tr>
+<tr><td><font color="#008000">SE_MED_FMT_NITFS</font></td>
+    <td><font color="#008000">SE_MEDIAFMT_NITFS</font></td></tr>
+<tr><td><font color="#008000">SE_MED_FMT_PICT</font></td>
+    <td><font color="#008000">SE_MEDIAFMT_PICT</font></td></tr>
+<tr><td><font color="#008000">SE_MED_FMT_PNG</font></td>
+    <td><font color="#008000">SE_MEDIAFMT_PNG</font></td></tr>
+<tr><td><font color="#008000">SE_MED_FMT_QT</font></td>
+    <td><font color="#008000">SE_MEDIAFMT_QT</font></td></tr>
+<tr><td><font color="#008000">SE_MED_FMT_RGB</font></td>
+    <td><font color="#008000">SE_MEDIAFMT_RGB</font></td></tr>
+<tr><td><font color="#008000">SE_MED_FMT_RIFF</font></td>
+    <td><font color="#008000">SE_MEDIAFMT_RIFF</font></td></tr>
+<tr><td><font color="#008000">SE_MED_FMT_SVG</font></td>
+    <td><font color="#008000">SE_MEDIAFMT_SVG</font></td></tr>
+<tr><td><font color="#008000">SE_MED_FMT_TIFF</font></td>
+    <td><font color="#008000">SE_MEDIAFMT_TIFF</font></td></tr>
+<tr><td><font color="#008000">SE_MED_FMT_WMF</font></td>
+    <td><font color="#008000">SE_MEDIAFMT_WMF</font></td></tr>
+<tr><td><font color="#008000">SE_MED_FMT_XBM</font></td>
+    <td><font color="#008000">SE_MEDIAFMT_XBM</font></td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SE_Model_Reference_Type maps to SE_Model_Reference_Type.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SE_MDL_REF_TYP_COMPONENT</font></td>
+    <td><font color="#008000">SE_MODREFTYP_COMPONENT</font></td></tr>
+<tr><td><font color="#008000">SE_MDL_REF_TYP_ROOT</font></td>
+    <td><font color="#008000">SE_MODREFTYP_ROOT</font></td></tr>
+<tr><td><font color="#008000">SE_MDL_REF_TYP_ROOT_AND_COMPONENT</font></td>
+    <td><font color="#008000">SE_MODREFTYP_ROOT_AND_COMPONENT</font></td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SE_Online_Function_Code maps to SE_CI_OnlineFunctionCode.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SE_ONL_FUNC_CODE_DOWNLOAD</font></td>
+    <td><font color="#008000">SE_CIOLFCOD_DOWNLOAD</font></td></tr>
+<tr><td><font color="#008000">SE_ONL_FUNC_CODE_INFORMATION</font></td>
+    <td><font color="#008000">SE_CIOLFCOD_INFORMATION</font></td></tr>
+<tr><td><font color="#008000">SE_ONL_FUNC_CODE_OFFLINE_ACCESS</font></td>
+    <td><font color="#008000">SE_CIOLFCOD_OFFLINE_ACCESS</font></td></tr>
+<tr><td><font color="#008000">SE_ONL_FUNC_CODE_ORDER</font></td>
+    <td><font color="#008000">SE_CIOLFCOD_ORDER</font></td></tr>
+<tr><td><font color="#008000">SE_ONL_FUNC_CODE_SEARCH</font></td>
+    <td><font color="#008000">SE_CIOLFCOD_SEARCH</font></td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SE_Online_Resource maps to SE_CI_OnlineResource.</font>
+</p></li>
+<li><p><font color="#008000">SE_Ordering_Reason maps to SE_Ordering_Reason.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SE_ORDRNG_REASON_LYR_HIGH_QUALITY_RENDERING</font></td>
+    <td><font color="#008000">SE_ORDREAS_LAYERED_HIGH_QUALITY_RENDERING</font></td></tr>
+<tr><td><font color="#008000">SE_ORDRNG_REASON_LYR_FASTEST_RENDERING</font></td>
+    <td><font color="#008000">SE_ORDREAS_LAYERED_FASTEST_RENDERING</font></td></tr>
+<tr><td><font color="#008000">SE_ORDRNG_REASON_FIXED_LISTED</font></td>
+    <td><font color="#008000">SE_ORDREAS_FIXED_LISTED</font></td></tr>
+<tr><td><font color="#008000">SE_ORDRNG_REASON_VIEWER_RANGE</font></td>
+    <td><font color="#008000">SE_ORDREAS_VIEWER_RANGE</font></td></tr>
+<tr><td><font color="#008000">SE_ORDRNG_REASON_SHARED_ATTRIBUTE</font></td>
+    <td><font color="#008000">SE_ORDREAS_SHARED_ATTRIBUTE</font></td></tr>
+<tr><td><font color="#008000">SE_ORDRNG_REASON_NONE</font></td>
+    <td><font color="#008000">SE_ORDREAS_NONE</font></td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SE_Pixel_Fill_Method maps to SE_Pixel_Fill_Method.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SE_PXL_FILL_METH_CONSTANT</font></td>
+    <td><font color="#008000">SE_PIXFILLMETH_CONSTANT</font></td></tr>
+<tr><td><font color="#008000">SE_PXL_FILL_METH_BLEND</font></td>
+    <td><font color="#008000">SE_PIXFILLMETH_BLEND</font></td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SE_Point_Light_Display_Type maps to SE_Point_Light_Display_Type.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SE_DISP_TYP_RASTER</font></td>
+    <td><font color="#008000">SE_PTLTDISPTYP_RASTER</font></td></tr>
+<tr><td><font color="#008000">SE_DISP_TYP_CALLIGRAPHIC</font></td>
+    <td><font color="#008000">SE_PTLTDISPTYP_CALLIGRAPHIC</font></td></tr>
+</table>
+<br><br></li>
+<li><p>SE_Polygon_Flag
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>Water_Body_Surface</td> <td>Waterbody_Surface</td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SE_Predefined_Function maps to SE_Predefined_Function.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SE_PREDEF_FUNC_ADD</font></td>
+    <td><font color="#008000">SE_PREDEFFN_ADD</font></td></tr>
+<tr><td><font color="#008000">SE_PREDEF_FUNC_DIVIDE</font></td>
+    <td><font color="#008000">SE_PREDEFFN_DIVIDE</font></td></tr>
+<tr><td><font color="#008000">SE_PREDEF_FUNC_MODULO</font></td>
+    <td><font color="#008000">SE_PREDEFFN_MODULO</font></td></tr>
+<tr><td><font color="#008000">SE_PREDEF_FUNC_MULTIPLY</font></td>
+    <td><font color="#008000">SE_PREDEFFN_MULTIPLY</font></td></tr>
+<tr><td><font color="#008000">SE_PREDEF_FUNC_SUBTRACT</font></td>
+    <td><font color="#008000">SE_PREDEFFN_SUBTRACT</font></td></tr>
+<tr><td><font color="#008000">SE_PREDEF_FUNC_COSINE</font></td>
+    <td><font color="#008000">SE_PREDEFFN_COSINE</font></td></tr>
+<tr><td><font color="#008000">SE_PREDEF_FUNC_SINE</font></td>
+    <td><font color="#008000">SE_PREDEFFN_SINE</font></td></tr>
+<tr><td><font color="#008000">SE_PREDEF_FUNC_TANGENT</font></td>
+    <td><font color="#008000">SE_PREDEFFN_TANGENT</font></td></tr>
+<tr><td><font color="#008000">SE_PREDEF_FUNC_ARCCOSINE</font></td>
+    <td><font color="#008000">SE_PREDEFFN_ARCCOSINE</font></td></tr>
+<tr><td><font color="#008000">SE_PREDEF_FUNC_ARCSINE</font></td>
+    <td><font color="#008000">SE_PREDEFFN_ARCSINE</font></td></tr>
+<tr><td><font color="#008000">SE_PREDEF_FUNC_ARCTANGENT</font></td>
+    <td><font color="#008000">SE_PREDEFFN_ARCTANGENT</font></td></tr>
+<tr><td><font color="#008000">SE_PREDEF_FUNC_ARCTANGENT2</font></td>
+    <td><font color="#008000">SE_PREDEFFN_ARCTANGENT2</font></td></tr>
+<tr><td><font color="#008000">SE_PREDEF_FUNC_HYPOTENUSE</font></td>
+    <td><font color="#008000">SE_PREDEFFN_HYPOTENUSE</font></td></tr>
+<tr><td><font color="#008000">SE_PREDEF_FUNC_ABSOLUTE</font></td>
+    <td><font color="#008000">SE_PREDEFFN_ABSOLUTE</font></td></tr>
+<tr><td><font color="#008000">SE_PREDEF_FUNC_EXPONENT</font></td>
+    <td><font color="#008000">SE_PREDEFFN_EXPONENT</font></td></tr>
+<tr><td><font color="#008000">SE_PREDEF_FUNC_LN</font></td>
+    <td><font color="#008000">SE_PREDEFFN_LN</font></td></tr>
+<tr><td><font color="#008000">SE_PREDEF_FUNC_LOG</font></td>
+    <td><font color="#008000">SE_PREDEFFN_LOG</font></td></tr>
+<tr><td><font color="#008000">SE_PREDEF_FUNC_POWER</font></td>
+    <td><font color="#008000">SE_PREDEFFN_POWER</font></td></tr>
+<tr><td><font color="#008000">SE_PREDEF_FUNC_SQRT</font></td>
+    <td><font color="#008000">SE_PREDEFFN_SQRT</font></td></tr>
+<tr><td><font color="#008000">SE_PREDEF_FUNC_MAXIMUM</font></td>
+    <td><font color="#008000">SE_PREDEFFN_MAXIMUM</font></td></tr>
+<tr><td><font color="#008000">SE_PREDEF_FUNC_MINIMUM</font></td>
+    <td><font color="#008000">SE_PREDEFFN_MINIMUM</font></td></tr>
+<tr><td><font color="#008000">SE_PREDEF_FUNC_NOT</font></td>
+    <td><font color="#008000">SE_PREDEFFN_NOT</font></td></tr>
+<tr><td><font color="#008000">SE_PREDEF_FUNC_AND</font></td>
+    <td><font color="#008000">SE_PREDEFFN_AND</font></td></tr>
+<tr><td><font color="#008000">SE_PREDEF_FUNC_EQUAL</font></td>
+    <td><font color="#008000">SE_PREDEFFN_EQUAL</font></td></tr>
+<tr><td><font color="#008000">SE_PREDEF_FUNC_GREATER_THAN</font></td>
+    <td><font color="#008000">SE_PREDEFFN_GREATER_THAN</font></td></tr>
+<tr><td><font color="#008000">SE_PREDEF_FUNC_GREATER_THAN_OR_EQUAL</font></td>
+    <td><font color="#008000">SE_PREDEFFN_GREATER_THAN_OR_EQUAL</font></td></tr>
+<tr><td><font color="#008000">SE_PREDEF_FUNC_LESS_THAN</font></td>
+    <td><font color="#008000">SE_PREDEFFN_LESS_THAN</font></td></tr>
+<tr><td><font color="#008000">SE_PREDEF_FUNC_LESS_THAN_OR_EQUAL</font></td>
+    <td><font color="#008000">SE_PREDEFFN_LESS_THAN_OR_EQUAL</font></td></tr>
+<tr><td><font color="#008000">SE_PREDEF_FUNC_NOT_EQUAL</font></td>
+    <td><font color="#008000">SE_PREDEFFN_NOT_EQUAL</font></td></tr>
+<tr><td><font color="#008000">SE_PREDEF_FUNC_OR</font></td>
+    <td><font color="#008000">SE_PREDEFFN_OR</font></td></tr>
+<tr><td><font color="#008000">SE_PREDEF_FUNC_EXCLUSIVE_OR</font></td>
+    <td><font color="#008000">SE_PREDEFFN_EXCLUSIVE_OR</font></td></tr>
+<tr><td><font color="#008000">SE_PREDEF_FUNC_IF</font></td>
+    <td><font color="#008000">SE_PREDEFFN_IF</font></td></tr>
+<tr><td><font color="#008000">SE_PREDEF_FUNC_PI</font></td>
+    <td><font color="#008000">SE_PREDEFFN_PI</font></td></tr>
+<tr><td><font color="#008000">SE_PREDEF_FUNC_SIMULATION_TIME</font></td>
+    <td><font color="#008000">SE_PREDEFFN_SIMULATION_TIME</font></td></tr>
+<tr><td><font color="#008000">SE_PREDEF_FUNC_SIMULATION_UTIME</font></td>
+    <td><font color="#008000">SE_PREDEFFN_SIMULATION_UTIME</font></td></tr>
+<tr><td><font color="#008000">SE_PREDEF_FUNC_REFERENCE_SURFACE_ELEVATION</font></td>
+    <td><font color="#008000">SE_PREDEFFN_REFERENCE_SURFACE_ELEVATION</font></td></tr>
+<tr><td><font color="#008000">SE_PREDEF_FUNC_CYCLE_TIME</font></td>
+    <td><font color="#008000">SE_PREDEFFN_CYCLE_TIME</font></td></tr>
+<tr><td><font color="#008000">SE_PREDEF_FUNC_TABLE_VALUE</font></td>
+    <td><font color="#008000">SE_PREDEFFN_TABLE_VALUE</font></td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SE_Property_Code_Type maps to SE_Property_Code_Type.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SE_PROP_CODE_TYP_ATTRIBUTE</font></td>
+    <td><font color="#008000">SE_PROPCODTYP_ATTRIBUTE</font></td></tr>
+<tr><td><font color="#008000">SE_PROP_CODE_TYP_VARIABLE</font></td>
+    <td><font color="#008000">SE_PROPCODTYP_VARIABLE</font></td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SE_Reference_Vector_Type maps to SE_Reference_Vector_Type.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SE_REF_VEC_TYP_CAMERA_FORWARD_AXIS</font></td>
+    <td><font color="#008000">SE_REFVEC_CAMERA_FORWARD_AXIS</font></td></tr>
+<tr><td><font color="#008000">SE_REF_VEC_TYP_CAMERA_UP_AXIS</font></td>
+    <td><font color="#008000">SE_REFVEC_CAMERA_UP_AXIS</font></td></tr>
+<tr><td><font color="#008000">SE_REF_VEC_TYP_EMISSIVITY_AZIMUTH</font></td>
+    <td><font color="#008000">SE_REFVEC_EMISSIVITY_AZIMUTH</font></td></tr>
+<tr><td><font color="#008000">SE_REF_VEC_TYP_EMISSIVITY_NORMAL</font></td>
+    <td><font color="#008000">SE_REFVEC_EMISSIVITY_NORMAL</font></td></tr>
+<tr><td><font color="#008000">SE_REF_VEC_TYP_FACE_NORMAL</font></td>
+    <td><font color="#008000">SE_REFVEC_FACE_NORMAL</font></td></tr>
+<tr><td><font color="#008000">SE_REF_VEC_TYP_LIGHT_DIRECTION</font></td>
+    <td><font color="#008000">SE_REFVEC_LIGHT_DIRECTION</font></td></tr>
+<tr><td><font color="#008000">SE_REF_VEC_TYP_LSR_TRANSFORMATION_AXIS</font></td>
+    <td><font color="#008000">SE_REFVEC_LSR_TRANSFORMATION_AXIS</font></td></tr>
+<tr><td><font color="#008000">SE_REF_VEC_TYP_MAJOR_AXIS</font></td>
+    <td><font color="#008000">SE_REFVEC_MAJOR_AXIS</font></td></tr>
+<tr><td><font color="#008000">SE_REF_VEC_TYP_MINOR_AXIS</font></td>
+    <td><font color="#008000">SE_REFVEC_MINOR_AXIS</font></td></tr>
+<tr><td><font color="#008000">SE_REF_VEC_TYP_MOVEMENT_DIRECTION</font></td>
+    <td><font color="#008000">SE_REFVEC_MOVEMENT_DIRECTION</font></td></tr>
+<tr><td><font color="#008000">SE_REF_VEC_TYP_PARALLELEPIPED_EDGE_DIRECTION</font></td>
+    <td><font color="#008000">SE_REFVEC_PARALLELEPIPED_EDGE_DIRECTION</font></td></tr>
+<tr><td><font color="#008000">SE_REF_VEC_TYP_REFLECTIVITY_AZIMUTH</font></td>
+    <td><font color="#008000">SE_REFVEC_REFLECTIVITY_AZIMUTH</font></td></tr>
+<tr><td><font color="#008000">SE_REF_VEC_TYP_REFLECTIVITY_EMISSIVITY_AZIMUTH</font></td>
+    <td><font color="#008000">SE_REFVEC_REFLECTIVITY_EMISSIVITY_AZIMUTH</font></td></tr>
+<tr><td><font color="#008000">SE_REF_VEC_TYP_REFLECTIVITY_EMISSIVITY_NORMAL</font></td>
+    <td><font color="#008000">SE_REFVEC_REFLECTIVITY_EMISSIVITY_NORMAL</font></td></tr>
+<tr><td><font color="#008000">SE_REF_VEC_TYP_REFLECTIVITY_NORMAL</font></td>
+    <td><font color="#008000">SE_REFVEC_REFLECTIVITY_NORMAL</font></td></tr>
+<tr><td><font color="#008000">SE_REF_VEC_TYP_RENDERING_NORMAL</font></td>
+    <td><font color="#008000">SE_REFVEC_RENDERING_NORMAL</font></td></tr>
+<tr><td><font color="#008000">SE_REF_VEC_TYP_VERTICAL_AXIS</font></td>
+    <td><font color="#008000">SE_REFVEC_VERTICAL_AXIS</font></td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SE_Responsible_Party_Role_Code maps to SE_CI_RoleCode.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SE_RESP_PTY_RL_CODE_RESOURCE_PROVIDER</font></td>
+    <td><font color="#008000">SE_ROLECOD_RESOURCE_PROVIDER</font></td></tr>
+<tr><td><font color="#008000">SE_RESP_PTY_RL_CODE_CUSTODIAN</font></td>
+    <td><font color="#008000">SE_ROLECOD_CUSTODIAN</font></td></tr>
+<tr><td><font color="#008000">SE_RESP_PTY_RL_CODE_OWNER</font></td>
+    <td><font color="#008000">SE_ROLECOD_OWNER</font></td></tr>
+<tr><td><font color="#008000">SE_RESP_PTY_RL_CODE_USER</font></td>
+    <td><font color="#008000">SE_ROLECOD_USER</font></td></tr>
+<tr><td><font color="#008000">SE_RESP_PTY_RL_CODE_DISTRIBUTOR</font></td>
+    <td><font color="#008000">SE_ROLECOD_DISTRIBUTOR</font></td></tr>
+<tr><td><font color="#008000">SE_RESP_PTY_RL_CODE_ORIGINATOR</font></td>
+    <td><font color="#008000">SE_ROLECOD_ORIGINATOR</font></td></tr>
+<tr><td><font color="#008000">SE_RESP_PTY_RL_CODE_POINT_OF_CONTACT</font></td>
+    <td><font color="#008000">SE_ROLECOD_POINT_OF_CONTACT</font></td></tr>
+<tr><td><font color="#008000">SE_RESP_PTY_RL_CODE_PRINCIPAL_INVESTIGATOR</font></td>
+    <td><font color="#008000">SE_ROLECOD_PRINCIPAL_INVESTIGATOR</font></td></tr>
+<tr><td><font color="#008000">SE_RESP_PTY_RL_CODE_PROCESSOR</font></td>
+    <td><font color="#008000">SE_ROLECOD_PROCESSOR</font></td></tr>
+<tr><td><font color="#008000">SE_RESP_PTY_RL_CODE_PUBLISHER</font></td>
+    <td><font color="#008000">SE_ROLECOD_PUBLISHER</font></td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SE_Restriction_Code maps to SE_MD_RestrictionCode.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SE_RESTR_CODE_COPYRIGHT</font></td>
+    <td><font color="#008000">SE_MD_RESTRICTCOD_COPYRIGHT</font></td></tr>
+<tr><td><font color="#008000">SE_RESTR_CODE_PATENT</font></td>
+    <td><font color="#008000">SE_MD_RESTRICTCOD_PATENT</font></td></tr>
+<tr><td><font color="#008000">SE_RESTR_CODE_PATENT_PENDING</font></td>
+    <td><font color="#008000">SE_MD_RESTRICTCOD_PATENT_PENDING</font></td></tr>
+<tr><td><font color="#008000">SE_RESTR_CODE_TRADEMARK</font></td>
+    <td><font color="#008000">SE_MD_RESTRICTCOD_TRADEMARK</font></td></tr>
+<tr><td><font color="#008000">SE_RESTR_CODE_LICENSE</font></td>
+    <td><font color="#008000">SE_MD_RESTRICTCOD_LICENSE</font></td></tr>
+<tr><td><font color="#008000">SE_RESTR_CODE_INTELLECTUAL_PROPERTY_RIGHTS</font></td>
+    <td><font color="#008000">SE_MD_RESTRICTCOD_INTELLECTUAL_PROPERTY_RIGHTS</font></td></tr>
+<tr><td><font color="#008000">SE_RESTR_CODE_RESTRICTED</font></td>
+    <td><font color="#008000">SE_MD_RESTRICTCOD_RESTRICTED</font></td></tr>
+<tr><td><font color="#008000">SE_RESTR_CODE_OTHER_RESTRICTIONS</font></td>
+    <td><font color="#008000">SE_MD_RESTRICTCOD_OTHER_RESTRICTIONS</font></td></tr>
+</table>
+<br><br></li>
+<li><p>SE_Rotation_Data
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>ccw_limit</td> <td>counterclockwise_limit</td></tr>
+<tr><td>cw_limit</td> <td>clockwise_limit</td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SE_RS_Elevation_Select maps to SE_Reference_Surface_Elevation_Select.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SE_RS_ELEV_SEL_CLOSEST_TO_ORM_CENTRE</font></td>
+    <td><font color="#008000">SE_RSELEVSEL_CLOSEST_TO_ORM_CENTRE</font></td></tr>
+<tr><td><font color="#008000">SE_RS_ELEV_SEL_CLOSEST_TO_VERTICAL_DATUM</font></td>
+    <td><font color="#008000">SE_RSELEVSEL_CLOSEST_TO_DSS</font></td></tr>
+<tr><td><font color="#008000">SE_RS_ELEV_SEL_HIGHEST</font></td>
+    <td><font color="#008000">SE_RSELEVSEL_FARTHEST_FROM_ORM_CENTRE</font></td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SE_RS_LOD_Select maps to SE_Reference_Surface_LOD_Select.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>SE_RS_LOD_SEL_ALL</td><td>&nbsp;</td></tr>
+<tr><td><font color="#008000">SE_RS_LOD_SEL_MOST_DETAILED</font></td>
+    <td><font color="#008000">SE_RSLODSEL_MOST_DETAILED</font></td></tr>
+<tr><td><font color="#008000">SE_RS_LOD_SEL_LEAST_DETAILED</font></td>
+    <td><font color="#008000">SE_RSLODSEL_LEAST_DETAILED</font></td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SE_Security_Classification_Code maps to SE_MD_ClassificationCode.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SE_SEC_CL_CODE_UNCLASSIFIED</font></td>
+    <td><font color="#008000">SE_MD_CLSCOD_UNCLASSIFIED</font></td></tr>
+<tr><td><font color="#008000">SE_SEC_CL_CODE_RESTRICTED</font></td>
+    <td><font color="#008000">SE_MD_CLSCOD_RESTRICTED</font></td></tr>
+<tr><td><font color="#008000">SE_SEC_CL_CODE_CONFIDENTIAL</font></td>
+    <td><font color="#008000">SE_MD_CLSCOD_CONFIDENTIAL</font></td></tr>
+<tr><td><font color="#008000">SE_SEC_CL_CODE_SECRET</font></td>
+    <td><font color="#008000">SE_MD_CLSCOD_SECRET</font></td></tr>
+<tr><td><font color="#008000">SE_SEC_CL_CODE_TOP_SECRET</font></td>
+    <td><font color="#008000">SE_MD_CLSCOD_TOP_SECRET</font></td></tr>
+</table>
+<br><br></li>
+<li><p>SE_Security_Constraints split into multiple targets.
+</p>
+<ol type='a'>
+<li><p>SE_Security_Constraints maps to SE_MD_ClassificationCode.
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>SE_Security_Classification_Code classification</td> <td>SE_MD_ClassificationCode</td></tr>
+<tr><td>user_note</td> <td>(none)</td></tr>
+<tr><td>classification_system</td> <td>(none)</td></tr>
+<tr><td>handling_description</td> <td>(none)</td></tr>
+</table>
+<br><br></li>
+<li><p>SE_Security_Constraints maps to SE_String.
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>classification</td> <td>(none)</td></tr>
+<tr><td>SE_String user_note</td> <td>SE_String</td></tr>
+<tr><td>classification_system</td> <td>(none)</td></tr>
+<tr><td>handling_description</td> <td>(none)</td></tr>
+</table>
+<br><br></li>
+<li><p>SE_Security_Constraints maps to SE_String.
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>classification</td> <td>(none)</td></tr>
+<tr><td>user_note</td> <td>(none)</td></tr>
+<tr><td>SE_String classification_system</td> <td>SE_String</td></tr>
+<tr><td>handling_description</td> <td>(none)</td></tr>
+</table>
+<br><br></li>
+<li><p>SE_Security_Constraints maps to SE_String.
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>classification</td> <td>(none)</td></tr>
+<tr><td>user_note</td> <td>(none)</td></tr>
+<tr><td>classification_system</td> <td>(none)</td></tr>
+<tr><td>handling_description</td> <td>(none)</td></tr>
+<tr><td>(none)</td><td>locale</td></tr>
+<tr><td>(none)</td><td>length</td></tr>
+<tr><td>(none)</td><td>characters</td></tr>
+</table>
+<br><br></li>
+</ol>
+</li>
+<li><p><font color="#008000">SE_Shading_Method maps to SE_Shading_Method.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SE_SHADE_METH_NONE</font></td>
+    <td><font color="#008000">SE_SHADMETH_NONE</font></td></tr>
+<tr><td><font color="#008000">SE_SHADE_METH_FLAT</font></td>
+    <td><font color="#008000">SE_SHADMETH_FLAT</font></td></tr>
+<tr><td><font color="#008000">SE_SHADE_METH_INTERPOLATED_COLOUR</font></td>
+    <td><font color="#008000">SE_SHADMETH_INTERPOLATED_COLOUR</font></td></tr>
+<tr><td><font color="#008000">SE_SHADE_METH_INTERPOLATED_NORMAL</font></td>
+    <td><font color="#008000">SE_SHADMETH_INTERPOLATED_NORMAL</font></td></tr>
+</table>
+<br><br></li>
+<li><p>SE_Single_Value
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>u</td> <td>value</td></tr>
+<tr><td>EDCS_Count u.index_value</td> <td>EDCS_Integer value.index_value</td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SE_Single_Value_Type maps to SE_Single_Value_Type.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SE_SVT_FLOAT</font></td>
+    <td><font color="#008000">SE_SINGVALTYP_LONG_FLOAT</font></td></tr>
+<tr><td><font color="#008000">SE_SVT_INTEGER</font></td>
+    <td><font color="#008000">SE_SINGVALTYP_INTEGER</font></td></tr>
+<tr><td><font color="#008000">SE_SVT_COUNT</font></td>
+    <td><font color="#008000">SE_SINGVALTYP_COUNT</font></td></tr>
+<tr><td><font color="#008000">SE_SVT_INDEX</font></td>
+    <td><font color="#008000">SE_SINGVALTYP_INDEX</font></td></tr>
+<tr><td><font color="#008000">SE_SVT_STRING</font></td>
+    <td><font color="#008000">SE_SINGVALTYP_STRING</font></td></tr>
+<tr><td><font color="#008000">SE_SVT_CONSTRAINED_STRING</font></td>
+    <td><font color="#008000">SE_SINGVALTYP_CONSTRAINED_STRING</font></td></tr>
+<tr><td><font color="#008000">SE_SVT_KEY</font></td>
+    <td><font color="#008000">SE_SINGVALTYP_KEY</font></td></tr>
+<tr><td><font color="#008000">SE_SVT_ENUMERATION</font></td>
+    <td><font color="#008000">SE_SINGVALTYP_ENUMERATION</font></td></tr>
+<tr><td><font color="#008000">SE_SVT_BOOLEAN</font></td>
+    <td><font color="#008000">SE_SINGVALTYP_BOOLEAN</font></td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SE_Sound_Format maps to SE_Sound_Format.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SE_SND_FMT_AIFC</font></td>
+    <td><font color="#008000">SE_SOUNDFMT_AIFC</font></td></tr>
+<tr><td><font color="#008000">SE_SND_FMT_AIFF</font></td>
+    <td><font color="#008000">SE_SOUNDFMT_AIFF</font></td></tr>
+<tr><td><font color="#008000">SE_SND_FMT_AVI</font></td>
+    <td><font color="#008000">SE_SOUNDFMT_AVI</font></td></tr>
+<tr><td><font color="#008000">SE_SND_FMT_IFF</font></td>
+    <td><font color="#008000">SE_SOUNDFMT_IFF</font></td></tr>
+<tr><td><font color="#008000">SE_SND_FMT_MIDI</font></td>
+    <td><font color="#008000">SE_SOUNDFMT_MIDI</font></td></tr>
+<tr><td><font color="#008000">SE_SND_FMT_MP2</font></td>
+    <td><font color="#008000">SE_SOUNDFMT_MP2</font></td></tr>
+<tr><td><font color="#008000">SE_SND_FMT_MP3</font></td>
+    <td><font color="#008000">SE_SOUNDFMT_MP3</font></td></tr>
+<tr><td><font color="#008000">SE_SND_FMT_MPG</font></td>
+    <td><font color="#008000">SE_SOUNDFMT_MPG</font></td></tr>
+<tr><td><font color="#008000">SE_SND_FMT_QT</font></td>
+    <td><font color="#008000">SE_SOUNDFMT_QT</font></td></tr>
+<tr><td><font color="#008000">SE_SND_FMT_RA</font></td>
+    <td><font color="#008000">SE_SOUNDFMT_RA</font></td></tr>
+<tr><td><font color="#008000">SE_SND_FMT_SND</font></td>
+    <td><font color="#008000">SE_SOUNDFMT_SND</font></td></tr>
+<tr><td><font color="#008000">SE_SND_FMT_VOC</font></td>
+    <td><font color="#008000">SE_SOUNDFMT_VOC</font></td></tr>
+<tr><td><font color="#008000">SE_SND_FMT_WAV</font></td>
+    <td><font color="#008000">SE_SOUNDFMT_WAV</font></td></tr>
+<tr><td><font color="#008000">SE_SND_FMT_WVE</font></td>
+    <td><font color="#008000">SE_SOUNDFMT_WVE</font></td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SE_Spacing_Type maps to SE_Spacing_Type.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SE_SPACING_TYP_ARITHMETIC</font></td>
+    <td><font color="#008000">SE_SPACTYP_ARITHMETIC</font></td></tr>
+<tr><td><font color="#008000">SE_SPACING_TYP_GEOMETRIC</font></td>
+    <td><font color="#008000">SE_SPACTYP_GEOMETRIC</font></td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SE_Spatial_Association_Meaning_Type maps to SE_Spatial_Association_Meaning_Type.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SE_SPTL_AM_TYP_ALTERNATE_REPRESENTATION</font></td>
+    <td><font color="#008000">SE_SPATASSMEANTYP_ALTERNATE_REPRESENTATION</font></td></tr>
+<tr><td><font color="#008000">SE_SPTL_AM_TYP_CONTAINS</font></td>
+    <td><font color="#008000">SE_SPATASSMEANTYP_CONTAINS</font></td></tr>
+<tr><td><font color="#008000">SE_SPTL_AM_TYP_CONTAINED_BY</font></td>
+    <td><font color="#008000">SE_SPATASSMEANTYP_CONTAINED_BY</font></td></tr>
+<tr><td><font color="#008000">SE_SPTL_AM_TYP_CROSS</font></td>
+    <td><font color="#008000">SE_SPATASSMEANTYP_CROSS</font></td></tr>
+<tr><td><font color="#008000">SE_SPTL_AM_TYP_DISJOINT</font></td>
+    <td><font color="#008000">SE_SPATASSMEANTYP_DISJOINT</font></td></tr>
+<tr><td><font color="#008000">SE_SPTL_AM_TYP_INTERSECTS</font></td>
+    <td><font color="#008000">SE_SPATASSMEANTYP_INTERSECTS</font></td></tr>
+<tr><td><font color="#008000">SE_SPTL_AM_TYP_OVERLAP</font></td>
+    <td><font color="#008000">SE_SPATASSMEANTYP_OVERLAP</font></td></tr>
+<tr><td><font color="#008000">SE_SPTL_AM_TYP_TOUCH</font></td>
+    <td><font color="#008000">SE_SPATASSMEANTYP_TOUCH</font></td></tr>
+<tr><td><font color="#008000">SE_SPTL_AM_TYP_IN_PROXIMITY_OF</font></td>
+    <td><font color="#008000">SE_SPATASSMEANTYP_IN_PROXIMITY_OF</font></td></tr>
+<tr><td><font color="#008000">SE_SPTL_AM_TYP_COMPLETELY_ABOVE</font></td>
+    <td><font color="#008000">SE_SPATASSMEANTYP_COMPLETELY_ABOVE</font></td></tr>
+<tr><td><font color="#008000">SE_SPTL_AM_TYP_PARTIALLY_ABOVE</font></td>
+    <td><font color="#008000">SE_SPATASSMEANTYP_PARTIALLY_ABOVE</font></td></tr>
+<tr><td><font color="#008000">SE_SPTL_AM_TYP_COMPLETELY_BELOW</font></td>
+    <td><font color="#008000">SE_SPATASSMEANTYP_COMPLETELY_BELOW</font></td></tr>
+<tr><td><font color="#008000">SE_SPTL_AM_TYP_PARTIALLY_BELOW</font></td>
+    <td><font color="#008000">SE_SPATASSMEANTYP_PARTIALLY_BELOW</font></td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SE_Spatial_Index_Spacing_Unit maps to SE_Spatial_Index_Spacing_Unit.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SE_SPAT_INDX_SPACING_UNIT_METRE</font></td>
+    <td><font color="#008000">SE_SISPACUNITS_METRE</font></td></tr>
+<tr><td><font color="#008000">SE_SPAT_INDX_SPACING_UNIT_ARC_SECOND</font></td>
+    <td><font color="#008000">SE_SISPACUNITS_ARC_SECOND</font></td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SE_SRF_Info maps to SE_SRF_Context_Info.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>vos_code</td> <td>dss_code</td></tr>
+<tr><td>srf_params_info</td> <td>srf_parameters_info</td></tr>
+<tr><td>(none)</td><td>use_dss_code</td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SE_State_Mismatch_Behaviour maps to SE_State_Mismatch_Behaviour.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SE_STATE_MSM_BHVR_LAST</font></td>
+    <td><font color="#008000">SE_STMISMBEH_LAST</font></td></tr>
+<tr><td><font color="#008000">SE_STATE_MSM_BHVR_DEFAULT</font></td>
+    <td><font color="#008000">SE_STMISMBEH_DEFAULT</font></td></tr>
+<tr><td><font color="#008000">SE_STATE_MSM_BHVR_NONE</font></td>
+    <td><font color="#008000">SE_STMISMBEH_NONE</font></td></tr>
+</table>
+<br><br></li>
+<li><p>SE_String split into multiple targets.
+</p>
+<ol type='a'>
+<li><p>SE_String
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>SE_Short_Integer_Unsigned length</td> <td>SE_Integer_Unsigned length</td></tr>
+</table>
+<br><br></li>
+<li><p>SE_String maps to SE_URL.
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>locale</td> <td>(none)</td></tr>
+<tr><td>SE_Short_Integer_Unsigned length</td> <td>SE_Integer_Unsigned length</td></tr>
+</table>
+<br><br></li>
+</ol>
+</li>
+<li><p><font color="#008000">SE_Symbol_Format maps to SE_Symbol_Format.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SE_SYMB_FMT_CGM</font></td>
+    <td><font color="#008000">SE_SYMBFMT_CGM</font></td></tr>
+<tr><td><font color="#008000">SE_SYMB_FMT_SVG</font></td>
+    <td><font color="#008000">SE_SYMBFMT_SVG</font></td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SE_Time_Configuration maps to SE_Time_Configuration.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SE_TIME_CFG_DATE_YMD_AND_TIME_HMS</font></td>
+    <td><font color="#008000">SE_TIMECFG_DATE_YMD_AND_TIME_HMS</font></td></tr>
+<tr><td><font color="#008000">SE_TIME_CFG_DATE_YMD_AND_TIME_HM</font></td>
+    <td><font color="#008000">SE_TIMECFG_DATE_YMD_AND_TIME_HM</font></td></tr>
+<tr><td><font color="#008000">SE_TIME_CFG_DATE_YMD_AND_TIME_H</font></td>
+    <td><font color="#008000">SE_TIMECFG_DATE_YMD_AND_TIME_H</font></td></tr>
+<tr><td><font color="#008000">SE_TIME_CFG_DATE_YMD</font></td>
+    <td><font color="#008000">SE_TIMECFG_DATE_YMD</font></td></tr>
+<tr><td><font color="#008000">SE_TIME_CFG_DATE_YD_AND_TIME_HMS</font></td>
+    <td><font color="#008000">SE_TIMECFG_DATE_YD_AND_TIME_HMS</font></td></tr>
+<tr><td><font color="#008000">SE_TIME_CFG_DATE_YD_AND_TIME_HM</font></td>
+    <td><font color="#008000">SE_TIMECFG_DATE_YD_AND_TIME_HM</font></td></tr>
+<tr><td><font color="#008000">SE_TIME_CFG_DATE_YD_AND_TIME_H</font></td>
+    <td><font color="#008000">SE_TIMECFG_DATE_YD_AND_TIME_H</font></td></tr>
+<tr><td><font color="#008000">SE_TIME_CFG_DATE_YD</font></td>
+    <td><font color="#008000">SE_TIMECFG_DATE_YD</font></td></tr>
+<tr><td><font color="#008000">SE_TIME_CFG_DATE_MD_AND_TIME_HMS</font></td>
+    <td><font color="#008000">SE_TIMECFG_DATE_MD_AND_TIME_HMS</font></td></tr>
+<tr><td><font color="#008000">SE_TIME_CFG_DATE_MD_AND_TIME_HM</font></td>
+    <td><font color="#008000">SE_TIMECFG_DATE_MD_AND_TIME_HM</font></td></tr>
+<tr><td><font color="#008000">SE_TIME_CFG_DATE_MD_AND_TIME_H</font></td>
+    <td><font color="#008000">SE_TIMECFG_DATE_MD_AND_TIME_H</font></td></tr>
+<tr><td><font color="#008000">SE_TIME_CFG_DATE_Y</font></td>
+    <td><font color="#008000">SE_TIMECFG_DATE_Y</font></td></tr>
+<tr><td><font color="#008000">SE_TIME_CFG_DATE_M</font></td>
+    <td><font color="#008000">SE_TIMECFG_DATE_M</font></td></tr>
+<tr><td><font color="#008000">SE_TIME_CFG_DAY_OF_YEAR</font></td>
+    <td><font color="#008000">SE_TIMECFG_DAY_OF_YEAR</font></td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SE_Time_Data_Type maps to SE_Time_Data_Type.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SE_TIME_DATA_TYP_SEASON</font></td>
+    <td><font color="#008000">SE_TIMEDATTYP_SEASON</font></td></tr>
+<tr><td><font color="#008000">SE_TIME_DATA_TYP_TIME_INTERVAL</font></td>
+    <td><font color="#008000">SE_TIMEDATTYP_TIME_INTERVAL</font></td></tr>
+<tr><td><font color="#008000">SE_TIME_DATA_TYP_TIME_OF_DAY</font></td>
+    <td><font color="#008000">SE_TIMEDATTYP_TIME_OF_DAY</font></td></tr>
+<tr><td><font color="#008000">SE_TIME_DATA_TYP_TIME_POINT</font></td>
+    <td><font color="#008000">SE_TIMEDATTYP_TIME_POINT</font></td></tr>
+</table>
+<br><br></li>
+<li><p>SE_Time_Day_Of_Year_Value
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>day</td> <td>day_of_year</td></tr>
+</table>
+<br><br></li>
+<li><p>SE_Time_MD_H_Value
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>day_of_month</td> <td>day</td></tr>
+</table>
+<br><br></li>
+<li><p>SE_Time_MD_HM_Value
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>day_of_month</td> <td>day</td></tr>
+</table>
+<br><br></li>
+<li><p>SE_Time_MD_HMS_Value
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>day_of_month</td> <td>day</td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SE_Time_Of_Day maps to SE_Time_Of_Day.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SE_TIME_OF_DAY_DAWN</font></td>
+    <td><font color="#008000">SE_TIMEOFDAY_DAWN</font></td></tr>
+<tr><td><font color="#008000">SE_TIME_OF_DAY_MORNING</font></td>
+    <td><font color="#008000">SE_TIMEOFDAY_MORNING</font></td></tr>
+<tr><td><font color="#008000">SE_TIME_OF_DAY_DAY</font></td>
+    <td><font color="#008000">SE_TIMEOFDAY_DAY</font></td></tr>
+<tr><td><font color="#008000">SE_TIME_OF_DAY_AFTERNOON</font></td>
+    <td><font color="#008000">SE_TIMEOFDAY_AFTERNOON</font></td></tr>
+<tr><td><font color="#008000">SE_TIME_OF_DAY_DUSK</font></td>
+    <td><font color="#008000">SE_TIMEOFDAY_DUSK</font></td></tr>
+<tr><td><font color="#008000">SE_TIME_OF_DAY_EVENING</font></td>
+    <td><font color="#008000">SE_TIMEOFDAY_EVENING</font></td></tr>
+<tr><td><font color="#008000">SE_TIME_OF_DAY_NIGHT</font></td>
+    <td><font color="#008000">SE_TIMEOFDAY_NIGHT</font></td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SE_Time_Significance maps to SE_Time_Significance.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SE_TIME_SIGNIF_ANALYSIS</font></td>
+    <td><font color="#008000">SE_TIMESIGNIF_ANALYSIS</font></td></tr>
+<tr><td><font color="#008000">SE_TIME_SIGNIF_CERTIFICATION_DATE</font></td>
+    <td><font color="#008000">SE_TIMESIGNIF_CERTIFICATION_DATE</font></td></tr>
+<tr><td><font color="#008000">SE_TIME_SIGNIF_CREATION_DATE</font></td>
+    <td><font color="#008000">SE_TIMESIGNIF_CREATION_DATE</font></td></tr>
+<tr><td><font color="#008000">SE_TIME_SIGNIF_FORECAST</font></td>
+    <td><font color="#008000">SE_TIMESIGNIF_FORECAST</font></td></tr>
+<tr><td><font color="#008000">SE_TIME_SIGNIF_MODIFICATION_DATE</font></td>
+    <td><font color="#008000">SE_TIMESIGNIF_MODIFICATION_DATE</font></td></tr>
+<tr><td><font color="#008000">SE_TIME_SIGNIF_OBSERVATION</font></td>
+    <td><font color="#008000">SE_TIMESIGNIF_OBSERVATION</font></td></tr>
+<tr><td><font color="#008000">SE_TIME_SIGNIF_OCCURRENCE</font></td>
+    <td><font color="#008000">SE_TIMESIGNIF_OCCURRENCE</font></td></tr>
+<tr><td><font color="#008000">SE_TIME_SIGNIF_PERIOD_OF_CONTENT</font></td>
+    <td><font color="#008000">SE_TIMESIGNIF_PERIOD_OF_CONTENT</font></td></tr>
+<tr><td><font color="#008000">SE_TIME_SIGNIF_PUBLICATION_DATE</font></td>
+    <td><font color="#008000">SE_TIMESIGNIF_PUBLICATION_DATE</font></td></tr>
+<tr><td><font color="#008000">SE_TIME_SIGNIF_REVISION_DATE</font></td>
+    <td><font color="#008000">SE_TIMESIGNIF_REVISION_DATE</font></td></tr>
+</table>
+<br><br></li>
+<li><p>SE_Time_YMD_H_Value
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>day_of_month</td> <td>day</td></tr>
+</table>
+<br><br></li>
+<li><p>SE_Time_YMD_HM_Value
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>day_of_month</td> <td>day</td></tr>
+</table>
+<br><br></li>
+<li><p>SE_Time_YMD_HMS_Value
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>day_of_month</td> <td>day</td></tr>
+</table>
+<br><br></li>
+<li><p>SE_Time_YMD_Value
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>day_of_month</td> <td>day</td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SE_Underline_Style maps to SE_Underline_Style.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SE_UL_STYL_NONE</font></td>
+    <td><font color="#008000">SE_ULSTYL_NONE</font></td></tr>
+<tr><td><font color="#008000">SE_UL_STYL_SINGLE</font></td>
+    <td><font color="#008000">SE_ULSTYL_SINGLE</font></td></tr>
+<tr><td><font color="#008000">SE_UL_STYL_DOUBLE</font></td>
+    <td><font color="#008000">SE_ULSTYL_DOUBLE</font></td></tr>
+<tr><td><font color="#008000">SE_UL_STYL_BOLD_SINGLE</font></td>
+    <td><font color="#008000">SE_ULSTYL_BOLD_SINGLE</font></td></tr>
+<tr><td><font color="#008000">SE_UL_STYL_BOLD_DOUBLE</font></td>
+    <td><font color="#008000">SE_ULSTYL_BOLD_DOUBLE</font></td></tr>
+<tr><td><font color="#008000">SE_UL_STYL_DASHED</font></td>
+    <td><font color="#008000">SE_ULSTYL_DASHED</font></td></tr>
+<tr><td><font color="#008000">SE_UL_STYL_DOTTED</font></td>
+    <td><font color="#008000">SE_ULSTYL_DOTTED</font></td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SE_Union_Reason maps to SE_Union_Reason.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SE_UNION_REASON_CLASSIFIED_OBJECT</font></td>
+    <td><font color="#008000">SE_UNIONREAS_CLASSIFIED_OBJECT</font></td></tr>
+<tr><td><font color="#008000">SE_UNION_REASON_COLLECTION_OF_CLASSIFIED_OBJECTS</font></td>
+    <td><font color="#008000">SE_UNIONREAS_COLLECTION_OF_CLASSIFIED_OBJECTS</font></td></tr>
+<tr><td><font color="#008000">SE_UNION_REASON_OTHER</font></td>
+    <td><font color="#008000">SE_UNIONREAS_OTHER</font></td></tr>
+</table>
+<br><br></li>
+<li><p>SE_URN
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>SE_Short_Integer_Positive string_length</td> <td>SE_Integer_Unsigned length</td></tr>
+<tr><td>string_value</td> <td>characters</td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">SE_Variable_Code maps to SE_Variable_Code.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td><font color="#008000">SE_VAR_CODE_ACTIVE_STATE_VALUE</font></td>
+    <td><font color="#008000">SE_VARCOD_ACTIVE_STATE_VALUE</font></td></tr>
+<tr><td><font color="#008000">SE_VAR_CODE_CLR_COORDINATE_1</font></td>
+    <td><font color="#008000">SE_VARCOD_CLR_COORDINATE_1</font></td></tr>
+<tr><td><font color="#008000">SE_VAR_CODE_CLR_COORDINATE_2</font></td>
+    <td><font color="#008000">SE_VARCOD_CLR_COORDINATE_2</font></td></tr>
+<tr><td><font color="#008000">SE_VAR_CODE_CLR_COORDINATE_3</font></td>
+    <td><font color="#008000">SE_VARCOD_CLR_COORDINATE_3</font></td></tr>
+<tr><td><font color="#008000">SE_VAR_CODE_CLR_INDEX</font></td>
+    <td><font color="#008000">SE_VARCOD_CLR_INDEX</font></td></tr>
+<tr><td><font color="#008000">SE_VAR_CODE_CLR_INTENSITY_LEVEL</font></td>
+    <td><font color="#008000">SE_VARCOD_CLR_INTENSITY_LEVEL</font></td></tr>
+<tr><td><font color="#008000">SE_VAR_CODE_GEOMETRY_TEXTURE</font></td>
+    <td><font color="#008000">SE_VARCOD_GEOMETRY_TEXTURE</font></td></tr>
+<tr><td><font color="#008000">SE_VAR_CODE_HEAT_PRODUCTION</font></td>
+    <td><font color="#008000">SE_VARCOD_HEAT_PRODUCTION</font></td></tr>
+<tr><td><font color="#008000">SE_VAR_CODE_LIGHT_SOURCE_ACTIVE</font></td>
+    <td><font color="#008000">SE_VARCOD_LIGHT_SOURCE_ACTIVE</font></td></tr>
+<tr><td><font color="#008000">SE_VAR_CODE_LGT_RENDER_PROP_ACTIVE</font></td>
+    <td><font color="#008000">SE_VARCOD_LGT_RENDER_PROP_ACTIVE</font></td></tr>
+<tr><td><font color="#008000">SE_VAR_CODE_LGT_RENDER_PROP_CANDELA_VALUE</font></td>
+    <td><font color="#008000">SE_VARCOD_LGT_RENDER_PROP_CANDELA_VALUE</font></td></tr>
+<tr><td><font color="#008000">SE_VAR_CODE_LSR_3D_LOCATION_U</font></td>
+    <td><font color="#008000">SE_VARCOD_LSR_3D_LOCATION_U</font></td></tr>
+<tr><td><font color="#008000">SE_VAR_CODE_LSR_3D_LOCATION_V</font></td>
+    <td><font color="#008000">SE_VARCOD_LSR_3D_LOCATION_V</font></td></tr>
+<tr><td><font color="#008000">SE_VAR_CODE_LSR_3D_LOCATION_W</font></td>
+    <td><font color="#008000">SE_VARCOD_LSR_3D_LOCATION_W</font></td></tr>
+<tr><td><font color="#008000">SE_VAR_CODE_POLY_FLAGS_COLLIDIBLE</font></td>
+    <td><font color="#008000">SE_VARCOD_POLY_FLAGS_COLLIDIBLE</font></td></tr>
+<tr><td><font color="#008000">SE_VAR_CODE_POLY_FLAGS_HAT_TEST</font></td>
+    <td><font color="#008000">SE_VARCOD_POLY_FLAGS_HAT_TEST</font></td></tr>
+<tr><td><font color="#008000">SE_VAR_CODE_POLY_FLAGS_INVISIBLE</font></td>
+    <td><font color="#008000">SE_VARCOD_POLY_FLAGS_INVISIBLE</font></td></tr>
+<tr><td><font color="#008000">SE_VAR_CODE_POLY_FLAGS_LASER_RNG_FIND</font></td>
+    <td><font color="#008000">SE_VARCOD_POLY_FLAGS_LASER_RNG_FIND</font></td></tr>
+<tr><td><font color="#008000">SE_VAR_CODE_PROPERTY_SET_INDEX</font></td>
+    <td><font color="#008000">SE_VARCOD_PROPERTY_SET_INDEX</font></td></tr>
+<tr><td><font color="#008000">SE_VAR_CODE_PROP_TABLE_REF_ON_AXIS</font></td>
+    <td><font color="#008000">SE_VARCOD_PROP_TABLE_REF_ON_AXIS</font></td></tr>
+<tr><td><font color="#008000">SE_VAR_CODE_REF_VEC_V0</font></td>
+    <td><font color="#008000">SE_VARCOD_REF_VEC_V0</font></td></tr>
+<tr><td><font color="#008000">SE_VAR_CODE_REF_VEC_V1</font></td>
+    <td><font color="#008000">SE_VARCOD_REF_VEC_V1</font></td></tr>
+<tr><td><font color="#008000">SE_VAR_CODE_REF_VEC_V2</font></td>
+    <td><font color="#008000">SE_VARCOD_REF_VEC_V2</font></td></tr>
+<tr><td><font color="#008000">SE_VAR_CODE_ROTATION_ANGLE</font></td>
+    <td><font color="#008000">SE_VARCOD_ROTATION_ANGLE</font></td></tr>
+<tr><td><font color="#008000">SE_VAR_CODE_SCALE_AMOUNT</font></td>
+    <td><font color="#008000">SE_VARCOD_SCALE_AMOUNT</font></td></tr>
+<tr><td><font color="#008000">SE_VAR_CODE_SOUND_INSTANCE_ACTIVE</font></td>
+    <td><font color="#008000">SE_VARCOD_SOUND_INSTANCE_ACTIVE</font></td></tr>
+<tr><td><font color="#008000">SE_VAR_CODE_TEXTURE_COORD_S</font></td>
+    <td><font color="#008000">SE_VARCOD_TEXTURE_COORD_S</font></td></tr>
+<tr><td><font color="#008000">SE_VAR_CODE_TEXTURE_COORD_T</font></td>
+    <td><font color="#008000">SE_VARCOD_TEXTURE_COORD_T</font></td></tr>
+<tr><td><font color="#008000">SE_VAR_CODE_TRANSLATION_AMOUNT</font></td>
+    <td><font color="#008000">SE_VARCOD_TRANSLATION_AMOUNT</font></td></tr>
+<tr><td><font color="#008000">SE_VAR_CODE_TRANSLUCENCY_VALUE</font></td>
+    <td><font color="#008000">SE_VARCOD_TRANSLUCENCY_VALUE</font></td></tr>
+</table>
+<br><br></li>
+</ol>
+
+</li>
+<li><p><a name="Function">Function Changes</a>
+</p>
+<table border=1>
+<tr><th>Old</th> <th>New</th></tr>
+<tr>
+<td>SE_CloneAttributeValue</td>
+<td><a href="../../../src/lib/edcs/docs/functions/EDCS_CloneAttributeValue.htm">EDCS_CloneAttributeValue</a>
+</td>
+</tr>
+<tr>
+<td>SE_CloneOnlineResource</td>
+<td><a href="../../tech/drm/functions/SE_CloneCIOnlineResource.htm">SE_CloneCIOnlineResource</a>
+</td>
+</tr>
+<tr>
+<td>SE_CloneSecurityConstraints</td>
+<td>&nbsp;
+</td>
+</tr>
+<tr>
+<td>SE_CompareAttributeValues</td>
+<td><a href="../../../src/lib/edcs/docs/functions/EDCS_CompareAttributeValues.htm">EDCS_CompareAttributeValues</a>
+</td>
+</tr>
+<tr>
+<td>SE_CompareFloatIntervalValues</td>
+<td><a href="../../tech/drm/functions/SE_CompareLongFloatIntervalValues.htm">SE_CompareLongFloatIntervalValues</a>
+</td>
+</tr>
+<tr>
+<td>SE_ComparePropertyTypes</td>
+<td><a href="../../tech/drm/functions/SE_ComparePropertyCodes.htm">SE_ComparePropertyCodes</a>
+</td>
+</tr>
+<tr>
+<td>SE_ConvertCoordToFields</td>
+<td><a href="../../tech/drm/functions/SE_ConvertCoordinateToFields.htm">SE_ConvertCoordinateToFields</a>
+</td>
+</tr>
+<tr>
+<td>SE_ConvertFieldsToCoord</td>
+<td><a href="../../tech/drm/functions/SE_ConvertFieldsToCoordinate.htm">SE_ConvertFieldsToCoordinate</a>
+</td>
+</tr>
+<tr>
+<td>SE_CreateSRFFromSRFInfo</td>
+<td><a href="../../tech/drm/functions/SE_CreateObjectReferenceFromSRFContextInfo.htm">SE_CreateObjectReferenceFromSRFContextInfo</a>
+</td>
+</tr>
+<tr>
+<td>SE_FreeAttributeValue</td>
+<td><a href="../../../src/lib/edcs/docs/functions/EDCS_FreeAttributeValue.htm">EDCS_FreeAttributeValue</a>
+</td>
+</tr>
+<tr>
+<td>SE_FreeOnlineResource</td>
+<td><a href="../../tech/drm/functions/SE_FreeCIOnlineResource.htm">SE_FreeCIOnlineResource</a>
+</td>
+</tr>
+<tr>
+<td>SE_FreeSecurityConstraints</td>
+<td>&nbsp;
+</td>
+</tr>
+<tr>
+<td>SE_GetSRFInfoFromCoordinate</td>
+<td>&nbsp;
+</td>
+</tr>
+<tr>
+<td>SE_GetSRFInfoFromSRF</td>
+<td>&nbsp;
+</td>
+</tr>
+<tr>
+<td>SE_GetSRFTCodeFromSRFInfo</td>
+<td><a href="../../tech/drm/functions/SE_GetSRFTCodeFromSRFContextInfo.htm">SE_GetSRFTCodeFromSRFContextInfo</a>
+</td>
+</tr>
+<tr>
+<td>SE_AttributeValueToLongFloat</td>
+<td><a href="../../../src/lib/edcs/docs/functions/EDCS_AttributeValueToLongFloat.htm">EDCS_AttributeValueToLongFloat</a>
+</td>
+</tr>
+<tr>
+<td>SE_SRFInfoEqual</td>
+<td><a href="../../tech/drm/functions/SE_SRFContextInfoEqual.htm">SE_SRFContextInfoEqual</a>
+</td>
+</tr>
+<tr>
+<td>SE_ValidCoordForSRFInfo</td>
+<td><a href="../../tech/drm/functions/SE_ValidCoordinateForSRFContextInfo.htm">SE_ValidCoordinateForSRFContextInfo</a>
+</td>
+</tr>
+<tr>
+<td>SE_PrintFloatIntervalValue</td>
+<td><a href="../../tech/drm/functions/SE_PrintLongFloatIntervalValue.htm">SE_PrintLongFloatIntervalValue</a></td>
+</tr>
+<tr>
+<td>SE_PrintKeywordTypeCode</td>
+<td><a href="../../tech/drm/functions/SE_PrintMDKeywordTypeCode.htm">SE_PrintMDKeywordTypeCode</a></td>
+</tr>
+<tr>
+<td>SE_PrintOnlineFunctionCode</td>
+<td><a href="../../tech/drm/functions/SE_PrintCIOnlineFunctionCode.htm">SE_PrintCIOnlineFunctionCode</a></td>
+</tr>
+<tr>
+<td>SE_PrintOnlineResource</td>
+<td><a href="../../tech/drm/functions/SE_PrintCIOnlineResource.htm">SE_PrintCIOnlineResource</a></td>
+</tr>
+<tr>
+<td>SE_PrintResponsiblePartyRoleCode</td>
+<td><a href="../../tech/drm/functions/SE_PrintCIRoleCode.htm">SE_PrintCIRoleCode</a></td>
+</tr>
+<tr>
+<td>SE_PrintRestrictionCode</td>
+<td><a href="../../tech/drm/functions/SE_PrintMDRestrictionCode.htm">SE_PrintMDRestrictionCode</a></td>
+</tr>
+<tr>
+<td>SE_PrintRSElevationSelect</td>
+<td><a href="../../tech/drm/functions/SE_PrintReferenceSurfaceElevationSelect.htm">SE_PrintReferenceSurfaceElevationSelect</a></td>
+</tr>
+<tr>
+<td>SE_PrintRSLODSelect</td>
+<td><a href="../../tech/drm/functions/SE_PrintReferenceSurfaceLODSelect.htm">SE_PrintReferenceSurfaceLODSelect</a></td>
+</tr>
+<tr>
+<td>SE_PrintSecurityClassificationCode</td>
+<td><a href="../../tech/drm/functions/SE_PrintMDClassificationCode.htm">SE_PrintMDClassificationCode</a></td>
+</tr>
+<tr>
+<td>SE_PrintSRFInfo</td>
+<td><a href="../../tech/drm/functions/SE_PrintSRFContextInfo.htm">SE_PrintSRFContextInfo</a></td>
+</tr>
+<tr>
+<td>SE_ValidFloatIntervalValue</td>
+<td><a href="../../tech/drm/functions/SE_ValidLongFloatIntervalValue.htm">SE_ValidLongFloatIntervalValue</a></td>
+</tr>
+<tr>
+<td>SE_ValidKeywordTypeCode</td>
+<td><a href="../../tech/drm/functions/SE_ValidMDKeywordTypeCode.htm">SE_ValidMDKeywordTypeCode</a></td>
+</tr>
+<tr>
+<td>SE_ValidOnlineFunctionCode</td>
+<td><a href="../../tech/drm/functions/SE_ValidCIOnlineFunctionCode.htm">SE_ValidCIOnlineFunctionCode</a></td>
+</tr>
+<tr>
+<td>SE_ValidOnlineResource</td>
+<td><a href="../../tech/drm/functions/SE_ValidCIOnlineResource.htm">SE_ValidCIOnlineResource</a></td>
+</tr>
+<tr>
+<td>SE_ValidResponsiblePartyRoleCode</td>
+<td><a href="../../tech/drm/functions/SE_ValidCIRoleCode.htm">SE_ValidCIRoleCode</a></td>
+</tr>
+<tr>
+<td>SE_ValidRestrictionCode</td>
+<td><a href="../../tech/drm/functions/SE_ValidMDRestrictionCode.htm">SE_ValidMDRestrictionCode</a></td>
+</tr>
+<tr>
+<td>SE_ValidRSElevationSelect</td>
+<td><a href="../../tech/drm/functions/SE_ValidReferenceSurfaceElevationSelect.htm">SE_ValidReferenceSurfaceElevationSelect</a></td>
+</tr>
+<tr>
+<td>SE_ValidRSLODSelect</td>
+<td><a href="../../tech/drm/functions/SE_ValidReferenceSurfaceLODSelect.htm">SE_ValidReferenceSurfaceLODSelect</a></td>
+</tr>
+<tr>
+<td>SE_ValidSecurityClassificationCode</td>
+<td><a href="../../tech/drm/functions/SE_ValidMDClassificationCode.htm">SE_ValidMDClassificationCode</a></td>
+</tr>
+<tr>
+<td>SE_ValidSRFInfo</td>
+<td><a href="../../tech/drm/functions/SE_ValidSRFContextInfo.htm">SE_ValidSRFContextInfo</a></td>
+</tr>
+</table>
+</li>
+</ol>
+<hr>
+Questions or comments should be directed to: help@sedris.org
+<br><br>
+<table class="doc_set_header">
+<tr><td>
+<table class="doc_set_header">
+<tr>
+<td align="left"><small><font color="#00ffff">
+Last updated: July 1, 2011
+</small></td>
+<td align="right"><small><font color="#00ffff">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</small></td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</HTML>

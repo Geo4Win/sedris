@@ -1,0 +1,152 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>EDCS ConvertQuantityLongFloatValue</title>
+<link rel="stylesheet" href="../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>EDCS Reference Manual</big></big>
+<br>
+<!-- EDCS spec. 4.4 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+EDCS ConvertQuantityLongFloatValue
+</font>
+</th></tr>
+</table></div>
+
+<!-- EDCS SDK Release 4.4.0 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../types/EDCS_Status_Code.htm">EDCS_Status_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">EDCS_ConvertQuantityLongFloatValue</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1"><td class="CFunction">const&nbsp;</td><td class="CFunction"><a href="../types/EDCS_Long_Float_Value.htm">EDCS_Long_Float_Value</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="from_value_in_ptr"></a>from_value_in_ptr,</td><td class="CFunction"><sup><A href="#Notes_from_value_in_ptr">1</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../types/EDCS_Long_Float_Value.htm">EDCS_Long_Float_Value</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="to_value_in_out_ptr"></a>to_value_in_out_ptr</td><td class="CFunction"><sup><A href="#Notes_to_value_in_out_ptr">2</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+  Given a physical quantity with a given unit and scale specified
+  in the <A href="#from_value_in_ptr">from_value_in_ptr</A>
+  structure, convert that quantity to the unit and scale
+  specified within the
+<A href="#to_value_in_out_ptr">to_value_in_out_ptr</A>
+  structure.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/EDCS_Status_Code.htm#EDCS_SC_SUCCESS">EDCS_SC_SUCCESS</A>
+</td><td class="Status">
+ and <A href="#to_value_in_out_ptr">*to_value_in_out_ptr</A>
+ is set to the result of the specified conversion, if valid
+ parameters were passed in.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/EDCS_Status_Code.htm#EDCS_SC_NULL_REQUIRED_PARAMETER">EDCS_SC_NULL_REQUIRED_PARAMETER</A>
+</td><td class="Status">
+ and <A href="#to_value_in_out_ptr">*to_value_in_out_ptr</A> is
+ left unchanged, if either
+ <A href="#from_value_in_ptr">from_value_in_ptr</A> or
+ <A href="#to_value_in_out_ptr">to_value_in_out_ptr</A> were NULL.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/EDCS_Status_Code.htm#EDCS_SC_INVALID_INPUT_UNIT">EDCS_SC_INVALID_INPUT_UNIT</A>
+</td><td class="Status">
+ and <A href="#to_value_in_out_ptr">*to_value_in_out_ptr</A>
+ is left unchanged, if the unit specified in the
+ <A href="#from_value_in_ptr">from_value_in_ptr</A>
+ structure is not a valid EU code.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/EDCS_Status_Code.htm#EDCS_SC_INVALID_OUTPUT_UNIT">EDCS_SC_INVALID_OUTPUT_UNIT</A>
+</td><td class="Status">
+ and <A href="#to_value_in_out_ptr">*to_value_in_out_ptr</A>
+ is left unchanged, if the unit specified in the
+ <A href="#to_value_in_out_ptr">to_value_in_out_ptr</A>
+ structure is not a valid EU code.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/EDCS_Status_Code.htm#EDCS_SC_INVALID_INPUT_UNIT_SCALE">EDCS_SC_INVALID_INPUT_UNIT_SCALE</A>
+</td><td class="Status">
+ and <A href="#to_value_in_out_ptr">*to_value_in_out_ptr</A>
+ is left unchanged, if the scale specified in the
+ <A href="#from_value_in_ptr">from_value_in_ptr</A>
+ structure is not a valid ES code.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/EDCS_Status_Code.htm#EDCS_SC_INVALID_OUTPUT_UNIT_SCALE">EDCS_SC_INVALID_OUTPUT_UNIT_SCALE</A>
+</td><td class="Status">
+ and <A href="#to_value_in_out_ptr">*to_value_in_out_ptr</A>
+ is left unchanged, if the scale specified in the
+ <A href="#to_value_in_out_ptr">to_value_in_out_ptr</A>
+ structure is not a valid ES code.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/EDCS_Status_Code.htm#EDCS_SC_INVALID_OUTPUT_UNIT_SCALE">EDCS_SC_INVALID_OUTPUT_UNIT_SCALE</A>
+</td><td class="Status">
+ and <A href="#to_value_in_out_ptr">*to_value_in_out_ptr</A>
+ is left unchanged, if the scale specified in the
+ <A href="#to_value_in_out_ptr">to_value_in_out_ptr</A>
+ structure is not a valid ES code.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/EDCS_Status_Code.htm#EDCS_SC_UNITS_NOT_EQUIVALENT">EDCS_SC_UNITS_NOT_EQUIVALENT</A>
+</td><td class="Status">
+ and <A href="#to_value_in_out_ptr">*to_value_in_out_ptr</A>
+ is left unchanged, if the units specified in the
+ <A href="#from_value_in_ptr">from_value_in_ptr</A>
+ and <A href="#to_value_in_out_ptr">to_value_in_out_ptr</A>
+ structures do not belong to the same EQ class.
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#from_value_in_ptr" name="Notes_from_value_in_ptr">1</a></sup>
+ the from value
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#to_value_in_out_ptr" name="Notes_to_value_in_out_ptr">2</a></sup>
+ the to value
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="EDCS_CompareStrings.htm">EDCS_CompareStrings</a>.
+<strong>Next:</strong> <a href="EDCS_ConvertQuantityValue.htm">EDCS_ConvertQuantityValue</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Representing models within an environment</title>
+<link REL="stylesheet" HREF="../../styles/SDK_SEDRIS.css" TYPE="text/css">
+</head>
+<body>
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border=2 class="doc_set_header">
+<tr><th class="doc_set_header">
+<big><big>
+The SEDRIS Data Representation Model
+</big></big>
+<br><font color="#FFFFFF">
+Representing models within an environment
+</font>
+</th></tr>
+</table>
+</div>
+
+<p>
+Within this document, a <i>local SRF</i> is an SRF derived from
+one of the following SRFTs:
+</p>
+<ol class="AlphaEnumerate">
+<li><a href="../srm/types/SRM_SRFT_Code.htm#SRM_SRFTCOD_LOCAL_SPACE_AZIMUTHAL_2D">LOCAL_SPACE_AZIMUTHAL_2D</a>,</li>
+<li><a href="../srm/types/SRM_SRFT_Code.htm#SRM_SRFTCOD_LOCAL_SPACE_POLAR_2D">LOCAL_SPACE_POLAR_2D</a>,</li>
+<li><a href="../srm/types/SRM_SRFT_Code.htm#SRM_SRFTCOD_LOCAL_SPACE_RECTANGULAR_2D">LOCAL_SPACE_RECTANGULAR_2D</a>, and</li>
+<li><a href="../srm/types/SRM_SRFT_Code.htm#SRM_SRFTCOD_LOCAL_SPACE_RECTANGULAR_3D">LOCAL_SPACE_RECTANGULAR_3D</a>.</li>
+</ol>
+<p>
+An SRF derived from any other SRF is termed a <i>world SRF</i>.
+</p><p>
+A <a href="classes/Model.htm">&lt;Model&gt;</a> instance can be defined in
+any SRF. A <a href="classes/Model.htm">&lt;Model&gt;</a> instance may be
+instantiated into another <a href="classes/Model.htm">&lt;Model&gt;</a>
+instance or into a
+<a href="classes/EnvironmentRoot.htm">&lt;Environment Root&gt;</a>
+instance. If a <a href="classes/Model.htm">&lt;Model&gt;</a> instance is
+defined in a world SRF, it can only be instantiated in the
+DRM object hierarchy of a
+<a href="classes/EnvironmentRoot.htm">&lt;Environment Root&gt;</a>
+instance if there exists a
+transformation from the model SRF to the target SRF subject to the constraints
+specified in <a href="constraints/ModelSRF.htm">&lt;&lt;Model SRF&gt;&gt;</a>.
+<i>10 SRF operations</i> of ISO/IEC 18026 specifies available transformations.
+</p><p>
+A <a href="classes/Model.htm">&lt;Model&gt;</a> instance defined with a
+local SRF can be instantiated in the DRM object hierarchy of a
+<a href="classes/EnvironmentRoot.htm">&lt;Environment Root&gt;</a> with any
+SRF defined. In this case, an instance of
+<a href="classes/WorldTransformation.htm">&lt;World Transformation&gt;</a> is
+used to specify a transformation from the local SRF of the
+<a href="classes/Model.htm">&lt;Model&gt;</a> instance to the target SRF of the
+<a href="classes/EnvironmentRoot.htm">&lt;Environment Root&gt;</a> instance.
+</p><p>
+A <i> <a href="classes/Transformation.htm">&lt;Transformation&gt;</a></i> instance
+allows a <a href="classes/Model.htm">&lt;Model&gt;</a> instance to be defined in a local SRF and then instantiated in
+another SRF, either a world SRF or another local SRF. A <a href="classes/Model.htm">&lt;Model&gt;</a>
+instance can be translated, scaled, and/or rotated as part of the instantiation
+process. If the model SRF and the target SRF of the other model or environment<br>
+root are both derived from a LOCAL_SPACE_RECTANGULAR SRFT, the translation,
+scale, and/or rotation may be specified by a
+<a href="classes/LSRTransformation.htm">&lt;LSR Transformation&gt;</a>.
+Otherwise, the
+<a href="classes/World3x3.htm">&lt;World 3x3&gt;</a> component of the
+<a href="classes/WorldTransformation.htm">&lt;World Transformation&gt;</a>
+instance specifies the rotation and/or scaling data while the <i> <a href="classes/Location.htm">&lt;Location&gt;</a></i> component of the
+<a href="classes/WorldTransformation.htm">&lt;World Transformation&gt;</a>
+specifies the translation. If necessary, a local tangent frame shall be
+constructed in which to apply the transformation specified by a
+<a href="classes/WorldTransformation.htm">&lt;World Transformation&gt;</a>
+instance (see <i>4.7.5 Direction</i> of ISO/IEC 18023-1).
+</p><p>
+A <a href="classes/WorldTransformation.htm">&lt;World Transformation&gt;</a>
+instance is used only to instantiate a
+<a href="classes/FeatureModelInstance.htm">&lt;Feature Model Instance&gt;</a>
+or <a href="classes/GeometryModelInstance.htm">&lt;Geometry Model
+Instance&gt;</a> instance into a world SRF or into another local SRF. A local
+transformation, such as a <a href="classes/LSRTransformation.htm">&lt;LSR
+Transformation&gt;</a> instance, is used by
+<a href="classes/FeatureModelInstance.htm">&lt;Feature Model Instance&gt;</a>
+or <a href="classes/GeometryModelInstance.htm">&lt;Geometry Model
+Instance&gt;</a> instances. A local transformation may be used by
+<i><a href="classes/AggregateGeometry.htm">&lt;Aggregate Geometry&gt;</a></i>
+to construct a composite geometry representation where portions of the geometry
+representation need to be oriented and positioned to other portions of the
+geometry representation. A local transformation may be also be used by
+<a href="classes/PropertyGridHookPoint.htm">&lt;Property Grid Hook Point&gt;</a>
+instances to position and orient <a href="classes/PropertyGrid.htm">&lt;Property Grid&gt;</a>
+instances with respect to other parts of a geometry
+representation. In a <a href="classes/LSRTransformation.htm">&lt;LSR
+Transformation&gt;</a> instance, the steps used in transforming are found in the
+subclasses of <i> <a href="classes/LSRTransformationStep.htm">&lt;LSR
+Transformation Step&gt;</a></i>. The rotation, scaling, and translation are specified
+with instances of <a href="classes/Rotation.htm">&lt;Rotation&gt;</a>,
+<a href="classes/Scale.htm">&lt;Scale&gt;</a>, and
+<a href="classes/Translation.htm">&lt;Translation&gt;</a>, respectively.
+</p><p>
+When an
+<a href="classes/FeatureModelInstance.htm">&lt;Feature Model Instance&gt;</a>
+instance or <a href="classes/GeometryModelInstance.htm">&lt;Geometry Model
+Instance&gt;</a> instance is evaluated, the steps for applying a <a href="classes/WorldTransformation.htm">&lt;World Transformation&gt;</a>
+component are as follows.
+</p>
+<blockquote>
+<p>
+Let <span class="ConstructName">MI</span> be a
+<a href="classes/FeatureModelInstance.htm">&lt;Feature Model Instance&gt;</a>
+instance or <a href="classes/GeometryModelInstance.htm">&lt;Geometry Model
+Instance&gt;</a> instance.
+<br>
+Let <span class="ConstructName">W</span> be the <a href="classes/WorldTransformation.htm">&lt;World Transformation&gt;</a>
+component of <span class="ConstructName">MI</span>.
+<br>
+Let S<sub>m</sub> = SRF of local model.
+<br>
+Let S<sub>ltf</sub> = local tangent frame LCE SRF with origin at the <a href="classes/Location.htm"> <i> &lt;Location&gt;</i></a>
+component of <span class="ConstructName">W</span>.
+<br>
+Let S<sub>w</sub> = world SRF.
+</p><p>
+Steps:
+</p>
+<ol>
+<li>If S<sub>m</sub> is
+<a href="../srm/types/SRM_SRFT_Code.htm#SRM_SRFTCOD_LOCAL_SPACE_AZIMUTHAL_2D">LOCAL_SPACE_AZIMUTHAL_2D</a>,
+<a href="../srm/types/SRM_SRFT_Code.htm#SRM_SRFTCOD_LOCAL_SPACE_POLAR_2D">LOCAL_SPACE_POLAR_2D</a>,
+or
+<a href="../srm/types/SRM_SRFT_Code.htm#SRM_SRFTCOD_LOCAL_SPACE_RECTANGULAR_2D">LOCAL_SPACE_RECTANGULAR_2D</a>,
+use SRM operations (see <i>10 SRF Operations</i>
+of ISO/IEC 18026) to convert all locations and reference vectors to
+<a href="../srm/types/SRM_SRFT_Code.htm#SRM_SRFTCOD_LOCAL_SPACE_RECTANGULAR_3D">LOCAL_SPACE_RECTANGULAR_3D</a>.
+</li>
+<li>Left multiply all resulting model LSR_3D locations and reference
+vectors by the 3x3 matrix specified by the
+<a href="classes/World3x3.htm">&lt;World 3x3&gt;</a> component of <span class="ConstructName">W</span>.
+Renormalize unit vectors, if necessary. </li>
+<li>Identify each location and reference vector in S<sub>m</sub> with
+its corresponding location and reference vector equivalent in S<sub>ltf</sub>.</li>
+<li>Use SRM operations (see <i>10 SRF Operations</i> of ISO/IEC 18026)
+to convert each location in S<sub>ltf</sub> to a location in S<sub>w</sub>.</li>
+</ol>
+</blockquote>
+<p>
+<HR>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a></strong>
+<br><br>
+
+<div align="center">
+<table class="doc_set_header" border="2">
+<tr><td>
+<table class="doc_set_header" border="0">
+<tr><td class="doc_set_footer" align="left">
+Last updated: July 1, 2011
+</td>
+<td class="doc_set_footer" align="right">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td>
+</tr>
+</table>
+</td></tr>
+</table></div>
+</body>
+</html>

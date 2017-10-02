@@ -1,0 +1,398 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>State Related Features</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+State Related Features
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: State Related Features</h2>
+<h3>Superclass - <a href="AggregateFeature.htm">&lt;Aggregate Feature&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies a state related organization of
+ <A href="FeatureHierarchy.htm">&lt;Feature Hierarchy&gt;</A> components where each
+ <A href="FeatureHierarchy.htm">&lt;Feature Hierarchy&gt;</A> component represents a separate
+ discrete state from a possibly continuous state value. Each discrete
+ state corresponds to a branch of the
+ <A href="StateRelatedFeatures.htm">&lt;State Related Features&gt;</A> instance
+ and is identified by the <A href="StateData.htm">&lt;State Data&gt;</A> link object
+ for that branch. The state value itself is specified by the
+ <A href="#state_tag">state_tag</A>
+ of the <A href="StateRelatedFeatures.htm">&lt;State Related Features&gt;</A>
+ instance.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet08.pdf"><strong>8</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+This class appears on only one page of the DRM class diagram.
+<h3>Example</h3>
+<OL>
+<LI><P>
+ Consider a <A href="FeatureModel.htm">&lt;Feature Model&gt;</A> instance representing a road
+ in various states of damage due to flooding. The topological connections
+ of the road differ in each damage state due to bridges being washed away
+ and various road segments being blocked due to obstructions such as
+ fallen trees.
+</P><P>
+ Consequently, the <A href="FeatureModel.htm">&lt;Feature Model&gt;</A> instance has a
+ <A href="StateRelatedFeatures.htm">&lt;State Related Features&gt;</A> component with
+ <A href="#state_tag">state_tag</A> = <A href="../../../../src/lib/edcs/docs/dictionary/EAC_G.htm#EAC_GENERAL_DAMAGE_FRACTION">EAC_GENERAL_DAMAGE_FRACTION</A>
+ and <A href="#active_state_value">active_state_value</A>
+ = 0.0 % (that is, initially the road is undamaged,
+ before flooding takes place).
+ This is depicted in <a href="#Figure66">Figure 66</a>.
+</P>
+<DIV align="center">
+<p>
+<A name="Figure66"></A>
+<IMG SRC="../Images/StateRelF_Ex1.png"
+     ALT="State Related Features, Example 1">
+</p>
+<p class=FigureCaption>Figure 66 &#8212; &lt;DRM State Related Features&gt; damage example</p>
+</DIV>
+<P>
+ The <A href="StateData.htm">&lt;State Data&gt;</A> link object for each branch
+ indicates the range of percent damage for which that
+ branch describes the feature topology of the road.
+</P><P>
+ If the <A href="#active_state_value">active_state_value</A> is
+ controlled dynamically, the
+ <A href="StateControlLink.htm#mismatch_behaviour">mismatch_behaviour</A>
+ field of the <A href="StateControlLink.htm">&lt;State Control Link&gt;</A> instance specifies
+ what happens if the <A href="#active_state_value">active_state_value</A>
+ is greater than 50%.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ Are <A href="StateRelatedFeatures.htm">&lt;State Related Features&gt;</A> instances
+ the only way to represent multi-state environmental objects in the DRM?
+</B></DT>
+<DD><P>
+ No. <A href="ControlLink.htm">&lt;Control Link&gt;</A> instances can be used to
+ provide a fine level of control
+ over state by changing fields instead of representing states
+ as different <A href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</A>
+ instances.
+</P></DD>
+ </DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ConstraintsOnAssociates.htm">&lt;&lt;Constraints On Associates&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ConstraintsOnComponents.htm">&lt;&lt;Constraints On Components&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/PrecedenceofPropertySetIndex.htm">&lt;&lt;Precedence of Property Set Index&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/PropertyConstraints.htm">&lt;&lt;Property Constraints&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/NonCyclicAggregations.htm">&lt;&lt;Non Cyclic Aggregations&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ColourMappingConstraints.htm">&lt;&lt;Colour Mapping Constraints&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ImageMappingFunctionsandTextureCoordinates.htm">&lt;&lt;Image Mapping Functions and Texture Coordinates&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/PresentationDomainConstraints.htm">&lt;&lt;Presentation Domain Constraints&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/DistinctLinkObjects.htm">&lt;&lt;Distinct Link Objects&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/StateRelatedOrganizingPrinciple.htm">&lt;&lt;State Related Organizing Principle&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Associated to (one-way) (inherited)</h3>
+<UL>
+<li>zero or more <a href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</a> instances, each through the use of a <a href="BaseAssociationData.htm">&lt;Base Association Data&gt;</a> link object<sup><A href="#Notes_asn_toFeature_Representation" name="asn_toFeature_Representation">1</A></sup></li>
+<li>zero or more <a href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</a> instances, each through the use of a <a href="BaseAssociationData.htm">&lt;Base Association Data&gt;</a> link object<sup><A href="#Notes_asn_toGeometry_Hierarchy" name="asn_toGeometry_Hierarchy">2</A></sup></li>
+<li>zero or more <a href="PropertyGrid.htm">&lt;Property Grid&gt;</a> instances, each through the use of a <a href="BaseAssociationData.htm">&lt;Base Association Data&gt;</a> link object<sup><A href="#Notes_asn_toProperty_Grid" name="asn_toProperty_Grid">3</A></sup></li>
+</UL>
+<h3>Associated by (one-way) (inherited)</h3>
+<UL>
+<li>zero or more <a href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</a> instances, each through the use of a <a href="BaseAssociationData.htm">&lt;Base Association Data&gt;</a> link object<sup><A href="#Notes_asn_fromFeature_Representation" name="asn_fromFeature_Representation">4</A></sup></li>
+<li>zero or more <a href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</a> instances, each through the use of a <a href="BaseAssociationData.htm">&lt;Base Association Data&gt;</a> link object<sup><A href="#Notes_asn_fromGeometry_Hierarchy" name="asn_fromGeometry_Hierarchy">5</A></sup></li>
+<li>zero or more <a href="PropertyGrid.htm">&lt;Property Grid&gt;</a> instances, each through the use of a <a href="BaseAssociationData.htm">&lt;Base Association Data&gt;</a> link object<sup><A href="#Notes_asn_fromProperty_Grid" name="asn_fromProperty_Grid">6</A></sup></li>
+<li>zero or one <a href="HierarchySummaryItem.htm">&lt;Hierarchy Summary Item&gt;</a> instance</li>
+</UL>
+<h3>Composed of (two-way) (inherited)</h3>
+<UL>
+<li>zero or one <a href="ClassificationData.htm">&lt;Classification Data&gt;</a> instance</li>
+<li>zero or more <a href="Label.htm">&lt;Label&gt;</a> instances</li>
+<li>zero or more {ordered} <a href="PropertySetIndex.htm">&lt;Property Set Index&gt;</a> instances</li>
+<li>zero or more <a href="PropertyTable.htm">&lt;Property Table&gt;</a> instances</li>
+<li>zero or more <a href="PropertyTableReference.htm">&lt;Property Table Reference&gt;</a> instances</li>
+<li>zero or more <a href="PropertyValue.htm">&lt;Property Value&gt;</a> instances</li>
+<li>zero or one <a href="RenderingPriorityLevel.htm">&lt;Rendering Priority Level&gt;</a> instance</li>
+<li>zero or one <a href="ReferenceSurface.htm">&lt;Reference Surface&gt;</a> instance</li>
+<li>zero or more <a href="SoundInstance.htm">&lt;Sound Instance&gt;</a> instances</li>
+<li>zero or more <a href="BaseLODData.htm">&lt;Base LOD Data&gt;</a> instances</li>
+<li>zero or more <a href="Colour.htm">&lt;Colour&gt;</a> instances</li>
+<li>zero or more <a href="FeatureTopologyHierarchy.htm">&lt;Feature Topology Hierarchy&gt;</a> instances</li>
+<li>zero or more {ordered} <a href="ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</a> instances<sup><A href="#Notes_cmp_Image_Mapping_Function" name="cmp_Image_Mapping_Function">7</A></sup></li>
+<li>zero or one <a href="PerimeterData.htm">&lt;Perimeter Data&gt;</a> instance</li>
+<li>zero or one <a href="PresentationDomain.htm">&lt;Presentation Domain&gt;</a> instance<sup><A href="#Notes_cmp_Presentation_Domain" name="cmp_Presentation_Domain">8</A></sup></li>
+<li>zero or more <a href="PropertyDescription.htm">&lt;Property Description&gt;</a> instances</li>
+<li>zero or one <a href="SpatialExtent.htm">&lt;Spatial Extent&gt;</a> instance</li>
+</UL>
+<h3>Composed of (two-way)</h3>
+<UL>
+<li>one or more <a href="FeatureHierarchy.htm">&lt;Feature Hierarchy&gt;</a> instances, each through the use of a <a href="StateData.htm">&lt;State Data&gt;</a> link object</li>
+<li>zero or one <a href="StateControlLink.htm">&lt;State Control Link&gt;</a> instance</li>
+</UL>
+
+<h3>Composed of (two-way metadata) (inherited)</h3>
+<UL>
+<li>zero or one <a href="DataQuality.htm">&lt;Data Quality&gt;</a> instance</li>
+<li>zero or one <a href="Identification.htm">&lt;Identification&gt;</a> instance</li>
+<li>zero or one <a href="TimeConstraintsData.htm">&lt;Time Constraints Data&gt;</a> instance</li>
+</UL>
+<h3>Component of (two-way) (inherited)</h3>
+<UL>
+<li>zero or more <a href="UnionOfFeatures.htm">&lt;Union Of Features&gt;</a> instances</li>
+<li>zero or more <a href="AlternateHierarchyRelatedFeatures.htm">&lt;Alternate Hierarchy Related Features&gt;</a> instances, each through the use of a <a href="HierarchyData.htm">&lt;Hierarchy Data&gt;</a> link object</li>
+<li>zero or more <a href="ClassificationRelatedFeatures.htm">&lt;Classification Related Features&gt;</a> instances, each through the use of a <a href="ClassificationData.htm">&lt;Classification Data&gt;</a> link object</li>
+<li>zero or one <a href="EnvironmentRoot.htm">&lt;Environment Root&gt;</a> instance</li>
+<li>zero or one <a href="FeatureModel.htm">&lt;Feature Model&gt;</a> instance</li>
+<li>zero or more <a href="LODRelatedFeatures.htm">&lt;LOD Related Features&gt;</a> instances, each through the use of a <a href="BaseLODData.htm">&lt;Base LOD Data&gt;</a> link object</li>
+<li>zero or more <a href="OctantRelatedFeatures.htm">&lt;Octant Related Features&gt;</a> instances, each through the use of an <a href="OctantData.htm">&lt;Octant Data&gt;</a> link object</li>
+<li>zero or more <a href="PerimeterRelatedFeatures.htm">&lt;Perimeter Related Features&gt;</a> instances, each through the use of a <a href="PerimeterData.htm">&lt;Perimeter Data&gt;</a> link object</li>
+<li>zero or more <a href="QuadrantRelatedFeatures.htm">&lt;Quadrant Related Features&gt;</a> instances, each through the use of a <a href="QuadrantData.htm">&lt;Quadrant Data&gt;</a> link object</li>
+<li>zero or more <a href="SpatialIndexRelatedFeatures.htm">&lt;Spatial Index Related Features&gt;</a> instances, each through the use of a <a href="SpatialIndexData.htm">&lt;Spatial Index Data&gt;</a> link object</li>
+<li>zero or more <a href="StateRelatedFeatures.htm">&lt;State Related Features&gt;</a> instances, each through the use of a <a href="StateData.htm">&lt;State Data&gt;</a> link object</li>
+<li>zero or more <a href="TimeRelatedFeatures.htm">&lt;Time Related Features&gt;</a> instances, each through the use of a <a href="TimeConstraintsData.htm">&lt;Time Constraints Data&gt;</a> link object</li>
+</UL>
+<h2><a name="inherited_field">Inherited Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Boolean.htm">SE_Boolean</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="unique_descendants">unique_descendants</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_unique_descendants">9</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Boolean.htm">SE_Boolean</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="strict_organizing_principle">strict_organizing_principle</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_strict_organizing_principle">10</A></sup></p></td>
+</tr>
+</table>
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../../../../src/lib/edcs/docs/types/EDCS_Attribute_Code.htm">EDCS_Attribute_Code</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="state_tag">state_tag</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_state_tag">11</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../../../../src/lib/edcs/docs/types/EDCS_Attribute_Value.htm">EDCS_Attribute_Value</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="active_state_value">active_state_value</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_active_state_value">12</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Associated to Notes</h3>
+<br>
+<h4><a href="#asn_toFeature_Representation" name="Notes_asn_toFeature_Representation">Feature_Representation</a></h4>
+ An association between two
+ <A href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> instances
+ indicates that the environmental object(s) that they
+ represent have the semantic relationship indicated by
+ the <A href="BaseAssociationData.htm">&lt;Base Association Data&gt;</A>
+ link object on the association relationship.
+</P>
+<br>
+<h4><a href="#asn_toGeometry_Hierarchy" name="Notes_asn_toGeometry_Hierarchy">Geometry_Hierarchy</a></h4>
+ An association between a
+ <A href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> instance and a
+ <A href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> instance
+ indicates that the environmental object(s) that they
+ represent have the semantic relationship indicated by
+ the <A href="BaseAssociationData.htm">&lt;Base Association Data&gt;</A>
+ link object on the association relationship.
+</P>
+<br>
+<h4><a href="#asn_toProperty_Grid" name="Notes_asn_toProperty_Grid">Property_Grid</a></h4>
+ An association between a
+ <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance and a
+ <A href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> instance
+ indicates that the environmental object(s) represented by the
+ <A href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> instance
+ and the <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance
+ (or some specific cell data within that
+ <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance) have the
+ semantic relationship indicated by the
+ <A href="BaseAssociationData.htm">&lt;Base Association Data&gt;</A> link object
+ on the association relationship. Each associated
+ <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance indicates
+ whether the entire <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A>
+ instance or only some specific cell data within it is participating
+ in the relationship in question.
+</P>
+<h3>Associated from Notes</h3>
+<br>
+<h4><a href="#asn_fromFeature_Representation" name="Notes_asn_fromFeature_Representation">Feature_Representation</a></h4>
+ An association between two
+ <A href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> instances
+ indicates that the environmental object(s) that they
+ represent have the semantic relationship indicated by
+ the <A href="BaseAssociationData.htm">&lt;Base Association Data&gt;</A>
+ link object on the association relationship.
+</P>
+<br>
+<h4><a href="#asn_fromGeometry_Hierarchy" name="Notes_asn_fromGeometry_Hierarchy">Geometry_Hierarchy</a></h4>
+ An association between a
+ <A href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> instance and a
+ <A href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> instance
+ indicates that the environmental object(s) that they
+ represent have the semantic relationship indicated by
+ the <A href="BaseAssociationData.htm">&lt;Base Association Data&gt;</A>
+ link object on the association relationship.
+</P>
+<br>
+<h4><a href="#asn_fromProperty_Grid" name="Notes_asn_fromProperty_Grid">Property_Grid</a></h4>
+ An association between a
+ <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance and a
+ <A href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> instance
+ indicates that the environmental object(s) represented by the
+ <A href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> instance
+ and the <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance
+ (or some specific cell data within that
+ <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance) have the
+ semantic relationship indicated by the
+ <A href="BaseAssociationData.htm">&lt;Base Association Data&gt;</A> link object
+ on the association relationship. Each associated
+ <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instance indicates
+ whether the entire <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A>
+ instance or only some specific cell data within it is participating
+ in the relationship in question.
+</P>
+<h3>Composed of Notes</h3>
+<br>
+<h4><a href="#cmp_Image_Mapping_Function" name="Notes_cmp_Image_Mapping_Function">Image_Mapping_Function</a></h4>
+ The <A href="ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</A> components
+ support texture mapping information
+ for geometry that is to be derived from the
+ <A href="AggregateFeature.htm">&lt;Aggregate Feature&gt;</A> instance
+ by the consumer.
+ These <A href="ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</A>
+ instances shall use <A href="ImageAnchor.htm">&lt;Image Anchor&gt;</A>
+ components to specify the mapping.
+</P>
+<br>
+<h4><a href="#cmp_Presentation_Domain" name="Notes_cmp_Presentation_Domain">Presentation_Domain</a></h4>
+ A <A href="PresentationDomain.htm">&lt;Presentation Domain&gt;</A> component is needed for
+ <A href="AggregateFeature.htm">&lt;Aggregate Feature&gt;</A> instances that are
+ significant only for a particular domain, such as radar.
+</P>
+<h3>Fields Notes</h3>
+<h4><a href="#unique_descendants" name="Notes_unique_descendants">unique_descendants</a></h4>
+<P>
+ If the value of the
+ <A href="#unique_descendants">unique_descendants</A>
+ field is <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A>, each
+ descendant shall be unique in the sense that it shall
+ appear in only one branch of this aggregation.
+ Each descendant is a <A href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> instance
+ within the component tree rooted at the
+ <A href="AggregateFeature.htm">&lt;Aggregate Feature&gt;</A> instance.
+ If <A href="#unique_descendants">unique_descendants</A>
+ is <A href="../types/SE_Boolean.htm#SE_FALSE">SE_FALSE</A>, at least one
+ <A href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> instance
+ appears in more than one branch of the aggregation.
+</P>
+<h4><a href="#strict_organizing_principle" name="Notes_strict_organizing_principle">strict_organizing_principle</a></h4>
+<P>
+ If the value of the
+ <A href="#strict_organizing_principle">strict_organizing_principle</A>
+ field is <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A>, each
+ branch of this aggregation
+ strictly complies with the organizing principle for its
+ particular subclass. If this value is
+ <A href="../types/SE_Boolean.htm#SE_FALSE">SE_FALSE</A>, at least
+ one branch does not strictly comply with the given
+ organizing principle. See the organizing principle constraint
+ for each specific subclass for details.
+</P>
+<h4><a href="#state_tag" name="Notes_state_tag">state_tag</a></h4>
+<P>
+ The <A href="#state_tag">state_tag</A> field
+ specifies the state by which the
+ <A href="FeatureHierarchy.htm">&lt;Feature Hierarchy&gt;</A> components
+ are being differentiated and shall specify an EAC that qualifies
+ as state applicable.
+</P>
+<h4><a href="#active_state_value" name="Notes_active_state_value">active_state_value</a></h4>
+<P>
+ The <A href="#active_state_value">active_state_value</A> field
+ specifies the default state. If the
+ <A href="StateRelatedFeatures.htm">&lt;State Related Features&gt;</A>
+ instance has a
+ <A href="StateControlLink.htm">&lt;State Control Link&gt;</A> component, the value of the
+ <A href="#active_state_value">active_state_value</A> field
+ is obtained from that
+ <A href="StateControlLink.htm">&lt;State Control Link&gt;</A> instance.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="StateData.htm">State Data</A>.
+<strong>Next:</strong> <A href="StateRelatedGeometry.htm">State Related Geometry</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

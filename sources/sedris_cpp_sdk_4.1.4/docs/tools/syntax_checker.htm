@@ -1,0 +1,150 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>SEDRIS SDK - Syntax Checker Tool</title>
+</head>
+<body bgcolor="#ffffff">
+
+<div align="center">
+<h1><a name="top" id="top">Syntax Checker Tool</a></h1>
+</div><div align="center">
+<h3>
+SEDRIS C++ SDK Release 4.1.4
+</h3>
+<h3>
+July 1, 2011
+</h3>
+</div>
+
+<ol>
+<li><a href="#short">Synopsis</a></li>
+<li><a href="#descr">Description</a></li>
+<li><a href="#options">Options</a></li>
+<li><a href="#examples">Examples</a></li>
+<li><a href="#samplerun">Sample Run</a></li>
+<li><a href="#environ">Environment</a></li>
+<li><a href="#seealso">See Also</a></li>
+</ol>
+<br>
+
+<h2><a name="short" id="short">SYNOPSIS</a></h2>
+<blockquote>
+<pre><b>syntax_checker</b> [ <a href="#options">options</a> ] transmittal
+</pre>
+</blockquote>
+
+<h2><a name="descr" id="descr">DESCRIPTION</a></h2>
+<blockquote>
+<p><b>Syntax Checker</b> verifies the syntactical correctness of a given
+SEDRIS transmittal, and prints error messages for any problems that it
+finds. For each object in a transmittal, this tool verifies that all
+associations and aggregations involving that object are correct. The DRM
+defines the aggregation and association rules. Data providers use this
+tool to create syntactically correct transmittals. Data consumers may
+find <b>syntax_checker</b> useful to verify that a transmittal is
+syntactically correct before transmittal consumption.
+</p><p>
+Please read <a href="../tech/p5v2.htm">Checker Tools Users Guide</a>
+for additional information on this tool.
+</p></blockquote>
+
+<h2><a name="options" id="options">OPTIONS</a></h2>
+<blockquote>
+<dl>
+<dt><b>-d &lt;max depth&gt;</b></dt>
+   <dd><p>Specify a positive integer for the maximum search depth.</p></dd>
+
+<dt><b>-f &lt;file name&gt;</b></dt>
+   <dd><p>Specify the name of file for the formatted output.</p></dd>
+
+<dt><b>-i</b></dt>
+   <dd><p>Turns off two-way aggregation checks for ITR.</p></dd>
+
+<dt><b>-s&quot;object id&quot;</b></dt>
+   <dd><p>Specify the SE_Object ID from where to start the checking.</p></dd>
+
+<dt><b>-u &lt;update rate&gt;</b></dt>
+   <dd><p>Specify the counting update rate &#40;off=0, default=500&#41;.</p></dd>
+</dl>
+</blockquote>
+
+<h2><a name="examples" id="examples">EXAMPLES</a></h2>
+<blockquote>
+<dl>
+<dt><b>syntax_checker transmittals/test.stf</b></dt>
+   <dd><p>Verifies the transmittal &quot;test.stf&quot;.</p></dd>
+</dl>
+</blockquote>
+
+<h2><a name="samplerun" id="samplerun">SAMPLE RUN</a></h2>
+<blockquote><p>
+The following command (initiated in the &quot;transmittals&quot;
+directory):</p>
+<blockquote><pre>syntax_checker test.stf</pre></blockquote>
+produces the following output:
+<blockquote>
+<pre>Update rate set to every 500 objects processed
+Opened SEDRIS Transmittal test.stf.
+Testing.  Please wait...
+ Done.
+
+ Total object count = 116
+
+        3       Absolute Time
+        4       Ambient Colour
+        1       Citation
+        1       Data Quality
+        4       Diffuse Colour
+        1       Environment Root
+        1       Geometry Model
+        1       Geometry Model Instance
+        1       Identification
+        4       Inline Colour
+        1       Keywords
+        1       Legal Constraints
+        1       Lineage
+       29       LSR 3D Location
+        1       Model
+        1       Model Library
+        4       Polygon
+        2       Presentation Domain
+        4       Primitive Colour
+        1       Process Step
+        2       Responsible Party
+        8       RGB Colour
+        2       Role Data
+        1       Security Constraints
+        1       Spatial Extent
+        4       Translucency
+        1       Transmittal Root
+        1       Transmittal Summary
+        1       Union Of Geometry Hierarchy
+        2       Union Of Primitive Geometry
+       27       Vertex
+Total object count = 116
+
+Total error count = 0
+</pre>
+</blockquote>
+</blockquote>
+
+<h2><a name="environ" id="environ">ENVIRONMENT</a></h2>
+<blockquote>
+See the SEDRIS SDK <a href="../index.htm#runtime">Runtime Environment</a>
+variables.
+</blockquote>
+
+<h2><a name="seealso" id="seealso">SEE ALSO</a></h2>
+<blockquote>
+<a href="rules_checker.htm">Rules Checker</a>,
+<a href="depth.htm">Depth</a>,
+<a href="model_viewer.htm">Model Viewer</a>,
+<a href="index.htm">Tools And Utilities</a> document
+</blockquote>
+
+<p>
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</p>
+</body>
+</html>

@@ -1,0 +1,481 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<head>
+<title>SEDRIS SDK - Migration Guide</title>
+<link rel="stylesheet" type="text/css" href="../../styles/SDK_SEDRIS.css">
+</head>
+<body>
+
+<div align="center">
+<table border="2" class="doc_set_header">
+<tr><th align="center">
+<big><big>
+<font color="#00ffff">MIGRATION GUIDE</font>
+</big></big>
+<br><font color="#ffffff">
+SEDRIS SDK Release 4.0.x to Release 4.1
+</font>
+</th></tr>
+</table>
+</div>
+
+<a NAME="top"></a>
+
+<ol>
+<li><a href="#intro">Introduction</a></li>
+<li><a href="#migrtools">Migration Tools</a></li>
+<li><a href="#files">
+    File Renames, Reorganization, Deletions, and Additions</a></li>
+<li><a href="#drm">Data Representation Model (DRM) Changes</a>,
+    including Class and Constraint Changes
+</li>
+<li><a href="#edcs">
+    Environmental Data Coding Specification (EDCS) Changes</a></li>
+<li><a href="#srm">Spatial Reference Model (SRM) Changes</a></li>
+<li><a href="#capi">Transmittal Access C API Changes</a></li>
+<li><a href="#cppapi">Transmittal Access C++ API Changes</a></li>
+</ol>
+
+<h3><a name="intro">Introduction</a></h3>
+<blockquote>
+<p>
+This migration document describes the required changes to migrate
+applications developed using SEDRIS SDK Release 4.0.x to SEDRIS
+SDK Release 4.1. This document covers all aspects of the SDK.
+<b>New SEDRIS SDK users do not need to read this document.</b>
+</p>
+<p>
+This document provides the key migration concepts and has links to the detail
+changes such as function and name changes.
+</p>
+
+<p>
+For general information about this release and items
+that require specific attention, see the
+<a href="../../index.htm">Release Notes</a>.
+</p><p>
+For help with the migration process or other questions and comments please send
+email to <a href="mailto:help@sedris.org">help@sedris.org</a>. If you are an
+associate, please send email to
+<a href="mailto:se-coders@sedris.org">se-coders@sedris.org</a>.
+</p><p>
+Return to: <a href="#top">Top</a>
+</p>
+</blockquote>
+
+<h3><a name="migrtools">Migration Tools</a></h3>
+<blockquote>
+<p>
+This release includes a name replacement Perl script
+(<a href="../../../scripts/name_change/name_change.pl">name_change.pl</a>) that
+can help users to replace old names in their source code
+(i.e. function names, data type names, etc.) with the new ones.
+This script covers most of the cases where there is a one-to-one mapping.
+However, there are cases where manual editing of the source code will be
+required. In addition, the script can be customized to map
+user-defined types. Please read the Name Change script
+<a href="../../../scripts/name_change/readme_name_change.txt">Readme</a>
+file for more information.
+</p><p>
+Return to: <a href="#top">Top</a>
+</p>
+</blockquote>
+
+<h3><a name="files">
+    File Renames, Reorganizations, Deletions, and Additions
+</a></h3>
+<blockquote>
+<p>
+This section describes the changes to the source tree structure and file names.
+This information is only relevant if you are using a source code distribution.
+</p>
+<ul>
+<li>The SRM has been changed significantly.
+</li>
+</ul>
+<p>
+Return to: <a href="#top">Top</a>
+</p>
+</blockquote>
+
+<h3><a name="drm">Data Representation Model (DRM) Changes,
+    including Class and Constraint Changes</a></h3>
+<blockquote>
+<p>
+This section summarizes the major changes to the DRM technology component.
+For detailed information on DRM type and function changes, see
+<a href="migration_drm.htm">Migration Guide - DRM and DRM API</a>.
+For further information on class field mappings, other
+individual class changes, and constraint changes, see
+<a href="migration_classes.htm">Migration Guide - Classes</a>.
+</p>
+<p>
+The following are general DRM API changes:
+<ul>
+<li>The NULL entry for
+<a href="../../tech/drm/types/SE_DRM_Class.htm">SE_DRM_Class</a>
+is now numbered one instead of zero, and all the other class tags'
+enumerants have been incremented by one accordingly.
+</li>
+</ul>
+</p>
+<p>
+The following are the major DRM changes that require a user to modify their
+processing of transmittals:
+</p>
+<p>
+<ul>
+<li>&lt;Access&gt;
+<br>
+Instances of the
+<a href="../../tech/drm/classes/LegalConstraints.htm">&lt;Legal Constraints&gt;</a>
+and
+<a href="../../tech/drm/classes/SecurityConstraints.htm">&lt;Security Constraints&gt;</a>
+classes that replaced &lt;Access&gt; are now required to always be components
+of an
+<a href="../../tech/drm/classes/Identification.htm">&lt;Identification&gt;</a>
+instance. Consequently, for any object X that previously had an &lt;Access&gt;
+component, the
+<a href="../../tech/drm/classes/Identification.htm">&lt;Identification&gt;</a>
+component of X will now have the corresponding
+<a href="../../tech/drm/classes/LegalConstraints.htm">Legal Constraints</a>
+and / or
+<a href="../../tech/drm/classes/SecurityConstraints.htm">&lt;Security Constraints&gt;</a>
+instances as components. In a 4.0.x to 4.1 conversion, if X did not previously
+have a &lt;Description&gt; component, X would have a new
+<a href="../../tech/drm/classes/Identification.htm">&lt;Identification&gt;</a> component
+added for this purpose.
+</li>
+<li>
+<a href="../../tech/drm/classes/Citation.htm">&lt;Citation&gt;</a>
+<br>
+If a
+<a href="../../tech/drm/classes/Citation.htm">&lt;Citation&gt;</a> instance C
+was previously a component of an object X, where X is an instance of any
+class other than
+<a href="../../tech/drm/classes/Keywords.htm">&lt;Keywords&gt;</a> or
+<a href="../../tech/drm/classes/Source.htm">&lt;Source&gt;</a>,
+C shall instead be a component of the
+<a href="../../tech/drm/classes/Identification.htm">&lt;Identification&gt;</a>
+component of X, unless X was a &lt;Cross Reference&gt; instance.
+(In that case, C shall not be converted.)
+</li>
+<li>
+<a href="../../tech/drm/classes/ConformalBehaviour.htm">&lt;Conformal Behaviour&gt;</a>
+<br>
+Consult the clarified constraints on this class to ensure that instances
+of it are being used in a valid context.
+</li>
+<li>
+<a href="../../tech/drm/classes/Literal.htm">&lt;Literal&gt;</a>,
+<a href="../../tech/drm/classes/StateData.htm">&lt;State Data&gt;</a>,
+<a href="../../tech/drm/classes/StateRelatedFeatures.htm">&lt;State Related Features&gt;</a>,
+<a href="../../tech/drm/classes/StateRelatedGeometry.htm">&lt;State Related Geometry&gt;</a>
+<br>
+In conversion from 4.0.x to 4.1, the old value_characteristic union member
+has been removed in compliance with EDCS. This was not previously a valid
+case, so during conversion an occurrence of this will generate an error
+message.
+</li>
+<li>
+The universal flag of a topology volume has been moved from the shell class
+to the volume class.
+</li>
+<li>
+<a href="../../tech/drm/classes/PropertyDescription.htm">&lt;Property Description&gt;</a>,
+<a href="../../tech/drm/classes/PropertyValue.htm">&lt;Property Value&gt;</a>
+<br>
+The inheritance of
+<a href="../../tech/drm/classes/Property.htm">&lt;Property&gt;</a>
+instances are explicitly stated through
+the new <a href="../../tech/drm/classes/Property.htm#apply_property_inheritance">apply_property_inheritance</a>
+field of
+<a href="../../tech/drm/classes/Property.htm">&lt;Property&gt;</a>.
+</li>
+<li>
+<a href="../../tech/drm/classes/ResponsibleParty.htm">&lt;Responsible Party&gt;</a>
+<br>
+For every
+<a href="../../tech/drm/classes/ResponsibleParty.htm">&lt;Responsible Party&gt;</a>
+component R of an object X, the relationship between X and R shall now have a
+<a href="../../tech/drm/classes/RoleData.htm">&lt;Role Data&gt;</a> link object,
+taking over what was previously the role field of
+<a href="../../tech/drm/classes/ResponsibleParty.htm">&lt;Responsible Party&gt;</a>.
+</li>
+<li>
+The DRM changes due to SRM changes are described in
+<a href="migration_srm.htm">Migration Guide - SRM</a>.
+</li>
+</ul>
+</p>
+
+
+<p>Return to: <a href="#top">Top</a>
+</blockquote>
+<br>
+
+<h3><a name="edcs">
+Environmental Data Coding Specification (EDCS) Changes</a></h3>
+<blockquote>
+<p>
+This section summarizes the major changes to the EDCS technology component.
+For detailed information on EDCS changes see
+<a href="../../../src/lib/edcs/docs/migration_edcs.htm">Migration Guide EDCS API</a>.
+</p><p>
+The following are the general EDCS changes:
+</p>
+<ul>
+<li>
+This version of EDCS is the implementation of the ISO EDCS
+specificaion FDIS version. Consequently, the concepts defined
+herein will be consistent with that specification.
+</li>
+
+<li>
+<a href="../../../src/lib/edcs/docs/types/EDCS_Attribute_Value.htm">EDCS_Attribute_Value</a>'s
+<a href="../../../src/lib/edcs/docs/types/EDCS_Value_Characteristic_Code.htm">EDCS_Value_Characteristic_Code</a>
+field has been removed. Any object needing to specify this information shall
+specify a
+<a href="../../tech/drm/classes/PropertyCharacteristic.htm">&lt;Property Characteristic&gt;</a>
+component instead. See also
+&lt;&lt;<a href="../../tech/drm/constraints/PropertyCharacteristicConstraints.htm">Property Characteristic Constraints</a>&gt;&gt;
+for the constraints affecting some of the most
+frequently asked questions.
+</li>
+</ul>
+<p>
+Return to: <a href="#top">Top</a>
+</p>
+</blockquote>
+
+<h3><a name="srm">Spatial Reference Model (SRM) Changes</a></h3>
+<blockquote>
+<p>
+This section summarizes the major changes to the SRM technology component.
+For detailed information on SRM data types and structure changes see
+<a href="migration_srm.htm">Migration Guide - SRM</a> and
+<a href="../../../src/lib/srm/docs/migration_40_41.htm">
+SRM C API 4.0 to 4.1 Migration Guide.htm</a>.
+</p><p>
+<ul>
+<li>The SRM C API has changed significantly to take a more
+object-oriented approach.
+</li>
+<li>The SRM C++ API has mostly remained as in 4.0.  There is a
+set new SRF data structure that consolidates all the SRF parameters
+under one single data structure.  This new data structure
+is as follows:
+</li>
+<li>There is a new SRF parameter type that combines all the
+individual SRF parameter types under one single data structure.
+This new data type is used as an input parameter to the
+SRF creation functions.  The new SRF parameter type
+is as follows:
+<br>
+<pre>
+typedef struct
+{
+    SRM_SRF_Parameters_Info_Code srf_params_info_code;
+    SRM_RT_Code                  rt_code;
+    union _SRM_SRF_Parameters_Info_Union
+    {
+        SRM_SRFT_Parameters srf_template;
+        SRM_SRFS_Info       srf_set;
+        SRM_SRF_Code        srf_instance;
+    } value;
+} SRM_SRF_Parameters_Info;
+
+typedef struct
+{
+    SRM_SRFT_Code template_code;
+    SRM_ORM_Code  orm_code;
+    union _SRM_SRFT_Parameters_Union
+    {
+        SRM_Unused                      cc_srf_parameters;
+        SRM_LSR_3D_Parameters           lsr_3d_srf_parameters;
+        SRM_Unused                      cd_srf_parameters;
+        SRM_Unused                      pd_srf_parameters;
+        SRM_LTSE_Parameters             ltse_srf_parameters;
+        SRM_Local_Tangent_Parameters    ltsas_srf_parameters;
+        SRM_Local_Tangent_Parameters    ltsc_srf_parameters;
+        SRM_LCE_3D_Parameters           lce_3d_srf_parameters;
+        SRM_Unused                      cm_srf_parameters;
+        SRM_Unused                      ei_srf_parameters;
+        SRM_Unused                      sec_srf_parameters;
+        SRM_Unused                      seq_srf_parameters;
+        SRM_Unused                      sme_srf_parameters;
+        SRM_Unused                      smd_srf_parameters;
+        SRM_Unused                      haec_srf_parameters;
+        SRM_Unused                      heec_srf_parameters;
+        SRM_Unused                      heeq_srf_parameters;
+        SRM_M_Parameters                m_srf_parameters;
+        SRM_Oblique_Mercator_Parameters oms_srf_parameters;
+        SRM_TM_Parameters               tm_srf_parameters;
+        SRM_LCC_Parameters              lcc_srf_parameters;
+        SRM_PS_Parameters               ps_srf_parameters;
+        SRM_EC_Parameters               ec_srf_parameters;
+        SRM_LSR_2D_Parameters           lsr_2d_srf_parameters;
+        SRM_Unused                      lsa_srf_parameters;
+        SRM_Unused                      lsp_srf_parameters;
+    } parameters;
+} SRM_SRFT_Parameters;
+
+typedef struct
+{
+    SRM_ORM_Code       orm_code;
+    SRM_SRFS_Code_Info srfs_code_info;
+} SRM_SRFS_Info;
+</pre>
+</li>
+<li>Three SRF template parameter types have their latitude parameter removed:
+</li>
+  <ol>
+     <br>
+     <li> For Polar Stereographic (PS) SRF:
+     <pre>
+In 4.0
+
+typedef struct
+{
+    SRM_Polar_Aspect polar_aspect;
+    SRM_Long_Float   origin_longitude;
+    SRM_Long_Float   true_scale_latitude;
+    SRM_Long_Float   true_scale;
+    SRM_Long_Float   false_easting;
+    SRM_Long_Float   false_northing;
+} SRM_PS_Parameters;
+
+In 4.1
+
+typedef struct
+{
+    SRM_Polar_Aspect polar_aspect;
+    SRM_Long_Float   origin_longitude;
+    SRM_Long_Float   central_scale;
+    SRM_Long_Float   false_easting;
+    SRM_Long_Float   false_northing;
+} SRM_PS_Parameters;
+     </pre>
+
+     <li> For Equidistant Cylindrical (EC) SRF:
+     <pre>
+In 4.0
+
+typedef struct
+{
+    SRM_Long_Float origin_longitude;
+    SRM_Long_Float standard_latitude;
+    SRM_Long_Float central_scale;
+    SRM_Long_Float false_easting;
+    SRM_Long_Float false_northing;
+} SRM_EC_Parameters;
+
+In 4.1
+
+typedef struct
+{
+    SRM_Long_Float origin_longitude;
+    SRM_Long_Float central_scale;
+    SRM_Long_Float false_easting;
+    SRM_Long_Float false_northing;
+} SRM_EC_Parameters;
+     </pre>
+
+     <li> For Mercator (M) SRF:
+     <pre>
+In 4.0
+
+typedef struct
+{
+    SRM_Long_Float origin_longitude;
+    SRM_Long_Float origin_latitude;
+    SRM_Long_Float central_scale;
+    SRM_Long_Float false_easting;
+    SRM_Long_Float false_northing;
+} SRM_Mercator_Parameters;
+
+In 4.1
+
+typedef struct
+{
+    SRM_Long_Float origin_longitude;
+    SRM_Long_Float central_scale;
+    SRM_Long_Float false_easting;
+    SRM_Long_Float false_northing;
+} SRM_M_Parameters;
+     </pre>
+  </ol>
+</ul>
+</p>
+<p>
+Return to: <a href="#top">Top</a>
+</p>
+</blockquote>
+
+<h3><a name="capi">Transmittal Access C API Changes</a></h3>
+<blockquote>
+<p>
+This section summarizes the major changes to the Transmittal Access C API
+technology component.For detailed information on Transmittal Access C API
+changes see
+<a href="migration_api.htm">Migration Guide - Transmittal Access C API</a>.
+</p>
+<ul>
+<li>The storage and retrieval of
+<a href="../../tech/drm/classes/MeshFaceTable.htm">&lt;Mesh Face Table&gt;</a>
+data is now performed with 2 new functions.
+</li>
+<li>Level 0 functions that previously took char * parameters now
+take <a href="../../tech/drm/types/SE_URN.htm">SE_URN</a>,
+<a href="../../tech/drm/types/SE_URL.htm">SE_URL</a>, or
+<a href="../../tech/drm/types/SE_String.htm">SE_String</a>
+parameters as appropriate.
+This affects the functions for opening transmittals and those
+that manipulate object ID strings, among others. See the documentation
+of the individual functions for details of their parameter lists.
+<ol>
+<li> Three new macros - SE_SetString(), SE_SetURL(), SE_SetURN() -
+ have been added that populate variables of these types given
+ a character string input. SE_SetString() also has a macro,
+ SE_SetStringWithDefaultLocale().
+</li>
+<li> Three new macros - SE_GetStringAsCharString(),
+ SE_GetURLAsCharString(), SE_GetURNAsCharString() - have been
+ added that return the characters portion of each of these;
+ they may simplify migration tasks where the user wishes
+ to avoid rewriting print statements.
+</li>
+</ul>
+</blockquote>
+<h3><a name="cppapi">Transmittal Access C++ API Changes</a></h3>
+<blockquote>
+<p>
+This section summarizes the major changes to the Transmittal Access C++ API
+technology component.
+</p>
+<ul>
+<li>STF changes to align with SEDRIS ISO Part 3.</li>
+</ul>
+</blockquote>
+<hr>
+<br>
+<font color="#ff0000">Return to:</font>
+<b><a href="#top">Top of this Page</a></b>
+<br><br>
+<table class="doc_set_header">
+<tr><td>
+<table class="doc_set_header">
+<tr>
+<td align="left"><small><font color="#00ffff">
+Last updated: July 1, 2011
+</font></small></td>
+<td align="right"><small><font color="#00ffff">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</font></small></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</BODY>
+</HTML>

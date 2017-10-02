@@ -1,0 +1,296 @@
+<!DOCTYPE HTML PUBLIC="-//W3C/DTD HTML 4.01 Transitional//EN">
+<html lang="en">
+<head>
+<title>EDCS 4.4 to FACC 2.1 Mapping SDK - Release Notes</title>
+<META content="text/html; charset=windows-1252" http-equiv="Content-Type">
+</head>
+<body bgcolor="#ffffff">
+
+<div align="center">
+<h1><a name="top" id="top">Release Notes</a></h1>
+</div>
+<div align="center">
+<h3>
+EDCS 4.4 to FACC 2.1 Mapping SDK Release 4.4.0.0
+</h3>
+<h3>
+July 1, 2011
+</h3>
+</div>
+
+<p>
+<ol>
+<li><a href="#intro">Introduction</a>
+</li>
+<li><a href="#fixes">Bug Fixes</a>
+</li>
+<li><a href="#install">Installation</a>
+</li>
+<li><a href="#libs">Compiling, Linking, and Testing</a>
+</li>
+<li><a href="#docs">SDK Documentation</a>
+</li>
+<li><a href="#bugs">Bug Reports and Feedback</a>
+</li>
+<li><a href="#webpages">Web Pages</a>
+</li>
+</ol>
+<br />
+
+<h3><a name="intro" id="intro">Introduction</a></h3>
+<blockquote>
+<p>
+Thank you for downloading this release of the
+EDCS 4.4 to FACC 2.1 Mapping Software Development Kit (SDK).
+This SDK is intended as a &quot;drop-in&quot; into the EDCS SDK.
+</p><p>
+This release has been tested on multiple platforms, such as
+Linux, Irix, Sun, and Windows 98/Me/NT/2000.
+</p><p>
+For help, comments, and bug reports please send email to
+<a href="mailto:help@sedris.org">help@sedris.org</a>. If you are an associate, please use
+<a href="mailto:se-coders@sedris.org">se-coders@sedris.org</a>.
+</p><p>
+Return to: <a href="#top">Top</a>
+</p></blockquote>
+<br />
+
+<h3><a name="fixes" id="fixes">Bug Fixes</a></h3>
+<blockquote>
+<p>
+General:
+</p>
+<ol type="a">
+<li>Added EVC_MISSING, EVC_MULTIPLE, EVC_NOT_APPLICABLE, EVC_UNDESIGNATED,
+and EVC_VALUE_WITHHELD mappings, as indicated by the mapping notes, for
+the following EAs:
+<ul>
+<li><a href="../../docs/dictionary/EAC_B.htm#EAC_BRUSH_DENSITY">EAC_BRUSH_DENSITY</a></li>
+<li><a href="../../docs/dictionary/EAC_H.htm#EAC_HEIGHT_ABOVE_SURFACE_LEVEL">EAC_HEIGHT_ABOVE_SURFACE_LEVEL</a></li>
+<li><a href="../../docs/dictionary/EAC_L.htm#EAC_LAND_TRNSP_MEDIAN_WIDTH">EAC_LAND_TRNSP_MEDIAN_WIDTH</a></li>
+<li><a href="../../docs/dictionary/EAC_L.htm#EAC_LEFT_BANK_HEIGHT">EAC_LEFT_BANK_HEIGHT</a></li>
+<li><a href="../../docs/dictionary/EAC_L.htm#EAC_LEFT_BANK_SLOPE">EAC_LEFT_BANK_SLOPE</a></li>
+<li><a href="../../docs/dictionary/EAC_L.htm#EAC_LEFT_BANK_VEGETATION_DENSITY">EAC_LEFT_BANK_VEGETATION_DENSITY</a></li>
+<li><a href="../../docs/dictionary/EAC_M.htm#EAC_MAXIMUM_OBSTACLE_HEIGHT">EAC_MAXIMUM_OBSTACLE_HEIGHT</a></li>
+<li><a href="../../docs/dictionary/EAC_M.htm#EAC_MEAN_SSNL_HIGH_WATER_DEPTH">EAC_MEAN_SSNL_HIGH_WATER_DEPTH</a></li>
+<li><a href="../../docs/dictionary/EAC_M.htm#EAC_MEAN_SSNL_HIGH_WATER_SPEED">EAC_MEAN_SSNL_HIGH_WATER_SPEED</a></li>
+<li><a href="../../docs/dictionary/EAC_M.htm#EAC_MEAN_SSNL_LOW_WATER_DEPTH">EAC_MEAN_SSNL_LOW_WATER_DEPTH</a></li>
+<li><a href="../../docs/dictionary/EAC_M.htm#EAC_MEAN_SSNL_LOW_WATER_SPEED">EAC_MEAN_SSNL_LOW_WATER_SPEED</a></li>
+<li><a href="../../docs/dictionary/EAC_M.htm#EAC_MEAN_STEM_DIAMETER">EAC_MEAN_STEM_DIAMETER</a></li>
+<li><a href="../../docs/dictionary/EAC_M.htm#EAC_MEAN_WATER_SPEED">EAC_MEAN_WATER_SPEED</a></li>
+<li><a href="../../docs/dictionary/EAC_M.htm#EAC_MINE_CHARGE_SIZE">EAC_MINE_CHARGE_SIZE</a></li>
+<li><a href="../../docs/dictionary/EAC_N.htm#EAC_NON_SUB_CONTACT_POSITION_ACCURACY">EAC_NON_SUB_CONTACT_POSITION_ACCURACY</a></li>
+<li><a href="../../docs/dictionary/EAC_P.htm#EAC_PREDOMINANT_HEIGHT">EAC_PREDOMINANT_HEIGHT</a></li>
+<li><a href="../../docs/dictionary/EAC_P.htm#EAC_PREDOMINANT_WATER_DEPTH">EAC_PREDOMINANT_WATER_DEPTH</a></li>
+<li><a href="../../docs/dictionary/EAC_R.htm#EAC_RIGHT_BANK_HEIGHT">EAC_RIGHT_BANK_HEIGHT</a></li>
+<li><a href="../../docs/dictionary/EAC_R.htm#EAC_RIGHT_BANK_SLOPE">EAC_RIGHT_BANK_SLOPE</a></li>
+<li><a href="../../docs/dictionary/EAC_R.htm#EAC_RIGHT_BANK_VEGETATION_DENSITY">EAC_RIGHT_BANK_VEGETATION_DENSITY</a></li>
+<li><a href="../../docs/dictionary/EAC_R.htm#EAC_RUNWAY_APPROACH_OIS_DISTANCE">EAC_RUNWAY_APPROACH_OIS_DISTANCE</a></li>
+<li><a href="../../docs/dictionary/EAC_S.htm#EAC_SOIL_DEPTH">EAC_SOIL_DEPTH</a></li>
+<li><a href="../../docs/dictionary/EAC_S.htm#EAC_SUMMER_CANOPY_COVER_FRACTION">EAC_SUMMER_CANOPY_COVER_FRACTION</a></li>
+<li><a href="../../docs/dictionary/EAC_T.htm#EAC_TREE_SPACING">EAC_TREE_SPACING</a></li>
+<li><a href="../../docs/dictionary/EAC_V.htm#EAC_VEGETATION_RESTRICTED_SPEED">EAC_VEGETATION_RESTRICTED_SPEED</a></li>
+<li><a href="../../docs/dictionary/EAC_W.htm#EAC_WATERCOURSE_GAP_WIDTH">EAC_WATERCOURSE_GAP_WIDTH</a></li>
+<li><a href="../../docs/dictionary/EAC_W.htm#EAC_WINTER_CANOPY_COVER_FRACTION">EAC_WINTER_CANOPY_COVER_FRACTION</a></li>
+<li><a href="../../docs/dictionary/EAC_W.htm#EAC_WOODY_VEGETATION_DENSITY">EAC_WOODY_VEGETATION_DENSITY</a></li>
+</ul>
+</li>
+<li>Corrected the EVC_UNDESIGNATED and EVC_VALUE_WITHHELD mappings,
+which were transposed, for the following EAs:
+<ul>
+<li><a href="../../docs/dictionary/EAC_H.htm#EAC_HYDROGRAPHIC_DEPTH_CATEGORY">EAC_HYDROGRAPHIC_DEPTH_CATEGORY</a></li>
+<li><a href="../../docs/dictionary/EAC_H.htm#EAC_HYDROGRAPHIC_DEPTH_INFORMATION">EAC_HYDROGRAPHIC_DEPTH_INFORMATION</a></li>
+<li><a href="../../docs/dictionary/EAC_M.htm#EAC_MINE_CONTACT_ACTUATION">EAC_MINE_CONTACT_ACTUATION</a></li>
+<li><a href="../../docs/dictionary/EAC_M.htm#EAC_MINE_MOORED_POSITION_TYPE">EAC_MINE_MOORED_POSITION_TYPE</a></li>
+<li><a href="../../docs/dictionary/EAC_M.htm#EAC_MINE_OPERATIONAL_USE">EAC_MINE_OPERATIONAL_USE</a></li>
+<li><a href="../../docs/dictionary/EAC_M.htm#EAC_MINE_SPECIAL_CAPABILITY_TYPE">EAC_MINE_SPECIAL_CAPABILITY_TYPE</a></li>
+<li><a href="../../docs/dictionary/EAC_S.htm#EAC_SONAR_CONFIRMATION">EAC_SONAR_CONFIRMATION</a></li>
+</ul>
+</li>
+<li>Improved EDCS_to_FACC_MapAttributeWithValue() function's handling of
+    SPECIAL_CASE mappings to handle angle-to-slope conversion for the
+    following EDCS attributes:
+<ul>
+<li><a href="../../docs/dictionary/EAC_L.htm#EAC_LEFT_ABOVE_BANK_ANGLE">EAC_LEFT_ABOVE_BANK_ANGLE</a></li>
+<li><a href="../../docs/dictionary/EAC_L.htm#EAC_LEFT_BELOW_BANK_ANGLE">EAC_LEFT_BELOW_BANK_ANGLE</a></li>
+<li><a href="../../docs/dictionary/EAC_R.htm#EAC_RIGHT_ABOVE_BANK_ANGLE">EAC_RIGHT_ABOVE_BANK_ANGLE</a></li>
+<li><a href="../../docs/dictionary/EAC_R.htm#EAC_RIGHT_BELOW_BANK_ANGLE">EAC_RIGHT_BELOW_BANK_ANGLE</a></li>
+</ul>
+</li>
+<li>Updated EDCS_to_FACC_MapAttributeWithValue() function to correctly
+    lookup EV mappings that map to enumerated FACC attributes.
+</li>
+<li>Updated EDCS_to_FACC_MapAttributeWithValue() function to correctly
+    handle unit conversion for values that map to single-valued real
+    numbers.
+</li>
+<li>Updated Microsoft Visual C++ IDE project files for sample applications
+    to address a dynamic linking issue.
+</li>
+</ol><p>
+Return to: <a href="#top">Top</a>
+</p></blockquote>
+<br />
+
+<h3><a name="install" id="install">Installation</a></h3>
+<blockquote><p>
+This SDK is meant to be installed into an EDCS SDK installation. The files in
+this SDK should be extracted inside the EDCS SDK top level directory. If you
+have a previous installation of this SDK and you don't want to overwrite it,
+you should rename the &quot;edcs4px_to_facc2p1&quot; directory to some other
+name.
+</p><p>
+This SDK is distributed as a GNU-zipped tar file for Unix systems and a Zip
+file in Win32 systems. In the discussions that follow, the "[root]" directory is
+the top directory of an SDK installation.
+</p><p>
+<b>IMPORTANT:</b>Extract the contents of the compressed
+file into the "[root]" directory of the EDCS SDK:
+<ul>
+<li>In Unix systems: <b>tar xvzf edcs4px_to_facc2p1_[version].tar.gz</b>
+</li>
+<li>In Win32 systems: use <a href="http://www.winzip.com">WinZip</a> or other
+decompression utility to extract the contents of the downloaded file.
+</li>
+</ul>
+
+<p>
+The extraction should have created a "edcs4px_to_facc2p1" subdirectory in the
+"[root]" directory of the EDCS SDK if it didn't exist.
+</p><p>
+Return to: <a href="#top">Top</a>
+</p></blockquote>
+<br />
+
+<h3><a name="libs" id="libs">Compiling, Linking, and Testing</a></h3>
+<blockquote><p>
+This section describes the steps needed to compile, link, and test the software
+included in this SDK. Applications and/or libraries that use this SDK will need
+to refer to the EDCS SDK &quot;[root]/include&quot; directory for compilation,
+and the libraries in the EDCS SDK &quot;[root]/lib&quot; subdirectories for
+linking, since those are the places where all headers and libraries from this
+SDK are placed. The applications in this SDK are similarly placed in the
+EDCS SDK &quot;[root]/bin&quot; subdirectories.
+</p><p>
+To compile this SDK, follow these steps:
+<dl>
+<dt><b>Unix</b>
+<dd><p>
+After installing this SDK as detailed in <a href="#install">Installation</a>,
+a &quot;make&quot; command in the EDCS SDK &quot;[root]&quot; directory will
+recursively go through the SDK directory structure and build all libraries
+and applications provided with the distribution using the default settings.
+For this release, the default settings are:
+<ul>
+<li>BUILD_MODE = OPT
+</li>
+<li>BIND_STATIC = no
+</li>
+<li>USE_GNU = false (set to true under Linux)
+</li>
+</ul>
+
+<p>
+These settings will compile the release using optimization and dynamic linking.
+</p><p>
+<dt><b>Win32</b>
+<dd>
+<p>Follow these steps to build all the SDK libraries and applications:
+<ol>
+<li>Prior to building this SDK you must build the EDCS SDK and
+    the EDCS Mapping Utilities SDK.
+</li>
+<li>From Windows Explorer, locate and open (i.e. double click) the
+&quot;win32_headers.bat&quot; file in the &quot;[root]&quot; directory
+of this SDK installation. This step copies the header files for
+this SDK into the EDCS SDK "[root]/include" directory.
+</li>
+<li>Open the &quot;vcpp_static.dsw&quot; Visual C++ (VC++) project workspace
+ file for this SDK.
+</li>
+<li>From the Visual C++ IDE, select &quot;all_sdk&quot; as your
+ &quot;Active Project&quot; and &quot;Release&quot; or &quot;Debug&quot;
+for your &quot;Active Configuration&quot;. For example, to compile in
+ &quot;Release&quot; mode, choose
+&quot;Build->Set Active Configuration...&quot; and select the
+ &quot;all_sdk - Win32 Release&quot; entry.
+</li>
+<li>From the &quot;Build&quot; menu, choose &quot;Rebuild All&quot;.
+</li>
+</ol>
+<p><strong>Notes:</strong>
+<ul>
+<li>You can build individual applications by making them the current
+&quot;Active Project&quot; (&quot;Project->Set Active Project&quot; menu),
+and choosing &quot;Rebuild All&quot;.
+</li>
+<li>The &quot;Release&quot; option is similar to the Unix Build Environment
+&quot;OPT&quot; option for the &quot;BUILD_MODE&quot; variable.
+</li>
+</ul>
+</dl>
+
+<p>
+To run the applications included in this SDK, see
+<a href="edcs4px_facc2p1.htm#Use Examples">Use Examples</a> to learn
+about the applications, and follow the same steps as described
+in the EDCS SDK documentation section
+<a href="../../docs/buildkit.htm#testing">Testing the Build</a> for setting your
+environment variables.
+</p><p>
+To build your own applications using this SDK, see the provided applications for
+examples on how to create appropriate Makefiles for Unix or VC++ Project files
+for Win32.
+</p><p>
+Return to: <a href="#top">Top</a>
+</p></blockquote>
+<br />
+
+<h3><a name="docs" id="docs">SDK Documentation</a></h3>
+<blockquote>
+<p>The SDK Documentation is divided into the following areas:
+<dl>
+<dt><a href="index.htm">Release Notes</a> (this document)</dt>
+<dd>Describes this release, its contents, and supported platforms and
+compilers.<br /><br /></dd>
+<dt><a href="edcs4px_facc2p1.htm">EDCS 4.4 to FACC 2.1 Mapping Reference Manual</a></dt>
+<dd>Provides links to detailed documents for SDK functions, capabilities,
+and applications in this SDK.<br /><br /></dd>
+</dl>
+<p>
+Return to: <a href="#top">Top</a>
+</p></blockquote>
+<br />
+
+<h3><a name="bugs" id="bugs">Bug Reports and Feedback</a></h3>
+<blockquote><p>
+Questions, comments, and bug reports should be sent to
+<a href="mailto:help@sedris.org">help@sedris.org</a>.
+</p><p>
+If you are an associate, please send email to
+<a href="mailto:se-coders@sedris.org">se-coders@sedris.org</a>.
+</p><p>
+Return to: <a href="#top">Top</a>
+</p></blockquote>
+<br />
+
+<h3><a name="webpages" id="webpages">Web Pages</a></h3>
+<blockquote>
+<p>These links require Internet access.
+<ul>
+<li><a href="http://www.sedris.org/">SEDRIS (www.sedris.org)</a>
+</li>
+<li><a href="http://tools.sedris.org/">SEDRIS Tools</a>
+</li>
+<li><a href="http://www.sedris.org/pro_trpl.htm">SEDRIS Documents</a>
+</li>
+</ul>
+<p>Return to: <a href="#top">Top</a>
+</p></blockquote>
+
+<p>
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</p>
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Model SRF</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX B - Constraints
+</font>
+<br>
+<font color="#ffffff">
+Model SRF
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<h3>Definition</h3>
+<P>
+The following constraints apply.
+</P>
+<OL type='a'>
+<LI><P>
+ Consider a <A href="../classes/Model.htm">&lt;Model&gt;</A> instance <span class="ConstructName">M</span>
+ specified in an SRF other than LSR.
+</P>
+<OL type='1'>
+<LI><P>
+ <span class="ConstructName">M</span> shall be instanced only by
+ <A href="../classes/GeometryModelInstance.htm">&lt;Geometry Model Instance&gt;</A> and/or
+ <A href="../classes/FeatureModelInstance.htm">&lt;Feature Model Instance&gt;</A> instances specified
+ in a matching SRF.
+</P></LI>
+<LI><P>
+ The <A href="../classes/Model.htm#has_moving_parts">has_moving_parts</A> field of
+ <span class="ConstructName">M</span> shall be set to <A href="../types/SE_Boolean.htm#SE_FALSE">SE_FALSE</A>.
+</P></LI>
+</OL>
+</LI>
+<LI><P>
+ Consider a <A href="../classes/Model.htm">&lt;Model&gt;</A> instance <span class="ConstructName">M</span> specified
+ in an LSR SRF.
+</P>
+<OL type='1'>
+<LI><P>
+ If the <A href="../classes/Model.htm#has_units">has_units</A> field of
+ <span class="ConstructName">M</span> is set to <A href="../types/SE_Boolean.htm#SE_FALSE">SE_FALSE</A>,
+ <span class="ConstructName">M</span> shall not be referenced by any
+ <A href="../classes/GeometryModelInstance.htm">&lt;Geometry Model Instance&gt;</A> or
+ <A href="../classes/FeatureModelInstance.htm">&lt;Feature Model Instance&gt;</A> instances.
+</P></LI>
+<LI><P>
+ If <span class="ConstructName">M</span> is to be instanced into a non-LSR SRF by
+ any <A href="../classes/GeometryModelInstance.htm">&lt;Geometry Model Instance&gt;</A> or
+ <A href="../classes/FeatureModelInstance.htm">&lt;Feature Model Instance&gt;</A> instance, each such
+ <A href="../classes/GeometryModelInstance.htm">&lt;Geometry Model Instance&gt;</A> instance and
+ <A href="../classes/FeatureModelInstance.htm">&lt;Feature Model Instance&gt;</A> instance shall specify a
+ <A href="../classes/WorldTransformation.htm">&lt;World Transformation&gt;</A> component.
+</P></LI>
+<LI><P>
+ <span class="ConstructName">M</span> cannot be instanced into another LSR SRF
+ unless the target SRF has identical parameters to the
+ parameters of <span class="ConstructName">M</span> or the
+ <A href="../classes/GeometryModelInstance.htm">&lt;Geometry Model Instance&gt;</A> instance or
+ <A href="../classes/FeatureModelInstance.htm">&lt;Feature Model Instance&gt;</A> instance that references
+ <span class="ConstructName">M</span> has a <A href="../classes/Transformation.htm">&lt;Transformation&gt;</A> component that
+ maps the SRF of <span class="ConstructName">M</span> into the target SRF.
+</P></LI>
+<LI><P>
+ If the component tree of <span class="ConstructName">M</span> contains any
+ <A href="../classes/LSRTransformation.htm">&lt;LSR Transformation&gt;</A> instances that have
+ <A href="../classes/ControlLink.htm">&lt;Control Link&gt;</A> components, and if <span class="ConstructName">M</span>
+ provides controlling <A href="../classes/Variable.htm">&lt;Variable&gt;</A> instances to those
+ <A href="../classes/ControlLink.htm">&lt;Control Link&gt;</A> components such that they allow motion, the
+ <A href="../classes/Model.htm#has_moving_parts">has_moving_parts</A> field
+ of <span class="ConstructName">M</span> shall be set to <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A>;
+ otherwise, the <A href="../classes/Model.htm#has_moving_parts">has_moving_parts</A> field
+ of <span class="ConstructName">M</span> shall be set to <A href="../types/SE_Boolean.htm#SE_FALSE">SE_FALSE</A>.
+</P></LI>
+<LI><P>
+ <span class="ConstructName">M</span> shall not contain any
+ <A href="../classes/ReferenceSurface.htm">&lt;Reference Surface&gt;</A> instances.
+</P></LI>
+</OL>
+</LI>
+<LI><P>
+ All <A href="../classes/Location.htm">&lt;Location&gt;</A> instances in the component tree of
+ a <A href="../classes/Model.htm">&lt;Model&gt;</A> instance shall be expressed in the
+ SRF specified by that <A href="../classes/Model.htm">&lt;Model&gt;</A> instance.
+</P></LI>
+</OL>
+
+<h3>Rationale</h3>
+<OL>
+<LI><P>
+ A <A href="../classes/Location.htm">&lt;Location&gt;</A> instance is not fully specified
+ unless it falls within the scope of a DRM object specifying its
+ SRF information.
+</P></LI>
+<LI><P>
+ <A href="../classes/Transformation.htm">&lt;Transformation&gt;</A> instances are required
+ when a model instancing operation requires actual
+ coordinate transformation or conversion.
+</P></LI>
+<LI><P>
+ Consider a <A href="../classes/Model.htm">&lt;Model&gt;</A> instance <span class="ConstructName">M</span> with
+ moving parts. A moving part is a portion of the component tree of
+ <span class="ConstructName">M</span> that is attached to that component tree by way
+ of an <A href="../classes/LSRTransformation.htm">&lt;LSR Transformation&gt;</A> instance <span class="ConstructName">T</span>
+ specifying at least one rotation, translation, or scale operation
+ subject to dynamic control by an appropriate
+ <A href="../classes/ControlLink.htm">&lt;Control Link&gt;</A> instance. Consequently,
+ <span class="ConstructName">M</span> shall be specified in an LSR SRF, because
+ <A href="../classes/LSRTransformation.htm">&lt;LSR Transformation&gt;</A> instances only occur in LSR SRFs.
+</P></LI>
+<LI><P>
+ The intent of the constraint on <A href="../classes/Model.htm">&lt;Model&gt;</A> instances
+ specified in LSR SRFs and <A href="../classes/ReferenceSurface.htm">&lt;Reference Surface&gt;</A> instances
+ is to limit the level of complexity for a transmittal
+ consumer.  If and when the API directly supports
+ elevation resolution for <A href="../classes/Location2D.htm">&lt;Location 2D&gt;</A>
+ instances, this constraint may be modified.
+</P></LI>
+</OL>
+<h3>Example</h3>
+<OL>
+<LI><P>
+ A <A href="../classes/Model.htm">&lt;Model&gt;</A> instance defined in a geodetic
+ SRF may only be instanced within
+ an <A href="../classes/EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instance
+ with matching geodetic SRF parameters.
+</P></LI>
+<LI><P>
+ A <A href="../classes/GeometryModelInstance.htm">&lt;Geometry Model Instance&gt;</A>
+ instance in a geodetic SRF shall have a
+ <A href="../classes/WorldTransformation.htm">&lt;World Transformation&gt;</A> component
+ in order to instance a <A href="../classes/Model.htm">&lt;Model&gt;</A> instance
+ specified in a Local Space Rectangular SRF.
+</P></LI>
+<LI><P>
+ If the SRF of a <A href="../classes/Model.htm">&lt;Model&gt;</A> instance is
+ LSR (2D or 3D), all <A href="../classes/Location.htm">&lt;Location&gt;</A> instances under that
+ <A href="../classes/Model.htm">&lt;Model&gt;</A> instance shall be LSR (2D or 3D).
+</P></LI>
+<LI><P>
+ Consider a <A href="../classes/Model.htm">&lt;Model&gt;</A> instance defined in a
+ 3D LSR SRF, such that it references a
+ <A href="../classes/GeometryModelInstance.htm">&lt;Geometry Model Instance&gt;</A> instance
+ via an <A href="../classes/LSRTransformation.htm">&lt;LSR Transformation&gt;</A> instance.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ Are <A href="../classes/Model.htm">&lt;Model&gt;</A> instances in a transmittal restricted to use
+ LSR SRFs and the  SRFs found in the <A href="../classes/EnvironmentRoot.htm">&lt;Environment Root&gt;</A>
+ instances of that transmittal?
+</B></DT>
+<DD><P>
+ No.  A <A href="../classes/ModelLibrary.htm">&lt;Model Library&gt;</A> instance might be
+ designed to be part of a multi-transmittal environment with
+ <A href="../classes/GeometryModelInstance.htm">&lt;Geometry Model Instance&gt;</A> or
+ <A href="../classes/FeatureModelInstance.htm">&lt;Feature Model Instance&gt;</A> instances
+ occurring in other transmittals, so that the
+ transmittal containing the <A href="../classes/ModelLibrary.htm">&lt;Model Library&gt;</A>
+ instance itself might not have any
+ <A href="../classes/EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instances at all.
+</P></DD>
+<DT><B>
+ Why aren't model instance objects required to have
+ <A href="../classes/Transformation.htm">&lt;Transformation&gt;</A> components in all cases?
+</B></DT>
+<DD><P>
+ If no coordinate conversion or transformation is required between
+ SRFs, and if (for LSR) the model instance is
+ not being rotated or translated within the target SRF,
+ a <A href="../classes/Transformation.htm">&lt;Transformation&gt;</A> is unnecessary.
+</P></DD>
+<DT><B>
+ How is the elevation resolved for
+ an <A href="../classes/LSR2DLocation.htm">&lt;LSR 2D Location&gt;</A> instance in
+ a <A href="../classes/Model.htm">&lt;Model&gt;</A> instance specified in an LSR SRF?
+</B></DT>
+<DD><P>
+ See the <A href="../classes/ReferenceSurface.htm">&lt;Reference Surface&gt;</A> class.
+</P></DD>
+</DL>
+
+
+<hr>
+<strong>Prev:</strong> <A href="ModelReferenceTypeConstraints.htm">Model Reference Type Constraints</A>.
+<strong>Next:</strong> <A href="NestedPrimitiveGeometry.htm">Nested Primitive Geometry</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

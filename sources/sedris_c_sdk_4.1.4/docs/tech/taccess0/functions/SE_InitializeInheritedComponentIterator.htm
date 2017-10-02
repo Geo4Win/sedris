@@ -1,0 +1,183 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE InitializeInheritedComponentIterator</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+SE InitializeInheritedComponentIterator
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../types/SE_Return_Code.htm">SE_Return_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SE_InitializeInheritedComponentIterator</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/SE_Object.htm">SE_Object</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="start_object"></a>start_object,</td><td class="CFunction"><sup><A href="#Notes_start_object">1</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/SE_Search_Filter.htm">SE_Search_Filter</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="filter"></a>filter,</td><td class="CFunction"><sup><A href="#Notes_filter">2</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../../drm/types/SE_Boolean.htm">SE_Boolean</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="directly_attach_table_components"></a>directly_attach_table_components,</td><td class="CFunction"><sup><A href="#Notes_directly_attach_table_components">3</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/SE_ITR_Behaviour.htm">SE_ITR_Behaviour</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="itr_traversal"></a>itr_traversal,</td><td class="CFunction"><sup><A href="#Notes_itr_traversal">4</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/SE_Iterator.htm">SE_Iterator</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="iterator_out_ptr"></a>iterator_out_ptr</td><td class="CFunction"><sup><A href="#Notes_iterator_out_ptr">5</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+  Creates an iterator to (traverse over the list of)/(return pointers to)
+  component objects that were inherited.
+</P><P>
+  If you just want the inherited components of an object, then use
+  this function call.
+</P><P>
+  If you just want the directly aggregated components of an object,
+  then use the <A href="SE_InitializeComponentIterator.htm">
+  SE_InitializeComponentIterator()</A> function with the
+  <A href="SE_InitializeComponentIterator.htm#process_inheritance">
+  process_inheritance</A> parameter set to SE_FALSE.
+</P><P>
+  If you want both the inherited components and the directly aggregated
+  components of an object (and don't care to distinguish between the
+  two sets) then use the <A href="SE_InitializeComponentIterator.htm">
+  SE_InitializeComponentIterator()</A> function
+  with the <A href="SE_InitializeComponentIterator.htm#process_inheritance">
+  process_inheritance</A> parameter set to SE_TRUE.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A>
+</td><td class="Status">
+ and the iterator is initialized.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A>
+</td><td class="Status">
+ and the status code is set appropriately if the call failed.
+</td></tr>
+</table>
+
+<h3>Status Codes</h3>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A> is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_SUCCESS">SE_STATCODE_SUCCESS</A>
+</td><td class="Status">
+ set if valid parameters were passed in and all operations succeeded.
+</td></tr>
+</table>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A> is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_UNRESOLVED_INPUT_OBJECT">SE_STATCODE_UNRESOLVED_INPUT_OBJECT</A>
+</td><td class="Status">
+ set if <A href="#start_object">start_object</A> is currently
+ unresolved (see <A href="../types/SE_Object.htm">SE_Object</A>SE_Object</A>'s comments for
+ details on how this condition occurs).
+</td></tr>
+<tr><td class="Status">
+ <A href="../types/SE_Status_Code.htm#SE_STATCODE_C_ENUMERATION_VALUE_INVALID">SE_STATCODE_C_ENUMERATION_VALUE_INVALID</A>
+</td><td class="Status">
+ set if <A href="#itr_traversal">itr_traversal</A> is not a valid value.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_INACTIONABLE_FAILURE">SE_STATCODE_INACTIONABLE_FAILURE</A>
+</td><td class="Status">
+ set if
+<OL>
+<LI>a search filter is provided, but is not a handle to a valid,
+    active (i.e., unfreed) search filter,
+</LI>
+<LI> the <A href="#start_object">start_object</A> and
+<A href="#filter">filter</A> came from different
+ API implementations, or
+</LI>
+ <LI> the call fails for any other reason
+</LI>
+</OL>
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#start_object" name="Notes_start_object">1</a></sup>
+ object whose list of inherited components will be returned.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#filter" name="Notes_filter">2</a></sup>
+ a search filter that will be used to filter
+    the output of this iterator.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#directly_attach_table_components" name="Notes_directly_attach_table_components">3</a></sup>
+ see comments in
+    SE_InitializeComponentIterator().
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#itr_traversal" name="Notes_itr_traversal">4</a></sup>
+ see comments in
+    SE_InitializeComponentIterator().
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#iterator_out_ptr" name="Notes_iterator_out_ptr">5</a></sup>
+ a pointer to the freshly created iterator that will
+    iterate over the inherited components of the start_object.  If a
+    search filter was provided, then only the inherited components that
+    pass that search filter will be included in the list.
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SE_InitializeComponentIterator.htm">SE_InitializeComponentIterator</a>.
+<strong>Next:</strong> <a href="SE_IsIteratorComplete.htm">SE_IsIteratorComplete</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

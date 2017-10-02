@@ -1,0 +1,158 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<title>FACC_Attribute_With_Value</title>
+<link rel="stylesheet" href="../../../docs/styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+<div align="center">
+<table border="2" class="doc_set_header">
+<tr><th class="doc_set_header">
+<big><big>EDCS Reference Manual</big></big>
+<br>
+<font color="#ffffff">
+Concept Mapping from EDCS 4.4 to FACC 2.1
+<!-- EDCS SDK Release 4.4.0 -->
+<br>
+Types
+<br>
+FACC_Attribute_With_Value
+</font></th>
+</tr>
+</table>
+</div>
+<!-- EDCS 4.4 to FACC 2.1 Mapping SDK Release 4.4.0.0 -->
+<pre>/*<br>
+ * STRUCT: FACC_Attribute_With_Value <br>
+ *<br>
+ * This structure will be returned from the call<br>
+ * EDCS_to_FACC_MapAttributeWithValue, and is also<br>
+ * used inside the classificaton and attribute mapping<br>
+ * structures below<br>
+ */<br>
+<br>
+</pre>
+
+<table class="CFunctionPrototype">
+<tr>
+<td class="CFunction">typedef</td>
+<td class="CFunction">struct</td>
+<td class="CFunction"><br>
+</td>
+</tr>
+<tr>
+<td class="CFunction">{</td>
+<td class="CFunction"><br>
+</td>
+<td class="CFunction"><br>
+</td>
+</tr>
+<tr>
+<td class="CFunction"><br>
+</td>
+<td class="CFunction"><a href="FACC_2p1_Attribute_Code.htm">FACC_2p1_Attribute_Code</a><br>
+</td>
+<td class="CFunction"><a name="facc_attribute_code"></a>facc_attribute_code;<br>
+</td>
+</tr>
+<tr>
+<td class="CFunction"><br>
+</td>
+<td class="CFunction"><a href="FACC_Value_Type.htm">FACC_Value_Type</a><br>
+</td>
+<td class="CFunction"><a name="value_type"></a>value_type;<br>
+</td>
+</tr>
+<tr>
+<td class="CFunction"><br>
+</td>
+<td class="CFunction">union<br>
+</td>
+<td class="CFunction"><br>
+</td>
+</tr>
+<tr>
+<td class="CFunction"><br>
+</td>
+<td class="CFunction">{<br>
+</td>
+<td class="CFunction"><br>
+</td>
+</tr>
+<tr>
+<td class="CFunction"><br>
+</td>
+<td class="CFunction"><a
+href="../../../docs/types/EDCS_Integer.htm">EDCS_Integer</a><br>
+</td>
+<td class="CFunction"><a name="facc_code_value"></a>facc_code_value;<br>
+</td>
+</tr>
+<tr>
+<td class="CFunction"><br>
+</td>
+<td class="CFunction"><a
+href="../../../docs/types/EDCS_Integer.htm">EDCS_Integer</a><br>
+</td>
+<td class="CFunction"><a name="facc_short_integer"></a>facc_short_integer;<br>
+</td>
+</tr>
+<tr>
+<td class="CFunction">
+</td>
+<td class="CFunction"><a href="../../../docs/types/EDCS_Integer.htm">EDCS_Integer</a>
+</td>
+<td class="CFunction"><a name="facc_long_integer"></a>facc_long_integer;
+</td>
+</tr>
+<tr>
+<td class="CFunction">
+</td>
+<td class="CFunction"><a href="../../../docs/types/EDCS_Long_Float.htm">EDCS_Long_Float</a>
+</td>
+<td class="CFunction"><a name="facc_float_value"></a>facc_float_value;
+</td>
+</tr>
+<tr>
+<td class="CFunction">
+</td>
+<td class="CFunction">const char 
+</td>
+<td class="CFunction">* <a name="facc_text_value"></a>facc_text_value;
+</td>
+</tr>
+<tr>
+<td class="CFunction">
+</td>
+<td class="CFunction">} <a name="u"></a>u;
+</td>
+<td class="CFunction">
+</td>
+</tr>
+</table>
+} FACC_Attribute_With_Value;
+<br>
+
+<hr> <br>
+<font color="#ff0000">Return to:</font>
+<b><a href="#Top">Top of this  Page</a></b>,
+<b><a href="../edcs4px_facc2p1.htm#Data Structures">Type Index</a></b>
+<br><br>
+<table class="doc_set_header">
+<tr><td>
+<table class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="left" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>EDCS_ISO_639_Entry</title>
+<link rel="stylesheet" href="../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>EDCS Reference Manual</big></big>
+<br>
+<!-- EDCS spec. 4.4 -->
+<font color="#ffffff">
+Types
+</font>
+<br>
+<font color="#ffffff">
+EDCS_ISO_639_Entry
+</font>
+</th></tr>
+</table></div>
+
+<!-- EDCS SDK Release 4.4.0 -->
+
+<PRE>
+/*
+ * STRUCT: EDCS_ISO_639_Entry
+ *
+ *   Provides information about an ISO 639 language code.
+ */
+</PRE>
+<span class="Code">typedef struct 
+<br>
+{</span>
+<br>
+<table class="CFunctionPrototype">
+<tr><td class="CFunction">         </td> <td class="CFunction"></td> <td class="CFunction"><a href="EDCS_Character.htm">EDCS_Character</a></td>
+              <td class="CFunction"><a
+              name="language_A2"></a>language_A2[2];</td><td class="CFunction"><sup><A href="#Notes_language_A2">1</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction">const</td> <td class="CFunction"><a href="EDCS_Character.htm">EDCS_Character</a></td>
+        <td class="CFunction">*<a name="language_name"></a>language_name;</td><td class="CFunction"><sup><A href="#Notes_language_name">2</A></sup></td></tr>
+</table>
+<span class="Code">
+} EDCS_ISO_639_Entry;</span>
+<br>
+
+<br>
+<HR>
+<H2>Field Notes</H2>
+<h4><a href="#language_A2" name="Notes_language_A2">language_A2</a></h4>
+ the 2-character language code
+<h4><a href="#language_name" name="Notes_language_name">language_name</a></h4>
+ the language name
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="EDCS_ISO_3166_Entry.htm">EDCS_ISO_3166_Entry</a>.
+<strong>Next:</strong> <a href="EDCS_Locale.htm">EDCS_Locale</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

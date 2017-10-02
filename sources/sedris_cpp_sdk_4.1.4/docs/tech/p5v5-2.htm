@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<TITLE>P5V5 - Section 2</TITLE>
+<META NAME="Author" CONTENT="Science Applications International Corporation">
+<link rel="stylesheet" type="text/css" href="../styles/SDK_SEDRIS.css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table class="doc_set_header">
+<tr>
+<th class="doc_set_header">
+<big><big>Model Viewer Technical Guide</big></big>
+<br>
+<font color="#ffffff">
+Section 2 - STARTING THE MODEL VIEWER
+</font>
+</th>
+</tr>
+</table>
+
+<table class="doc_set_toc">
+<tr>
+<th class="doc_set_toc_outline_number"><A name="2">2</a></th>
+<th class="doc_set_toc_outline_description">STARTING THE MODEL VIEWER</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">&nbsp;</th>
+<td class="doc_set_toc_outline_description">
+<table class="doc_set_toc">
+<tr>
+<th class="doc_set_toc_outline_number"><a name="21">2.1</a></th>
+<th class="doc_set_toc_outline_description">Overview</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">&nbsp;</th>
+<td class="doc_set_toc_outline_description"><p>
+As outlined in the introduction, the Model Viewer occupies 2 windows:
+the text window, from which the Model Viewer was invoked, and to which
+any text output is directed, and the 3D view window, where the
+<a href="drm/classes/Image.htm">&lt;Image&gt;</a> instances and 
+<a href="drm/classes/Model.htm">&lt;Model&gt;</a> instances' geometry
+are presented for viewing.
+</p></td>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="22">2.2</a></th>
+<th class="doc_set_toc_outline_description">Command-Line Parameters</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">&nbsp;</th>
+<td class="doc_set_toc_outline_description"><p>
+Model Viewer is an application that takes up to 3 command-line parameters:
+</p><PRE>
+    model_viewer [api_impl] transmittal_file_location [-nt|-nm]
+</PRE><p>
+The <em>transmittal_file_location</em> parameter is mandatory, and specifies
+the transmittal to be loaded.
+</p><p>
+The <em>api_impl</em> parameter is optional, specifying which implementation
+of the SEDRIS API should be used to read the transmittal, if dynamic binding
+was used to compile the executable of the application. See the documentation
+on API implementations for further discussion of this parameter. For the
+SEDRIS Transmittal Format (STF) implementation, either &quot;stf&quot; or
+&quot;STF&quot; can be specified.
+</p><p>
+The -nt and -nm parameters are optional, and mutually exclusive. (If both
+were provided, the user would be instructing Model Viewer to omit both
+textures and models from display, i.e., to display nothing.)
+</p><p>
+If provided, the -nt parameter indicates that texture information is 
+to be omitted during the loading and display of the contents of the 
+transmittal's
+<a href="drm/classes/ModelLibrary.htm">&lt;Model Library&gt;</a> instance.
+Neither the 
+<a href="drm/classes/ImageLibrary.htm">&lt;Image Library&gt;</a> instance,
+if present, nor any texture mapping information will be loaded or displayed.
+Any <a href="drm/classes/ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</a>
+instances,
+<a href="drm/classes/TextureCoordinate.htm">&lt;Texture Coordinate&gt;</a>
+instances, and / or
+<a href="drm/classes/TackPoint.htm">&lt;Tack Point&gt;</a> instances
+present in the transmittal will be ignored.
+</p><p>
+Conversely, the -nm parameter, if provided, indicates that model information
+is to be omitted after the loading and display of the contents of the
+transmittal's <a href="drm/classes/ImageLibrary.htm">&lt;Image Library&gt;</a>
+instance.
+</p><p>
+The text window displays information about the
+<a href="drm/classes/Image.htm">&lt;Image&gt;</a> instances and
+<a href="drm/classes/Model.htm">&lt;Model&gt;</a> instances
+being loaded from the transmittal, together with any errors or warnings.
+Once the
+<a href="drm/classes/Image.htm">&lt;Image&gt;</a> instances and
+<a href="drm/classes/Model.htm">&lt;Model&gt;</a> 
+instances are loaded, the viewer will open the *3D-view* window and 
+proceed to step through all the
+<a href="drm/classes/Image.htm">&lt;Image&gt;</a> instances loaded,
+in sequence, displaying them as they are loaded. After each
+<a href="drm/classes/Image.htm">&lt;Image&gt;</a> has been displayed,
+the first &quot;root&quot;
+<a href="drm/classes/Model.htm">&lt;Model&gt;</a> component of the
+transmittal's 
+<a href="drm/classes/ModelLibrary.htm">&lt;Model Library&gt;</a>
+instance will be displayed. The window will then await user control
+from the keyboard.
+</td></tr>
+</table>
+</td></tr>
+</table>
+</div>
+
+<p>
+<hr>
+<FONT color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a></strong>,
+<strong><a href="p5v5.htm">Table of Contents</a></strong>
+<br><br>
+
+<div class="CenterDiv">
+<table class="doc_set_header">
+<tr><td>
+<table class="doc_set_header">
+<tr><td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td>
+</tr>
+</table>
+</td></tr>
+</table>
+</div>
+</body>
+</html>

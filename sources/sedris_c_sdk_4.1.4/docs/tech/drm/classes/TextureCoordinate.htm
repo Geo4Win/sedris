@@ -1,0 +1,291 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Texture Coordinate</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Texture Coordinate
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Texture Coordinate</h2>
+<h3>Superclass - <a href="SEDRISAbstractBase.htm">&lt;SEDRIS Abstract Base&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies an {s, t} tuple in
+ image space (also known as <I>texture space</I>)
+ used to specify the location of an individual texel within an image.
+</P><P>
+ Each MIP level of a 2D <A href="Image.htm">&lt;Image&gt;</A> instance defines
+ an image that has a
+ width and height specified in texels. Regardless of the
+ actual size of the image, the image space is defined by
+ treating the 2D image as a square, defined by
+ the lower left coordinate of (0.0,
+ 0.0) and the upper right coordinate of
+ (1.0, 1.0). A
+ <A href="TextureCoordinate.htm">&lt;Texture Coordinate&gt;</A>
+ instance is a coordinate within this image space.
+</P><P>
+ A <A href="TextureCoordinate.htm">&lt;Texture Coordinate&gt;</A>
+ instance specifies an exact location within
+ a given image space, and this location is mapped to the
+ object space location associated with the
+ <A href="Vertex.htm">&lt;Vertex&gt;</A> instance, <A href="Point.htm">&lt;Point&gt;</A> instance,
+ or <A href="TackPoint.htm">&lt;Tack Point&gt;</A> instance of which
+ the <A href="TextureCoordinate.htm">&lt;Texture Coordinate&gt;</A>
+ instance is a component. A textured geometric DRM object
+ generally has a
+ <A href="TextureCoordinate.htm">&lt;Texture Coordinate&gt;</A> instance
+ for each vertex of the object. The image is mapped to the DRM object by
+ interpolating between the various texture coordinates specified at the
+ vertices.
+</P><P>
+ Whether a specified
+ <A href="TextureCoordinate.htm">&lt;Texture Coordinate&gt;</A> instance
+ corresponds to exactly one texel in the texture definition or to a
+ blending of many texel values from the definition is a
+ decision made by the texture interpolation algorithm
+ used to display the texture. The methods for calculating
+ the interpolated texture values and for blending the
+ texture onto the object are determined by
+ an <A href="ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</A>
+ instance.
+</P><P class=Note>
+NOTE&nbsp; 
+ According to
+ <a href="../constraints/ImageMappingFunctionsandTextureCoordinates.htm">&lt;&lt;Image Mapping Functions and Texture Coordinates&gt;&gt;</a>,
+ <A href="TextureCoordinate.htm">&lt;Texture Coordinate&gt;</A> instances
+ only appear within the scope of some
+ <A href="ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</A> instance.
+</p>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet18.pdf"><strong>18</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet05.pdf"><strong>5</strong></A>
+</LI>
+</UL>
+
+<h3>Example</h3>
+<OL>
+<LI><P>
+ Consider a rectangular <A href="Polygon.htm">&lt;Polygon&gt;</A> instance <span class="ConstructName">P</span>
+ representing the location of a logo on the side of an airplane.
+ <span class="ConstructName">P</span> has an <A href="ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</A> component
+ that describes how the logo represented by an <A href="Image.htm">&lt;Image&gt;</A> instance
+ is to be mapped. Each vertex of <span class="ConstructName">P</span> has a
+ <A href="TextureCoordinate.htm">&lt;Texture Coordinate&gt;</A> component that specifies the position in
+ the image that corresponds to that vertex.
+</P></LI>
+<LI><P>
+ Consider a complicated <A href="Polygon.htm">&lt;Polygon&gt;</A> instance representing the
+ continent of North America. A <A href="TextureCoordinate.htm">&lt;Texture Coordinate&gt;</A> instance
+ specifies a lower left corner of a satellite image that corresponds
+ to the position on the <A href="Polygon.htm">&lt;Polygon&gt;</A> instance specified by a
+ <A href="TackPoint.htm">&lt;Tack Point&gt;</A> instance so that the satellite image is
+ properly displayed on top of the polygon.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ Given a <A href="TextureCoordinate.htm">&lt;Texture Coordinate&gt;</A> instance T,
+ the <A href="#s">s</A> value of which is greater
+ than 1.0, how should <A href="#s">s</A>
+ be interpreted?
+</B></DT>
+<DD><P>
+ The interpretation of the <A href="#s">s</A> value of T
+ depends on the value of the
+ <A href="ImageMappingFunction.htm#image_wrap_s">image_wrap_s</A>
+ field of the relevant
+ <A href="ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</A> instance.
+</P>
+<UL>
+ <LI><P>
+ If <A href="ImageMappingFunction.htm#image_wrap_s">image_wrap_s</A>
+ specifies that the <A href="Image.htm">&lt;Image&gt;</A> instance
+ is to be clamped, any <A href="#s">s</A>
+ values less than 0.0 are clamped to
+ 0.0, and any
+ <A href="#s">s</A> values greater than
+ 1.0 are clamped to 1.0.
+ That is, <A href="#s">s</A> values less than
+ 0.0 are treated as though they had been
+ 0.0, and those greater than
+ 1.0 are treated as though they had been
+ 1.0
+</P></LI>
+<LI><P>
+ If <A href="ImageMappingFunction.htm#image_wrap_s">image_wrap_s</A>
+ specifies that the <A href="Image.htm">&lt;Image&gt;</A> instance
+ is to be repeated, any <A href="#s">s</A>
+ values less than 0.0 or greater than
+ 1.0 are treated as though the
+ <A href="Image.htm">&lt;Image&gt;</A> instance tiles the image space out to
+ infinity.
+</P><P>
+ In practical terms, during repeating, the integer portion of T
+ is ignored, and copies of the texture map tile the surface.
+</P></LI>
+</UL>
+<P>
+ Reference: <A href="../bibliography.htm#OPENGL">[OPENGL]</A> for more
+            information on clamping and repeating textures.
+</P></DD>
+<DT><B>
+ Given a <A href="TextureCoordinate.htm">&lt;Texture Coordinate&gt;</A> instance T,
+ the <A href="#t">t</A> value of which is greater
+ than 1.0, how should <A href="#t">t</A>
+ be interpreted?
+</B></DT>
+<DD><P>
+ The interpretation of the <A href="#t">t</A>
+ value of <span class="ConstructName">T</span> depends on the value of the
+ <A href="ImageMappingFunction.htm#image_wrap_t">image_wrap_t</A>
+ field of the relevant
+ <A href="ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</A> instance.
+</P>
+<UL>
+ <LI><P>
+ If <A href="ImageMappingFunction.htm#image_wrap_t">image_wrap_t</A>
+ specifies that the <A href="Image.htm">&lt;Image&gt;</A> instance
+ is to be clamped, any <A href="#t">t</A>
+ values less than 0.0 are clamped to
+ 0.0, and any
+ <A href="#t">t</A> values greater than
+ 1.0 are clamped to 1.0.
+ That is, <A href="#t">t</A> values less than
+ 0.0 are treated as though they had been
+ 0.0, and those greater than
+ 1.0 are treated as though they had been
+ 1.0
+</P></LI>
+<LI><P>
+ If <A href="ImageMappingFunction.htm#image_wrap_t">image_wrap_t</A>
+ specifies that the <A href="Image.htm">&lt;Image&gt;</A> instance
+ is to be repeated, any <A href="#t">t</A>
+ values less than 0.0 or greater than
+ 1.0 are treated as though the
+ <A href="Image.htm">&lt;Image&gt;</A> instance tiles the image space out to
+ infinity.
+</P><P>
+ In practical terms, during repeating, the integer portion of T
+ is ignored, and copies of the texture map tile the surface.
+</P></LI>
+</UL>
+<P>
+ Reference: <A href="../bibliography.htm#OPENGL">[OPENGL]</A> for more
+            information on clamping and repeating textures.
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ImageMappingFunctionsandTextureCoordinates.htm">&lt;&lt;Image Mapping Functions and Texture Coordinates&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Composed of (two-way)</h3>
+<UL>
+<li>zero or one <a href="TextureCoordinateControlLink.htm">&lt;Texture Coordinate Control Link&gt;</a> instance</li>
+</UL>
+
+<h3>Component of (two-way)</h3>
+<UL>
+<li>zero or more <a href="Point.htm">&lt;Point&gt;</a> instances</li>
+<li>zero or more <a href="TackPoint.htm">&lt;Tack Point&gt;</a> instances</li>
+<li>zero or more <a href="Vertex.htm">&lt;Vertex&gt;</a> instances</li>
+</UL>
+
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Long_Float.htm">SE_Long_Float</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="s">s</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_s">1</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Long_Float.htm">SE_Long_Float</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="t">t</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_t">2</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Fields Notes</h3>
+<h4><a href="#s" name="Notes_s">s</a></h4>
+<P>
+ The <A href="#s">s</A> field specifies the s value of the {s,t}
+ texture coordinate. For a <A href="TextureCoordinate.htm">&lt;Texture Coordinate&gt;</A> instance
+ with a <A href="TextureCoordinateControlLink.htm">&lt;Texture Coordinate Control Link&gt;</A> component
+ <span class="ConstructName">X</span>, where the
+ <A href="TextureCoordinateControlLink.htm#s_expression_index">s_expression_index</A>
+ field of <span class="ConstructName">X</span> is non-zero, the value of the
+ <A href="#s">s</A> field is obtained from <span class="ConstructName">X</span>.
+</P>
+<h4><a href="#t" name="Notes_t">t</a></h4>
+<P>
+ The <A href="#t">t</A> field specifies the t value of the {s,t}
+ texture coordinate. For a <A href="TextureCoordinate.htm">&lt;Texture Coordinate&gt;</A> instance
+ with a <A href="TextureCoordinateControlLink.htm">&lt;Texture Coordinate Control Link&gt;</A> component
+ <span class="ConstructName">X</span>, where the
+ <A href="TextureCoordinateControlLink.htm#t_expression_index">t_expression_index</A>
+ field of <span class="ConstructName">X</span> is non-zero, the value of the
+ <A href="#t">t</A> field is obtained from <span class="ConstructName">X</span>.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="Text.htm">Text</A>.
+<strong>Next:</strong> <A href="TextureCoordinateControlLink.htm">Texture Coordinate Control Link</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

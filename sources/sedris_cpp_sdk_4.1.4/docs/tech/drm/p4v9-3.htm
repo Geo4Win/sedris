@@ -1,0 +1,430 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+   <TITLE>P4V9 - Section 3</TITLE>
+   <META NAME="Author" CONTENT="SAIC">
+<link rel="stylesheet" type="text/css" href="../../styles/SDK_SEDRIS.css">
+</HEAD>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border=2 class="doc_set_header">
+<tr><th class="doc_set_header">
+<big><big>
+Attribute Inheritance and Context Technical Guide
+</big></big>
+<br><font color="#FFFFFF">
+Section 3 - INHERITANCE AND CONTEXT
+</font>
+</th></tr>
+</table>
+
+<table class="doc_set_toc">
+<tr>
+<th class="doc_set_toc_outline_number"><a name="31">3.1</a></th>
+<th class="doc_set_toc_outline_description">General Rules of Inheritance</th>
+</tr>
+
+<tr><th class="doc_set_toc_outline_number"></th>
+<td class="doc_set_toc_outline_description"><p>
+As stated above, directly attached components always override - that is,
+logically replace - any conflicting inherited components. The definition
+of &quot;conflicting&quot; depends on the class of object. For
+example, directly attached components always override any conflicting
+attributes from a referenced
+<a href="classes/PropertySet.htm">&lt;Property Set&gt;</a> instance or
+<a href="classes/ColourTable.htm">&lt;Colour Table&gt;</a> instance.
+</p></td></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="32">3.2</a></th>
+<th class="doc_set_toc_outline_description">Inheritable Components</th>
+</tr>
+
+<tr><th class="doc_set_toc_outline_number"></th>
+<td class="doc_set_toc_outline_description"><p>
+The following classes are subject to simple replacement; that is,
+a directly attached component always overrides an inherited
+component, in the case of instances of these classes.
+<ul>
+   <li><a href="classes/BaseLODData.htm">
+       &lt;Base LOD Data&gt;</a>
+   </li>
+   <li><a href="classes/ClassificationData.htm">
+       &lt;Classification Data&gt;</a>
+   </li>
+   <li><a href="classes/DataQuality.htm">
+       &lt;Data Quality&gt;</a>
+   </li>
+   <li><a href="classes/LegalConstraints.htm">&lt;Legal Constraints&gt;</a>
+   </li>
+   <li><a href="classes/LightRenderingProperties.htm">
+       &lt;Light Rendering Properties&gt;</a>
+   </li>
+   <li><a href="classes/PerimeterData.htm">
+       &lt;Perimeter Data&gt;</a>
+   </li>
+   <li><a href="classes/PresentationDomain.htm">
+       &lt;Presentation Domain&gt;</a>
+   </li>
+   <li><a href="classes/RenderingPriorityLevel.htm">
+       &lt;Rendering Priority Level&gt;</a>
+   </li>
+   <li><a href="classes/RenderingProperties.htm">
+       &lt;Rendering Properties&gt;</a>
+   </li>
+   <li><a href="classes/SecurityConstraints.htm">&lt;Security Constraints&gt;</a>
+   </li>
+   <li><a href="classes/TimeConstraintsData.htm">
+       &lt;Time Constraints Data&gt;</a>
+   </li>
+</ul>
+The following classes are subject to more complex rules of inheritance.
+</p>
+<TABLE border=1 cellpadding=3 cellspacing=3>
+<tr><th align=center valign=top>Class</th>
+    <th align=center valign=top>Rule</th>
+</tr>
+
+<tr><th align=left valign=top>
+<a href="classes/PropertySetIndex.htm">&lt;Property&nbsp;Set&nbsp;Index&gt;</a>
+</th>
+
+<td><p>
+<a href="classes/PropertySetIndex.htm">&lt;Property Set Index&gt;</a> is 
+not inherited itself. Instead, the
+applicable attribute objects from the referenced
+<a href="classes/PropertySet.htm">&lt;Property Set&gt;</a> are
+treated as if they replaced the 
+<a href="classes/PropertySetIndex.htm">&lt;Property Set Index&gt;</a> for
+the purposes of inheritance. For each of those attribute objects,
+the individual, standard inheritance rules for their classes
+apply.
+</p><p>
+NOTE: Since an <a href="classes/PropertySet.htm">&lt;Property Set&gt;</a> 
+may contain some objects that are 
+<a href="classes/FeatureRepresentation.htm">
+&lt;Feature Representation&gt;</a>-specific and some that are 
+<a href="classes/GeometryRepresentation.htm">
+&lt;Geometry Representation&gt;</a>-specific,
+there is a rule stating that for 
+<a href="classes/FeatureRepresentation.htm">&lt;Feature Representation&gt;</a> 
+instances, only the attributes that are legal for the 
+<a href="classes/FeatureRepresentation.htm">&lt;Feature Representation&gt;</a> 
+class are used, while for 
+<a href="classes/GeometryRepresentation.htm">
+&lt;Geometry Representation&gt;</a>, only the attributes that are legal for
+the <a href="classes/GeometryRepresentation.htm">
+&lt;Geometry Representation&gt;</a> class are used.
+</p><p>
+The general rule of &quot;lower&quot; components overriding
+&quot;higher&quot; components still applies. As an extension of that
+rule, if there is a conflict between a directly attached component
+and an attribute from a referenced <a href="classes/PropertySet.htm">
+&lt;Property Set&gt;</a> that appears
+at the same level, then the directly attached component overrides the
+component overrides the component from the 
+<a href="classes/PropertySet.htm">&lt;Property Set&gt;</a>.
+</p></td></tr>
+
+<tr><th align=left valign=top>
+<a href="classes/Colour.htm">&lt;Colour&gt;</a>
+</th>
+
+<td><p>
+Currently, <a href="classes/Colour.htm">&lt;Colour&gt;</a> is subject to 
+the simple override rule.
+</p></td></tr>
+
+<tr><th align=left valign=top>
+<a href="classes/ImageMappingFunction.htm">
+&lt;Image&nbsp;Mapping&nbsp;Function&gt;</a>
+</th>
+
+<td><p>
+At any level, a set of 
+<a href="classes/ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</a> 
+instances can be attached; they are treated as a group. Each set 
+completely replaces the previous set, even if the set contains only one
+&lt;Image Mapping Function&gt;. In other words, any object with one or
+more direct <a href="classes/ImageMappingFunction.htm">
+&lt;Image Mapping Function&gt;</a> components will not inherit
+any <a href="classes/ImageMappingFunction.htm">
+&lt;Image Mapping Function&gt;</a> components from its 'ancestors',
+but instead will pass on its own direct 
+<a href="classes/ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</a>
+instances to its components.
+</p></td></tr>
+
+<tr><th align=left valign=top>
+<a href="classes/Location.htm">&lt;Location&gt;</a> Instances for
+<a href="classes/ReferenceVector.htm">&lt;Reference&nbsp;Vector&gt;</a>
+</th>
+
+<td><p>
+In general, <a href="classes/Location.htm">&lt;Location&gt;</a> is not 
+inherited; it is covered by a special rule specific to 
+<a href="classes/ReferenceVector.htm">&lt;Reference Vector&gt;</a>.
+</p><p>
+A <a href="classes/ReferenceVector.htm">&lt;Reference Vector&gt;</a> is 
+required to have a defined point of origin. In order for the
+<a href="classes/ReferenceVector.htm#unit_vector">unit_vector</a>
+field of a <a href="classes/ReferenceVector.htm">&lt;Reference Vector&gt;</a> 
+to be defined in a spatial reference frame (SRF), that SRF shall have 
+a compatible vector space structure. Several of the SRFs supported by SEDRIS
+(e.g. celestiodetic) do not have vector space structure. When a
+<a href="classes/ReferenceVector.htm">&lt;Reference Vector&gt;</a> is 
+defined in such an SRF, SEDRIS actually embeds an LTP space in that 
+non-vector SRF at the vector's point of origin, so that the vector is 
+actually defined inside that LTP space. See the
+<a href="classes/ReferenceVector.htm">&lt;Reference Vector&gt;</a>
+class, and the DRM and SRM definition for the various SRFs supported by
+SEDRIS, for a more detailed discussion of these LTP spaces.
+</p><p>
+If a <a href="classes/ReferenceVector.htm">&lt;Reference Vector&gt;</a> 
+has a directly attached <a href="classes/Location.htm">&lt;Location&gt;</a>
+component, that is its point of origin. However, in many contexts where
+<a href="classes/ReferenceVector.htm">&lt;Reference Vector&gt;</a> 
+appears in the DRM, the vector can unambiguously inherit a 
+<a href="classes/Location.htm">&lt;Location&gt;</a> from the object 
+that aggregates the <a href="classes/ReferenceVector.htm">
+&lt;Reference Vector&gt;</a> rather than specifying a separate 
+<a href="classes/Location.htm">&lt;Location&gt;</a>, which would be 
+required to be the specific instance it should inherit in order to be 
+valid. The rule for this inheritance, expressed by the constraint
+<a href="constraints/RequiredReferenceVectorLocation.htm">
+&lt;&lt;Required Reference Vector Location&gt;&gt;</a>
+is that, given any object A with a <a href="classes/Location.htm">
+&lt;Location&gt;</a> component (or an ordered list of 
+<a href="classes/Location.htm">&lt;Location&gt;</a> components), 
+that object's first <a href="classes/Location.htm">&lt;Location&gt;</a> 
+component becomes the default <a href="classes/Location.htm">
+&lt;Location&gt;</a> the default <a href="classes/Location.htm">
+&lt;Location&gt;</a> in the context of the aggregation tree
+rooted at A.
+</p><p>
+In the cases of those classes specified by the
+<a href="constraints/RequiredReferenceVectorLocation.htm">
+&lt;&lt;Required Reference Vector Location&gt;&gt;</a> constraint,
+in which multiple <a href="classes/Location.htm">&lt;Location&gt;</a> 
+components are present, and inheritance would be ambiguous, a directly 
+attached <a href="classes/Location.htm">&lt;Location&gt;</a>
+is required for the <a href="classes/ReferenceVector.htm">
+&lt;Reference Vector&gt;</a>.
+</p></td></tr>
+
+<tr><th align=left valign=top>
+<a href="classes/PropertyDescription.htm">&lt;Property&nbsp;Description&gt;</a>
+</th>
+
+<td><p>
+A directly attached
+<a href="classes/PropertyDescription.htm">&lt;Property Description&gt;</a>
+instance overrides an inherited instance if the &quot;newer&quot;
+<a href="classes/PropertyDescription.htm">&lt;Property Description&gt;</a>
+has the same <a href="classes/Property.htm#meaning">meaning</a>.
+Otherwise, both
+<a href="classes/PropertyDescription.htm">&lt;Property Description&gt;</a>
+instances apply and are inherited further down in the tree.
+<p>
+In other words, two
+<a href="classes/PropertyDescription.htm">&lt;Property Description&gt;</a>
+instances conflict only if they have the same
+<a href="classes/Property.htm#meaning">meaning</a>.
+</p><p>
+If a
+<a href="classes/PropertyDescription.htm">&lt;Property Description&gt;</a>
+is a component of an object instance A, and a 
+<a href="classes/PropertyValue.htm">&lt;Property Value&gt;</a> with
+matching <a href="classes/PropertyValue.htm#meaning">meaning</a> is in
+the component tree rooted at A, then that 
+<a href="classes/PropertyValue.htm">&lt;Property Value&gt;</a> is
+considered to be qualified by the <a href="classes/PropertyValue.htm">
+&lt;Property Value&gt;</a> and <a href="classes/PropertyCharacteristic.htm">
+&lt;Property Characteristic&gt;</a> components of the matching
+<a href="classes/PropertyDescription.htm">&lt;Property Description&gt;</a>.
+</p></td></tr>
+
+<tr><th align=left valign=top>
+<a href="classes/PropertyTable.htm">&lt;Property&nbsp;Table&gt;</a>
+</th>
+
+<td><p>A directly attached
+    <a href="classes/PropertyTable.htm">&lt;Property Table&gt;</a>
+    instance overrides an inherited instance if the &quot;newer&quot;
+    <a href="classes/PropertyTable.htm">&lt;Property Table&gt;</a>
+    has the same qualified classification. Otherwise, both
+    <a href="classes/PropertyTable.htm">&lt;Property Table&gt;</a>
+    instances apply and are inherited further down in the tree.
+    </p><p>
+    In other words, two
+    <a href="classes/PropertyTable.htm">&lt;Property Table&gt;</a>
+    instances conflict only if they have the same qualified classification.
+</p></td>
+</tr>
+
+<tr><th align=left valign=top>
+<a href="classes/PropertyTableReference.htm">
+&lt;Property&nbsp;Table&nbsp;Reference&gt;
+</a>
+</th>
+
+<td><p>A directly attached
+    <a href="classes/PropertyTableReference.htm">
+    &lt;Property Table Reference&gt;</a>
+    instance overrides an inherited instance if both referenced
+    <a href="classes/PropertyTable.htm">
+    &lt;Property Table&gt;</a> instances have the same
+    qualified classification. Otherwise, both
+    <a href="classes/PropertyTableReference.htm">
+    &lt;Property Table Reference&gt;</a> instances apply and
+    are inherited further down in the tree.
+    </p><p>
+    In other words, two
+    <a href="classes/PropertyTableReference.htm">
+    &lt;Property Table Reference&gt;</a> instances conflict only if
+    the referenced <a href="classes/PropertyTable.htm">
+    &lt;Property Table&gt;</a> instances conflict.
+</p></td>
+</tr>
+
+<tr><th align=left valign=top>
+<a href="classes/PropertyValue.htm">&lt;Property&nbsp;Value&gt;</a>
+</th>
+
+<td><p>
+A directly attached
+<a href="classes/PropertyValue.htm">&lt;Property Value&gt;</a>
+instance overrides an inherited instance if the &quot;newer&quot;
+<a href="classes/PropertyValue.htm">&lt;Property Value&gt;</a>
+has the same <a href="classes/Property.htm#meaning">meaning</a>.
+Otherwise, both
+<a href="classes/PropertyValue.htm">&lt;Property Value&gt;</a>
+instances apply and are inherited further down in the tree.
+<p>
+In other words, two
+<a href="classes/PropertyValue.htm">&lt;Property Value&gt;</a>
+instances conflict only if they have the same
+<a href="classes/Property.htm#meaning">meaning</a>.
+</p><p>
+See also rules for
+<a href="classes/PropertyDescription.htm">&lt;Property Description&gt;</a>
+above.
+</p></td></tr>
+</table>
+</p></td></tr>
+
+
+<tr>
+<th class="doc_set_toc_outline_number"><a name="33">3.3</a></th>
+<th class="doc_set_toc_outline_description">
+Classes of Attributes That Aren't Inherited
+</th>
+</tr>
+
+<tr><th class="doc_set_toc_outline_number"></th>
+<td class="doc_set_toc_outline_description"><p>
+Objects are not inherited unless they belong to a class that is designated
+as inheritable. The following &quot;attribute&quot; class objects are never
+inherited.
+</p>
+<TABLE border=1 cellspacing=3>
+<tr><th align=left valign=top>Class</th>
+    <th align=left valign=top>Rationale</th>
+</tr>
+
+<tr><td><a href="classes/Citation.htm">&lt;Citation&gt;</a>
+</td>
+<td>
+<a href="classes/Citation.htm">&lt;Citation&gt;</a> cannot be
+inherited due to their semantic meaning. The 
+<a href="classes/Citation.htm">&lt;Citation&gt;</a> at
+the top of any hierarchy specifies the bibliographic citation
+information for the collection as a whole; to reference any
+part of the collection specifically, that part would require
+its own <a href="classes/Citation.htm">&lt;Citation&gt;</a>.
+</td></tr>
+
+<tr><td><a href="classes/Identification.htm">&lt;Identification&gt;</a>
+</td><td>
+A <a href="classes/Identification.htm">&lt;Identification&gt;</a>
+should be specific to the instance that aggregates it.
+</td></tr>
+
+<tr><td><a href="classes/Keywords.htm">&lt;Keywords&gt;</a>
+</td>
+<td>
+<a href="classes/Keywords.htm">&lt;Keywords&gt;</a> cannot be
+inherited due to their bottom-up nature. The 
+<a href="classes/Keywords.htm">&lt;Keywords&gt;</a> at
+the top of any hierarchy are a collection of the individual keywords
+that apply through the hierarchy, so they are built bottom-up in the
+hierarchy rather than being inherited top-down.
+</td></tr>
+
+<tr><td><a href="classes/Label.htm">&lt;Label&gt;</a></td>
+<td>
+A <a href="classes/Label.htm">&lt;Label&gt;</a> is attached
+to exactly one <a href="classes/FeatureRepresentation.htm">
+&lt;Feature Representation&gt;</a>, so it cannot be inherited to apply
+to other <a href="classes/FeatureRepresentation.htm">
+&lt;Feature Representation&gt;</a> instances.
+</td></tr>
+
+<tr><td><a href="classes/SpatialExtent.htm">
+    &lt;Spatial&nbsp;Extent&gt;</a></td>
+<td><a href="classes/SpatialExtent.htm">&lt;Spatial Extent&gt;</a>
+    instances cannot be inherited due to the bottom-up nature of a
+    <a href="classes/SpatialExtent.htm">&lt;Spatial Extent&gt;</a>. 
+    For instance, an <a href="classes/EnvironmentRoot.htm">
+    &lt;Environment Root&gt;</a> may cover a 
+    <a href="classes/SpatialExtent.htm">&lt;Spatial Extent&gt;<a/> of 
+    thousands of square kilometres, while one of its 
+    <a href="classes/Polygon.htm">&lt;Polygon&gt;</a> instances covers
+    only a square metre or two.
+</td></tr>
+
+<tr><td>
+<a href="classes/ResponsibleParty.htm">&lt;Responsible&nbsp;Party&gt;</a>
+</td>
+<td>
+<a href="classes/ResponsibleParty.htm">&lt;Responsible Party&gt;</a>
+instances are not inherited, because they appear infrequently in a
+typical transmittal - usually only once, as the mandatory
+<a href="classes/ResponsibleParty.htm">&lt;Responsible Party&gt;</a>
+of a <a href="classes/TransmittalRoot.htm">&lt;Transmittal Root&gt;</a>. 
+Currently, the overhead of inheriting a 
+<a href="classes/ResponsibleParty.htm">&lt;Responsible Party&gt;</a> is 
+not considered to be worth the overhead.
+</td></tr>
+</table>
+</td></tr>
+</table>
+</div>
+
+<p>
+<HR>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a></strong>,
+<strong><a href="p4v9.htm">Table of Contents</a></strong>
+<br><br>
+
+<div class="CenterDiv">
+<table class="doc_set_header">
+<tr><td>
+<table class="doc_set_header">
+<tr><td class="doc_set_footer" align="left">
+Last updated: July 1, 2011
+</td>
+<td class="doc_set_footer" align="right">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td>
+</tr>
+</table>
+</td></tr>
+</table></div>
+</BODY>
+</HTML>

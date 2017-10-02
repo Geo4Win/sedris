@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE_CI_OnlineResource</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX C - Types
+</font>
+<br>
+<font color="#ffffff">
+SE_CI_OnlineResource
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<PRE>
+/*
+ * STRUCT: SE_CI_OnlineResource
+ *
+ *  In B.3.2.5, ISO 19115 specifies the
+ *  CI_OnlineResource record data type that specifies the
+ *  means to access an online repository of information.
+ */
+</PRE>
+<span class="Code">typedef struct 
+<br>
+{</span>
+<br>
+<table class="CFunctionPrototype">
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_URL.htm">SE_URL</a></td>
+        <td class="CFunction"><a name="linkage"></a>linkage;</td><td class="CFunction"><sup><A href="#Notes_linkage">1</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_String.htm">SE_String</a></td>
+        <td class="CFunction"><a name="protocol"></a>protocol;</td><td class="CFunction"><sup><A href="#Notes_protocol">2</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_String.htm">SE_String</a></td>
+        <td class="CFunction"><a
+        name="application_profile"></a>application_profile;</td><td class="CFunction"><sup><A href="#Notes_application_profile">3</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_String.htm">SE_String</a></td>               
+        <td class="CFunction"><a name="name"></a>name;</td><td class="CFunction"><sup><A href="#Notes_name">4</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_String.htm">SE_String</a></td>
+        <td class="CFunction"><a name="description"></a>description;</td><td class="CFunction"><sup><A href="#Notes_description">5</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_CI_OnlineFunctionCode.htm">SE_CI_OnlineFunctionCode</a></td>
+        <td class="CFunction"><a name="function"></a>function;</td><td class="CFunction"><sup><A href="#Notes_function">6</A></sup></td></tr>
+</table>
+<span class="Code">
+} SE_CI_OnlineResource;</span>
+<br>
+
+<br>
+<HR>
+<H2>Field Notes</H2>
+<h4><a href="#linkage" name="Notes_linkage">linkage</a></h4>
+<P>
+ This specifies the location (address) for on-line access
+ using a Uniform Resource Locator (URL) address.
+</P>
+<h4><a href="#protocol" name="Notes_protocol">protocol</a></h4>
+<P>
+ This specifies the connection protocol to be used.
+</P>
+<h4><a href="#application_profile" name="Notes_application_profile">application_profile</a></h4>
+<P>
+ If supplied, this is the name of an application profile
+ that can be used with the online resource.
+</P>
+<h4><a href="#name" name="Notes_name">name</a></h4>
+<P>
+ If supplied, this is the name of the online resource.
+</P>
+<h4><a href="#description" name="Notes_description">description</a></h4>
+<P>
+ If supplied, this is a detailed text description of what
+ the online resource is and/or does.
+</P>
+<h4><a href="#function" name="Notes_function">function</a></h4>
+<P>
+ This is a code for the function performed by the online
+ resource.
+</P>
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SE_CI_OnlineFunctionCode.htm">SE_CI_OnlineFunctionCode</a>.
+<strong>Next:</strong> <a href="SE_CI_RoleCode.htm">SE_CI_RoleCode</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

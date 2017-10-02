@@ -1,0 +1,170 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<head><title>Migration Guide for EDCS</title>
+<META name="Author" CONTENT="SAIC">
+<link rel="stylesheet" type="text/css" href="../../docs/styles/SDK_SEDRIS.css">
+</HEAD>
+
+<!-- EDCS spec. 4.4 -->
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th class="doc_set_header">
+<big><big>
+MIGRATION GUIDE
+</big></big>
+<br><font color="#ffffff">
+EDCS 3.1 to EDCS 4.0 Mapping Library upgrade to EDCS 3.1 to EDCS 4.x Mapping Library
+</font>
+</th></tr>
+</table>
+</div>
+<p>
+Please note that all EDCS source files carry, as part of
+their leader comment information, comments that specify
+the EDCS release to which they correspond.
+</p>
+<ol type='I'>
+<li><a href="#Type">Type Changes</a>
+</li>
+<li><a href="#Function">Function Changes</a>
+</li>
+</ol>
+<hr>
+<br>
+<p>
+The <font color="#008000">marked</font> items indicate areas that could
+be handled by a name change script.
+</p>
+<a name="Type"></a>
+<ol type='I'>
+<li><p>Type Changes.
+<ol>
+<li><p>
+<font color="#008000">EDCS_Attribute_Mapping_Structure maps to EDCS_3p1_4px_Attribute_Mapping_Structure.</font>
+</p><p>
+The <a href="types/EDCS_3p1_4px_Attribute_Mapping_Structure.htm#unit_map_type">unit_map_type</a> field is
+set to <a href="../../edcs_mapping_util/docs/types/EDCS_Mapping_Type_Code.htm#EDCS_MAPPING_TYP_ONE_TO_ONE">EDCS_MAPPING_TYP_ONE_TO_ONE</a>
+in cases where <a href="types/EDCS_3p1_4px_Attribute_Mapping_Structure.htm#map_type">map_type</a> =
+<a href="../../edcs_mapping_util/docs/types/EDCS_Mapping_Type_Code.htm#EDCS_MAPPING_TYP_CHANGE_IN_DATATYPE">EDCS_MAPPING_TYP_CHANGE_IN_DATATYPE</a>
+or
+<a href="types/EDCS_3p1_4px_Attribute_Mapping_Structure.htm#map_type">map_type</a> =
+<a href="../../edcs_mapping_util/docs/types/EDCS_Mapping_Type_Code.htm#EDCS_MAPPING_TYP_SPECIAL_CASE">EDCS_MAPPING_TYP_SPECIAL_CASE</a>
+and the target EDCS Attribute is real-valued with a known required unit and scale for the mapping. In these cases, the
+<a href="types/EDCS_3p1_4px_Attribute_Mapping_Structure.htm#unit_4px_code">unit_4px_code</a> field and
+<a href="types/EDCS_3p1_4px_Attribute_Mapping_Structure.htm#unit_scale_4px_code">unit_scale_4px_code</a> field are
+set to the required units for the target real-valued EDCS Attribute.
+</p><p>
+The <a href="types/EDCS_3p1_4px_Attribute_Mapping_Structure.htm#unit_map_type">unit_map_type</a> field is
+set to <a href="../../edcs_mapping_util/docs/types/EDCS_Mapping_Type_Code.htm#EDCS_MAPPING_TYP_ONE_TO_ZERO">EDCS_MAPPING_TYP_ONE_TO_ZERO</a>
+otherwise.
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>ea_4p0_code</td><td>ea_4px_code</td></tr>
+<tr><td>(none)</td><td>unit_map_type</td></tr>
+<tr><td>(none)</td><td>unit_4px_code</td></tr>
+<tr><td>(none)</td><td>unit_scale_4px_code</td></tr>
+<tr><td>(none)</td><td>entry_count</td></tr>
+<tr><td>(none)</td><td>entry_list</td></tr>
+</table>
+<br><br></li>
+<li><p>
+<font color="#008000">EDCS_Class_Mapping_Structure maps to EDCS_3p1_4px_Class_Mapping_Structure.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>ec_4p0_code</td><td>ec_4px_code</td></tr>
+<tr><td>(none)</td><td>entry_count</td></tr>
+<tr><td>(none)</td><td>entry_list</td></tr>
+</table>
+<br><br></li>
+<li><p>
+<font color="#008000">EDCS_Enumerant_Mapping_Structure maps to EDCS_3p1_4px_Enumerant_Mapping_Structure.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>ea_4p0_code</td><td>ea_4px_code</td></tr>
+<tr><td>ee_4p0_code</td><td>ee_4px_code</td></tr>
+<tr><td>ea_4p0_value</td><td>split into entry_count, entry_list</td></tr>
+</table>
+<br><br></li>
+<li><p>
+<font color="#008000">EDCS_Group_Mapping_Structure maps to EDCS_3p1_4px_Group_Mapping_Structure.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>em_3p1_code</td><td>ev_3p1_code</td></tr>
+<tr><td>em_3p1_label</td><td>ev_3p1_label</td></tr>
+<tr><td>ev_4p0_code</td><td>ev_4px_code</td></tr>
+</table>
+<br><br></li>
+<li><p>
+<font color="#008000">EDCS_Metadata_Mapping_Structure maps to EDCS_3p1_4px_Characteristic_Mapping_Structure.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>ec_4p0_code</td><td>ec_4px_code</td></tr>
+</table>
+<br><br></li>
+<li><p><font color="#008000">EDCS_Mapping_Type_Code maps to EDCS_Mapping_Type_Code.</font>
+</p>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr><th>Old</th><th>New</th></tr>
+<tr><td>(none)</td>
+    <td>EDCS_MAPPING_TYP_ONE_TO_ONE_CONDITIONAL</td></tr>
+<tr><td>(none)</td>
+    <td>EDCS_MAPPING_TYP_ONE_TO_ONE_QUALIFIED</td></tr>
+<tr><td>(none)</td>
+    <td>EDCS_MAPPING_TYP_CHANGE_TO_CHARACTERISTIC</td></tr>
+</table>
+<br><br></li>
+</ol>
+</li>
+<li><p><a name="Function">Function Changes</a>
+</p>
+<table border=1>
+<tr><th>Old</th> <th>New</th></tr>
+<tr>
+<td>EDCS_Map3p1GetLibVersion</td>
+<td><a href="functions/EDCS_Map3p1GetImplVerInfo.htm">EDCS_Map3p1GetImplVerInfo</a></td>
+</tr>
+<tr>
+<td>EDCS_Map3p1MetadataCode</td>
+<td><a href="functions/EDCS_Map3p1CharacteristicCode.htm">EDCS_Map3p1CharacteristicCode</a></td>
+</tr>
+<tr>
+<td>EDCS_Map3p1MetadataLabel</td>
+<td><a href="functions/EDCS_Map3p1CharacteristicLabel.htm">EDCS_Map3p1CharacteristicLabel</a></td>
+</tr>
+<tr>
+<td>EDCS_3p1MetadataCodeFromLabel</td>
+<td><a href="functions/EDCS_3p1CharacteristicCodeFromLabel.htm">EDCS_3p1CharacteristicCodeFromLabel</a></td>
+</tr>
+<tr>
+<td>EDCS_Print3p1MappingTypeCode</td>
+<td><a href="../../edcs_mapping_util/docs/functions/EDCS_PrintMappingTypeCode.htm">EDCS_PrintMappingTypeCode</a></td>
+</tr>
+</table>
+</li>
+</ol>
+<hr>
+Questions or comments should be directed to: help@sedris.org
+<br><br>
+<table class="doc_set_header">
+<tr><td>
+<table class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

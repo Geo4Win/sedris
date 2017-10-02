@@ -1,0 +1,162 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE SetRootObject</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+SE SetRootObject
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../types/SE_Return_Code.htm">SE_Return_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SE_SetRootObject</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/SE_Transmittal.htm">SE_Transmittal</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="transmittal_in"></a>transmittal_in,</td><td class="CFunction"><sup><A href="#Notes_transmittal_in">1</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/SE_Object.htm">SE_Object</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="new_root_object_in"></a>new_root_object_in,</td><td class="CFunction"><sup><A href="#Notes_new_root_object_in">2</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/SE_Object.htm">SE_Object</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="old_root_object_out_ptr"></a>old_root_object_out_ptr</td><td class="CFunction"><sup><A href="#Notes_old_root_object_out_ptr">3</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+  Given a handle to a transmittal that has explicitly been opened in
+  <A href="../types/SE_Access_Mode.htm#SE_AM_CREATE">SE_AM_CREATE</A>CREATE</A> or
+  <A href="../types/SE_Access_Mode.htm#SE_AM_UPDATE">SE_AM_UPDATE</A>UPDATE</A> mode, set the
+  passed DRM object as the root of the transmittal's object hierarchy.
+  The previous root object, if any, is returned in the
+<A href="#old_root_object_out_ptr">old_root_object_out_ptr</A>
+ parameter, if requested. If no root object has been set for the given
+ transmittal, NULL is returned in
+<A href="#old_root_object_out_ptr">old_root_object_out_ptr</A>.
+</P><P>
+<EM><STRONG>CAUTION</STRONG></EM>
+ Calling this function will permanently change the root object of the
+ transmittal. In order to avoid orphaning objects within the transmittal,
+ the <A href="#old_root_object_out_ptr">old_root_object_out_ptr</A>
+ parameter is provided to allow the user to deal with any previously
+ set root object. It is the user's responsibility to provide this
+ argument as needed.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A>
+</td><td class="Status">
+ and the root object is set.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A>
+</td><td class="Status">
+ and the status code is set appropriately if the call failed.
+</td></tr>
+</table>
+
+<h3>Status Codes</h3>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A> is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_SUCCESS">SE_STATCODE_SUCCESS</A>
+</td><td class="Status">
+ set if valid parameters were passed in and all operations succeeded.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_DIFFERENT_TRANSMITTAL">SE_STATCODE_DIFFERENT_TRANSMITTAL</A>
+</td><td class="Status">
+ set if <A href="#new_root_object_in">new_root_object_in</A>
+ does not belong to the given transmittal.
+</td></tr>
+</table>
+</P><P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+ <A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A> is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_UNRESOLVED_OUTPUT_OBJECT">SE_STATCODE_UNRESOLVED_OUTPUT_OBJECT</A>
+</td><td class="Status">
+ set if <A href="#new_root_object_in">new_root_object_in</A>
+ is not a resolved object.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_INVALID_ACCESS_MODE">SE_STATCODE_INVALID_ACCESS_MODE</A>
+</td><td class="Status">
+ set if <A href="#transmittal_in">transmittal_in</A> was opened
+ in read-only mode.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_INACTIONABLE_FAILURE">SE_STATCODE_INACTIONABLE_FAILURE</A>
+</td><td class="Status">
+ set if the call fails for any other reason.
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#transmittal_in" name="Notes_transmittal_in">1</a></sup>
+ a handle to the transmittal for which the root object
+    is being set.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#new_root_object_in" name="Notes_new_root_object_in">2</a></sup>
+ a pointer to the SE_Object handle of the new root
+    object of the transmittal.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#old_root_object_out_ptr" name="Notes_old_root_object_out_ptr">3</a></sup>
+ a pointer to the SE_Object handle to the
+    previous root object of the transmittal.
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SE_SetGeneralCallbackForOneFunction.htm">SE_SetGeneralCallbackForOneFunction</a>.
+<strong>Next:</strong> <a href="SE_SetSRFContextInfo.htm">SE_SetSRFContextInfo</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

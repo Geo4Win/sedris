@@ -1,0 +1,165 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Feature Topology Hierarchy</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Feature Topology Hierarchy
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Abstract Class Name: Feature Topology Hierarchy</h2>
+<h3>Superclass - <a href="SEDRISAbstractBase.htm">&lt;SEDRIS Abstract Base&gt;</a></h3>
+<h3>Subclasses</h3>
+<UL>
+<LI>
+<a href="PerimeterRelatedFeatureTopology.htm">&lt;Perimeter Related Feature Topology&gt;</a> 
+</LI>
+<LI>
+<a href="SpatialIndexRelatedFeatureTopology.htm">&lt;Spatial Index Related Feature Topology&gt;</a> 
+</LI>
+<LI>
+<a href="UnionOfFeatureTopology.htm">&lt;Union Of Feature Topology&gt;</a> 
+</LI>
+</UL>
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies a spatially organized
+ hierarchical collection of
+ <A href="FeatureTopology.htm">&lt;Feature Topology&gt;</A> instances, which
+ includes all the <A href="FeatureTopology.htm">&lt;Feature Topology&gt;</A>
+ instances that lie within a defined spatial extent, and are
+ components of a single
+ <A href="AggregateFeature.htm">&lt;Aggregate Feature&gt;</A> instance.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet11.pdf"><strong>11</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet08.pdf"><strong>8</strong></A>
+</LI>
+<LI><A href="sheet23.pdf"><strong>23</strong></A>
+</LI>
+</UL>
+
+<h3>Example</h3>
+<p>
+ See concrete subclasses for examples.
+
+</p>
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ What is the purpose of this class?
+</B>
+<DD><P>
+ This class allows <A href="FeatureTopology.htm">&lt;Feature Topology&gt;</A>
+ instances to be spatially organized using different methods.  It ensures
+ that all <A href="FeatureTopology.htm">&lt;Feature Topology&gt;</A> instances,
+ particularly those that are not directly associated with any
+ <A href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</A>,
+ have at least one containing object.
+</P></DD>
+<DT><B>
+ Why not restrict
+ <A href="FeatureTopologyHierarchy.htm">&lt;Feature Topology Hierarchy&gt;</A>
+ to be a component of just
+ <A href="EnvironmentRoot.htm">&lt;Environment Root&gt;</A> and
+ <A href="Model.htm">&lt;Model&gt;</A> - placing
+ Topology as an organizing principle on par with
+ <A href="GeometryRepresentation.htm">&lt;Geometry Representation&gt;</A>
+ organizations and
+ <A href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</A>
+ organizations?
+</B></DT>
+<DD><P>
+ It shall be possible to spatially organize the topology of every
+ &quot;topological surface&quot;.  A &quot;topological surface&quot;
+ is not necessarily &quot;rooted at&quot;
+ an <A href="EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instance
+ or a <A href="Model.htm">&lt;Model&gt;</A> instance. In general,
+ many different &quot;topological surfaces&quot; may exist within a
+ <A href="EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instance or a
+ <A href="Model.htm">&lt;Model&gt;</A> instance.
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Component of (two-way)</h3>
+<UL>
+<li>zero or more <a href="AggregateFeature.htm">&lt;Aggregate Feature&gt;</a> instances</li>
+</UL>
+
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Feature_Topology_Level.htm">SE_Feature_Topology_Level</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="feature_topology_level">feature_topology_level</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_feature_topology_level">1</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Fields Notes</h3>
+<h4><a href="#feature_topology_level" name="Notes_feature_topology_level">feature_topology_level</a></h4>
+<P>
+ The <A href="#feature_topology_level">feature_topology_level</A> field
+ specifies the level of
+ feature topology that is present within the hierarchy represented
+ by the
+ <A href="FeatureTopologyHierarchy.htm">&lt;Feature Topology Hierarchy&gt;</A>
+ instance.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="FeatureTopology.htm">Feature Topology</A>.
+<strong>Next:</strong> <A href="FeatureVolume.htm">Feature Volume</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

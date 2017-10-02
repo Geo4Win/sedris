@@ -1,0 +1,250 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE_Feature_Topology_Level</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX C - Types
+</font>
+<br>
+<font color="#ffffff">
+SE_Feature_Topology_Level
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<PRE>
+/*
+ * REGISTERABLE ENUM: SE_Feature_Topology_Level
+ *
+ *   This data type specifies the level of feature topology
+ *   that is present in a &lt;Feature Topology Hierarchy&gt; instance.
+ */
+</PRE><span class="Code">
+typedef <a href="SE_Short_Integer.htm">SE_Short_Integer</a> SE_Feature_Topology_Level;
+</span>
+<table>
+<tr><th>Enumerant</th> <th>Definition</th> <th>Value</th></tr>
+<tr><td class="CFunction"><a name="SE_FTL_ZERO">SE_FTL_ZERO</a></td>
+<td class="CFunction"><PRE>
+ Topology level ZERO.
+
+ The following DRM objects and relationships shall exist:
+
+ DRM objects:
+ a. &lt;Feature Node&gt; - one or more instances.
+
+ b. &lt;Feature Edge&gt; - required if any &lt;Feature Face&gt; instances
+                     exist
+
+  Relationships:
+  a. A two-way association between &lt;Feature Node&gt; instances and
+     &lt;Feature Edge&gt; instances:
+     1. shall exist for each &lt;Feature Edge&gt; instance that is
+        connected to a given &lt;Feature Node&gt; instance; and
+
+     2. shall exist for each of the two &lt;Feature Node&gt; instances
+        (starting node and ending node) that bound each
+        &lt;Feature Edge&gt; instance.
+
+  Constraints:
+      No additional constraints are required.
+
+  Other types of feature topology DRM objects and relationships
+  may exist at level SE_FTL_ZERO, but are not required. The
+  requirements of level SE_FTL_ONE shall not be met. Thus,
+  there shall be at least one pair of collocated &lt;Feature Node&gt;
+  instances.
+</PRE></td>
+<td class="CFunction">1</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_FTL_ONE">SE_FTL_ONE</a></td>
+<td class="CFunction"><PRE>
+ Topology level ONE.
+
+  No additional types of DRM objects or relationships are required.
+
+  Constraints:
+  a.  Each &lt;Feature Node&gt; instance shall have a &lt;Location&gt; instance
+      with unique coordinates. That is, no two &lt;Feature Node&gt;
+      instances may be collocated.
+
+  The requirements of level TWO shall not be met. That is, at least
+  one pair of intersecting &lt;Feature Edge&gt; instances must exist.
+</PRE></td>
+<td class="CFunction">2</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_FTL_TWO">SE_FTL_TWO</a></td>
+<td class="CFunction"><PRE>
+ Topology level TWO.
+
+  No additional types of DRM objects or relationships are required.
+
+  Constraints:
+  a.  &lt;Feature Edge&gt; instances may not intersect or overlap one
+      another, except where they meet at a common &lt;Feature Node&gt;
+      instance.
+
+  The requirements of level THREE shall not be met.
+</PRE></td>
+<td class="CFunction">3</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_FTL_THREE">SE_FTL_THREE</a></td>
+<td class="CFunction"><PRE>
+ Topology level THREE.
+
+  The following DRM objects and relationships are required to exist,
+  in addition to the requirements of topology level TWO.
+
+  DRM objects:
+  a.  &lt;Feature Face&gt; - one or more instances, and
+
+  b.  &lt;Feature Face Ring&gt; - one or more instances for each
+      &lt;Feature Face&gt; instance
+
+  Relationships:
+  a.  A two-way association between &lt;Feature Node&gt; instances and
+      &lt;Feature Face&gt; instances shall exist for each &lt;Feature Node&gt;
+      instance located in the interior of a &lt;Feature Face&gt; instance.
+
+  b.  A one-way association from &lt;Feature Edge&gt; instances to
+      &lt;Feature Face&gt; instances shall exist for each of the
+      &lt;Feature Face&gt; instances that each &lt;Feature Edge&gt; instance
+      bounds.
+
+  c.  A one-way association from &lt;Feature Face Ring&gt; instances to
+      &lt;Feature Edge&gt; instances shall exist for each of the
+      &lt;Feature Edge&gt; instances that bound a &lt;Feature Face&gt; instance.
+
+  Constraints:
+  a.  &lt;Feature Face&gt; instances may not intersect or overlap one
+      another, except where they meet at a common &lt;Feature Edge&gt;
+      instance.
+
+  b.  The set of &lt;Feature Face&gt; instances shall be exclusive and
+      exhaustive, forming a complete topological surface.
+
+  c.  Each &lt;Feature Edge&gt; instance shall bound exactly two
+      &lt;Feature Face&gt; instances.
+
+  d.  Exactly one &lt;Feature Face&gt; instance within the parent
+      &lt;Union Of Feature Topology&gt; instance shall have its
+      universal field set to SE_TRUE.  All other &lt;Feature Face&gt;
+      instances within the parent &lt;Union Of Feature Topology&gt;
+      instance shall have their universal fields set to SE_FALSE.
+</PRE></td>
+<td class="CFunction">4</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_FTL_FOUR">SE_FTL_FOUR</a></td>
+<td class="CFunction"><PRE>
+ Topology level FOUR.
+
+  No additional types of DRM objects or relationships are required.
+
+  Constraints:
+  a.  &lt;Location 3D&gt; instances are required for all coordinates.
+
+  b.  Each &lt;Feature Edge&gt; instance may bound zero or more
+      &lt;Feature Face&gt; instances. (This overrides the level THREE
+      constraint.)
+
+  c.  At least one &lt;Feature Edge&gt; instance shall bound more than
+      two &lt;Feature Face&gt; instances.
+</PRE></td>
+<td class="CFunction">5</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_FTL_FIVE">SE_FTL_FIVE</a></td>
+<td class="CFunction"><PRE>
+ Topology level FIVE.
+
+  The following DRM objects and relationships are required to exist,
+  in addition to the requirements of topology level FOUR:
+
+  DRM objects:
+  a.  &lt;Feature Volume&gt; - one or more instances, and
+
+  b.  &lt;Feature Volume Shell&gt; - one or more instances for each
+      &lt;Feature Volume&gt; instance
+
+  Relationships:
+  a. A two-way association between &lt;Feature Node&gt; instances and
+     &lt;Feature Volume&gt; instances shall exist for each &lt;Feature Node&gt;
+     instance located in the interior of a &lt;Feature Volume&gt; instance.
+
+  b. A two-way association between &lt;Feature Edge&gt; instances and
+     &lt;Feature Volume&gt; instances shall exist for each &lt;Feature Edge&gt;
+     instance completely located in the interior of a
+     &lt;Feature Volume&gt; instance.
+
+  c. A one-way association from &lt;Feature Face&gt; instances to
+     &lt;Feature Volume&gt; instances shall exist for each of the two
+     &lt;Feature Volume&gt; instances that each &lt;Feature Face&gt; instance
+     bounds.
+
+  d. A one-way association from &lt;Feature Volume Shell&gt; instances
+     to &lt;Feature Face&gt; instances shall exist for each of the
+     &lt;Feature Face&gt; instances that bound a &lt;Feature Volume&gt; instance.
+
+  Constraints:
+  a.  &lt;Feature Volume&gt; instances may not intersect or overlap
+      one another, except where they meet at a common &lt;Feature Face&gt;
+      instance.
+
+  b.  The set of &lt;Feature Volume&gt; instances shall be exclusive and
+      exhaustive, forming a complete topological space.
+
+  c.  Exactly one &lt;Feature Volume&gt; instance within the parent
+      &lt;Union Of Feature Topology&gt; instance shall have its
+      universal field set to SE_TRUE.  All other &lt;Feature Volume&gt;
+      instances within the parent &lt;Union Of Feature Topology&gt;
+      instance shall have their universal fields set to SE_FALSE.
+      All &lt;Feature Face&gt; instances within the parent
+      &lt;Union Of Feature Topology&gt; instance shall have their
+      universal fields set to SE_FALSE.
+</PRE></td>
+<td class="CFunction">6</td>
+</TR>
+</table>
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SE_Enumerant_Structure.htm">SE_Enumerant_Structure</a>.
+<strong>Next:</strong> <a href="SE_Field_Modifier.htm">SE_Field_Modifier</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

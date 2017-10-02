@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE FreeStateSelectParameters</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX C - Transmittal Access Level 0 API Auxiliary Functions
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+SE FreeStateSelectParameters
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../../taccess0/types/SE_Status_Code.htm">SE_Status_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SE_FreeStateSelectParameters</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../../taccess0/types/SE_State_Select_Parameters.htm">SE_State_Select_Parameters</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="to_free"></a>to_free,</td><td class="CFunction"><sup><A href="#Notes_to_free">1</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction">void&nbsp;                </td> <td class="CFunction">(*<a name="dealloc_func_in_ptr">dealloc_func_in_ptr</a>)(void *)</td><td class="CFunction"><sup><A href="#Notes_dealloc_func_in_ptr">2</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+  Frees any internal pointers in use within the given structure. Intended
+  for use with <A href="SE_CloneStateSelectParameters.htm">SE_CloneStateSelectParameters()</A>.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../../taccess0/types/SE_Status_Code.htm#SE_STATCODE_SUCCESS">SE_STATCODE_SUCCESS</A>
+</td><td class="Status">
+ and the data is freed, if a valid parameter was passed in.
+</td></tr>
+<tr><td class="Status">
+<A href="../../taccess0/types/SE_Status_Code.htm#SE_STATCODE_INACTIONABLE_FAILURE">SE_STATCODE_INACTIONABLE_FAILURE</A>
+</td><td class="Status">
+ and <A href="#to_free">*to_free</A> is left unchanged, if
+ <A href="#to_free">to_free</A> is NULL.
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#to_free" name="Notes_to_free">1</a></sup>
+ pointer to the SE_State_Select_Parameters whose
+    internal pointers (if in use) are to be freed.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#dealloc_func_in_ptr" name="Notes_dealloc_func_in_ptr">2</a></sup>
+ pointer to a user-supplied function to
+    be used to free the memory. Must correspond to the function used to
+    allocate the memory. (Should be omitted if
+    SE_CloneStateSelectParameters() was used.)
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SE_FreeStateEntry.htm">SE_FreeStateEntry</a>.
+<strong>Next:</strong> <a href="SE_FreeTimeSelectParameters.htm">SE_FreeTimeSelectParameters</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

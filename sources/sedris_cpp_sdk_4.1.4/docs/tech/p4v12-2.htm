@@ -1,0 +1,144 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>P4V12 - Section 2</TITLE>
+<META name="Author" CONTENT="SAIC">
+<link rel="stylesheet" type="text/css" href="../styles/SDK_SEDRIS.css">
+</HEAD>
+<body>
+
+<a name="Top"></a>
+
+<div align="center">
+<table border="2" class="doc_set_header">
+<tr><th class="doc_set_header">
+<big><big>
+Application Programmer's Interface Overview
+</big></big>
+<br>
+<font color="#ffffff">Section 2 - API OVERVIEW</font>
+</th></tr>
+</table>
+</div>
+
+<div align="center">
+<table class="doc_set_toc">
+<tr>
+<td class="doc_set_toc_outline_number"></td>
+<td class="doc_set_toc_outline_description"><p>
+The standard SEDRIS function calls, as well as critical data structures,
+are discussed in detail in Part 4, Volume 17 <i>SEDRIS Reference Manual</i>.
+</p><p>
+The primary data structures of the SEDRIS API are given below. They
+are opaque - that is, the details of their implementation are
+hidden by the API implementation. At a minimum, all SEDRIS users,
+whether data providers or consumers, need to be familiar with
+<a href="taccess0/types/SE_Transmittal.htm">SE_Transmittal</a> and 
+<a href="taccess0/types/SE_Object.htm">SE_Object</a>. Data consumers, 
+in addition, need to know how to use <a href="taccess0/types/SE_Iterator.htm">
+SE_Iterator</a>, <a href="taccess0/types/SE_Store.htm">SE_Store</a>, and 
+<a href="taccess0/types/SE_Search_Filter.htm">SE_Search_Filter</a>.
+<a href="taccess0/types/SE_Search_Boundary.htm">SE_Search_Boundary</a>, 
+while also a tool for data consumption, is a somewhat more advanced feature. 
+<a href="taccess0/types/SE_Packed_Hierarchy.htm">SE_Packed_Hierarchy</a> is a 
+powerful tool that requires an understanding of objects and their relationships
+as a prerequisite.
+</p>
+<ul>
+<li><strong><i>
+    <a href="taccess0/types/SE_Iterator.htm">SE_Iterator</a></i>
+    </strong>
+<p>
+Given an <a href="taccess0/types/SE_Object.htm">SE_Object</a> as a starting 
+point, an iterator is a mechanism used to retrieve other objects that are 
+related to the start object. The nature of the relationship is determined by 
+the function used to initialize the iterator, and by the other parameters
+passed to that function.
+</p></li>
+<li><strong><i>
+    <a href="taccess0/types/SE_Object.htm">SE_Object</a></i>
+    </strong>
+<p>
+Represents a handle to a SEDRIS object - that is, a particular instance
+of a DRM class in a given transmittal.
+</p></li>
+<li><strong><i>
+    <a href="taccess0/types/SE_Packed_Hierarchy.htm">SE_Packed_Hierarchy</a></i>
+    </strong>
+<p>
+A data structure that permits data consumers to retrieve a hierarchy
+of related objects in a single function call, without the need for
+individual iterators for each level of the object tree.
+</p></li>
+<li><strong><i>
+    <a href="taccess0/types/SE_Search_Boundary.htm">SE_Search_Boundary</a></i>
+    </strong>
+<p>
+A construct used only during data consumption, which serves as a
+mechanism allowing the data consumer to limit the scope of a
+component iterator based on the relationships of the objects
+considered for retrieval to the boundary.
+</p></li>
+<li><strong><i>
+    <a href="taccess0/types/SE_Search_Filter.htm">SE_Search_Filter</a></i>
+    </strong>
+<p>
+A construct used only during data consumption, which serves as a
+mechanism allowing the data consumer to apply the search rules
+with which the filter was created to various iterators created
+by the consumer.
+</p></li>
+<li><strong><i>
+    <a href="taccess0/types/SE_Store.htm">SE_Store</a></i>
+    </strong>
+<p>
+Represents a handle to a store, which is a construct used to manage
+memory retrieved from the API by a user. The user shall create a
+store by calling the
+<a href="taccess0/functions/SE_CreateStore.htm">SE_CreateStore()</a>
+function, and is then at liberty to use it for 
+functions that use the store mechanism for memory management.
+</p><p>
+The memory managed by a store will remain in scope from the time
+the user first passes the store to a function that associates
+the store with some chunk of memory, until the user either
+passes the store to another such function call (in which case
+the API disposes of the previous memory being managed by the
+store) or until the store is freed by the user via a call to
+<a href="taccess0/functions/SE_FreeStore.htm">SE_FreeStore()</a>.
+</p></li>
+<li><strong><i>
+    <a href="taccess0/types/SE_Transmittal.htm">SE_Transmittal</a></i>
+    </strong>
+<p>
+Represents a handle to a SEDRIS transmittal.
+</p></li>
+</ul>
+</p></td></tr>
+</table></div>
+
+<p>
+<hr>
+<font color="#FF0000">Return to:</font>
+<a href="#Top">Top of this Page</a></b>,
+<b><a href="p4v12.htm">Table of Contents</a></b>
+<br><br>
+
+<div align="center">
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr><td class="doc_set_footer" align="left">
+Last updated: July 1, 2011
+</td>
+<td class="doc_set_footer" align="right">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td>
+</tr>
+</table>
+</td></tr>
+</table>
+</div>
+</body>
+</html>

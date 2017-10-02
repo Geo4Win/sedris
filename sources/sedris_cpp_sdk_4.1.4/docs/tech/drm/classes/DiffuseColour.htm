@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Diffuse Colour</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Diffuse Colour
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Diffuse Colour</h2>
+<h3>Superclass - <a href="SEDRISAbstractBase.htm">&lt;SEDRIS Abstract Base&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies the diffuse reflectance
+ component of a <A href="PrimitiveColour.htm">&lt;Primitive Colour&gt;</A>
+ instance.
+</P><P>
+ A <A href="DiffuseColour.htm">&lt;Diffuse Colour&gt;</A> instance is dependent on the angle of
+ the lit environmental object to the light source but independent of
+ the angle of the lit environmental object to the observer.
+</P><P>
+ Surfaces exhibiting <EM>only</EM> diffuse reflection (also known as
+ Lambertian reflection) are dull, matte surfaces that appear equally bright
+ from all viewing angles. When a beam of light is reflected from such a
+ surface, the reflected ray is diffused to cover an area, the size of which
+ is inversely proportional to the cosine of the angle that the beam makes
+ with the surface normal.
+</P><P class=Note>
+NOTE&nbsp; 
+ Diffuse reflection provides what is known as <EM>shape from shading</EM>
+ information to visual perception. For a surface
+ composed of a single substance and illuminated by a single light source,
+ the shading of the object can be used to compute its surface normals
+ (that is, its shape).
+</p><P>
+ See 16.1.2 Diffuse Reflection of <A href="../bibliography.htm#FOLEY">[Foley]</A>
+ for further discussion of diffuse reflectance.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet14.pdf"><strong>14</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet21.pdf"><strong>21</strong></A>
+</LI>
+</UL>
+
+<h3>Example</h3>
+<p>
+ See the <A href="PrimitiveColour.htm">&lt;Primitive Colour&gt;</A> class for examples.
+
+</p>
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ Does the DRM use the OpenGL lighting model?
+</B></DT>
+<DD><P>
+ No, although the terminology is similar. The DRM handles transparency
+ somewhat differently than OpenGL does, among other things. For a
+ description of the OpenGL lighting model, see
+ <A href="../bibliography.htm#OPENGL">[OPENGL]</A>, Chapter 5 &quot;Lighting&quot;.
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Composed of (two-way)</h3>
+<UL>
+<li>one <a href="ColourData.htm">&lt;Colour Data&gt;</a> instance</li>
+</UL>
+
+<h3>Component of (two-way)</h3>
+<UL>
+<li>zero or one <a href="LightSource.htm">&lt;Light Source&gt;</a> instance</li>
+<li>zero or one <a href="PrimitiveColour.htm">&lt;Primitive Colour&gt;</a> instance</li>
+</UL>
+
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+
+<hr>
+<strong>Prev:</strong> <A href="DataTableLibrary.htm">Data Table Library</A>.
+<strong>Next:</strong> <A href="DirectionalLightBehaviour.htm">Directional Light Behaviour</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

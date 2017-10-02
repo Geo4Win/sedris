@@ -1,0 +1,286 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Responsible Party</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Responsible Party
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Responsible Party</h2>
+<h3>Superclass - <a href="SEDRISAbstractBase.htm">&lt;SEDRIS Abstract Base&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class provides identification of, and
+ means of communication with, person(s) and organization(s)
+ associated with the environmental data being described.
+</P><P>
+ The environmental data refers to the object tree rooted at the aggregate
+ of the <A href="ResponsibleParty.htm">&lt;Responsible Party&gt;</A> instance.
+ If a <A href="ResponsibleParty.htm">&lt;Responsible Party&gt;</A> instance
+ is shared by multiple aggregate objects, the environmental data
+ refers to the collection of object trees rooted at its various aggregates.
+</P><P class=Note>
+NOTE&nbsp; 
+ The term &quot;environmental data&quot; is equivalent to the term
+ &quot;data set&quot; in <A href="../bibliography.htm#I19115">ISO 19115</A>.
+</p>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet20.pdf"><strong>20</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+This class appears on only one page of the DRM class diagram.
+<h3>Example</h3>
+<OL>
+<LI><P>
+ Consider a data provider creating a <A href="Citation.htm">&lt;Citation&gt;</A> instance for a
+ MEL Thesaurus consulted in creating <A href="Keywords.htm">&lt;Keywords&gt;</A> instance
+ information. The <A href="ResponsibleParty.htm">&lt;Responsible Party&gt;</A> component
+ for the <A href="Citation.htm">&lt;Citation&gt;</A> instance
+ in this example contains the following data, where for clarity
+ the locale information for each string has been omitted:
+</P>
+<TABLE>
+<TR><TD>
+<A href="#individual_name">individual_name</A>
+</TD>
+<TD>
+ { &quot;&quot; }
+</TD></TR>
+<TR><TD>
+<A href="#organization_name">organization_name</A>
+</TD>
+<TD>
+ &quot;Master Environmental Library (MEL)&quot;
+</TD></TR>
+<TR><TD>
+<A href="#position_name">position_name</A>
+</TD>
+<TD>
+ &quot;Air and Space Executive Agent Representative&quot;
+</TD></TR>
+<TR><TD>
+<A href="#contact_information">contact_information</A>.
+<A href="../types/SE_Contact_Information.htm#phone">phone</A>.
+<A href="../types/SE_Telephone_Information.htm#voice_count">voice_count</A>
+</TD>
+<TD>
+ 1
+</TD></TR>
+<TR><TD>
+<A href="#contact_information">contact_information</A>.
+<A href="../types/SE_Contact_Information.htm#phone">phone</A>.
+<A href="../types/SE_Telephone_Information.htm#voice">voice[0]</A>
+</TD>
+<TD>
+ &quot;(555) 555-5555&quot;
+</TD></TR>
+<TR><TD>
+<A href="#contact_information">contact_information</A>.
+<A href="../types/SE_Contact_Information.htm#phone">phone</A>.
+<A href="../types/SE_Telephone_Information.htm#facsimile_count">facsimile_count</A>
+</TD>
+<TD>
+ 1
+</TD></TR>
+<TR><TD>
+<A href="#contact_information">contact_information</A>.
+<A href="../types/SE_Contact_Information.htm#phone">phone</A>.
+<A href="../types/SE_Telephone_Information.htm#facsimile">facsimile[0]</A>
+</TD>
+<TD>
+ &quot;(555) 555-5555&quot;
+</TD></TR>
+<TR><TD>
+<A href="#contact_information">contact_information</A>.
+<A href="../types/SE_Contact_Information.htm#phone">phone</A>.
+<A href="../types/SE_Telephone_Information.htm#tdd_tty_count">tdd_tty_count</A>
+</TD>
+<TD>
+ 1
+</TD></TR>
+<TR><TD>
+<A href="#contact_information">contact_information</A>.
+<A href="../types/SE_Contact_Information.htm#phone">phone</A>.
+<A href="../types/SE_Telephone_Information.htm#tdd_tty">tdd_tty[0]</A>
+</TD>
+<TD>
+ &quot;(555) 555-5555&quot;
+</TD></TR>
+<TR><TD>
+<A href="#contact_information">contact_information</A>.
+<A href="../types/SE_Contact_Information.htm#address">address</A>
+</TD>
+<TD>
+ {1,
+ {&quot;Air Force Weather Agency, Operating Location-M&quot;},
+ &quot;Asheville&quot;,
+ &quot;NC&quot;,
+ &quot;28801-5002&quot;,
+ {'u','s','a'}
+ 1,
+ {&quot;asne@afccc.af.mil&quot;}}
+</TD></TR>
+<TR><TD>
+<A href="#contact_information">contact_information</A>.
+<A href="../types/SE_Contact_Information.htm#online_resource">online_resource</A>
+</TD>
+<TD>
+{&quot;http://msea.afccc.af.mil&quot;,
+&quot;HTTP&quot;
+&quot;&quot;,
+&quot;ASNE&quot;,
+&quot;provides ASNE information&quot;
+ <A href="../types/SE_CI_OnlineFunctionCode.htm#SE_CIOLFCOD_INFORMATION">SE_CIOLFCOD_INFORMATION</A>
+ }
+</TD></TR>
+<TR><TD>
+<A href="#contact_information">contact_information</A>.
+<A href="../types/SE_Contact_Information.htm#hours_of_service">hours_of_service</A>
+</TD>
+<TD>
+ &quot;email preferred&quot;
+</TD></TR>
+<TR><TD>
+<A href="#contact_information">contact_information</A>.
+<A href="../types/SE_Contact_Information.htm#contact_instructions">contact_instructions</A>
+</TD>
+<TD>
+ &quot;email preferred&quot;
+</TD></TR>
+</TABLE>
+<P>
+ The corresponding <A href="RoleData.htm">&lt;Role Data&gt;</A> link object contains the
+ following data:
+</P>
+<TABLE>
+<TR><TD>
+<A href="RoleData.htm#role">role</A>
+</TD>
+<TD>
+<A href="../types/SE_CI_RoleCode.htm#SE_ROLECOD_POINT_OF_CONTACT">SE_ROLECOD_POINT_OF_CONTACT</A>
+</TD></TR>
+</TABLE>
+</LI>
+</OL>
+
+<h3>FAQs</h3>
+<p>
+No FAQs supplied.
+</p>
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/MandatoryMetadata.htm">&lt;&lt;Mandatory Metadata&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Component of (two-way)</h3>
+<UL>
+<li>zero or more <a href="Citation.htm">&lt;Citation&gt;</a> instances, each through the use of a <a href="RoleData.htm">&lt;Role Data&gt;</a> link object</li>
+<li>zero or more <a href="Identification.htm">&lt;Identification&gt;</a> instances, each through the use of a <a href="RoleData.htm">&lt;Role Data&gt;</a> link object</li>
+<li>zero or more <a href="ProcessStep.htm">&lt;Process Step&gt;</a> instances, each through the use of a <a href="RoleData.htm">&lt;Role Data&gt;</a> link object</li>
+</UL>
+
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_String.htm">SE_String</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="individual_name">individual_name</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_individual_name">1</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_String.htm">SE_String</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="organization_name">organization_name</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_organization_name">2</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_String.htm">SE_String</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="position_name">position_name</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_position_name">3</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Contact_Information.htm">SE_Contact_Information</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="contact_information">contact_information</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_contact_information">4</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Fields Notes</h3>
+<h4><a href="#individual_name" name="Notes_individual_name">individual_name</a></h4>
+<P>
+ If supplied, the <A href="#individual_name">individual_name</A> field
+ specifies the name of
+ the responsible person, in the form surname, given name,
+ title separated by delimiters.
+</P>
+<h4><a href="#organization_name" name="Notes_organization_name">organization_name</a></h4>
+<P>
+ The
+ <A href="#organization_name">organization_name</A>
+ field specifies the name of the supporting organization.
+</P>
+<h4><a href="#position_name" name="Notes_position_name">position_name</a></h4>
+<P>
+ If supplied, the
+ <A href="#position_name">position_name</A>
+ field specifies the role or position of the responsible person.
+</P>
+<h4><a href="#contact_information" name="Notes_contact_information">contact_information</a></h4>
+<P>
+ The <A href="#contact_information">contact_information</A> field
+ specifies the address of the responsible party.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="RenderingProperties.htm">Rendering Properties</A>.
+<strong>Next:</strong> <A href="RGBColour.htm">RGB Colour</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

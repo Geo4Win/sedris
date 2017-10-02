@@ -1,0 +1,179 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE CreateSearchFilter</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+SE CreateSearchFilter
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../types/SE_Return_Code.htm">SE_Return_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SE_CreateSearchFilter</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../types/SE_Encoding.htm">SE_Encoding</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="encoding"></a>encoding,</td><td class="CFunction"><sup><A href="#Notes_encoding">1</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">const&nbsp;</td><td class="CFunction"><a href="../types/SE_Search_Rule.htm">SE_Search_Rule</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="rules"></a>rules[],</td><td class="CFunction"><sup><A href="#Notes_rules">2</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../types/SE_Search_Filter.htm">SE_Search_Filter</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="search_filter"></a>search_filter</td><td class="CFunction"><sup><A href="#Notes_search_filter">3</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+  Defines a set of rules that can be used by an iterator to filter objects
+  from a transmittal so that only objects that pass the rules will
+  be returned to the user.  This function only defines a set of rules; to
+  use a set of rules after they have been defined, pass the search filter
+  into an iterator when creating the iterator.  By doing so, the iterator
+  will be bound to use that set of rules (that search filter) to filter
+  all objects that will be returned by that iterator.
+</P><P>
+  Search filters can be freed at any time; a search filter does
+  <EM>NOT</EM> need
+  to stay in existence until the iterator(s) that depend on that filter
+  are freed. (An iterator retains a copy of any search filter used to
+  initialize that iterator).  Also, the same search filter can be used to
+  initialize many iterators.
+</P><P>
+  See <A href="../types/SE_Search_Rule.htm">SE_Search_Rule</A> for further details
+  on how to construct a valid set of rules.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A>
+</td><td class="Status">
+ and the search filter is created.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A>
+</td><td class="Status">
+ and the status code is set appropriately if the call failed.
+</td></tr>
+</table>
+
+<h3>Status Codes</h3>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A> is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_SUCCESS">SE_STATCODE_SUCCESS</A>
+</td><td class="Status">
+ and a handle for the newly created search filter is copied into
+ <A href="#search_filter">*search_filter</A>,
+ if valid parameters were passed in and all operations succeeded.
+</td></tr>
+</table>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A> is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_INACTIONABLE_FAILURE">SE_STATCODE_INACTIONABLE_FAILURE</A>
+</td><td class="Status">
+ and <A href="#search_filter">*search_filter</A> is
+ left unaltered, if either search_filter or rules was NULL,
+ or encoding was required but was NULL.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_OUT_OF_MEMORY">SE_STATCODE_OUT_OF_MEMORY</A>
+</td><td class="Status">
+<A href="#search_filter">*search_filter</A> is set
+ to NULL, if the API could not allocate memory for the new search filter.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_INACTIONABLE_FAILURE">SE_STATCODE_INACTIONABLE_FAILURE</A>
+</td><td class="Status">
+<A href="#search_filter">*search_filter</A> is set
+ to NULL, if
+<OL>
+<LI> an illegal expression was specified by the
+ <A href="#rules">rules</A> parameter (for example, if
+ an AND expression within the array only had one parameter), or
+</LI>
+<LI> the call fails for any other reason.
+</LI>
+</OL>
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#encoding" name="Notes_encoding">1</a></sup>
+    identifies the API implementation encoding
+    to use when creating this search filter.  If the specified API can't
+    create the search filter, then the API will return a status code
+    indicating why it could not be created.  If encoding
+    is NULL, then the API implementation encoding to be used must be
+    statically bound at compile time.
+
+    See also SE_GetEncoding().
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#rules" name="Notes_rules">2</a></sup>
+ a postfix array defining a set of search rules to
+    be applied as a filter for one or more iterators. This must be a
+    'properly formed' set of rules (each AND expression must have two
+    parameters, each OR expression must have two parameters, each NOT
+    expression must have 1 parameter, the last entry in the array must be
+    a rule with a value of SE_SEARCHRULETYP_END, ...).  The end of the
+    array is indicated by the SE_SEARCHRULETYP_END entry.  Any entries
+    after an SE_SEARCHRULETYP_END entry will be ignored.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#search_filter" name="Notes_search_filter">3</a></sup>
+ pointer to the newly created search filter.
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SE_CreateObject.htm">SE_CreateObject</a>.
+<strong>Next:</strong> <a href="SE_CreateSpatialSearchBoundary.htm">SE_CreateSpatialSearchBoundary</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

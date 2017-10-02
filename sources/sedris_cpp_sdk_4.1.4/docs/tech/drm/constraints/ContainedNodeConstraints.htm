@@ -1,0 +1,252 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Contained Node Constraints</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX B - Constraints
+</font>
+<br>
+<font color="#ffffff">
+Contained Node Constraints
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<h3>Definition</h3>
+<P>
+ The following constraints apply to instances of
+ <A href="../classes/FeatureNode.htm">&lt;Feature Node&gt;</A>/<A href="../classes/GeometryNode.htm">&lt;Geometry Node&gt;</A> that
+ are contained within an instance of
+ <A href="../classes/FeatureFace.htm">&lt;Feature Face&gt;</A>/<A href="../classes/GeometryFace.htm">&lt;Geometry Face&gt;</A> or
+ <A href="../classes/FeatureVolume.htm">&lt;Feature Volume&gt;</A>/<A href="../classes/GeometryVolume.htm">&lt;Geometry Volume&gt;</A>,
+ respectively:
+</P>
+<OL type='a'>
+<LI><P>
+ A <A href="../classes/FeatureFace.htm">&lt;Feature Face&gt;</A> instance <span class="ConstructName">F</span> shall have
+ the following relationship with its associated
+ <A href="../classes/FeatureNode.htm">&lt;Feature Node&gt;</A> instances, if any exist.
+</P>
+<OL type='1'>
+<LI><P>
+ At any feature topology level, if <span class="ConstructName">F</span> is
+ associated with any <A href="../classes/FeatureNode.htm">&lt;Feature Node&gt;</A> instance
+ <span class="ConstructName">N</span>, <span class="ConstructName">N</span> shall lie within the
+ external ring of <span class="ConstructName">F</span>, if any, and shall not lie
+ within any of the internal rings of <span class="ConstructName">F</span>, if any.
+</P></LI>
+<LI><P>
+ At feature topology levels 3 and higher, if
+ a <A href="../classes/FeatureNode.htm">&lt;Feature Node&gt;</A> instance <span class="ConstructName">N</span> lies within the
+ boundaries of <span class="ConstructName">F</span>, <span class="ConstructName">N</span> shall be
+ associated with <span class="ConstructName">F</span>.
+</P></LI>
+<LI><P>
+ At any feature topology level, if no <A href="../classes/FeatureNode.htm">&lt;Feature Node&gt;</A> instances
+ lie within the boundaries of <span class="ConstructName">F</span>, <span class="ConstructName">F</span>
+ shall not be associated with any <A href="../classes/FeatureNode.htm">&lt;Feature Node&gt;</A> instances.
+</P></LI>
+</OL>
+</LI>
+<LI><P>
+ A <A href="../classes/FeatureVolume.htm">&lt;Feature Volume&gt;</A> instance <span class="ConstructName">V</span> shall
+ have the following relationship with its associated
+ <A href="../classes/FeatureNode.htm">&lt;Feature Node&gt;</A> instances, if any exist.
+</P>
+<OL type='1'>
+<LI><P>
+ At any feature topology level, if <span class="ConstructName">V</span> is associated
+ with any <A href="../classes/FeatureNode.htm">&lt;Feature Node&gt;</A> instance <span class="ConstructName">N</span>,
+ <span class="ConstructName">N</span> shall lie completely within the external shell
+ of <span class="ConstructName">V</span>, if any, and shall not lie within any of
+ the internal shells of <span class="ConstructName">V</span>, if any.
+</P></LI>
+<LI><P>
+ At feature topology levels 5 and higher, if a
+ <A href="../classes/FeatureNode.htm">&lt;Feature Node&gt;</A> instance <span class="ConstructName">N</span> lies within the
+ boundaries of <span class="ConstructName">V</span>, <span class="ConstructName">N</span> shall be
+ associated with <span class="ConstructName">V</span>.
+</P></LI>
+<LI><P>
+ At any feature topology level, if no <A href="../classes/FeatureNode.htm">&lt;Feature Node&gt;</A> instances
+ lie within the boundaries of <span class="ConstructName">V</span>, <span class="ConstructName">V</span>
+ shall not be associated with any <A href="../classes/FeatureNode.htm">&lt;Feature Node&gt;</A> instances.
+</P></LI>
+</OL>
+</LI>
+<LI><P>
+ A <A href="../classes/GeometryFace.htm">&lt;Geometry Face&gt;</A> instance <span class="ConstructName">F</span>
+ shall have the following relationship with its associated
+ <A href="../classes/GeometryNode.htm">&lt;Geometry Node&gt;</A> instances, if any exist.
+</P>
+<OL type='1'>
+<LI><P>
+ At any geometry topology level, if <span class="ConstructName">F</span> is associated
+ with any <A href="../classes/GeometryNode.htm">&lt;Geometry Node&gt;</A> instance <span class="ConstructName">N</span>,
+ <span class="ConstructName">N</span> shall lie within the interior of
+ <span class="ConstructName">F</span>.
+</P></LI>
+<LI><P>
+ At geometry topology levels 3 and higher, if
+ a <A href="../classes/GeometryNode.htm">&lt;Geometry Node&gt;</A> instance <span class="ConstructName">N</span> lies within the
+ interior of <span class="ConstructName">F</span>, <span class="ConstructName">N</span> shall be
+ associated with <span class="ConstructName">F</span>.
+</P></LI>
+<LI><P>
+ At any geometry topology level, if no <A href="../classes/GeometryNode.htm">&lt;Geometry Node&gt;</A> instances
+ lie within the boundaries of <span class="ConstructName">F</span>, <span class="ConstructName">F</span>
+ shall not be associated with any <A href="../classes/GeometryNode.htm">&lt;Geometry Node&gt;</A> instances.
+</P></LI>
+</OL>
+</LI>
+<LI><P>
+ A <A href="../classes/GeometryVolume.htm">&lt;Geometry Volume&gt;</A> instance <span class="ConstructName">V</span>
+ shall have the following relationship with its associated
+ <A href="../classes/GeometryNode.htm">&lt;Geometry Node&gt;</A> instances, if any exist.
+</P>
+<OL type='1'>
+<LI><P>
+ At any geometry topology level, if <span class="ConstructName">V</span> is
+ associated with any <A href="../classes/GeometryNode.htm">&lt;Geometry Node&gt;</A> instance <span class="ConstructName">N</span>,
+ <span class="ConstructName">N</span> shall lie within the interior of <span class="ConstructName">V</span>.
+</P></LI>
+<LI><P>
+ At geometry topology levels 5 and higher,
+ if a <A href="../classes/GeometryNode.htm">&lt;Geometry Node&gt;</A> instance
+ <span class="ConstructName">N</span> lies within the interior of
+ <span class="ConstructName">V</span>, <span class="ConstructName">N</span> shall be associated
+ with <span class="ConstructName">V</span>.
+</P></LI>
+<LI><P>
+ At any geometry topology level, if no <A href="../classes/GeometryNode.htm">&lt;Geometry Node&gt;</A> instances
+ lie within the interior of <span class="ConstructName">V</span>, <span class="ConstructName">V</span>
+ shall not be associated with any <A href="../classes/GeometryNode.htm">&lt;Geometry Node&gt;</A> instances.
+</P></LI>
+</OL>
+</LI>
+</OL>
+
+<h3>Rationale</h3>
+<P>
+ The associations between <A href="../classes/FeatureNode.htm">&lt;Feature Node&gt;</A>
+ and <A href="../classes/FeatureFace.htm">&lt;Feature Face&gt;</A>, and between
+ <A href="../classes/FeatureNode.htm">&lt;Feature Node&gt;</A> and
+ <A href="../classes/FeatureVolume.htm">&lt;Feature Volume&gt;</A>, implement
+ containment relationships.  These topological relationships
+ must be consistent, and must be consistent with the
+ geometric representations of these objects.
+</P><P>
+ The associations between <A href="../classes/GeometryNode.htm">&lt;Geometry Node&gt;</A>
+ and <A href="../classes/GeometryFace.htm">&lt;Geometry Face&gt;</A>, and between
+ <A href="../classes/GeometryNode.htm">&lt;Geometry Node&gt;</A> and
+ <A href="../classes/GeometryVolume.htm">&lt;Geometry Volume&gt;</A>, implement containment
+ relationships.  These topological relationships must be consistent,
+ and must be consistent with the geometric counterparts of these
+ objects.
+</P>
+<h3>Example</h3>
+<OL>
+<LI><P>
+ Consider a <A href="../classes/FeatureNode.htm">&lt;Feature Node&gt;</A> instance <span class="ConstructName">N1</span>
+ that is &quot;floating&quot; within the interior of a
+ <A href="../classes/FeatureVolume.htm">&lt;Feature Volume&gt;</A> instance <span class="ConstructName">V1</span>.
+ <span class="ConstructName">N1</span> is contained within <span class="ConstructName">V1</span>,
+ and <span class="ConstructName">V1</span> contains <span class="ConstructName">N1</span>.
+</P></LI>
+<LI><P>
+ Consider a <A href="../classes/GeometryNode.htm">&lt;Geometry Node&gt;</A> instance <span class="ConstructName">N1</span>
+ that is &quot;floating&quot; within the interior of a
+ <A href="../classes/GeometryVolume.htm">&lt;Geometry Volume&gt;</A> instance <span class="ConstructName">V1</span>.
+ <span class="ConstructName">N1</span> is contained within <span class="ConstructName">V1<span class="ConstructName">,
+ and <span class="ConstructName">V1<span class="ConstructName"> contains <span class="ConstructName">N1</span>.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ Can a <A href="../classes/FeatureNode.htm">&lt;Feature Node&gt;</A> instance <span class="ConstructName">N</span> that
+ is contained within the interior of a
+ <A href="../classes/FeatureFace.htm">&lt;Feature Face&gt;</A> instance <span class="ConstructName">F</span>
+ also be connected to a
+ <A href="../classes/FeatureEdge.htm">&lt;Feature Edge&gt;</A> instance <span class="ConstructName">E</span>?
+</B></DT>
+<DD><P>
+ Yes, provided that <span class="ConstructName">E</span> does not bound
+ <span class="ConstructName">F</span>. This is only possible within a
+ 3D SRF.
+</P></DD>
+<DT><B>
+ Can a <A href="../classes/GeometryNode.htm">&lt;Geometry Node&gt;</A> instance <span class="ConstructName">N</span> that
+ is contained within the interior of a
+ <A href="../classes/GeometryFace.htm">&lt;Geometry Face&gt;</A> instance <span class="ConstructName">F</span>
+ also be connected to a
+ <A href="../classes/GeometryEdge.htm">&lt;Geometry Edge&gt;</A> instance <span class="ConstructName">E</span>?
+</B></DT>
+<DD><P>
+ Yes, provided that <span class="ConstructName">E</span> does not bound
+ <span class="ConstructName">F</span>. This is only possible within a 3D SRF.
+</P></DD>
+<DT><B>
+ Can a <A href="../classes/FeatureNode.htm">&lt;Feature Node&gt;</A> instance <span class="ConstructName">N</span> that
+ is contained within the interior of a
+ <A href="../classes/FeatureVolume.htm">&lt;Feature Volume&gt;</A> instance <span class="ConstructName">V</span>
+ also be connected to a <A href="../classes/FeatureEdge.htm">&lt;Feature Edge&gt;</A> instance
+ <span class="ConstructName">E</span>?
+</B></DT>
+<DD><P>
+ Yes, provided that <span class="ConstructName">E</span> does not bound any of the
+ <A href="../classes/FeatureFace.htm">&lt;Feature Face&gt;</A> instances that in turn
+ bound <span class="ConstructName">V</span>.
+</P></DD>
+<DT><B>
+ Can a <A href="../classes/GeometryNode.htm">&lt;Geometry Node&gt;</A> instance <span class="ConstructName">N</span> that
+ is contained within the interior of a
+ <A href="../classes/GeometryVolume.htm">&lt;Geometry Volume&gt;</A> instance <span class="ConstructName">V</span>
+ also be connected to a
+ <A href="../classes/GeometryEdge.htm">&lt;Geometry Edge&gt;</A> instance <span class="ConstructName">E</span>?
+</B></DT>
+<DD><P>
+ Yes, provided that <span class="ConstructName">E</span> does not bound any of the
+ <A href="../classes/GeometryFace.htm">&lt;Geometry Face&gt;</A> instances that in turn
+ bound <span class="ConstructName">V</span>.
+</P></DD>
+</DL>
+
+
+<hr>
+<strong>Prev:</strong> <A href="ContainedEdgeConstraints.htm">Contained Edge Constraints</A>.
+<strong>Next:</strong> <A href="ContinuousLODConstraints.htm">Continuous LOD Constraints</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

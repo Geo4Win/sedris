@@ -1,0 +1,197 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Property Set Index Control Link</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Property Set Index Control Link
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Property Set Index Control Link</h2>
+<h3>Superclass - <a href="ControlLink.htm">&lt;Control Link&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies
+ an <A href="Expression.htm">&lt;Expression&gt;</A> instance that determines the
+ <A href="PropertySetIndex.htm#index">index</A> field value of all
+ target <A href="PropertySetIndex.htm">&lt;Property Set Index&gt;</A>
+ instances, thus controlling which
+ <A href="PropertySet.htm">&lt;Property Set&gt;</A> instance is referenced by
+ each such <A href="PropertySetIndex.htm">&lt;Property Set Index&gt;</A>
+ instance.
+</P><P class=Note>
+NOTE&nbsp; 
+ Since each controlled
+ <A href="PropertySetIndex.htm">&lt;Property Set Index&gt;</A> instance may be
+ bound to a different
+ <A href="PropertySetTableGroup.htm">&lt;Property Set Table Group&gt;</A>
+ instance, and thus to a different primary
+ <A href="PropertySetTable.htm">&lt;Property Set Table&gt;</A> instance, the
+ fact that their <A href="PropertySetIndex.htm#index">index</A> values
+ are the same does not mean that the set of
+ <A href="PropertySetIndex.htm">&lt;Property Set Index&gt;</A>
+ instances controlled by a given
+ <A href="PropertySetIndexControlLink.htm">&lt;Property Set Index Control Link&gt;</A>
+ instance reference the same
+ <A href="PropertySet.htm">&lt;Property Set&gt;</A> instance.
+</p>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet17.pdf"><strong>17</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet19.pdf"><strong>19</strong></A>
+</LI>
+</UL>
+
+<h3>Example</h3>
+<OL>
+<LI><P>
+ A tree canopy appears different at different times of the year, with
+ a different colour and texture. This can be achieved by using a
+ different <A href="PropertySet.htm">&lt;Property Set&gt;</A> instance for each period of the
+ year. Each <A href="PropertySet.htm">&lt;Property Set&gt;</A> instance contains
+ the appropriate <A href="Colour.htm">&lt;Colour&gt;</A> instance(s) and
+ <A href="ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</A> instance(s). A
+ <A href="PropertySetIndexControlLink.htm">&lt;Property Set Index Control Link&gt;</A>
+ instance is used to allow the appropriate
+ <A href="PropertySet.htm">&lt;Property Set&gt;</A> instance to be selected.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ What does a
+ <A href="PropertySetIndexControlLink.htm">&lt;Property Set Index Control Link&gt;</A>
+ instance control?
+</B></DT>
+<DD><P>
+ A <A href="PropertySetIndexControlLink.htm">&lt;Property Set Index Control Link&gt;</A>
+ instance <span class="ConstructName">C</span> controls the value of the
+ <A href="PropertySetIndex.htm#index">index</A> stored in each
+ <A href="PropertySetIndex.htm">&lt;Property Set Index&gt;</A> instance
+ that references <span class="ConstructName">C</span>.
+</P></DD>
+<DT><B>
+ Can a <A href="PropertySetIndexControlLink.htm">&lt;Property Set Index Control Link&gt;</A> instance
+ be used to change which <A href="PropertySetTable.htm">&lt;Property Set Table&gt;</A>
+ component of a <A href="PropertySetTableGroup.htm">&lt;Property Set Table Group&gt;</A>
+ instance is referenced?
+</B></DT>
+<DD><P>
+ No. The <A href="PropertySetIndex.htm#index">index</A> always refers
+ to the primary <A href="PropertySetTable.htm">&lt;Property Set Table&gt;</A> component.
+</P></DD>
+<DT><B>
+ Can a <A href="PropertySetIndexControlLink.htm">&lt;Property Set Index Control Link&gt;</A>
+ instance be used to switch from one
+ <A href="PropertySetTableGroup.htm">&lt;Property Set Table Group&gt;</A> instance
+ to a different
+ <A href="PropertySetTableGroup.htm">&lt;Property Set Table Group&gt;</A> instance?
+</B></DT>
+<DD><P>
+ No. The link to the <A href="PropertySetTableGroup.htm">&lt;Property Set Table Group&gt;</A>
+ instance is an association within the transmittal, and associations cannot
+ be changed dynamically.
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ControlLinkConstraints.htm">&lt;&lt;Control Link Constraints&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Composed of (two-way) (inherited)</h3>
+<UL>
+<li>one or more {ordered} <a href="Expression.htm">&lt;Expression&gt;</a> instances</li>
+</UL>
+<h3>Component of (two-way)</h3>
+<UL>
+<li>one or more <a href="PropertySetIndex.htm">&lt;Property Set Index&gt;</a> instances</li>
+</UL>
+
+<h2><a name="inherited_field">Inherited Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_String.htm">SE_String</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="description">description</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_description">1</A></sup></p></td>
+</tr>
+</table>
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Integer_Positive.htm">SE_Integer_Positive</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="expression_index">expression_index</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_expression_index">2</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Fields Notes</h3>
+<h4><a href="#description" name="Notes_description">description</a></h4>
+<P>
+ The <A href="#description">description</A> field
+ specifies a text description of the purpose of the
+ <A href="ControlLink.htm">&lt;Control Link&gt;</A> instance.
+</P>
+<h4><a href="#expression_index" name="Notes_expression_index">expression_index</a></h4>
+<P>
+ The <A href="#expression_index">expression_index</A> field specifies the
+ <A href="Expression.htm">&lt;Expression&gt;</A> component, the value of which
+ controls the <A href="PropertySetIndex.htm#index">index</A>
+ of the affected <A href="PropertySetIndex.htm">&lt;Property Set Index&gt;</A> instances.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="PropertySetIndex.htm">Property Set Index</A>.
+<strong>Next:</strong> <A href="PropertySetTable.htm">Property Set Table</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

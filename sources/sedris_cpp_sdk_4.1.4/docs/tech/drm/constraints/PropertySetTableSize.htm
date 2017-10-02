@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Property Set Table Size</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX B - Constraints
+</font>
+<br>
+<font color="#ffffff">
+Property Set Table Size
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<h3>Definition</h3>
+<P>
+ For a given <A href="../classes/PropertySetTableGroup.htm">&lt;Property Set Table Group&gt;</A> instance
+ <span class="ConstructName">G</span> with
+ <A href="../classes/PropertySetTableGroup.htm#table_size">table_size</A>
+ = k, each <A href="../classes/PropertySetTable.htm">&lt;Property Set Table&gt;</A> component
+ <span class="ConstructName">T</span>of <span class="ConstructName">G</span> shall have
+ k <A href="../classes/PropertySet.htm">&lt;Property Set&gt;</A> components.
+</P><P>
+ For any given <span class="ConstructName">T</span> within <span class="ConstructName">G</span>, if
+ the <A href="../classes/PropertySetTable.htm#regular">regular</A> field of
+ <span class="ConstructName">T</span> has value <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A>, each of the
+ k <A href="../classes/PropertySet.htm">&lt;Property Set&gt;</A> components of <span class="ConstructName">T</span> shall contain
+ the same number of DRM objects, and these DRM objects shall belong
+ to the same classes. If the <A href="../classes/PropertySetTable.htm#regular">regular</A>
+ field of <span class="ConstructName">T</span> has value <A href="../types/SE_Boolean.htm#SE_FALSE">SE_FALSE</A>,
+ no such constraint holds.
+</P><P class=Note>
+NOTE&nbsp; 
+ <span class="ConstructName">G</span> may have both regular and non-regular
+ <A href="../classes/PropertySetTable.htm">&lt;Property Set Table&gt;</A> components and, even if all
+ <A href="../classes/PropertySetTable.htm">&lt;Property Set Table&gt;</A> components of <span class="ConstructName">G</span>
+ are regular, there is no constraint that they are all regular in the
+ same way.
+</p>
+
+<h3>Rationale</h3>
+<P>
+ This is a requirement in order to allow the
+ <A href="../classes/PropertySetTable.htm">&lt;Property Set Table&gt;</A> components within
+ a <A href="../classes/PropertySetTableGroup.htm">&lt;Property Set Table Group&gt;</A> instance
+ to be interchangeable.
+</P>
+<h3>Example</h3>
+<OL>
+<LI><P>
+ Consider a <A href="../classes/PropertySetTableGroup.htm">&lt;Property Set Table Group&gt;</A> instance that
+ contains three <A href="../classes/PropertySetTable.htm">&lt;Property Set Table&gt;</A> components:
+ one for an OTW view, one for a RADAR view, and
+ one for an infrared view. All three
+ <A href="../classes/PropertySetTable.htm">&lt;Property Set Table&gt;</A> instances contain
+ 234 <A href="../classes/PropertySet.htm">&lt;Property Set&gt;</A> instances. Entry
+ 234 in each <A href="../classes/PropertySetTable.htm">&lt;Property Set Table&gt;</A> contains
+ a <A href="../classes/PropertySet.htm">&lt;Property Set&gt;</A> for the representation of
+ &quot;steel&quot; in the three different domains.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<p>
+No FAQs supplied.
+</p>
+
+<hr>
+<strong>Prev:</strong> <A href="PropertyGridConstraints.htm">Property Grid Constraints</A>.
+<strong>Next:</strong> <A href="PublishableObject.htm">Publishable Object</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>EDCS UnitEquivalenceMembership</title>
+<link rel="stylesheet" href="../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>EDCS Reference Manual</big></big>
+<br>
+<!-- EDCS spec. 4.4 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+EDCS UnitEquivalenceMembership
+</font>
+</th></tr>
+</table></div>
+
+<!-- EDCS SDK Release 4.4.0 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../types/EDCS_Status_Code.htm">EDCS_Status_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">EDCS_UnitEquivalenceMembership</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1"><td class="CFunction">const&nbsp;</td><td class="CFunction"><a href="../types/EDCS_Unit_Code.htm">EDCS_Unit_Code</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="eu_code_in"></a>eu_code_in,</td><td class="CFunction"><sup><A href="#Notes_eu_code_in">1</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">const&nbsp;</td><td class="CFunction"><a href="../types/EDCS_Unit_Equivalence_Code.htm">EDCS_Unit_Equivalence_Code</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="eq_code_in"></a>eq_code_in,</td><td class="CFunction"><sup><A href="#Notes_eq_code_in">2</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../types/EDCS_Boolean.htm">EDCS_Boolean</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="result_out_ptr"></a>result_out_ptr</td><td class="CFunction"><sup><A href="#Notes_result_out_ptr">3</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+  Determines if the given EU is a member of the given EQ.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/EDCS_Status_Code.htm#EDCS_SC_SUCCESS">EDCS_SC_SUCCESS</A>
+</td><td class="Status">
+ and <A href="#result_out_ptr">*result_out_ptr</A> is set to the
+ appropriate value, if valid parameters were passed in.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/EDCS_Status_Code.htm#EDCS_SC_NULL_REQUIRED_PARAMETER">EDCS_SC_NULL_REQUIRED_PARAMETER</A>
+</td><td class="Status">
+ and no changes are made, if any parameter is NULL.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/EDCS_Status_Code.htm#EDCS_SC_INVALID_INPUT_CODE">EDCS_SC_INVALID_INPUT_CODE</A>
+</td><td class="Status">
+ and no changes are made, if <A href="#eu_code_in">eu_code_in</A>
+ does not correspond to a valid EU, or if
+ <A href="#eq_code_in">eq_code_in</A> does not correspond to a valid EQ.
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#eu_code_in" name="Notes_eu_code_in">1</a></sup>
+ handle to the EU code for which information is requested
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#eq_code_in" name="Notes_eq_code_in">2</a></sup>
+ handle to the EQ code to check membership for the give
+    EU code
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#result_out_ptr" name="Notes_result_out_ptr">3</a></sup>
+ pointer to a variable in the user's memory into which
+    the boolean result (EDCS_TRUE or EDCS_FALSE) will be copied
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="EDCS_SymbolicConstantToEVCode.htm">EDCS_SymbolicConstantToEVCode</a>.
+<strong>Next:</strong> <a href="EDCS_UnitsAreEquivalent.htm">EDCS_UnitsAreEquivalent</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

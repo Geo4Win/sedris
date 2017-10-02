@@ -1,0 +1,59 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "all_sdk", "src\all_sdk.vcproj", "{8AAFF72E-06A9-4E85-91AC-B7FF4613B5CA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{743C2B1C-A8D5-4E4A-884A-32D36E861414} = {743C2B1C-A8D5-4E4A-884A-32D36E861414}
+		{209DE128-0EE4-40B7-840B-283C6553C0DA} = {209DE128-0EE4-40B7-840B-283C6553C0DA}
+		{1291678E-0823-41E1-8446-53214E9A3B53} = {1291678E-0823-41E1-8446-53214E9A3B53}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lib_map_dynamic", "src\lib\lib_map_dynamic.vcproj", "{A1F429C8-AE72-44CF-BF4E-E759EA6A8A59}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "map_FACC_attribute_integer", "src\apps\sample_attribute_integer_mapping\map_FACC_attribute_integer_dynamic.vcproj", "{743C2B1C-A8D5-4E4A-884A-32D36E861414}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A1F429C8-AE72-44CF-BF4E-E759EA6A8A59} = {A1F429C8-AE72-44CF-BF4E-E759EA6A8A59}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "map_FACC_attribute", "src\apps\sample_attribute_mapping\map_FACC_attribute_dynamic.vcproj", "{209DE128-0EE4-40B7-840B-283C6553C0DA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A1F429C8-AE72-44CF-BF4E-E759EA6A8A59} = {A1F429C8-AE72-44CF-BF4E-E759EA6A8A59}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "map_FACC_feature", "src\apps\sample_feature_mapping\map_FACC_feature_dynamic.vcproj", "{1291678E-0823-41E1-8446-53214E9A3B53}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A1F429C8-AE72-44CF-BF4E-E759EA6A8A59} = {A1F429C8-AE72-44CF-BF4E-E759EA6A8A59}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{8AAFF72E-06A9-4E85-91AC-B7FF4613B5CA}.Debug.ActiveCfg = Debug|Win32
+		{8AAFF72E-06A9-4E85-91AC-B7FF4613B5CA}.Debug.Build.0 = Debug|Win32
+		{8AAFF72E-06A9-4E85-91AC-B7FF4613B5CA}.Release.ActiveCfg = Release|Win32
+		{8AAFF72E-06A9-4E85-91AC-B7FF4613B5CA}.Release.Build.0 = Release|Win32
+		{A1F429C8-AE72-44CF-BF4E-E759EA6A8A59}.Debug.ActiveCfg = Debug|Win32
+		{A1F429C8-AE72-44CF-BF4E-E759EA6A8A59}.Debug.Build.0 = Debug|Win32
+		{A1F429C8-AE72-44CF-BF4E-E759EA6A8A59}.Release.ActiveCfg = Release|Win32
+		{A1F429C8-AE72-44CF-BF4E-E759EA6A8A59}.Release.Build.0 = Release|Win32
+		{743C2B1C-A8D5-4E4A-884A-32D36E861414}.Debug.ActiveCfg = Debug|Win32
+		{743C2B1C-A8D5-4E4A-884A-32D36E861414}.Debug.Build.0 = Debug|Win32
+		{743C2B1C-A8D5-4E4A-884A-32D36E861414}.Release.ActiveCfg = Release|Win32
+		{743C2B1C-A8D5-4E4A-884A-32D36E861414}.Release.Build.0 = Release|Win32
+		{209DE128-0EE4-40B7-840B-283C6553C0DA}.Debug.ActiveCfg = Debug|Win32
+		{209DE128-0EE4-40B7-840B-283C6553C0DA}.Debug.Build.0 = Debug|Win32
+		{209DE128-0EE4-40B7-840B-283C6553C0DA}.Release.ActiveCfg = Release|Win32
+		{209DE128-0EE4-40B7-840B-283C6553C0DA}.Release.Build.0 = Release|Win32
+		{1291678E-0823-41E1-8446-53214E9A3B53}.Debug.ActiveCfg = Debug|Win32
+		{1291678E-0823-41E1-8446-53214E9A3B53}.Debug.Build.0 = Debug|Win32
+		{1291678E-0823-41E1-8446-53214E9A3B53}.Release.ActiveCfg = Release|Win32
+		{1291678E-0823-41E1-8446-53214E9A3B53}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

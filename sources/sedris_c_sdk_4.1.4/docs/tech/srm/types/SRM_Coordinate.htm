@@ -1,0 +1,158 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SRM_Coordinate</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SRM Reference Manual</big></big>
+<br>
+<!-- SRM spec. 4.1 -->
+<font color="#ffffff">
+Types
+</font>
+<br>
+<font color="#ffffff">
+SRM_Coordinate
+</font>
+</th></tr>
+</table></div>
+
+<!-- SRM SDK Release 4.1.4 -->
+
+<PRE>
+/*!
+ * STRUCT: SRM_Coordinate
+ *
+ *  A tagged union structure used to store the values for an
+ *  individual coordinate.
+ */
+</PRE>
+<span class="Code">typedef struct 
+<br>
+{</span>
+<br>
+<table class="CFunctionPrototype">
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SRM_Spatial_Coordinate_Code.htm">SRM_Spatial_Coordinate_Code</a></td>
+        <td class="CFunction"><a
+        name="spatial_coord_code"></a>spatial_coord_code;</td></tr>
+<tr> <td class="CFunction">   </td><td class="CFunction">union _SRM_Coordinate_Union</td></tr>
+<tr> <td class="CFunction">   </td><td class="CFunction">{</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SRM_Euclidean_3D_Coordinate.htm">SRM_Euclidean_3D_Coordinate</a></td>
+            <td class="CFunction"><a name="cc_3d"></a>cc_3d;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SRM_CD_3D_Coordinate.htm">SRM_CD_3D_Coordinate</a></td>
+            <td class="CFunction"><a name="cd_3d"></a>cd_3d;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SRM_CD_Surface_Coordinate.htm">SRM_CD_Surface_Coordinate</a></td>
+            <td class="CFunction"><a name="cd_surface"></a>cd_surface;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SRM_Spherical_3D_Coordinate.htm">SRM_Spherical_3D_Coordinate</a></td>
+            <td class="CFunction"><a name="cm_3d"></a>cm_3d;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SRM_Map_Projection_3D_Coordinate.htm">SRM_Map_Projection_3D_Coordinate</a></td>
+            <td class="CFunction"><a name="ec_aug_3d"></a>ec_aug_3d;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SRM_Map_Projection_Surface_Coordinate.htm">SRM_Map_Projection_Surface_Coordinate</a></td>
+            <td class="CFunction"><a name="ec_surface"></a>ec_surface;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SRM_EI_3D_Coordinate.htm">SRM_EI_3D_Coordinate</a></td>
+            <td class="CFunction"><a name="ei_3d"></a>ei_3d;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SRM_Spherical_3D_Coordinate.htm">SRM_Spherical_3D_Coordinate</a></td>
+            <td class="CFunction"><a name="haec_3d"></a>haec_3d;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SRM_Spherical_3D_Coordinate.htm">SRM_Spherical_3D_Coordinate</a></td>
+            <td class="CFunction"><a name="heec_3d"></a>heec_3d;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SRM_Spherical_3D_Coordinate.htm">SRM_Spherical_3D_Coordinate</a></td>
+            <td class="CFunction"><a name="heeq_3d"></a>heeq_3d;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SRM_Map_Projection_3D_Coordinate.htm">SRM_Map_Projection_3D_Coordinate</a></td>
+            <td class="CFunction"><a name="lcc_aug_3d"></a>lcc_aug_3d;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SRM_Map_Projection_Surface_Coordinate.htm">SRM_Map_Projection_Surface_Coordinate</a></td>
+            <td class="CFunction"><a name="lcc_surface"></a>lcc_surface;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SRM_Euclidean_3D_Coordinate.htm">SRM_Euclidean_3D_Coordinate</a></td>
+            <td class="CFunction"><a name="lce_3d"></a>lce_3d;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SRM_LSA_2D_Coordinate.htm">SRM_LSA_2D_Coordinate</a></td>
+            <td class="CFunction"><a name="lsa_2d"></a>lsa_2d;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SRM_LSP_2D_Coordinate.htm">SRM_LSP_2D_Coordinate</a></td>
+            <td class="CFunction"><a name="lsp_2d"></a>lsp_2d;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SRM_Euclidean_2D_Coordinate.htm">SRM_Euclidean_2D_Coordinate</a></td>
+            <td class="CFunction"><a name="lsr_2d"></a>lsr_2d;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SRM_Euclidean_3D_Coordinate.htm">SRM_Euclidean_3D_Coordinate</a></td>
+            <td class="CFunction"><a name="lsr_3d"></a>lsr_3d;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SRM_LTSAS_3D_Coordinate.htm">SRM_LTSAS_3D_Coordinate</a></td>
+            <td class="CFunction"><a name="ltsas_3d"></a>ltsas_3d;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SRM_LTSAS_Surface_Coordinate.htm">SRM_LTSAS_Surface_Coordinate</a></td>
+            <td class="CFunction"><a
+            name="ltsas_surface"></a>ltsas_surface;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SRM_LTSC_3D_Coordinate.htm">SRM_LTSC_3D_Coordinate</a></td>
+            <td class="CFunction"><a name="ltsc_3d"></a>ltsc_3d;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SRM_LTSC_Surface_Coordinate.htm">SRM_LTSC_Surface_Coordinate</a></td>
+            <td class="CFunction"><a name="ltsc_surface"></a>ltsc_surface;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SRM_LTSE_3D_Coordinate.htm">SRM_LTSE_3D_Coordinate</a></td>
+            <td class="CFunction"><a name="ltse_3d"></a>ltse_3d;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SRM_LTSE_Surface_Coordinate.htm">SRM_LTSE_Surface_Coordinate</a></td>
+            <td class="CFunction"><a name="ltse_surface"></a>ltse_surface;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SRM_Map_Projection_3D_Coordinate.htm">SRM_Map_Projection_3D_Coordinate</a></td>
+            <td class="CFunction"><a name="m_aug_3d"></a>m_aug_3d;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SRM_Map_Projection_Surface_Coordinate.htm">SRM_Map_Projection_Surface_Coordinate</a></td>
+            <td class="CFunction"><a name="m_surface"></a>m_surface;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SRM_Map_Projection_3D_Coordinate.htm">SRM_Map_Projection_3D_Coordinate</a></td>
+            <td class="CFunction"><a name="oms_aug_3d"></a>oms_aug_3d;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SRM_Map_Projection_Surface_Coordinate.htm">SRM_Map_Projection_Surface_Coordinate</a></td>
+            <td class="CFunction"><a name="oms_surface"></a>oms_surface;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SRM_PD_3D_Coordinate.htm">SRM_PD_3D_Coordinate</a></td>
+            <td class="CFunction"><a name="pd_3d"></a>pd_3d;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SRM_PD_Surface_Coordinate.htm">SRM_PD_Surface_Coordinate</a></td>
+            <td class="CFunction"><a name="pd_surface"></a>pd_surface;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SRM_Map_Projection_3D_Coordinate.htm">SRM_Map_Projection_3D_Coordinate</a></td>
+            <td class="CFunction"><a name="ps_aug_3d"></a>ps_aug_3d;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SRM_Map_Projection_Surface_Coordinate.htm">SRM_Map_Projection_Surface_Coordinate</a></td>
+            <td class="CFunction"><a name="ps_surface"></a>ps_surface;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SRM_Spherical_3D_Coordinate.htm">SRM_Spherical_3D_Coordinate</a></td>
+            <td class="CFunction"><a name="sec_3d"></a>sec_3d;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SRM_Spherical_3D_Coordinate.htm">SRM_Spherical_3D_Coordinate</a></td>
+            <td class="CFunction"><a name="seq_3d"></a>seq_3d;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SRM_Spherical_3D_Coordinate.htm">SRM_Spherical_3D_Coordinate</a></td>
+            <td class="CFunction"><a name="smd_3d"></a>smd_3d;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SRM_Spherical_3D_Coordinate.htm">SRM_Spherical_3D_Coordinate</a></td>
+            <td class="CFunction"><a name="sme_3d"></a>sme_3d;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SRM_Map_Projection_3D_Coordinate.htm">SRM_Map_Projection_3D_Coordinate</a></td>
+            <td class="CFunction"><a name="tm_aug_3d"></a>tm_aug_3d;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SRM_Map_Projection_Surface_Coordinate.htm">SRM_Map_Projection_Surface_Coordinate</a></td>
+            <td class="CFunction"><a name="tm_surface"></a>tm_surface;</td></tr>
+<tr><td class="CFunction"></td> <td class="CFunction">} <a
+        name="coordinate"></a>coordinate;</td></tr>
+</table>
+<span class="Code">
+} SRM_Coordinate;</span>
+<br>
+
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SRM_CD_Surface_Coordinate.htm">SRM_CD_Surface_Coordinate</a>.
+<strong>Next:</strong> <a href="SRM_Coordinate_Valid_Region.htm">SRM_Coordinate_Valid_Region</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

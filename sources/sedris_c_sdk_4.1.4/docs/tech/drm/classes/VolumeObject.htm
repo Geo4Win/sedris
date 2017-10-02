@@ -1,0 +1,186 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Volume Object</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Volume Object
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Volume Object</h2>
+<h3>Superclass - <a href="VolumeGeometry.htm">&lt;Volume Geometry&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies a <A href="VolumeGeometry.htm">&lt;Volume Geometry&gt;</A>
+ instance using a <A href="Location3D.htm">&lt;Location 3D&gt;</A> component to position the
+ geometry and a <A href="VolumeExtent.htm">&lt;Volume Extent&gt;</A> component to define the
+ shape.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet05.pdf"><strong>5</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet13.pdf"><strong>13</strong></A>
+</LI>
+</UL>
+
+<h3>Example</h3>
+<OL>
+<LI><P>
+ A <A href="VolumeObject.htm">&lt;Volume Object&gt;</A> instance represents a
+ column of a building by specifying a cylindrical shape.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<p>
+No FAQs supplied.
+</p>
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ConstraintsOnComponents.htm">&lt;&lt;Constraints On Components&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/NonCyclicAggregations.htm">&lt;&lt;Non Cyclic Aggregations&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/PrecedenceofPropertySetIndex.htm">&lt;&lt;Precedence of Property Set Index&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/PropertyConstraints.htm">&lt;&lt;Property Constraints&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ColourMappingConstraints.htm">&lt;&lt;Colour Mapping Constraints&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ContinuousLODConstraints.htm">&lt;&lt;Continuous LOD Constraints&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ImageMappingFunctionsandTextureCoordinates.htm">&lt;&lt;Image Mapping Functions and Texture Coordinates&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/NestedPrimitiveGeometry.htm">&lt;&lt;Nested Primitive Geometry&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/PresentationDomainConstraints.htm">&lt;&lt;Presentation Domain Constraints&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/CylindricalStructure.htm">&lt;&lt;Cylindrical Structure&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Associated with (two-way)</h3>
+<UL>
+<li>zero or one <a href="GeometryNode.htm">&lt;Geometry Node&gt;</a> instance<sup><A href="#Notes_asn_biGeometry_Node" name="asn_biGeometry_Node">1</A></sup></li>
+</UL>
+
+<h3>Composed of (two-way) (inherited)</h3>
+<UL>
+<li>zero or one <a href="ClassificationData.htm">&lt;Classification Data&gt;</a> instance</li>
+<li>zero or more {ordered} <a href="PropertySetIndex.htm">&lt;Property Set Index&gt;</a> instances</li>
+<li>zero or more <a href="PropertyTable.htm">&lt;Property Table&gt;</a> instances</li>
+<li>zero or more <a href="PropertyTableReference.htm">&lt;Property Table Reference&gt;</a> instances</li>
+<li>zero or more <a href="PropertyValue.htm">&lt;Property Value&gt;</a> instances</li>
+<li>zero or more <a href="Colour.htm">&lt;Colour&gt;</a> instances</li>
+<li>zero or more {ordered} <a href="ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</a> instances</li>
+<li>zero or one <a href="LightRenderingProperties.htm">&lt;Light Rendering Properties&gt;</a> instance</li>
+<li>zero or one <a href="PresentationDomain.htm">&lt;Presentation Domain&gt;</a> instance</li>
+<li>zero or one <a href="RenderingPriorityLevel.htm">&lt;Rendering Priority Level&gt;</a> instance</li>
+<li>zero or one <a href="RenderingProperties.htm">&lt;Rendering Properties&gt;</a> instance</li>
+<li>zero or more <a href="TackPoint.htm">&lt;Tack Point&gt;</a> instances</li>
+<li>zero or one <a href="UnionOfPrimitiveGeometry.htm">&lt;Union Of Primitive Geometry&gt;</a> instance<sup><A href="#Notes_cmp_Union_Of_Primitive_Geometry" name="cmp_Union_Of_Primitive_Geometry">2</A></sup></li>
+</UL>
+<h3>Composed of (two-way)</h3>
+<UL>
+<li>one <a href="Location3D.htm">&lt;Location 3D&gt;</a> instance<sup><A href="#Notes_cmp_Location_3D" name="cmp_Location_3D">3</A></sup></li>
+<li>one <a href="VolumeExtent.htm">&lt;Volume Extent&gt;</a> instance</li>
+</UL>
+
+<h3>Composed of (two-way metadata) (inherited)</h3>
+<UL>
+<li>zero or one <a href="TimeConstraintsData.htm">&lt;Time Constraints Data&gt;</a> instance</li>
+</UL>
+<h3>Component of (two-way) (inherited)</h3>
+<UL>
+<li>zero or more <a href="UnionOfPrimitiveGeometry.htm">&lt;Union Of Primitive Geometry&gt;</a> instances</li>
+</UL>
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<hr>
+<h2>Notes</h2>
+<h3>Associated with Notes</h3>
+<br>
+<h4><a href="#asn_biGeometry_Node" name="Notes_asn_biGeometry_Node">Geometry_Node</a></h4>
+ This <A href="GeometryNode.htm">&lt;Geometry Node&gt;</A> instance corresponds to the
+ <A href="Location3D.htm">&lt;Location 3D&gt;</A> component of the
+ <A href="VolumeObject.htm">&lt;Volume Object&gt;</A> instance.
+</P>
+<h3>Composed of Notes</h3>
+<br>
+<h4><a href="#cmp_Union_Of_Primitive_Geometry" name="Notes_cmp_Union_Of_Primitive_Geometry">Union_Of_Primitive_Geometry</a></h4>
+ A <A href="PrimitiveGeometry.htm">&lt;Primitive Geometry&gt;</A> instance <span class="ConstructName">P</span>
+ has a <A href="UnionOfPrimitiveGeometry.htm">&lt;Union Of Primitive Geometry&gt;</A> component only when
+ <span class="ConstructName">P</span> can be decomposed into nested
+ <A href="PrimitiveGeometry.htm">&lt;Primitive Geometry&gt;</A> instances.
+</P><P class=DataItemNoteExample>
+EXAMPLE&nbsp; 
+ A <A href="Polygon.htm">&lt;Polygon&gt;</A> instance can be decomposed into multiple
+ <A href="Polygon.htm">&lt;Polygon&gt;</A> instances representing subfaces.
+</p>
+<br>
+<h4><a href="#cmp_Location_3D" name="Notes_cmp_Location_3D">Location_3D</a></h4>
+ The <A href="Location3D.htm">&lt;Location 3D&gt;</A> component specifies the centre of the
+ volume specified by the <A href="VolumeExtent.htm">&lt;Volume Extent&gt;</A> component.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="VolumeLODData.htm">Volume LOD Data</A>.
+<strong>Next:</strong> <A href="VolumetricFeature.htm">Volumetric Feature</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

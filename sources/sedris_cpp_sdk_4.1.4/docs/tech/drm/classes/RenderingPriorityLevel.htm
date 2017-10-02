@@ -1,0 +1,266 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Rendering Priority Level</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Rendering Priority Level
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Rendering Priority Level</h2>
+<h3>Superclass - <a href="SEDRISAbstractBase.htm">&lt;SEDRIS Abstract Base&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies the method used to describe
+ the relative priority used to resolve occlusion between two or more
+ overlapping (or potentially overlapping) objects.
+</P><P>
+ Priority is indicated by the group ID
+ (<A href="#rendering_group">rendering_group</A>)
+ and priority index
+ (<A href="#rendering_priority">rendering_priority</A>). The
+ <A href="#rendering_priority">rendering_priority</A> is relative to the
+ <A href="#rendering_group">rendering_group</A>,
+ and is intended to assign priority order (or layer) to coplanar
+ <A href="Polygon.htm">&lt;Polygon&gt;</A> instances or coplanar
+ <A href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> instances.
+ A higher index indicates a higher rendering priority (rendered last).
+ The scope of the group ID values is the entire transmittal.
+</P><P>
+ Lower numbered priority groups are rendered before
+ higher numbered priority groups.
+</P><P>
+ <A href="RenderingPriorityLevel.htm">&lt;Rendering Priority Level&gt;</A> instance may be components of
+ <A href="GeometryRepresentation.htm">&lt;Geometry Representation&gt;</A> instances and/or
+ <A href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> instances within a
+ <A href="UnionOfGeometry.htm">&lt;Union Of Geometry&gt;</A> instance or
+ <A href="UnionOfFeatures.htm">&lt;Union Of Features&gt;</A> instance, as appropriate,
+ to override the ordering specified by the
+ <span class="Code">ordering_reason</span> field.
+</P><P>
+ DRM objects that do not specify a
+ <A href="RenderingPriorityLevel.htm">&lt;Rendering Priority Level&gt;</A> instance are assumed
+ to have a <A href="#rendering_priority">rendering_priority</A>
+ value of 0.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet03.pdf"><strong>3</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet04.pdf"><strong>4</strong></A>
+</LI>
+<LI><A href="sheet05.pdf"><strong>5</strong></A>
+</LI>
+<LI><A href="sheet07.pdf"><strong>7</strong></A>
+</LI>
+<LI><A href="sheet08.pdf"><strong>8</strong></A>
+</LI>
+<LI><A href="sheet19.pdf"><strong>19</strong></A>
+</LI>
+</UL>
+
+<h3>Example</h3>
+<OL>
+<LI><P>
+ A particular transmittal may represent a lake as a single
+ <A href="Polygon.htm">&lt;Polygon&gt;</A> instance located inside of a much larger
+ <A href="Polygon.htm">&lt;Polygon&gt;</A> instance that represents the surrounding
+ terrain.  The larger terrain polygon and the smaller lake polygon
+ that it contains may be coplanar, so the modeller assigns a
+ <A href="RenderingPriorityLevel.htm">&lt;Rendering Priority Level&gt;</A> component with
+ <A href="#rendering_group">rendering_group</A> = 1,
+ <A href="#rendering_priority">rendering_priority</A> = 1 to
+ the terrain <A href="Polygon.htm">&lt;Polygon&gt;</A> instance and a
+ <A href="RenderingPriorityLevel.htm">&lt;Rendering Priority Level&gt;</A> component with
+ <A href="#rendering_group">rendering_group</A> = 1,
+ <A href="#rendering_priority">rendering_priority</A> = 2
+ to the lake <A href="Polygon.htm">&lt;Polygon&gt;</A> instance,
+ so that the lake polygon is rendered on top of the terrain
+ <A href="Polygon.htm">&lt;Polygon&gt;</A> instance.
+</P></LI>
+<LI><P>
+ The side of a <A href="Model.htm">&lt;Model&gt;</A> instance, representing the wall of a
+ building, is a brown <A href="Polygon.htm">&lt;Polygon&gt;</A> instance, and a window in the
+ wall of the building is a grey <A href="Polygon.htm">&lt;Polygon&gt;</A> instance where the
+ grey <A href="Polygon.htm">&lt;Polygon&gt;</A> instance is coplanar with the brown
+ <A href="Polygon.htm">&lt;Polygon&gt;</A> instance.  The grey <A href="Polygon.htm">&lt;Polygon&gt;</A> instance is
+ given a <A href="RenderingPriorityLevel.htm">&lt;Rendering Priority Level&gt;</A> component with a higher
+ <A href="#rendering_priority">rendering_priority</A> value than that
+ of the brown <A href="Polygon.htm">&lt;Polygon&gt;</A> instance so that the window is
+ drawn correctly on the side of the building.
+</P></LI>
+<LI><P>
+ A plan view display can render <A href="PointFeature.htm">&lt;Point Feature&gt;</A> instances,
+ <A href="ArealFeature.htm">&lt;Areal Feature&gt;</A> instances, and <A href="LinearFeature.htm">&lt;Linear Feature&gt;</A>
+ instances. Since <A href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> instances are
+ usually considered to be flat, many features may be coplanar. A
+ <A href="RenderingPriorityLevel.htm">&lt;Rendering Priority Level&gt;</A> component can be used to indicate
+ the relative drawing order (or layer) within a set of overlapping
+ <A href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> instances.
+ It is common for a single <A href="ArealFeature.htm">&lt;Areal Feature&gt;</A>
+ instance to cover the entire <A href="EnvironmentRoot.htm">&lt;Environment Root&gt;</A>
+ instance area as a default background
+ <A href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> instance.
+ This <A href="ArealFeature.htm">&lt;Areal Feature&gt;</A> instance is assigned
+ a rendering priority less than all other rendering priorities
+ so that it is always drawn first and thus is the background.
+</P></LI>
+<LI><P>
+ The following instance diagram shows how
+ <A href="RenderingPriorityLevel.htm">&lt;Rendering Priority Level&gt;</A> instances can be used to override
+ the layering of a fixed list of DRM objects. The
+ <A href="UnionOfGeometryHierarchy.htm">&lt;Union Of Geometry Hierarchy&gt;</A> instance orders its components
+ and that order is reflected in the left to right position in
+ <a href="#Figure57">Figure 57</a>. The DRM objects are rendered in this order:
+ <span class="ConstructName">Polygon_C</span>, <span class="ConstructName">Polygon_B</span>,
+ <span class="ConstructName">Polygon_A</span>, <span class="ConstructName">Polygon_E</span>,
+ <span class="ConstructName">Polygon_F</span>, <span class="ConstructName">Polygon_D</span>.
+</P>
+<DIV align="center">
+<p>
+<A name="Figure57"></A>
+<IMG SRC="../Images/RenPriLvl_Ex_4.png"
+     ALT="Rendering Priority Level, Example 4">
+</p>
+<p class=FigureCaption>Figure 57 &#8212; &lt;DRM Rendering Priority Level&gt; example</p>
+</DIV>
+</LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ Is this the only way to order data for rendering purposes?
+</B></DT>
+<DD><P>
+ No. There are other ways to achieve scope-limited, fixed-ordered
+ rendering; see ordered <A href="UnionOfGeometry.htm">&lt;Union Of Geometry&gt;</A>.
+</P></DD>
+<DT><B>
+ When should a data provider use a <A href="RenderingPriorityLevel.htm">&lt;Rendering Priority Level&gt;</A>
+ instance?
+</B></DT>
+<DD><P>
+ A <A href="RenderingPriorityLevel.htm">&lt;Rendering Priority Level&gt;</A> instance should be used to globally
+ resolve rendering priority after scope limited occlusion is resolved. After
+ all <A href="GeometryRepresentation.htm">&lt;Geometry Representation&gt;</A> instances are rendered that have a
+ rendering priority &lt;= 0, rendering successive levels of
+ <A href="GeometryRepresentation.htm">&lt;Geometry Representation&gt;</A> instances should resolve occlusion.
+ <A href="RenderingPriorityLevel.htm">&lt;Rendering Priority Level&gt;</A> instances can be viewed as a
+ sorting bin assignment in some occlusion schemes.
+</P></DD>
+<DT><B>
+ Are there any 'special' sentinel values for a rendering priority?
+</B></DT>
+<DD><P>
+ Yes.  A rendering priority of <a href="../constants/SE_RENDER_PRIORITY_TOPMOST.htm">SE_RENDER_PRIORITY_TOPMOST</a>
+ means always render 'on top' (last), and a priority of
+ <a href="../constants/SE_RENDER_PRIORITY_BOTTOMMOST.htm">SE_RENDER_PRIORITY_BOTTOMMOST</a>
+ means always render 'on bottom' (first)
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Component of (two-way)</h3>
+<UL>
+<li>zero or more <a href="AggregateGeometry.htm">&lt;Aggregate Geometry&gt;</a> instances</li>
+<li>zero or more <a href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</a> instances</li>
+<li>zero or more <a href="GeometryModelInstance.htm">&lt;Geometry Model Instance&gt;</a> instances</li>
+<li>zero or more <a href="PrimitiveGeometry.htm">&lt;Primitive Geometry&gt;</a> instances</li>
+<li>zero or more <a href="PropertySet.htm">&lt;Property Set&gt;</a> instances</li>
+</UL>
+
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Short_Integer_Positive.htm">SE_Short_Integer_Positive</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="rendering_group">rendering_group</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_rendering_group">1</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Short_Integer.htm">SE_Short_Integer</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="rendering_priority">rendering_priority</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_rendering_priority">2</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Fields Notes</h3>
+<h4><a href="#rendering_group" name="Notes_rendering_group">rendering_group</a></h4>
+<P>
+ The <A href="#rendering_group">rendering_group</A> field establishes a
+ group to which the priorities of DRM objects are relative.
+</P>
+<h4><a href="#rendering_priority" name="Notes_rendering_priority">rendering_priority</a></h4>
+<P>
+ The <A href="#rendering_priority">rendering_priority</A> field
+ indicates priority between coplanar DRM objects within the same
+ <A href="#rendering_group">rendering_group</A>, such that a
+ higher value indicates a higher priority.
+</P><P class=DataItemNoteExample>
+EXAMPLE&nbsp; 
+ A <A href="Polygon.htm">&lt;Polygon&gt;</A> instance with a
+ <A href="RenderingPriorityLevel.htm">&lt;Rendering Priority Level&gt;</A> component having
+ <A href="#rendering_group">rendering_group</A> = 1,
+ <A href="#rendering_priority">rendering_priority</A> = 2 is
+ on top of a <A href="Polygon.htm">&lt;Polygon&gt;</A> instance with a
+ <A href="RenderingPriorityLevel.htm">&lt;Rendering Priority Level&gt;</A> component with
+ <A href="#rendering_group">rendering_group</A> = 1,
+ <A href="#rendering_priority">rendering_priority</A> = 1.
+</p>
+
+<hr>
+<strong>Prev:</strong> <A href="RelativeTimeInterval.htm">Relative Time Interval</A>.
+<strong>Next:</strong> <A href="RenderingProperties.htm">Rendering Properties</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,411 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>P4V6 - Data Tables Technical Guide</title>
+<META name="Author" CONTENT="SAIC">
+<link rel="stylesheet" type="text/css" href="../styles/SDK_SEDRIS.css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border=2 class="doc_set_header">
+<tr><th class="doc_set_header">
+<big><big>
+Data Tables Technical Guide
+</big></big>
+<br>
+<font color="#ffffff">
+Part 4, Volume 6 of the SEDRIS Technology Documentation Set
+</font>
+</th></tr>
+</table></div>
+
+<p>
+The Data Tables Technical Guide may be downloaded for local use, or may be
+viewed on-line below.
+</p><p>
+<b><small>
+&lt;<a href="http://www.sedris.org/download/documentation/p4v6.zip">DOWNLOAD</a>
+&gt;</small></b>
+</p>
+
+<hr width="100%">
+
+<p><b>TABLE OF CONTENTS</b></p>
+
+<table class="doc_set_toc">
+<!-- level 1 of the outline -->
+<tr>
+<th class="doc_set_toc_outline_number">1</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v6-1.htm">INTRODUCTION</a>
+</th>
+</tr>
+
+<!-- levels 1.1, 1.2, 1.3 of the outline -->
+<tr>
+<th class="doc_set_toc_outline_number"></th>
+<th class="doc_set_toc_outline_description">
+<table class="doc_set_toc">
+<tr>
+<th class="doc_set_toc_outline_number">1.1</th>
+<th class="doc_set_toc_outline_description"><a href="p4v6-1.htm#11">Overview</a></th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">1.2</th>
+<th class="doc_set_toc_outline_description"><a href="p4v6-1.htm#12">Prerequisites</a></th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">1.3</th>
+<th class="doc_set_toc_outline_description"><a href="p4v6-1.htm#13">For Additional Information on SEDRIS</a></th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">1.4</th>
+<th class="doc_set_toc_outline_description"><a href="p4v6-1.htm#14">Document Conventions and Notations</a></th>
+</tr>
+</table>
+</th>
+</tr>
+
+<!-- level 2 of the outline -->
+<tr>
+<th class="doc_set_toc_outline_number">2</th>
+<th class="doc_set_toc_outline_description"><a href="p4v6-2.htm">BACKGROUND AND MOTIVATION</a></th>
+</tr>
+
+<!-- levels 2.1, 2.2, 2.3 of the outline -->
+<tr>
+<th class="doc_set_toc_outline_number"></th>
+<th class="doc_set_toc_outline_description">
+<table class="doc_set_toc">
+<tr>
+<th class="doc_set_toc_outline_number">2.1</th>
+<th class="doc_set_toc_outline_description"><a href="p4v6-2.htm#21">A Simple Grid Model</a></th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">2.2</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v6-2.htm#22">Coordinate Representations and the Preservation of &quot;Griddedness&quot;</a>
+</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">2.3</th>
+<th class="doc_set_toc_outline_description"><a href="p4v6-2.htm#23">Data Types and Special Values</a></th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">2.4</th>
+<th class="doc_set_toc_outline_description"><a href="p4v6-2.htm#24">Irregular and Other Axes</a></th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">2.5</th>
+<th class="doc_set_toc_outline_description"><a href="p4v6-2.htm#25">Generalization to Property Tables</a></th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">2.6</th>
+<th class="doc_set_toc_outline_description"><a href="p4v6-2.htm#26">Other Generalizations</a></th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">2.7</th>
+<th class="doc_set_toc_outline_description"><a href="p4v6-2.htm#27">Summary</a></th>
+</tr>
+</table></th>
+</tr>
+
+<!-- level 3 of the outline -->
+<tr>
+<th class="doc_set_toc_outline_number">3</th>
+<th class="doc_set_toc_outline_description"><a href="p4v6-3.htm">DATA REPRESENTATION MODEL DEFINITIONS</a></th>
+</tr>
+
+<!-- levels 3.1, 3.2, 3.3 of the outline -->
+<tr>
+<th class="doc_set_toc_outline_number"></th>
+<th class="doc_set_toc_outline_description">
+<table class="doc_set_toc">
+<tr>
+<th class="doc_set_toc_outline_number">3.1</th>
+<th class="doc_set_toc_outline_description"><a href="p4v6-3.htm#31">&lt;Data Tables&gt;</a></th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">3.2</th>
+<th class="doc_set_toc_outline_description"><a href="p4v6-3.htm#32">The &lt;Property Grid&gt; Class</a></th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">3.3</th>
+<th class="doc_set_toc_outline_description"><a href="p4v6-3.htm#33">The &lt;Property Table&gt; Class</a></th>
+</tr>
+
+<th class="doc_set_toc_outline_number">3.4</th>
+<th class="doc_set_toc_outline_description"><a href="p4v6-3.htm#34">The &lt;Mesh Face Table&gt; Class</a></th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">3.5</th>
+<th class="doc_set_toc_outline_description"><a href="p4v6-3.htm#35">
+&lt;Property&gt; and &lt;Table Property Description&gt;</a></th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">3.6</th>
+<th class="doc_set_toc_outline_description"><a href="p4v6-3.htm#36">&lt;Axis&gt; and its subclasses</a></th>
+</tr>
+
+<tr><th class="doc_set_toc_outline_number"></th>
+<th class="doc_set_toc_outline_description">
+<table class="doc_set_toc">
+<tr><th class="doc_set_toc_outline_number">3.6.1</th>
+<th class="doc_set_toc_outline_description"><a href="p4v6-3.htm#361">The &lt;Axis&gt; Class</a></th></tr>
+
+<tr><th class="doc_set_toc_outline_number">3.6.2</th>
+<th class="doc_set_toc_outline_description"><a href="p4v6-3.htm#362">The &lt;Regular Axis&gt; Class</a></th></tr>
+
+<tr><th class="doc_set_toc_outline_number">3.6.3</th>
+<th class="doc_set_toc_outline_description"><a href="p4v6-3.htm#363">The &lt;Irregular Axis&gt; Class</a></th></tr>
+
+<tr><th class="doc_set_toc_outline_number">3.6.4</th>
+<th class="doc_set_toc_outline_description"><a href="p4v6-3.htm#364">The &lt;Enumeration Axis&gt; Class</a>
+</th></tr>
+
+<tr><th class="doc_set_toc_outline_number">3.6.5</th>
+<th class="doc_set_toc_outline_description"><a href="p4v6-3.htm#365">The &lt;Interval Axis&gt; Class</a>
+</th></tr>
+</th></tr>
+</table>
+</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">3.7</th>
+<th class="doc_set_toc_outline_description"><a href="p4v6-3.htm#37">
+Other &lt;Data Table&gt;-related Classes
+</a></th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"></th>
+<th class="doc_set_toc_outline_description">
+<table class="doc_set_toc">
+<tr>
+<th class="doc_set_toc_outline_number">3.7.1</th>
+<th class="doc_set_toc_outline_description"><a href="p4v6-3.htm#371">Overview</a></th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">3.7.2</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v6-3.htm#372">The &lt;Data Table Library&gt; Class</a>
+</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">3.7.3</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v6-3.htm#373">The &lt;Property Table Reference&gt; Class</a>
+</th></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">3.7.4</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v6-3.htm#374">The &lt;Property Grid Hook Point&gt; Class</a>
+</th></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">3.7.5</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v6-3.htm#375">The &lt;Grid Overlap&gt; Class</a>
+</th></tr>
+</th></tr>
+</table>
+</th>
+</tr>
+</table>
+</th>
+</tr>
+
+<!-- level 4 of the outline -->
+<tr>
+<th class="doc_set_toc_outline_number">4</th>
+<th class="doc_set_toc_outline_description"><a href="p4v6-4.htm">PUTTING IT ALL TOGETHER</a></th>
+</tr>
+
+<!-- levels 4.1, 4.2, 4.3, 4.4 of the outline -->
+<tr>
+<th class="doc_set_toc_outline_number"></th>
+<th class="doc_set_toc_outline_description">
+<table class="doc_set_toc">
+<tr>
+<th class="doc_set_toc_outline_number">4.1</th>
+<th class="doc_set_toc_outline_description"><a href="p4v6-4.htm#41">Overview</a></th>
+</tr>
+
+<tr><th class="doc_set_toc_outline_number">4.2</th>
+<th class="doc_set_toc_outline_description"><a href="p4v6-4.htm#42">&lt;Property Table&gt; Example</a>
+</th></tr>
+
+<tr><th></th><th class="doc_set_toc_outline_description">
+<table class="doc_set_toc">
+<tr><th class="doc_set_toc_outline_number">4.2.1</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v6-4.htm#421">&lt;Property Table&gt;: Backscatter Table Example</a>
+</th></tr>
+
+<tr><th class="doc_set_toc_outline_number">4.2.2</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v6-4.htm#422">&lt;Property Table&gt;: Emissivity Table Example</a>
+</th></tr>
+</table>
+</th></tr>
+
+<tr><th class="doc_set_toc_outline_number">4.3</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v6-4.htm#43">&lt;Property Grid&gt; Example</a>
+</th></tr>
+
+<tr><th></th><th class="doc_set_toc_outline_description">
+<table class="doc_set_toc">
+<tr><th class="doc_set_toc_outline_number">4.3.1</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v6-4.htm#431">Computing the Location of a Grid Cell</a>
+</th></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">4.3.2</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v6-4.htm#432">Finding a Grid Cell for a Given Location</a>
+</th></tr>
+</table>
+</th></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">4.4</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v6-4.htm#44">Nested &lt;Property Grid&gt; Example</a></th>
+</tr>
+</table>
+</th>
+</tr>
+
+<!-- level 5 of the outline -->
+<tr>
+<th class="doc_set_toc_outline_number">5</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v6-5.htm">RETRIEVING &lt;DATA TABLE&gt; DATA WITH THE SEDRIS API</a></th>
+</tr>
+
+<!-- levels 5.1, 5.2, 5.3 of the outline -->
+<tr>
+<th class="doc_set_toc_outline_number"></th>
+<th class="doc_set_toc_outline_description">
+<table class="doc_set_toc">
+<tr>
+<th class="doc_set_toc_outline_number">5.1</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v6-5.htm#51">Overview</a>
+</th></tr>
+
+<th class="doc_set_toc_outline_number">5.2</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v6-5.htm#52">Data Table Sub-Extents</a>
+</th></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">5.3</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v6-5.htm#53">SE_GetDataTableData()</a>
+</th></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">5.4</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v6-5.htm#54">Other API &lt;Data Table&gt; Functions</a>
+</th></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"></th>
+<th class="doc_set_toc_outline_description">
+<table class="doc_set_toc">
+<tr>
+<th class="doc_set_toc_outline_number">5.4.1</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v6-5.htm#541">Signature Information</a>
+</th></tr>
+
+<tr><th class="doc_set_toc_outline_number">5.4.2</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v6-5.htm#542">Constant Signature Items</a>
+</th></tr>
+</table>
+</th></tr>
+</table>
+</th>
+</tr>
+
+<!-- level 6 of the outline -->
+<tr>
+<th class="doc_set_toc_outline_number">6</th>
+<th class="doc_set_toc_outline_description"><a href="p4v6-6.htm">&lt;FINITE ELEMENT MESH&gt;</a></th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"></th>
+<th class="doc_set_toc_outline_description">
+<table class="doc_set_toc">
+<tr>
+<th class="doc_set_toc_outline_number">6.1</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v6-6.htm#61">Overview</a>
+</th></tr>
+</table>
+</th></tr>
+
+<!-- level 7 of the outline -->
+<tr>
+<th class="doc_set_toc_outline_number">7</th>
+<th class="doc_set_toc_outline_description"><a href="p4v6-7.htm">WHERE TO GO FROM HERE</a></th>
+</tr>
+
+<!-- level 8 of the outline
+<tr>
+<th class="doc_set_toc_outline_number">8</th>
+<th class="doc_set_toc_outline_description"><a href="p4v6-8.htm">REFERENCES</a></th>
+</tr>
+-->
+</table>
+</tr>
+</table>
+
+<hr>
+<font color="#ff0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a></strong>
+<br><br>
+
+<div class="CenterDiv">
+<table class="doc_set_header">
+<tr><td>
+<table class="doc_set_header">
+<tr><td class="doc_set_footer" align="left">
+Last updated: July 1, 2011
+</td>
+<td class="doc_set_footer" align="right">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td>
+</tr>
+</table>
+</td></tr>
+</table></div>
+</body>
+</html>

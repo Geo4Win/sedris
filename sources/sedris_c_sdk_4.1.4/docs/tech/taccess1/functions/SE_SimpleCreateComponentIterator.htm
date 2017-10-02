@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE SimpleCreateComponentIterator</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX B - Transmittal Access Level 1 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+SE SimpleCreateComponentIterator
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../../taccess0/types/SE_Status_Code.htm">SE_Status_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SE_SimpleCreateComponentIterator</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../../taccess0/types/SE_Object.htm">SE_Object</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="start_object"></a>start_object,</td><td class="CFunction"><sup><A href="#Notes_start_object">1</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../../drm/types/SE_DRM_Class.htm">SE_DRM_Class</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="drm_class"></a>drm_class,</td><td class="CFunction"><sup><A href="#Notes_drm_class">2</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../../taccess0/types/SE_ITR_Behaviour.htm">SE_ITR_Behaviour</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="itr_traversal"></a>itr_traversal,</td><td class="CFunction"><sup><A href="#Notes_itr_traversal">3</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../../taccess0/types/SE_Iterator.htm">SE_Iterator</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="iterator_out_ptr"></a>iterator_out_ptr</td><td class="CFunction"><sup><A href="#Notes_iterator_out_ptr">4</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+  Creates a simplified component iterator that retrieves component objects
+  meeting the user-specified conditions.  This iterator starts at
+  <A href="#start_object">start_object</A>,
+ the 'root' or 'top' of an 'aggregation tree'. All components
+  below the start_object will be searched to a depth of 1. The iterator
+  returns all components that match the DRM class specified by
+ '<A href="#drm_class">drm_class</A>'.
+</P><P>
+  If '<A href="#drm_class">drm_class</A>' is
+  <A href="../../drm/types/SE_DRM_Class.htm#SE_CLS_DRM_NULL">SE_CLS_DRM_NULL</A>, then the iterator
+  returns all components, regardless of DRM class.
+</P><P>
+  Inherited components will not be inherited, locations will not be
+  transformed, model instances will not be followed, static control
+  links will not be evaluated. Breadth-first traversal is used.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../../taccess0/types/SE_Status_Code.htm#SE_STATCODE_SUCCESS">SE_STATCODE_SUCCESS</A>
+</td><td class="Status">and an <A href="../../taccess0/types/SE_Iterator.htm">SE_Iterator</A> for the newly
+ created component iterator is copied into *iterator_out_ptr,
+ if valid parameters were passed in and all operations succeeded.
+</td></tr>
+<tr><td class="Status">
+<A href="../../taccess0/types/SE_Status_Code.htm#SE_STATCODE_UNRESOLVED_INPUT_OBJECT">SE_STATCODE_UNRESOLVED_INPUT_OBJECT</A>
+</td><td class="Status">
+ and <A href="#iterator_out_ptr">*iterator_out_ptr</A> is set to
+ NULL, if <A href="#start_object">start_object</A> is currently
+ unresolved.
+</td></tr>
+<tr><td class="Status">
+<A href="../../taccess0/types/SE_Status_Code.htm#SE_STATCODE_INACTIONABLE_FAILURE">SE_STATCODE_INACTIONABLE_FAILURE</A>
+</td><td class="Status">
+ and <A href="#iterator_out_ptr">*iterator_out_ptr</A> is set
+ to NULL, if
+<OL>
+<LI><A href="#drm_class">drm_class</A> is provided, but invalid, or
+</LI>
+<LI>the call fails for any other reason.
+</LI>
+</OL>
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#start_object" name="Notes_start_object">1</a></sup>
+ the object whose components will be traversed.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#drm_class" name="Notes_drm_class">2</a></sup>
+ specifies the DRM class of component being
+    searched for; if SE_CLS_DRM_NULL, all DRM classes are returned
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#itr_traversal" name="Notes_itr_traversal">3</a></sup>
+ the user must choose how the function will behave
+    when it encounters an Inter-Transmittal Reference (ITR).
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#iterator_out_ptr" name="Notes_iterator_out_ptr">4</a></sup>
+ a pointer to the freshly created component iterator
+    that will iterate over the objects meeting the conditions
+    described above.
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SE_SetErrorHandlers.htm">SE_SetErrorHandlers</a>.
+<strong>Next:</strong> <a href="SE_SoundNameFromSoundInstance.htm">SE_SoundNameFromSoundInstance</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

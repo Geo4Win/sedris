@@ -1,0 +1,236 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Animation Behaviour</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Animation Behaviour
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Animation Behaviour</h2>
+<h3>Superclass - <a href="SEDRISAbstractBase.htm">&lt;SEDRIS Abstract Base&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies, for its aggregate
+ <A href="AnimationRelatedGeometry.htm">&lt;Animation Related Geometry&gt;</A> instance(s), all the information
+ necessary to define one animation sequence among the
+ &quot;frames&quot; defined by that
+ <A href="AnimationRelatedGeometry.htm">&lt;Animation Related Geometry&gt;</A> instance.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet04.pdf"><strong>4</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+This class appears on only one page of the DRM class diagram.
+<h3>Example</h3>
+<OL>
+<LI><P>
+ Consider an animation representing an explosion such that the animation
+ has three different sequences. One sequence represents the explosion,
+ another sequence the fire, and another sequence smoke. The entire
+ animation is represented by an <A href="AnimationRelatedGeometry.htm">&lt;Animation Related Geometry&gt;</A>
+ instance with three <A href="AnimationBehaviour.htm">&lt;Animation Behaviour&gt;</A> components,
+ where the fields of the <A href="AnimationBehaviour.htm">&lt;Animation Behaviour&gt;</A> component
+ corresponding to a sequence identify the beginning and ending frame
+ within the sequence and specify the duration of each frame.
+</P><P>
+ The <A href="AnimationRelatedGeometry.htm">&lt;Animation Related Geometry&gt;</A>
+ instance has 60 ordered
+ <A href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> components. The first
+ <A href="AnimationBehaviour.htm">&lt;Animation Behaviour&gt;</A> component
+ (explosion)
+ defines frames 1 through 20 in its animation sequence. The second
+ <A href="AnimationBehaviour.htm">&lt;Animation Behaviour&gt;</A> component (fire)
+ defines frames 21 through 40 in its animation sequence. The third
+ <A href="AnimationBehaviour.htm">&lt;Animation Behaviour&gt;</A> component (smoke)
+ defines frames 41 through 60 as its sequence, with
+ <A href="#count">count</A> set to 0. The effect is
+ to see the animation of the explosion followed by the fire, followed
+ by the smoke. The smoke lasts forever, since its
+ <A href="#count">count</A> field was set to 0.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ Can animation sequences be chained together?
+</B></DT>
+<DD><P>
+ Yes.
+ An <A href="AnimationRelatedGeometry.htm">&lt;Animation Related Geometry&gt;</A>
+ instance can have one or more ordered
+ <A href="AnimationBehaviour.htm">&lt;Animation Behaviour&gt;</A> components.
+ In the example (below) of an explosion, each one of the sections
+ (that is, explosion, fire, and smoke) can be its own
+ <A href="AnimationBehaviour.htm">&lt;Animation Behaviour&gt;</A> instance.
+ Because the <A href="AnimationBehaviour.htm">&lt;Animation Behaviour&gt;</A>
+ components are ordered, they behave as though
+ they are chained together, one following the other.
+</P></DD>
+<DT><B>
+ Can the frames in different animation sequences overlap?
+</B></DT>
+<DD><P>
+ Yes.
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/AnimationRelatedOrganizingPrinciple.htm">&lt;&lt;Animation Related Organizing Principle&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Component of (two-way)</h3>
+<UL>
+<li>one or more <a href="AnimationRelatedGeometry.htm">&lt;Animation Related Geometry&gt;</a> instances</li>
+</UL>
+
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Long_Float.htm">SE_Long_Float</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="period">period</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_period">1</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Short_Integer_Unsigned.htm">SE_Short_Integer_Unsigned</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="count">count</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_count">2</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Boolean.htm">SE_Boolean</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="forward_sequence_mode">forward_sequence_mode</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_forward_sequence_mode">3</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Short_Integer_Positive.htm">SE_Short_Integer_Positive</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="beginning_frame">beginning_frame</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_beginning_frame">4</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Short_Integer_Positive.htm">SE_Short_Integer_Positive</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="ending_frame">ending_frame</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_ending_frame">5</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Boolean.htm">SE_Boolean</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="random_beginning_frame">random_beginning_frame</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_random_beginning_frame">6</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Fields Notes</h3>
+<h4><a href="#period" name="Notes_period">period</a></h4>
+<P>
+ The <A href="#period">period</A> field
+ specifies the duration (in seconds) of each frame.
+</P>
+<h4><a href="#count" name="Notes_count">count</a></h4>
+<P>
+ The <A href="#count">count</A> field
+ specifies the number of times that the animation
+ sequence will repeat, where 0 indicates that it repeats endlessly.
+</P>
+<h4><a href="#forward_sequence_mode" name="Notes_forward_sequence_mode">forward_sequence_mode</a></h4>
+<P>
+ If the value of the
+ <A href="#forward_sequence_mode">forward_sequence_mode</A>
+ field is <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A>, the animation sequence
+ cycles from beginning to end, beginning to end, beginning to end,
+ for the number of iterations specified by
+ <A href="#count">count</A>; this is referred to
+ as <I>standard cycling</I>. If
+ <A href="#forward_sequence_mode">forward_sequence_mode</A>
+ is <A href="../types/SE_Boolean.htm#SE_FALSE">SE_FALSE</A>,
+ the animation sequence cycles from beginning to end, end
+ to beginning, beginning to end, end to beginning, as specified
+ by <A href="#count">count</A>;
+ this is referred to as <I>swing mode</I>.
+</P>
+<h4><a href="#beginning_frame" name="Notes_beginning_frame">beginning_frame</a></h4>
+<P>
+ The <A href="#beginning_frame">beginning_frame</A>
+ field specifies the index of the beginning frame among the ordered
+ <A href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> components
+ of the
+ <A href="AnimationRelatedGeometry.htm">&lt;Animation Related Geometry&gt;</A>
+ instance under consideration.
+</P>
+<h4><a href="#ending_frame" name="Notes_ending_frame">ending_frame</a></h4>
+<P>
+ The <A href="#ending_frame">ending_frame</A>
+ field specifies the index of the ending frame among the ordered
+ <A href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> components
+ of the
+ <A href="AnimationRelatedGeometry.htm">&lt;Animation Related Geometry&gt;</A>
+ instance under consideration.
+</P>
+<h4><a href="#random_beginning_frame" name="Notes_random_beginning_frame">random_beginning_frame</a></h4>
+<P>
+ The <A href="#random_beginning_frame">random_beginning_frame</A>
+ field specifies whether the beginning frame is chosen randomly. If
+ <A href="#random_beginning_frame">random_beginning_frame</A>
+ = <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A>, the
+ <A href="#beginning_frame">beginning_frame</A> field
+ is ignored, and the sequence cycles towards the ending frame.
+ If <A href="#random_beginning_frame">random_beginning_frame</A>
+ = <A href="../types/SE_Boolean.htm#SE_FALSE">SE_FALSE</A>, the sequence cycles
+ from the frame specified by the
+ <A href="#beginning_frame">beginning_frame</A> field.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="AmbientColour.htm">Ambient Colour</A>.
+<strong>Next:</strong> <A href="AnimationRelatedGeometry.htm">Animation Related Geometry</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

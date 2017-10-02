@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE_Class_Structure</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX C - Types
+</font>
+<br>
+<font color="#ffffff">
+SE_Class_Structure
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<PRE>
+/*
+ * STRUCT: SE_Class_Structure
+ *
+ *   Used by the SE_GetClassStructure() function to retrieve information about
+ *   the fields of a class.
+ *
+ *   Information about its relationships with other classes can be found via
+ *   SE_IsAbstractClass, SE_IsLinkClass, SE_SuperClass, SE_AggregatesCount,
+ *   SE_AggregatesList, SE_AssociationsCount, SE_AssociationsList,
+ *   SE_AssociationsList, SE_ComponentsCount, SE_ComponentsList.
+ */
+</PRE>
+<span class="Code">typedef struct 
+<br>
+{</span>
+<br>
+<table class="CFunctionPrototype">
+<tr><td class="CFunction">         </td> <td class="CFunction"></td> <td class="CFunction"><a href="SE_DRM_Class.htm">SE_DRM_Class</a></td>
+              <td class="CFunction"><a name="drm_class"></a>drm_class;</td><td class="CFunction"><sup><A href="#Notes_drm_class">1</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction">const</td> <td class="CFunction"><a href="SE_Character.htm">SE_Character</a></td>
+        <td class="CFunction">*<a name="name_ptr"></a>name_ptr;</td><td class="CFunction"><sup><A href="#Notes_name_ptr">2</A></sup></td></tr>
+<tr><td class="CFunction">         </td> <td class="CFunction"></td> <td class="CFunction"><a href="SE_Short_Integer_Unsigned.htm">SE_Short_Integer_Unsigned</a></td>
+              <td class="CFunction"><a name="field_count"></a>field_count;</td><td class="CFunction"><sup><A href="#Notes_field_count">3</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction">const</td> <td class="CFunction"><a href="SE_DRM_Field_Structure.htm">SE_DRM_Field_Structure</a></td>
+        <td class="CFunction">*<a name="fields"></a>fields;</td><td class="CFunction"><sup><A href="#Notes_fields">4</A></sup></td></tr>
+</table>
+<span class="Code">
+} SE_Class_Structure;</span>
+<br>
+
+<br>
+<HR>
+<H2>Field Notes</H2>
+<h4><a href="#drm_class" name="Notes_drm_class">drm_class</a></h4>
+ the tag of the class
+<h4><a href="#name_ptr" name="Notes_name_ptr">name_ptr</a></h4>
+<P>
+ the &quot;plain text&quot; name of the class;
+ for example, &quot;Data Table&quot; for
+ <A href="../classes/DataTable.htm">&lt;Data Table&gt;</A>
+</P>
+<h4><a href="#field_count" name="Notes_field_count">field_count</a></h4>
+<P>
+ the number of fields for the class
+</P>
+<h4><a href="#fields" name="Notes_fields">fields</a></h4>
+<P>
+ array of descriptors of the fields of the class, including
+ inherited fields
+</P>
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SE_CI_RoleCode.htm">SE_CI_RoleCode</a>.
+<strong>Next:</strong> <a href="SE_CMY_Data.htm">SE_CMY_Data</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>P4V17 - SEDRIS Reference Manual</TITLE>
+<META name="Author" CONTENT="Science Applications International Corporation">
+<link rel="stylesheet" type="text/css" href="../styles/SDK_SEDRIS.css">
+</HEAD>
+<body>
+
+<a name="Top"></a>
+
+<div align="center">
+<table border="2" class="doc_set_header">
+<tr><th class="doc_set_header">
+<big><big>
+SEDRIS Reference Manual
+</big></big>
+<br>
+<font color="#ffffff">
+Part 4, Volume 17 of the SEDRIS Technology Documentation Set
+</font>
+</th>
+</tr>
+</table></div>
+
+<p>
+The SEDRIS Reference Manual may be downloaded for local use, or
+may be viewed on-line below.
+</p><p>
+<strong><small>
+&lt;
+<a href="http://www.sedris.org/download/documentation/p4v17.zip">DOWNLOAD</a>
+&gt;</small></strong>
+</p><p>
+<HR width="100%">
+</p><p>
+<strong>TABLE OF CONTENTS</strong>
+</p>
+
+<table class="doc_set_toc">
+
+<!-- level 1 of the outline -->
+<tr>
+<th class="doc_set_toc_outline_number">1</th>
+<th class="doc_set_toc_outline_description"><a href="p4v17-1.htm">INTRODUCTION</a></th>
+</tr>
+
+<!-- levels 1.1, 1.2, 1.3 of the outline -->
+<tr>
+<th class="doc_set_toc_outline_number"></th>
+<th class="doc_set_toc_outline_description">
+<table class="doc_set_toc">
+<tr>
+<th class="doc_set_toc_outline_number">1.1</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v17-1.htm#11">Overview</a>
+</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">1.2</th>
+<th class="doc_set_toc_outline_description">
+<A href="p4v17-1.htm#12">Prerequisites</A>
+</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">1.3</th>
+<th class="doc_set_toc_outline_description">
+<A href="p4v17-1.htm#13">For Additional Information on SEDRIS</A>
+</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">1.4</th>
+<th class="doc_set_toc_outline_description">
+<A href="p4v17-1.htm#14">Document Conventions and Notations</A>
+</th>
+</tr>
+</table>
+</th>
+</tr>
+
+<tr><th class="doc_set_toc_outline_number">2</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v17-2.htm">STANDARD SEDRIS FUNCTIONS AND DATA STRUCTURES</a>
+</th>
+</tr>
+
+<tr><th class="doc_set_toc_outline_number"></th>
+<th class="doc_set_toc_outline_description">
+<table class="doc_set_toc">
+<tr>
+<th class="doc_set_toc_outline_number">2.1</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v17-2.htm#21">Introduction</a>
+</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">2.2</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v17-2.htm#22">Data Representation Model (DRM)
+       Functions and Data Structures</a>
+</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">2.3</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v17-2.htm#23">Transmittal Access Level 0 API
+       Functions and Data Structures</a></th>
+</tr>
+
+<tr><th class="doc_set_toc_outline_number"></th>
+<th class="doc_set_toc_outline_description">
+<table class="doc_set_toc">
+<tr>
+   <th class="doc_set_toc_outline_number">2.3.1</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v17-2.htm#231">Overview</a></th>
+</tr>
+
+<tr>
+   <th class="doc_set_toc_outline_number">2.3.2</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v17-2.htm#232">Iterators</a></th>
+</tr>
+
+<tr><th class="doc_set_toc_outline_number"></th>
+<th class="doc_set_toc_outline_description">
+<table class="doc_set_toc">
+<tr>
+<th class="doc_set_toc_outline_number">2.3.2.1</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v17-2.htm#2321">Overview</a></th>
+</tr>
+
+<th class="doc_set_toc_outline_number">2.3.2.2</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v17-2.htm#2322">Search Filters and the Search Macros</a></th>
+</tr>
+
+<th class="doc_set_toc_outline_number">2.3.2.3</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v17-2.htm#2323">Component Iterators: Selection Parameters</a></th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">2.3.2.4</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v17-2.htm#2324">Component Iterators: Ordering Parameters</a></th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">2.3.2.5</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v17-2.htm#2325">Component Iterators: Search Boundaries</a>
+</th>
+</tr>
+</table>
+</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">2.3.3</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v17-2.htm#233">Transmittal Access Level 0 API: Search Bounds</a>
+</th>
+</tr>
+
+<tr><th class="doc_set_toc_outline_header"></th>
+<th class="doc_set_toc_outline_description">
+<table class="doc_set_toc">
+<tr>
+<th class="doc_set_toc_outline_number">2.3.3.1</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v17-2.htm#2331">Overview</a></th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">2.3.3.2</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v17-2.htm#2332">Point Searching</a></th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">2.3.3.3</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v17-2.htm#2333">Bounding Box Searching</a></th>
+</tr>
+</table>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">2.3.4</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v17-2.htm#234">Transmittal Access Level 0 Writing API
+           Functions and Data Structures</a></th>
+</tr>
+</table>
+</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">2.4</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v17-2.htm#24">Transmittal Access Level 1 API
+     Functions and Data Structures</a></th>
+</tr>
+</table>
+</th></tr>
+
+<tr><th class="doc_set_toc_outline_number">3</th>
+<th class="doc_set_toc_outline_description">
+<a href="p4v17-3.htm">WHERE TO GO FROM HERE</a>
+</th>
+</tr>
+
+<tr><th class="doc_set_toc_outline_number"></th>
+<th>
+<table class="doc_set_toc">
+<tr>
+<th class="doc_set_toc_outline_number">A</th>
+<th class="doc_set_toc_outline_description">
+<a href="taccess0/index.htm">Transmittal Access Level 0 API</a>
+</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">B</th>
+<th class="doc_set_toc_outline_description">
+<a href="taccess1/index.htm">Transmittal Access Level 1 API</a>
+</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">C</th>
+<th class="doc_set_toc_outline_description">
+<a href="taccess0_util/index.htm">Transmittal Access Level 0 API AUXILIARY FUNCTIONS</a>
+</th>
+</tr>
+</table>
+</th>
+</tr>
+</table></div>
+
+<p>
+<HR>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a></strong>
+<br><br>
+
+<div class="CenterDiv">
+<table class="doc_set_header" border="2">
+<tr><td>
+<table class="doc_set_header" border="0">
+<tr><td class="doc_set_footer" align="left">
+Last updated: July 1, 2011
+</td>
+<td class="doc_set_footer" align="right">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td>
+</tr>
+</table>
+</td></tr>
+</table>
+</div>
+</body>
+</html>

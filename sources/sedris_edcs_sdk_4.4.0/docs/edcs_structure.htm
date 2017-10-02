@@ -1,0 +1,286 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- EDCS spec. 4.4 -->
+<!-- July 1, 2011 -->
+<html>
+<head>
+<title>EDCS Reference Manual - EDCS Structure</title>
+<META content="text/html; charset=windows-1252" http-equiv="Content-Type">
+<link rel="stylesheet" type="text/css" href="styles/SDK_SEDRIS.css">
+</head>
+<body>
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th class="doc_set_header">
+<big><big>EDCS Reference Manual</big></big>
+<br />
+<font color="#ffffff">EDCS Structure</font>
+</th></tr>
+</table>
+</div>
+<a name="Top" id="Top"></a>
+<p>
+<strong>Quick Scroll To:</strong>
+<ul>
+<li><a href="#1">Concepts</a></li>
+<li><a href="#2">Concept Ties</a></li>
+<li><a href="#3">Concept Reuse</a></li>
+<li><a href="#4">Classifications and Attributes</a></li>
+<li><a href="#5">Attribute Enumerants</a></li>
+<li><a href="#6">Units of Measure and Value Conversion</a></li>
+<li><a href="#7">Organizing Concepts</a></li>
+<li><a href="#8">Registration and Deprecation</a></li>
+<li><a href="#9">Profiles</a></li>
+</ul>
+<HR width="100%">
+<a name="1" id="1"><strong>CONCEPTS</strong></a>
+<p>
+Every concept has a definition, two ways to denote that concept (a
+label, a code), and ties to concepts in other documents (standards,
+specifications, dictionaries, publications).
+</p>
+<ul>
+<li><p>The <strong><i>definition</i></strong> field of an EDCS Dictionary Entry
+is a precise statement of the nature, properties, scope or essential
+qualities of a concept embodied in the entry. Definitions are complete
+and concise, and may include the name or names for the concept as part
+of the definition.
+</p></li>
+<li><p>The <strong><i>label</i></strong> field of an EDCS Dictionary Entry is a
+compact and human-readable designator that is used to denote a concept.
+Labels may include the name or names for the concept. Labels:
+<ul>
+<li>uniquely denote a concept within a dictionary,</li>
+<li>are a succinct expression of the concept it denotes,</li>
+<li>are represented as a character string, and</li>
+<li>are human readable.</li>
+</ul>
+</p></li>
+<li><p>The <strong><i>code</i></strong> field of an EDCS Dictionary Entry is a
+compact, and not necessarily human-readable, designator that is used to
+denote a concept. Codes:
+<ul>
+<li>uniquely denote a concept within a dictionary,</li>
+<li>are represented as an integer, and</li>
+<li>are assigned sequentially in increasing order within an
+  EDCS Dictionary, beginning at 1.</li>
+</ul>
+</p></li>
+<li><p>There is a one-to-one relationship between labels and codes in the
+ same EDCS Dictionary. Therefore, a label and a code may be used
+ interchangeably to denote the same concept.
+</p></li>
+<li><p>Concepts in two documents (the EDCS and some external document) may
+ be related in several different ways. <strong><i>Reference types</i></strong>,
+ <strong><i>references</i></strong>, and <strong><i>supplemental references</i></strong> establish
+ the relationship between an EDCS concept and an external concept.
+</p></li>
+</ul>
+<hr width="100%">
+<a name="2" id="2"><strong>CONCEPT TIES</strong></a>
+<p>
+To improve unambiguous communication across disparate domains, the
+goal is to bring together (consistently) concepts that are seen as
+&quot;authoritative&quot; in those domains. Typing references helps
+identify the degree to which an EDCS concept is viewed as
+&quot;authoritative&quot; in another
+community. It also may serve as a starting point for developing mappings
+from the specialized languages of communities to the cross-community
+language of the EDCS. Two types of reference (normative and informative)
+are insufficient to capture all of the possible relationships between the
+EDCS and another document. In the following, a <i>specification</i> is a
+document that meets the requirements to be normatively referenced by the
+EDCS, and the <i>owner</i> of such a specification is the organization
+responsible for maintaining the specification.
+</p>
+<ul>
+<li><p><strong><i>Prescriptive reference</i></strong> (PR): The concept in the
+EDCS is the same concept as defined in an external specification. The
+definition of the concept in EDCS may be different from the definition
+in the specification because of modifications to:
+<ul>
+<li>include missing (implied) context not present in the definition
+    in the specification; or</li>
+<li>to match the style and structure of other definitions in the EDCS.</li>
+</ul><br />
+In this case, a citation is provided in the <i>references</i> field.
+</p></li>
+<li><p><strong><i>Authoritative reference</i></strong> (AR): The concept in
+the EDCS prescriptively references a concept from an external specification,
+and an agreement has been established between the owner of the EDCS and the
+owner of that specification to ensure that the concept authoritatively
+referenced is not changed without the agreement of the owner of the
+EDCS. In this case, a citation is provided in the <i>references</i>
+field.
+</p></li>
+<li><p><strong><i>Informative reference</i></strong> (IR): The concept from
+the EDCS is related to, or derived from, concepts in one or more external
+documents. In this case, one or more citations are provided in the
+<i>references</i> field.
+</p></li>
+<li><p><strong><i>Non-referenced</i></strong> (NR): No satisfactory prescriptive,
+authoritative, dictionary or informative reference is available in
+another document for re-use as a concept in the EDCS. The meaning of the
+definition of the concept is determined by using the appropriate
+dictionary definitions of the words comprising the definition,
+considering the context in which each word is used. In this case, no
+citation is provided in the <i>references</i> field.
+</p></li>
+</ul>
+<hr width="100%">
+<a name="3" id="3"><strong>CONCEPT REUSE</strong></a>
+<p>
+Concepts may be used within the definition of other concepts. This
+creates a web of explicitly inter-related concepts, reduces the complexity
+of individual definitions, and ensures that concepts in, and across,
+dictionaries &quot;fit together&quot;.
+</p>
+<ul>
+<li><p>If an EC is used in the definition of another concept, this use is
+ represented in the definition by placing the label for that EC in single
+ angle brackets (&lt;&nbsp;&gt;) in the definition.
+</p></li>
+<li><p>If an EA is used in the definition of another concept, this use is
+ represented in the definition by placing the label for that EA in double
+ angle brackets (&lt;&lt;&nbsp;&gt;&gt;) in the definition.
+</p></li>
+<li><p>If an EE is used in the definition of another EE for the same enumerated EA,
+ this use is represented in the definition by placing the label for that
+EE in triple angle brackets (&lt;&lt;&lt;&nbsp;&gt;&gt;&gt;) in the definition.
+</p></li>
+</ul>
+</p>
+<hr width="100%">
+<a name="4" id="4"><strong>CLASSIFICATIONS and ATTRIBUTES</strong></a>
+<p>
+Classifications are typings-of-objects (in the
+<a href="dictionary/ECC.htm">EC Dictionary</a>);
+attributes are states-of-objects (in the
+<a href="dictionary/EAC.htm">EA Dictionary</a>).
+Attributes are, in effect, measures. Measures are typed in order to define
+the value storage mechanism being used. Attributes have one of the following
+value-types assigned:
+</p>
+<ul>
+<li><strong><i>real:</i></strong> A real number or a real interval.</li>
+<li><strong><i>integer:</i></strong> An integer or an integer interval.</li>
+<li><strong><i>count:</i></strong> A cardinal number or a cardinal number interval.</li>
+<li><strong><i>index: </i></strong>An integer used for identification.</li>
+<li><strong><i>string:</i></strong> A character string.</li>
+<li><strong><i>constrained string:</i></strong> A <i>string</i> whose format and
+ values are constrained in the definition of the EA.</li>
+<li><strong><i>key:</i></strong> A <i>string</i> used for identification.</li>
+<li><strong><i>enumeration:</i></strong> One of a finite set of mutually exclusive values.</li>
+<li><strong><i>boolean:</i></strong> An <i>enumeration</i>, representing the true
+ and false values in a two-valued logic system, with values FALSE (0) and
+ TRUE (1).</li>
+<li><strong><i>null:</i></strong> An <i>enumeration</i> with one value, NULL (0),
+ representing no information.</li>
+</ul>
+<p><i>Real-</i>, <i>integer-</i>, and <i>count-</i>typed attributes may
+be either a single value or an interval (value-pair). Real-typed
+attributes have units of measure, which are captured in the
+<a href="dictionary/units.htm">EU Dictionary</a>.
+</p><p>
+Measures may be missing, withheld, many-valued (for a partitioned
+range), <i>etc</i>. These value characteristcs are captured using
+concepts in the <a href="dictionary/characteristic.htm">EV Dictionary</a>.
+<hr width="100%">
+<a name="5" id="5"><strong>ATTRIBUTE ENUMERANTS</strong></a>
+<p>
+While some measures are continuously valued (<i>real</i>,
+<i>integer</i>, <i>count</i>), others are discretely valued (e.g.,
+<i>null</i>, <i>boolean</i>, <i>enumeration</i>). While the discrete
+values of <i>null</i> and <i>boolean</i> can be pre-defined, the discrete
+values of <i>enumeration</i> depend on the attribute concept -- hence
+attributes of value-type <i>enumeration</i> must declare their value
+domain (e.g., attribute <i>colour</i> has the value domain of {<i>red</i>,
+<i>orange</i>, <i>yellow</i>, <i>green</i>, ...} ). Concepts in the value
+domain of a measure (attribute) have their own
+<a href="dictionary/EAC.htm">EE Dictionary</a>,
+and all of the mechanisms applied to classifications (which are
+typings-of-objects, as opposed to typings-of-discrete-values-of-measures)
+are applied to attribute enumerants.
+</p>
+<hr width="100%">
+<a name="6" id="6"><strong>UNITS OF MEASURE and VALUE CONVERSION</strong></a>
+<p>
+Units characterize the measurement of quantities. Some quantities may
+have more than one appropriate unit-of-measure. Unit equivalence classes
+(in the <a href="dictionary/units.htm">EQ Dictionary</a>)
+identify units that are comparable, and
+therefore values characterized by those different units of measure can be
+interconverted (<i>e.g.</i>, foot-to / from-metre). A functional interface
+is defined, and implemented, to support such value conversions. While most
+units are compliant with the SI (Syst&egrave;me International), some
+predate the SI. While they are supported, they are also deprecated
+(<i>e.g.</i>, statute mile, hectare, knot, rad).
+Attribute values may be scaled in order
+to better support a community of interest (<i>e.g.</i>, kilometres,
+hectopascal, milligrams). The
+<a href="dictionary/units.htm">ES Dictionary</a> includes such concepts.
+</p>
+<hr width="100%">
+<a name="7" id="7"><strong>ORGANIZING CONCEPTS</strong></a>
+<p>
+Concepts can be organized into groups (in the
+<a href="dictionary/groups.htm">EG Dictionary</a>)
+sharing a common &quot;scope of application&quot; or &quot;theme&quot;
+(<i>e.g.</i>, living organisms, vehicles, space, land transportation).
+Concepts can be relevant
+to multiple groups (<i>e.g.</i>, the U.S. Space Shuttle is relevant to
+both the vehicles and space groups). Classifications and attributes can be
+(multiply) grouped. Groups aid in searching the EDCS to find concepts of
+relevance to a coding task. Membership in a group does <i>not</i>
+affect/change the concept.
+</p><p>
+Groups are members of organizational schema (in the
+<a href="dictionary/groups.htm">EO Dictionary</a>),
+such that every classification or attribute concept is
+required to be a member of at least one group in that schema. This ensures
+that there are no &quot;holes&quot; in the coverage of the groups comprising a
+schema. Many schema (and their groups) can be defined; each from the
+perspective of a community-of-interest. Only one such schema is currently
+defined, <i>general</i>, however more can be easily added.
+</p>
+<hr width="100%">
+<a name="8" id="8"><strong>REGISTRATION and DEPRECATION</strong></a>
+<p>
+In order to support continuous evolution and growth of the EDCS, a
+low-overhead process of <i>registration</i> has been defined, allowing for
+the timely addition of new concepts to the EDCS. Additionally, a slower,
+measured process of <i>deprecation</i> has been defined for removing
+out-dated or inappropriate concepts from the EDCS.
+</p>
+<hr width="100%">
+<a name="9" id="9"><strong>PROFILES</strong></a>
+<p>
+In order to support the specification of rational <i>subsets</i> of
+the EDCS for use within a community, and <i>constraints</i> on the use of
+specific combinations of concepts from the EDCS, a profile mechanism has
+been defined. The <I>base profile</I> includes all concepts from all EDCS
+Dictionaries, and includes no constraints. Additional profiles may be
+defined through the registration process.
+</p>
+<hr />
+<font color="#ff0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a></strong>,
+<strong><a href="edcs.htm">Main EDCS Index</a><strong>
+<br /><br />
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated:
+July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td>
+</tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE CMYKtoCMY</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX D - Functions
+</font>
+<br>
+<font color="#ffffff">
+SE CMYKtoCMY
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../types/SE_DRM_Status_Code.htm">SE_DRM_Status_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SE_CMYKtoCMY</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1"><td class="CFunction">const&nbsp;</td><td class="CFunction"><a href="../types/SE_CMYK_Data.htm">SE_CMYK_Data</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="original_colour_ptr"></a>original_colour_ptr,</td><td class="CFunction"><sup><A href="#Notes_original_colour_ptr">1</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../types/SE_CMY_Data.htm">SE_CMY_Data</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="new_colour_ptr"></a>new_colour_ptr</td><td class="CFunction"><sup><A href="#Notes_new_colour_ptr">2</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+  This function converts a CMYK colour value to a CMY colour value.
+</P><P>
+  The colour model conversion algorithm is based on the algorithm
+  published in section 13.3.2,
+  &quot;The CMY Model&quot; of Computer Graphics:
+  Principles and Practice - Second Edition in C, by James D. Foley,
+  Andries van Dam, Steven K. Feiner, and John F. Hughes, published
+  by Addison-Wesley Publishing Company (Reprinted with corrections
+  November 1992, November 1993, and July 1995), Copyright 1996, 1990
+  by Addison-Wesley Publishing Company, Inc.
+</P><P>
+  Incoming data values are expected to be between 0.0 and 1.0, inclusive.
+  Furthermore, after adding the incoming Black value to the incoming
+  Cyan, Magenta, and Yellow values, all results are expected to be
+  between 0.0 and 1.0, inclusive.  Note that no checking of parameters
+  or results will be made by this function.  This function will <EM>not</EM>
+  clamp a result even if the result is greater than 1.0.  This function
+  simply performs the arithmetic of the following algorithm:
+</p><p><span class="Code">
+ Cyan&nbsp;&nbsp;&nbsp;= incoming Cyan&nbsp;&nbsp;&nbsp; + incoming Black
+</span></p><p><span class="Code">
+ Magenta = incoming Magenta + incoming Black
+</span></p><p><span class="Code">
+ Yellow&nbsp; = incoming Yellow  + incoming Black
+</span></p>
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_DRM_Status_Code.htm#SE_DRM_STAT_CODE_SUCCESS">SE_DRM_STAT_CODE_SUCCESS</A>
+</td><td class="Status">
+ and <A href="#new_colour_ptr">*new_colour_ptr</A> is set appropriately,
+ if valid parameters were passed in.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_DRM_Status_Code.htm#SE_DRM_STAT_CODE_NULL_REQUIRED_PARAMETER">SE_DRM_STAT_CODE_NULL_REQUIRED_PARAMETER</A>
+</td><td class="Status">
+ and <A href="#new_colour_ptr">*new_colour_ptr</A> is
+ left unchanged, if any parameter was NULL.
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#original_colour_ptr" name="Notes_original_colour_ptr">1</a></sup>
+ a pointer to the incoming CMYK colour
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#new_colour_ptr" name="Notes_new_colour_ptr">2</a></sup>
+ a pointer to where the converted CMY colour will be
+    stored
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SE_AllocCharacterArray.htm">SE_AllocCharacterArray</a>.
+<strong>Next:</strong> <a href="SE_CMYtoCMYK.htm">SE_CMYtoCMYK</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,262 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Property Set</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Property Set
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Property Set</h2>
+<h3>Superclass - <a href="SEDRISAbstractBase.htm">&lt;SEDRIS Abstract Base&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class groups together a set of instances
+ of classes that have formal component relationships with
+ the <A href="GeometryRepresentation.htm">&lt;Geometry Representation&gt;</A> class and/or
+ the <A href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> class and
+ specify either properties, such as
+ <A href="RenderingPriorityLevel.htm">&lt;Rendering Priority Level&gt;</A> instances, or metadata.
+</P><P>
+ A <A href="PropertySet.htm">&lt;Property Set&gt;</A> instance provides a
+ mechanism for a set of properties to be explicitly reused by
+ many <A href="GeometryRepresentation.htm">&lt;Geometry Representation&gt;</A> instances and/or
+ <A href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> instances.
+ A <A href="PropertySet.htm">&lt;Property Set&gt;</A> instance may contain property objects used by
+ <A href="GeometryRepresentation.htm">&lt;Geometry Representation&gt;</A> instances and/or
+ <A href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> instances.
+ If it contains property objects that are used by
+ <A href="GeometryRepresentation.htm">&lt;Geometry Representation&gt;</A> instances
+ and is referenced by a
+ <A href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> instance,
+ the <A href="GeometryRepresentation.htm">&lt;Geometry Representation&gt;</A>-related
+ property objects are ignored. The reverse is also true.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet19.pdf"><strong>19</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet06.pdf"><strong>6</strong></A>
+</LI>
+</UL>
+
+<h3>Example</h3>
+<OL>
+<LI><P>
+ A number of <A href="Polygon.htm">&lt;Polygon&gt;</A> instances that are all coloured red and
+ rendered using flat shading each have the same
+ <A href="PropertySetIndex.htm">&lt;Property Set Index&gt;</A> component that
+ references a <A href="PropertySet.htm">&lt;Property Set&gt;</A> instance containing
+ a <A href="Colour.htm">&lt;Colour&gt;</A> component specifying red and a
+ <A href="RenderingProperties.htm">&lt;Rendering Properties&gt;</A> component
+ specifying flat shading.
+</P></LI>
+<LI><P>
+ Consider a number of <A href="Polygon.htm">&lt;Polygon&gt;</A> instances that are
+ all coloured green, have grass texture that is modulated, and have
+ an <A href="../../../../src/lib/edcs/docs/dictionary/EAC_S.htm#EAC_SURFACE_MATERIAL_TYPE">EAC_SURFACE_MATERIAL_TYPE</A>
+ specifying <A href="../../../../src/lib/edcs/docs/dictionary/EAC_S.htm#EEC_SRF_MATTY_GRASS">EEC_SRF_MATTY_GRASS</A>. A
+ common <A href="PropertySetIndex.htm">&lt;Property Set Index&gt;</A> instance
+ specifies a <A href="PropertySet.htm">&lt;Property Set&gt;</A> instance containing:
+<OL type='a'>
+<LI>
+ a <A href="Colour.htm">&lt;Colour&gt;</A> instance specifying green,
+</LI>
+<LI>
+ an <A href="ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</A> instance specifying
+ <A href="ImageMappingFunction.htm#image_mapping_method">image_mapping_method</A> =
+ <A href="../types/SE_Image_Mapping_Method.htm#SE_IMAGMAPMETH_MODULATE">SE_IMAGMAPMETH_MODULATE</A>,
+ and
+</LI>
+<LI>
+ a <A href="PropertyValue.htm">&lt;Property Value&gt;</A> instance specifying
+ an <A href="../../../../src/lib/edcs/docs/dictionary/EAC_S.htm#EAC_SURFACE_MATERIAL_TYPE">EAC_SURFACE_MATERIAL_TYPE</A> value of <A href="../../../../src/lib/edcs/docs/dictionary/EAC_S.htm#EEC_SRF_MATTY_GRASS">EEC_SRF_MATTY_GRASS</A>.
+</LI>
+</OL>
+</LI>
+<LI><P>
+ Consider a number of <A href="Polygon.htm">&lt;Polygon&gt;</A> instances that all
+ have the same electromagnetic properties and are coloured grey. A common
+ <A href="PropertySet.htm">&lt;Property Set&gt;</A> instance contains a
+ <A href="Colour.htm">&lt;Colour&gt;</A> component specifying grey and a
+ <A href="PropertyTableReference.htm">&lt;Property Table Reference&gt;</A> component into a
+ <A href="PropertyTable.htm">&lt;Property Table&gt;</A> instance of electromagnetic properties.
+</P></LI>
+<LI><P>
+ Consider a <A href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> instance that is associated
+ with a <A href="GeometryRepresentation.htm">&lt;Geometry Representation&gt;</A> instance that has been
+ developed from it. Both reference the same <A href="PropertySet.htm">&lt;Property Set&gt;</A>
+ instance, which contains a <A href="Colour.htm">&lt;Colour&gt;</A> component,
+ an <A href="ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</A> component,
+ and a <A href="BrowseMedia.htm">&lt;Browse Media&gt;</A> component. The
+ <A href="GeometryRepresentation.htm">&lt;Geometry Representation&gt;</A> instance uses the
+ <A href="Colour.htm">&lt;Colour&gt;</A> component and
+ <A href="ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</A> component
+ but ignores the <A href="BrowseMedia.htm">&lt;Browse Media&gt;</A> component.
+</P></LI>
+<LI><P>
+ Consider a <A href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> instance with a
+ <A href="DataQuality.htm">&lt;Data Quality&gt;</A> component, the
+ <A href="DataQuality.htm#fictional">fictional</A> field of which
+ is set to <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A>.
+ This particular <A href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> instance also has a
+ <A href="PropertySetIndex.htm">&lt;Property Set Index&gt;</A> component,
+ referencing a <A href="PropertySet.htm">&lt;Property Set&gt;</A> instance
+ having a <A href="DataQuality.htm">&lt;Data Quality&gt;</A> component, the
+ <A href="DataQuality.htm#fictional">fictional</A> field of which
+ is set to <A href="../types/SE_Boolean.htm#SE_FALSE">SE_FALSE</A>.
+ Since a <A href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> instance may have at most one
+ <A href="DataQuality.htm">&lt;Data Quality&gt;</A> component, the
+ <A href="DataQuality.htm">&lt;Data Quality&gt;</A> instance with
+ <A href="DataQuality.htm#fictional">fictional</A> set to
+ <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A> is used, as it is contained directly by the
+ <A href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> instance.
+</P></LI>
+<LI><P>
+ Consider a <A href="GeometryRepresentation.htm">&lt;Geometry Representation&gt;</A> instance with two
+ <A href="PropertyTableReference.htm">&lt;Property Table Reference&gt;</A> components, that references a
+ <A href="PropertySet.htm">&lt;Property Set&gt;</A> instance that contains another three
+ <A href="PropertyTableReference.htm">&lt;Property Table Reference&gt;</A> components where all five have
+ distinct meanings. As a <A href="GeometryRepresentation.htm">&lt;Geometry Representation&gt;</A> instance
+ may contain many <A href="PropertyTableReference.htm">&lt;Property Table Reference&gt;</A> components,
+ all five are used by the <A href="GeometryRepresentation.htm">&lt;Geometry Representation&gt;</A> instance
+ as required. The two that are contained directly are used first,
+ then the three that are contained in the
+ <A href="PropertySet.htm">&lt;Property Set&gt;</A> instance.
+</P></LI>
+<LI><P>
+ A <A href="UnionOfPrimitiveGeometry.htm">&lt;Union Of Primitive Geometry&gt;</A> instance contains two
+ <A href="PropertyTableReference.htm">&lt;Property Table Reference&gt;</A> components and references two
+ <A href="PropertySet.htm">&lt;Property Set&gt;</A> instances. The first
+ <A href="PropertySet.htm">&lt;Property Set&gt;</A> instance contains another
+ <A href="PropertyTableReference.htm">&lt;Property Table Reference&gt;</A> component
+ and the second <A href="PropertySet.htm">&lt;Property Set&gt;</A> instance contains another
+ three <A href="PropertyTableReference.htm">&lt;Property Table Reference&gt;</A> components. As
+ an <A href="AggregateGeometry.htm">&lt;Aggregate Geometry&gt;</A> instance may contain many
+ <A href="PropertyTableReference.htm">&lt;Property Table Reference&gt;</A> components, all six are used
+ by the <A href="UnionOfPrimitiveGeometry.htm">&lt;Union Of Primitive Geometry&gt;</A> instance
+ as required. The two that are contained directly are used first,
+ then the one that is contained in the first
+ <A href="PropertySet.htm">&lt;Property Set&gt;</A> instance,
+ and finally the three that are contained in the second
+ <A href="PropertySet.htm">&lt;Property Set&gt;</A> instance.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ Where can users find more information on property objects?
+</B></DT>
+<DD><P>
+ See <A href="../p4v9.htm">P4V9</A> of the
+ SEDRIS Documentation Set for further information.
+</P></DD>
+<DT><B>
+ What is the order of precedence for components of
+ a single <A href="PropertySet.htm">&lt;Property Set&gt;</A> instance?
+</B></DT>
+<DD><P>
+ See <a href="../constraints/PrecedenceofPropertySetIndex.htm">&lt;&lt;Precedence of Property Set Index&gt;&gt;</a>.
+</P></DD>
+<DT><B>
+ What if a <A href="GeometryRepresentation.htm">&lt;Geometry Representation&gt;</A> instance or
+ <A href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> instance
+ has more than one <A href="PropertySetIndex.htm">&lt;Property Set Index&gt;</A> component,
+ where the referenced <A href="PropertySet.htm">&lt;Property Set&gt;</A> instances
+ have conflicting components?
+</B></DT>
+<DD><P>
+ See <a href="../constraints/PrecedenceofPropertySetIndex.htm">&lt;&lt;Precedence of Property Set Index&gt;&gt;</a>.
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/PresentationDomainConstraints.htm">&lt;&lt;Presentation Domain Constraints&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/PropertyConstraints.htm">&lt;&lt;Property Constraints&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Composed of (two-way)</h3>
+<UL>
+<li>zero or one <a href="ClassificationData.htm">&lt;Classification Data&gt;</a> instance</li>
+<li>zero or more <a href="Colour.htm">&lt;Colour&gt;</a> instances</li>
+<li>zero or more {ordered} <a href="ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</a> instances</li>
+<li>zero or one <a href="LightRenderingProperties.htm">&lt;Light Rendering Properties&gt;</a> instance</li>
+<li>zero or one <a href="PresentationDomain.htm">&lt;Presentation Domain&gt;</a> instance</li>
+<li>zero or more <a href="PropertyTable.htm">&lt;Property Table&gt;</a> instances</li>
+<li>zero or more <a href="PropertyTableReference.htm">&lt;Property Table Reference&gt;</a> instances</li>
+<li>zero or more <a href="PropertyValue.htm">&lt;Property Value&gt;</a> instances</li>
+<li>zero or one <a href="RenderingPriorityLevel.htm">&lt;Rendering Priority Level&gt;</a> instance</li>
+<li>zero or one <a href="RenderingProperties.htm">&lt;Rendering Properties&gt;</a> instance</li>
+</UL>
+
+<h3>Composed of (two-way metadata)</h3>
+<UL>
+<li>zero or one <a href="DataQuality.htm">&lt;Data Quality&gt;</a> instance</li>
+<li>zero or one <a href="Identification.htm">&lt;Identification&gt;</a> instance</li>
+<li>zero or one <a href="TimeConstraintsData.htm">&lt;Time Constraints Data&gt;</a> instance</li>
+</UL>
+
+<h3>Component of (two-way)</h3>
+<UL>
+<li>one <a href="PropertySetTable.htm">&lt;Property Set Table&gt;</a> instance</li>
+</UL>
+
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+
+<hr>
+<strong>Prev:</strong> <A href="PropertyGridHookPoint.htm">Property Grid Hook Point</A>.
+<strong>Next:</strong> <A href="PropertySetIndex.htm">Property Set Index</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

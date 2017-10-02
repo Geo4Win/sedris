@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE_Interval_Value</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX C - Types
+</font>
+<br>
+<font color="#ffffff">
+SE_Interval_Value
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<PRE>
+/*
+ * STRUCT: SE_Interval_Value
+ *
+ *   This variant record data type specifies a single interval value
+ *   of a supported EDCS data type.
+ *
+ *   This variant record data type is used to represent cells in
+ *   &lt;Data Table&gt; instances, values in &lt;Property Value&gt; instances,
+ *   and the values specified by &lt;Literal&gt; instances. The value
+ *   type variant indicates the currently valid field of all the
+ *   legal types of values for a &lt;Property Value&gt; instance or
+ *   &lt;Data Table&gt; instance.
+ */
+</PRE>
+<span class="Code">typedef struct 
+<br>
+{</span>
+<br>
+<table class="CFunctionPrototype">
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Interval_Value_Type.htm">SE_Interval_Value_Type</a></td>
+        <td class="CFunction"><a name="value_type"></a>value_type;</td></tr>
+<tr> <td class="CFunction">   </td><td class="CFunction">union</td></tr>
+<tr> <td class="CFunction">   </td><td class="CFunction">{</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SE_Long_Float_Interval_Value.htm">SE_Long_Float_Interval_Value</a></td>
+            <td class="CFunction"><a
+            name="long_float_value"></a>long_float_value;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SE_Integer_Interval_Value.htm">SE_Integer_Interval_Value</a></td>
+            <td class="CFunction"><a
+            name="integer_value"></a>integer_value;</td></tr>
+<tr><td class="CFunction">       </td> <td class="CFunction"><a href="SE_Count_Interval_Value.htm">SE_Count_Interval_Value</a></td>
+            <td class="CFunction"><a name="count_value"></a>count_value;</td></tr>
+<tr><td class="CFunction"></td> <td class="CFunction">} <a
+        name="value"></a>value;</td></tr>
+</table>
+<span class="Code">
+} SE_Interval_Value;</span>
+<br>
+
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SE_Interval_Type.htm">SE_Interval_Type</a>.
+<strong>Next:</strong> <a href="SE_Interval_Value_Type.htm">SE_Interval_Value_Type</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

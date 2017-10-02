@@ -1,0 +1,399 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Cone Directional Light</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Cone Directional Light
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Cone Directional Light</h2>
+<h3>Superclass - <a href="DirectionalLightBehaviour.htm">&lt;Directional Light Behaviour&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies a
+ <A href="DirectionalLightBehaviour.htm">&lt;Directional Light Behaviour&gt;</A> instance,
+ the intensity of which varies depending on the position of the observer
+ relative to the light's location, direction, and shape. This light
+ takes the shape of a cone, which can be elliptical.
+</P><P>
+ A <A href="ConeDirectionalLight.htm">&lt;Cone Directional Light&gt;</A> instance can specify a plane
+ that divides the light cone into an upper and a lower section
+ along the body of the cone. This occurs when the
+ <A href="#has_plane">has_plane</A>
+ field has value <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A>.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet21.pdf"><strong>21</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+This class appears on only one page of the DRM class diagram.
+<h3>Example</h3>
+<OL>
+<LI><P>
+ A 100 kilometre highway has regularly spaced lampposts.
+ Each lamp is represented using
+ a <A href="ConeDirectionalLight.htm">&lt;Cone Directional Light&gt;</A>
+ instance with a <A href="LobeData.htm">&lt;Lobe Data&gt;</A> component
+ pointing down. If all the lamps use the same
+ <A href="ConeDirectionalLight.htm">&lt;Cone Directional Light&gt;</A> instance,
+ all the directions will be parallel. Due to
+ the curvature of the Earth, very few of the lights will shine directly
+ down; the others will be slightly skewed. If, instead, the set of lamps
+ is divided into smaller contiguous groups, each with its own
+ <A href="ConeDirectionalLight.htm">&lt;Cone Directional Light&gt;</A>
+ instance using a <A href="Location.htm">&lt;Location&gt;</A> component near the centre
+ of the group, the skewing effect will be greatly minimized.
+</P></LI>
+<LI><P>
+ Consider a
+ <A href="ConeDirectionalLight.htm">&lt;Cone Directional Light&gt;</A> instance
+ with a primary colour that is a
+ <A href="ColourIndex.htm">&lt;Colour Index&gt;</A> instance with full intensity =
+ <A href="ColourIndex.htm#intensity_level">intensity_level</A> =
+ 0.8, as depicted in
+ <a href="#Figure6">Figure 6</a>:
+</P>
+<DIV align="center">
+<p>
+<A name="Figure6"></A>
+<IMG SRC="../Images/CnDL_Ex2.png" ALT="Cone Directional Light, Example 2">
+</p>
+<p class=FigureCaption>Figure 6 &#8212; &lt;DRM Cone Directional Light&gt; primary colour &lt;DRM Colour Index&gt; example</p>
+</DIV>
+<P>
+ Since the lobe shape results in a circular cone, the following equation
+ may be used to compute the final intensity for this example:
+</P><BLOCKQUOTE><P>
+ final intensity =
+ <A href="#minimum_colour_intensity">minimum_colour_intensity</A> +<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ((((width / 2.0) - observer angular offset)
+ / (width / 2.0))
+ &times; <BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(<A href="ColourIndex.htm#intensity_level">intensity_level</A> -
+ <A href="#minimum_colour_intensity">minimum_colour_intensity</A>))
+</P></BLOCKQUOTE><P>
+ where width is the diameter of the cone (either the
+ <A href="LobeData.htm#horizontal_width">horizontal_width</A> or the
+ <A href="LobeData.htm#vertical_width">vertical_width</A>).
+</P><P>
+ At 0.26179 radians (approximately 15 degrees) from the
+ <A href="../types/SE_Reference_Vector_Type.htm#SE_REFVEC_LIGHT_DIRECTION">SE_REFVEC_LIGHT_DIRECTION</A>
+ vector in the horizontal direction,
+ the final intensity is 0.35.
+</P><P>
+ At 0.43633 radians (approximately 25 degrees) from the
+ <A href="../types/SE_Reference_Vector_Type.htm#SE_REFVEC_LIGHT_DIRECTION">SE_REFVEC_LIGHT_DIRECTION</A>
+ vector in the horizontal direction,
+ the final intensity is 0.2, because
+ that position lies outside the horizontal width of the lobe.
+</P></LI>
+<LI><P>
+ Consider the following
+ <A href="ConeDirectionalLight.htm">&lt;Cone Directional Light&gt;</A> instance,
+ with its primary colour specified
+ by an <A href="InlineColour.htm">&lt;Inline Colour&gt;</A> instance, so that the
+ full intensity is 1.0, as depicted in
+ <a href="#Figure7">Figure 7</a>:
+</P>
+<DIV align="center">
+<p>
+<A name="Figure7"></A>
+<IMG SRC="../Images/CnDL_Ex3.png" ALT="Cone Directional Light, Example 3">
+</p>
+<p class=FigureCaption>Figure 7 &#8212; &lt;DRM Cone Directional Light&gt; primary colour &lt;DRM Inline Colour&gt; example</p>
+</DIV>
+<P>
+ At 0.69813 radians (approximately 40 degrees) from the
+ <A href="../types/SE_Reference_Vector_Type.htm#SE_REFVEC_LIGHT_DIRECTION">SE_REFVEC_LIGHT_DIRECTION</A>
+ vector in the horizontal direction,
+ the final intensity is 1.0 because
+ <A href="#use_full_intensity">use_full_intensity</A>
+ is <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A> and the position lies
+ inside the horizontal width of the lobe.
+</P><P>
+ At 0.87266 radians (approximately 50 degrees) from the
+ <A href="../types/SE_Reference_Vector_Type.htm#SE_REFVEC_LIGHT_DIRECTION">SE_REFVEC_LIGHT_DIRECTION</A>
+ vector in the horizontal direction, the final intensity is
+ 0.5 because the
+ position is outside the horizontal width.
+</P></LI>
+<LI><P>
+ Consider a <A href="ConeDirectionalLight.htm">&lt;Cone Directional Light&gt;</A>
+ instance with both a primary and a secondary colour, each of which is a
+ <A href="ColourIndex.htm">&lt;Colour Index&gt;</A> instance with
+ <A href="ColourIndex.htm#intensity_level">intensity_level</A> =
+ 0.8, as depicted in
+ <a href="#Figure8">Figure 8</a>:
+</P>
+<DIV align="center">
+<p>
+<A name="Figure8"></A>
+<IMG SRC="../Images/CnDL_Ex4.png" ALT="Cone Directional Light, Example 4">
+</p>
+<p class=FigureCaption>Figure 8 &#8212; &lt;DRM Cone Directional Light&gt; primary and secondary colour example</p>
+</DIV>
+<P>
+ At 0.69813 radians (approximately 40 degrees) from the
+ <A href="../types/SE_Reference_Vector_Type.htm#SE_REFVEC_LIGHT_DIRECTION">SE_REFVEC_LIGHT_DIRECTION</A>
+ vector in the vertical direction,
+ the primary colour is in effect with intensity
+ 0.8, because the position is inside the
+ vertical width and
+ <A href="#use_full_intensity">use_full_intensity</A>
+ is <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A>.
+</P><P>
+ At 0.69813 radians (approximately 40 degrees) from the
+ <A href="../types/SE_Reference_Vector_Type.htm#SE_REFVEC_LIGHT_DIRECTION">SE_REFVEC_LIGHT_DIRECTION</A>
+ vector in the horizontal direction,
+ the secondary colour is in effect with intensity
+ 0.8,
+ because the position is outside the horizontal width and
+ <A href="#minimum_colour_intensity">minimum_colour_intensity</A>
+ = 0.0.
+</P></LI>
+<LI><P>
+ Consider a
+ <A href="ConeDirectionalLight.htm">&lt;Cone Directional Light&gt;</A> instance
+ with both a primary and a secondary colour, each of which is a
+ <A href="ColourIndex.htm">&lt;Colour Index&gt;</A> instance with full intensity =
+ <A href="ColourIndex.htm#intensity_level">intensity_level</A> =
+ 0.8 as depicted in <a href="#Figure9">Figure 9</a>:
+</P>
+<DIV align="center">
+<p>
+<A name="Figure9"></A>
+<IMG SRC="../Images/CnDL_Ex5.png" ALT="Cone Directional Light, Example 5">
+</p>
+<p class=FigureCaption>Figure 9 &#8212; &lt;DRM Cone Directional Light&gt; example</p>
+</DIV>
+<P>
+ At 0.43633 radians (approximately 25 degrees) from the
+ <A href="../types/SE_Reference_Vector_Type.htm#SE_REFVEC_LIGHT_DIRECTION">SE_REFVEC_LIGHT_DIRECTION</A>
+ vector in the vertical direction, towards the positive end of the
+ <A href="../types/SE_Reference_Vector_Type.htm#SE_REFVEC_VERTICAL_AXIS">SE_REFVEC_VERTICAL_AXIS</A>
+ vector, the final intensity is 0.8
+ since this position lies in the upper section,
+ full intensity of the primary colour is 0.8 and the
+ <A href="#minimum_colour_intensity">minimum_colour_intensity</A>
+ is 0.0.
+</P><P>
+ At 0.26179 radians (approximately 15 degrees) from the
+ <A href="../types/SE_Reference_Vector_Type.htm#SE_REFVEC_LIGHT_DIRECTION">SE_REFVEC_LIGHT_DIRECTION</A>
+ vector in the vertical direction, towards the positive end of the
+ <A href="../types/SE_Reference_Vector_Type.htm#SE_REFVEC_VERTICAL_AXIS">SE_REFVEC_VERTICAL_AXIS</A>
+ vector, the full intensity
+ of the secondary colour is 0.8, because this
+ position lies in the lower section of the cone and the
+ <A href="#minimum_colour_intensity">minimum_colour_intensity</A>
+ is 0.0.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<p>
+No FAQs supplied.
+</p>
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/InheritanceRuleForLocation.htm">&lt;&lt;Inheritance Rule For Location&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Composed of (two-way) (inherited)</h3>
+<UL>
+<li>one <a href="LobeData.htm">&lt;Lobe Data&gt;</a> instance<sup><A href="#Notes_cmp_Lobe_Data" name="cmp_Lobe_Data">1</A></sup></li>
+<li>one <a href="Location.htm">&lt;Location&gt;</a> instance</li>
+</UL>
+<h3>Component of (two-way) (inherited)</h3>
+<UL>
+<li>one or more <a href="LightRenderingProperties.htm">&lt;Light Rendering Properties&gt;</a> instances</li>
+</UL>
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Boolean.htm">SE_Boolean</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="has_plane">has_plane</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_has_plane">2</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Long_Float.htm">SE_Long_Float</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="plane_angular_offset">plane_angular_offset</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_plane_angular_offset">3</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Boolean.htm">SE_Boolean</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="use_full_intensity">use_full_intensity</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_use_full_intensity">4</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Long_Float.htm">SE_Long_Float</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="minimum_colour_intensity">minimum_colour_intensity</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_minimum_colour_intensity">5</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Boolean.htm">SE_Boolean</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="invisible_behind">invisible_behind</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_invisible_behind">6</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Composed of Notes</h3>
+<br>
+<h4><a href="#cmp_Lobe_Data" name="Notes_cmp_Lobe_Data">Lobe_Data</a></h4>
+ The <A href="LobeData.htm">&lt;Lobe Data&gt;</A> component
+ specifies the lobe shape.
+</P>
+<h3>Fields Notes</h3>
+<h4><a href="#has_plane" name="Notes_has_plane">has_plane</a></h4>
+<P>
+ If the value of the
+ <A href="#has_plane">has_plane</A>
+ field is <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A>,
+ a plane, based at the cone apex and
+ extending along the body of the cone, divides the light cone into
+ an upper and a lower section. The upper section receives the primary
+ colour. If a secondary colour is used, the lower section receives it.
+ If a secondary colour is not used, the lower section also receives
+ the primary colour.
+</P><P>
+ If the value of the <A href="#has_plane">has_plane</A> field is
+ <A href="../types/SE_Boolean.htm#SE_FALSE">SE_FALSE</A>, the cone is not
+ divided and always receives the primary colour.
+</P>
+<h4><a href="#plane_angular_offset" name="Notes_plane_angular_offset">plane_angular_offset</a></h4>
+<P>
+ The value of the
+ <A href="#plane_angular_offset">plane_angular_offset</A>
+ field defines the angular offset of
+ the plane measured in radians, if the value of the
+ <A href="#has_plane">has_plane</A> field is
+ <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A>. The offset is measured
+ from the <A href="LobeData.htm">&lt;Lobe Data&gt;</A> instance's
+ <A href="../types/SE_Reference_Vector_Type.htm#SE_REFVEC_LIGHT_DIRECTION">SE_REFVEC_LIGHT_DIRECTION</A>
+ vector and along its
+ <A href="../types/SE_Reference_Vector_Type.htm#SE_REFVEC_VERTICAL_AXIS">SE_REFVEC_VERTICAL_AXIS</A>
+ vector.
+ The resulting upper section of the light is taken to be
+ between the plane and the positive end of the
+ <A href="../types/SE_Reference_Vector_Type.htm#SE_REFVEC_VERTICAL_AXIS">SE_REFVEC_VERTICAL_AXIS</A>
+ vector.
+</P><P>
+ The value of the
+ <A href="#plane_angular_offset">plane_angular_offset</A> field
+ is ignored if <A href="#has_plane">has_plane</A> is
+ <A href="../types/SE_Boolean.htm#SE_FALSE">SE_FALSE</A>.
+</P>
+<h4><a href="#use_full_intensity" name="Notes_use_full_intensity">use_full_intensity</a></h4>
+<P>
+ If the value of the
+ <A href="#use_full_intensity">use_full_intensity</A> field
+ is <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A>,
+ it indicates that the full intensity of
+ the light is shown in the cone shaped area. Otherwise, the intensity
+ of the light decreases (towards the
+ <A href="#minimum_colour_intensity">minimum_colour_intensity</A>
+ value) as one moves away from the
+ <A href="../types/SE_Reference_Vector_Type.htm#SE_REFVEC_LIGHT_DIRECTION">SE_REFVEC_LIGHT_DIRECTION</A>
+ vector.
+</P>
+<h4><a href="#minimum_colour_intensity" name="Notes_minimum_colour_intensity">minimum_colour_intensity</a></h4>
+<P>
+ The value of the
+ <A href="#minimum_colour_intensity">minimum_colour_intensity</A>
+ value is used in conjunction with the full intensity value of
+ the primary colour. If the primary colour is represented by a
+ <A href="ColourIndex.htm">&lt;Colour Index&gt;</A> instance, the full intensity is specified
+ by its <A href="ColourIndex.htm#intensity_level">intensity_level</A>
+ field. If the primary colour is represented by
+ an <A href="InlineColour.htm">&lt;Inline Colour&gt;</A> instance,
+ the full intensity is 1.0.
+</P><P>
+ A location in the direct path of the
+ <A href="LobeData.htm">&lt;Lobe Data&gt;</A> instance's
+ <A href="../types/SE_Reference_Vector_Type.htm#SE_REFVEC_LIGHT_DIRECTION">SE_REFVEC_LIGHT_DIRECTION</A>
+ vector receives the full intensity value. If
+ <A href="#use_full_intensity">use_full_intensity</A>
+ is <A href="../types/SE_Boolean.htm#SE_FALSE">SE_FALSE</A>,
+ the intensity decreases with increasing angular distance from the
+ <A href="../types/SE_Reference_Vector_Type.htm#SE_REFVEC_LIGHT_DIRECTION">SE_REFVEC_LIGHT_DIRECTION</A>
+ vector, until the boundary specified by the horizontal and
+ vertical <A href="LobeData.htm">&lt;Lobe Data&gt;</A> instance
+ widths is reached. Outside the lobe, the intensity is
+ <A href="#minimum_colour_intensity">minimum_colour_intensity</A>.
+ If the
+ <A href="#minimum_colour_intensity">minimum_colour_intensity</A>
+ value is 0.0, the secondary colour
+ (if present) will be seen outside the lobe at full intensity. If no
+ secondary colour is present, nothing is visible outside the lobe.
+</P>
+<h4><a href="#invisible_behind" name="Notes_invisible_behind">invisible_behind</a></h4>
+<P>
+ If the value of the <A href="#invisible_behind">invisible_behind</A>
+ field is <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A>,
+ the directional light is invisible when viewed from behind the
+ plane located at the apex and perpendicular to the
+ <A href="../types/SE_Reference_Vector_Type.htm#SE_REFVEC_LIGHT_DIRECTION">SE_REFVEC_LIGHT_DIRECTION</A>
+ vector. If the value of the
+ <A href="#invisible_behind">invisible_behind</A> field is
+ <A href="../types/SE_Boolean.htm#SE_FALSE">SE_FALSE</A>, the directional light is
+ visible when viewed from behind.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="ColourTableLibrary.htm">Colour Table Library</A>.
+<strong>Next:</strong> <A href="ConformalBehaviour.htm">Conformal Behaviour</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

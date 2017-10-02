@@ -1,0 +1,251 @@
+# scripts/taccess0_4p0_4p1_mapping.nch
+# 361 types
+#
+# SE_Absolute_Time_Interval_Entry was not renamed
+#
+# SE_Access_Mode         was not renamed
+SE_AC_MODE_READ_ONLY   SE_AM_READ_ONLY
+SE_AC_MODE_UPDATE      SE_AM_UPDATE
+SE_AC_MODE_CREATE      SE_AM_CREATE
+#
+SE_Alt_Hierarchy_Parameters SE_Alternate_Hierarchy_Parameters
+SE_PrintAltHierarchyParameters SE_PrintAlternateHierarchyParameters
+SE_ValidAltHierarchyParameters SE_ValidAlternateHierarchyParameters
+#
+# SE_Animation_Range     was not renamed
+#
+# SE_Animation_Select_Parameters was not renamed
+#
+# SE_Branch_Range_Matching was not renamed
+SE_BRNCH_RNG_MATCH_EXACT SE_BRRNGMAT_EXACT
+SE_BRNCH_RNG_MATCH_FULL_CONTAINMENT SE_BRRNGMAT_FULL_CONTAINMENT
+SE_BRNCH_RNG_MATCH_INTERSECTION SE_BRRNGMAT_INTERSECTION
+#
+# SE_Classification_Entry was not renamed
+#
+# SE_Classification_Parameters was not renamed
+#
+SE_CLOD_Select_Choice  SE_Continuous_LOD_Select_Choice
+SE_PrintCLODSelectChoice SE_PrintContinuousLODSelectChoice
+SE_ValidCLODSelectChoice SE_ValidContinuousLODSelectChoice
+#
+# SE_Continuous_LOD_Select_Parameters was not renamed
+#
+# SE_Cylindrical_Volume_Extent_Entry was not renamed
+#
+# SE_Data_Table_Sub_Extent was not renamed
+#
+# SE_Encoding            was not renamed
+SE_ENC_STF             SE_ENCODING_STF
+#
+SE_Error_Handling_Function_Ptr SE_Status_Logger_Ptr
+SE_PrintErrorHandlingFunctionPtr SE_PrintStatusLoggerPtr
+SE_ValidErrorHandlingFunctionPtr SE_ValidStatusLoggerPtr
+#
+SE_Error_Handling_Function_Signature SE_Status_Logger
+SE_PrintErrorHandlingFunctionSignature SE_PrintStatusLogger
+SE_ValidErrorHandlingFunctionSignature SE_ValidStatusLogger
+#
+# SE_General_Hierarchy_Order was not renamed
+#
+# SE_General_Hierarchy_Select was not renamed
+#
+# SE_Hierarchy_Inclusion was not renamed
+SE_HIER_INCL_EXCLUDE_ALL SE_HIERINC_EXCLUDE_ALL
+SE_HIER_INCL_INCLUDE_ALL SE_HIERINC_INCLUDE_ALL
+SE_HIER_INCL_EVALUATE_RULES SE_HIERINC_EVALUATE_RULES
+#
+# SE_Hierarchy_Order_Parameters was not renamed
+#
+# SE_Hierarchy_Select_Parameters was not renamed
+#
+# SE_Image_Data          was not renamed
+#
+# SE_Index_Range         was not renamed
+#
+# SE_Iterator            was not renamed
+#
+# SE_ITR_Behaviour       was not renamed
+SE_ITR_BHVR_RESOLVE    SE_ITRBEH_RESOLVE
+SE_ITR_BHVR_REPORT     SE_ITRBEH_REPORT
+SE_ITR_BHVR_IGNORE     SE_ITRBEH_IGNORE
+#
+# SE_LOD_Entry           was not renamed
+#
+# SE_LOD_Select_Parameters was not renamed
+#
+# SE_Object              was not renamed
+#
+# SE_Object_Inclusion    was not renamed
+SE_INCL_TEST_FULLY_INCLUDED SE_OBJINCL_FULLY_INCLUDED
+SE_INCL_TEST_PARTIALLY_INCLUDED SE_OBJINCL_PARTIALLY_INCLUDED
+#
+# SE_Octant_Select_Parameters was not renamed
+#
+# SE_Packed_Hierarchy    was not renamed
+#
+# SE_Packed_Hierarchy_Object was not renamed
+#
+SE_Packed_Hierarchy_Object_Ptr SE_Packed_Hierarchy_Object_Access
+SE_PrintPackedHierarchyObjectPtr SE_PrintPackedHierarchyObjectAccess
+SE_ValidPackedHierarchyObjectPtr SE_ValidPackedHierarchyObjectAccess
+#
+# SE_Packed_Hierarchy_Reference was not renamed
+#
+# SE_Packed_Hierarchy_Reference_Ptr was not renamed
+#
+# SE_Parallelepiped_Volume_Extent_Entry was not renamed
+#
+# SE_Predicate           was not renamed
+#
+# SE_Quadrant_Select_Parameters was not renamed
+#
+SE_Relative_To_Abs_Time_Interval_Entry SE_Relative_To_Absolute_Time_Interval_Entry
+SE_PrintRelativeToAbsTimeIntervalEntry SE_PrintRelativeToAbsoluteTimeIntervalEntry
+SE_ValidRelativeToAbsTimeIntervalEntry SE_ValidRelativeToAbsoluteTimeIntervalEntry
+#
+SE_Relative_To_Abs_Time_Point_Entry SE_Relative_To_Absolute_Time_Entry
+SE_PrintRelativeToAbsTimePointEntry SE_PrintRelativeToAbsoluteTimeEntry
+SE_ValidRelativeToAbsTimePointEntry SE_ValidRelativeToAbsoluteTimeEntry
+#
+# SE_Remaining_Objects_List was not renamed
+#
+# SE_Remaining_Packed_Hierarchies_List was not renamed
+#
+# SE_Return_Code         was not renamed
+SE_RET_CODE_FAILURE    SE_RETCOD_FAILURE
+SE_RET_CODE_SUCCESS    SE_RETCOD_SUCCESS
+#
+# SE_Search_Boundary     was not renamed
+#
+# SE_Search_Bounds       was not renamed
+#
+# SE_Search_Bounds_Closure was not renamed
+SE_SEARCH_BNDS_CLOSURE_FULLY_CLOSED SE_SEARCHBNDSCLS_FULLY_CLOSED
+SE_SEARCH_BNDS_CLOSURE_PARTIALLY_CLOSED SE_SEARCHBNDSCLS_PARTIALLY_CLOSED
+#
+SE_Search_Dimensionality SE_Search_Dimension
+SE_PrintSearchDimensionality SE_PrintSearchDimension
+SE_ValidSearchDimensionality SE_ValidSearchDimension
+SE_SEARCH_DIM_TWO_DIMENSIONAL_OR_SURFACE SE_SEARCHDIM_TWO_DIMENSIONAL_OR_SURFACE
+SE_SEARCH_DIM_THREE_DIMENSIONAL SE_SEARCHDIM_THREE_DIMENSIONAL
+SE_SEARCH_DIM_ALL_DIMENSIONS SE_SEARCHDIM_ALL_DIMENSIONS
+#
+# SE_Search_Filter       was not renamed
+#
+# SE_Search_Rule         was not renamed
+#
+# SE_Search_Rule_Type    was not renamed
+SE_SEARCH_RUL_TYP_END  SE_SEARCHRULETYP_END
+SE_SEARCH_RUL_TYP_AND  SE_SEARCHRULETYP_AND
+SE_SEARCH_RUL_TYP_OR   SE_SEARCHRULETYP_OR
+SE_SEARCH_RUL_TYP_NOT  SE_SEARCHRULETYP_NOT
+SE_SEARCH_RUL_TYP_OBJECT_AND SE_SEARCHRULETYP_OBJECT_AND
+SE_SEARCH_RUL_TYP_PREDICATE SE_SEARCHRULETYP_PREDICATE
+SE_SEARCH_RUL_TYP_DRM_CLASS SE_SEARCHRULETYP_DRM_CLASS
+SE_SEARCH_RUL_TYP_FIELD SE_SEARCHRULETYP_FIELD
+SE_SEARCH_RUL_TYP_FIELD_RANGE SE_SEARCHRULETYP_FIELD_RANGE
+SE_SEARCH_RUL_TYP_FIELD_ARRAY SE_SEARCHRULETYP_FIELD_ARRAY
+SE_SEARCH_RUL_TYP_COMPONENT_DRM_CLASS SE_SEARCHRULETYP_COMPONENT
+SE_SEARCH_RUL_TYP_COMPONENT_FIELD SE_SEARCHRULETYP_COMPONENT_FIELD
+SE_SEARCH_RUL_TYP_COMPONENT_FIELD_RANGE SE_SEARCHRULETYP_COMPONENT_FIELD_RANGE
+SE_SEARCH_RUL_TYP_COMPONENT_FIELD_ARRAY SE_SEARCHRULETYP_COMPONENT_FIELD_ARRAY
+SE_SEARCH_RUL_TYP_ASSOCIATION SE_SEARCHRULETYP_ASSOCIATE
+# SE_SEARCH_RUL_TYP_ASSOCIATION_DRM_CLASS has been dropped
+SE_SEARCH_RUL_TYP_MAX_SEARCH_DEPTH SE_SEARCHRULETYP_MAX_SEARCH_DEPTH
+#
+# SE_Search_Type         was not renamed
+SE_SEARCH_TYP_POINT    SE_SEARCHTYP_POINT
+SE_SEARCH_TYP_BOUNDING_BOX SE_SEARCHTYP_BOUNDING_BOX
+SE_SEARCH_TYP_EXACT    SE_SEARCHTYP_EXACT
+#
+# SE_Search_Value_Type   was not renamed
+SE_SEARCH_VAL_TYP_BOOLEAN SE_SEARCHVALTYP_BOOLEAN
+SE_SEARCH_VAL_TYP_BYTE SE_SEARCHVALTYP_BYTE
+SE_SEARCH_VAL_TYP_BYTE_POSITIVE SE_SEARCHVALTYP_BYTE_POSITIVE
+SE_SEARCH_VAL_TYP_BYTE_UNSIGNED SE_SEARCHVALTYP_BYTE_UNSIGNED
+SE_SEARCH_VAL_TYP_ENUMERATED SE_SEARCHVALTYP_ENUMERATED
+SE_SEARCH_VAL_TYP_FLOAT SE_SEARCHVALTYP_FLOAT
+SE_SEARCH_VAL_TYP_INTEGER SE_SEARCHVALTYP_INTEGER
+SE_SEARCH_VAL_TYP_INTEGER_POSITIVE SE_SEARCHVALTYP_INTEGER_POSITIVE
+SE_SEARCH_VAL_TYP_INTEGER_UNSIGNED SE_SEARCHVALTYP_INTEGER_UNSIGNED
+SE_SEARCH_VAL_TYP_LONG_FLOAT SE_SEARCHVALTYP_LONG_FLOAT
+SE_SEARCH_VAL_TYP_SET  SE_SEARCHVALTYP_SET
+SE_SEARCH_VAL_TYP_SHORT_INTEGER SE_SEARCHVALTYP_SHORT_INTEGER
+SE_SEARCH_VAL_TYP_SHORT_INTEGER_POSITIVE SE_SEARCHVALTYP_SHORT_INTEGER_POSITIVE
+SE_SEARCH_VAL_TYP_SHORT_INTEGER_UNSIGNED SE_SEARCHVALTYP_SHORT_INTEGER_UNSIGNED
+SE_SEARCH_VAL_TYP_STRING SE_SEARCHVALTYP_STRING
+#
+# SE_Separating_Plane_Select_Parameters was not renamed
+#
+# SE_Sibling_Traversal_Order was not renamed
+SE_SIB_TRAV_ORDR_ASCENDING SE_SIBTRAV_ASCENDING
+SE_SIB_TRAV_ORDR_DESCENDING SE_SIBTRAV_DESCENDING
+SE_SIB_TRAV_ORDR_UNSPECIFIED SE_SIBTRAV_UNSPECIFIED
+#
+SE_Solid               SE_Volumetric_Shape
+SE_PrintSolid SE_PrintVolumetricShape
+SE_ValidSolid SE_ValidVolumetricShape
+SE_SOLID_SPHERE        SE_VOLSHAP_SPHERE
+SE_SOLID_CYLINDER      SE_VOLSHAP_CYLINDER
+SE_SOLID_PARALLELEPIPED SE_VOLSHAP_PARALLELEPIPED
+#
+# SE_Spatial_Index_Parameters was not renamed
+#
+# SE_State_Entry         was not renamed
+#
+# SE_State_Select_Parameters was not renamed
+#
+# SE_Status_Code         was not renamed
+SE_STAT_CODE_SUCCESS   SE_STATCODE_SUCCESS
+SE_STAT_CODE_NO_OBJECT SE_STATCODE_NO_OBJECT
+SE_STAT_CODE_TRANSMITTAL_INACCESSIBLE SE_STATCODE_TRANSMITTAL_INACCESSIBLE
+SE_STAT_CODE_UNRESOLVED_TRANSMITTAL SE_STATCODE_UNRESOLVED_TRANSMITTAL
+SE_STAT_CODE_INVALID_ACCESS_MODE SE_STATCODE_INVALID_ACCESS_MODE
+SE_STAT_CODE_UNSUPPORTED_ENCODING SE_STATCODE_UNSUPPORTED_ENCODING
+SE_STAT_CODE_INVALID_TRANSMITTAL_NAME SE_STATCODE_INVALID_TRANSMITTAL_NAME
+SE_STAT_CODE_UNPUBLISHED_OBJECT SE_STATCODE_UNPUBLISHED_OBJECT
+SE_STAT_CODE_UNRESOLVED_OUTPUT_OBJECT SE_STATCODE_UNRESOLVED_OUTPUT_OBJECT
+SE_STAT_CODE_UNRESOLVED_INPUT_OBJECT SE_STATCODE_UNRESOLVED_INPUT_OBJECT
+SE_STAT_CODE_INVALID_OBJECT_LABEL SE_STATCODE_INVALID_OBJECT_LABEL
+SE_STAT_CODE_DIFFERENT_TRANSMITTAL SE_STATCODE_DIFFERENT_TRANSMITTAL
+SE_STAT_CODE_DELETED_OBJECT SE_STATCODE_DELETED_OBJECT
+SE_STAT_CODE_INACTIONABLE_FAILURE SE_STATCODE_INACTIONABLE_FAILURE
+SE_STAT_CODE_OUT_OF_MEMORY SE_STATCODE_OUT_OF_MEMORY
+SE_STAT_CODE_NUM_STATUS_CODES SE_STATCODE_STATUS_CODE_UBOUND
+#
+# SE_Store               was not renamed
+#
+# SE_Time_Entry          was not renamed
+#
+# SE_Time_Interval_Entry was not renamed
+#
+# SE_Time_Measurement_Type was not renamed
+SE_TIME_MEAS_TYP_GMT   SE_TIMEMEASTYP_GMT
+SE_TIME_MEAS_TYP_RELATIVE_TO_EXERCISE_START SE_TIMEMEASTYP_RELATIVE_TO_EXERCISE_START
+SE_TIME_MEAS_TYP_RELATIVE_TO_REFERENCE_TIME SE_TIMEMEASTYP_RELATIVE_TO_REFERENCE_TIME
+#
+# SE_Time_Point_Entry    was not renamed
+#
+# SE_Time_Select_Parameters was not renamed
+#
+# SE_Transmittal         was not renamed
+#
+SE_Transmittal_API_Function SE_API_Function
+SE_PrintTransmittalAPIFunction SE_PrintAPIFunction
+SE_ValidTransmittalAPIFunction SE_ValidAPIFunction
+#
+# SE_Traversal_Order     was not renamed
+SE_TRAV_ORDR_BREADTH_FIRST SE_TRAVORDR_BREADTH_FIRST
+SE_TRAV_ORDR_DEPTH_FIRST SE_TRAVORDR_DEPTH_FIRST
+SE_TRAV_ORDR_MOST_EFFICIENT SE_TRAVORDR_MOST_EFFICIENT
+#
+# SE_Unmatched_State_Behaviour was not renamed
+SE_UNMATCH_STATE_BHVR_ALL SE_UNMSTATBEH_ALL
+SE_UNMATCH_STATE_BHVR_DEFAULT SE_UNMSTATBEH_DEFAULT
+SE_UNMATCH_STATE_BHVR_NONE SE_UNMSTATBEH_NONE
+#
+# SE_Volume_Extent_Entry was not renamed
+#
+# SE_Volume_LOD_Entry    was not renamed
+#

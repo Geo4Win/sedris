@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE SetSpecificCallback</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+SE SetSpecificCallback
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../types/SE_Return_Code.htm">SE_Return_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SE_SetSpecificCallback</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/SE_Status_Logger_Ptr.htm">SE_Status_Logger_Ptr</a>&nbsp;</td> <td class="CFunction"><a name="user_defined_function"></a>user_defined_function,</td><td class="CFunction"><sup><A href="#Notes_user_defined_function">1</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/SE_API_Function.htm">SE_API_Function</a>&nbsp;</td> <td class="CFunction"><a name="function_to_catch"></a>function_to_catch,</td><td class="CFunction"><sup><A href="#Notes_function_to_catch">2</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../types/SE_Status_Code.htm">SE_Status_Code</a>&nbsp;</td> <td class="CFunction"><a name="status_code_to_catch"></a>status_code_to_catch</td><td class="CFunction"><sup><A href="#Notes_status_code_to_catch">3</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+  This function registers the function specified by
+<A href="#user_defined_function">user_defined_function</A>
+  as the callback function to be called when the status code specified
+  by <A href="#status_code_to_catch">status_code_to_catch</A>
+ is about to be returned by the API function specified by
+<A href="#function_to_catch">function_to_catch</A>.  This
+ user-defined function shall be of type
+<A href="../types/SE_Status_Logger.htm">SE_Status_Logger</A> (see).
+</P><P>
+  The value NULL for
+<A href="#user_defined_function">user_defined_function</A>
+ indicates that a callback function is not being requested.
+</P><P>
+  This is the most specific type of callback, a specific status code
+  for a specific function.  This callback has priority over a general
+  function callback for the same function (if one is currently defined),
+  and it also has priority over the general callback function (if one is
+  currently defined).  The term <em>has priority over</em>
+ means that if a specific
+  status code/specific function callback is defined, it is the only callback
+  that will be called when that particular status code is about to be
+  returned from that particular function.
+</P><P>
+  When an API function returns, it will return the appropriate status code.
+  If the user has defined a callback to be called when that particular
+  status code is about to be returned by that particular function, that
+  user-defined callback function will be called immediately before the
+  function returns the status code.  After the user-defined callback has
+  been called, the API function will still return the status code it was
+  about to return.  The user-defined callback has no effect on the
+  status code returned.  Instead, the user-defined callback simply
+  provides the user a method for tracking the return values of the
+  API functions without explicitly checking each return value.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A>
+</td><td class="Status">
+ and the callback function is set.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A>
+</td><td class="Status">
+ and the status code is set appropriately if the call failed.
+</td></tr>
+</table>
+
+<h3>Status Codes</h3>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A> is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_SUCCESS">SE_STATCODE_SUCCESS</A>
+</td><td class="Status">set if valid parameters were passed in.
+</td></tr>
+</table>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A> is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Status_Code.htm#SE_STATCODE_INACTIONABLE_FAILURE">SE_STATCODE_INACTIONABLE_FAILURE</A>
+</td><td class="Status">set if
+<OL>
+<LI><A href="#function_to_catch">function_to_catch</A> and/or
+<A href="#status_code_to_catch">status_code_to_catch</A> contained
+ invalid values, or
+</LI>
+ <LI> the call fails for any reason
+</LI>
+</OL>
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#user_defined_function" name="Notes_user_defined_function">1</a></sup>
+ a pointer to a user-defined callback
+    function. If NULL, then this 'clears' the specific function/specific
+    status code callback capability for the given function and the given
+    status code.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#function_to_catch" name="Notes_function_to_catch">2</a></sup>
+ the specific function for which user_defined_function
+    is designed to be a callback.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#status_code_to_catch" name="Notes_status_code_to_catch">3</a></sup>
+ the specific status_code which will trigger a
+    call to the user_defined_function when that status_code is about to
+    be returned by the function_to_catch function.
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SE_SetSecondErrorMessage.htm">SE_SetSecondErrorMessage</a>.
+<strong>Next:</strong> <a href="SE_SetTransmittalName.htm">SE_SetTransmittalName</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

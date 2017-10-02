@@ -1,0 +1,538 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE_Image_Signature</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX C - Types
+</font>
+<br>
+<font color="#ffffff">
+SE_Image_Signature
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<PRE>
+/*
+ * REGISTERABLE ENUM: SE_Image_Signature
+ *
+ *   This data type is used in an &lt;Image&gt; instance to indicate
+ *   how texels are represented within the &lt;Image&gt; instance.
+ */
+</PRE><span class="Code">
+typedef <a href="SE_Short_Integer.htm">SE_Short_Integer</a> SE_Image_Signature;
+</span>
+<table>
+<tr><th>Enumerant</th> <th>Definition</th> <th>Value</th></tr>
+<tr><td class="CFunction"><a name="SE_IMAGSIG_ALPHA">SE_IMAGSIG_ALPHA</a></td>
+<td class="CFunction"><PRE>
+ This value is used to indicate that each texel in the &lt;Image&gt;
+ instance consists of an alpha value, representing the coverage
+ of the texel. An alpha of 0 indicates that the texel is
+ transparent, while an alpha of 1 indicates that the texel
+ constitutes part of the important content of the &lt;Image&gt;
+ instance. An &lt;Image&gt; instance with this signature may be called
+ an alpha channel or an alpha map. For further details, see
+ [FOLEY] Section 17.6, &quot;Image Compositing&quot;.
+
+ Note that an alpha map can be composited with:
+ - a compatible 123COLOUR &lt;Image&gt; to produce a 123COLOUR_ALPHA map
+ - compatible COLOUR_COORDINATE_1, COLOUR_COORDINATE_2, and
+   COLOUR_COORDINATE_3 &lt;Image&gt; instances to produce a 123COLOUR_ALPHA
+   map.
+ - a compatible LUMINANCE &lt;Image&gt; to produce a LUMINANCE_AND_ALPHA map.
+
+ FURTHER CONSTRAINTS:
+ 1) bits_of_alpha shall equal the size per texel (in bits); all
+    other bits_of_xxx fields (and their corresponding min_value_of_xxx,
+    max_value_of_xxx) fields shall be zero.
+
+ 2) When an object has K &lt;Image Mapping Function&gt; instances providing
+    its texture mapping information, at most one of the
+    K &lt;Image Mapping Function&gt; instances can legally provide
+    an alpha map. (Multiple alpha maps produce an undefined result.)
+</PRE></td>
+<td class="CFunction">1</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_IMAGSIG_LUMINANCE">SE_IMAGSIG_LUMINANCE</a></td>
+<td class="CFunction"><PRE>
+ This value is used to indicate that the &lt;Image&gt; specifies only
+     luminance (also termed intensity) values that form a greyscale
+     image, with no colour values. (The effect is that of a
+     &quot;black and white&quot; television.)
+
+ A LUMINANCE &lt;Image&gt; instance  can be composited with a compatible
+ ALPHA image to produce a LUMINANCE_AND_ALPHA &lt;Image&gt; instance.
+
+
+ EXAMPLE
+ An example of compositing LUMINANCE &lt;Image&gt; instances is the case of
+ large areas of terrain &lt;Polygon&gt; instances, where the same textures
+ for dirt are repeated over and over. To avoid creating a &quot;quilt&quot;
+ effect on the terrain, a LUMINANCE &lt;Image&gt; can be composited with
+ the terrain (using different offsets at different locations to make
+ the effect appear random) to &quot;dirty&quot; the textures and give the terrain
+ a more realistic appearance.
+
+ FURTHER CONSTRAINTS:
+ 1) bits_of_luminance shall equal the size per texel (in bits); all
+    other bits_of_xxx fields (and their corresponding min_value_of_xxx,
+    max_value_of_xxx fields) shall be zero.
+</PRE></td>
+<td class="CFunction">2</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_IMAGSIG_COLOUR_COORDINATE_1">SE_IMAGSIG_COLOUR_COORDINATE_1</a></td>
+<td class="CFunction"><PRE>
+ This value is used to indicate that each texel in the &lt;Image&gt;
+     instance consists of 1 colour component, namely the first for its
+     colour model (G for RGB, M for CMY, or S for HSV). The first
+     colour component of the colour model shall be the only value in
+     the texel.
+
+ Note that a COLOUR_COORDINATE_1 &lt;Image&gt; can be composited with
+ compatible COLOUR_COORDINATE_2 and COLOUR_COORDINATE_3 &lt;Image&gt;
+ instances of the same dimensions to produce a 123COLOUR &lt;Image&gt;.
+ (These can also be composited with a compatible alpha map to produce
+ a 123COLOUR_ALPHA map.)
+
+ FURTHER CONSTRAINTS:
+ 1) bits_of_colour_coordinate_1 shall equal the size per texel
+    (in bits); all other bits_of_xxx fields (and their corresponding
+    min_value_of_xxx, max_value_of_xxx) shall be zero.
+
+ 2) When an object has K &lt;Image Mapping Function&gt; instances providing
+    its texture mapping information, at most one of the K
+    &lt;Image Mapping Function&gt; instances can be associated with a
+    COLOUR_COORDINATE_1 &lt;Image&gt;. (Multiple COLOUR_COORDINATE_1 &lt;Image&gt;
+    instances produce an undefined result.)
+
+ EXAMPLES:
+ 1) An RGB texel shall have red as the texel value.
+
+ 2) An CMY texel shall have cyan as the texel value.
+
+ 3) An HSV texel shall have hue as the texel value.
+</PRE></td>
+<td class="CFunction">3</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_IMAGSIG_COLOUR_COORDINATE_2">SE_IMAGSIG_COLOUR_COORDINATE_2</a></td>
+<td class="CFunction"><PRE>
+ This value is used to indicate that each texel in the &lt;Image&gt;
+     instance consists of 1 colour component, namely the second
+     for its colour model (G for RGB, M for CMY, or S for HSV).
+     The second colour component of the colour model shall be
+     the only value in the texel.
+
+ Note that a COLOUR_COORDINATE_1 &lt;Image&gt; instance can be composited
+ with compatible COLOUR_COORDINATE_2 and COLOUR_COORDINATE_3 &lt;Image&gt;
+ instances of the same dimensions to produce a 123COLOUR &lt;Image&gt;
+ instance. (These can also be composited with a compatible alpha map
+ to produce a 123COLOUR_ALPHA map.)
+
+ FURTHER CONSTRAINTS:
+ 1) bits_of_colour_coordinate_2 shall equal the size per texel
+    (in bits); all other bits_of_xxx fields (and their corresponding
+    min_value_of_xxx, max_value_of_xxx) shall be zero.
+
+ 2) When an object has K &lt;Image Mapping Function&gt; instances providing
+    its texture mapping information, at most one of the K
+    &lt;Image Mapping Function&gt; instances can be associated with a
+    COLOUR_COORDINATE_2 &lt;Image&gt;. (Multiple COLOUR_COORDINATE_2 &lt;Image&gt;
+    instances produce an undefined result.)
+
+ EXAMPLES:
+ 1) An RGB texel shall have green as the texel value.
+
+ 2) An CMY texel shall have magenta as the texel value.
+
+ 3) An HSV texel shall have saturation as the texel value.
+</PRE></td>
+<td class="CFunction">4</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_IMAGSIG_COLOUR_COORDINATE_3">SE_IMAGSIG_COLOUR_COORDINATE_3</a></td>
+<td class="CFunction"><PRE>
+ This value is used to indicate that each texel in the &lt;Image&gt;
+     instance consists of 1 colour component, namely the third
+     for its colour model (B for RGB, Y for CMY, or V for HSV).
+     The third colour component of the colour model shall be
+     the only value in the texel.
+
+ Note that a COLOUR_COORDINATE_1 &lt;Image&gt; instance can be composited
+ with compatible COLOUR_COORDINATE_2 and COLOUR_COORDINATE_3 &lt;Image&gt;
+ instances of the same dimensions to produce a 123COLOUR &lt;Image&gt;
+ instance. (These can also be composited with a compatible alpha map
+ to produce a 123COLOUR_ALPHA map.)
+
+ FURTHER CONSTRAINTS:
+ 1) bits_of_colour_coordinate_3 shall equal the size per texel
+    (in bits); all other bits_of_xxx fields (and their corresponding
+    min_value_of_xxx, max_value_of_xxx) shall be zero.
+
+ 2) When an object has K &lt;Image Mapping Function&gt; instances providing
+    its texture mapping information, at most one of the K
+    &lt;Image Mapping Function&gt; instances can be associated with a
+    COLOUR_COORDINATE_3 &lt;Image&gt;. (Multiple COLOUR_COORDINATE_3 &lt;Image&gt;
+    instances produce an undefined result.)
+
+ EXAMPLES:
+ 1) An RGB texel shall have blue as the texel value.
+
+ 2) An CMY texel shall have yellow as the texel value.
+
+ 3) An HSV texel shall have brightness value as the texel value.
+</PRE></td>
+<td class="CFunction">5</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_IMAGSIG_BUMP_MAP_HEIGHT">SE_IMAGSIG_BUMP_MAP_HEIGHT</a></td>
+<td class="CFunction"><PRE>
+ This value is used to indicate that the &lt;Image&gt; instance represents
+     a 2-D height bump map
+     (or just height map), specifying information used to modify the
+     surface normals of a smooth surface. When used with a ray-tracing
+     technique, bump mapping introduces variations in intensity across
+     the surface, so that it simulates a rough, wrinkled, or dimpled
+     surface (for example, the surface of the ocean).
+
+     A UV type of bump map can be derived from a height bump map by
+     computing the texel gradients in both the X and Y directions.
+
+ Rather than manipulating the colour of a flat surface, bump mapping
+ modifies the physical texture of the surface. For a description
+ of bump mapping, see Watt, Alan. Section 7.8 &quot;Bump Mapping&quot;.
+ From Ch 7, &quot;Shadows and Textures&quot;, 3D Computer Graphics,
+ 2nd edition. Addison-Wesley, 1993. Pages 250-253.
+
+ FURTHER CONSTRAINTS:
+ 1) bits_of_bump_map_height shall equal the size per texel (in bits);
+    all other bits_of_xxx fields (and their corresponding
+    min_value_of_xxx, max_value_of_xxx) fields shall be zero.
+
+ 2) When an object has K &lt;Image Mapping Function&gt; instances providing
+    its texture mapping information, at most one of the K
+    &lt;Image Mapping Function&gt; instances can legally provide a bump map.
+    (Multiple bump maps produce an undefined result.)
+</PRE></td>
+<td class="CFunction">6</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_IMAGSIG_EDCS_CLASSIFICATION_CODE">SE_IMAGSIG_EDCS_CLASSIFICATION_CODE</a></td>
+<td class="CFunction"><PRE>
+ This value is used to indicate that each texel in the &lt;Image&gt;
+     instance consists of 1 value, an ECC.
+
+ CONSTRAINTS:
+ 1) The size per texel shall be the size of EDCS_Classification_Code.
+
+ 2) Since no bits_of, min_value, or max_value fields are needed for this
+    signature, all bits_of_xxx fields (and their corresponding
+    min_value_of_xxx, max_value_of_xxx fields) shall be zero.
+</PRE></td>
+<td class="CFunction">7</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_IMAGSIG_LUMINANCE_AND_ALPHA">SE_IMAGSIG_LUMINANCE_AND_ALPHA</a></td>
+<td class="CFunction"><PRE>
+ This value is used to indicate that the &lt;Image&gt; is (functionally)
+     a composite of a luminance &lt;Image&gt; instance and an alpha
+     &lt;Image&gt; instance (see SE_IMAGSIG_ALPHA, SE_IMAGSIG_LUMINANCE).
+     Each texel consists of an intensity value followed by
+     an alpha value. No other ordering is possible with this signature.
+
+ A LUMINANCE_AND_ALPHA &lt;Image&gt; instance can be down-sampled to produce
+ an ALPHA &lt;Image&gt; instance and a LUMINANCE &lt;Image&gt; instance.
+
+ FURTHER CONSTRAINTS:
+ 1) bits_of_luminance + bits_of_alpha shall equal the size per texel (in
+    bits); all other bits_of_xxx fields shall be zero.
+
+ 2) When an object has K &lt;Image Mapping Function&gt; instances providing
+    its texture mapping information, at most one of the K
+    &lt;Image Mapping Function&gt; instances can legally provide a luminance
+    and alpha map. (Multiple alpha maps produce an undefined result.)
+</PRE></td>
+<td class="CFunction">8</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_IMAGSIG_123COLOUR">SE_IMAGSIG_123COLOUR</a></td>
+<td class="CFunction"><PRE>
+ This value is used to indicate that each texel in the &lt;Image&gt;
+     instance consists of 3 colour
+     components (RGB, CMY, or HSV). The first colour component of the
+     colour model shall be the first value in the texel, the second colour
+     component of the colour model shall be the second value in the texel,
+     and the third colour component of the colour model shall be the third
+     value in the texel. No other ordering is possible with this
+     signature.
+
+ Note that a 123COLOUR &lt;Image&gt; can be down-sampled to produce a
+ COLOUR_COORDINATE_1, COLOUR_COORDINATE_2, or COLOUR_COORDINATE_3
+ &lt;Image&gt;.
+
+ FURTHER CONSTRAINTS:
+ 1) bits_of_colour_coordinate_1 + bits_of_colour_coordinate_2 +
+    bits_of_colour_coordinate_3 shall
+    equal the size per texel (in bits); all other bits_of_xxx fields
+    (and their corresponding min_value_of_xxx, max_value_of_xxx) shall
+    be zero.
+
+ 2) When an object has K &lt;Image Mapping Function&gt; instances providing
+    its texture mapping information, at most one of the K
+    &lt;Image Mapping Function&gt; instances can be associated with a
+    123 colour map &lt;Image&gt;. (Multiple 123 colour maps produce
+    an undefined result.)
+
+ EXAMPLES:
+ 1) An RGB texel shall have red as the first value in the texel, green
+    next and finally blue.
+
+ 2) A CMY texel shall have cyan as the first value in the texel, magenta
+    next, and finally yellow.
+
+ 3) An HSV texel shall have hue as the first value in the texel, saturation
+    next and finally brightness value.
+</PRE></td>
+<td class="CFunction">9</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_IMAGSIG_123COLOUR_ALPHA">SE_IMAGSIG_123COLOUR_ALPHA</a></td>
+<td class="CFunction"><PRE>
+ This value is used to indicate that each texel in the &lt;Image&gt;
+     instance consists of 3 colour
+     components (RGB, CMY, or HSV) and an alpha value. The first colour
+     component of the colour model shall be the first value in the texel,
+     the second colour component of the colour model shall be the second
+     value in the texel, the third colour component of the colour model
+     shall be the third value in the texel, and the alpha value shall be
+     the last value in the texel. No other ordering is possible with
+     this signature.
+
+ Note that a 123COLOUR_ALPHA &lt;Image&gt; can be down-sampled to produce a
+ COLOUR_COORDINATE_1, COLOUR_COORDINATE_2, COLOUR_COORDINATE_3, and/or
+ ALPHA &lt;Image&gt;.
+
+ FURTHER CONSTRAINTS:
+ 1) bits_of_colour_ccordinate_1 + bits_of_colour_coordinate_2 +
+    bits_of_colour_coordinate_3 +
+    bits_of_alpha shall equal the size per texel (in bits); all other
+    bits_of_xxx fields (and their corresponding min_value_of_xxx,
+    max_value_of_xxx) shall be zero.
+
+ 2) When an object has K &lt;Image Mapping Function&gt; instances providing
+    its texture mapping information, at most one of the K
+    &lt;Image Mapping Function&gt; instances can be associated with a
+    123 colour and alpha map &lt;Image&gt;. (Multiple 123 colour and alpha
+    maps produce an undefined result.)
+
+ EXAMPLES:
+ 1) An RGBA texel shall have red as the first value in the texel, green
+    next, then blue, and finally alpha.
+
+ 2) A CMYA texel shall have cyan as the first value in the texel, magenta
+    next, then yellow, and finally alpha.
+
+ 3) An HSVA texel shall have hue as the first value in the texel,
+    saturation next, then brightness value, and finally alpha.
+</PRE></td>
+<td class="CFunction">10</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_IMAGSIG_ONE_MATERIAL">SE_IMAGSIG_ONE_MATERIAL</a></td>
+<td class="CFunction"><PRE>
+ This value is used to indicate that each texel in the &lt;Image&gt;
+     instance consists of 1 value,
+     an index into the &lt;Property Table&gt; instances referenced by this
+     &lt;Image&gt; instance. These &lt;Property Table&gt; instances describe the
+     material. Normally, a &lt;Property Table Reference&gt; is used to find
+     the corresponding &lt;Property Table&gt;'s classification, which &lt;Axis&gt;
+     is referred to, and which tick mark value along that &lt;Axis&gt;
+     is being referenced. The bits_of_material_1 field is used in place
+     of the index_on_axis fields of the &lt;Property Table Reference&gt;
+     instances.
+
+ See the examples for the &lt;Image&gt; class.
+
+ CONSTRAINTS:
+ 1) The &lt;Image&gt; shall have at least one &lt;Property Table Reference&gt;.
+    (The data producer may have as many &lt;Property Table Reference&gt;
+    instances as desired, as long as there is at least one, and
+    bits_of_material_# will handle them.)
+
+ 2) All the &lt;Property Table&gt; instances being referred to by the
+    &lt;Property Table Reference&gt; instances shall be of the same size,
+    since the material reference corresponds to all of them.
+
+ 3) bits_of_material_1 shall equal the size per texel (in bits); all
+    other bits_of_xxx fields (and their corresponding min_value_of_xxx,
+    max_value_of_xxx) shall be zero.
+</PRE></td>
+<td class="CFunction">16</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_IMAGSIG_TWO_MATERIALS">SE_IMAGSIG_TWO_MATERIALS</a></td>
+<td class="CFunction"><PRE>
+ This value is used to indicate that each texel in the &lt;Image&gt;
+     instance represents a linear combination of 2 materials in the
+     &lt;Property Table&gt; instances referenced by this &lt;Image&gt; instance.
+     That is, each texel consists of 3 values: 2 indexes into the
+     &lt;Property Table&gt; instances referenced by this &lt;Image&gt; instance,
+     and the percentage (an integer, 0 - 100%) of material 2. These
+     &lt;Property Table&gt; instances describe the materials. Normally, a
+     &lt;Property Table Reference&gt; instance is used to find the
+     corresponding &lt;Property Table&gt; instance's classification, which
+     &lt;Axis&gt; instance is referred to, and which tick mark value
+     along that &lt;Axis&gt; instance is being referenced. The
+     bits_of_material_1 and bits_of_material_2 fields are used in
+     place of the index_on_axis field values of the
+     &lt;Property Table Reference&gt; instances.
+
+ See the examples for the &lt;Image&gt; class.
+
+ CONSTRAINTS:
+ 1) The &lt;Image&gt; shall have at least one &lt;Property Table Reference&gt;.
+    (The data producer may have as many &lt;Property Table Reference&gt;
+    instances as desired, as long as there is at least one, and
+    bits_of_material_# will handle them.)
+
+ 2) All the &lt;Property Table&gt; instances being referred to by the
+    &lt;Property Table Reference&gt; instances shall be of the same size,
+    since the material reference corresponds to all of them.
+
+ 3) bits_of_material_1+bits_of_material_2+bits_of_material_2_percentage
+    shall equal the size per texel (in bits); all other bits_of_xxx
+    fields (and their corresponding min_value_of_xxx, max_value_of_xxx)
+    shall be zero.
+</PRE></td>
+<td class="CFunction">17</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_IMAGSIG_THREE_MATERIALS">SE_IMAGSIG_THREE_MATERIALS</a></td>
+<td class="CFunction"><PRE>
+ This value is used to indicate that each texel in the &lt;Image&gt;
+     instance represents a linear combination of 3 materials in the
+     &lt;Property Table&gt; instances referenced by this &lt;Image&gt; instance.
+     That is, each texel consists of 4 values: 3 indexes into the
+     &lt;Property Table&gt; instances referenced by this &lt;Image&gt; instance,
+     and the percentages (integers, 0 - 100%) of
+     materials 2 and 3 These &lt;Property Table&gt; instances describe the
+     materials. Normally, a &lt;Property Table Reference&gt; is used to
+     find the corresponding &lt;Property Table&gt;'s classification, which
+     &lt;Axis&gt; is referred to, and which tick mark value along
+     that &lt;Axis&gt; is being referenced. The bits_of_material_1,
+     bits_of_material_2, and bits_of_material_3 fields are used in
+     place of the index_on_axis field values of the
+     &lt;Property Table Reference&gt; instances.
+
+ See the examples for the &lt;Image&gt; class.
+
+ CONSTRAINTS:
+ 1) The &lt;Image&gt; shall have at least one &lt;Property Table Reference&gt;.
+    (The data producer may have as many &lt;Property Table Reference&gt;
+    instances as desired, as long as there is at least one, and
+    bits_of_material_# will handle them.)
+
+ 2) All the &lt;Property Table&gt; instances being referred to by the
+    &lt;Property Table Reference&gt; instances shall be of the same size,
+    since the material reference corresponds to all of them.
+
+ 3) bits_of_material_1+bits_of_material_2+bits_of_material_2_percentage
+    +bits_of_material_3+bits_of_material_3_percentage shall equal the
+    size per texel (in bits); all other bits_of_xxx fields (and their
+    corresponding min_value_of_xxx, max_value_of_xxx) shall be zero.
+</PRE></td>
+<td class="CFunction">18</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_IMAGSIG_IMAGE_INDEX">SE_IMAGSIG_IMAGE_INDEX</a></td>
+<td class="CFunction"><PRE>
+ This value is used to indicate that the &lt;Image&gt; instance consists
+ of references to other
+ &lt;Image&gt; instances (that is, each texel within the &lt;Image&gt; is the
+ index of another &lt;Image&gt;). This mechanism allows an &lt;Image&gt; to
+ define high-resolution insets.
+
+ Each *texel* is to be replaced by the *entire &lt;Image&gt;* identified by the
+ &lt;Image&gt; the index of which is specified by that texel. This allows data
+ providers to create a gigantic &lt;Image&gt; formed by many smaller &lt;Image&gt;
+ instances. The index is an index into the &lt;Image Library&gt; instance
+ containing this &lt;Image&gt;.
+
+ FURTHER CONSTRAINTS:
+ 1) bits_of_image_index shall equal the size per texel (a positive value),
+    while all other bits_of_xxx fields (and their corresponding
+    min_value_of_xxx, max_value_of_xxx fields) shall be zero.
+
+ 2) Each texel within the &lt;Image&gt; shall resolve to a valid index within
+    the &lt;Image Library&gt; containing this image, but neither directly nor
+    via other SE_IMAGSIG_IMAGE_INDEX &lt;Image&gt; instances to the index of
+    this &lt;Image&gt; instance. (This would cause infinite recursion when
+    trying to resolve the image to its component parts).
+
+ 3) All referenced &lt;Image&gt; instances shall have the same values as the
+    main &lt;Image&gt; instance for colour_model, data_is_little_endian,
+    data_is_3D, component_data_type, scan_direction, and scan_direction_z.
+
+ 4) All referenced &lt;Image&gt; instances shall have either the same
+    image signature X, or SE_IMAGSIG_IMAGE_INDEX which resolves to
+    referenced images with signature X, so that the main &lt;Image&gt;
+    can be resolved to a single image signature.
+</PRE></td>
+<td class="CFunction">19</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_IMAGSIG_BUMP_MAP_UV">SE_IMAGSIG_BUMP_MAP_UV</a></td>
+<td class="CFunction"><PRE>
+ This value is used to indicate that the &lt;Image&gt; instance represents
+     a bump map in UV space,
+     specifying information used to modify the surface normals of a
+     smooth surface. See SE_IMAGSIG_BUMP_MAP_HEIGHT for further
+     information on bump maps.
+
+ FURTHER CONSTRAINTS:
+ 1) (bits_of_bump_map_u + bits_of_bump_map_v) shall equal the size per
+    texel (in bits); all other bits_of_xxx fields (and their
+    corresponding min_value_of_xxx, max_value_of_xxx) fields shall be
+    zero.
+
+ 2) When an object has K &lt;Image Mapping Function&gt; instances providing
+    its texture mapping information, at most one of the K
+    &lt;Image Mapping Function&gt; instances can legally provide a bump map.
+    (Multiple bump maps produce an undefined result.)
+</PRE></td>
+<td class="CFunction">20</td>
+</TR>
+</table>
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SE_Image_Scan_Direction_Z.htm">SE_Image_Scan_Direction_Z</a>.
+<strong>Next:</strong> <a href="SE_Image_Wrap.htm">SE_Image_Wrap</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

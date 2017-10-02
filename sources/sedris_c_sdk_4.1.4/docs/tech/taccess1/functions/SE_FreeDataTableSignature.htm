@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE FreeDataTableSignature</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX B - Transmittal Access Level 1 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+SE FreeDataTableSignature
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern void</td></tr>
+<tr><td class="CFunction" colspan = "4">SE_FreeDataTableSignature</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../../drm/classes/TablePropertyDescription.htm">SE_Table_Property_Description_Fields</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="prop_array_ptr"></a>prop_array_ptr,</td><td class="CFunction"><sup><A href="#Notes_prop_array_ptr">1</A></sup></td></tr>
+<tr class="CFunctionIndent1">    <td class="CFunction"><a href="../../drm/types/SE_Integer_Positive.htm">SE_Integer_Positive</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="table_prop_descript_number"></a>table_prop_descript_number[]</td><td class="CFunction"><sup><A href="#Notes_table_prop_descript_number">2</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+  Frees the given <A href="../../drm/classes/DataTable.htm">&lt;Data Table&gt;</A> signature.
+
+</p>
+<br>
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#prop_array_ptr" name="Notes_prop_array_ptr">1</a></sup>
+ the &lt;Table Property Description&gt; array to be freed
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#table_prop_descript_number" name="Notes_table_prop_descript_number">2</a></sup>
+ the array to be freed;
+    an array of indices into the ordered list of
+    &lt;Table Property Descriptions&gt; of the given &lt;Data Table&gt; instance.
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SE_FreeDataTableConstantSignature.htm">SE_FreeDataTableConstantSignature</a>.
+<strong>Next:</strong> <a href="SE_FreeDataTableSubExtent.htm">SE_FreeDataTableSubExtent</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

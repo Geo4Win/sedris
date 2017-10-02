@@ -1,0 +1,2002 @@
+<!DOCTYPE HTML PUBLIC="-//W3C/DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>EDCS Reference Manual</title>
+<link rel="stylesheet" href="../../docs/styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+<!-- EDCS SDK Release 4.4.0 --> <!-- DATE_GOES_HERE -->
+<div align="center">
+<table border="2" class="doc_set_header">
+<tbody>
+<tr>
+<th class="doc_set_header"><big><big>
+EDCS Reference Manual
+</big></big>
+<br>
+<font color="#ffffff">Concept Mapping from EDCS 4.x to FACC 2.1</font>
+</th>
+</tr>
+</tbody>
+</table>
+</div>
+
+<p>
+This document describes how environmental concepts are mapped from the
+EDCS Version 4.x to FACC Edition 2.1.
+</p>
+
+<h2>Table of Contents</h2>
+
+<h3><a href="#Part1">Part 1: EDCS Version 4.x Background</a></h3>
+
+<ol>
+<li><a href="#4.x Overview">Overview</a></li>
+<li><a href="#Denoting a Concept">Denoting a Concept</a></li>
+</ol>
+
+<h3><a href="#Part2">Part 2: FACC Edition 2.1 Background</a></h3>
+
+<ol>
+<li><a href="#FACC Overview">Overview</a></li>
+<li><a href="#FACC Denoting a Concept">Denoting a Concept</a></li>
+</ol>
+
+<h3><a href="#Part3">Part 3: Concept Mapping from EDCS Version 4.x to FACC
+Edition 2.1</a></h3>
+
+<ol>
+<li>
+<a href="#Denoting Concepts">Denoting Concepts</a>
+</li>
+<li>
+<a href="#Specifying Units of Measure">Specifying Units of Measure</a>
+</li>
+<li>
+<a href="#Attribute Value Characteristic">Attribute Value Characteristic</a>
+</li>
+<li>
+<a href="#Mapping Concepts">Mapping Concepts</a>
+</li>
+</ol>
+
+<h3><a href="#Part4">Part 4: Mapping Tables for EDCS Version 4.x to FACC Edition
+2.1</a></h3>
+
+<h3><a href="#Part5">Part 5: Mapping API for EDCS Version 4.x to FACC Edition
+2.1</a></h3>
+
+<ol>
+<li><a href="#Functions">Mapping API Functions</a></li>
+<li><a href="#Data Structures">Mapping API Data Structures</a></li>
+<li><a href="#Use Examples">Mapping API Use Examples</a></li>
+
+</ol>
+
+<hr>
+<h3><a name="Part1">Part 1: EDCS Version 4.x Background</a></h3>
+<h4><a name="4.x Overview">1. Overview</a></h4>
+<p>
+The EDCS provides mechanisms to unambiguously specify objects used
+to model environmental concepts.  This is accomplished by specifying a
+collection of nine EDCS Dictionaries of environmental concepts, and a functional
+interface to convert between numeric values given in different units
+of measure and scales. An EDCS Dictionary is a list of EDCS Dictionary
+Entries each of which specifies a single concept. Each EDCS Dictionary
+contains entries of a similar nature, however each entry is unique. Each
+EDCS Dictionary Entry consists of the following fields:
+</p>
+
+<ul>
+<li>definition</li>
+<li>label</li>
+<li>code</li>
+<li>reference type and references</li>
+<li>other EDCS Dictionary-dependent information such as value types,
+unit symbols, unit equivalence classes.</li>
+
+</ul>
+The nine EDCS Dictionaries are:
+<ul>
+<li>EDCS Classification (EC) Dictionary</li>
+<li>EDCS Attribute (EA) Dictionary</li>
+<li>EDCS Attribute Value Characteristic (EV) Dictionary</li>
+<li>EDCS Attribute Enumerant (EE) Dictionary</li>
+<li>EDCS Unit (EU) Dictionary</li>
+<li>EDCS Unit Scale (ES) Dictionary</li>
+<li>EDCS Unit Equivalence Class (EQ) Dictionary</li>
+<li>EDCS Organizational Schema (EO) Dictionary</li>
+<li>EDCS Group (EG) Dictionary</li>
+</ul>
+Additional entries may be added to most EDCS Dictionaries through the
+process of registration.
+</p><p>
+The EDCS Application Program Interface (API) supports conversion between
+real values given in different units of measure.
+</p><p>
+See the <a href="http://www.sedris.org/edcs.htm">EDCS Website</a> for
+more information on the structure and content of the EDCS.
+</p>
+
+<h4><a name="Denoting a Concept">2. Denoting a Concept</a></h4>
+<p>
+Every concept In the EDCS Version 4.x can be consistently denoted in
+two fashions: a label and a code.
+</p>
+
+<ul>
+<li><p>
+The <strong><i>label</i></strong> field of an EDCS Dictionary Entry is a
+compact and human-readable designator that is used to denote a concept.
+Labels may include the name or names for the concept. Labels:
+</p>
+<ul>
+<li>uniquely denote a concept within a dictionary,</li>
+<li>are a succinct expression of the concept it denotes,</li>
+<li>are represented as a character string, and</li>
+<li>are human readable.</li>
+</ul>
+</li>
+<li><p>
+The <strong><i>code</i></strong> field of an EDCS Dictionary Entry is a
+compact, and not necessarily human-readable, designator that is used to
+denote a concept. Codes:
+</p>
+
+<ul>
+<li>uniquely denote a concept within a dictionary,</li>
+<li>are represented as an integer, and</li>
+<li>are assigned sequentially in increasing order within an EDCS
+Dictionary, beginning at 1.</li>
+</ul>
+</li>
+<li><p>
+There is a one-to-one relationship between labels and codes in the
+same EDCS Dictionary. Therefore, a label and a code may be used
+interchangeably to denote the same concept.
+</p></li>
+</ul>
+
+<p>
+The EDCS Version 4.x carefully separates the abstract specification
+of the EDCS
+(see <a href="http://www.sedris.org/edcs.htm">ISO/IEC 18025 EDCS</a>)
+from language-specific bindings (see
+<a href="http://www.sedris.org/edcs.htm">ISO/IEC 18041-4 EDCS Language Bindings: Part 4: C</a>).
+</p><p>
+As a result, in EDCS Version 4.x, three mechanisms exist for denoting
+EDCS concepts: the <i><strong>symbolic constant</strong></i>, the <i><strong>label</strong></i>,
+and the <i><strong>code</strong></i>.
+</p><p>
+For example, from files "edcs_types.h" and "edcs_class_iso.h" in the
+SDK Version 4.x release:
+</p>
+
+<pre>
+   /*
+    * GLOBAL CONSTANT: ECC_EXTRACTION_MINE
+    *
+    * Definition:
+    *  An &lt;EXCAVATION&gt; made in the &lt;TERRAIN&gt; for the purpose of extracting
+    *  and/or exploiting natural resources; an extraction mine.
+    */
+    #define <a href="../../docs/dictionary/ECC_E.htm#ECC_EXTRACTION_MINE">ECC_EXTRACTION_MINE</a> ((EDCS_Classification_Code)400)
+   static const EDCS_Classification_Label_Entry
+   EDCS_Classification_Labels[]=
+   {...
+    {ECC_EXTRACTION_MINE, &quot;EXTRACTION_MINE&quot;},
+    ...
+   }; /* EDCS_Classification_Labels */
+</pre>
+
+<p>
+The <u>classification</u> <i><strong>symbolic constant</strong></i>
+is &quot;ECC_EXTRACTION_MINE&quot;,
+
+the <i><strong>label</strong></i> is &quot;EXTRACTION_MINE&quot;,
+
+and the <i><strong>code</strong></i> is the EDCS_Classification_Code
+data type (an integer) of value 400.
+</p><p>
+Analogous mechanisms, and supporting structures and data types, exist
+for concepts in each of the other eight EDCS Dictionaries.
+</p><p>
+Thus:
+</p>
+
+<ul>
+<li><p>
+The <i><strong>symbolic constant</strong></i> can be used by programmers as a
+shorthand for the <i><strong>code</strong></i>, with the value of the
+<i><strong>code</strong></i> denoting the concept (<i>e.g.</i>)
+&quot;Extraction Mine&quot;. The <i>symbolic constants</i> are defined in
+<a href="http://www.sedris.org/edcs.htm">ISO/IEC 18041-4
+EDCS Language Bindings: Part 4: C</a>.
+</p></li>
+
+<li><p>
+The <i><strong>label</strong></i> is human-readable, and follows particular
+syntactic rules. It also denotes the concept (e.g.) &quot;Extraction Mine&quot;,
+and is represented as a string with <u>no</u> prefix. Its string-value
+is defined in the EDCS abstract specification
+(<a href="http://www.sedris.org/edcs.htm">ISO/IEC 18025 EDCS</a>).  The
+corresponding <i><strong>symbolic constant</strong></i> is derivable from the
+<i><strong>label</strong></i> through a set of rules documented in ISO/IEC
+18041-4; in particular, the results of applying those rules are fully
+documented there.
+</p></li>
+<li><p>
+The <i><strong>code</strong></i> is an integer, and is intended for efficient
+software use. It also denotes the concept (e.g.) &quot;Extraction Mine&quot;.
+</p></li>
+</ul>
+
+<p>
+In summary:
+</p>
+
+<ul>
+<li type="square"><i><strong>Symbolic constants</strong></i> are used by programmers
+as shorthand for <i><strong>codes</strong></i>. </li>
+<li type="square"><i><strong>Labels</strong></i> are used by humans, and user interfaces.
+ </li>
+<li type="square"><i><strong>Codes</strong></i> are used by software. </li>
+</ul>
+
+<hr>
+<h3><a name="Part2">Part 2: FACC Edition 2.1 Background</a></h3>
+<h4><a name="FACC Overview">1. Overview</a></h4>
+<p><strong>- Scope of DIGEST</strong>
+<p>
+Digital Geographic Information (DGI) has evolved into an essential element
+in the planning and conduct of civil and military operations. The required
+data volume, demands, and data complexity dictate that multi-national agreements
+for digital data standards be established to assure compatibility. In
+support of this aim, the Digital Information Exchange Standard (DIGEST)
+standards define those aspects necessary to the exchange of DGI. They are
+as follows:
+</p>
+<ul>
+<li>the data structures to be supported (including spatial structure
+and metadata);</li>
+<li>a <strong>feature and attribute coding scheme</strong>;</li>
+<li>a format;</li>
+<li>exchange media; and</li>
+<li>administrative procedures.</li>
+</ul>
+The type of data to be exchanged using these standards includes the
+digital representation of the following:
+<ul>
+<li>geographic feature geometry and feature attribute information;
+</li>
+<li>information concerning the appearance and status of the Earth's
+surface and its features in the electromagnetic spectrum, e.g. radar,
+infra-red; and</li>
+<li>other geographic information.</li>
+</ul>
+
+<p>
+<strong>- Purpose of DIGEST</strong>
+</p><p>
+DIGEST standards enable interoperability and compatibility among national
+and multinational systems and users. They also support the increasing
+use of joint development programs. In fact, it is essential that geographic
+staffs involved in the development of national Geographic Information Systems
+are advised of the advantages of making their data structures and <strong>feature
+and attribute coding schemes</strong> compatible with these standards.
+</p><p>
+<strong>- Feature and Attribute Coding Catalog</strong>
+</p><p>
+The intent of the DIGEST feature and attribute coding specification
+is to provide a standard scheme for documenting features and attributes
+necessary to distinguish environmental concepts commonly found in a Digital
+Geographic Information Systems and for the orderly exchange of such data.
+The specification, which is Part 4 of DIGEST, provides a common menu
+of features and attributes along with a standardized coding system. They
+are known collectively as the <strong>- Feature and Attribute Coding Catalogue
+(FACC)</strong> Data Dictionary.
+</p><p>
+FACC provides a means for encoding real-world entities or objects and
+concepts, including those which are not necessarily visible or have a
+tangible physical form (e.g., airspace). FACC describes the world in terms
+of features, attributes and attribute values. FACC does not specify the
+delineation or geometry of features. Attributes are the properties or
+characteristics associated with features. A standardized dictionary is
+required to support encoding in order to maximize interoperability and
+to understand the production, exchange, distribution, and exploitation
+of digital geographic data.
+</p><p>
+The FACC Data Dictionary allows for individual nations to define
+&quot;national&quot; features and attributes for cases where such features and attributes
+are not readily defined in the normative FACC Data Dictionary. National
+ extensions are not specified within the normative FACC Data Dictionary, and
+may not support interoperability.
+</p><p>
+The FACC Data Dictionary can be modified and updated to keep pace with
+the dynamic technology improvements and changing requirements. National
+extensions may, if proposed and approved, be incorporated into future editions
+of the normative FACC Data Dictionary. Procedures for extending and modifying
+the FACC Data Dictionary are described in DIGEST Part 4, Clause 5.3. In
+this way, the FACC Data Dictionary may be extended so as to satisfy application
+requirements.
+</p><p>
+FACC Data Dictionary elements implement a specific coding structure.
+The coding structure does not specify criteria for feature and attribute
+selection or collection (e.g., positional accuracy, feature granularity).
+Selection and collection criteria are dependent upon user requirements,
+and determined by product specifications, data models, and database schemas.
+</p>
+<p><strong>- Feature coding</strong>
+</p><p>
+Within FACC, each feature is identified (denoted) by a unique five-character
+<i><strong>code</strong></i>. The first character corresponds to the feature category
+and can have an alphabetic value from &quot;A&quot; to &quot;Z&quot;. Currently there are ten
+major feature categories, including one category, &quot;S&quot;, which has been reserved
+for dataset-specific features. The categories are as follows:
+</p>
+<table border="2" cellpadding="2">
+<tbody>
+<tr>
+<th>Category Category</th>
+<th>Code Name</th>
+</tr>
+<tr>
+<td>A</td>
+<td>Culture</td>
+</tr>
+<tr>
+<td>B</td>
+<td>Hydrography</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Hypsography</td>
+</tr>
+<tr>
+<td>D</td>
+<td>Physiography</td>
+</tr>
+<tr>
+<td>E</td>
+<td>Vegetation</td>
+</tr>
+<tr>
+<td>F</td>
+<td>Demarcation</td>
+</tr>
+<tr>
+<td>G</td>
+<td>Aeronautical Information</td>
+</tr>
+<tr>
+<td>I</td>
+<td>Cadastral</td>
+</tr>
+<tr>
+<td>S</td>
+<td>Special Use (Dataset-specific)</td>
+</tr>
+<tr>
+<td>Z</td>
+<td>General</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Each major feature category is further divided into subcategories identified
+by the second character of the five-character <i><strong>code</strong></i> containing
+an alphabetic value from &quot;A&quot; to &quot;Z&quot;. Finally, the third, fourth, and fifth
+characters of the five-character feature <i><strong>code</strong></i> are a numeric
+value from 000 to 999. This value provides unique feature type identification
+within categories. Thus, all features must be identified by all five alphanumeric
+characters; e.g., the feature <i><strong>named</strong></i> &quot;Building&quot; is denoted
+by the <i><strong>code</strong></i> &quot;AL015&quot;. Feature <i><strong>codes</strong></i> are listed
+in <a href="http://www.digest.org/html/DIGEST_2-1_Part4_AnnexA.pdf">Annex A</a>
+of the FACC Data Dictionary.
+</p><p>
+Each feature is associated with a textual description, which provides
+a human readable dictionary definition for the feature. Each Feature Code
+is also associated with a short human readable <i><strong>name</strong></i>.
+</p><p>
+<i>Examples:</i>
+</p>
+<table border="1">
+<tr>
+<th>Code</th>
+<th>Name</th>
+<th>Definition</th>
+</tr><tr>
+<td>AA010</td>
+<td>Mine</td>
+<td>An excavation made in the earth for
+the purpose of extracting natural deposits. (See
+also AQ090)</td>
+</tr><tr>
+<td>BB150</td>
+<td>Landing Place</td>
+<td>A place on shore where landing from
+the sea is possible.</td>
+</tr><tr>
+<td>DB180</td>
+<td>Volcano</td>
+<td>A mountain or hill, often conical, formed
+around a vent in the earth's crust through which
+molten rock, ash, or gases are or have been expelled.</td>
+</tr><tr>
+<td>FA001</td>
+<td>Administrative Area</td>
+<td>An area controlled by administrative authority.</td>
+</tr><tr>
+<td>GB075</td>
+<td>Taxiway</td>
+<td>A prepared surface providing access
+to/from runways and the aircraft parking area, terminal
+area, or service area, etc.</td>
+</tr>
+</table>
+<p>
+<strong>- Attribute coding</strong>
+</p><p>
+Attributes are used to describe characteristics of a feature, e.g.,
+vegetation characteristic of a forested area (e.g., deciduous or evergreen).
+Each attribute is described by using an attribute <i><strong>code</strong></i> to
+represent the category of information. Each attribute is associated with
+a textual description, which provides a human readable dictionary definition
+for the attribute. Attribute value format statements provide a computer
+interpretation for the attribute value data type (e.g., real, alphanumeric)
+and attribute values give quantitative/qualitative meaning to the attribute.
+</p><p>
+Each attribute is identified by a unique three-character alphanumeric
+<i><strong>code</strong></i>. For example, the attribute <i><strong>named</strong></i> "Building
+Function Code" is denoted by the <i><strong>code</strong></i> "BFC", and the attribute
+<i><strong>named</strong></i> "Total Usable Width" is denoted by the <i><strong>code</strong></i>
+"WD2".
+</p><p>
+There are two types of attribute values: "<u>coded</u>" and "<u>actual</u>".
+A given attribute has only one type of value, which is specified in
+<a href="http://www.digest.org/html/DIGEST_2-1_Part4_AnnexB.pdf">Annex
+B</a> of the FACC Data Dictionary.
+</p><p>
+Certain generic attribute concepts are often useful for value adding,
+or explaining missing attribution, and are pre-defined in FACC for all
+types of attributes. These concepts are: Null, Unknown, Unpopulated, Not
+Applicable, Multiple, and Other.
+<a href="http://www.digest.org/html/DIGEST_2-1_C.pdf">DIGEST Part 2, Annex
+C, Clause C.2.3.4.4</a> describes the implementation of these generic attribute
+concepts.
+</p><p>
+<strong>- <u><i>Coded Value Attributes</i></u></strong>
+</p><p>
+"<u>Coded</u>" values (equivalent to enumerants in other coding
+schemes) may range from 0 to 999 and each value is given meaning by a <i><strong>name</strong></i>
+consisting of descriptive text. The value of such attributes is thus
+an (enumerant) <i><strong>code</strong></i> denoting the <i><strong>named</strong></i> description.
+</p><p>
+For Coded Value Attributes, its value may be logically defined as shown
+below, comprised of a <strong>code</strong>, a format (a data type) and a value:
+</p>
+
+<table border="2" cellpadding="2">
+<tbody>
+<tr>
+<th>Attribute Code</th>
+<th>Attribute Value Format</th>
+<th>Attribute Value</th>
+</tr>
+<tr>
+<td>BFC</td>
+<td>I</td>
+<td>6</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+where <i><strong>code</strong></i> "BFC" denotes the attribute <i><strong>named</strong></i>
+"Building Function Category";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"I"
+indicates the data type of the coded value (a 4-byte integer for coded
+value attributes); and<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"6"
+indicates the value of the attribute (the <i><strong>code</strong></i> denoting the
+<i><strong>named</strong></i> description "Hospital").
+</p><p>
+The full specification for this attribute concept is:
+</p>
+<table border="1">
+<tr>
+<th>Code</th><th>Name</th><th>Definition</th><th>Value Domain</th>
+</tr><tr>
+<td>BFC</td>
+<td>Building Function Category</td>
+<td>Type or purpose of the building.</td>
+<td>
+<table border="1">
+<tr>
+<th>Code</th><th>Name</th>
+</tr><tr>
+<td>0</td><td>Unknown</td>
+</tr><tr>
+<td>1</td><td>Fabrication Structures</td>
+</tr><tr>
+<td>2</td><td>Government Building</td>
+</tr><tr>
+<td>3</td><td>Capitol Building</td>
+</tr><tr>
+<td>4</td><td>Castle</td>
+</tr><tr>
+<td>5</td><td>Government Administration Building</td>
+</tr><tr>
+<td>6</td><td>Hospital</td>
+</tr><tr>
+<td>7</td><td>House of Worship</td>
+</tr><tr>
+<td>8</td><td>Military Administration/Operations Building</td>
+</tr><tr>
+<td>9</td><td>Museum</td>
+</tr><tr>
+<td>...</td><td>...</td>
+</tr><tr>
+<td>997</td><td>Unpopulated</td>
+</tr><tr>
+<td>998</td><td>Not Applicable</td>
+</tr><tr>
+<td>999</td><td>Other</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<p>
+Additional information about <u><i>Coded Value Attributes</i></u> is
+contained in    <a
+ href="http://www.digest.org/html/DIGEST_2-1_Part4_AnnexB.pdf">Annex B</a>.
+</p><p>
+<strong>- <u><i>Actual Value Attributes</i></u></strong>
+</p><p>
+"<u>Actual</u>" values have a format (data type), one of: A (Alphanumeric),
+I (Integer), L (Lexical), R (Real Number) or S (Structured Text).
+Real values are typically measurements like height, width, etc. The units
+of    measurement associated with an attribute are abbreviated according
+to the     units of measurement codes defined in    <a
+ href="http://www.digest.org/html/DIGEST_2-1_Part3.pdf">DIGEST Part 3,
+Clause 7</a> and incorporated into the specification of the attribute.
+</p><p>
+For example, a four lane, 19.5 meter wide road (denoted by the feature
+<i><strong>code</strong></i> "AP030"), having the common name "M-4", would be
+  attributed as follows:
+</p>
+
+<table border="2" cellpadding="2">
+<tbody>
+<tr>
+<th>Attribute Code</th>
+<th>Attribute Value Format</th>
+<th>Attribute Value</th>
+</tr>
+<tr>
+<td>RTN (route number)</td>
+<td>A</td>
+<td>"M-4"</td>
+</tr>
+<tr>
+<td>LTN (track/lane number)</td>
+<td>I</td>
+<td>4</td>
+</tr>
+<tr>
+<td>WD2 (total usable width in decimetres)</td>
+<td>I</td>
+<td>195</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Data types or values for <i>Lexical</i> format attributes default to
+DIGEST Lexical    level 0 or ASCII. However, when a LEX flag is present, a
+much wider range of character    sets is available and it follows the ISO
+10646 set of characters. Lexical values    are described in detail in <a
+ href="http://www.digest.org/html/DIGEST_2-1_Part3.pdf">DIGEST    Part 3,
+Clause 5</a>.
+</p><p>
+<i>Structured Text</i> format is used with only a few "low frequency
+of occurrence" attributes which must be expressed in non-standard units
+of measure. The format for <i>Structured Text</i> is:
+</p><p>
+&nbsp;&nbsp;&nbsp;&nbsp;number(unit)[qualifier], where
+</p>
+
+<table border="0" cellpadding="2">
+ <tbody>
+<tr>
+   <td><i>number</i></td>
+   <td>is the numeric quantity of the attribute,</td>
+ </tr>
+<tr>
+   <td><i>unit</i> (see <a
+ href="http://www.digest.org/html/DIGEST_2-1_Part3.pdf">DIGEST
+ Part 3, Clause 7</a>) </td>
+   <td>is enclosed in parentheses ( ), and</td>
+ </tr>
+<tr>
+   <td><i>qualifier</i></td>
+   <td>is an expression (such as a rate) which qualifies <i>unit</i>
+and is enclosed in brackets [ ].</td>
+ </tr>
+
+  </tbody>
+</table>
+<p>
+For instance, the rate at which aircraft can safely fly according to
+   "Minimum Enroute Altitude" (denoted by the attribute <i><strong>code</strong></i>
+"MEA")    would be attributed as follows:
+</p>
+
+<table border="2" cellpadding="2">
+ <tbody>
+<tr>
+<th>Attribute Code</th>
+<th>Attribute Value Format</th>
+<th>Attribute Value</th>
+</tr>
+<tr>
+<td>MEA</td>
+<td>S</td>
+<td>"6000[ft](AMSL)"</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+where "ft" indicates "Feet" (Reference
+<a href="http://www.digest.org/html/DIGEST_2-1_Part3.pdf">DIGEST    Part 3,
+Clause 7</a>), and "AMSL" indicates "Above Mean Sea Level".
+</p><p>
+Some example Actual Value Attribute specifications are:
+</p>
+<table border="1">
+<tr>
+<th>Code</th><th>Name</th><th>Definition</th><th>Value Domain</th>
+</tr><tr>
+<td>AIA</td>
+<td>Airspace Identification Attribute</td>
+<td>A set of characters which enables an
+individual airspace to be uniquely identified.</td>
+<td>Lexical text string (15 characters).</td>
+</tr><tr>
+<td>AOO</td>
+<td>Angle of Orientation</td>
+<td>The angular distance measured from true north (0 deg)
+clockwise to the major axis
+of the feature. If the feature is square, the axis 0 through 89 deg
+shall be recorded. If the feature is circular, 360 deg shall be recorded.</td>
+<td>Integer between O and 360 inclusive, in
+increments of 1 degree.</td>
+</tr><tr>
+<td>BEN</td>
+<td>Basic Encyclopedia Number</td>
+<td>Unique number associated with a feature which is used to
+identify the feature in other national or intelligence data bases.</td>
+<td>ASCII text string (16 characters).</td>
+</tr><tr>
+<td>C60</td>
+<td>Rate of Current (IHO)</td>
+<td>Rate of current flow at tide reference level.</td>
+<td>Real, in Knots</td>
+</tr><tr>
+<td>PDR</td>
+<td>Pedestrian Rate</td>
+<td>Number of pedestrians per time unit (this attribute
+utilizes the structured text approach), e.g. '10(persons)[per hour]'.</td>
+<td>Structured ASCII text (80 characters).</td>
+</tr>
+</table>
+<p>
+Additional information about Actual Value Attributes is
+contained in
+<a href="http://www.digest.org/html/DIGEST_2-1_Part4_AnnexB.pdf">Annex B</a>.
+</p><p>
+<strong>- Metadata coding</strong>
+</p><p>
+Attribute value format statements provide a computer interpretation
+for the attribute value data type (e.g., real, alphanumeric) and attribute
+values give quantitative/qualitative meaning to the attribute. Metadata values
+are used to describe why the value of an attribute doesn't fall within
+its specified range of expected values. Metadata values which an attribute
+can take on are:    &quot;Unknown&quot;, &quot;Multiple&quot;, &quot;Unpopulated&quot;, &quot;Not Applicable&quot;,
+and &quot;Other&quot;. In    addition &quot;Null/No Value&quot; is also defined.  How these metadata
+concepts are encoded in FACC attribute values depends on the representation
+of that attribute.
+<a href="#Table 5.2 Special Reserved Values">Table 5.2</a>, below,
+from the FACC specification details these encodings.
+ </p>
+
+<div align="center">
+<strong><a name="Table 5.2 Special Reserved Values">
+FACC Table 5.2 Special Reserved Values</a></strong>
+</div>
+<br>
+
+<div align="center">
+<table border="1" cellpadding="5">
+<tbody>
+<tr>
+<th>
+Attribute Type
+</th>
+<th>
+Null/No<br>Value
+</th>
+<th>
+Unknown
+</th>
+<th>
+Multiple
+</th>
+<th>
+Unpopulated
+</th>
+<th>
+Not<br>Applicable
+</th>
+<th>
+Other
+</th>
+</tr>
+<tr>
+<td>Text (T)<br>
+- Fixed Length<br>
+- Variable Length
+</td>
+<td align="center">
+<dt><font color="#ffffff">.</font></dt>
+
+<dt>N/A<sup>1</sup></dt>
+
+<dt>0 Length</dt>
+</td>
+<td align="center">
+<dt><font color="#ffffff">.</font></dt>
+
+<dt>UNK</dt>
+
+<dt>UNK</dt>
+</td>
+<td align="center">
+<dt><font color="#ffffff">.</font></dt>
+
+<dt>MUL</dt>
+
+<dt>MUL</dt>
+</td>
+<td align="center">
+<dt><font color="#ffffff">.</font></dt>
+
+<dt>N_P</dt>
+
+<dt>N_P</dt>
+</td>
+<td align="center">
+<dt><font color="#ffffff">.</font></dt>
+
+<dt>N_A</dt>
+
+<dt>N_A</dt>
+</td>
+<td align="center">
+<dt><font color="#ffffff">.</font></dt>
+
+<dt>OTH</dt>
+
+<dt>OTH</dt>
+</td>
+</tr>
+<tr>
+<td>     <dt>Coded</dt>
+</td>
+<td align="center">
+-32768<sup>2</sup>
+</td>
+<td align="center">
+<dt>0</dt>
+</td>
+<td align="center">
+<dt>989</dt>
+</td>
+<td align="center">
+<dt>997</dt>
+</td>
+<td align="center">
+<dt>998</dt>
+</td>
+<td align="center">
+<dt>999</dt>
+</td>
+</tr>
+<tr>
+<td>     <dt>Integer</dt>
+<dt>- Short Integer</dt>
+<dt>- Long Integer</dt>
+</td>
+<td align="center">
+<dt><font color="#ffffff">.</font></dt>
+
+<dt>-32768<sup>2</sup></dt>
+
+<dt>-2147483648<sup>3</sup></dt>
+</td>
+<td align="center">
+<dt><font color="#ffffff">.</font></dt>
+
+<dt>-32768</dt>
+
+<dt>-2147483648</dt>
+</td>
+<td align="center">
+<dt><font color="#ffffff">.</font></dt>
+
+<dt>-32768</dt>
+
+<dt>-2147483648</dt>
+</td>
+<td align="center">
+<dt><font color="#ffffff">.</font></dt>
+
+<dt>-32768</dt>
+
+<dt>-2147483648</dt>
+</td>
+<td align="center">
+<dt><font color="#ffffff">.</font></dt>
+
+<dt>-32768</dt>
+
+<dt>-2147483648</dt>
+</td>
+<td align="center">
+<dt><font color="#ffffff">.</font></dt>
+
+<dt>-32768</dt>
+
+<dt>-2147483648</dt>
+</td>
+</tr>
+<tr>
+<td>     <dt>Floating Point</dt>
+<dt>- Single Precision</dt>
+<dt>- Double Precision</dt>
+</td>
+<td align="center">
+<dt><font color="#ffffff">.</font></dt>
+
+<dt>NaN</dt>
+
+<dt>NaN</dt>
+</td>
+<td align="center">
+<dt><font color="#ffffff">.</font></dt>
+
+<dt>NaN</dt>
+
+<dt>NaN</dt>
+</td>
+<td align="center">
+<dt><font color="#ffffff">.</font></dt>
+
+<dt>NaN</dt>
+
+<dt>NaN</dt>
+</td>
+<td align="center">
+<dt><font color="#ffffff">.</font></dt>
+
+<dt>NaN</dt>
+
+<dt>NaN</dt>
+</td>
+<td align="center">
+<dt><font color="#ffffff">.</font></dt>
+
+<dt>NaN</dt>
+
+<dt>NaN</dt>
+</td>
+<td align="center">
+<dt><font color="#ffffff">.</font></dt>
+
+<dt>NaN</dt>
+
+<dt>NaN</dt>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<ul><p>
+Notes: <u>The value for "Null" for each data type is defined     in DIGEST,
+Part 2, Annex C, Table C-67</u>.
+</p>
+<ol>
+<li><p>If the length is one or two "-" or "--" should     be used instead
+(refer to DIGEST, Part 2, Annex C, Clause C.2.5.4).
+</p></li>
+
+<li><p>The Null value for a short integer is defined to be the bit pattern
+10000000 00000000, which is equivalent to the maximum negative number
+in     "two's complement number format". Therefore for a 16-bit length
+ number, the corresponding value for Null is -32768.
+</p></li>
+
+<li><p>The Null value for a long integer is defined to be the bit pattern
+10000000 00000000 0000000 0000000, which is equivalent to the maximum
+negative     number in "two's complement number format". Therefore for a 32-bit
+length number, the corresponding value for Null is -2147483648.
+</p></li>
+</ol>
+</ul>
+<p>
+See the <a href="http://www.digest.org/">DIGEST Website</a> for more
+information on the structure and content of
+<a href="http://www.digest.org/html/DIGEST_2-1_Part4.pdf">FACC Edition 2.1</a>.
+</p><p>
+<strong><a name="FACC Denoting a Concept">2. Denoting a Concept</a></strong>
+</p><p>
+In FACC Edition 2.1, only a single mechanism exists for denoting feature
+(classification),    attribute, and "<u>coded</u>" (enumerant) concepts: the
+<i><strong>code</strong></i>.
+</p><p>
+-- For <u>features</u>, for example:
+</p><p>
+&nbsp;&nbsp;<i><strong>Code</strong></i>: "AA010"<br>
+&nbsp;&nbsp;<i><strong>Name</strong></i>: "Mine"<br>
+&nbsp;&nbsp;<i>Definition</i>: "An excavation made in the earth for
+the purpose                          of extracting natural deposits.  (See
+also AQ090)"
+</p><p>
+The feature <i><strong>name</strong></i> is "Mine",    and the <i><strong>code</strong></i>
+is (a 5-character string containing) "AA010".
+</p><p>
+-- For <u>attributes</u>, for example:
+</p><p>
+&nbsp;&nbsp;<i><strong>Code</strong></i>: "C60"<br>
+&nbsp;&nbsp;<i><strong>Name</strong></i>: "Rate of Current (IHO)"<br>
+&nbsp;&nbsp;<i>Definition</i>: "Rate of current flow at tide reference
+level."<br>
+&nbsp;&nbsp;<i>Value Domain</i>: Real, in Knots.
+</p><p>
+The attribute <i><strong>name</strong></i> is "Rate of Current (IHO)",    and
+the <i><strong>code</strong></i> is (a 3-character string containing) "C60".
+</p><p>
+-- For <u>coded</u> attribute values (enumerants), for example:
+</p><p>
+&nbsp;&nbsp;<i>Attribute Code</i>: "BFC"<br>
+&nbsp;&nbsp;<i>Value Domain</i>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<i><strong>Code</strong></i> / <i><strong>Name</strong></i>: "1"
+ "Fabrication Structures"
+</p><p>
+The coded value (enumerant) <i><strong>name</strong></i> is "Fabrication Structures"
+and the <i><strong>code</strong></i> is (an integer) 1.
+</p><p>
+In summary:
+</p>
+
+<ul>
+<li><p>
+The <i><strong>code</strong></i> is a 5- (or 3-) character string, or an integer,
+intended primarily for efficient software use, but in practice might be
+a string that is (sometimes) human interpretable, e.g., the <i><strong>code</strong></i>
+"AA010" denoting the feature concept <i><strong>named</strong></i> "Mine".
+</p></li>
+</ul>
+
+<hr>
+<h3><a name="Part3">Part 3: Concept Mapping from EDCS Version
+4.x to FACC Edition 2.1</a></h3>
+<h4><a name="Denoting Concepts">1. Denoting Concepts</a></h4>
+<p>
+The EDCS Version 4.x is significantly different than FACC Edition
+2.1 in the manner in which analogous concepts are denoted are denoted
+-- i.e., how each unique concept may be referenced by either humans or
+software. In EDCS Version 4.x, three mechanisms exist for denoting EDCS
+concepts: the <i><strong>symbolic constant</strong></i>, the <i><strong>label</strong></i>,
+and the <i><strong>code</strong></i>.     These are all equivalent in some sense to
+the <i><strong>code</strong></i> in the FACC Edition 2.1.
+</p>
+
+<ul>
+<li><p>
+The EDCS Version 4.x <i><strong>symbolic constant</strong></i> is a constant
+that can be used by programmers as a shorthand for the <i><strong>code</strong></i>.
+<br>
+  -- The FACC Edition 2.1 <i><strong>code</strong></i> is a "naked" string or
+integer. Although       a C-language specific <i>symbolic constant</i> might
+be defined, the DIGEST FACC       specifies no such functionality.
+</p></li>
+
+<li><p>
+The EDCS Version 4.x <i><strong>label</strong></i> is human-readable,
+but follows particular syntactic rules and can be machine parsed.
+The corresponding <i><strong>symbolic constant</strong></i> is easily derivable
+from it.
+<br>
+  -- The FACC Edition 2.1 <i><strong>code</strong></i> is a compact string or
+integer. Although the <i><strong>codes</strong></i> for features (classification)
+and attributes (both strings)       could be (and sometimes are) memorized,
+they are not especially convenient for       such use for most users.
+</p></li>
+
+<li><p>
+The EDCS Version 4.x <i><strong>code</strong></i> is functionally equivalent
+to the FACC Edition 2.1 <i><strong>code</strong></i>, however it is always an
+integer. In FACC Edition 2.1 <i><strong>codes</strong></i> it may be either a
+string or an integer.
+<br>
+  -- It is important to keep these differences in code types in mind.
+All EDCS Version 4.x <i>codes</i> are positive, non-zero integers that
+are consecutively assigned within the scope of an EDCS Dictionary. The
+<i>code</i> whose value is the integer 1 will denote different concepts
+in different EDCS Dictionaries, just as the <i>label</i> whose value
+is &quot;METER&quot; will denote different concepts in different EDCS Dictionaries.
+</p></li>
+</ul>
+
+<p>
+Example concepts from each EDCS Dictionary follow, first stating its
+<i><strong>label</strong></i>, and then specifying its <i><strong>symbolic constant</strong></i>,
+and finally specifying its <i><strong>code</strong></i> data type (always fundamentally
+an integer) and finally its value.
+</p><p>
+EDCS Dictionaries containing concepts comparable to those in
+FACC Edition 2.1:
+</p>
+
+<ul>
+<li><p>
+<strong>Classification</strong> (comparable to FACC Edition 2.1 Feature)
+<br>
+EC Label: &quot;<a href="../../docs/dictionary/ECC_A.htm#ECC_ACCESS_ZONE">ACCESS_ZONE</a>&quot;
+<br>
+#define ECC_ACCESS_ZONE ((EDCS_Classification_Code) 3)
+</p></li>
+<li><p><strong>Attribute</strong> (comparable to FACC Edition 2.1 Attribute)<br>
+EA Label:
+&quot;<a href="../../docs/dictionary/EAC_W.htm#EAC_WATERBODY_ACOUSTIC_AMBIENT_NOISE_SPECTRAL_MODEL">WATERBODY_ACOUSTIC_AMBIENT_NOISE_SPECTRAL_MODEL</a>&quot;<br>
+  #define EAC_WATERBODY_ACOUSTIC_AMBIENT_NOISE_SPECTRAL_MODEL ((EDCS_Attribute_Code) 1552)
+</p></li>
+<li><p>
+<strong>Enumerant</strong> (comparable to FACC Edition 2.1 Coded
+Attribute Values)
+<br>
+EE Label: &quot;<a href="../../docs/dictionary/EAC_W.htm#EEC_WTRBDACAMBNSE_ANDES">ANDES</a>&quot; (for EA Label:
+&quot;<a href="../../docs/dictionary/EAC_W.htm#EAC_WATERBODY_ACOUSTIC_AMBIENT_NOISE_SPECTRAL_MODEL">WATERBODY_ACOUSTIC_AMBIENT_NOISE_SPECTRAL_MODEL</a>&quot;<br>
+#define EEC_WTRBDACAMBNSE_ANDES ((EAC_Waterbody_Acoustic_Ambient_Noise_Spectral_Model)
+1)<br>
+<i><u>(Note that each EA is a separate data type.)</u></i>
+</p></li>
+</ul>
+<p>
+EDCS Dictionaries containing concepts <em>not</em> comparable to those
+in FACC Edition 2.1:
+</p>
+
+<ul>
+<li><p>
+<strong>Metadata</strong> (FACC handles these in a variety of fashions)
+<br>
+  EV Label: &quot;VALUE_SPECIFIED&quot;
+<br>
+  #define EVC_VALUE_SPECIFIED ((EDCS_Value_Characteristic_Code) 1)
+</p></li>
+<li><p>
+<strong>Unit</strong> (FACC binds these into the specification of
+individual attributes)
+<br>
+  EU Label: &quot;<a href="../../docs/dictionary/units.htm#EUC_AMP_PER_METRE">AMP_PER_METRE</a>&quot;
+<br>
+  #define EUC_AMP_PER_METRE ((EDCS_Unit_Code) 1)
+</p></li>
+<li><p>
+<strong>Unit Equivalence Class</strong> (FACC has nothing comparable)<br>
+  EQ Label: &quot;<a href="../../docs/dictionary/units.htm#EQC_ABSORBED_DOSE">ABSORBED_DOSE</a>&quot;
+<br>
+  #define EQC_ABSORBED_DOSE ((EDCS_Unit_Equivalence_Code) 1)
+</p></li>
+<li><p>
+<strong>Scale</strong> (FACC has nothing comparable)
+<br>
+  ES Label: &quot;<a href="../../docs/dictionary/units.htm#ESC_YOTTA">YOTTA</a>&quot;
+<br>
+  #define ESC_YOTTA ((EDCS_Unit_Scale_Code) 1)
+</p></li>
+<li><p>
+<strong>Organizational Schema</strong> (FACC has nothing comparable)<br>
+  EO Label: &quot;<a href="../../docs/dictionary/groups.htm#EOC_GENERAL">GENERAL</a>&quot;
+<br>
+  #define EOC_GENERAL ((EDCS_Organization_Schema_Code) 1)
+</p></li>
+<li><p>
+<strong>Group</strong> (FACC has nothing comparable)<br>
+  EG Label: &quot;<a href="../../docs/dictionary/groups.htm#EGC_GEN_ABSTRACT_OBJECT">ABSTRACT_OBJECT</a>&quot;
+ (for
+  EO Label: &quot;<a href="../../docs/dictionary/groups.htm#EOC_GENERAL">GENERAL</a>&quot;
+<br>
+  #define EGC_GEN_ABSTRACT_OBJECT ((EOC_General) 1)<br>
+  <i><u>(Note that each EO is a separate data type.)</u></i>
+</p></li>
+</ul>
+
+<h4><a name="Specifying Units of Measure">2. Specifying Units of Measure</a></h4>
+
+<p>
+Units of measure in the FACC Edition 2.1 are bound into the specification
+of individual attributes.  For example, the following two FACC Version 2.1
+attributes differ only in their units of measure:
+</p>
+<table border="1">
+<tr>
+<th>Code</th>
+<th>Name</th>
+<th>Definition</th>
+<th>Value Domain</th>
+<tr>
+
+<tr>
+<td>HGF</td>
+<td>Height Above Surface Level in Feet</td>
+<td>Distance measured from the lowest point
+of the base at ground or water level (downhill
+side/downstream side) to the tallest point of the feature.
+</td>
+<td>Integer, in Feet</td>
+</tr>
+<tr>
+<td>HGT</td>
+<td>Height Above Surface Level</td>
+<td>Distance measured from the lowest point of the base
+at ground or water level (downhill
+side/downstream side) to the tallest point of the feature.
+</td><td>
+Integer, in Meters
+</td>
+</tr>
+</table>
+<p>
+In the EDCS Version 4.x, concepts of units of measure    have been given
+their own EDCS Dictionary and a separate EDCS Scale Dictionary   supports
+the specification of the scale of the units of measure for an    attribute
+value.  Unit and scale <i><strong>labels</strong></i> are prefixed with &quot;EUC_&quot; and
+&quot;ESC_&quot;, respectively, and their <i><strong>codes</strong></i> are represented as
+positive,    non-zero consecutively assigned integers. Both the unit and
+scale are required    in order to fully specify the meaning of the value
+of many quantitative attributes.
+</p><p>
+For example, to fully specify the value of the height of a mountain,
+in FACC   Edition 2.1 either of attributes &quot;HGF&quot; or &quot;HGT&quot; could be used, however
+no other unit of measure for length, or different scale, could be used.
+  In the EDCS Version 4.x, the same information would be specified for the
+attribute   denoted by the <i><strong>label</strong></i> HEIGHT_ABOVE_SURFACE_LEVEL
+by simultaneously   specifying two separate, orthogonal concepts: EUC_MILE
+and ESC_DECI, where EUC_MILE   specifies the &quot;mile&quot; unit of measure and ESC_DECI
+specifies the &quot;deci&quot; scale    of that unit of measure.
+</p>
+
+<h4><a name="Attribute Value Metadata">3. Attribute Value Metadata</a></h4>
+<p>
+In FACC Edition 2.1, each coded value (enumerated) attribute had several
+   enumerant concepts denoted by <i><strong>names</strong></i> such as &quot;Unknown&quot;,
+ &quot;Multiple&quot;, &quot;Unpopulated&quot;, &quot;Other&quot;, and/or &quot;Not Applicable&quot;, which    were
+descriptions of the attribute data value rather than the attribute   data
+value itself. Additionally, non-coded value (text, integer, and real)   take
+on values as defined in <a
+ href="#Table 5.2 Special Reserved Values">   Table 5.2</a>.
+</p><p>
+In EDCS Version 4.x, these concepts have been moved into the EDCS Attribute
+Value Characteristic Dictionary, where they can be applied to attributes of <i>any</i>
+type.   The <i><strong>labels</strong></i> of attribute value metadata concepts are
+   prefixed with &quot;EVC_&quot; and their <i><strong>codes</strong></i> are represented as positive,
+non-zero, consecutively assigned integers.
+</p><p>
+For example, in FACC Edition 2.1:
+</p><p>
+&nbsp;&nbsp;<i>Attribute Code</i>: &quot;BFC&quot;<br>
+&nbsp;&nbsp;<i>Value Domain</i>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<i><strong>Code</strong></i> / <i><strong>Name</strong></i>: &quot;0&quot;
+ &quot;Unknown&quot;
+</p><p>
+The equivalent, in EDCS Version 4.x, would be denoted as the pair of
+concepts:
+</p><p>
+&nbsp;&nbsp;<i>Attribute Label</i>: &quot;BUILDING_FUNCTION&quot;<br>
+&nbsp;&nbsp;<i>Attribute Value Characteristic Label</i>: &quot;MISSING&quot;<br>
+</p>
+
+<h4><a name="Mapping Concepts">4. Mapping Concepts</a></h4>
+  <p>
+  Concepts encoded using the FACC Edition 2.1 are encoded differently using
+  the EDCS Version 4.x, however essentially all concepts supported by
+  FACC Edition 2.1 are also supported by
+  EDCS Version 4.x, albeit sometimes using a combination of several EDCS Version 4.x
+  &quot;atomic&quot; concepts.
+  </p><p>
+  The tables at the end of this section document the mapping of concepts from
+  EDCS Version 4.x to FACC Edition 2.1.
+  In the significant majority of cases, the concept mapping is one-to-one and direct.
+  In some cases, however, the mapping is more complex.
+  </p><p>
+  These tables document the mappings for each of the concept types in EDCS Version 4.x
+  where there are equivalent concepts in FACC Edition 2.1:
+  classifications, attributes, enumerants. In
+  addition to listing the &quot;EDCS 4.x <i><strong>Symbolic Constant</strong></i>&quot;
+  for each concept, each table includes the columns &quot;EDCS 4.x Concept Mapping Type&quot;,
+  &quot;FACC 2.1 Concept Mapping Information&quot;, and &quot;Additional Notes&quot;.
+  </p>
+  <ul>
+   <li>
+   The value of &quot;EDCS 4.x Concept Mapping Type&quot; defines how to interpret and
+   use the information listed in &quot;FACC 2.1 Concept Mapping Information&quot;.
+   </li>
+   <li>
+   The value of &quot;Additional Notes&quot; includes human-interpretable information that
+   either clarifies the rationale behind the mapping type, or provides additional information
+   for special cases.
+   </li>
+  </ul>
+<p>
+The Concept Mapping Types are as follows:
+</p>
+<ul>
+<li>
+<strong>ONE_TO_ZERO</strong> - The EDCS Version 4.x concept does not exist in the FACC Edition 2.1.
+The &quot;FACC 2.1 Concept Mapping Information&quot; column will be empty.
+<br><br>
+<i>Examples:</i>
+<ul TYPE="circle">
+  <li><strong>EDCS Classification does not map</strong>
+<p>
+<a href="../../docs/dictionary/ECC_A.htm#ECC_ARTIFICIAL_SATELLITE">ECC_ARTIFICIAL_SATELLITE</a>
+<br>
+<i>No mapping to the FACC Edition 2.1, because the FACC is limited to
+Mapping, Charting & Geodesy concepts.</i>
+</p></li>
+
+<li><strong>EDCS Attribute does not map</strong>
+<br><br>
+<a href="../../docs/dictionary/EAC_A.htm#EAC_AIR_TEMPERATURE">EAC_AIR_TEMPERATURE</a>
+<br>
+<i>No mapping to the FACC Edition 2.1, because the FACC is limited to
+Mapping, Charting & Geodesy concepts.</i>
+</p></li>
+</ul>
+</li>
+
+<li>
+<strong><a name="ONE_TO_ONE">ONE_TO_ONE</a></strong> -
+The EDCS Version 4.x concept is mapped directly to a single FACC Edition 2.1
+concept.  The &quot;FACC 2.1 Concept Mapping Information&quot; column will contain the
+<i><strong>code</strong></i> of the appropriate FACC Edition 2.1 concept.<br><br>
+While the EDCS Version 4.x Attribute Dictionary supports the ability for
+attributes which are COUNT, INTEGER, and REAL values to be both singletons,
+and intervals, the FACC Edition 2.1 only supports the ability to represent
+single values (either &quot;integer&quot; or &quot;floating point&quot;) -- a change in datatype
+is effectively occuring. If the EDCS attribute concept may be interval-valued,
+and there is an appropriate FACC attribute concept which provides a mechanism
+for representing interval-values, then the mapping types of
+<strong><a href="#MAP_TO_CODED">MAP_TO_CODED</a></strong> or
+<strong><a href="#INDETERMINATE">INDETERMINATE</a></strong> are used.
+Otherwise, the interval-value can only be expressed using the metadata concept
+&quot;Other&quot; as defined in <a href="#Table 5.2 Special Reserved Values">Table 5.2</a>.
+<br><br>
+Also, the EDCS Version 4.x Attribute Dictionary allows for attribute concept
+instances to not have a value, but instead have an Attribute Value Metadata
+value. The FACC Edition 2.1 only consistently provides for metadata to be
+explicitly represented where a &quot;coded list&quot; is provided; for other representations
+(text, integer, and real) various non-unique encodings are specified, as in
+<a href="#Table 5.2 Special Reserved Values">Table 5.2</a>.
+<br><br>
+<i>Examples:</i>
+<ul TYPE="circle">
+<li><strong>EDCS Version 4.x Classification maps to FACC Edition 2.1 Feature</strong>
+<p>
+<a href="../../docs/dictionary/ECC_E.htm#ECC_EXTRACTION_MINE">ECC_EXTRACTION_MINE</a>
+<br>
+<i>maps to</i><br>
+<strong>AA010</strong> (<i>named</i> &quot;Mine&quot;)
+</p></li>
+
+<li><strong>EDCS Version 4.x Attribute maps to FACC Edition 2.1 Attribute</strong>
+<p>
+<a href="../../docs/dictionary/EAC_C.htm#EAC_COLOUR_INTENSITY">EAC_COLOUR_INTENSITY</a>
+<br>
+<i>maps to</i><br>
+<strong>CIC</strong> (<i>named</i> &quot;Color Intensity Category&quot;)<br>
+-- Note that this is a qualitative attribute for which the value is
+represented in EDCS Version 4.x is as an ENUMERATION, whereas the
+representation in FACC Edition 2.1 is as &quot;coded&quot;. &quot;Coded&quot; is comparable
+to ENUMERATION, however FACC Edition 2.1 &quot;coded&quot; includes metadata
+statements that are encoded differently in the EDCS Version 4.x. Each of the
+<a href="../../docs/dictionary/EAC_C.htm#EAC_COLOUR_INTENSITY">EAC_COLOUR_INTENSITY</a>
+enumerants must be examined and mapped. In this particular case, each enumerant of
+<a href="../../docs/dictionary/EAC_C.htm#EAC_COLOUR_INTENSITY">EAC_COLOUR_INTENSITY</a>
+has an exact mapping to a value of FACC Edition 2.1 attribute &quot;CIC&quot;.  Additionally,
+four possible Attribute Value Characteristic values also have exact mappings. Other
+possible Attribute Value Characteristic values do not; for example,
+EVC_MULTIPLE -- it is instead mapped to &quot;CIC&quot; with value &quot;989&quot;,
+meaning &quot;Multiple&quot;, based on <a href="#Table 5.2 Special Reserved Values">Table 5.2</a>.
+</p></li>
+
+<li><strong>EDCS Version 4.x Attribute maps to FACC Edition 2.1 Attribute</strong>
+<p>
+<a href="../../docs/dictionary/EAC_U.htm#EAC_UPSTREAM_HEIGHT">EAC_UPSTREAM_HEIGHT</a> with <i>any singleton-value</i>
+<br>
+<i>maps to</i><br>
+<strong>HGU</strong> (<i>named</i> &quot;Height 2/Depth 2&quot;)<br>
+-- Note that this is a quantitative attribute for which the value is
+represented in EDCS Version 4.x as a REAL, whereas the representation
+in FACC Edition 2.1 is as an &quot;integer&quot;. A REAL can not be represented as an
+&quot;integer&quot; without loss of information; rounding will be required. The unit of
+measure in the EDCS Version 4.x is specified using the Unit Equivalence Class
+EQC_LENGTH (for which EUC_METRE is preferred), while in FACC Edition 2.1 it
+is defined as &quot;meter&quot;. These units of measure are commensurate; a unit of
+measure conversion may be required depending on the EU/ES of the actual value of
+<a href="../../docs/dictionary/EAC_U.htm#EAC_UPSTREAM_HEIGHT">EAC_UPSTREAM_HEIGHT</a>.
+The precision of the EDCS representation of this
+concept will necessarily be lost as the corresponding FACC representation
+is necessarily &quot;to the nearest meter&quot;.
+</p></li>
+
+<li><strong>EDCS Version 4.x Attribute maps to FACC Edition 2.1 Attribute</strong>
+<p>
+<a href="../../docs/dictionary/EAC_U.htm#EAC_UPSTREAM_HEIGHT">EAC_UPSTREAM_HEIGHT</a>
+with <i>any interval-value</i><br>
+<i>maps to</i><br>
+<strong>HGU</strong> (<i>named</i> &quot;Height 2/Depth 2&quot;)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;with value of <strong>-32768</strong><br>
+-- Note that this is a quantitative attribute for which the value is
+represented in EDCS Version 4.x as a REAL interval, whereas the representation
+in FACC Edition 2.1 is as an &quot;integer&quot;. A REAL interval can not be represented
+as a single &quot;integer&quot;. This is mapped to the metadata concept &quot;Other&quot; based on
+<a href="#Table 5.2 Special Reserved Values">Table 5.2</a>: -32768 (short integer).
+</p></li>
+
+<li><strong>EDCS Version 4.x Attribute maps to FACC Edition 2.1 Attribute</strong>
+<p>
+<a href="../../docs/dictionary/EAC_U.htm#EAC_UPSTREAM_HEIGHT">EAC_UPSTREAM_HEIGHT</a>
+with <i>no value</i> and <strong>EVC_MISSING</strong><br>
+<i>maps to</i><br>
+<strong>HGU</strong> (<i>named</i> &quot;Height 2/Depth 2&quot;)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;with value of <strong>-32768</strong><br>
+-- Note that this is a quantitative attribute for which the value is
+represented in EDCS Version 4.x as a REAL interval, whereas the representation
+in FACC Edition 2.1 is as an &quot;integer&quot;. In this case, no value is present,
+although a metadata value exists. This is mapped to the metadata concept
+&quot;Unknown&quot; based on <a href="#Table 5.2 Special Reserved Values">Table 5.2</a>:
+-32768 (short integer).
+ </li>
+</ul>
+</li>
+
+<li>
+<strong><a name="ONE_TO_ONE_QUALIFIED">ONE_TO_ONE_QUALIFIED</a></strong> -
+The EDCS Version 4.x concept is mapped directly, but it will be
+replaced with two or more FACC Edition 2.1 concepts.  The &quot;FACC 2.1 Concept Mapping
+Information&quot; column will contain a comma-delimited list of
+<i><strong>codes</strong></i> of the appropriate FACC Edition 2.1 concepts.
+<br><br>
+<i>Examples:</i>
+<ul TYPE="circle">
+<li><strong>EDCS Version 4.x Classification maps to FACC Feature <i>plus</i> a FACC Attribute with a value</strong>
+<p>
+<a href="../../docs/dictionary/ECC_F.htm#ECC_FIRE_AND_POLICE_STATION">ECC_FIRE_AND_POLICE_STATION</a>
+<br>
+<i>maps to</i><br>
+<strong>AL015</strong> (<i>named</i> &quot;Building&quot;) <i>plus</i><br>
+<strong>BFC</strong> (<i>named</i> &quot;Building Function Category&quot;)<br>
+with coded list value of <strong>723</strong>
+(<i>named</i> &quot;Combined Fire and Police Station&quot;)
+</p><p>
+Note that &quot;AL015&quot; is a broader concept than
+<a href="../../docs/dictionary/ECC_F.htm#ECC_FIRE_AND_POLICE_STATION">ECC_FIRE_AND_POLICE_STATION</a>,
+so the additional &quot;qualifying&quot; FACC attribute of &quot;BFC&quot; is used to narrow the concept appropriately.
+</p></li>
+
+<li><strong>EDCS Version 4.x Classification maps to FACC Feature <i>plus</i> two FACC Attributes with values</strong>
+<br><br>
+<a href="../../docs/dictionary/ECC_H.htm#ECC_HINDU_TEMPLE">ECC_HINDU_TEMPLE</a>
+<br>
+<i>maps to</i><br>
+<strong>AL015</strong> (<i>named</i> &quot;Building&quot;) <i>plus</i><br>
+<strong>HWT</strong> (<i>named</i> &quot;House of Worship Type&quot;)<br>
+with coded list value of <strong>16</strong>
+(<i>named</i> &quot;Temple&quot;) <i>plus</i><br>
+<strong>REL</strong> (<i>named</i> &quot;Religious Denomination&quot;)<br>
+with coded list value of <strong>999</strong>
+(<i>named</i> &quot;Other&quot;)<br>
+<p>
+Note that &quot;AL015&quot; is a broader concept than
+<a href="../../docs/dictionary/ECC_H.htm#ECC_HINDU_TEMPLE">ECC_HINDU_TEMPLE</a>, so the
+additional &quot;qualifying&quot; FACC attributes of &quot;HWT&quot; and &quot;REL&quot; are used to
+narrow the concept appropriately.
+</p></li>
+</ul>
+</li>
+
+<li><strong><a name="MAP_TO_CODED">MAP_TO_CODED</a></strong> -
+This occurs only in the case of mapping an EDCS Version 4.x Attribute Dictionary
+concept to a FACC Edition 2.1 concept.  The EDCS Version 4.x attribute concept is
+mapped directly to a single FACC Edition 2.1 attribute concept. <br><br>
+While the EDCS Version 4.x supports the ability for COUNT, INTEGER, and REAL
+values to be both singletons, and intervals, the FACC Edition
+2.1 only supports the ability to represent single values (either &quot;integer&quot; or
+&quot;floating point&quot;). Situations in which the FACC intends to represent intervals
+are handled either by defining two related attributes (e.g., &quot;DR1&quot; and &quot;DR2&quot;,
+handled using the <strong><a href="#SPECIAL_CASE">SPECIAL_CASE</a></strong> mapping type),
+or by using a coded list attribute with a well-defined set of previously
+specified ranges (e.g., &quot;BVL&quot;).  The &quot;FACC 2.1 Concept Mapping Information&quot; column
+will contain the <i><strong>code</strong></i> of the appropriate FACC Edition 2.1 concept.
+In addition, information in the EDCS Enumerant Mapping tables is used.<br><br>
+The mapping type <strong>MAP_TO_CODED</strong> is used when the only appropriate
+FACC Edition attribute concept is &quot;coded&quot; (in EDCS terminology, ENUMERATION).
+This means that special logic is typically required for single-valued instances
+since, in general, &quot;coded&quot; attributes are not often used for single integer or
+real values; usualy inequalities on integer, or real, values are defined.<br><br>
+The logic for handling such interval-valued EDCS attribute concepts is as follows:
+<br>
+<ul TYPE="circle">
+<li>Single-valued EDCS attribute instance (e.g., &quot;3.1&quot;)
+<br>
+<i>Action:</i> First, convert the value to account for ES/EU, then:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Map to
+an exact matching single-value enumerant, if one exists;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Else map
+to a ranged-value enumerant containing the single value (as a subset), if one exists;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Else map
+to the &quot;Other&quot; concept of the ranged-value attribute.
+<br>
+</li>
+
+<li>Interval-valued EDCS attribute instance (e.g., &quot;[4.5, 5.0)&quot; )<br>
+<i>Action:</i> First, convert the value to account for ES/EU, then:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Map to
+an exact matching ranged-value enumerant, if one exists;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Else map
+to a ranged-value enumerant containing the interval (as a subset), if one exists;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Else map
+to the &quot;Other&quot; concept of the ranged-value attribute.<br>
+</li>
+   <li>Non-valued EDCS attribute instance -- only metadata is present (e.g., EVC_MISSING)<br>
+<i>Action:</i> Map to a corresponding ranged-enumerant attribute metadata code,
+if one exists;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Else map
+based on <a href="#Table 5.2 Special Reserved Values">Table 5.2</a>.
+</li>
+</li>
+</ul><br>
+<i>Examples:</i>
+<ul TYPE="circle">
+  <li><strong>EDCS Version 4.x Attribute <i>maps to</i> FACC Attribute with a quantitative value</strong>
+<p>
+<a href="../../docs/dictionary/EAC_W.htm#EAC_WATER_TABLE_DEPTH">EAC_WATER_TABLE_DEPTH</a>
+with <i>value</i> &quot;0.3&quot; and <strong>EUC_METRE</strong> and <strong>ESC_UNI</strong><br>
+<i>maps to</i><br>
+<strong>YWT</strong> (<i>named</i> &quot;Depth to Water Table&quot;)
+with <i>coded list value</i> of <strong>1</strong> (a &quot;&gt;0 and &lt;=0.3&quot;)<br>
+-- Note that this is a quantitative attribute for which the value is
+represented in EDCS Version 4.x as a REAL, whereas the representation
+in FACC Edition 2.1 is as a &quot;coded list&quot;. There is no exact coded list item
+for the EDCS value provided, however the value falls within a range denoted
+by a coded list item.
+</p></li>
+
+<li><strong>EDCS Version 4.x Attribute <i>maps to</i> FACC Attribute with a qualitative value</strong>
+<p>
+<a href="../../docs/dictionary/EAC_W.htm#EAC_WATER_TABLE_DEPTH">EAC_WATER_TABLE_DEPTH</a>
+with <i>value</i> &quot;(0.3, 1.2]&quot; and <strong>EUC_METRE</strong> and <strong>ESC_UNI</strong><br>
+<i>maps to</i><br>
+<strong>YWT</strong> (<i>named</i> &quot;Depth to Water Table&quot;)
+with <i>coded list value</i> of <strong>2</strong> (a &quot;&gt;0.3 and &lt;=1.2&quot;)<br>
+-- Note that this is a quantitative attribute for which the value is
+represented in EDCS Version 4.x as a REAL interval, whereas the representation
+  in FACC Edition 2.1 is as a &quot;coded list&quot;. There is an exact match.
+</p></li>
+
+<li><strong>EDCS Version 4.x Attribute <i>maps to</i> FACC Attribute with a more general qualitative value</strong>
+<p>
+<a href="../../docs/dictionary/EAC_W.htm#EAC_WATER_TABLE_DEPTH">EAC_WATER_TABLE_DEPTH</a>
+with <i>value</i> &quot;(0.5, 1.0]&quot; and <strong>EUC_METRE</strong> and <strong>ESC_UNI</strong><br>
+  <i>maps to</i><br>
+  <strong>YWT</strong> (<i>named</i> &quot;Depth to Water Table&quot;)
+with <i>coded list value</i> of <strong>2</strong> (a &quot;&gt;0.3 and &lt;=1.2&quot;)<br>
+  -- Note that this is a quantitative attribute for which the value is
+  represented in EDCS Version 4.x as a REAL interval, whereas the representation
+  in FACC Edition 2.1 is as a &quot;coded list&quot;. While there is no exact match,
+  there exists a ranged-value which is a superset of the EDCS attribute interval-value.
+</p></li>
+
+<li><strong>EDCS Version 4.x Attribute with characteristic <i>maps to</i> FACC Attribute with a qualitative value</strong>
+<p>
+<a href="../../docs/dictionary/EAC_W.htm#EAC_WATER_TABLE_DEPTH">EAC_WATER_TABLE_DEPTH</a>
+with <i>no value</i> and <strong>EVC_MISSING</strong><br>
+  <i>maps to</i><br>
+  <strong>YWT</strong> (<i>named</i> &quot;Depth to Water Table&quot;)
+with <i>coded list value</i> of <strong>0</strong> (a &quot;Unknown&quot;)<br>
+  -- Note that this is a quantitative attribute for which the value is
+  represented in EDCS Version 4.x as a REAL interval, whereas the representation
+  in FACC Edition 2.1 is as a &quot;coded list&quot;. However, there is no value in
+  this instance, and instead an Attribute Value Metadata value is present.
+</p></li>
+</ul>
+</li>
+
+<li>
+<strong><a name="INDETERMINATE">INDETERMINATE</a></strong> -
+This occurs only in the case of mapping an EDCS Version 4.x Attribute
+Dictionary concept to a FACC Edition 2.1 concept, when
+more than one FACC Edition 2.1 concept may be appropriate -- depending on
+the instance value of the EDCS attribute.<br><br>
+While the EDCS Version 4.x supports the ability for COUNT, INTEGER, and REAL
+values to be both singletons, and intervals, the FACC Edition
+2.1 only supports the ability to represent single values (either &quot;integer&quot; or
+&quot;floating point&quot;). Situations in which the FACC intends to represent intervals
+are handled either by defining two related attributes (e.g., &quot;DR1&quot; and &quot;DR2&quot;,
+handled using the <strong><a href="#SPECIAL_CASE">SPECIAL_CASE</a></strong> mapping type),
+or by using a coded list attribute with a well-defined set of previously
+specified ranges (e.g., &quot;BVL&quot;).  In some occasions, there may be more than
+one appropriate coded list attribute (e.g., &quot;DW1&quot;, and &quot;DW2&quot;), or there
+may be an integer, or real, valued attribute <i>and</i> one or more coded list
+attributes (e.g., &quot;DMB&quot; and &quot;BUD&quot;) which are appropriate.
+<br><br>
+The &quot;FACC 2.1 Concept Mapping Information&quot; column
+will contain the <i><strong>code</strong></i> of the first appropriate FACC Edition 2.1 concept.
+In addition, information in the EDCS Enumerant Mapping tables is used.<br><br>
+Also, the EDCS Version 4.x allows for attribute concept instances to not have
+a value, but instead have an Attribute Value Metadata value. The FACC Edition
+2.1 only consistently provides for metadata to be explicitly represented
+where a &quot;coded list&quot; is provided; for other representations (text,
+integer, and real) various non-unique encodings are specified, as in
+<a href="#Table 5.2 Special Reserved Values">Table 5.2</a>.
+<br><br>
+The logic for handling such EDCS attribute concepts is as follows:<br>
+<ul TYPE="circle">
+   <li>Single-valued EDCS attribute instance (e.g., "3.1")<br>
+  <i>Action:</i> First, convert the value to account for ES/EU, then:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Map to
+the indicated integer, or real, valued FACC attribute, if one exists;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Else map
+to an exact matching single-value enumerant, if one exists;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Else map
+to a ranged-value enumerant containing the single value (as a subset), if one exists;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Else map
+to the "Other" concept of the ranged-value attribute.<br>
+ </li>
+ <li>Interval-valued EDCS attribute instance (e.g., "[4.5, 5.0)" )<br>
+  <i>Action:</i> First, convert the value to account for ES/EU, then:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Map to
+an exact matching ranged-value enumerant, if one exists;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Else map
+to a ranged-value enumerant containing the interval (as a subset), if one exists;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Else map
+to the "Other" concept of an appropriate ranged-value attribute.<br>
+<i>Notes:</i> If there is no exact match, and more than one ranged-value enumerant<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;specifying
+   a superset of the interval exists, then map to the narrowest one.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If more
+  than one superset of the interval exists which is equally narrow<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(and
+  these are the narrowest that exist), map to the interval
+with the lower starting point.
+</li>
+
+<li>Non-valued EDCS attribute instance -- only metadata is present
+ (e.g., EVC_MISSING)
+<br>
+ <i>Action:</i> Map to a corresponding ranged-enumerant attribute metadata code,
+if one exists;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Else map
+based on <a href="#Table 5.2 Special Reserved Values">Table 5.2</a>.
+ </li>
+</ul><br>
+<i>Examples:</i>
+<ul TYPE="circle">
+   <li><U>EDCS Version 4.x Attribute <i>maps to</i> FACC Attribute with a quantitative value</U><br><br>
+<a href="../../docs/dictionary/EAC_B.htm#EAC_BRUSH_DENSITY">EAC_BRUSH_DENSITY</a>
+with <i>value</i> "12.5" and <strong>EUC_PERCENT</strong> and <strong>ESC_UNI</strong><br>
+  <i>maps to</i><br>
+  <strong>DMB</strong> (<i>named</i> "Density Measure (Brush/Undergrowth)")
+with <i>value</i> of <strong>12</strong> (a &quot;percent&quot; &quot;integer&quot;)<br>
+  -- Note that this is a quantitative attribute for which the value is
+  represented in EDCS Version 4.x as a REAL, whereas the representation
+  in FACC Edition 2.1 is as an &quot;integer&quot;. A REAL can not be represented as an
+  &quot;integer&quot; without loss of information; rounding will be required. The precision
+  of the EDCS representation of this concept will necessarily be lost as the
+  corresponding FACC representation is necessarily &quot;to the nearest meter&quot;.
+ <br><br></li>
+<li><U>EDCS Version 4.x Attribute <i>maps to</i> FACC Attribute with a qualitative value</U>
+<br><br>
+<a href="../../docs/dictionary/EAC_B.htm#EAC_BRUSH_DENSITY">EAC_BRUSH_DENSITY</a> with
+<i>value</i> &quot;(5, 15]&quot; and <strong>EUC_PERCENT</strong> and <strong>ESC_UNI</strong>
+<br>
+  <i>maps to</i><br>
+  <strong>BUD</strong> (<i>named</i> &quot;Brush/Undergrowth Density Code&quot;)
+with <i>coded list value</i> of <strong>2</strong> (a &quot;> 5% and &lt;= 15%&quot;)
+<br>
+  -- Note that this is a quantitative attribute for which the value is
+  represented in EDCS Version 4.x as a REAL interval, whereas the representation
+  in FACC Edition 2.1 is as a &quot;coded list&quot;.
+ <br><br></li>
+   <li><U>EDCS Version 4.x Attribute <i>maps to</i> FACC Attribute with a more general qualitative value</U><br><br>
+<a href="../../docs/dictionary/EAC_B.htm#EAC_BRUSH_DENSITY">EAC_BRUSH_DENSITY</a> with
+<i>value</i> &quot;(7.5, 12.5]&quot; and <strong>EUC_PERCENT</strong> and <strong>ESC_UNI</strong><br>
+  <i>maps to</i><br>
+  <strong>BUD</strong> (<i>named</i> &quot;Brush/Undergrowth Density Code&quot;)
+with <i>coded list value</i> of <strong>2</strong> (a &quot;> 5% and &lt;= 15%&quot;)<br>
+  -- Note that this is a quantitative attribute for which the value is
+  represented in EDCS Version 4.x as a REAL interval, whereas the representation
+  in FACC Edition 2.1 is as a &quot;coded list&quot;. While there is no exact match,
+  there exists a ranged-value which is a superset of the EDCS attribute interval-value.
+ <br><br></li>
+   <li><U>EDCS Version 4.x Attribute with metadata <i>maps to</i> FACC Attribute with a qualitative value</U><br><br>
+<a href="../../docs/dictionary/EAC_B.htm#EAC_BRUSH_DENSITY">EAC_BRUSH_DENSITY</a> with
+<i>no value</i> and <strong>EVC_MISSING</strong><br>
+  <i>maps to</i><br>
+  <strong>BUD</strong> (<i>named</i> "Brush/Undergrowth Density Code")
+with <i>coded list value</i> of <strong>0</strong> (a "Unknown")<br>
+  -- Note that this is a quantitative attribute for which the value is
+  represented in EDCS Version 4.x as a REAL interval, whereas the representation
+  in FACC Edition 2.1 is as a "coded list". However, there is no value in
+  this instance, and instead an Attribute Value Metadata value is present.
+ </li>
+</ul><br>
+   </li>
+   <li>
+   <strong><a name="SPECIAL_CASE">SPECIAL_CASE</a></strong> -
+   These cases will require some human reasoning to determine the best
+   way to realize the EDCS Version 4.x concept in FACC Edition 2.1.  Both the "FACC 2.1
+   Concept Mapping Information" column and "Additional Notes" column contains information
+   giving recommendations regarding how to handle the specific case.<br><br>
+   <i>Examples:</i>
+<ul TYPE="circle">
+<li><strong>Conversion to a non-commensurate unit of measure</strong>
+<p>
+<a href="../../docs/dictionary/EAC_L.htm#EAC_LEFT_BELOW_BANK_ANGLE">EAC_LEFT_BELOW_BANK_ANGLE</a>
+<br>
+  <i>maps to</i><br>
+  <strong>BWL</strong> (<i>named</i> "Below Water Bank Slope (Left)")<br>
+  -- Note that the Unit Equivalence Class of attribute
+<a href="../../docs/dictionary/EAC_L.htm#EAC_LEFT_BELOW_BANK_ANGLE">EAC_LEFT_BELOW_BANK_ANGLE</a>
+is EQC_PLANE_ANGLE, whereas the unit of measure of &quot;BWL&quot; is &quot;percent&quot; (rise/run).
+While the concepts are equivalent, the REAL angular value of
+<a href="../../docs/dictionary/EAC_L.htm#EAC_LEFT_BELOW_BANK_ANGLE">EAC_LEFT_BELOW_BANK_ANGLE</a>
+must be converted to a &quot;short integer&quot; slope value for &quot;BWL&quot;.  If the actual value of
+<a href="../../docs/dictionary/EAC_L.htm#EAC_LEFT_BELOW_BANK_ANGLE">EAC_LEFT_BELOW_BANK_ANGLE</a>
+is an interval, then while the conversion to slope can be made, ultimately
+no mapping is possible to a concept in FACC 2.1.
+</p></li>
+<li><u>Deriving two single-valued attributes into a single interval-valued attribute</u>
+<p>
+  <a href="../../docs/dictionary/EAC_W.htm#EAC_WATER_DEPTH">EAC_WATER_DEPTH</a>
+<br>
+  <i>maps to</i><br>
+  <strong>DR3</strong> (<i>named</i> &quot;Depth Range With greater than 1 meter resolution - Value 1&quot;) <i>and</i><br>
+  <strong>DR4</strong> (<i>named</i> &quot;Depth Range With greater than 1 meter resolution - Value 2&quot;)<br>
+  -- Note that if the attribute instance is interval-valued, then the interval must
+  be parsed into its &quot;DR3&quot; and &quot;DR4&quot; components; if it is single-valued, then both
+  &quot;DR3&quot; and &quot;DR4&quot; are set to that same value.
+</p></li>
+</ul>
+</li>
+</ul>
+<p>
+When the Concept Mapping Type is <strong><a href="#ONE_TO_ONE">ONE_TO_ONE</a></strong>,
+ <strong><a href="#ONE_TO_ONE_QUALIFIED">ONE_TO_ONE_QUALIFIED</a></strong>,
+ <strong><a href="#MAP_TO_CODED">MAP_TO_CODED</a></strong>, or
+ <strong><a href="#INDETERMINATE">INDETERMINATE</a></strong>, then the
+ &quot;FACC 2.1 Concept Mapping Information&quot; column has very specific formatted
+ information in it.   It will be one or more of the following possibilities
+ (multiple concepts will be of this form, separated by semicolons):
+</p>
+ <ul>
+  <li><strong><i>Feature Code</i></strong><br>
+   The 5-character <i><strong>feature code</strong></i> of a single FACC Edition 2.1 feature
+   concept; there will be no additional information.<br><br>
+  </li>
+  <li><strong><i>Attribute Code</i></strong><br>
+   The 3-character <i><strong>attribute code</strong></i> of a single FACC Edition 2.1 attribute
+   concept; there will be no additional information.<br><br>
+  </li>
+  <li><strong><i>Attribute Code</i>) with the coded value of (<FONT color="red">value</FONT>)</strong>
+   The 3-character <i><strong>attribute code</strong></i> of a single FACC Edition 2.1 attribute
+   concept of type "coded list" with a specific (<FONT color="red">value</FONT>).
+   <br>
+   <i>Examples:</i><br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;APT with the CODED value of 7&quot; <br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;MAC with the CODED value of 999&quot; <br>
+   <br>
+   </li>
+   </ul>
+  </p>
+<hr> <font size="4"><strong><a name="Part4">Part 4: Mapping Tables for EDCS Version
+4.x to FACC Edition 2.1</a></strong></font> <br>
+ <br>
+
+<ul>
+<li><a href="class_match.htm">Classification Mapping Table</a></li>
+<li><a href="attribute_match.htm">Attribute Mapping Table</a></li>
+<li>Enumerant Mapping Tables - Due to the sheer size of these tables,
+they have been split up alphabetically as follows:<br>
+
+<ul>
+<li><a href="enum_match_A_to_H.htm">Enumerants from A through H</a></li>
+<li><a href="enum_match_I_to_P.htm">Enumerants from I through P</a></li>
+<li><a href="enum_match_Q_to_Z.htm">Enumerants from Q through Z</a></li>
+
+</ul>
+</li>
+
+</ul>
+
+<hr> <font size="4"><strong><a name="Part5">Part 5: Mapping API for EDCS Version
+4.x to FACC Edition 2.1</a></strong></font> <br>
+ <br>
+
+<p>
+This section describes the EDCS Version 3.x to FACC Edition 2.1 Mapping
+API functions, data structures, and use examples. The implementation of
+this mapping API is not included by default with the EDCS distribution but
+can be downloaded separately at
+<a href="http://www.sedris.org">www.sedris.org</a>.
+</p>
+<strong><a name="Functions">1. Mapping API Functions</a></strong>
+<ul>
+  <li>EDCS 4.x to FACC 2.1 Mapping Functions<br>
+
+<ul>
+ <li><a
+ href="functions/EDCS_to_FACC_GetLibVersion.htm">EDCS_to FACC GetLibVersion</a></li>
+<li><a href="functions/EDCS_to_FACC_InitMappingInfo.htm">EDCS_to
+FACC InitMappingInfo</a></li>
+<li><a href="functions/EDCS_to_FACC_MapAttributeCode.htm">EDCS_to
+FACC MapAttributeCode</a></li>
+<li><a
+ href="functions/EDCS_to_FACC_MapAttributeWithValue.htm">EDCS_to FACC MapAttributeWithValue</a></li>
+<li><a
+ href="functions/EDCS_to_FACC_MapClassificationCode.htm">EDCS_to FACC MapClassificationCode</a></li>
+<li><a href="functions/EDCS_to_FACC_PrintFACCValueType.htm">EDCS_to
+FACC PrintFACCValueType</a></li>
+<li><a href="functions/EDCS_to_FACC_PrintMappingType.htm">EDCS_to
+FACC PrintMappingType</a></li>
+<li><a href="functions/EDCS_to_FACC_ShutdownMappingInfo.htm">EDCS_to
+FACC ShutdownMappingInfo</a></li>
+</ul>
+</li>
+</ul>
+
+<h4><a name="Data Structures">2. Mapping API Data Structures</a></h4>
+
+<ul>
+<li>EDCS 4.x to FACC 2.1 main mapping data structures:
+<ul>
+ <li><a href="types/FACC_Attribute_Mapping_Structure.htm">FACC_Attribute_Mapping_Structure</a></li>
+ <li><a
+ href="types/FACC_Attribute_With_Value_Mapping_Structure.htm">FACC_Attribute_With_Value_Mapping_Structure</a></li>
+ <li><a href="types/FACC_Feature_Mapping_Structure.htm">FACC_Feature_Mapping_Structure</a></li>
+ <li><a href="types/FACC_Mapping_Type_Code.htm">FACC_Mapping_Type_Code</a></li>
+</ul>
+</li>
+<li>FACC 2.1 specific mapping data structures used in the API:
+<ul>
+<li><a href="types/FACC_2p1_Attribute_Code.htm">FACC_2p1_Attribute_Code</a></li>
+<li><a href="types/FACC_2p1_Attribute_Integer_Code.htm">FACC_2p1_Attribute_Integer_Code</a></li>
+<li><a href="types/FACC_2p1_Feature_Code.htm">FACC_2p1_Feature_Code</a></li>
+<li><a href="types/FACC_Attribute_With_Value.htm">FACC_Attribute_With_Value</a></li>
+<li><a href="types/FACC_Value_Type.htm">FACC_Value_Type</a>
+</li>
+</ul>
+   </li>
+</ul>
+   <h4><a name="Use Examples">3. Mapping API Use Examples</a></h4>
+
+<ul>
+   <li>Concept mapping from EDCS Version 4.x Classifications
+<ul>
+ <li>    <a href="../src/apps/map_EDCS_class/map_EDCS_class.c">map_EDCS_class.c</a>
+A sample program taking a list of EDCS 4.x Classification    symbolic
+constants on the command line, and printing out the    associated FACC Edition
+2.1 concept mapping information.    <br>
+   <br>
+<i>Example: To retrieve mapping information for
+<a href="../../docs/dictionary/ECC_B.htm#ECC_BUILDING">ECC_BUILDING</a> and
+<a href="../../docs/dictionary/ECC_B.htm#ECC_BUILT_UP_REGION">ECC_BUILT_UP_REGION</a>:
+<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;<strong>map_EDCS_class</strong>
+<a href="../../docs/dictionary/ECC_B.htm#ECC_BUILDING">ECC_BUILDING</a>
+<a href="../../docs/dictionary/ECC_B.htm#ECC_BUILT_UP_REGION">ECC_BUILT_UP_REGION</a>&quot;
+<br><br>
+Example Output:
+<br><br>
+&nbsp;&nbsp;&nbsp; &quot;Mapping for EDCS Classification
+<a href="../../docs/dictionary/ECC_B.htm#ECC_BUILDING">ECC_BUILDING</a> was
+ONE_TO_ONE:<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; FACC Feature Code: AL015<br>
+  <br>
+&nbsp; &nbsp; &nbsp;Mapping for EDCS Classification
+<a href="../../docs/dictionary/ECC_B.htm#ECC_BUILT_UP_REGION">ECC_BUILT_UP_REGION</a> was
+ONE_TO_ONE:<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; FACC Feature Code: AL020&quot;</i><br>
+</li>
+</ul>
+</li>
+
+<li>Concept mapping from EDCS Version 4.x attributes
+<ul>
+<li><p>
+<a href="../src/apps/map_EDCS_attribute/map_EDCS_attribute.c">map_EDCS_attribute.c</a>
+A sample program taking a list of EDCS Version 4.x attribute    symbolic
+constants on the command line, and printing out the    associated FACC Edition
+2.1 concept mapping information.
+</p><p>
+<i>Example: To retrieve mapping information for EAC_HEIGHT_ABOVE_SURFACE_LEVEL
+and EAC_WIDTH:
+</p><p>
+ &nbsp;&nbsp;&nbsp;&nbsp;"<strong>map_EDCS_attribute</strong> EAC_HEIGHT_ABOVE_SURFACE_LEVEL
+EAC_WIDTH"
+</p><p>
+Example Output:
+</p><p>
+ &nbsp;&nbsp;&nbsp; "Mapping for EDCS Attribute EAC_HEIGHT_ABOVE_SURFACE_LEVEL
+was INDETERMINATE.&nbsp; This means that it maps to different FACC Attributes depending on the value associated with it.
+The mapping for non-interval and non-metadata values is:<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; FACC Attribute:
+HGT<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; FACC Value Type: SHORT
+INTEGER<br>
+&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;FACC Expected Unit:
+EUC_METRE<br>
+&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;FACC Expected Scale:
+ESC_UNI<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;Mapping Notes:
+Changed datatype from REAL to "Integer". May also map to HTR if interval-valued
+or metadata.<br>
+  <br>
+&nbsp; &nbsp; Mapping for EDCS Attribute EAC_WIDTH was ONE to ONE:<br>
+&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; FACC Attribute: WGP<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; FACC Value Type: FLOAT<br>
+&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; FACC Expected Unit: EUC_METRE<br>
+&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; FACC Expected Scale: ESC_UNI"</i><i>
+</i></p></li>
+</ul>
+</li>
+<li>Concept mapping from EDCS Version 4.x enumerants
+<ul>
+<li><p>
+<a href="../src/apps/map_EDCS_enumerant/map_EDCS_enumerant.c">map_EDCS_enumerant.c</a>
+A sample program taking a list of EDCS Version 4.x enumerant symbolic
+constants on the command line, and printing out the    associated FACC Edition
+2.1 concept mapping information.
+</p><p>
+<i>Example: To find mapping information for EEC_BLDGFN_SHOPPING_CENTRE
+and EEC_TERMRPHTY_SAND_DUNES:<br>
+   <br>
+ &nbsp;&nbsp;&nbsp;&nbsp;"<strong>map_EDCS_enumerant</strong> EEC_BLDGFN_SHOPPING_CENTRE
+EEC_TERMRPHTY_SAND_DUNES"<br>
+   <br>
+Example Output:<br>
+   <br>
+ &nbsp;&nbsp;&nbsp;&nbsp;"Mapping for EDCS Enumerant EEC_BLDGFN_SHOPPING_CENTRE
+was ONE to ONE:<br>
+&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;FACC Attribute:
+BFC<br>
+&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;FACC Value Type:
+CODED<br>
+&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;FACC Coded Value:
+122<br>
+  <br>
+&nbsp; &nbsp; &nbsp;Mapping for EDCS Enumerant EEC_TERMRPHTY_SAND_DUNES was
+ONE to ONE:<br>
+&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;FACC Attribute:
+SRD<br>
+&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;FACC Value Type:
+CODED<br>
+&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;FACC Coded Value:
+38</i><i>"
+</i></p></li>
+</ul>
+</li>
+<li>Concept mapping from EDCS Version 4.x attributes with interval values
+
+<ul>
+<li><p>
+<a href="../src/apps/map_EDCS_attribute_value/map_EDCS_attribute_value.c">map_EDCS_attribute_value.c</a>
+A sample program taking a space delimited list of EDCS Version 4.x attribute
+symbolic constant and value specification pairs on the command line,
+and printing out the associated FACC Edition 2.1 concept mapping information.
+&nbsp;Handles interval, boolean, metadata, and single values.
+<br>
+<br>
+<i>Example: To find mapping information for
+<a href="../../docs/dictionary/EAC_B.htm#EAC_BRUSH_DENSITY">EAC_BRUSH_DENSITY</a>
+with the interval value [0, 5] and the EU PERCENT with ES UNI, and
+<a href="../../docs/dictionary/EAC_R.htm#EAC_RIGHT_BANK_SLOPE">EAC_RIGHT_BANK_SLOPE</a>
+with the interval value [15, 30]
+and the EU PERCENT with ES UNI, and
+<a href="../../docs/dictionary/EAC_T.htm#EAC_TREE_SPACING">EAC_TREE_SPACING</a>
+with the real value 5.0 and the EU METRE with ES UNI, and
+<a href="../../docs/dictionary/EAC_C.htm#EAC_CAPACITY">EAC_CAPACITY</a> with the
+characteristic value of EVC_MISSING:
+<br><br>
+ &nbsp;&nbsp;&nbsp;&nbsp;"<strong>map_EDCS_attribute_value</strong> "EAC_BRUSH_DENSITY
+[0, 5] EUC_PERCENT ESC_UNI"                                "EAC_RIGHT_BANK_SLOPE
+[15, 30] EUC_PERCENT ESC_UNI"        "EAC_TREE_SPACING 5.0 EUC_METRE ESC_UNI"
+"EAC_CAPACITY EVC_MISSING""<br>
+   <br>
+Example Output:<br>
+   </i><br>
+  <i>"Mapping 1: "EAC_BRUSH_DENSITY [0, 5] EUC_PERCENT ESC_UNI"<br>
+&nbsp;Mapping was ONE to ONE:<br>
+&nbsp;&nbsp;&nbsp; FACC Attribute: BUD<br>
+&nbsp;&nbsp;&nbsp; FACC Value Type: CODED<br>
+&nbsp;&nbsp;&nbsp; FACC Coded Value: 1<br>
+&nbsp;&nbsp;&nbsp; Notes: &lt;= 5%.<br>
+  <br>
+Mapping 2: "EAC_RIGHT_BANK_SLOPE [15, 30] EUC_PERCENT ESC_UNI"<br>
+Mapping was ONE to ONE:<br>
+&nbsp;&nbsp;&nbsp; FACC Attribute: SR1<br>
+&nbsp;&nbsp;&nbsp; FACC Value Type: CODED<br>
+&nbsp;&nbsp;&nbsp; FACC Coded Value: 1<br>
+&nbsp;&nbsp;&nbsp; Notes: &lt;= 30%.<br>
+  <br>
+Mapping 3: "EAC_TREE_SPACING 5.0 EUC_METRE ESC_UNI"<br>
+Mapping was ONE to ONE:<br>
+&nbsp;&nbsp;&nbsp; FACC Attribute: TSD<br>
+&nbsp;&nbsp;&nbsp; FACC Value Type: FLOAT<br>
+&nbsp;&nbsp;&nbsp; FACC Float Value: 5.000000<br>
+&nbsp;&nbsp;&nbsp; Notes: May also map to TS1/TS2/TS3 if interval-valued
+or metadata.</i><br>
+<br>
+<i>Mapping 4: "EAC_CAPACITY EVC_MISSING"<br>
+Mapping was ONE to ONE:<br>
+&nbsp;&nbsp;&nbsp; FACC Attribute: CAP<br>
+&nbsp;&nbsp;&nbsp; FACC Value Type: TEXT<br>
+&nbsp;&nbsp;&nbsp; FACC Text Value: UNK</i><i>"<br>
+</i></li>
+</ul>
+</li>
+</ul>
+
+<hr>
+<font color="#ff0000">Return to</font>:
+<strong><a href="index.htm">Mapping Index</a></strong>,
+<strong><a href="../../docs/edcs.htm">Main EDCS Index</a></strong>
+<br>
+<br>
+
+<div align="center">
+<table border="2" width="100%" bgcolor="#0000ff">
+<tbody>
+<tr>
+<td>
+<table border="0" width="100%" bgcolor="#0000ff">
+<tbody>
+<tr>
+<td align="left"><font color="#00ffff"><small>
+Last updated: July 1, 2011
+</small></font></td>
+<td align="right"><font color="#00ffff"><small>
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</small></font></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</body>
+</html>

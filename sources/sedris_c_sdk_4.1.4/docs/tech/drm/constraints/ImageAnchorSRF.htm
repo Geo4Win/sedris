@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Image Anchor SRF</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX B - Constraints
+</font>
+<br>
+<font color="#ffffff">
+Image Anchor SRF
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h3>Definition</h3>
+<P>
+ Consider an <A href="../classes/ImageAnchor.htm">&lt;Image Anchor&gt;</A> instance <span class="ConstructName">X</span>.
+</P>
+<OL type='a'>
+<LI><P>
+ The <A href="../classes/Location.htm">&lt;Location&gt;</A> components of <span class="ConstructName">X</span> shall be
+ valid or extended as allowed by the SRF specified by the
+ <A href="../classes/ImageAnchor.htm#srf_context_info">srf_context_info</A> field
+ of <span class="ConstructName">X</span>.
+</P></LI>
+<LI><P>
+ The <A href="../classes/Location.htm">&lt;Location&gt;</A> components of <span class="ConstructName">X</span> shall
+ specify distinct coordinate values that shall not be collinear.
+</P></LI>
+<LI><P>
+ <span class="ConstructName">X</span> shall be either a component of one or more
+ <A href="../classes/Image.htm">&lt;Image&gt;</A> instances or of one or more
+ <A href="../classes/ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</A> instances, but not both.
+</P></LI>
+<LI><P>
+ If <span class="ConstructName">X</span> is a component of
+ an <A href="../classes/ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</A> instance <span class="ConstructName">F</span>,
+ and if <span class="ConstructName">F</span> appears within the scope of a DRM object
+ that specifies an SRF <span class="ConstructName">S</span>, the following shall apply.
+<OL type='1'>
+<LI><P>
+ The
+ <A href="../classes/ImageAnchor.htm#srf_context_info">srf_context_info</A>
+ field of <span class="ConstructName">X</span> shall specify the same SRF as
+ <span class="ConstructName">S</span>.
+</P></LI>
+<LI><P>
+ If <span class="ConstructName">X</span> specifies a non-planar projection,
+ the <A href="../classes/Location.htm">&lt;Location&gt;</A> components of <span class="ConstructName">X</span> shall
+ specify the endpoints of orthogonal axes.
+</P></LI>
+</OL>
+</LI>
+</OL>
+
+<h3>Rationale</h3>
+<P>
+ Every <A href="../classes/Location.htm">&lt;Location&gt;</A> instance is required to be valid within
+ the context of the SRF in which it is defined. (In
+ this sense, &quot;valid&quot; includes the SRM concept of
+ &quot;extended&quot; coordinates.) To allow
+ an <A href="../classes/ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</A> instance specified
+ with an <A href="../classes/ImageAnchor.htm">&lt;Image Anchor&gt;</A> component to be applied
+ correctly to the textured objects, its SRF and
+ theirs are required to be compatible.
+</P>
+<h3>Example</h3>
+<p>
+No example supplied.
+</p>
+<h3>FAQs</h3>
+<p>
+No FAQs supplied.
+</p>
+
+<hr>
+<strong>Prev:</strong> <A href="HomogeneousLightRenderingProperties.htm">Homogeneous Light Rendering Properties</A>.
+<strong>Next:</strong> <A href="ImageMappingFunctionsandTextureCoordinates.htm">Image Mapping Functions and Texture Coordinates</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

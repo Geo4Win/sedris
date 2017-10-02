@@ -1,0 +1,249 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Primitive Geometry</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Primitive Geometry
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Abstract Class Name: Primitive Geometry</h2>
+<h3>Superclass - <a href="GeometryRepresentation.htm">&lt;Geometry Representation&gt;</a></h3>
+<h3>Subclasses</h3>
+<UL>
+<LI>
+<a href="FiniteElementMesh.htm">&lt;Finite Element Mesh&gt;</a> 
+</LI>
+<LI>
+<a href="LinearGeometry.htm">&lt;Linear Geometry&gt;</a> 
+</LI>
+<LI>
+<a href="Point.htm">&lt;Point&gt;</a> 
+</LI>
+<LI>
+<a href="SurfaceGeometry.htm">&lt;Surface Geometry&gt;</a> 
+</LI>
+<LI>
+<a href="VolumeGeometry.htm">&lt;Volume Geometry&gt;</a> 
+</LI>
+</UL>
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies data to describe
+ a <A href="GeometryRepresentation.htm">&lt;Geometry Representation&gt;</A> instance.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet05.pdf"><strong>5</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet03.pdf"><strong>3</strong></A>
+</LI>
+<LI><A href="sheet04.pdf"><strong>4</strong></A>
+</LI>
+<LI><A href="sheet18.pdf"><strong>18</strong></A>
+</LI>
+<LI><A href="sheet23.pdf"><strong>23</strong></A>
+</LI>
+</UL>
+
+<h3>Example</h3>
+<OL>
+<LI><P>
+ A <A href="PrimitiveGeometry.htm">&lt;Primitive Geometry&gt;</A> instance can be used to
+ represent the surface geometry of a vehicle.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ How can a data provider indicate the correct retrieval order
+ for the <A href="PrimitiveGeometry.htm">&lt;Primitive Geometry&gt;</A> components of a
+ <A href="UnionOfPrimitiveGeometry.htm">&lt;Union Of Primitive Geometry&gt;</A> instance
+ <span class="ConstructName">U</span>?
+</B></DT>
+<DD><P>
+ One way of doing this is by attaching the <A href="PrimitiveGeometry.htm">&lt;Primitive Geometry&gt;</A>
+ components of <span class="ConstructName">U</span> in the order in which they are to
+ be consumed, and setting
+ <A href="UnionOfPrimitiveGeometry.htm#ordering_reason">ordering_reason</A>
+ field of <span class="ConstructName">U</span> to
+ <A href="../types/SE_Ordering_Reason.htm#SE_ORDREAS_FIXED_LISTED">SE_ORDREAS_FIXED_LISTED</A>.
+</P></DD>
+<DT><B>
+ What happens to the context of <A href="UnionOfPrimitiveGeometry.htm">&lt;Union Of Primitive Geometry&gt;</A>
+ components of <A href="ContinuousLODRelatedGeometry.htm">&lt;Continuous LOD Related Geometry&gt;</A> instances?
+</B></DT>
+<DD><P>
+ As a constraint, <A href="UnionOfPrimitiveGeometry.htm">&lt;Union Of Primitive Geometry&gt;</A> components of
+ <A href="ContinuousLODRelatedGeometry.htm">&lt;Continuous LOD Related Geometry&gt;</A> instances are not allowed
+ to have other <A href="UnionOfPrimitiveGeometry.htm">&lt;Union Of Primitive Geometry&gt;</A> instances within
+ the scope of any of their <A href="PrimitiveGeometry.htm">&lt;Primitive Geometry&gt;</A> components,
+ a mechanism provided to allow a data provider to specify
+ subfacing information. A terrain <A href="Polygon.htm">&lt;Polygon&gt;</A> instance
+ usually does not have subfaces. If there is a
+ terrain <A href="Polygon.htm">&lt;Polygon&gt;</A> instance within another coplanar
+ <A href="Polygon.htm">&lt;Polygon&gt;</A> instance, a <A href="RenderingPriorityLevel.htm">&lt;Rendering Priority Level&gt;</A>
+ instance can be provided to determine the correct drawing order.
+ This is usually a layering issue, wherein soil is usually rendered
+ first, then vegetation, then water, and so on.
+</P></DD>
+<DT><B>
+ What happens if a <A href="RenderingPriorityLevel.htm">&lt;Rendering Priority Level&gt;</A> instance is
+ encountered under a subfaced <A href="Polygon.htm">&lt;Polygon&gt;</A> instance
+ <span class="ConstructName">P</span>?
+</B></DT>
+<DD><P>
+ The <A href="RenderingPriorityLevel.htm">&lt;Rendering Priority Level&gt;</A> instance should be handled
+ normally. The siblings for <span class="ConstructName">P</span> should be examined
+ and those siblings with a lower rendering priority should be processed
+ before those with a higher rendering priority.
+</P></DD>
+<DT><B>
+ What should the
+ <A href="UnionOfPrimitiveGeometry.htm#ordering_reason">ordering_reason</A>
+ be for the <A href="UnionOfPrimitiveGeometry.htm">&lt;Union Of Primitive Geometry&gt;</A> instance?
+</B></DT>
+<DD><P>
+ The <A href="UnionOfPrimitiveGeometry.htm#ordering_reason">ordering_reason</A>
+ could still be valid for any of the enumerants currently in
+ <A href="../types/SE_Ordering_Reason.htm">SE_Ordering_Reason</A>.
+ The actual drawing order is explicitly defined using a depth-first
+ search for <A href="PrimitiveGeometry.htm">&lt;Primitive Geometry&gt;</A> instances.
+</P></DD>
+<DT><B>
+ When a <A href="PrimitiveGeometry.htm">&lt;Primitive Geometry&gt;</A> instance has a
+ <A href="UnionOfPrimitiveGeometry.htm">&lt;Union Of Primitive Geometry&gt;</A> component for nesting reasons,
+ what are the restrictions on the nested <A href="PrimitiveGeometry.htm">&lt;Primitive Geometry&gt;</A>
+ instances?
+</B></DT>
+<DD><P>
+ See <a href="../constraints/NestedPrimitiveGeometry.htm">&lt;&lt;Nested Primitive Geometry&gt;&gt;</a>.
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ConstraintsOnComponents.htm">&lt;&lt;Constraints On Components&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/NonCyclicAggregations.htm">&lt;&lt;Non Cyclic Aggregations&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/PrecedenceofPropertySetIndex.htm">&lt;&lt;Precedence of Property Set Index&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/PropertyConstraints.htm">&lt;&lt;Property Constraints&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ColourMappingConstraints.htm">&lt;&lt;Colour Mapping Constraints&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ContinuousLODConstraints.htm">&lt;&lt;Continuous LOD Constraints&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ImageMappingFunctionsandTextureCoordinates.htm">&lt;&lt;Image Mapping Functions and Texture Coordinates&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/NestedPrimitiveGeometry.htm">&lt;&lt;Nested Primitive Geometry&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/PresentationDomainConstraints.htm">&lt;&lt;Presentation Domain Constraints&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Composed of (two-way) (inherited)</h3>
+<UL>
+<li>zero or one <a href="ClassificationData.htm">&lt;Classification Data&gt;</a> instance</li>
+<li>zero or more {ordered} <a href="PropertySetIndex.htm">&lt;Property Set Index&gt;</a> instances</li>
+<li>zero or more <a href="PropertyTable.htm">&lt;Property Table&gt;</a> instances</li>
+<li>zero or more <a href="PropertyTableReference.htm">&lt;Property Table Reference&gt;</a> instances</li>
+<li>zero or more <a href="PropertyValue.htm">&lt;Property Value&gt;</a> instances</li>
+</UL>
+<h3>Composed of (two-way)</h3>
+<UL>
+<li>zero or more <a href="Colour.htm">&lt;Colour&gt;</a> instances</li>
+<li>zero or more {ordered} <a href="ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</a> instances</li>
+<li>zero or one <a href="LightRenderingProperties.htm">&lt;Light Rendering Properties&gt;</a> instance</li>
+<li>zero or one <a href="PresentationDomain.htm">&lt;Presentation Domain&gt;</a> instance</li>
+<li>zero or one <a href="RenderingPriorityLevel.htm">&lt;Rendering Priority Level&gt;</a> instance</li>
+<li>zero or one <a href="RenderingProperties.htm">&lt;Rendering Properties&gt;</a> instance</li>
+<li>zero or more <a href="TackPoint.htm">&lt;Tack Point&gt;</a> instances</li>
+<li>zero or one <a href="UnionOfPrimitiveGeometry.htm">&lt;Union Of Primitive Geometry&gt;</a> instance<sup><A href="#Notes_cmp_Union_Of_Primitive_Geometry" name="cmp_Union_Of_Primitive_Geometry">1</A></sup></li>
+</UL>
+
+<h3>Composed of (two-way metadata) (inherited)</h3>
+<UL>
+<li>zero or one <a href="TimeConstraintsData.htm">&lt;Time Constraints Data&gt;</a> instance</li>
+</UL>
+<h3>Component of (two-way)</h3>
+<UL>
+<li>zero or more <a href="UnionOfPrimitiveGeometry.htm">&lt;Union Of Primitive Geometry&gt;</a> instances</li>
+</UL>
+
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<hr>
+<h2>Notes</h2>
+<h3>Composed of Notes</h3>
+<br>
+<h4><a href="#cmp_Union_Of_Primitive_Geometry" name="Notes_cmp_Union_Of_Primitive_Geometry">Union_Of_Primitive_Geometry</a></h4>
+ A <A href="PrimitiveGeometry.htm">&lt;Primitive Geometry&gt;</A> instance <span class="ConstructName">P</span>
+ has a <A href="UnionOfPrimitiveGeometry.htm">&lt;Union Of Primitive Geometry&gt;</A> component only when
+ <span class="ConstructName">P</span> can be decomposed into nested
+ <A href="PrimitiveGeometry.htm">&lt;Primitive Geometry&gt;</A> instances.
+</P><P class=DataItemNoteExample>
+EXAMPLE&nbsp; 
+ A <A href="Polygon.htm">&lt;Polygon&gt;</A> instance can be decomposed into multiple
+ <A href="Polygon.htm">&lt;Polygon&gt;</A> instances representing subfaces.
+</p>
+
+<hr>
+<strong>Prev:</strong> <A href="PrimitiveFeature.htm">Primitive Feature</A>.
+<strong>Next:</strong> <A href="PrimitiveSummaryItem.htm">Primitive Summary Item</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

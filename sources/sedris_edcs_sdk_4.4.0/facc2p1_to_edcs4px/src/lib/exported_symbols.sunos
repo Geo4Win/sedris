@@ -1,0 +1,12 @@
+{
+global:
+    EDCS_InitFACC_2p1_MappingInfo;
+    EDCS_MapFACC_2p1_AttributeCode;
+    EDCS_MapFACC_2p1_AttributeIntegerCode;
+    EDCS_MapFACC_2p1_FeatureCode;
+    EDCS_ShutdownFACC_2p1_MappingInfo;
+    EDCS_MapFACC_2p1_GetLibVersion;
+    FACC_2p1_PrintMappingTypeCode;
+local:
+    *;
+};

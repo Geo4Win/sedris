@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE_Field_Modifier</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX C - Types
+</font>
+<br>
+<font color="#ffffff">
+SE_Field_Modifier
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<PRE>
+/*
+ * ENUM: SE_Field_Modifier
+ *
+ *   This data type is used in SE_DRM_Field_Structure to describe how
+ *   a field within a structure was &quot;modified&quot; by the declaration of
+ *   the field.
+ */
+</PRE>
+<span class="Code">typedef enum
+<br>
+{
+</span>
+
+<table class="CFunctionPrototype">
+    <tr><td class="CFunction"></td><td class="CFunction"><a name="SE_FLD_MDFR_PLAIN"></a>SE_FLD_MDFR_PLAIN,</td><td class="CFunction"><sup><A href="#Notes_SE_FLD_MDFR_PLAIN">1</A></sup></td></tr>
+    <tr><td class="CFunction"></td><td class="CFunction"><a name="SE_FLD_MDFR_BIT"></a>SE_FLD_MDFR_BIT,</td><td class="CFunction"><sup><A href="#Notes_SE_FLD_MDFR_BIT">2</A></sup></td></tr>
+    <tr><td class="CFunction"></td><td class="CFunction"><a name="SE_FLD_MDFR_1D_ARRAY"></a>SE_FLD_MDFR_1D_ARRAY,</td><td class="CFunction"><sup><A href="#Notes_SE_FLD_MDFR_1D_ARRAY">3</A></sup></td></tr>
+    <tr><td class="CFunction"></td><td class="CFunction"><a name="SE_FLD_MDFR_2D_ARRAY"></a>SE_FLD_MDFR_2D_ARRAY,</td><td class="CFunction"><sup><A href="#Notes_SE_FLD_MDFR_2D_ARRAY">4</A></sup></td></tr>
+    <tr><td class="CFunction"></td><td class="CFunction"><a name="SE_FLD_MDFR_POINTER"></a>SE_FLD_MDFR_POINTER,</td><td class="CFunction"><sup><A href="#Notes_SE_FLD_MDFR_POINTER">5</A></sup></td></tr>
+    <tr><td class="CFunction"></td><td class="CFunction"><a name="SE_FLD_MDFR_UNION"></a>SE_FLD_MDFR_UNION</td><td class="CFunction"><sup><A href="#Notes_SE_FLD_MDFR_UNION">6</A></sup></td></tr>
+</table>
+<span class="Code">
+} SE_Field_Modifier;
+</span>
+<br>
+<br>
+<hr>
+<h2>Enumerant Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#SE_FLD_MDFR_PLAIN" name="Notes_SE_FLD_MDFR_PLAIN">1</a></sup>
+ The field is not modified, so it is considered &quot;plain&quot;.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#SE_FLD_MDFR_BIT" name="Notes_SE_FLD_MDFR_BIT">2</a></sup>
+ The field is a bit field.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#SE_FLD_MDFR_1D_ARRAY" name="Notes_SE_FLD_MDFR_1D_ARRAY">3</a></sup>
+ The field is a fixed-size 1-dimensional array.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#SE_FLD_MDFR_2D_ARRAY" name="Notes_SE_FLD_MDFR_2D_ARRAY">4</a></sup>
+ The field is a fixed-size 2-dimensional array.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#SE_FLD_MDFR_POINTER" name="Notes_SE_FLD_MDFR_POINTER">5</a></sup>
+ The field is a pointer (not a fixed-size array).
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#SE_FLD_MDFR_UNION" name="Notes_SE_FLD_MDFR_UNION">6</a></sup>
+ The field is a union.
+</p>
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SE_Feature_Topology_Level.htm">SE_Feature_Topology_Level</a>.
+<strong>Next:</strong> <a href="SE_FIELDS_PTR.htm">SE_FIELDS_PTR</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

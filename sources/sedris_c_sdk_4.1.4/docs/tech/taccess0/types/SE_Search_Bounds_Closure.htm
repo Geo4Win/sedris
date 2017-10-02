@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE_Search_Bounds_Closure</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Types
+</font>
+<br>
+<font color="#ffffff">
+SE_Search_Bounds_Closure
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<PRE>
+/*
+ * ENUM: SE_Search_Bounds_Closure
+ *
+ *   This function specifies whether a spatial search area has full or
+ *   partial closure.
+ *
+ *   Each SE_Search_Bounds value specifies an enclosed region of a
+ *   tessellation. The SE_Search_Bounds_Closure type specifies
+ *   whether the top and right boundaries of the tesselation are
+ *   included in the region.
+ *
+ *   By assigning appropriate SE_Search_Bounds_Closure values, it can
+ *   be ensured that a point will be encompassed by only one search bounds
+ *   region.
+ */
+</PRE>
+<span class="Code">typedef enum
+<br>
+{
+</span>
+
+<table class="CFunctionPrototype">
+    <tr><td class="CFunction"></td><td class="CFunction"><a name="SE_SEARCHBNDSCLS_FULLY_CLOSED"></a>SE_SEARCHBNDSCLS_FULLY_CLOSED,</td><td class="CFunction"><sup><A href="#Notes_SE_SEARCHBNDSCLS_FULLY_CLOSED">1</A></sup></td></tr>
+    <tr><td class="CFunction"></td><td class="CFunction"><a name="SE_SEARCHBNDSCLS_PARTIALLY_CLOSED"></a>SE_SEARCHBNDSCLS_PARTIALLY_CLOSED</td><td class="CFunction"><sup><A href="#Notes_SE_SEARCHBNDSCLS_PARTIALLY_CLOSED">2</A></sup></td></tr>
+</table>
+<span class="Code">
+} SE_Search_Bounds_Closure;
+</span>
+<br>
+<br>
+<hr>
+<h2>Enumerant Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#SE_SEARCHBNDSCLS_FULLY_CLOSED" name="Notes_SE_SEARCHBNDSCLS_FULLY_CLOSED">1</a></sup>
+ The complete boundary of the spatial extent will be used to
+ determine if a location is within the search bounds region.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#SE_SEARCHBNDSCLS_PARTIALLY_CLOSED" name="Notes_SE_SEARCHBNDSCLS_PARTIALLY_CLOSED">2</a></sup>
+ Only the lower end points of the spatial extent will be used to
+ determine if a location is within the search bounds region.
+</p>
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SE_Search_Bounds.htm">SE_Search_Bounds</a>.
+<strong>Next:</strong> <a href="SE_Search_Dimension.htm">SE_Search_Dimension</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

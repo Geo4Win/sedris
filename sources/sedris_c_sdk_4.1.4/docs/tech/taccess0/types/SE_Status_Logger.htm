@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE_Status_Logger</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Types
+</font>
+<br>
+<font color="#ffffff">
+SE_Status_Logger
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+/*
+ * TYPEDEF: SE_Status_Logger
+ *
+ *   A short-hand way for a user to declare a user-defined error-handling
+ *   function.  This ensures that the function will have the desired
+ *   function signature.
+ *
+ *   The error-handling function must be defined to accept the following 4
+ *   parameters in this order:
+ *   1) an SE_API_Function value, which will indicate which
+ *      function in the Level 0 API is being handled
+ *   2) an SE_Status_Code value, which will indicate the status code
+ *      that is about to be returned
+ *   3) a const SE_String *, the value most recently set by
+ *      SE_SetFirstErrorMessage()
+ *   4) a const SE_String *, the value most recently set by
+ *      SE_SetSecondErrorMessage()
+ */
+typedef void (SE_Status_Logger)</PRE>
+<table>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1">        <td class="CFunction">     </td><td class="CFunction"><a href="../types/SE_API_Function.htm">SE_API_Function</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="function_to_catch"></a>function_to_catch,</td><td class="CFunction"> </td></tr>
+<tr class="CFunctionIndent1">        <td class="CFunction">     </td><td class="CFunction"><a href="../types/SE_Status_Code.htm">SE_Status_Code</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="status_code"></a>status_code,</td><td class="CFunction"> </td></tr>
+<tr class="CFunctionIndent1">        <td class="CFunction">const&nbsp;</td><td class="CFunction"><a href="../../drm/types/SE_String.htm">SE_String</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="msg1"></a>msg1,</td><td class="CFunction"> </td></tr>
+<tr class="CFunctionIndent1">        <td class="CFunction">const&nbsp;</td><td class="CFunction"><a href="../../drm/types/SE_String.htm">SE_String</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="msg2"></a>msg2</td><td class="CFunction"> </td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SE_Status_Code.htm">SE_Status_Code</a>.
+<strong>Next:</strong> <a href="SE_Status_Logger_Ptr.htm">SE_Status_Logger_Ptr</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

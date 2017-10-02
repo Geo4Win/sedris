@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Enclosing Volume</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Enclosing Volume
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Abstract Class Name: Enclosing Volume</h2>
+<h3>Superclass - <a href="SEDRISAbstractBase.htm">&lt;SEDRIS Abstract Base&gt;</a></h3>
+<h3>Subclasses</h3>
+<UL>
+<LI>
+<a href="BoundingVolume.htm">&lt;Bounding Volume&gt;</a> 
+</LI>
+<LI>
+<a href="CollisionVolume.htm">&lt;Collision Volume&gt;</a> 
+</LI>
+<LI>
+<a href="SoundVolume.htm">&lt;Sound Volume&gt;</a> 
+</LI>
+</UL>
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class is a geometric primitive shape that
+ identifies an enclosed space. Possible shapes include spheres
+ (and implied points, where a point is a degenerate sphere),
+ parallelepipeds, cylinders (and implied lines, where a line is
+ a degenerate cylinder).
+</P><P>
+ The shape is specified by the <A href="VolumeExtent.htm">&lt;Volume Extent&gt;</A> component.
+</P><P>
+ The location of the shape centre is specified by the
+ <A href="Location3D.htm">&lt;Location 3D&gt;</A> component.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet09.pdf"><strong>9</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet23.pdf"><strong>23</strong></A>
+</LI>
+</UL>
+
+<h3>Example</h3>
+<OL>
+<LI><P>
+ A representation of a terrain region has a <A href="BoundingVolume.htm">&lt;Bounding Volume&gt;</A>
+ instance <span class="ConstructName">B</span> defined by a sphere.
+ <span class="ConstructName">B</span> has a <A href="SphericalVolumeExtent.htm">&lt;Spherical Volume Extent&gt;</A>
+ component with its centre specified by the <A href="Location3D.htm">&lt;Location 3D&gt;</A>
+ component of <span class="ConstructName">B</span> and radius specified by the
+ <A href="SphericalVolumeExtent.htm#radius">radius</A> field
+ of the <A href="SphericalVolumeExtent.htm">&lt;Spherical Volume Extent&gt;</A> component.
+</P></LI>
+<LI><P>
+ A parallelepiped <A href="CollisionVolume.htm">&lt;Collision Volume&gt;</A> instance describing
+ collision space for a house has a <A href="Location3D.htm">&lt;Location 3D&gt;</A> component
+ for the centre of the house and a
+ <A href="ParallelepipedVolumeExtent.htm">&lt;Parallelepiped Volume Extent&gt;</A>
+ component describing the boundary for the collision space.
+</P></LI>
+</OL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/InheritanceRuleForLocation.htm">&lt;&lt;Inheritance Rule For Location&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Composed of (two-way)</h3>
+<UL>
+<li>one <a href="Location3D.htm">&lt;Location 3D&gt;</a> instance<sup><A href="#Notes_cmp_Location_3D" name="cmp_Location_3D">1</A></sup></li>
+<li>one <a href="VolumeExtent.htm">&lt;Volume Extent&gt;</a> instance<sup><A href="#Notes_cmp_Volume_Extent" name="cmp_Volume_Extent">2</A></sup></li>
+</UL>
+
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<hr>
+<h2>Notes</h2>
+<h3>Composed of Notes</h3>
+<br>
+<h4><a href="#cmp_Location_3D" name="Notes_cmp_Location_3D">Location_3D</a></h4>
+ The <A href="Location3D.htm">&lt;Location 3D&gt;</A> component specifies the volume centre.
+</P>
+<br>
+<h4><a href="#cmp_Volume_Extent" name="Notes_cmp_Volume_Extent">Volume_Extent</a></h4>
+ The <A href="VolumeExtent.htm">&lt;Volume Extent&gt;</A> component specifies the volume shape.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="EmissiveColour.htm">Emissive Colour</A>.
+<strong>Next:</strong> <A href="EnumerationAxis.htm">Enumeration Axis</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

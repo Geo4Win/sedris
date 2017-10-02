@@ -1,0 +1,39 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "all_cpp_sdk", "src\all_cpp_sdk.vcproj", "{38FC0714-2840-4D6E-8725-0B9AE1F21BEC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5C38B255-4C3F-4177-B34A-BA5703669FFA} = {5C38B255-4C3F-4177-B34A-BA5703669FFA}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lib_srm_cpp", "src\lib\lib_srm_cpp_dynamic.vcproj", "{1EB83BA6-BDBA-4422-AC4A-2A5BB7C89582}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sample_srm_cpp_access", "src\apps\sample_srm_access\sample_srm_cpp_access_dynamic.vcproj", "{5C38B255-4C3F-4177-B34A-BA5703669FFA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1EB83BA6-BDBA-4422-AC4A-2A5BB7C89582} = {1EB83BA6-BDBA-4422-AC4A-2A5BB7C89582}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{38FC0714-2840-4D6E-8725-0B9AE1F21BEC}.Debug.ActiveCfg = Debug|Win32
+		{38FC0714-2840-4D6E-8725-0B9AE1F21BEC}.Debug.Build.0 = Debug|Win32
+		{38FC0714-2840-4D6E-8725-0B9AE1F21BEC}.Release.ActiveCfg = Release|Win32
+		{38FC0714-2840-4D6E-8725-0B9AE1F21BEC}.Release.Build.0 = Release|Win32
+		{1EB83BA6-BDBA-4422-AC4A-2A5BB7C89582}.Debug.ActiveCfg = Debug|Win32
+		{1EB83BA6-BDBA-4422-AC4A-2A5BB7C89582}.Debug.Build.0 = Debug|Win32
+		{1EB83BA6-BDBA-4422-AC4A-2A5BB7C89582}.Release.ActiveCfg = Release|Win32
+		{1EB83BA6-BDBA-4422-AC4A-2A5BB7C89582}.Release.Build.0 = Release|Win32
+		{5C38B255-4C3F-4177-B34A-BA5703669FFA}.Debug.ActiveCfg = Debug|Win32
+		{5C38B255-4C3F-4177-B34A-BA5703669FFA}.Debug.Build.0 = Debug|Win32
+		{5C38B255-4C3F-4177-B34A-BA5703669FFA}.Release.ActiveCfg = Release|Win32
+		{5C38B255-4C3F-4177-B34A-BA5703669FFA}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE_Reference_Surface_LOD_Select</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX C - Types
+</font>
+<br>
+<font color="#ffffff">
+SE_Reference_Surface_LOD_Select
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<PRE>
+/*
+ * ENUM: SE_Reference_Surface_LOD_Select
+ *
+ *   This data type specifies which branch of an &lt;LOD Related Geometry&gt;
+ *   instance is to be used to resolve conforming points when more than
+ *   one branch could apply to a given conforming point. This data type
+ *   is used by a &lt;Reference Surface&gt; instance whose associated
+ *   &lt;Geometry Hierarchy&gt; instance contains an &lt;LOD Related Geometry&gt;
+ *   instance. This data type is not used for
+ *   &lt;Continuous LOD Related Geometry&gt; instances.
+ */
+</PRE>
+<span class="Code">typedef enum
+<br>
+{
+</span>
+
+<table class="CFunctionPrototype">
+    <tr><td class="CFunction"></td><td class="CFunction"><a name="SE_RSLODSEL_MOST_DETAILED"></a>SE_RSLODSEL_MOST_DETAILED,</td><td class="CFunction"><sup><A href="#Notes_SE_RSLODSEL_MOST_DETAILED">1</A></sup></td></tr>
+    <tr><td class="CFunction"></td><td class="CFunction"><a name="SE_RSLODSEL_LEAST_DETAILED"></a>SE_RSLODSEL_LEAST_DETAILED</td><td class="CFunction"><sup><A href="#Notes_SE_RSLODSEL_LEAST_DETAILED">2</A></sup></td></tr>
+</table>
+<span class="Code">
+} SE_Reference_Surface_LOD_Select;
+</span>
+<br>
+<br>
+<hr>
+<h2>Enumerant Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#SE_RSLODSEL_MOST_DETAILED" name="Notes_SE_RSLODSEL_MOST_DETAILED">1</a></sup>
+ The most detailed resolution is used to resolve the
+ conforming point.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#SE_RSLODSEL_LEAST_DETAILED" name="Notes_SE_RSLODSEL_LEAST_DETAILED">2</a></sup>
+ The least detailed resolution is used to resolve the
+ conforming point.
+</p>
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SE_Reference_Surface_Elevation_Select.htm">SE_Reference_Surface_Elevation_Select</a>.
+<strong>Next:</strong> <a href="SE_Reference_Vector_Type.htm">SE_Reference_Vector_Type</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<title>FACC_Attribute_Mapping_Structure</title>
+<link rel="stylesheet" href="../../../docs/styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+<div align="center">
+<table border="2" class="doc_set_header">
+<tr><th class="doc_set_header">
+<big><big>EDCS Reference Manual</big></big>
+<br>
+<font color="#ffffff">
+Concept Mapping from EDCS 4.4 to FACC 2.1
+<!-- EDCS SDK Release 4.4.0 -->
+<br>
+Types
+<br>
+FACC_Attribute_Mapping_Structure
+</font></th>
+</tr>
+</table>
+</div>
+<!-- EDCS 4.4 to FACC 2.1 Mapping SDK Release 4.4.0.0 -->
+<pre>
+/*
+ * STRUCT: FACC_Attribute_Mapping_Structure
+ *
+ * This structure will be returned from the call
+ * EDCS_to_FACC_MapAttributeCode
+ *
+ * If the mapping_type field is FACC_MAP_TYP_ONE_TO_ONE 
+ * then the additional concepts fields will be empty and 
+ * the facc_attribute_code field will have the FACC attribute 
+ * code.  If the FACC attribute is one that has some sort of
+ * units associated with it, the target_unit and target_scale
+ * will reflect that unit and can be used in EDCS_ConvertUnitAndScale
+ * to get a result with the correct unit and scale to use in FACC.
+ *
+ * If the mapping_type field is FACC_MAP_TYP_ONE_TO_ZERO
+ * then all fields, except the notes field, will be 0 or NULL.
+ *
+ * If the mapping type field is FACC_MAP_TYP_INDETERMINATE
+ * then the fields will be populated only if one of the possible
+ * attribute codes that the attribute will map to is of FACC Value
+ * type SHORT_INTEGER.
+ *
+ * If the mapping type field is FACC_MAP_TYP_MAP_TO_CODED
+ * then the facc_attribute_code field will be populated with the 
+ * FACC Coded attribute that the different intervals will end up 
+ * mapping to.
+ *
+ * If the mapping type field is FACC_MAP_TYP_SPECIAL_CASE
+ * then the fields may contain the FACC attribute code information
+ * that it will map to, and the notes field will contain information
+ * about special steps that must be made to complete the mapping. 
+ */
+
+</pre>
+
+<table class="CFunctionPrototype">
+<tr>
+<td class="CFunction">typedef</td>
+<td class="CFunction">struct</td>
+<td class="CFunction">
+</td>
+</tr>
+<tr>
+<td class="CFunction">{</td>
+<td class="CFunction">
+</td>
+<td class="CFunction">
+</td>
+</tr>
+<tr>
+<td class="CFunction">
+</td>
+<td class="CFunction"><a href="FACC_Mapping_Type_Code.htm">FACC_Mapping_Type_Code</a>
+</td>
+<td class="CFunction"><a name="mapping_type"></a>mapping_type;
+</td>
+</tr>
+<tr>
+<td class="CFunction">
+</td>
+<td class="CFunction"><a href="FACC_2p1_Attribute_Code.htm">FACC_2p1_Attribute_Code</a>
+</td>
+<td class="CFunction"><a name="facc_attribute_code"></a>facc_attribute_code;
+</td>
+</tr>
+<tr>
+<td class="CFunction">
+</td>
+<td class="CFunction"><a href="FACC_Value_Type.htm">FACC_Value_Type</a>
+</td>
+<td class="CFunction"><a name="facc_target_value_type"></a>facc_target_value_type;
+</td>
+</tr>
+<tr>
+<td class="CFunction">
+</td>
+<td class="CFunction"><a href="../../../docs/types/EDCS_Unit_Code.htm">EDCS_Unit_Code</a>
+</td>
+<td class="CFunction"><a name="facc_target_unit_code"></a>facc_target_unit_code;
+</td>
+</tr>
+<tr>
+<td class="CFunction">
+</td>
+<td class="CFunction"><a href="../../../docs/types/EDCS_Unit_Scale_Code.htm">EDCS_Unit_Scale_Code</a>
+</td>
+<td class="CFunction"><a name="facc_target_scale_code"></a>facc_target_scale_code;
+</td>
+</tr>
+<tr>
+<td class="CFunction">
+</td>
+<td class="CFunction">const char
+</td>
+<td class="CFunction">* <a name="notes"></a>notes;
+</td>
+</tr>
+</table>
+} FACC_Attribute_Mapping_Structure;<br>
+<br>
+
+<hr> <br>
+<font color="#ff0000">Return to:</font>
+<b><a href="#Top">Top of this Page</a></b>,
+<b><a href="../edcs4px_facc2p1.htm#Data Structures">Type Index</a></b>
+<br><br>
+<table class="doc_set_header">
+<tr><td>
+<table class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="left" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

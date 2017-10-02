@@ -1,0 +1,496 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SRM SDK - Release Notes</title>
+</head>
+<body bgcolor="#ffffff">
+
+<div align="center"><h1><a name="top" id="top">Release Notes</a></h1></div>
+<div align="center">
+<h3>
+SRM SDK Release 4.1.4
+</h3>
+<h3>
+July 1, 2011
+</h3>
+</div>
+
+<br /><br />
+<ol>
+<li><a href="#intro">Introduction</a>
+</li>
+<li><a href="#distrib">Distribution Packages</a>
+</li>
+<li><a href="#install">Installation</a>
+</li>
+<li><a href="#docs">SDK Documentation</a>
+</li>
+<li><a href="#apps">Applications</a>
+</li>
+<li><a href="#upgrades">Included Upgrades</a>
+</li>
+<li><a href="#upgrades_since">Included Upgrades Since 4.0</a>
+</li>
+<li><a href="#migration">Migration from 4.0 to 4.1</a>
+</li>
+<li><a href="#limitations">Known Defects and Limitations</a>
+</li>
+<li><a href="#bugs">Bug Reports and Feedback</a>
+</li>
+<li><a href="#webpages">Web Pages</a>
+</li>
+</ol>
+<br />
+
+<h3><a name="intro" id="intro">Introduction</a></h3>
+<blockquote><p>
+Thank you for downloading this release of the SRM Software Development Kit (SRM
+SDK). The SRM SDK is the development environment for creating applications that
+use the Spatial Reference Model (SRM), a conceptual model that allows a set of
+spatial reference frames to be defined in such a way that they describe
+geometric properties uniquely. The SRM supports unambiguous specification of
+the positions, directions, distances, and times associated with
+spatial information. It also defines algorithms for precise transformation of
+positions, directions and distances (for a given time) among different
+spatial reference frames. Its spatial operation algorithms are designed to
+achieve high accuracy (typically 1 mm &quot;error ball&quot; accuracy), and
+are optimized to achieve very high performance measures without compromising
+that accuracy.
+</p><p>
+This release has been tested on multiple platforms, such as Linux, Irix, Sun,
+and Windows 98/Me/NT/2000. For detailed information on platform and compiler
+versions supported see the <a href="buildkit_c_cpp.htm#top">Build Kit</a>.
+</p><p>
+For help, comments, and bug reports please send email to
+<a href="mailto:help@sedris.org">help@sedris.org</a>. If you are an associate,
+please use <a href="mailto:se-coders@sedris.org">se-coders@sedris.org</a>.
+</p><p>
+Return to: <a href="#top">Top</a>
+</p></blockquote>
+
+<h3><a name="distrib" id="distrib">Distribution Packages</a></h3>
+<blockquote><p>
+This version of the SDK is being made available in three API implementations,
+and distribution formats.  The three API implementations are in C, C++ and Java.
+In addition to source code, pre-compiled binaries for all supported platforms
+can be downloaded from the SEDRIS web site
+(<a href="http://www.sedris.org">www.sedris.org</a>).
+</p><p>
+The following table shows the contents of the different packages and the
+directories you will find in them. Note that the links on the column headers
+take you to the directories, so they may not work depending on your
+distribution and, as in the case of a source distribution, on whether
+you have compiled the libraries and/or applications:
+</p>
+<div align="center"><table width="90%" border="1" cellpadding="3">
+<tr valign="top">
+<td valign="middle" align="center"><strong>Package and Contents</strong></td>
+<td align="left" bgcolor="#e0e0e0" width="40"><strong>bin</strong>:
+<p>Compiled binaries for applications</td>
+<td align="left" bgcolor="#e0e0e0" width="40"><strong>docs</strong>:
+<p>Documentation, including Release Notes and Reference Manual</td>
+<td align="left" bgcolor="#e0e0e0" width="40"><strong>include</strong>:
+<p>Header files for applications and libraries</td>
+<td align="left" bgcolor="#e0e0e0" width="40"><strong>lib</strong>:
+<p>Compiled binaries for libraries</td>
+<td align="left" bgcolor="#e0e0e0" width="40"><strong>src</strong>:
+<p>Source code and headers for libraries and applications</td>
+</tr>
+<tr>
+<td align="left" bgcolor="#e0e0e0"><strong>Complete Suite&nbsp;Source</strong>:
+<ul>
+<li>Libraries
+</li>
+<li>Applications
+</li>
+<li>Documentation
+</li>
+</ul></td>
+<td bgcolor="#c0c0c0">&nbsp;</td>
+<td align="center">X</td>
+<td bgcolor="#c0c0c0">&nbsp;</td>
+<td bgcolor="#c0c0c0">&nbsp;</td>
+<td align="center">X</td>
+</tr><tr>
+<td align="left" bgcolor="#e0e0e0"><strong>Complete Suite&nbsp;Binary</strong>:
+<ul>
+<li>Libraries and available extensions
+</li>
+<li>Applications
+</li>
+<li>Documentation
+</li>
+</ul></td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td bgcolor="#c0c0c0">&nbsp;</td>
+</tr>
+</table></div>
+<p>
+Return to: <a href="#top">Top</a>
+</p></blockquote>
+
+<h3><a name="install" id="install">Installation</a></h3>
+<blockquote><p>
+The SRM SDK is distributed as a GNU-zipped tar file for Unix systems and a Zip
+file in Win32 systems.
+</p><p>
+<strong>Note</strong>: This is a minor release. It is compatible with
+earlier 4.1.x versions of SEDRIS releases.
+</p><p>
+To install, extract the contents of the compressed file:
+</p>
+<dl>
+<dt><strong>Unix</strong>
+<dd><p>
+Use the &quot;tar&quot; and &quot;gzip&quot; commands to extract the contents
+of the SDK:
+<blockquote><pre>gunzip -c sdk_file.tar.gz | tar xf -</pre></blockquote>
+using the appropriate filename for &quot;sdk_file.tar.gz&quot;.
+<p>
+If you have GNU tar installed, you can use the following command instead:
+<blockquote><pre>tar xzf sdk_file.tar.gz</pre></blockquote>
+<p>
+<dt><strong>Win32</strong>
+<dd><p>
+Use <a href="http://www.winzip.com">WinZip</a> or other
+decompression utility to extract the contents of the downloaded file.
+</p></dd>
+</dl>
+
+<p>
+If you are installing the SRM SDK under the SEDRIS SDK, you will need to
+extract the contents of the file into the &quot;sedris/src/lib&quot; directory
+of the SEDRIS SDK, so that the extraction process puts all the files in the
+&quot;sedris/src/lib/srm&quot; directory.
+</p><p>
+See the <a href="buildkit_c_cpp.htm#top">Build Kit</a> page for information on
+how to compile and link the software, and how to link your applications or
+libraries against this SDK.
+</p><p>
+Note that the file name for binary releases includes the OS/System architecture
+type as part of the name. After extracting the software, users should see a
+top-level &quot;srm&quot; directory. Binary releases associated with different
+OS/architecture can be installed on a common &quot;srm&quot; directory. This is
+to allow users who work on several platforms to install all the releases under
+a common &quot;srm&quot; directory in a shared network drive. In that case, on
+each installation, the non-OS-specific files are replaced by the new release
+and the OS specific libraries and executables are stored under their respective
+sub-directories under the &quot;lib&quot; and &quot;bin&quot; directories
+discriminated by their platform/version/architecture combination.
+</p><p>
+Return to: <a href="#top">Top</a>
+</p></blockquote>
+
+<h3><a name="docs" id="docs">SDK Documentation</a></h3>
+<blockquote><p>
+The SDK Documentation is divided into the following areas:
+</p>
+<dl>
+<dt><a href="index.htm">Release Notes</a> (this document)</dt>
+<dd>Describes the capabilities of this release, its contents, and
+    supported platforms and compilers.<br /><br /></dd>
+<dt><a href="buildkit_c_cpp.htm">Build Kit</a><br /><br /></dt>
+<dt>SRM API Documentation</dt>
+<dd><a href="srm_c_api/index.htm">SRM C API</a></dd>
+<dd><a href="srm_cpp_api/index.htm">SRM C++ API</a><br /><br /></dd>
+<dt>SRM Users' Guide</dt>
+<dd><a href="srm_c_users_guide.htm">SRM C API Users' Guide</a></dd>
+<dd><a href="srm_cpp_users_guide.htm">SRM C++ API Users' Guide</a><br /><br /></dd>
+</dl>
+<p>
+Return to: <a href="#top">Top</a>
+</p></blockquote>
+
+<h3><a name="apps" id="apps">Applications</a></h3>
+<blockquote><p>
+This release includes a sample application that demonstrates the use of the
+SRM SDK.
+</p><p>
+<strong>Applications</strong>:
+</p>
+<blockquote>
+<dl>
+<dt>Sample SRM Access</dt>
+<dd>An application that converts a 3D coordinate from
+    a Celestiodetic SRF to a Celestiocentric SRF.</dd>
+</dl>
+</blockquote>
+<p>
+Return to: <a href="#top">Top</a>
+</p></blockquote>
+
+<h3><a name="upgrades" id="upgrades">Included Upgrades</a></h3>
+<blockquote><p>
+The table below summarizes the changes in this release.
+</p>
+
+<div align="center">
+<table border="1" width="70%" cellpadding="3">
+<tr>
+<th bgcolor="#e0e0e0">Features</th>
+<td>
+<ul>
+<li>Added support for builds on Mac OS X.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th bgcolor="#e0e0e0">Fixes</th>
+<td>
+<ul>
+<li>Resolved build issue for gcc 4.1.1.</li>
+<li>Resolved build issue on Apple systems.</li>
+<li>The parameters of the following SRM RTs have been updated to correspond
+to the draft 3<sup>rd</sup> edition of the SRM ISO specification:
+<ul>
+<li>SRM_RTCOD_GEOMAGNETIC_1945_DGRF</li>
+<li>SRM_RTCOD_GEOMAGNETIC_1950_DGRF</li>
+<li>SRM_RTCOD_GEOMAGNETIC_1955_DGRF</li>
+<li>SRM_RTCOD_GEOMAGNETIC_1960_DGRF</li>
+<li>SRM_RTCOD_GEOMAGNETIC_1965_DGRF</li>
+<li>SRM_RTCOD_GEOMAGNETIC_1970_DGRF</li>
+<li>SRM_RTCOD_GEOMAGNETIC_1975_DGRF</li>
+<li>SRM_RTCOD_GEOMAGNETIC_1980_DGRF</li>
+<li>SRM_RTCOD_GEOMAGNETIC_1985_DGRF</li>
+<li>SRM_RTCOD_GEOMAGNETIC_1990_DGRF</li>
+<li>SRM_RTCOD_GEOMAGNETIC_1995_IGRF</li>
+<li>SRM_RTCOD_GEOMAGNETIC_2000_IGRF</li>
+<li>SRM_RTCOD_JUPITER_MAGNETIC_1993_VOYAGER</li>
+<li>SRM_RTCOD_NEPTUNE_MAGNETIC_1993_VOYAGER</li>
+<li>SRM_RTCOD_RGF_1993_IDENTITY_BY_MEASUREMENT</li>
+<li>SRM_RTCOD_URANUS_MAGNETIC_1993_VOYAGER</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+</div>
+<p>
+Return to: <a href="#top">Top</a>
+</p></blockquote>
+
+<h3><a name="upgrades_since" id="upgrades_since">Included Upgrades Since 4.0</a></h3>
+<blockquote><p>
+The table below summarizes the changes since 4.0.
+</p>
+
+<div align="center">
+<table border="1" width="70%" cellpadding="3">
+<tr>
+<th bgcolor="#e0e0e0">Features</th>
+<td>
+<ul>
+<li>The C++ API is mostly implemented and compatible with SRM ISO / IEC 18026
+    edition 1.
+    The C API is compliant with the SRM ISO / IEC 18026 C LB edition 1.
+    See <a href="#limitations">Limitations</a>.
+</li>
+<li>Added new functionality:
+<ul>
+<li>Added the following methods to BaseSRF:
+setCoordinateValidationOn(), setCoordinateValidationOff(),
+coordinateValidationIsOn()
+</li>
+<li>New methods in the BaseSRF class to retrieve ORM parameter values
+ associated with the SRF:
+<ul>
+<li> getA() - method to retrieve the semi-major axis (A) value.
+</li>
+<li> getF() - method to retrieve the flattening (F) value.
+</li>
+</ul>
+</li>
+<li>Added caching of constants calculated during the initialization
+    of common SRF coordinate conversion operations. This is turned
+    on by default.
+</li>
+<li>Added internal srm_sin, srm_cos, srm_sincos functions
+    to ensure specified accuracy. Note that these can be
+    turned off at compile time in favor of the system's
+    implementation of these functions (see srm_sincos.h).
+</li>
+<li>Faster changeCoordinate3DSRF method implementation for some of the more
+    commonly used SRFs (CC, CD, M, TM, PS, LTSE and LCE_3D).
+</li>
+<li>Conversion of coordinate arrays.
+</li>
+<li>Get CS Code function.
+</li>
+<li>Support for the British OSGRS80 Grid standard SRF.
+</li>
+</ul>
+</li>
+<li>Changes between 4.0 and 4.1 due to SRM International Standard (IS):
+<ul>
+<li>The C API is object-based and compliant with the SRM IS C LB.
+</li>
+<li>The M, PS, and EC SRF have their latitude parameter removed.  It was
+    previously overspecified.
+</li>
+<li>The RT (previously known as HSR) codes are now numbered in sequence.
+</li>
+<li>Support for the Europe 1950 and Geocentric Datum Australia 1994
+    standard SRFs was removed.
+</li>
+<li>Several ORMs and their corresponding RTs were removed.  Most of
+    those are not commonly used.
+</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th bgcolor="#e0e0e0">Fixes</th>
+<td>
+<ul>
+<li>Fixed the lower bound value of the Scale Factor parameter associated with
+    map projection SRFs from 0.75 to 0.5.
+</li>
+<li>Fixed planetodetic coordinate conversion so that it is correctly treated
+as a right-handed system.
+</li>
+<li>The valid coordinate range of celestiodetic SRFs previously did not
+    include the poles. This has been addressed.
+</li>
+<li>The valid coordinate range of azimuthal spherical SRFs previously
+    did not include the origin. This has been addressed.
+</li>
+<li>CD - LCC and LCC - CD coordinate conversions have been
+    updated to prevent a loss of accuracy near the poles.
+</li>
+<li>CD - TM and TM - CD coordinate conversions - spherical cases
+    have been updated.
+</li>
+<li>For the following ORM / RT pairs, parameter values have
+been updated to improve accuracy for datum transformations:
+<br /><br />
+<table border="1">
+<tr><th>ORM</th><th>RT</th></tr>
+<tr>
+<td>SRM_ORMCOD_MIDWAY_1961</td>
+<td>SRM_RTCOD_MIDWAY_1961_MIDWAY_ISLANDS</td>
+</tr><tr>
+<td>SRM_ORMCOD_DJAKARTA_1987_PM_DJAKARTA</td>
+<td>SRM_RTCOD_DJAKARTA_1987_PM_DJAKARTA_SUMATRA</td>
+</tr><tr>
+<td>SRM_ORMCOD_ROME_1940_PM_ROME</td>
+<td>SRM_RTCOD_ROME_1940_PM_ROME_SARDINIA</td>
+</tr>
+</table>
+</li>
+<li>Fixed the computation of geodesic distance when the two coordinates are on
+    the same parallel.</li>
+<li>Fixed coordinate conversion formulation involving Lambert Conformal Conic
+    (LCC) SRFs.
+</li>
+<li>Fixed the handling of Easting/Northing offsets and Ellipsoidal Height
+    values in a coordinate conversion involving LTSAS SRF.
+</li>
+<li>Fixed coordinate conversion formulation involving Transverse Mercator (TM)
+    SRFs for spherical ORMs.
+</li>
+<li>Updated SRM_ValidRTCode() for all RTs defined as prime meridians,
+    so that they are validated against the correct ORMs.
+</li>
+<li>In the SRM API, updated validation of input coordinates and
+    input SRF parameters for conversion operations to handle boundary
+    cases (such as polar points in celestiodetic) in accordance with
+    SRM edition 2, which updated the range of valid input for various SRFs'
+    coordinates.
+</li>
+<li>Updating caching mechanism used by SRF conversion mechanism to
+    avoid potential hash collisions after an SRF has been released.
+</li>
+</ul>
+</td>
+</tr>
+</table>
+</div>
+<p>
+Return to: <a href="#top">Top</a>
+</p></blockquote>
+
+<h3><a name="migration" id="migration">Migration from 4.0 to 4.1</a></h3>
+<blockquote><p>
+For users who have developed applications using the SRM C API version 4.0 the
+<a href="migration_40_41.htm">SRM C API 4.0 to 4.1 Migration Guide</a>
+describes the main differences between the two versions.
+</p></blockquote>
+
+<h3><a name="limitations" id="limitations">Known Defects and Limitations</a></h3>
+<blockquote>
+<ul>
+<li>The calculateConvergenceOfTheMeridian() method does not work
+    for Polar Stereographic SRF.
+</li>
+<li>The calculateVerticalSeparationOffset() method only supports
+    the EGM96_GEOID and WGS84_ELLIPSOID DSS codes.
+</li>
+<li>The &quot;get natural region&quot; methods only support the
+    UTM and GTRS SRF sets.
+</li>
+<li>The instanceAbstractSpaceCoordinate() method is not implemented.
+    It will be eliminated in a future release of the SRM.
+</li>
+<li>The Local Space Polar coordinate component ordering should be
+    reversed so that it is explicitly treated as a right-handed
+    system. This will be addressed in a future release of the SRM
+    to comply with SRM edition 2.
+</li>
+<li>The Planetodetic coordinate component ordering for the latitude and
+    longitude values should be reversed, with latitude preceding
+    longitude, so that it is explicitly treated as a right-handed
+    system. This will be addressed in a future release of the SRM to
+    comply with SRM edition 2. The conversions internally correct for
+    this in the meantime.
+</li>
+<li>Solar Magnetic Dipole should be formulated as a Euclidean rather
+    than an angular coordinate system. This will be addressed in a
+    future release of the SRM to comply with SRM edition 2.
+</li>
+<li>Solar Magnetic Ecliptic should be formulated as a Euclidean rather
+    than an angular coordinate system. This will be addressed in a
+    future release of the SRM to comply with SRM edition 2.
+</li>
+</ul>
+</blockquote>
+<br />
+
+<h3><a name="bugs" id="bugs">Bug Reports and Feedback</a></h3>
+<blockquote><p>
+Questions, comments, and bug reports should be sent to
+<a href="mailto:help@sedris.org">help@sedris.org</a>.
+</p><p>
+If you are an associate, please send email to
+<a href="mailto:se-coders@sedris.org">se-coders@sedris.org</a>.
+</p><p>
+Return to: <a href="#top">Top</a>
+</p></blockquote>
+
+<h3><a name="webpages" id="webpages">Web Pages</a></h3>
+<blockquote><p>
+These links require Internet access.
+</p>
+<ul>
+<li><a href="http://www.sedris.org/">SEDRIS (www.sedris.org)</a>
+</li>
+<li><a href="http://tools.sedris.org/">SEDRIS Tools</a>
+</li>
+<li><a href="http://www.sedris.org/pro_trpl.htm">SEDRIS Documents</a>
+</li>
+</ul>
+<p>
+Return to: <a href="#top">Top</a>
+</p></blockquote>
+<p>
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</p>
+</body>
+</html>

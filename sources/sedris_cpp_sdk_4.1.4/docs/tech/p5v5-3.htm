@@ -1,0 +1,239 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>P5V5 - Section 3</title>
+<META name="Author" CONTENT="Science Applications International Corporation">
+<link rel="stylesheet" type="text/css" href="../styles/SDK_SEDRIS.css">
+</head>
+<body>
+
+<A name="Top"></a>
+
+<div class="CenterDiv">
+<table class="doc_set_header">
+<tr>
+<th class="doc_set_header">
+<big><big>
+Model Viewer Technical Guide
+</big></big>
+<br>
+<font color="#ffffff">
+Section 3 - TRANSMITTAL CONTENT SPECIFICATION FOR MODEL VIEWER
+</font>
+</th>
+</tr>
+</table>
+</div>
+
+<table class="doc_set_toc">
+<tr>
+<th class="doc_set_toc_outline_number"><A name="31">3.1</a></th>
+<th class="doc_set_toc_outline_description">Fundamental Requirements</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">&nbsp;</th>
+<td class="doc_set_toc_outline_description"><p>
+First and foremost, any transmittal submitted to Model Viewer as input
+must pass both Syntax Checker and Rules Checker. If an invalid transmittal
+is submitted as input, Model Viewer will abort the loading process with
+an appropriate error message if the errors are fatal in regard to the
+<a href="drm/classes/ImageLibrary.htm">&lt;Image Library&gt;</a> instance or
+<a href="drm/classes/ModelLibrary.htm">&lt;Model Library&gt;</a> instance.
+</p><p>
+In a similar vein, if inter-transmittal referencing (ITR) is used in
+the input transmittal's
+<a href="drm/classes/ImageLibrary.htm">&lt;Image Library&gt;</a> instance or
+<a href="drm/classes/ModelLibrary.htm">&lt;Model Library&gt</a> instance,
+then all transmittals referenced in the context of the
+<a href="drm/classes/ImageLibrary.htm">&lt;Image Library&gt;</a> instance or
+<a href="drm/classes/ModelLibrary.htm">&lt;Model Library&gt</a> instance
+must be provided. For example, if the user specified that
+<a href="drm/classes/Model.htm">&lt;Model&gt;</a> instances
+were to be loaded and processed, but some of the
+<a href="drm/classes/Model.htm">&lt;Model&gt;</a> components of the
+<a href="drm/classes/ModelLibrary.htm">&lt;Model Library&gt;</a> instance
+were unavailable due to missing transmittals,
+the application would abort during the loading process.
+</p></td>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"><A name="32">3.2</a></th>
+<th class="doc_set_toc_outline_description">
+Requirements for <a href="drm/classes/Model.htm">&lt;Model&gt;</a> instances
+</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">&nbsp;</th>
+<td class="doc_set_toc_outline_description"><p>
+If a <a href="drm/classes/ModelLibrary.htm">&lt;Model Library&gt;</a> instance
+ML is provided and the user specifies that
+<a href="drm/classes/Model.htm">&lt;Model&gt;</a> instances
+are to be viewed, then ML must satisfy the following
+requirements.
+</p>
+<ol>
+<li><p>
+ML shall contain at least one &quot;root&quot;
+<a href="drm/classes/Model.htm">&lt;Model&gt;</a>, instance
+that is, a <a href="drm/classes/Model.htm">&lt;Model&gt;</a>
+instance whose
+<a href="drm/classes/Model.htm#model_reference_type">model_reference_type</a>
+is either
+<a href="drm/types/SE_Model_Reference_Type.htm#SE_MODREFTYP_ROOT">SE_MODREFTYP_ROOT</a> or
+<a href="drm/types/SE_Model_Reference_Type.htm#SE_MODREFTYP_ROOT_AND_COMPONENT">SE_MODREFTYP_ROOT_AND_COMPONENT</a>.
+</p><p>
+<strong>RATIONALE</strong>:
+Only root <a href="drm/classes/Model.htm">&lt;Model&gt;</a>
+instances can be instanced as free-standing objects, so only
+root <a href="drm/classes/Model.htm">&lt;Model&gt;</a> instances
+are guaranteed to make some kind of visual sense. Only root
+<a href="drm/classes/Model.htm">&lt;Model&gt;</a> instances,
+consequently, are displayed by Model Viewer;
+component <a href="drm/classes/Model.htm">&lt;Model&gt;</a>
+instances appear only in the context of their usage within other
+<a href="drm/classes/Model.htm">&lt;Model&gt;</a> instances.
+</p></li>
+
+<li><p>
+Every <a href="drm/classes/Model.htm">&lt;Model&gt;</a> component
+within ML shall be defined within a 3D LSR spatial reference frame.
+</p></li>
+
+<li><p>
+Every <a href="drm/classes/Model.htm">&lt;Model&gt;</a> within ML shall
+contain a non-empty
+<a href="drm/classes/GeometryModel.htm">&lt;Geometry Model&gt;</a>
+component.
+(<a href="drm/classes/FeatureModel.htm">&lt;Feature Model&gt;</a>
+component are currently ignored, if present;
+only renderable geometry is displayed.)
+</p></li>
+
+<li><p>
+All
+<a href="drm/classes/PrimitiveColour.htm">&lt;Primitive Colour&gt;</a>
+instances in use shall have either
+an <a href="drm/classes/AmbientColour.htm">&lt;Ambient Colour&gt;</a>
+component or a
+<a href="drm/classes/DiffuseColour.htm">&lt;Diffuse Colour&gt;</a>
+component.
+<a href="drm/classes/SpecularColour.htm">&lt;Specular Colour&gt;</a>
+instances and
+<a href="drm/classes/EmissiveColour.htm">&lt;Emissive Colour&gt;</a>
+instances are currently ignored.
+</p></li>
+</OL>
+</td>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"><A name="33">3.3</a></th>
+<th class="doc_set_toc_outline_description">
+Requirements for <a href="drm/classes/Image.htm">&lt;Image&gt;</a> Instances and
+<a href="drm/classes/ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</a>
+Instances
+</th>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">&nbsp;</th>
+<td class="doc_set_toc_outline_description"><p>
+Only the following image signatures are supported:
+<a href="drm/types/SE_Image_Signature.htm#SE_IMAGSIG_LUMINANCE">LUMINANCE</a>,
+<a href="drm/types/SE_Image_Signature.htm#SE_IMAGSIG_ALPHA">ALPHA</a>,
+<a href="drm/types/SE_Image_Signature.htm#SE_IMAGSIG_LUMINANCE_AND_ALPHA">LUMINANCE_AND_ALPHA</a>,
+<a href="drm/types/SE_Image_Signature.htm#SE_IMAGSIG_123COLOUR">123COLOUR</a>,
+<a href="drm/types/SE_Image_Signature.htm#SE_IMAGSIG_COLOUR_COORDINATE_1">COLOUR_COORDINATE_1</a>,
+<a href="drm/types/SE_Image_Signature.htm#SE_IMAGSIG_COLOUR_COORDINATE_2">COLOUR_COORDINATE_2</a>, and
+<a href="drm/types/SE_Image_Signature.htm#SE_IMAGSIG_COLOUR_COORDINATE_3">COLOUR_COORDINATE_3</a>.
+</p><p>
+Mipmapped images, to be used for mipmapping, must comply with
+OpenGL's restrictions on mipmapped image dimensions. Noncompliant
+images will be treated as though they had only a single MIP level.
+</p><p>
+Currently, Model Viewer's texture mapping supports only
+<a href="drm/classes/ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</a>
+instances defined in conjunction with
+<a href="drm/classes/TextureCoordinate.htm">&lt;Texture Coordinate&gt;</a>
+instances, and consequently only planar
+projection. Expanded support will be phased in in future;
+currently such support has a low priority since other varieties
+of texture mapping have not been in demand by SEDRIS' user base.
+</p></td>
+</tr>
+
+<tr>
+<th class="doc_set_toc_outline_number"><A name="34">3.4</a></th>
+<th class="doc_set_toc_outline_description">
+Limitations
+</th></tr>
+
+<tr>
+<th class="doc_set_toc_outline_number">&nbsp;</th>
+<td class="doc_set_toc_outline_description">
+<ul>
+<li><p>
+Only polygonal geometry is currently supported.
+<a href="drm/classes/LinearGeometry.htm">&lt;Linear Geometry&gt;</a>,
+<a href="drm/classes/VolumeGeometry.htm">&lt;Volume Geometry&gt;</a>, and
+<a href="drm/classes/FiniteElementMesh.htm">&lt;Finite Element Mesh&gt;</a>
+instances are ignored when <a href="drm/classes/Model.htm">&lt;Model&gt;</a>
+instances are loaded by Model Viewer, as are
+<a href="drm/classes/FeatureRepresentation.htm">&lt;Feature Representation&gt;</a>
+instances and
+<a href="drm/classes/PropertyGridHookPoint.htm">&lt;Property Grid Hook Point&gt;</a>
+instances.
+</p></li>
+
+<li><p>
+Currently, only
+<a href="drm/classes/RotationControlLink.htm">&lt;Rotation Control Link&gt;</a>
+instances can be controlled by the user; other
+<a href="drm/classes/ControlLink.htm">&lt;Control Link&gt;</a>
+instances in the <a href="drm/classes/Model.htm">&lt;Model&gt;</a>
+instances being viewed are treated as static (i.e., the default values provided
+in the transmittal are used and cannot be manipulated by the user).
+</p></li>
+
+<li><p>
+For Level of Detail, only the distance organizing principle can
+be controlled by the user.
+</p></li>
+
+<li><p>
+Only Level of Detail and State controls are provided for the user.
+</p></li>
+</ul>
+</td>
+</tr>
+</tr>
+</table>
+
+<p>
+<HR>
+<font color="#ff0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a></strong>,
+<strong><a href="p5v5.htm">Table of Contents</a></strong>
+<br><br>
+
+<div class="CenterDiv">
+<table class="doc_set_header">
+<tr><td>
+<table class="doc_set_header">
+<tr><td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td>
+</tr>
+</table>
+</td></tr>
+</table>
+</div>
+</body>
+</html>

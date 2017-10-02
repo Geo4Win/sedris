@@ -1,0 +1,324 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Image Anchor</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Image Anchor
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Image Anchor</h2>
+<h3>Superclass - <a href="SEDRISAbstractBase.htm">&lt;SEDRIS Abstract Base&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies where the given
+ <A href="Image.htm">&lt;Image&gt;</A> instance is located in the specified
+ SRF.
+</P><P>
+ An <A href="ImageAnchor.htm">&lt;Image Anchor&gt;</A> instance is used
+ in one of two ways:
+</P>
+<OL type='a'>
+<LI><B>As a component of an <A href="Image.htm">&lt;Image&gt;</A> component of
+ an <A href="ImageLibrary.htm">&lt;Image Library&gt;</A> instance</B>.
+<P>
+ In this case, the <A href="Image.htm">&lt;Image&gt;</A> instance is not tied to a
+ particular
+ <A href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</A> instance or
+ <A href="GeometryRepresentation.htm">&lt;Geometry Representation&gt;</A> instance.
+ The <A href="Location.htm">&lt;Location&gt;</A> components of the
+ <A href="ImageAnchor.htm">&lt;Image Anchor&gt;</A> instance
+ specify the positions of the corners of the
+ <A href="Image.htm">&lt;Image&gt;</A> instance in the specified SRF.
+</P><P class=Note>
+NOTE 1&nbsp; 
+ If two georeferenced <A href="Image.htm">&lt;Image&gt;</A>
+ instances are to be placed exactly next to each other by means of
+ <A href="ImageAnchor.htm">&lt;Image Anchor&gt;</A> components, the
+ <A href="Location.htm">&lt;Location&gt;</A> components of those
+ <A href="ImageAnchor.htm">&lt;Image Anchor&gt;</A>
+ instances are exactly the same along the common edge.
+</p></LI>
+<LI><B>As a component of
+ an <A href="ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</A>
+ instance</B>.
+<P>
+ In this case, the <A href="ImageAnchor.htm">&lt;Image Anchor&gt;</A> instance
+ defines how the associated <A href="Image.htm">&lt;Image&gt;</A> instance is to be
+ applied to the DRM object having the
+ <A href="ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</A>
+ instance as a component. The
+ <A href="#srf_context_info">srf_context_info</A> of the
+ <A href="ImageAnchor.htm">&lt;Image Anchor&gt;</A> instance shall match that
+ of the context in which the
+ <A href="ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</A>
+ instance is being applied.
+</P><P>
+ <A href="ImageAnchor.htm">&lt;Image Anchor&gt;</A> instances are used to
+ support spherical and cylindrical image projections for
+ <A href="ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</A>
+ instances. By specifying
+ anchor points that are not in the same plane, non-orthogonal
+ projection becomes possible.
+</P><P class=Note>
+NOTE 2&nbsp; 
+ When an image mapping is applied to many
+ <A href="Polygon.htm">&lt;Polygon&gt;</A> instances using a single
+ <A href="ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</A> instance, a
+ continuous image results when displayed.
+</p></LI>
+</OL>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet22.pdf"><strong>22</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+This class appears on only one page of the DRM class diagram.
+<h3>Example</h3>
+<OL>
+<LI><P>
+ A producer has a geospecific texture that has been derived from
+ overhead photography and rectified.  It is used to drape over a
+ terrain surface and is represented as an <A href="Image.htm">&lt;Image&gt;</A> instance
+ with an <A href="ImageAnchor.htm">&lt;Image Anchor&gt;</A> component.
+</P></LI>
+<LI><P>
+ If a producer has a georeferenced <A href="Image.htm">&lt;Image&gt;</A> instance
+ that is to be explicitly applied to one or more terrain
+ <A href="Polygon.htm">&lt;Polygon&gt;</A> instances, the mapping of the image data to
+ the <A href="Polygon.htm">&lt;Polygon&gt;</A> instances is defined by
+ an <A href="ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</A> component of
+ each <A href="Polygon.htm">&lt;Polygon&gt;</A> instance that has
+ an <A href="ImageAnchor.htm">&lt;Image Anchor&gt;</A> component and an association to the
+ appropriate <A href="Image.htm">&lt;Image&gt;</A> instance.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ Is it necessary to specify an SRF for every
+ <A href="Image.htm">&lt;Image&gt;</A> component of
+ an <A href="ImageLibrary.htm">&lt;Image Library&gt;</A> instance?
+</B></DT>
+<DD><P>
+ No. An <A href="Image.htm">&lt;Image&gt;</A> instance is not required to specify
+ an <A href="ImageAnchor.htm">&lt;Image Anchor&gt;</A> component, and in fact,
+ an <A href="Image.htm">&lt;Image&gt;</A> instance utilizes its optional relationship
+ with <A href="ImageAnchor.htm">&lt;Image Anchor&gt;</A> only when the texture is
+ geospecific.
+</P><P>
+ Consequently, since an SRF is specified for
+ an <A href="Image.htm">&lt;Image&gt;</A> instance only if
+ an <A href="ImageAnchor.htm">&lt;Image Anchor&gt;</A> component is present,
+ only geospecific textures require specification of an SRF.
+</P></DD>
+<DT><B>
+ In a given <A href="ImageLibrary.htm">&lt;Image Library&gt;</A> instance, are all
+ geospecific <A href="Image.htm">&lt;Image&gt;</A> components
+ required to specify the same SRF? If so, why not store the
+ SRF specification within the
+ <A href="ImageLibrary.htm">&lt;Image Library&gt;</A> instance rather than in
+ <A href="ImageAnchor.htm">&lt;Image Anchor&gt;</A> components for individual
+ <A href="Image.htm">&lt;Image&gt;</A> instances?
+</B></DT>
+<DD><P>
+ Although all geospecific textures in
+ an <A href="ImageLibrary.htm">&lt;Image Library&gt;</A> instance may specify
+ the same SRF, this is <EM>not</EM> a requirement for
+ data providers, nor can it be relied upon by consumers.
+ Consequently, each geospecific <A href="Image.htm">&lt;Image&gt;</A> may
+ specify an independent SRF.
+</P><P>
+ Furthermore, many data providers generate
+ <A href="Image.htm">&lt;Image&gt;</A> instances that
+ are not geospecific and thus do not require the specification
+ of an SRF. Adding SRF information as a field of
+ <A href="ImageLibrary.htm">&lt;Image Library&gt;</A> would
+ require all data providers to specify SRFs
+ for all <A href="ImageLibrary.htm">&lt;Image Library&gt;</A> instances,
+ even those to which SRFs were not applicable.
+</P></DD>
+<DT><B>
+ Can the SRF specified for a geospecific <A href="Image.htm">&lt;Image&gt;</A>
+ instance differ from those specified for the
+ <A href="EnvironmentRoot.htm">&lt;Environment Root&gt;</A> components of the
+ <A href="TransmittalRoot.htm">&lt;Transmittal Root&gt;</A> instance of its native transmittal,
+ and if so, why?
+</B></DT>
+<DD><P>
+ A geospecific <A href="Image.htm">&lt;Image&gt;</A> instance is not required to
+ specify the same SRF as that of any of the
+ <A href="EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instances
+ that may be present in its native transmittal. It is
+ perfectly possible for a transmittal to contain multiple
+ <A href="EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instances, each with
+ its own SRF, or to have
+ an <A href="ImageLibrary.htm">&lt;Image Library&gt;</A> instance and no
+ <A href="EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instances
+ whatsoever.
+</P></DD>
+<DT><B>
+ How can a data provider transmit
+ an <A href="Image.htm">&lt;Image&gt;</A> instance and its associated warping?
+</B></DT>
+<DD><P>
+<A href="ImageAnchor.htm">&lt;Image Anchor&gt;</A> instances only provide
+ for a simple method of <A href="Image.htm">&lt;Image&gt;</A> warping. It is
+ assumed that for more complex forms of warping (<I>e.g.</I>,
+ &quot;rubber sheeting&quot;, ortho-rectification) the
+ <A href="Image.htm">&lt;Image&gt;</A> instance will be warped by
+ the data provider and transmitted in the final state.
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ImageAnchorSRF.htm">&lt;&lt;Image Anchor SRF&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Composed of (two-way)</h3>
+<UL>
+<li>exactly 3 {ordered} <a href="Location.htm">&lt;Location&gt;</a> instances<sup><A href="#Notes_cmp_Location" name="cmp_Location">1</A></sup></li>
+</UL>
+
+<h3>Component of (two-way)</h3>
+<UL>
+<li>zero or more <a href="Image.htm">&lt;Image&gt;</a> instances</li>
+<li>zero or more <a href="ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</a> instances</li>
+</UL>
+
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_SRF_Context_Info.htm">SE_SRF_Context_Info</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="srf_context_info">srf_context_info</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_srf_context_info">2</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Composed of Notes</h3>
+<br>
+<h4><a href="#cmp_Location" name="Notes_cmp_Location">Location</a></h4>
+ The three <A href="Location.htm">&lt;Location&gt;</A> components of
+ an <A href="ImageAnchor.htm">&lt;Image Anchor&gt;</A> instance
+ are interpreted as the locations of corners of the given
+ <A href="Image.htm">&lt;Image&gt;</A> instance, not those of
+ the centre of the texels in the corners
+ of the <A href="Image.htm">&lt;Image&gt;</A> instance.
+</P><P>
+ When an <A href="ImageAnchor.htm">&lt;Image Anchor&gt;</A> instance is interpreted
+ as a component of an <A href="Image.htm">&lt;Image&gt;</A> instance or as a
+ component of
+ an <A href="ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</A> instance
+ specifying a planar projection, the <A href="Location.htm">&lt;Location&gt;</A>
+ components of the <A href="ImageAnchor.htm">&lt;Image Anchor&gt;</A> instance are
+ interpreted as follows.
+</P>
+<OL type='a'>
+<LI><P>
+ The first <A href="Location.htm">&lt;Location&gt;</A> component specifies the
+ location to which the lower left corner of the
+ <A href="Image.htm">&lt;Image&gt;</A> instance is mapped.
+</P></LI>
+<LI><P>
+ The second <A href="Location.htm">&lt;Location&gt;</A> component specifies
+ the location to which the upper left corner of the
+ <A href="Image.htm">&lt;Image&gt;</A> instance is mapped.
+</P></LI>
+<LI><P>
+ The third <A href="Location.htm">&lt;Location&gt;</A> component specifies
+ the location to which the upper right corner of the
+ <A href="Image.htm">&lt;Image&gt;</A> instance is mapped.
+</P></LI>
+</OL>
+<P>
+ When an <A href="ImageAnchor.htm">&lt;Image Anchor&gt;</A> instance is interpreted
+ as a component of
+ an <A href="ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</A> instance
+ that specifies a non-planar projection, the
+ <A href="Location.htm">&lt;Location&gt;</A> components of the
+ <A href="ImageAnchor.htm">&lt;Image Anchor&gt;</A> instance are interpreted
+ as follows.
+</P>
+<OL type='a'>
+<LI><P>
+ For a cylindrical projection, the first
+ <A href="Location.htm">&lt;Location&gt;</A> component specifies
+ the centre of the cylinder. The second specifies a point
+ at the centre of the top of the cylinder, thus indicating
+ direction. The third <A href="Location.htm">&lt;Location&gt;</A> component
+ specifies the alignment
+ of the cylinder by specifying a point on the surface of
+ the cylinder.
+</P></LI>
+<LI><P>
+ For a spherical projection, the first
+ <A href="Location.htm">&lt;Location&gt;</A> component specifies
+ the centre of the sphere. The second specifies the point at
+ the north pole of the sphere, thus indicating
+ direction. The third <A href="Location.htm">&lt;Location&gt;</A> component
+ specifies a point on the equator of the sphere.
+</P></LI>
+</OL>
+<h3>Fields Notes</h3>
+<h4><a href="#srf_context_info" name="Notes_srf_context_info">srf_context_info</a></h4>
+<P>
+ The <A href="#srf_context_info">srf_context_info</A> field
+ specifies the SRF within which the
+ <A href="ImageAnchor.htm">&lt;Image Anchor&gt;</A> instance is defined.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="Image.htm">Image</A>.
+<strong>Next:</strong> <A href="ImageLibrary.htm">Image Library</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

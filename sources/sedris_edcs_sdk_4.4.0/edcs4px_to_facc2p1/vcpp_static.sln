@@ -1,0 +1,70 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "all_sdk", "src\all_sdk.vcproj", "{3BD3FC99-E8F7-4FAD-AE39-71741EE4DA09}"
+	ProjectSection(ProjectDependencies) = postProject
+		{EB421102-239F-40A9-9C16-3E6EBA026B4A} = {EB421102-239F-40A9-9C16-3E6EBA026B4A}
+		{DBD4340E-4967-4C37-80DF-FE2CED59BCF9} = {DBD4340E-4967-4C37-80DF-FE2CED59BCF9}
+		{C1BA858F-C7B1-415E-B976-B51E3EA31FCC} = {C1BA858F-C7B1-415E-B976-B51E3EA31FCC}
+		{027CD895-2EE1-443A-B5E3-91E7BDFEA0BB} = {027CD895-2EE1-443A-B5E3-91E7BDFEA0BB}
+		{55E5D1D9-6779-4895-A2ED-75D4EBB7FBDB} = {55E5D1D9-6779-4895-A2ED-75D4EBB7FBDB}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lib_map", "src\lib\lib_map.vcproj", "{EB421102-239F-40A9-9C16-3E6EBA026B4A}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "map_EDCS_attribute", "src\apps\map_EDCS_attribute\map_EDCS_attribute.vcproj", "{55E5D1D9-6779-4895-A2ED-75D4EBB7FBDB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{EB421102-239F-40A9-9C16-3E6EBA026B4A} = {EB421102-239F-40A9-9C16-3E6EBA026B4A}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "map_EDCS_attribute_value", "src\apps\map_EDCS_attribute_value\map_EDCS_attribute_value.vcproj", "{DBD4340E-4967-4C37-80DF-FE2CED59BCF9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{EB421102-239F-40A9-9C16-3E6EBA026B4A} = {EB421102-239F-40A9-9C16-3E6EBA026B4A}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "map_EDCS_class", "src\apps\map_EDCS_class\map_EDCS_class.vcproj", "{C1BA858F-C7B1-415E-B976-B51E3EA31FCC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{EB421102-239F-40A9-9C16-3E6EBA026B4A} = {EB421102-239F-40A9-9C16-3E6EBA026B4A}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "map_EDCS_enumerant", "src\apps\map_EDCS_enumerant\map_EDCS_enumerant.vcproj", "{027CD895-2EE1-443A-B5E3-91E7BDFEA0BB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{EB421102-239F-40A9-9C16-3E6EBA026B4A} = {EB421102-239F-40A9-9C16-3E6EBA026B4A}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{3BD3FC99-E8F7-4FAD-AE39-71741EE4DA09}.Debug.ActiveCfg = Debug|Win32
+		{3BD3FC99-E8F7-4FAD-AE39-71741EE4DA09}.Debug.Build.0 = Debug|Win32
+		{3BD3FC99-E8F7-4FAD-AE39-71741EE4DA09}.Release.ActiveCfg = Release|Win32
+		{3BD3FC99-E8F7-4FAD-AE39-71741EE4DA09}.Release.Build.0 = Release|Win32
+		{EB421102-239F-40A9-9C16-3E6EBA026B4A}.Debug.ActiveCfg = Debug|Win32
+		{EB421102-239F-40A9-9C16-3E6EBA026B4A}.Debug.Build.0 = Debug|Win32
+		{EB421102-239F-40A9-9C16-3E6EBA026B4A}.Release.ActiveCfg = Release|Win32
+		{EB421102-239F-40A9-9C16-3E6EBA026B4A}.Release.Build.0 = Release|Win32
+		{55E5D1D9-6779-4895-A2ED-75D4EBB7FBDB}.Debug.ActiveCfg = Debug|Win32
+		{55E5D1D9-6779-4895-A2ED-75D4EBB7FBDB}.Debug.Build.0 = Debug|Win32
+		{55E5D1D9-6779-4895-A2ED-75D4EBB7FBDB}.Release.ActiveCfg = Release|Win32
+		{55E5D1D9-6779-4895-A2ED-75D4EBB7FBDB}.Release.Build.0 = Release|Win32
+		{DBD4340E-4967-4C37-80DF-FE2CED59BCF9}.Debug.ActiveCfg = Debug|Win32
+		{DBD4340E-4967-4C37-80DF-FE2CED59BCF9}.Debug.Build.0 = Debug|Win32
+		{DBD4340E-4967-4C37-80DF-FE2CED59BCF9}.Release.ActiveCfg = Release|Win32
+		{DBD4340E-4967-4C37-80DF-FE2CED59BCF9}.Release.Build.0 = Release|Win32
+		{C1BA858F-C7B1-415E-B976-B51E3EA31FCC}.Debug.ActiveCfg = Debug|Win32
+		{C1BA858F-C7B1-415E-B976-B51E3EA31FCC}.Debug.Build.0 = Debug|Win32
+		{C1BA858F-C7B1-415E-B976-B51E3EA31FCC}.Release.ActiveCfg = Release|Win32
+		{C1BA858F-C7B1-415E-B976-B51E3EA31FCC}.Release.Build.0 = Release|Win32
+		{027CD895-2EE1-443A-B5E3-91E7BDFEA0BB}.Debug.ActiveCfg = Debug|Win32
+		{027CD895-2EE1-443A-B5E3-91E7BDFEA0BB}.Debug.Build.0 = Debug|Win32
+		{027CD895-2EE1-443A-B5E3-91E7BDFEA0BB}.Release.ActiveCfg = Release|Win32
+		{027CD895-2EE1-443A-B5E3-91E7BDFEA0BB}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

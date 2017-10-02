@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>EDCS AttributeValueToLongFloat</title>
+<link rel="stylesheet" href="../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>EDCS Reference Manual</big></big>
+<br>
+<!-- EDCS spec. 4.4 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+EDCS AttributeValueToLongFloat
+</font>
+</th></tr>
+</table></div>
+
+<!-- EDCS SDK Release 4.4.0 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../types/EDCS_Status_Code.htm">EDCS_Status_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">EDCS_AttributeValueToLongFloat</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1"><td class="CFunction">const&nbsp;</td><td class="CFunction"><a href="../types/EDCS_Attribute_Value.htm">EDCS_Attribute_Value</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="value_ptr"></a>value_ptr,</td><td class="CFunction"><sup><A href="#Notes_value_ptr">1</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../types/EDCS_Long_Float.htm">EDCS_Long_Float</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="result_out_ptr"></a>result_out_ptr</td><td class="CFunction"><sup><A href="#Notes_result_out_ptr">2</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+  Converts an <A href="../types/EDCS_Attribute_Value.htm">EDCS_Attribute_Value</A>
+ to an <A href="../types/EDCS_Long_Float.htm">EDCS_Long_Float</A>.
+</p><p>
+  When converting:
+</p><p>
+    boolean: FALSE is 0, TRUE is 1
+</p><p>
+    string: the string is treated as 0
+</p><p>
+    all others: normal mathematical rules apply
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/EDCS_Status_Code.htm#EDCS_SC_SUCCESS">EDCS_SC_SUCCESS</A>
+</td><td class="Status">
+ and <A href="#result_out_ptr">*result_out_ptr</A> is set appropriately,
+ if valid parameters were passed in.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/EDCS_Status_Code.htm#EDCS_SC_NULL_REQUIRED_PARAMETER">EDCS_SC_NULL_REQUIRED_PARAMETER</A>
+</td><td class="Status">
+ and no changes are made, if any parameter is NULL.
+</td></tr>
+<tr><td class="Status">
+<A href="../types/EDCS_Status_Code.htm#EDCS_SC_OTHER_FAILURE">EDCS_SC_OTHER_FAILURE</A>
+</td><td class="Status">
+ and <A href="#result_out_ptr">*result_out_ptr</A> is set to
+ zero (0), if <A href="#value_ptr">*value_ptr</A> is invalid.
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#value_ptr" name="Notes_value_ptr">1</a></sup>
+ pointer to the EDCS_Attribute_Value to be converted
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#result_out_ptr" name="Notes_result_out_ptr">2</a></sup>
+ pointer to the EDCS_Long_Float where the result will be
+    stored
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Next:</strong> <a href="EDCS_CloneAttributeValue.htm">EDCS_CloneAttributeValue</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

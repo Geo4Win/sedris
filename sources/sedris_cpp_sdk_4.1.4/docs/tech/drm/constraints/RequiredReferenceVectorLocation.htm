@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Required Reference Vector Location</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX B - Constraints
+</font>
+<br>
+<font color="#ffffff">
+Required Reference Vector Location
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<h3>Definition</h3>
+<P>
+ A <A href="../classes/ReferenceVector.htm">&lt;Reference Vector&gt;</A> instance <span class="ConstructName">V</span>
+ is required to have a <A href="../classes/Location.htm">&lt;Location&gt;</A> component whenever
+ <span class="ConstructName">V</span> is a component of a <A href="../classes/Polygon.htm">&lt;Polygon&gt;</A> instance,
+ a <A href="../classes/Line.htm">&lt;Line&gt;</A> instance, an <A href="../classes/InfiniteLight.htm">&lt;Infinite Light&gt;</A> instance,
+ a <A href="../classes/MovingLightBehaviour.htm">&lt;Moving Light Behaviour&gt;</A> instance, or
+ a <A href="../classes/UnionOfGeometry.htm">&lt;Union Of Geometry&gt;</A> instance.
+</P>
+
+<h3>Rationale</h3>
+<P>
+ The API requires an appropriate <A href="../classes/Location.htm">&lt;Location&gt;</A>
+ instance to convert a <A href="../classes/ReferenceVector.htm">&lt;Reference Vector&gt;</A>
+ instance to or from non-vector SRFs, such as CD. For most DRM objects
+ that take <A href="../classes/ReferenceVector.htm">&lt;Reference Vector&gt;</A> components, the
+ <A href="../classes/Location.htm">&lt;Location&gt;</A> instance is supplied by the
+ context inheritance mechanism.  For the remaining classes covered by
+ this rule, inheritance cannot be relied on to supply an appropriate
+ <A href="../classes/Location.htm">&lt;Location&gt;</A> component.
+</P><P>
+ Inheritance allows <A href="../classes/ReferenceVector.htm">&lt;Reference Vector&gt;</A> instances and
+ <A href="../classes/World3x3.htm">&lt;World 3x3&gt;</A> instances to automatically inherit a
+ <A href="../classes/Location.htm">&lt;Location&gt;</A> component as required for some
+ coordinate transformations and conversions.
+</P>
+<h3>Example</h3>
+<OL>
+<LI><P>
+ Consider the <A href="../classes/ReferenceVector.htm">&lt;Reference Vector&gt;</A> component
+ <span class="ConstructName">V</span> of a <A href="../classes/Polygon.htm">&lt;Polygon&gt;</A> instance
+ <span class="ConstructName">P</span> that covers a large area.
+ <span class="ConstructName">V</span> might use the &quot;centre&quot; of
+ <span class="ConstructName">P</span> for the <A href="../classes/Location.htm">&lt;Location&gt;</A> component
+ of <span class="ConstructName">V</span>.
+</P></LI>
+<LI><P>
+ Consider a <A href="../classes/Line.htm">&lt;Line&gt;</A> instance <span class="ConstructName">L</span> with a
+ <A href="../classes/ReferenceVector.htm">&lt;Reference Vector&gt;</A> component <span class="ConstructName">V</span>.
+ <span class="ConstructName">V</span> might use the <A href="../classes/Location.htm">&lt;Location&gt;</A> component
+ of one of the <A href="../classes/Vertex.htm">&lt;Vertex&gt;</A> components of <span class="ConstructName">L</span>
+ for the <A href="../classes/Location.htm">&lt;Location&gt;</A> component of <span class="ConstructName">V</span>.
+</P></LI>
+<LI><P>
+ An <A href="../classes/InfiniteLight.htm">&lt;Infinite Light&gt;</A> instance <span class="ConstructName">L</span> represents
+ a light shining down on a local area. The <A href="../classes/ReferenceVector.htm">&lt;Reference Vector&gt;</A>
+ component <span class="ConstructName">V</span> of <span class="ConstructName">L</span>
+ representing the &quot;down&quot; direction shall have a
+ localizing <A href="../classes/Location.htm">&lt;Location&gt;</A> component, since parallel
+ translations of a &quot;down&quot; vector will not point down over most
+ places on the (curved) surface of the Earth.
+</P></LI>
+<LI><P>
+ A <A href="../classes/PositionalLight.htm">&lt;Positional Light&gt;</A> instance <span class="ConstructName">P</span>
+ has both a <A href="../classes/Location.htm">&lt;Location&gt;</A> component and a
+ <A href="../classes/LobeData.htm">&lt;Lobe Data&gt;</A> component <span class="ConstructName">L</span>.
+ <span class="ConstructName">L</span>, in turn, has two <A href="../classes/ReferenceVector.htm">&lt;Reference Vector&gt;</A>
+ components. These two <A href="../classes/ReferenceVector.htm">&lt;Reference Vector&gt;</A> instances inherit
+ <span class="ConstructName">P</span>'s <A href="../classes/Location.htm">&lt;Location&gt;</A> component.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ How does choice of <A href="../classes/Location.htm">&lt;Location&gt;</A> component affect
+ <A href="../classes/ReferenceVector.htm">&lt;Reference Vector&gt;</A> instances in
+ <A href="../classes/Model.htm">&lt;Model&gt;</A> instances that have been specified in
+ LSR SRFs?
+</B></DT>
+<DD><P>
+ In the case of <A href="../classes/Model.htm">&lt;Model&gt;</A> instances that use LSR,
+ the choice has no effect at all. The LSR origin (0, 0, 0), for example,
+ could always be used. However, if the <A href="../classes/Model.htm">&lt;Model&gt;</A>
+ instance is referenced in the component tree of
+ an <A href="../classes/EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instance or another
+ <A href="../classes/Model.htm">&lt;Model&gt;</A> instance, the SRF of which has a
+ curvilinear coordinate system such as Geodetic, the effect may be
+ noticeable with a large <A href="../classes/Model.htm">&lt;Model&gt;</A> instance.
+</P><P>
+ For example, if two <A href="../classes/ReferenceVector.htm">&lt;Reference Vector&gt;</A> instances in
+ the <A href="../classes/Model.htm">&lt;Model&gt;</A> instance are both pointing &quot;up&quot;
+ and use the same <A href="../classes/Location.htm">&lt;Location&gt;</A> instance, when the
+ <A href="../classes/Model.htm">&lt;Model&gt;</A> instance is referenced they will remain
+ parallel but may no longer be pointing up.  If, on the other hand,
+ they each have a different <A href="../classes/Location.htm">&lt;Location&gt;</A> instance,
+ they each will point up at the
+ corresponding <A href="../classes/Location.htm">&lt;Location&gt;</A> instance, but they will no
+ longer be parallel due to the curvature of the Earth.
+</P></DD>
+<DT><B>
+ How does the data consumer use this form of inheritance?
+</B></DT>
+<DD><P>
+ The data consumer does not use it directly. It is sometimes used by the
+ Extraction API implementation when the consumer requests data
+ extraction in another SRF.
+</P></DD>
+</DL>
+
+
+<hr>
+<strong>Prev:</strong> <A href="ReferenceSurfaceConstraints.htm">Reference Surface Constraints</A>.
+<strong>Next:</strong> <A href="SeparatingPlaneRelatedOrganizingPrinciple.htm">Separating Plane Related Organizing Principle</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

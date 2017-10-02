@@ -1,0 +1,67 @@
+include $(DEPTH)/src/templates/cleanup_macros.mk
+
+##
+## This variable should have the path from the SEDRIS root directory to
+## the new library or application
+##
+DIR_PATH := # example libsrc/conversions
+
+##
+## This is the name of the library. For applications, use the appname variable
+##
+LIBNAME := # example conversions
+
+
+##
+## Add any C files to the C_SOURCES list and add any C++ files to the 
+## CXX_SOURCES list
+##
+C_SOURCES 	:= 
+CXX_SOURCES	:= 
+
+
+##
+## If any header files are to be exported to the SEDRIS include directory
+## they must be listed here
+##
+EXPORTED_HEADERS	:= 
+
+##
+## List all include directories in the local includes macro, even the
+## SEDRIS include directory
+##
+LOCAL_INCLUDES 		:= # the SEDRIs include directory -I$(INC_DIR) 
+
+##
+## To prevent the library from being created in the global library directory,
+## set the NO_INSTALL macro to true. If NO_INSTALL is true, the library
+## will be placed in the same directory as the object files. This macro does
+## not work for applications.
+##
+NO_INSTALL 			:= 
+
+##
+## If NO_STATIC is set to true, this prevents the user from linking the
+## library as a static library. For applications, this forces a shared
+## binding.
+##
+NO_STATIC 			:= 
+
+
+## *********   WARNING    ***********
+##
+## If both NO_INSTALL and NO_STATIC are true, then the build environment will
+## not build the library. Instead, whenever the library is listed as a 
+## dependency, the build environment includes all of the objects that would be
+## used to create the library. This is used by the STF core to prevent the
+## creation of libraries that are not needed  except to produce stf_read and
+## stf_write.
+##
+
+
+##
+## This macro is used to set any additional linking flags.
+##
+LOCAL_DFLAGS	:= 
+
+include $(DEPTH)/src/templates/localtargets.mk

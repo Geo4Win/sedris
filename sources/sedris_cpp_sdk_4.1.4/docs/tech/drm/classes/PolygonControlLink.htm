@@ -1,0 +1,285 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Polygon Control Link</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Polygon Control Link
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Polygon Control Link</h2>
+<h3>Superclass - <a href="ControlLink.htm">&lt;Control Link&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class is a <A href="ControlLink.htm">&lt;Control Link&gt;</A> instance
+ that has been specialized to control the
+ <A href="Polygon.htm#polygon_flags">polygon_flags</A> (in a set)
+ in one or more <A href="Polygon.htm">&lt;Polygon&gt;</A> instances.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet17.pdf"><strong>17</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet05.pdf"><strong>5</strong></A>
+</LI>
+</UL>
+
+<h3>Example</h3>
+<OL>
+<LI><P>
+ The <A href="../types/SE_Polygon_Flag.htm#Invisible">Invisible</A> flag on a
+ <A href="Polygon.htm">&lt;Polygon&gt;</A> instance is set to <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A>.
+ A <A href="PolygonControlLink.htm">&lt;Polygon Control Link&gt;</A> component can reset some
+ <A href="Polygon.htm#polygon_flags">polygon_flags</A>
+ values. In this case, it could set the
+ <A href="../types/SE_Polygon_Flag.htm#Invisible">Invisible</A> flag to be
+ <A href="../types/SE_Boolean.htm#SE_FALSE">SE_FALSE</A>.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ Why isn't there a single
+ <A href="PolygonControlLink.htm">&lt;Polygon Control Link&gt;</A> field to control the
+ <A href="Polygon.htm#polygon_flags">polygon_flags</A> field of
+ the affected <A href="Polygon.htm">&lt;Polygon&gt;</A> instance(s)?
+</B></DT>
+<DD><P>
+ The <A href="Polygon.htm#polygon_flags">polygon_flags</A> field of
+ <A href="Polygon.htm">&lt;Polygon&gt;</A>
+ is a set, and users of
+ <A href="PolygonControlLink.htm">&lt;Polygon Control Link&gt;</A> are
+ not trying to change the set in question. What users are doing
+ is setting (or clearing) individual boolean flags within
+ the set.
+</P><P>
+ Consequently, instead of having a single index field for the
+ <A href="Polygon.htm#polygon_flags">polygon_flags</A> field,
+ <A href="PolygonControlLink.htm">&lt;Polygon Control Link&gt;</A>
+ provides separate index fields for each flag that
+ can be manipulated, so that each can be driven by a
+ separate controlling <A href="Expression.htm">&lt;Expression&gt;</A>
+ instance.
+</P></DD>
+<DT><B>
+ Why aren't there
+ <A href="PolygonControlLink.htm">&lt;Polygon Control Link&gt;</A> fields
+ for each of the individual flags within
+ <A href="Polygon.htm#polygon_flags">polygon_flags</A>?
+</B></DT>
+<DD><P>
+ Simple! No one has asked to be able to control the other flags.
+ If you'd like to be able to control another flag, we'd be
+ happy to consider any change request you might offer.
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ControlLinkConstraints.htm">&lt;&lt;Control Link Constraints&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Composed of (two-way) (inherited)</h3>
+<UL>
+<li>one or more {ordered} <a href="Expression.htm">&lt;Expression&gt;</a> instances</li>
+</UL>
+<h3>Component of (two-way)</h3>
+<UL>
+<li>one or more <a href="Polygon.htm">&lt;Polygon&gt;</a> instances</li>
+</UL>
+
+<h2><a name="inherited_field">Inherited Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_String.htm">SE_String</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="description">description</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_description">1</A></sup></p></td>
+</tr>
+</table>
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="hat_test_expression_index">hat_test_expression_index</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_hat_test_expression_index">2</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="collidible_expression_index">collidible_expression_index</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_collidible_expression_index">3</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="invisible_expression_index">invisible_expression_index</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_invisible_expression_index">4</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="laser_range_finding_expression_index">laser_range_finding_expression_index</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_laser_range_finding_expression_index">5</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Fields Notes</h3>
+<h4><a href="#description" name="Notes_description">description</a></h4>
+<P>
+ The <A href="#description">description</A> field
+ specifies a text description of the purpose of the
+ <A href="ControlLink.htm">&lt;Control Link&gt;</A> instance.
+</P>
+<h4><a href="#hat_test_expression_index" name="Notes_hat_test_expression_index">hat_test_expression_index</a></h4>
+<P>
+ If non-zero, the value of the
+ <A href="#hat_test_expression_index">hat_test_expression_index</A> field
+ is the index of an ordered
+ <A href="Expression.htm">&lt;Expression&gt;</A> component of the
+ <A href="PolygonControlLink.htm">&lt;Polygon Control Link&gt;</A>
+ instance. The specified <A href="Expression.htm">&lt;Expression&gt;</A>
+ instance shall be boolean-valued and
+ shall control the inclusion or exclusion of
+ <A href="../types/SE_Polygon_Flag.htm#Hat_Test">Hat_Test</A>
+ within the <A href="Polygon.htm#polygon_flags">polygon_flags</A>
+ field of the affected <A href="Polygon.htm">&lt;Polygon&gt;</A> instances
+ such that <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A> means that
+ <A href="../types/SE_Polygon_Flag.htm#Hat_Test">Hat_Test</A>
+ shall be added to <A href="Polygon.htm#polygon_flags">polygon_flags</A>,
+ and <A href="../types/SE_Boolean.htm#SE_FALSE">SE_FALSE</A> that
+ <A href="../types/SE_Polygon_Flag.htm#Hat_Test">Hat_Test</A>
+ shall be cleared from <A href="Polygon.htm#polygon_flags">polygon_flags</A>.
+ If <A href="#hat_test_expression_index">hat_test_expression_index</A> is zero, the
+ <A href="../types/SE_Polygon_Flag.htm#Hat_Test">Hat_Test</A>
+ portion of the <A href="Polygon.htm#polygon_flags">polygon_flags</A>
+ of the affected <A href="Polygon.htm">&lt;Polygon&gt;</A> instances is not
+ affected.
+</P>
+<h4><a href="#collidible_expression_index" name="Notes_collidible_expression_index">collidible_expression_index</a></h4>
+<P>
+ If non-zero, the value of the
+ <A href="#collidible_expression_index">collidible_expression_index</A> field
+ specifies the index of an ordered
+ <A href="Expression.htm">&lt;Expression&gt;</A> component of the
+ <A href="PolygonControlLink.htm">&lt;Polygon Control Link&gt;</A>
+ instance. The specified <A href="Expression.htm">&lt;Expression&gt;</A>
+ instance shall be boolean-valued and
+ shall control the inclusion or exclusion of
+ <A href="../types/SE_Polygon_Flag.htm#Collidible">Collidible</A>
+ within the <A href="Polygon.htm#polygon_flags">polygon_flags</A>
+ field of the affected <A href="Polygon.htm">&lt;Polygon&gt;</A> instances
+ such that <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A> means that
+ <A href="../types/SE_Polygon_Flag.htm#Collidible">Collidible</A>
+ shall be added to <A href="Polygon.htm#polygon_flags">polygon_flags</A>,
+ and <A href="../types/SE_Boolean.htm#SE_FALSE">SE_FALSE</A> that
+ <A href="../types/SE_Polygon_Flag.htm#Collidible">Collidible</A>
+ shall be cleared from <A href="Polygon.htm#polygon_flags">polygon_flags</A>.
+ If <A href="#collidible_expression_index">collidible_expression_index</A> is zero, the
+ <A href="../types/SE_Polygon_Flag.htm#Collidible">Collidible</A>
+ portion of the <A href="Polygon.htm#polygon_flags">polygon_flags</A>
+ of the affected <A href="Polygon.htm">&lt;Polygon&gt;</A> instances is not
+ affected.
+</P>
+<h4><a href="#invisible_expression_index" name="Notes_invisible_expression_index">invisible_expression_index</a></h4>
+<P>
+ If non-zero, the value of the
+ <A href="#invisible_expression_index">invisible_expression_index</A> field
+ specifies the index of an ordered
+ <A href="Expression.htm">&lt;Expression&gt;</A> component of the
+ <A href="PolygonControlLink.htm">&lt;Polygon Control Link&gt;</A>
+ instance. The specified <A href="Expression.htm">&lt;Expression&gt;</A>
+ instance shall be boolean-valued and
+ shall control the inclusion or exclusion of
+ <A href="../types/SE_Polygon_Flag.htm#Invisible">Invisible</A>
+ within the <A href="Polygon.htm#polygon_flags">polygon_flags</A>
+ field of the affected <A href="Polygon.htm">&lt;Polygon&gt;</A> instances
+ such that <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A> means that
+ <A href="../types/SE_Polygon_Flag.htm#Invisible">Invisible</A>
+ shall be added to <A href="Polygon.htm#polygon_flags">polygon_flags</A>,
+ and <A href="../types/SE_Boolean.htm#SE_FALSE">SE_FALSE</A> that
+ <A href="../types/SE_Polygon_Flag.htm#Invisible">Invisible</A>
+ shall be cleared from <A href="Polygon.htm#polygon_flags">polygon_flags</A>.
+ If <A href="#invisible_expression_index">invisible_expression_index</A> is zero, the
+ <A href="../types/SE_Polygon_Flag.htm#Invisible">Invisible</A>
+ portion of the <A href="Polygon.htm#polygon_flags">polygon_flags</A>
+ of the affected <A href="Polygon.htm">&lt;Polygon&gt;</A> instances is not
+ affected.
+</P>
+<h4><a href="#laser_range_finding_expression_index" name="Notes_laser_range_finding_expression_index">laser_range_finding_expression_index</a></h4>
+<P>
+ If non-zero, the value of the
+ <A href="#laser_range_finding_expression_index">laser_range_finding_expression_index</A>
+ field is the index of an ordered
+ <A href="Expression.htm">&lt;Expression&gt;</A> component of the
+ <A href="PolygonControlLink.htm">&lt;Polygon Control Link&gt;</A>
+ instance. The specified <A href="Expression.htm">&lt;Expression&gt;</A>
+ instance shall be boolean-valued and
+ shall control the inclusion or exclusion of
+ <A href="../types/SE_Polygon_Flag.htm#Laser_Range_Finding">Laser_Range_Finding</A>
+ within the <A href="Polygon.htm#polygon_flags">polygon_flags</A>
+ field of the affected <A href="Polygon.htm">&lt;Polygon&gt;</A> instances
+ such that <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A> means that
+ <A href="../types/SE_Polygon_Flag.htm#Laser_Range_Finding">Laser_Range_Finding</A>
+ shall be added to <A href="Polygon.htm#polygon_flags">polygon_flags</A>,
+ and <A href="../types/SE_Boolean.htm#SE_FALSE">SE_FALSE</A> that
+ <A href="../types/SE_Polygon_Flag.htm#Laser_Range_Finding">Laser_Range_Finding</A>
+ shall be cleared from <A href="Polygon.htm#polygon_flags">polygon_flags</A>.
+ If <A href="#laser_range_finding_expression_index">laser_range_finding_expression_index</A>
+ is zero, the
+ <A href="../types/SE_Polygon_Flag.htm#Laser_Range_Finding">Laser_Range_Finding</A>
+ portion of the <A href="Polygon.htm#polygon_flags">polygon_flags</A>
+ of the affected <A href="Polygon.htm">&lt;Polygon&gt;</A> instances is not
+ affected.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="Polygon.htm">Polygon</A>.
+<strong>Next:</strong> <A href="Polyhedron.htm">Polyhedron</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE_Interpolation_Type</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX C - Types
+</font>
+<br>
+<font color="#ffffff">
+SE_Interpolation_Type
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<PRE>
+/*
+ * REGISTERABLE ENUM: SE_Interpolation_Type
+ *
+ *   This data type allows the data provider to indicate how best to
+ *   interpolate the data to points that are between grid points
+ *   on an &lt;Axis&gt; instance.
+ */
+</PRE><span class="Code">
+typedef <a href="SE_Short_Integer.htm">SE_Short_Integer</a> SE_Interpolation_Type;
+</span>
+<table>
+<tr><th>Enumerant</th> <th>Definition</th> <th>Value</th></tr>
+<tr><td class="CFunction"><a name="SE_INTERPTYP_BICUBIC_SPLINE">SE_INTERPTYP_BICUBIC_SPLINE</a></td>
+<td class="CFunction"><PRE>
+ Bicubic spline interpolation uses sixteen known data points
+ to estimate the unknown value of c at a given a, b
+ by fitting a bicubic surface to the sixteen closest data points,
+ then evaluating for c.
+</PRE></td>
+<td class="CFunction">1</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_INTERPTYP_DIAGONALIZATION">SE_INTERPTYP_DIAGONALIZATION</a></td>
+<td class="CFunction"><PRE>
+ Diagonalization; one common use is for grids representing
+ terrain elevation data.
+</PRE></td>
+<td class="CFunction">2</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_INTERPTYP_DISALLOWED">SE_INTERPTYP_DISALLOWED</a></td>
+<td class="CFunction"><PRE>
+ Interpolation is disallowed by the data provider.
+</PRE></td>
+<td class="CFunction">3</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_INTERPTYP_KRIGING">SE_INTERPTYP_KRIGING</a></td>
+<td class="CFunction"><PRE>
+ Kriging is an interpolation method that predicts unknown
+ values from data observed at known locations. This method
+ uses variograms to express the spatial variation, and it
+ minimizes the error of predicted values which are estimated
+ by spatial distribution of the predicted values. Kriging
+ interpolation estimates the unknown value using a weighted
+ linear combination of the available sample. For more
+ information, refer to [OLIVER].
+</PRE></td>
+<td class="CFunction">4</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_INTERPTYP_LAGRANGIAN">SE_INTERPTYP_LAGRANGIAN</a></td>
+<td class="CFunction"><PRE>
+ Lagrangian interpolation uses a specified number of existing
+ points to fit a polynomial of degree one less than the number
+ of points. For more information, see [BEYER].
+</PRE></td>
+<td class="CFunction">5</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_INTERPTYP_LINEAR">SE_INTERPTYP_LINEAR</a></td>
+<td class="CFunction"><PRE>
+ Linear interpolation (the most common default).
+</PRE></td>
+<td class="CFunction">6</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_INTERPTYP_METADATA_SPECIFIED">SE_INTERPTYP_METADATA_SPECIFIED</a></td>
+<td class="CFunction"><PRE>
+ See the metadata for the &lt;Axis&gt; instance's &lt;Data Table&gt; aggregate
+ to determine the data provider's preferred interpolation method.
+</PRE></td>
+<td class="CFunction">7</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_INTERPTYP_NEAREST_NEIGHBOUR">SE_INTERPTYP_NEAREST_NEIGHBOUR</a></td>
+<td class="CFunction"><PRE>
+ Nearest neighbour.
+</PRE></td>
+<td class="CFunction">8</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_INTERPTYP_NOT_SUPPLIED">SE_INTERPTYP_NOT_SUPPLIED</a></td>
+<td class="CFunction"><PRE>
+ No preferred interpolation method was supplied.
+</PRE></td>
+<td class="CFunction">9</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_INTERPTYP_OAML_DBDB_SPLINE_FIT">SE_INTERPTYP_OAML_DBDB_SPLINE_FIT</a></td>
+<td class="CFunction"><PRE>
+ This enumerant represents a spline-fitting technique, specifically
+ that used to support derived from data from the U. S. Navy's
+ Oceanographic and Atmospheric Library (OAML). More specifically,
+ it is used to support DBDB OAML tables.
+
+ One common use is within OAML-derived &lt;Data Table&gt; instances
+ representing bathymetry.
+</PRE></td>
+<td class="CFunction">10</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_INTERPTYP_QUADRATIC">SE_INTERPTYP_QUADRATIC</a></td>
+<td class="CFunction"><PRE>
+ Quadratic interpolation uses three known data points to
+ estimate the unknown value of y at a given x by fitting
+ a parabolic arc (quadratic equation) to the three data
+ points and then evaluating for y.
+</PRE></td>
+<td class="CFunction">11</td>
+</TR>
+</table>
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a>.
+<strong>Next:</strong> <a href="SE_Interval_Type.htm">SE_Interval_Type</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

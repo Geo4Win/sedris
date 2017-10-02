@@ -1,0 +1,515 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Spatial Index Related Geometry</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Spatial Index Related Geometry
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Spatial Index Related Geometry</h2>
+<h3>Superclass - <a href="AggregateGeometry.htm">&lt;Aggregate Geometry&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies a spatially indexed related
+ aggregation representing a collection of
+ <A href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> components in which each
+ <A href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> component represents a different tile
+ within this aggregation. The <A href="SpatialIndexData.htm">&lt;Spatial Index Data&gt;</A> link object
+ corresponding to each <A href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> component
+ indicates which tile it represents.
+</P>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet04.pdf"><strong>4</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+This class appears on only one page of the DRM class diagram.
+<h3>Example</h3>
+<OL>
+<LI><P>
+ Consider a <A href="SpatialIndexRelatedGeometry.htm">&lt;Spatial Index Related Geometry&gt;</A> instance with
+ <A href="#row_count">row_count</A> = 1,
+ <A href="#column_count">column_count</A> = 4,
+ <A href="#row_width">row_width</A> =
+ 1000 metres,
+ <A href="#column_width">column_width</A> =
+ 1000 metres. For simplicity,
+ each of the four branches of the
+<A href="SpatialIndexRelatedGeometry.htm">&lt;Spatial Index Related Geometry&gt;</A>
+ instance in this example is a
+ <A href="UnionOfPrimitiveGeometry.htm">&lt;Union Of Primitive Geometry&gt;</A>
+ instance as depicted in <a href="#Figure62">Figure 62</a>.
+</P>
+<DIV align="center">
+<p>
+<A name="Figure62"></A>
+<IMG SRC="../Images/SIRG_Ex1.png"
+     ALT="Spatial Index Related Organizing Principle, Example 1">
+</p>
+<p class=FigureCaption>Figure 62 &#8212; &lt;DRM Spatial Index Related Geometry&gt; example</p>
+</DIV>
+<P>
+ Since the origin of the collection (its lower left corner, the
+ <A href="TMAugmented3DLocation.htm">&lt;TM Augmented 3D Location&gt;</A> component)
+ is (0, 0, 0), the coverages of the branches are:
+</P>
+<OL type='a'>
+<LI> from (0, 0)    to (1000, 1000)
+</LI>
+<LI> from (1000, 0) to (2000, 1000)
+</LI>
+<LI> from (2000, 0) to (3000, 1000)
+</LI>
+<LI> from (3000, 0) to (4000, 1000)
+</LI>
+</OL>
+<P class=Note>
+NOTE 1&nbsp; 
+ A <A href="SpatialIndexRelatedGeometry.htm">&lt;Spatial Index Related Geometry&gt;</A>
+ instance does not specify the range of z/height/elevation values.
+</p><P>
+ Consider a triangular <A href="Polygon.htm">&lt;Polygon&gt;</A> instance in branch #2
+ of this aggregation, with <A href="Vertex.htm">&lt;Vertex&gt;</A> components having
+ <A href="Location.htm">&lt;Location&gt;</A> instances
+ (1995, 0, 0), (2005, 0, 0) (2005, 10, 0).
+</P><P>
+ Since this <A href="Polygon.htm">&lt;Polygon&gt;</A> instance crosses the boundary
+ between branch #2 and branch #3, this
+ <A href="SpatialIndexRelatedGeometry.htm">&lt;Spatial Index Related Geometry&gt;</A> instance's
+ <A href="#strict_organizing_principle">strict_organizing_principle</A>
+ is set to <A href="../types/SE_Boolean.htm#SE_FALSE">SE_FALSE</A>.
+</P></LI>
+<LI><P>
+ Consider an <A href="EnvironmentRoot.htm">&lt;Environment Root&gt;</A> instance representing a
+ terrain surface that is a mix of grids and polygons,
+ organized by spatial indexing into nine cells as depicted in
+ <a href="#Figure63">Figure 63</a>.
+</P>
+<DIV align="center">
+<p>
+<A name="Figure63"></A>
+<IMG SRC="../Images/spatial_related_geometry.png"
+     ALT="Spatial Index Related Geometry, Example 2">
+</p>
+<p class=FigureCaption>Figure 63 &#8212; &lt;DRM Spatial Index Related Geometry&gt; spatial indexing</p>
+</DIV>
+<P>
+ All cells except <span class="ConstructName">H</span> are grids (represented in
+ the DRM as <A href="PropertyGrid.htm">&lt;Property Grid&gt;</A> instances) captured at one
+ level of detail. Cell <span class="ConstructName">H</span> consists of
+ <A href="Polygon.htm">&lt;Polygon&gt;</A> instances as depicted in
+ <a href="#Figure64">Figure 64</a>.
+</P>
+<DIV align="center">
+<p>
+<A name="Figure64"></A>
+<IMG SRC="../Images/SIRG_Ex2.png"
+     ALT="Spatial Index Related Geometry, Example 2">
+</p>
+<p class=FigureCaption>Figure 64 &#8212; &lt;DRM Spatial Index Related Geometry&gt; grid and polygon example</p>
+</DIV>
+<P class=Note>
+NOTE 2&nbsp; 
+ The components of the <A href="SpatialIndexRelatedGeometry.htm">&lt;Spatial Index Related Geometry&gt;</A>
+ instance are not ordered; the <A href="SpatialIndexData.htm">&lt;Spatial Index Data&gt;</A>
+ link objects are used to identify the individual tiles.
+</p></LI>
+</OL>
+
+<h3>FAQs</h3>
+<DL>
+<DT><B>
+ What is the purpose of this class?
+</B></DT>
+<DD><P>
+ This class allows
+ <A href="GeometryRepresentation.htm">&lt;Geometry Representation&gt;</A> instances
+ to be organized (tiled) according to some spatial index.
+</P></DD>
+<DT><B>
+ Consider a data provider whose data consists of
+ terrain <A href="Polygon.htm">&lt;Polygon&gt;</A> instances that are tiled along
+ the lines of a grid, but in which some <A href="Polygon.htm">&lt;Polygon&gt;</A>
+ instances cross over tile boundaries. Can these
+ <A href="Polygon.htm">&lt;Polygon&gt;</A> instances be organized with a
+ <A href="SpatialIndexRelatedGeometry.htm">&lt;Spatial Index Related Geometry&gt;</A>
+ instance?
+</B></DT>
+<DD><P>
+ Yes. In such a case, the
+ <A href="#strict_organizing_principle">strict_organizing_principle</A>
+ field of the <A href="SpatialIndexRelatedGeometry.htm">&lt;Spatial Index Related Geometry&gt;</A>
+ instance is set to
+ <A href="../types/SE_Boolean.htm#SE_FALSE">SE_FALSE</A> to indicate
+ that the indexing is not strictly followed (see examples).
+ Each tile of the spatial index is represented by a
+ <A href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> component of <span class="ConstructName">S</span>.
+</P></DD>
+<DT><B>
+ Where is the origin of the spatial index?
+</B></DT>
+<DD><P>
+ The required <A href="Location.htm">&lt;Location&gt;</A> component of a
+ <A href="SpatialIndexRelatedGeometry.htm">&lt;Spatial Index Related Geometry&gt;</A>
+ instance specifies the origin of the spatial index, which is its lower left
+ corner.
+</P></DD>
+</DL>
+
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ConstraintsOnComponents.htm">&lt;&lt;Constraints On Components&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/NonCyclicAggregations.htm">&lt;&lt;Non Cyclic Aggregations&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/PrecedenceofPropertySetIndex.htm">&lt;&lt;Precedence of Property Set Index&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/PropertyConstraints.htm">&lt;&lt;Property Constraints&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ConstraintsOnAssociates.htm">&lt;&lt;Constraints On Associates&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ReferenceSurfaceConstraints.htm">&lt;&lt;Reference Surface Constraints&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ColourMappingConstraints.htm">&lt;&lt;Colour Mapping Constraints&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/DistinctGeometricCentre.htm">&lt;&lt;Distinct Geometric Centre&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/ImageMappingFunctionsandTextureCoordinates.htm">&lt;&lt;Image Mapping Functions and Texture Coordinates&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/PresentationDomainConstraints.htm">&lt;&lt;Presentation Domain Constraints&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/DistinctLinkObjects.htm">&lt;&lt;Distinct Link Objects&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/SpatialIndexRelatedOrganizingPrinciple.htm">&lt;&lt;Spatial Index Related Organizing Principle&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Associated to (one-way) (inherited)</h3>
+<UL>
+<li>zero or more <a href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</a> instances, each through the use of a <a href="BaseAssociationData.htm">&lt;Base Association Data&gt;</a> link object<sup><A href="#Notes_asn_toFeature_Representation" name="asn_toFeature_Representation">1</A></sup></li>
+<li>zero or more <a href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</a> instances, each through the use of a <a href="BaseAssociationData.htm">&lt;Base Association Data&gt;</a> link object<sup><A href="#Notes_asn_toGeometry_Hierarchy" name="asn_toGeometry_Hierarchy">2</A></sup></li>
+</UL>
+<h3>Associated by (one-way) (inherited)</h3>
+<UL>
+<li>zero or more <a href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</a> instances, each through the use of a <a href="BaseAssociationData.htm">&lt;Base Association Data&gt;</a> link object<sup><A href="#Notes_asn_fromFeature_Representation" name="asn_fromFeature_Representation">3</A></sup></li>
+<li>zero or more <a href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</a> instances, each through the use of a <a href="BaseAssociationData.htm">&lt;Base Association Data&gt;</a> link object<sup><A href="#Notes_asn_fromGeometry_Hierarchy" name="asn_fromGeometry_Hierarchy">4</A></sup></li>
+<li>zero or one <a href="HierarchySummaryItem.htm">&lt;Hierarchy Summary Item&gt;</a> instance<sup><A href="#Notes_asn_fromHierarchy_Summary_Item" name="asn_fromHierarchy_Summary_Item">5</A></sup></li>
+<li>zero or more <a href="ReferenceSurface.htm">&lt;Reference Surface&gt;</a> instances<sup><A href="#Notes_asn_fromReference_Surface" name="asn_fromReference_Surface">6</A></sup></li>
+</UL>
+<h3>Composed of (two-way) (inherited)</h3>
+<UL>
+<li>zero or one <a href="ClassificationData.htm">&lt;Classification Data&gt;</a> instance</li>
+<li>zero or more {ordered} <a href="PropertySetIndex.htm">&lt;Property Set Index&gt;</a> instances</li>
+<li>zero or more <a href="PropertyTable.htm">&lt;Property Table&gt;</a> instances</li>
+<li>zero or more <a href="PropertyTableReference.htm">&lt;Property Table Reference&gt;</a> instances</li>
+<li>zero or more <a href="PropertyValue.htm">&lt;Property Value&gt;</a> instances</li>
+<li>zero or one <a href="ReferenceSurface.htm">&lt;Reference Surface&gt;</a> instance</li>
+<li>zero or more <a href="SoundInstance.htm">&lt;Sound Instance&gt;</a> instances</li>
+<li>zero or more <a href="BaseLODData.htm">&lt;Base LOD Data&gt;</a> instances</li>
+<li>zero or one <a href="BoundingVolume.htm">&lt;Bounding Volume&gt;</a> instance</li>
+<li>zero or more <a href="CameraPoint.htm">&lt;Camera Point&gt;</a> instances</li>
+<li>zero or more <a href="CollisionVolume.htm">&lt;Collision Volume&gt;</a> instances<sup><A href="#Notes_cmp_Collision_Volume" name="cmp_Collision_Volume">7</A></sup></li>
+<li>zero or more <a href="Colour.htm">&lt;Colour&gt;</a> instances</li>
+<li>zero or one <a href="ConformalBehaviour.htm">&lt;Conformal Behaviour&gt;</a> instance</li>
+<li>a bounded set of 0..3 <a href="GeometricCentre.htm">&lt;Geometric Centre&gt;</a> instances</li>
+<li>zero or more <a href="GeometryTopologyHierarchy.htm">&lt;Geometry Topology Hierarchy&gt;</a> instances</li>
+<li>zero or more {ordered} <a href="ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</a> instances</li>
+<li>zero or one <a href="LightRenderingProperties.htm">&lt;Light Rendering Properties&gt;</a> instance</li>
+<li>zero or more <a href="LightSource.htm">&lt;Light Source&gt;</a> instances</li>
+<li>zero or one <a href="LSRTransformation.htm">&lt;LSR Transformation&gt;</a> instance<sup><A href="#Notes_cmp_LSR_Transformation" name="cmp_LSR_Transformation">8</A></sup></li>
+<li>zero or one <a href="OverloadPriorityIndex.htm">&lt;Overload Priority Index&gt;</a> instance</li>
+<li>zero or one <a href="PerimeterData.htm">&lt;Perimeter Data&gt;</a> instance</li>
+<li>zero or one <a href="PresentationDomain.htm">&lt;Presentation Domain&gt;</a> instance</li>
+<li>zero or more <a href="PropertyDescription.htm">&lt;Property Description&gt;</a> instances</li>
+<li>zero or one <a href="RenderingPriorityLevel.htm">&lt;Rendering Priority Level&gt;</a> instance</li>
+<li>zero or one <a href="RenderingProperties.htm">&lt;Rendering Properties&gt;</a> instance</li>
+<li>zero or one <a href="SpatialExtent.htm">&lt;Spatial Extent&gt;</a> instance</li>
+<li>zero or one <a href="StampBehaviour.htm">&lt;Stamp Behaviour&gt;</a> instance</li>
+</UL>
+<h3>Composed of (two-way)</h3>
+<UL>
+<li>one or more <a href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</a> instances, each through the use of a <a href="SpatialIndexData.htm">&lt;Spatial Index Data&gt;</a> link object</li>
+<li>one <a href="Location.htm">&lt;Location&gt;</a> instance<sup><A href="#Notes_cmp_Location" name="cmp_Location">9</A></sup></li>
+</UL>
+
+<h3>Composed of (two-way metadata) (inherited)</h3>
+<UL>
+<li>zero or one <a href="TimeConstraintsData.htm">&lt;Time Constraints Data&gt;</a> instance</li>
+<li>zero or one <a href="DataQuality.htm">&lt;Data Quality&gt;</a> instance</li>
+<li>zero or one <a href="Identification.htm">&lt;Identification&gt;</a> instance</li>
+</UL>
+<h3>Component of (two-way) (inherited)</h3>
+<UL>
+<li>zero or more <a href="AlternateHierarchyRelatedGeometry.htm">&lt;Alternate Hierarchy Related Geometry&gt;</a> instances, each through the use of a <a href="HierarchyData.htm">&lt;Hierarchy Data&gt;</a> link object</li>
+<li>zero or more <a href="AnimationRelatedGeometry.htm">&lt;Animation Related Geometry&gt;</a> instances</li>
+<li>zero or more <a href="ClassificationRelatedGeometry.htm">&lt;Classification Related Geometry&gt;</a> instances, each through the use of a <a href="ClassificationData.htm">&lt;Classification Data&gt;</a> link object</li>
+<li>zero or one <a href="EnvironmentRoot.htm">&lt;Environment Root&gt;</a> instance</li>
+<li>zero or one <a href="GeometryModel.htm">&lt;Geometry Model&gt;</a> instance</li>
+<li>zero or more <a href="LODRelatedGeometry.htm">&lt;LOD Related Geometry&gt;</a> instances, each through the use of a <a href="BaseLODData.htm">&lt;Base LOD Data&gt;</a> link object</li>
+<li>zero or more <a href="OctantRelatedGeometry.htm">&lt;Octant Related Geometry&gt;</a> instances, each through the use of an <a href="OctantData.htm">&lt;Octant Data&gt;</a> link object</li>
+<li>zero or more <a href="PerimeterRelatedGeometry.htm">&lt;Perimeter Related Geometry&gt;</a> instances, each through the use of a <a href="PerimeterData.htm">&lt;Perimeter Data&gt;</a> link object</li>
+<li>zero or more <a href="QuadrantRelatedGeometry.htm">&lt;Quadrant Related Geometry&gt;</a> instances, each through the use of a <a href="QuadrantData.htm">&lt;Quadrant Data&gt;</a> link object</li>
+<li>zero or more <a href="SeparatingPlaneRelations.htm">&lt;Separating Plane Relations&gt;</a> instances, each through the use of a <a href="SeparatingPlaneData.htm">&lt;Separating Plane Data&gt;</a> link object</li>
+<li>zero or more <a href="SpatialIndexRelatedGeometry.htm">&lt;Spatial Index Related Geometry&gt;</a> instances, each through the use of a <a href="SpatialIndexData.htm">&lt;Spatial Index Data&gt;</a> link object</li>
+<li>zero or more <a href="StateRelatedGeometry.htm">&lt;State Related Geometry&gt;</a> instances, each through the use of a <a href="StateData.htm">&lt;State Data&gt;</a> link object</li>
+<li>zero or more <a href="TimeRelatedGeometry.htm">&lt;Time Related Geometry&gt;</a> instances, each through the use of a <a href="TimeConstraintsData.htm">&lt;Time Constraints Data&gt;</a> link object</li>
+<li>zero or more <a href="UnionOfGeometryHierarchy.htm">&lt;Union Of Geometry Hierarchy&gt;</a> instances</li>
+</UL>
+<h2><a name="inherited_field">Inherited Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Boolean.htm">SE_Boolean</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="unique_descendants">unique_descendants</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_unique_descendants">10</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Boolean.htm">SE_Boolean</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="strict_organizing_principle">strict_organizing_principle</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_strict_organizing_principle">11</A></sup></p></td>
+</tr>
+</table>
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Boolean.htm">SE_Boolean</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="sparse">sparse</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_sparse">12</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Integer_Positive.htm">SE_Integer_Positive</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="column_count">column_count</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_column_count">13</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Integer_Positive.htm">SE_Integer_Positive</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="row_count">row_count</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_row_count">14</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Long_Float.htm">SE_Long_Float</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="column_width">column_width</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_column_width">15</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Long_Float.htm">SE_Long_Float</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="row_width">row_width</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_row_width">16</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Spatial_Index_Spacing_Unit.htm">SE_Spatial_Index_Spacing_Unit</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="spacing_unit">spacing_unit</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_spacing_unit">17</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Associated to Notes</h3>
+<br>
+<h4><a href="#asn_toFeature_Representation" name="Notes_asn_toFeature_Representation">Feature_Representation</a></h4>
+ An association between a
+ <A href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</A>
+ instance and a
+ <A href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> instance
+ indicates that the environmental object(s) that they
+ represent have the semantic relationship indicated by
+ the <A href="BaseAssociationData.htm">&lt;Base Association Data&gt;</A>
+ link object on the association relationship.
+</P>
+<br>
+<h4><a href="#asn_toGeometry_Hierarchy" name="Notes_asn_toGeometry_Hierarchy">Geometry_Hierarchy</a></h4>
+ An association between two
+ <A href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> instances
+ indicates that the environmental object(s) that they
+ represent have the semantic relationship indicated by
+ the <A href="BaseAssociationData.htm">&lt;Base Association Data&gt;</A>
+ link object on the association relationship.
+</P>
+<h3>Associated from Notes</h3>
+<br>
+<h4><a href="#asn_fromFeature_Representation" name="Notes_asn_fromFeature_Representation">Feature_Representation</a></h4>
+ An association between a
+ <A href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</A>
+ instance and a
+ <A href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> instance
+ indicates that the environmental object(s) that they
+ represent have the semantic relationship indicated by
+ the <A href="BaseAssociationData.htm">&lt;Base Association Data&gt;</A>
+ link object on the association relationship.
+</P>
+<br>
+<h4><a href="#asn_fromGeometry_Hierarchy" name="Notes_asn_fromGeometry_Hierarchy">Geometry_Hierarchy</a></h4>
+ An association between two
+ <A href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> instances
+ indicates that the environmental object(s) that they
+ represent have the semantic relationship indicated by
+ the <A href="BaseAssociationData.htm">&lt;Base Association Data&gt;</A>
+ link object on the association relationship.
+</P>
+<br>
+<h4><a href="#asn_fromHierarchy_Summary_Item" name="Notes_asn_fromHierarchy_Summary_Item">Hierarchy_Summary_Item</a></h4>
+ An association from a
+ <A href="HierarchySummaryItem.htm">&lt;Hierarchy Summary Item&gt;</A>
+ instance to a <A href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A>
+ instance indicates that the
+ <A href="HierarchySummaryItem.htm">&lt;Hierarchy Summary Item&gt;</A> instance
+ summarizes that <A href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A>
+ instance.
+</P>
+<br>
+<h4><a href="#asn_fromReference_Surface" name="Notes_asn_fromReference_Surface">Reference_Surface</a></h4>
+ An association from a
+ <A href="ReferenceSurface.htm">&lt;Reference Surface&gt;</A> instance to a
+ <A href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A> instance indicates
+ that the <A href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</A>
+ instance organizes the geometric objects that specify
+ the reference surface geometry of the
+ <A href="ReferenceSurface.htm">&lt;Reference Surface&gt;</A> instance.
+</P>
+<h3>Composed of Notes</h3>
+<br>
+<h4><a href="#cmp_Collision_Volume" name="Notes_cmp_Collision_Volume">Collision_Volume</a></h4>
+ In the case where multiple
+ <A href="CollisionVolume.htm">&lt;Collision Volume&gt;</A> components are
+ specified for the
+ <A href="AggregateGeometry.htm">&lt;Aggregate Geometry&gt;</A> instance,
+ the union
+ of the volumes thus specified is used in collision detection.
+</P>
+<br>
+<h4><a href="#cmp_LSR_Transformation" name="Notes_cmp_LSR_Transformation">LSR_Transformation</a></h4>
+ An <A href="AggregateGeometry.htm">&lt;Aggregate Geometry&gt;</A> instance can have
+ an <A href="LSRTransformation.htm">&lt;LSR Transformation&gt;</A> component only when the
+ <A href="AggregateGeometry.htm">&lt;Aggregate Geometry&gt;</A> instance is within
+ the scope of an LSR 3D SRF.
+<br>
+<h4><a href="#cmp_Location" name="Notes_cmp_Location">Location</a></h4>
+ The <A href="Location.htm">&lt;Location&gt;</A> component is the origin of the collection,
+ which is the lower left corner.
+</P>
+<h3>Fields Notes</h3>
+<h4><a href="#unique_descendants" name="Notes_unique_descendants">unique_descendants</a></h4>
+<P>
+ If the value of the
+ <A href="#unique_descendants">unique_descendants</A>
+ field is <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A>, each
+ descendant of this aggregation, that is, each
+ <A href="GeometryRepresentation.htm">&lt;Geometry Representation&gt;</A>
+ instance that exists in the component tree
+ rooted at the <A href="AggregateGeometry.htm">&lt;Aggregate Geometry&gt;</A>
+ instance shall be unique, in the
+ sense that it shall appear in only one branch
+ of this aggregation.
+ If <A href="#unique_descendants">unique_descendants</A>
+ is <A href="../types/SE_Boolean.htm#SE_FALSE">SE_FALSE</A>, at least one
+ <A href="GeometryRepresentation.htm">&lt;Geometry Representation&gt;</A> instance
+ appears in more than one branch of the aggregation.
+</P>
+<h4><a href="#strict_organizing_principle" name="Notes_strict_organizing_principle">strict_organizing_principle</a></h4>
+<P>
+ If the value of the
+ <A href="#strict_organizing_principle">strict_organizing_principle</A>
+ field is <A href="../types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A>, each
+ branch of this aggregation
+ strictly complies with the organizing principle for its
+ particular subclass. If this value is
+ <A href="../types/SE_Boolean.htm#SE_FALSE">SE_FALSE</A>, at least
+ one branch does not strictly comply with the given
+ organizing principle. See the organizing principle constraint
+ for each specific subclass for details.
+</P>
+<h4><a href="#sparse" name="Notes_sparse">sparse</a></h4>
+<P>
+ If the value of the <A href="#sparse">sparse</A> field
+ is <A href="../types/SE_Boolean.htm#SE_FALSE">SE_FALSE</A>,
+ all column and row entries are present;
+ otherwise one or more entries are not present.
+</P>
+<h4><a href="#column_count" name="Notes_column_count">column_count</a></h4>
+<P>
+ The <A href="#column_count">column_count</A> field
+ specifies the number of cells along the primary axis.
+</P>
+<h4><a href="#row_count" name="Notes_row_count">row_count</a></h4>
+<P>
+ The <A href="#row_count">row_count</A> field
+ specifies the number of cells along the secondary axis.
+</P>
+<h4><a href="#column_width" name="Notes_column_width">column_width</a></h4>
+<P>
+ The <A href="#column_width">column_width</A> field specifies
+ the length of a cell in the given unit along the primary axis.
+</P>
+<h4><a href="#row_width" name="Notes_row_width">row_width</a></h4>
+<P>
+ The <A href="#row_width">row_width</A> field specifies
+ the length of a cell in the given unit along the secondary axis.
+</P>
+<h4><a href="#spacing_unit" name="Notes_spacing_unit">spacing_unit</a></h4>
+<P>
+ The <A href="#spacing_unit">spacing_unit</A> field
+ specifies the unit of measurement for
+ <A href="#column_width">column_width</A> and
+ <A href="#row_width">row_width</A>.
+</P>
+
+<hr>
+<strong>Prev:</strong> <A href="SpatialIndexRelatedFeatures.htm">Spatial Index Related Features</A>.
+<strong>Next:</strong> <A href="SpatialIndexRelatedGeometryTopology.htm">Spatial Index Related Geometry Topology</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

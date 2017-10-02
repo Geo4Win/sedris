@@ -1,0 +1,118 @@
+# scripts/edcs_4p0_4p1_mapping.nch
+# 267 types
+#
+# EDCS_Attribute_Code    was not renamed
+#
+# EDCS_Attribute_Dictionary_Entry was not renamed
+#
+# EDCS_Attribute_Label   was not renamed
+#
+# EDCS_Attribute_Value   was not renamed
+#
+# EDCS_Attribute_Value_Type was not renamed
+# EDCS_AVT_VALUE_CHARACTERISTIC has been dropped
+#
+# EDCS_Boolean           was not renamed
+#
+# EDCS_Character         was not renamed
+#
+# EDCS_Classification_Code was not renamed
+#
+# EDCS_Classification_Dictionary_Entry was not renamed
+#
+# EDCS_Classification_Label was not renamed
+#
+# EDCS_Concept_Status    was not renamed
+#
+# EDCS_Count             was not renamed
+#
+# EDCS_Count_Interval    was not renamed
+#
+# EDCS_Count_Value       was not renamed
+#
+# EDCS_Dictionary_Type   was not renamed
+EDCS_DT_SCALE          EDCS_DT_UNIT_SCALE
+#
+# EDCS_Enumerant_Code    was not renamed
+#
+# EDCS_Enumerant_Dictionary_Entry was not renamed
+#
+# EDCS_Enumerant_Label   was not renamed
+#
+# EDCS_Group_Code        was not renamed
+#
+# EDCS_Group_Dictionary_Entry was not renamed
+#
+# EDCS_Group_Label       was not renamed
+#
+# EDCS_Group_Pair        was not renamed
+#
+# EDCS_Integer           was not renamed
+#
+# EDCS_Integer_Interval  was not renamed
+#
+# EDCS_Integer_Value     was not renamed
+#
+# EDCS_Locale            was not renamed
+#
+# EDCS_Long_Float        was not renamed
+#
+# EDCS_Long_Float_Interval was not renamed
+#
+# EDCS_Long_Float_Value maps to multiple items
+#
+# EDCS_Null              was not renamed
+#
+# EDCS_Numeric_Value_Type was not renamed
+#
+# EDCS_Organization_Schema_Code was not renamed
+#
+# EDCS_Organization_Schema_Dictionary_Entry was not renamed
+#
+# EDCS_Organization_Schema_Label was not renamed
+#
+# EDCS_Real_Value        was not renamed
+#
+# EDCS_Reference_Type    was not renamed
+#
+EDCS_Scale_Code        EDCS_Unit_Scale_Code
+EDCS_PrintScaleCode EDCS_PrintUnitScaleCode
+EDCS_ValidScaleCode EDCS_ValidUnitScaleCode
+#
+EDCS_Scale_Dictionary_Entry EDCS_Unit_Scale_Dictionary_Entry
+EDCS_PrintScaleDictionaryEntry EDCS_PrintUnitScaleDictionaryEntry
+EDCS_ValidScaleDictionaryEntry EDCS_ValidUnitScaleDictionaryEntry
+#
+EDCS_Scale_Label       EDCS_Unit_Scale_Label
+EDCS_PrintScaleLabel EDCS_PrintUnitScaleLabel
+EDCS_ValidScaleLabel EDCS_ValidUnitScaleLabel
+#
+# EDCS_Status_Code       was not renamed
+EDCS_SC_INVALID_INPUT_SCALE EDCS_SC_INVALID_INPUT_UNIT_SCALE
+EDCS_SC_INVALID_OUTPUT_SCALE EDCS_SC_INVALID_OUTPUT_UNIT_SCALE
+#
+# EDCS_String            was not renamed
+#
+# EDCS_Unit_Code         was not renamed
+#
+# EDCS_Unit_Concept      was not renamed
+#
+# EDCS_Unit_Dictionary_Entry was not renamed
+#
+# EDCS_Unit_Equivalence_Code was not renamed
+#
+# EDCS_Unit_Equivalence_Dictionary_Entry was not renamed
+#
+# EDCS_Unit_Equivalence_Label was not renamed
+#
+# EDCS_Unit_Label        was not renamed
+#
+# EDCS_Unit_Status       was not renamed
+#
+# EDCS_Value_Characteristic_Applicability was not renamed
+#
+# EDCS_Value_Characteristic_Code was not renamed
+#
+# EDCS_Value_Characteristic_Dictionary_Entry was not renamed
+#
+# EDCS_Value_Characteristic_Label was not renamed

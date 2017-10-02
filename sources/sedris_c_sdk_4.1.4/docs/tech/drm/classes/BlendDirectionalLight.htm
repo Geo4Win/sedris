@@ -1,0 +1,269 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Blend Directional Light</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+<br>
+<font color="#ffffff">
+Blend Directional Light
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<h2>Class Name: Blend Directional Light</h2>
+<h3>Superclass - <a href="DirectionalLightBehaviour.htm">&lt;Directional Light Behaviour&gt;</a></h3>
+<h3>Subclasses</h3>
+    This DRM class is concrete and has no subclasses.
+<h3>Definition</h3>
+<P>
+ An instance of this DRM class specifies a
+ <A href="DirectionalLightBehaviour.htm">&lt;Directional Light Behaviour&gt;</A> instance,
+ the intensity of which varies depending on the position of the observer
+ relative to the light's location, direction, and shape. This light
+ takes the shape of a pyramid, subdivided by two planes. These
+ planes are based at the apex of the pyramid and extend towards the base.
+ They subdivide the pyramid into upper, blend, and lower sections. If the
+ observer is in the upper section, the primary colour is displayed. If the
+ observer is in the lower section, the secondary colour is displayed. If the
+ observer is in the blend section, the colour displayed is a proportional
+ blend of the primary and secondary colours as defined below.
+</P><P class=Note>
+NOTE&nbsp; 
+ The positive and negative ends of the
+ <A href="../types/SE_Reference_Vector_Type.htm#SE_REFVEC_VERTICAL_AXIS">SE_REFVEC_VERTICAL_AXIS</A>
+ vector correspond to <I>upper</I> and <I>lower</I>, respectively.
+</p>
+
+<h3>Primary Page in DRM Diagram:</h3>
+<UL>
+<LI><A href="sheet21.pdf"><strong>21</strong></A>
+</LI>
+</UL>
+
+<h3>Secondary Pages in DRM Diagram:</h3>
+This class appears on only one page of the DRM class diagram.
+<h3>Example</h3>
+<OL>
+<LI><P>
+ For an airplane approaching a runway, the colour of the approach lights can
+ change depending on the relationship of the airplane to the correct approach
+ slope as depicted in <a href="#Figure1">Figure 1</a>.
+</P>
+<DIV align="center">
+<p>
+<A name="Figure1"></A>
+<IMG SRC="../Images/BDirLt_Ex1_1.png"
+     ALT="Blend Directional Light, Example 1, blend section example">
+</p>
+<p class=FigureCaption>Figure 1 &#8212; &lt;DRM Blend Directional Light&gt; blend section example</p>
+</DIV>
+<P>
+ This can be represented by a <A href="BlendDirectionalLight.htm">&lt;Blend Directional Light&gt;</A>
+ instance having both a primary and a secondary colour as depicted in
+ <a href="#Figure2">Figure 2</a>.
+</P>
+<DIV align="center">
+<p>
+<A name="Figure2"></A>
+<IMG SRC="../Images/BDirLt_Ex1_2.png"
+     ALT="Blend Directional Light, Example 1">
+</p>
+<p class=FigureCaption>Figure 2 &#8212; &lt;DRM Blend Directional Light&gt; example</p>
+</DIV>
+<P>
+ If the position of the observer is 0.177 radians
+ (approximately 10 degrees) above the
+ <A href="../types/SE_Reference_Vector_Type.htm#SE_REFVEC_LIGHT_DIRECTION">SE_REFVEC_LIGHT_DIRECTION</A>
+ vector of the <A href="LobeData.htm">&lt;Lobe Data&gt;</A> instance,
+ the observer will see the primary colour.
+</P><P>
+ If the position of the observer is 0.027 radians
+ (approximately 1.5 degrees) above the
+ <A href="../types/SE_Reference_Vector_Type.htm#SE_REFVEC_LIGHT_DIRECTION">SE_REFVEC_LIGHT_DIRECTION</A>
+ vector, the observer will see the primary colour, since the observer
+ is at the upper edge of the blend section. As the observer moves lower,
+ the amount of primary colour decreases as it is blended with
+ proportionally increasing amounts of the secondary colour. Once the
+ observer reaches -0.009 radians (approximately
+ -0.5 degrees) from the
+ <A href="../types/SE_Reference_Vector_Type.htm#SE_REFVEC_LIGHT_DIRECTION">SE_REFVEC_LIGHT_DIRECTION</A>
+ vector in the vertical direction
+ (<I>i.e.</I>, towards the negative end of the
+ <A href="../types/SE_Reference_Vector_Type.htm#SE_REFVEC_VERTICAL_AXIS">SE_REFVEC_VERTICAL_AXIS</A>
+ vector), the observer sees the primary and secondary colours blended
+ in equal amounts as the observer is now in the middle of the
+ blend section. As the observer continues to move in the same direction,
+ the amount of primary colour continues to decrease proportionally as
+ the amount of secondary colour increases. When the
+ observer reaches -0.044 radians
+ (approximately -2.5 degrees) from the
+ <A href="../types/SE_Reference_Vector_Type.htm#SE_REFVEC_LIGHT_DIRECTION">SE_REFVEC_LIGHT_DIRECTION</A>
+ vector, the observer sees only the secondary colour, as he has now
+ reached the lower edge of the blend section.
+</P><P>
+ If the position of the observer from the
+ <A href="../types/SE_Reference_Vector_Type.htm#SE_REFVEC_LIGHT_DIRECTION">SE_REFVEC_LIGHT_DIRECTION</A>
+ vector is -0.177 radians
+ (approximately -10 degrees) in the vertical direction
+ (<I>i.e.</I>, towards the negative end of the
+ <A href="../types/SE_Reference_Vector_Type.htm#SE_REFVEC_VERTICAL_AXIS">SE_REFVEC_VERTICAL_AXIS</A>
+ vector), the secondary colour is seen as the observer is inside the vertical
+ width, in the lower section of the cone.
+</P><P>
+ If the position of the observer from the
+ <A href="../types/SE_Reference_Vector_Type.htm#SE_REFVEC_LIGHT_DIRECTION">SE_REFVEC_LIGHT_DIRECTION</A>
+ vector is -0.884 radians
+ (approximately -50 degrees) in the vertical direction
+ (<I>i.e.</I>, towards the negative end of the
+ <A href="../types/SE_Reference_Vector_Type.htm#SE_REFVEC_VERTICAL_AXIS">SE_REFVEC_VERTICAL_AXIS</A>
+ vector), nothing is seen as the observer is outside the pyramid.
+</P></LI>
+</OL>
+
+<h3>FAQs</h3>
+<p>
+No FAQs supplied.
+</p>
+<h3>Constraints</h3>
+<UL>
+<LI>
+<a href="../constraints/PublishableObject.htm">&lt;&lt;Publishable Object&gt;&gt;</a> 
+</LI>
+<LI>
+<a href="../constraints/InheritanceRuleForLocation.htm">&lt;&lt;Inheritance Rule For Location&gt;&gt;</a> 
+</LI>
+</UL>
+<h3>Composed of (two-way) (inherited)</h3>
+<UL>
+<li>one <a href="LobeData.htm">&lt;Lobe Data&gt;</a> instance<sup><A href="#Notes_cmp_Lobe_Data" name="cmp_Lobe_Data">1</A></sup></li>
+<li>one <a href="Location.htm">&lt;Location&gt;</a> instance</li>
+</UL>
+<h3>Component of (two-way) (inherited)</h3>
+<UL>
+<li>one or more <a href="LightRenderingProperties.htm">&lt;Light Rendering Properties&gt;</a> instances</li>
+</UL>
+<h2>Inherited Field Elements</h2>
+This class has no inherited field elements.
+<h2><a name="field">Field Elements</a></h2>
+<table class="Field">
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Long_Float.htm">SE_Long_Float</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="upper_plane_angular_offset">upper_plane_angular_offset</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_upper_plane_angular_offset">2</A></sup></p></td>
+</tr>
+<tr class="Field">
+<td class="FieldType"><p class="FieldType"><a href="../types/SE_Long_Float.htm">SE_Long_Float</a></p></td>
+<td class="FieldName"><p class="FieldName"><a name="lower_plane_angular_offset">lower_plane_angular_offset</a>;</p></td>
+<td class="FieldRange"><p class="FieldRange"><sup><A href="#Notes_lower_plane_angular_offset">3</A></sup></p></td>
+</tr>
+</table>
+<hr>
+<h2>Notes</h2>
+<h3>Composed of Notes</h3>
+<br>
+<h4><a href="#cmp_Lobe_Data" name="Notes_cmp_Lobe_Data">Lobe_Data</a></h4>
+ The <A href="LobeData.htm">&lt;Lobe Data&gt;</A> component
+ specifies the lobe shape.
+</P>
+<h3>Fields Notes</h3>
+<h4><a href="#upper_plane_angular_offset" name="Notes_upper_plane_angular_offset">upper_plane_angular_offset</a></h4>
+<P>
+ The <A href="#upper_plane_angular_offset">upper_plane_angular_offset</A>
+ field specifies, in radians, the
+ angular offset of the plane separating the upper
+ and blend sections of the pyramid. The offset is measured from the given
+ <A href="../types/SE_Reference_Vector_Type.htm#SE_REFVEC_LIGHT_DIRECTION">SE_REFVEC_LIGHT_DIRECTION</A>
+ vector of the <A href="LobeData.htm">&lt;Lobe Data&gt;</A> instance along the
+ <A href="../types/SE_Reference_Vector_Type.htm#SE_REFVEC_VERTICAL_AXIS">SE_REFVEC_VERTICAL_AXIS</A>
+ vector of the <A href="LobeData.htm">&lt;Lobe Data&gt;</A> instance.
+</P>
+<h4><a href="#lower_plane_angular_offset" name="Notes_lower_plane_angular_offset">lower_plane_angular_offset</a></h4>
+<P>
+ The
+ <A href="#lower_plane_angular_offset">lower_plane_angular_offset</A>
+ field specifies, in radians, the angular offset of the plane
+ separating the blend and lower sections of the pyramid. The offset
+ is measured from the given
+ <A href="../types/SE_Reference_Vector_Type.htm#SE_REFVEC_LIGHT_DIRECTION">SE_REFVEC_LIGHT_DIRECTION</A>
+ vector of the <A href="LobeData.htm">&lt;Lobe Data&gt;</A> instance along the
+ <A href="../types/SE_Reference_Vector_Type.htm#SE_REFVEC_VERTICAL_AXIS">SE_REFVEC_VERTICAL_AXIS</A>
+ vector of the <A href="LobeData.htm">&lt;Lobe Data&gt;</A> instance.
+</P><P>
+The <A href="#upper_plane_angular_offset">upper_plane_angular_offset</A>
+shall be greater than or equal to the
+<A href="#lower_plane_angular_offset">lower_plane_angular_offset</A>.
+Both planes shall be within the pyramid defined by the given
+<A href="LobeData.htm">&lt;Lobe Data&gt;</A> instance.
+</P><P>
+ The colour used to display the light is computed as follows.
+</P><P>
+ Let:
+</P><BLOCKQUOTE><P>
+    <span class="ConstructName">U</span> = upper_plane_angular_offset<BR>
+    <span class="ConstructName">L</span> = lower_plane_angular_offset<BR>
+    <span class="ConstructName">O</span> = observer angular offset<BR>
+    <span class="ConstructName">D</span> = colour to display<BR>
+    <span class="ConstructName">P</span> = primary colour<BR>
+    <span class="ConstructName">S</span> = secondary colour
+</P></BLOCKQUOTE><P>
+ Then:
+</P><BLOCKQUOTE><P>
+ Case 1:&nbsp; <span class="Code">O</span> &ge; <span class="ConstructName">U</span>
+</P><BLOCKQUOTE><P>
+    <span class="ConstructName">D</span> = <span class="ConstructName">P</span>
+</P></BLOCKQUOTE><P>
+  Case 2:&nbsp; <span class="ConstructName">L</span> <span class="Code">&lt;</span>
+  <span class="ConstructName">O</span> <span class="Code">&lt;</span> <span class="ConstructName">U</span>
+</P><BLOCKQUOTE><P>
+  <span class="ConstructName">D</span> <span class="Code">=
+ ((</span><span class="ConstructName">O</span> <span class="Code">-</span>
+ <span class="ConstructName">L</span><span class="Code">) &times;</span>
+ <span class="ConstructName">P</span> <span class="Code">+ (</span><span class="ConstructName">U</span>
+ <span class="Code">-</span> <span class="ConstructName">O</span><span class="Code">) &times;</span>
+ <span class="ConstructName">S</span><span class="Code">) / (</span><span class="ConstructName">U</span>
+ <span class="Code">-</span> <span class="ConstructName">L</span><span class="Code">)</span>
+</P></BLOCKQUOTE><P>
+  Case 3:&nbsp; <span class="Code">O</span> &le; <span class="ConstructName">L</span>
+</P><BLOCKQUOTE><P>
+  <span class="ConstructName">D</span> <span class="Code">=</span> <span class="ConstructName">S</span>
+</P></BLOCKQUOTE>
+</BLOCKQUOTE>
+
+<hr>
+<strong>Prev:</strong> <A href="BaseTimeData.htm">Base Time Data</A>.
+<strong>Next:</strong> <A href="BoundingVolume.htm">Bounding Volume</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

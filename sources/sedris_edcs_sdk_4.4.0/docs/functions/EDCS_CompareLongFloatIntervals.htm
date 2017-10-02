@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>EDCS CompareLongFloatIntervals</title>
+<link rel="stylesheet" href="../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>EDCS Reference Manual</big></big>
+<br>
+<!-- EDCS spec. 4.4 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+EDCS CompareLongFloatIntervals
+</font>
+</th></tr>
+</table></div>
+
+<!-- EDCS SDK Release 4.4.0 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern int</td></tr>
+<tr><td class="CFunction" colspan = "4">EDCS_CompareLongFloatIntervals</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1"><td class="CFunction">const&nbsp;</td><td class="CFunction"><a href="../types/EDCS_Long_Float_Interval.htm">EDCS_Long_Float_Interval</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="a_ptr"></a>a_ptr,</td><td class="CFunction"><sup><A href="#Notes_a_ptr">1</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">const&nbsp;</td><td class="CFunction"><a href="../types/EDCS_Long_Float_Interval.htm">EDCS_Long_Float_Interval</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="b_ptr"></a>b_ptr</td><td class="CFunction"><sup><A href="#Notes_b_ptr">2</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+ Compares two <A href="../types/EDCS_Long_Float_Interval.htm">EDCS_Long_Float_Interval</A>s.  This function's
+ signature is compatible with qsort.
+</P><P>
+  The comparison compares lower bounds, then uses upper bounds to
+  break any ties. If the lower bound and upper bound values match,
+  closed bounds are considered less than open bounds.
+</P><P>
+  In this instance, the compare operation is as follows. Note that
+  it does not behave differently if either interval is invalid; it
+  is the user's responsibility to check for valid input.
+</P>
+<OL>
+<LI><P>If either argument is NULL, then the result is based on
+     comparing the pointers.
+</P></LI>
+<LI><P>If the two lower bounds are unequal, the comparison of the
+     lower bound values determines the result of the compare
+     operation on the intervals
+</P></LI>
+<LI><P>If the two lower bounds are equal, then
+</P><P>
+     3.1) If the interval types are equal, then the comparison of the
+          upper bounds determines the interval comparison result.
+</P><P>
+     3.2) If the interval types are not equal, and if one interval
+          has a closed lower bound but the other does not, the
+          interval with the closed lower bound is determined to be
+          "less than" the interval with the open lower bound.
+</P><P>
+     3.3) Otherwise,
+</P><P>
+          3.3.1) If the upper bound values are unequal, then
+                 the comparison of the upper bound values determines
+                 the result
+</P></LI>
+</OL>
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+ -1
+</td><td class="Status">
+ if <A href="#a_ptr">*a_ptr</A> is NULL and
+<A href="#b_ptr">*b_ptr</A> is non-NULL, or
+<A href="#a_ptr">*a_ptr</A> &lt; <A href="#b_ptr">*b_ptr</A>
+</td></tr>
+<tr><td class="Status">
+ 0
+</td><td class="Status">
+ if both arguments are NULL, or
+<A href="#a_ptr">*a_ptr</A> == <A href="#b_ptr">*b_ptr</A>
+</td></tr>
+<tr><td class="Status">
+ 1
+</td><td class="Status">
+ if <A href="#b_ptr">*b_ptr</A> is NULL and
+<A href="#a_ptr">*a_ptr</A> is non-NULL, or
+<A href="#a_ptr">*a_ptr</A> &gt; <A href="#b_ptr">*b_ptr</A>
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#a_ptr" name="Notes_a_ptr">1</a></sup>
+ handle to 1st EDCS_Long_Float_Interval to be compared
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#b_ptr" name="Notes_b_ptr">2</a></sup>
+ handle to 2nd EDCS_Long_Float_Interval to be compared
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="EDCS_CompareLocales.htm">EDCS_CompareLocales</a>.
+<strong>Next:</strong> <a href="EDCS_CompareLongFloatValues.htm">EDCS_CompareLongFloatValues</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

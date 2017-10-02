@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE ValidImageExtents</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX C - Transmittal Access Level 0 API Auxiliary Functions
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+SE ValidImageExtents
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../../drm/types/SE_Boolean.htm">SE_Boolean</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SE_ValidImageExtents</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1"><td class="CFunction">const&nbsp;</td><td class="CFunction"><a href="../../drm/classes/Image.htm">SE_Image_Fields</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="fields_ptr"></a>fields_ptr,</td><td class="CFunction"><sup><A href="#Notes_fields_ptr">1</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">const&nbsp;</td><td class="CFunction"><a href="../../taccess0/types/SE_Image_Texel_Location_3D.htm">SE_Image_Texel_Location_3D</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="start_texel"></a>start_texel,</td><td class="CFunction"><sup><A href="#Notes_start_texel">2</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">const&nbsp;</td><td class="CFunction"><a href="../../taccess0/types/SE_Image_Texel_Location_3D.htm">SE_Image_Texel_Location_3D</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="stop_texel"></a>stop_texel,</td><td class="CFunction"><sup><A href="#Notes_stop_texel">3</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../../drm/types/SE_Short_Integer_Unsigned.htm">SE_Short_Integer_Unsigned</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="mip_level"></a>mip_level</td><td class="CFunction"><sup><A href="#Notes_mip_level">4</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+  Checks whether the specified extents are valid for the given
+ <A href="../../drm/classes/Image.htm">&lt;Image&gt;</A> instance.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../../drm/types/SE_Boolean.htm#SE_TRUE">SE_TRUE</A>
+</td><td class="Status">
+ if all parameters are valid.
+</td></tr>
+<tr><td class="Status">
+<A href="../../drm/types/SE_Boolean.htm#SE_FALSE">SE_FALSE</A>
+</td><td class="Status">if
+<OL>
+<LI><A href="#fields_ptr">fields_ptr</A> is NULL
+</LI>
+<LI><A href="#fields_ptr">fields_ptr</A>-&gt;level_count is zero
+</LI>
+<LI><A href="#fields_ptr">fields_ptr</A>-&gt;mip_extents_array is NULL
+</LI>
+<LI><A href="#mip_level">mip_level</A> is greater than or equal to
+ <A href="#fields_ptr">fields_ptr</A>->level_count
+</LI>
+<LI><A href="#start_texel">start_texel</A> &gt;=
+<A href="#fields_ptr">fields_ptr</A>-&gt;
+<A href="../../drm/classes/Image.htm#mip_extents_array">mip_extents_array</A>
+[<A href="#mip_level">mip_level</A>], or
+ or <A href="#start_texel">start_texel</A>
+ &gt; <A href="#stop_texel">stop_texel</A>
+</LI>
+</OL>
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#fields_ptr" name="Notes_fields_ptr">1</a></sup>
+ fields for the &lt;Image&gt; instance for which the extents
+    are being checked.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#start_texel" name="Notes_start_texel">2</a></sup>
+ the starting texel index of the &lt;Image&gt; instance
+    data to be retrieved; must be less than or equal to stop_texel,
+    and must be valid for the specified MIP level of image.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#stop_texel" name="Notes_stop_texel">3</a></sup>
+ the stopping texel index of the &lt;Image&gt; instance
+    data to be retrieved; must be greater than or equal to start_texel,
+    and must be valid for the specified MIP level of image.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#mip_level" name="Notes_mip_level">4</a></sup>
+ the mip_level being requested for the given &lt;Image&gt;.
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SE_ValidImageData.htm">SE_ValidImageData</a>.
+<strong>Next:</strong> <a href="SE_ValidIndexRange.htm">SE_ValidIndexRange</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

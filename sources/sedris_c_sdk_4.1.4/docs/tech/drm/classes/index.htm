@@ -1,0 +1,695 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>APPENDIX A - Classes</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX A - Classes
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<P>
+Note that each class is listed with the primary DRM diagram
+page on which it appears, followed by any other pages
+on which the class is referenced.
+</P><P>
+<CENTER><TABLE BORDER=0 WIDTH="100%">
+<TR>
+<TD><A href="#A">A</A></TD>
+<TD><A href="#B">B</A></TD>
+<TD><A href="#C">C</A></TD>
+<TD><A href="#D">D</A></TD>
+<TD><A href="#E">E</A></TD>
+<TD><A href="#F">F</A></TD>
+<TD><A href="#G">G</A></TD>
+<TD><A href="#H">H</A></TD>
+<TD><A href="#I">I</A></TD>
+<TD>J</TD>
+<TD><A href="#K">K</A></TD>
+<TD><A href="#L">L</A></TD>
+<TD><A href="#M">M</A></TD>
+<TD>N</TD>
+<TD><A href="#O">O</A></TD>
+<TD><A href="#P">P</A></TD>
+<TD><A href="#Q">Q</A></TD>
+<TD><A href="#R">R</A></TD>
+<TD><A href="#S">S</A></TD>
+<TD><A href="#T">T</A></TD>
+<TD><A href="#U">U</A></TD>
+<TD><A href="#V">V</A></TD>
+<TD><A href="#W">W</A></TD>
+<TD>X</TD>
+<TD>Y</TD>
+<TD>Z</TD>
+</TR>
+</TABLE></CENTER>
+</P>
+<HR>
+<BR>
+<DL>
+<DT><A name="A" href="AbsoluteTime.htm">&lt;Absolute Time&gt;</A>, <A href="sheet20.pdf"><B>20</B></A>
+</DT>
+<DT><a href="AbsoluteTimeInterval.htm">&lt;Absolute Time Interval&gt;</a>, <A href="sheet20.pdf"><B>20</B></A>
+</DT>
+<DT><a href="AggregateFeature.htm">&lt;Aggregate Feature&gt;</a>, <A href="sheet08.pdf"><B>8</B></A>
+, <A href="sheet07.pdf">7</A>, <A href="sheet11.pdf">11</A>, <A href="sheet23.pdf">23</A></DT>
+<DT><a href="AggregateGeometry.htm">&lt;Aggregate Geometry&gt;</a>, <A href="sheet04.pdf"><B>4</B></A>
+, <A href="sheet03.pdf">3</A>, <A href="sheet07.pdf">7</A>, <A href="sheet09.pdf">9</A>, <A href="sheet11.pdf">11</A>, <A href="sheet18.pdf">18</A>, <A href="sheet21.pdf">21</A>, <A href="sheet23.pdf">23</A></DT>
+<DT><a href="AlternateHierarchyRelatedFeatures.htm">&lt;Alternate Hierarchy Related Features&gt;</a>, <A href="sheet08.pdf"><B>8</B></A>
+</DT>
+<DT><a href="AlternateHierarchyRelatedGeometry.htm">&lt;Alternate Hierarchy Related Geometry&gt;</a>, <A href="sheet04.pdf"><B>4</B></A>
+</DT>
+<DT><a href="AmbientColour.htm">&lt;Ambient Colour&gt;</a>, <A href="sheet14.pdf"><B>14</B></A>
+, <A href="sheet21.pdf">21</A></DT>
+<DT><a href="AnimationBehaviour.htm">&lt;Animation Behaviour&gt;</a>, <A href="sheet04.pdf"><B>4</B></A>
+</DT>
+<DT><a href="AnimationRelatedGeometry.htm">&lt;Animation Related Geometry&gt;</a>, <A href="sheet04.pdf"><B>4</B></A>
+</DT>
+<DT><a href="Arc.htm">&lt;Arc&gt;</a>, <A href="sheet05.pdf"><B>5</B></A>
+</DT>
+<DT><a href="ArealFeature.htm">&lt;Areal Feature&gt;</a>, <A href="sheet08.pdf"><B>8</B></A>
+, <A href="sheet12.pdf">12</A></DT>
+<DT><a href="AttachmentPoint.htm">&lt;Attachment Point&gt;</a>, <A href="sheet02.pdf"><B>2</B></A>
+</DT>
+<DT><a href="Axis.htm">&lt;Axis&gt;</a>, <A href="sheet06.pdf"><B>6</B></A>
+, <A href="sheet23.pdf">23</A></DT>
+<DT><A name="B" href="BaseAssociationData.htm">&lt;Base Association Data&gt;</A>, <A href="sheet09.pdf"><B>9</B></A>
+, <A href="sheet03.pdf">3</A>, <A href="sheet06.pdf">6</A>, <A href="sheet08.pdf">8</A>, <A href="sheet23.pdf">23</A></DT>
+<DT><a href="BaseLODData.htm">&lt;Base LOD Data&gt;</a>, <A href="sheet09.pdf"><B>9</B></A>
+, <A href="sheet04.pdf">4</A>, <A href="sheet06.pdf">6</A>, <A href="sheet08.pdf">8</A>, <A href="sheet23.pdf">23</A></DT>
+<DT><a href="BasePositionalLight.htm">&lt;Base Positional Light&gt;</a>, <A href="sheet21.pdf"><B>21</B></A>
+, <A href="sheet23.pdf">23</A></DT>
+<DT><a href="BaseSpatialAssociationData.htm">&lt;Base Spatial Association Data&gt;</a>, <A href="sheet09.pdf"><B>9</B></A>
+, <A href="sheet23.pdf">23</A></DT>
+<DT><a href="BaseSummaryItem.htm">&lt;Base Summary Item&gt;</a>, <A href="sheet20.pdf"><B>20</B></A>
+, <A href="sheet23.pdf">23</A></DT>
+<DT><a href="BaseTimeData.htm">&lt;Base Time Data&gt;</a>, <A href="sheet20.pdf"><B>20</B></A>
+, <A href="sheet01.pdf">1</A>, <A href="sheet23.pdf">23</A></DT>
+<DT><a href="BlendDirectionalLight.htm">&lt;Blend Directional Light&gt;</a>, <A href="sheet21.pdf"><B>21</B></A>
+</DT>
+<DT><a href="BoundingVolume.htm">&lt;Bounding Volume&gt;</a>, <A href="sheet09.pdf"><B>9</B></A>
+, <A href="sheet04.pdf">4</A></DT>
+<DT><a href="BrowseMedia.htm">&lt;Browse Media&gt;</a>, <A href="sheet20.pdf"><B>20</B></A>
+</DT>
+<DT><A name="C" href="CameraPoint.htm">&lt;Camera Point&gt;</A>, <A href="sheet18.pdf"><B>18</B></A>
+, <A href="sheet04.pdf">4</A>, <A href="sheet07.pdf">7</A>, <A href="sheet22.pdf">22</A></DT>
+<DT><a href="CC3DLocation.htm">&lt;CC 3D Location&gt;</a>, <A href="sheet15.pdf"><B>15</B></A>
+</DT>
+<DT><a href="CD3DLocation.htm">&lt;CD 3D Location&gt;</a>, <A href="sheet15.pdf"><B>15</B></A>
+</DT>
+<DT><a href="CDSurfaceLocation.htm">&lt;CD Surface Location&gt;</a>, <A href="sheet15.pdf"><B>15</B></A>
+</DT>
+<DT><a href="Citation.htm">&lt;Citation&gt;</a>, <A href="sheet20.pdf"><B>20</B></A>
+</DT>
+<DT><a href="ClassificationData.htm">&lt;Classification Data&gt;</a>, <A href="sheet09.pdf"><B>9</B></A>
+, <A href="sheet02.pdf">2</A>, <A href="sheet03.pdf">3</A>, <A href="sheet04.pdf">4</A>, <A href="sheet06.pdf">6</A>, <A href="sheet08.pdf">8</A>, <A href="sheet10.pdf">10</A>, <A href="sheet18.pdf">18</A>, <A href="sheet19.pdf">19</A>, <A href="sheet20.pdf">20</A>, <A href="sheet21.pdf">21</A>, <A href="sheet22.pdf">22</A></DT>
+<DT><a href="ClassificationRelatedFeatures.htm">&lt;Classification Related Features&gt;</a>, <A href="sheet08.pdf"><B>8</B></A>
+</DT>
+<DT><a href="ClassificationRelatedGeometry.htm">&lt;Classification Related Geometry&gt;</a>, <A href="sheet04.pdf"><B>4</B></A>
+</DT>
+<DT><a href="CM3DLocation.htm">&lt;CM 3D Location&gt;</a>, <A href="sheet15.pdf"><B>15</B></A>
+</DT>
+<DT><a href="CMYColour.htm">&lt;CMY Colour&gt;</a>, <A href="sheet14.pdf"><B>14</B></A>
+</DT>
+<DT><a href="CMYColourControlLink.htm">&lt;CMY Colour Control Link&gt;</a>, <A href="sheet17.pdf"><B>17</B></A>
+, <A href="sheet14.pdf">14</A></DT>
+<DT><a href="CollisionVolume.htm">&lt;Collision Volume&gt;</a>, <A href="sheet09.pdf"><B>9</B></A>
+, <A href="sheet04.pdf">4</A></DT>
+<DT><a href="Colour.htm">&lt;Colour&gt;</a>, <A href="sheet14.pdf"><B>14</B></A>
+, <A href="sheet04.pdf">4</A>, <A href="sheet05.pdf">5</A>, <A href="sheet08.pdf">8</A>, <A href="sheet18.pdf">18</A>, <A href="sheet19.pdf">19</A>, <A href="sheet23.pdf">23</A></DT>
+<DT><a href="ColourData.htm">&lt;Colour Data&gt;</a>, <A href="sheet14.pdf"><B>14</B></A>
+, <A href="sheet23.pdf">23</A></DT>
+<DT><a href="ColourIndex.htm">&lt;Colour Index&gt;</a>, <A href="sheet14.pdf"><B>14</B></A>
+</DT>
+<DT><a href="ColourIndexControlLink.htm">&lt;Colour Index Control Link&gt;</a>, <A href="sheet17.pdf"><B>17</B></A>
+, <A href="sheet14.pdf">14</A></DT>
+<DT><a href="ColourShininess.htm">&lt;Colour Shininess&gt;</a>, <A href="sheet14.pdf"><B>14</B></A>
+</DT>
+<DT><a href="ColourTable.htm">&lt;Colour Table&gt;</a>, <A href="sheet14.pdf"><B>14</B></A>
+</DT>
+<DT><a href="ColourTableGroup.htm">&lt;Colour Table Group&gt;</a>, <A href="sheet14.pdf"><B>14</B></A>
+, <A href="sheet10.pdf">10</A></DT>
+<DT><a href="ColourTableLibrary.htm">&lt;Colour Table Library&gt;</a>, <A href="sheet10.pdf"><B>10</B></A>
+, <A href="sheet01.pdf">1</A>, <A href="sheet14.pdf">14</A></DT>
+<DT><a href="ConeDirectionalLight.htm">&lt;Cone Directional Light&gt;</a>, <A href="sheet21.pdf"><B>21</B></A>
+</DT>
+<DT><a href="ConformalBehaviour.htm">&lt;Conformal Behaviour&gt;</a>, <A href="sheet03.pdf"><B>3</B></A>
+, <A href="sheet04.pdf">4</A>, <A href="sheet05.pdf">5</A>, <A href="sheet07.pdf">7</A>, <A href="sheet18.pdf">18</A></DT>
+<DT><a href="ContactPoint.htm">&lt;Contact Point&gt;</a>, <A href="sheet02.pdf"><B>2</B></A>
+</DT>
+<DT><a href="ContinuousLODRelatedGeometry.htm">&lt;Continuous LOD Related Geometry&gt;</a>, <A href="sheet04.pdf"><B>4</B></A>
+</DT>
+<DT><a href="ControlLink.htm">&lt;Control Link&gt;</a>, <A href="sheet17.pdf"><B>17</B></A>
+, <A href="sheet16.pdf">16</A>, <A href="sheet23.pdf">23</A></DT>
+<DT><a href="CylindricalVolumeExtent.htm">&lt;Cylindrical Volume Extent&gt;</a>, <A href="sheet09.pdf"><B>9</B></A>
+</DT>
+<DT><A name="D" href="DataQuality.htm">&lt;Data Quality&gt;</A>, <A href="sheet20.pdf"><B>20</B></A>
+, <A href="sheet01.pdf">1</A>, <A href="sheet02.pdf">2</A>, <A href="sheet03.pdf">3</A>, <A href="sheet06.pdf">6</A>, <A href="sheet08.pdf">8</A>, <A href="sheet19.pdf">19</A></DT>
+<DT><a href="DataTable.htm">&lt;Data Table&gt;</a>, <A href="sheet06.pdf"><B>6</B></A>
+, <A href="sheet10.pdf">10</A>, <A href="sheet23.pdf">23</A></DT>
+<DT><a href="DataTableLibrary.htm">&lt;Data Table Library&gt;</a>, <A href="sheet10.pdf"><B>10</B></A>
+, <A href="sheet01.pdf">1</A>, <A href="sheet06.pdf">6</A></DT>
+<DT><a href="DiffuseColour.htm">&lt;Diffuse Colour&gt;</a>, <A href="sheet14.pdf"><B>14</B></A>
+, <A href="sheet21.pdf">21</A></DT>
+<DT><a href="DirectionalLightBehaviour.htm">&lt;Directional Light Behaviour&gt;</a>, <A href="sheet21.pdf"><B>21</B></A>
+, <A href="sheet23.pdf">23</A></DT>
+<DT><a href="DistanceLODData.htm">&lt;Distance LOD Data&gt;</a>, <A href="sheet09.pdf"><B>9</B></A>
+</DT>
+<DT><a href="DRMClassSummaryItem.htm">&lt;DRM Class Summary Item&gt;</a>, <A href="sheet20.pdf"><B>20</B></A>
+</DT>
+<DT><A name="E" href="ECAugmented3DLocation.htm">&lt;EC Augmented 3D Location&gt;</A>, <A href="sheet15.pdf"><B>15</B></A>
+</DT>
+<DT><a href="ECSurfaceLocation.htm">&lt;EC Surface Location&gt;</a>, <A href="sheet15.pdf"><B>15</B></A>
+</DT>
+<DT><a href="EDCSUseSummaryItem.htm">&lt;EDCS Use Summary Item&gt;</a>, <A href="sheet20.pdf"><B>20</B></A>
+</DT>
+<DT><a href="EdgeDirection.htm">&lt;Edge Direction&gt;</a>, <A href="sheet12.pdf"><B>12</B></A>
+, <A href="sheet05.pdf">5</A>, <A href="sheet08.pdf">8</A>, <A href="sheet13.pdf">13</A></DT>
+<DT><a href="EI3DLocation.htm">&lt;EI 3D Location&gt;</a>, <A href="sheet15.pdf"><B>15</B></A>
+</DT>
+<DT><a href="Ellipse.htm">&lt;Ellipse&gt;</a>, <A href="sheet05.pdf"><B>5</B></A>
+, <A href="sheet13.pdf">13</A></DT>
+<DT><a href="EmissiveColour.htm">&lt;Emissive Colour&gt;</a>, <A href="sheet14.pdf"><B>14</B></A>
+</DT>
+<DT><a href="EnclosingVolume.htm">&lt;Enclosing Volume&gt;</a>, <A href="sheet09.pdf"><B>9</B></A>
+, <A href="sheet23.pdf">23</A></DT>
+<DT><a href="EnumerationAxis.htm">&lt;Enumeration Axis&gt;</a>, <A href="sheet06.pdf"><B>6</B></A>
+</DT>
+<DT><a href="EnvironmentRoot.htm">&lt;Environment Root&gt;</a>, <A href="sheet01.pdf"><B>1</B></A>
+, <A href="sheet16.pdf">16</A></DT>
+<DT><a href="EnvironmentalDomainSummary.htm">&lt;Environmental Domain Summary&gt;</a>, <A href="sheet20.pdf"><B>20</B></A>
+</DT>
+<DT><a href="Expression.htm">&lt;Expression&gt;</a>, <A href="sheet16.pdf"><B>16</B></A>
+, <A href="sheet03.pdf">3</A>, <A href="sheet07.pdf">7</A>, <A href="sheet17.pdf">17</A>, <A href="sheet23.pdf">23</A></DT>
+<DT><A name="F" href="FaceDirection.htm">&lt;Face Direction&gt;</A>, <A href="sheet12.pdf"><B>12</B></A>
+, <A href="sheet08.pdf">8</A>, <A href="sheet13.pdf">13</A></DT>
+<DT><a href="FadeRange.htm">&lt;Fade Range&gt;</a>, <A href="sheet22.pdf"><B>22</B></A>
+</DT>
+<DT><a href="FeatureEdge.htm">&lt;Feature Edge&gt;</a>, <A href="sheet12.pdf"><B>12</B></A>
+, <A href="sheet08.pdf">8</A></DT>
+<DT><a href="FeatureFace.htm">&lt;Feature Face&gt;</a>, <A href="sheet12.pdf"><B>12</B></A>
+, <A href="sheet08.pdf">8</A></DT>
+<DT><a href="FeatureFaceRing.htm">&lt;Feature Face Ring&gt;</a>, <A href="sheet12.pdf"><B>12</B></A>
+</DT>
+<DT><a href="FeatureHierarchy.htm">&lt;Feature Hierarchy&gt;</a>, <A href="sheet08.pdf"><B>8</B></A>
+, <A href="sheet01.pdf">1</A>, <A href="sheet02.pdf">2</A>, <A href="sheet07.pdf">7</A>, <A href="sheet09.pdf">9</A>, <A href="sheet20.pdf">20</A>, <A href="sheet22.pdf">22</A>, <A href="sheet23.pdf">23</A></DT>
+<DT><a href="FeatureModel.htm">&lt;Feature Model&gt;</a>, <A href="sheet02.pdf"><B>2</B></A>
+, <A href="sheet07.pdf">7</A>, <A href="sheet16.pdf">16</A></DT>
+<DT><a href="FeatureModelInstance.htm">&lt;Feature Model Instance&gt;</a>, <A href="sheet07.pdf"><B>7</B></A>
+, <A href="sheet02.pdf">2</A>, <A href="sheet08.pdf">8</A>, <A href="sheet16.pdf">16</A></DT>
+<DT><a href="FeatureNode.htm">&lt;Feature Node&gt;</a>, <A href="sheet12.pdf"><B>12</B></A>
+, <A href="sheet08.pdf">8</A></DT>
+<DT><a href="FeatureRepresentation.htm">&lt;Feature Representation&gt;</a>, <A href="sheet08.pdf"><B>8</B></A>
+, <A href="sheet03.pdf">3</A>, <A href="sheet06.pdf">6</A>, <A href="sheet10.pdf">10</A>, <A href="sheet23.pdf">23</A></DT>
+<DT><a href="FeatureTopology.htm">&lt;Feature Topology&gt;</a>, <A href="sheet12.pdf"><B>12</B></A>
+, <A href="sheet11.pdf">11</A>, <A href="sheet23.pdf">23</A></DT>
+<DT><a href="FeatureTopologyHierarchy.htm">&lt;Feature Topology Hierarchy&gt;</a>, <A href="sheet11.pdf"><B>11</B></A>
+, <A href="sheet08.pdf">8</A>, <A href="sheet23.pdf">23</A></DT>
+<DT><a href="FeatureVolume.htm">&lt;Feature Volume&gt;</a>, <A href="sheet12.pdf"><B>12</B></A>
+, <A href="sheet08.pdf">8</A></DT>
+<DT><a href="FeatureVolumeShell.htm">&lt;Feature Volume Shell&gt;</a>, <A href="sheet12.pdf"><B>12</B></A>
+</DT>
+<DT><a href="FiniteElementMesh.htm">&lt;Finite Element Mesh&gt;</a>, <A href="sheet05.pdf"><B>5</B></A>
+, <A href="sheet18.pdf">18</A></DT>
+<DT><a href="FlashingLightBehaviour.htm">&lt;Flashing Light Behaviour&gt;</a>, <A href="sheet21.pdf"><B>21</B></A>
+</DT>
+<DT><a href="Function.htm">&lt;Function&gt;</a>, <A href="sheet16.pdf"><B>16</B></A>
+, <A href="sheet23.pdf">23</A></DT>
+<DT><a href="FunctionalAssociationData.htm">&lt;Functional Association Data&gt;</a>, <A href="sheet09.pdf"><B>9</B></A>
+</DT>
+<DT><A name="G" href="GeometricCentre.htm">&lt;Geometric Centre&gt;</A>, <A href="sheet04.pdf"><B>4</B></A>
+</DT>
+<DT><a href="GeometryEdge.htm">&lt;Geometry Edge&gt;</a>, <A href="sheet13.pdf"><B>13</B></A>
+, <A href="sheet05.pdf">5</A></DT>
+<DT><a href="GeometryFace.htm">&lt;Geometry Face&gt;</a>, <A href="sheet13.pdf"><B>13</B></A>
+, <A href="sheet05.pdf">5</A></DT>
+<DT><a href="GeometryHierarchy.htm">&lt;Geometry Hierarchy&gt;</a>, <A href="sheet03.pdf"><B>3</B></A>
+, <A href="sheet01.pdf">1</A>, <A href="sheet02.pdf">2</A>, <A href="sheet04.pdf">4</A>, <A href="sheet05.pdf">5</A>, <A href="sheet07.pdf">7</A>, <A href="sheet08.pdf">8</A>, <A href="sheet09.pdf">9</A>, <A href="sheet20.pdf">20</A>, <A href="sheet22.pdf">22</A>, <A href="sheet23.pdf">23</A></DT>
+<DT><a href="GeometryModel.htm">&lt;Geometry Model&gt;</a>, <A href="sheet02.pdf"><B>2</B></A>
+, <A href="sheet03.pdf">3</A>, <A href="sheet07.pdf">7</A>, <A href="sheet16.pdf">16</A></DT>
+<DT><a href="GeometryModelInstance.htm">&lt;Geometry Model Instance&gt;</a>, <A href="sheet07.pdf"><B>7</B></A>
+, <A href="sheet02.pdf">2</A>, <A href="sheet03.pdf">3</A>, <A href="sheet16.pdf">16</A></DT>
+<DT><a href="GeometryNode.htm">&lt;Geometry Node&gt;</a>, <A href="sheet13.pdf"><B>13</B></A>
+, <A href="sheet05.pdf">5</A>, <A href="sheet06.pdf">6</A>, <A href="sheet18.pdf">18</A></DT>
+<DT><a href="GeometryRepresentation.htm">&lt;Geometry Representation&gt;</a>, <A href="sheet03.pdf"><B>3</B></A>
+, <A href="sheet05.pdf">5</A>, <A href="sheet06.pdf">6</A>, <A href="sheet23.pdf">23</A></DT>
+<DT><a href="GeometryTopology.htm">&lt;Geometry Topology&gt;</a>, <A href="sheet13.pdf"><B>13</B></A>
+, <A href="sheet11.pdf">11</A>, <A href="sheet23.pdf">23</A></DT>
+<DT><a href="GeometryTopologyHierarchy.htm">&lt;Geometry Topology Hierarchy&gt;</a>, <A href="sheet11.pdf"><B>11</B></A>
+, <A href="sheet04.pdf">4</A>, <A href="sheet23.pdf">23</A></DT>
+<DT><a href="GeometryVolume.htm">&lt;Geometry Volume&gt;</a>, <A href="sheet13.pdf"><B>13</B></A>
+, <A href="sheet05.pdf">5</A></DT>
+<DT><a href="GridOverlap.htm">&lt;Grid Overlap&gt;</a>, <A href="sheet06.pdf"><B>6</B></A>
+</DT>
+<DT><A name="H" href="HAEC3DLocation.htm">&lt;HAEC 3D Location&gt;</A>, <A href="sheet15.pdf"><B>15</B></A>
+</DT>
+<DT><a href="HEEC3DLocation.htm">&lt;HEEC 3D Location&gt;</a>, <A href="sheet15.pdf"><B>15</B></A>
+</DT>
+<DT><a href="HEEQ3DLocation.htm">&lt;HEEQ 3D Location&gt;</a>, <A href="sheet15.pdf"><B>15</B></A>
+</DT>
+<DT><a href="HierarchyData.htm">&lt;Hierarchy Data&gt;</a>, <A href="sheet04.pdf"><B>4</B></A>
+, <A href="sheet08.pdf">8</A></DT>
+<DT><a href="HierarchySummaryItem.htm">&lt;Hierarchy Summary Item&gt;</a>, <A href="sheet20.pdf"><B>20</B></A>
+, <A href="sheet01.pdf">1</A>, <A href="sheet02.pdf">2</A>, <A href="sheet03.pdf">3</A>, <A href="sheet08.pdf">8</A></DT>
+<DT><a href="HSVColour.htm">&lt;HSV Colour&gt;</a>, <A href="sheet14.pdf"><B>14</B></A>
+</DT>
+<DT><a href="HSVColourControlLink.htm">&lt;HSV Colour Control Link&gt;</a>, <A href="sheet17.pdf"><B>17</B></A>
+, <A href="sheet14.pdf">14</A></DT>
+<DT><A name="I" href="Icon.htm">&lt;Icon&gt;</A>, <A href="sheet10.pdf"><B>10</B></A>
+, <A href="sheet23.pdf">23</A></DT>
+<DT><a href="Identification.htm">&lt;Identification&gt;</a>, <A href="sheet20.pdf"><B>20</B></A>
+, <A href="sheet01.pdf">1</A>, <A href="sheet02.pdf">2</A>, <A href="sheet03.pdf">3</A>, <A href="sheet06.pdf">6</A>, <A href="sheet08.pdf">8</A>, <A href="sheet10.pdf">10</A>, <A href="sheet14.pdf">14</A>, <A href="sheet19.pdf">19</A>, <A href="sheet22.pdf">22</A></DT>
+<DT><a href="Image.htm">&lt;Image&gt;</a>, <A href="sheet22.pdf"><B>22</B></A>
+, <A href="sheet10.pdf">10</A>, <A href="sheet18.pdf">18</A></DT>
+<DT><a href="ImageAnchor.htm">&lt;Image Anchor&gt;</a>, <A href="sheet22.pdf"><B>22</B></A>
+</DT>
+<DT><a href="ImageLibrary.htm">&lt;Image Library&gt;</a>, <A href="sheet10.pdf"><B>10</B></A>
+, <A href="sheet01.pdf">1</A>, <A href="sheet22.pdf">22</A></DT>
+<DT><a href="ImageMappingFunction.htm">&lt;Image Mapping Function&gt;</a>, <A href="sheet22.pdf"><B>22</B></A>
+, <A href="sheet04.pdf">4</A>, <A href="sheet05.pdf">5</A>, <A href="sheet06.pdf">6</A>, <A href="sheet08.pdf">8</A>, <A href="sheet19.pdf">19</A></DT>
+<DT><a href="InOut.htm">&lt;In Out&gt;</a>, <A href="sheet20.pdf"><B>20</B></A>
+</DT>
+<DT><a href="IndexLODData.htm">&lt;Index LOD Data&gt;</a>, <A href="sheet09.pdf"><B>9</B></A>
+</DT>
+<DT><a href="InfiniteLight.htm">&lt;Infinite Light&gt;</a>, <A href="sheet21.pdf"><B>21</B></A>
+</DT>
+<DT><a href="InlineColour.htm">&lt;Inline Colour&gt;</a>, <A href="sheet14.pdf"><B>14</B></A>
+</DT>
+<DT><a href="InterfaceTemplate.htm">&lt;Interface Template&gt;</a>, <A href="sheet16.pdf"><B>16</B></A>
+, <A href="sheet01.pdf">1</A>, <A href="sheet02.pdf">2</A></DT>
+<DT><a href="IntervalAxis.htm">&lt;Interval Axis&gt;</a>, <A href="sheet06.pdf"><B>6</B></A>
+</DT>
+<DT><a href="IrregularAxis.htm">&lt;Irregular Axis&gt;</a>, <A href="sheet06.pdf"><B>6</B></A>
+</DT>
+<DT><A name="K" href="Keywords.htm">&lt;Keywords&gt;</A>, <A href="sheet20.pdf"><B>20</B></A>
+</DT>
+<DT><A name="L" href="Label.htm">&lt;Label&gt;</A>, <A href="sheet10.pdf"><B>10</B></A>
+, <A href="sheet08.pdf">8</A></DT>
+<DT><a href="LCCAugmented3DLocation.htm">&lt;LCC Augmented 3D Location&gt;</a>, <A href="sheet15.pdf"><B>15</B></A>
+</DT>
+<DT><a href="LCCSurfaceLocation.htm">&lt;LCC Surface Location&gt;</a>, <A href="sheet15.pdf"><B>15</B></A>
+</DT>
+<DT><a href="LCE3DLocation.htm">&lt;LCE 3D Location&gt;</a>, <A href="sheet15.pdf"><B>15</B></A>
+</DT>
+<DT><a href="LegalConstraints.htm">&lt;Legal Constraints&gt;</a>, <A href="sheet20.pdf"><B>20</B></A>
+</DT>
+<DT><a href="Library.htm">&lt;Library&gt;</a>, <A href="sheet10.pdf"><B>10</B></A>
+, <A href="sheet01.pdf">1</A>, <A href="sheet23.pdf">23</A></DT>
+<DT><a href="LightRenderingBehaviour.htm">&lt;Light Rendering Behaviour&gt;</a>, <A href="sheet21.pdf"><B>21</B></A>
+, <A href="sheet23.pdf">23</A></DT>
+<DT><a href="LightRenderingProperties.htm">&lt;Light Rendering Properties&gt;</a>, <A href="sheet21.pdf"><B>21</B></A>
+, <A href="sheet04.pdf">4</A>, <A href="sheet05.pdf">5</A>, <A href="sheet19.pdf">19</A></DT>
+<DT><a href="LightRenderingPropertiesControlLink.htm">&lt;Light Rendering Properties Control Link&gt;</a>, <A href="sheet17.pdf"><B>17</B></A>
+, <A href="sheet21.pdf">21</A></DT>
+<DT><a href="LightSource.htm">&lt;Light Source&gt;</a>, <A href="sheet21.pdf"><B>21</B></A>
+, <A href="sheet04.pdf">4</A>, <A href="sheet14.pdf">14</A>, <A href="sheet23.pdf">23</A></DT>
+<DT><a href="LightSourceControlLink.htm">&lt;Light Source Control Link&gt;</a>, <A href="sheet17.pdf"><B>17</B></A>
+, <A href="sheet21.pdf">21</A></DT>
+<DT><a href="Line.htm">&lt;Line&gt;</a>, <A href="sheet05.pdf"><B>5</B></A>
+</DT>
+<DT><a href="Lineage.htm">&lt;Lineage&gt;</a>, <A href="sheet20.pdf"><B>20</B></A>
+, <A href="sheet10.pdf">10</A>, <A href="sheet22.pdf">22</A></DT>
+<DT><a href="LinearFeature.htm">&lt;Linear Feature&gt;</a>, <A href="sheet08.pdf"><B>8</B></A>
+, <A href="sheet12.pdf">12</A></DT>
+<DT><a href="LinearGeometry.htm">&lt;Linear Geometry&gt;</a>, <A href="sheet05.pdf"><B>5</B></A>
+, <A href="sheet13.pdf">13</A>, <A href="sheet23.pdf">23</A></DT>
+<DT><a href="Literal.htm">&lt;Literal&gt;</a>, <A href="sheet16.pdf"><B>16</B></A>
+</DT>
+<DT><a href="LobeData.htm">&lt;Lobe Data&gt;</a>, <A href="sheet21.pdf"><B>21</B></A>
+</DT>
+<DT><a href="Local4x4.htm">&lt;Local 4x4&gt;</a>, <A href="sheet07.pdf"><B>7</B></A>
+</DT>
+<DT><a href="Location.htm">&lt;Location&gt;</a>, <A href="sheet15.pdf"><B>15</B></A>
+, <A href="sheet01.pdf">1</A>, <A href="sheet04.pdf">4</A>, <A href="sheet05.pdf">5</A>, <A href="sheet06.pdf">6</A>, <A href="sheet07.pdf">7</A>, <A href="sheet08.pdf">8</A>, <A href="sheet09.pdf">9</A>, <A href="sheet10.pdf">10</A>, <A href="sheet11.pdf">11</A>, <A href="sheet12.pdf">12</A>, <A href="sheet18.pdf">18</A>, <A href="sheet20.pdf">20</A>, <A href="sheet21.pdf">21</A>, <A href="sheet22.pdf">22</A>, <A href="sheet23.pdf">23</A></DT>
+<DT><a href="Location2D.htm">&lt;Location 2D&gt;</a>, <A href="sheet15.pdf"><B>15</B></A>
+, <A href="sheet23.pdf">23</A></DT>
+<DT><a href="Location3D.htm">&lt;Location 3D&gt;</a>, <A href="sheet15.pdf"><B>15</B></A>
+, <A href="sheet02.pdf">2</A>, <A href="sheet04.pdf">4</A>, <A href="sheet05.pdf">5</A>, <A href="sheet07.pdf">7</A>, <A href="sheet09.pdf">9</A>, <A href="sheet21.pdf">21</A>, <A href="sheet22.pdf">22</A>, <A href="sheet23.pdf">23</A></DT>
+<DT><a href="LocationSurface.htm">&lt;Location Surface&gt;</a>, <A href="sheet15.pdf"><B>15</B></A>
+, <A href="sheet23.pdf">23</A></DT>
+<DT><a href="LODRelatedFeatures.htm">&lt;LOD Related Features&gt;</a>, <A href="sheet08.pdf"><B>8</B></A>
+</DT>
+<DT><a href="LODRelatedGeometry.htm">&lt;LOD Related Geometry&gt;</a>, <A href="sheet04.pdf"><B>4</B></A>
+</DT>
+<DT><a href="LSA2DLocation.htm">&lt;LSA 2D Location&gt;</a>, <A href="sheet15.pdf"><B>15</B></A>
+</DT>
+<DT><a href="LSP2DLocation.htm">&lt;LSP 2D Location&gt;</a>, <A href="sheet15.pdf"><B>15</B></A>
+</DT>
+<DT><a href="LSR2DLocation.htm">&lt;LSR 2D Location&gt;</a>, <A href="sheet15.pdf"><B>15</B></A>
+</DT>
+<DT><a href="LSR3DLocation.htm">&lt;LSR 3D Location&gt;</a>, <A href="sheet15.pdf"><B>15</B></A>
+</DT>
+<DT><a href="LSR3DLocationControlLink.htm">&lt;LSR 3D Location Control Link&gt;</a>, <A href="sheet17.pdf"><B>17</B></A>
+, <A href="sheet15.pdf">15</A></DT>
+<DT><a href="LSRTransformation.htm">&lt;LSR Transformation&gt;</a>, <A href="sheet07.pdf"><B>7</B></A>
+, <A href="sheet02.pdf">2</A>, <A href="sheet04.pdf">4</A>, <A href="sheet06.pdf">6</A></DT>
+<DT><a href="LSRTransformationStep.htm">&lt;LSR Transformation Step&gt;</a>, <A href="sheet07.pdf"><B>7</B></A>
+, <A href="sheet23.pdf">23</A></DT>
+<DT><a href="LTSAS3DLocation.htm">&lt;LTSAS 3D Location&gt;</a>, <A href="sheet15.pdf"><B>15</B></A>
+</DT>
+<DT><a href="LTSASSurfaceLocation.htm">&lt;LTSAS Surface Location&gt;</a>, <A href="sheet15.pdf"><B>15</B></A>
+</DT>
+<DT><a href="LTSC3DLocation.htm">&lt;LTSC 3D Location&gt;</a>, <A href="sheet15.pdf"><B>15</B></A>
+</DT>
+<DT><a href="LTSCSurfaceLocation.htm">&lt;LTSC Surface Location&gt;</a>, <A href="sheet15.pdf"><B>15</B></A>
+</DT>
+<DT><a href="LTSE3DLocation.htm">&lt;LTSE 3D Location&gt;</a>, <A href="sheet15.pdf"><B>15</B></A>
+</DT>
+<DT><a href="LTSESurfaceLocation.htm">&lt;LTSE Surface Location&gt;</a>, <A href="sheet15.pdf"><B>15</B></A>
+</DT>
+<DT><A name="M" href="MAugmented3DLocation.htm">&lt;M Augmented 3D Location&gt;</A>, <A href="sheet15.pdf"><B>15</B></A>
+</DT>
+<DT><a href="MSurfaceLocation.htm">&lt;M Surface Location&gt;</a>, <A href="sheet15.pdf"><B>15</B></A>
+</DT>
+<DT><a href="MapScaleLODData.htm">&lt;Map Scale LOD Data&gt;</a>, <A href="sheet09.pdf"><B>9</B></A>
+</DT>
+<DT><a href="MeshFaceTable.htm">&lt;Mesh Face Table&gt;</a>, <A href="sheet18.pdf"><B>18</B></A>
+</DT>
+<DT><a href="Model.htm">&lt;Model&gt;</a>, <A href="sheet02.pdf"><B>2</B></A>
+, <A href="sheet10.pdf">10</A>, <A href="sheet16.pdf">16</A></DT>
+<DT><a href="ModelInstanceTemplateIndex.htm">&lt;Model Instance Template Index&gt;</a>, <A href="sheet07.pdf"><B>7</B></A>
+, <A href="sheet03.pdf">3</A>, <A href="sheet16.pdf">16</A></DT>
+<DT><a href="ModelLibrary.htm">&lt;Model Library&gt;</a>, <A href="sheet10.pdf"><B>10</B></A>
+, <A href="sheet01.pdf">1</A>, <A href="sheet02.pdf">2</A></DT>
+<DT><a href="MovingLightBehaviour.htm">&lt;Moving Light Behaviour&gt;</a>, <A href="sheet21.pdf"><B>21</B></A>
+</DT>
+<DT><A name="O" href="OctantData.htm">&lt;Octant Data&gt;</A>, <A href="sheet04.pdf"><B>4</B></A>
+, <A href="sheet08.pdf">8</A></DT>
+<DT><a href="OctantRelatedFeatures.htm">&lt;Octant Related Features&gt;</a>, <A href="sheet08.pdf"><B>8</B></A>
+</DT>
+<DT><a href="OctantRelatedGeometry.htm">&lt;Octant Related Geometry&gt;</a>, <A href="sheet04.pdf"><B>4</B></A>
+</DT>
+<DT><a href="OMSAugmented3DLocation.htm">&lt;OMS Augmented 3D Location&gt;</a>, <A href="sheet15.pdf"><B>15</B></A>
+</DT>
+<DT><a href="OMSSurfaceLocation.htm">&lt;OMS Surface Location&gt;</a>, <A href="sheet15.pdf"><B>15</B></A>
+</DT>
+<DT><a href="OverloadPriorityIndex.htm">&lt;Overload Priority Index&gt;</a>, <A href="sheet02.pdf"><B>2</B></A>
+, <A href="sheet03.pdf">3</A>, <A href="sheet04.pdf">4</A>, <A href="sheet07.pdf">7</A></DT>
+<DT><A name="P" href="ParallelepipedVolumeExtent.htm">&lt;Parallelepiped Volume Extent&gt;</A>, <A href="sheet09.pdf"><B>9</B></A>
+</DT>
+<DT><a href="PD3DLocation.htm">&lt;PD 3D Location&gt;</a>, <A href="sheet15.pdf"><B>15</B></A>
+</DT>
+<DT><a href="PDSurfaceLocation.htm">&lt;PD Surface Location&gt;</a>, <A href="sheet15.pdf"><B>15</B></A>
+</DT>
+<DT><a href="PerimeterData.htm">&lt;Perimeter Data&gt;</a>, <A href="sheet09.pdf"><B>9</B></A>
+, <A href="sheet04.pdf">4</A>, <A href="sheet08.pdf">8</A>, <A href="sheet11.pdf">11</A>, <A href="sheet22.pdf">22</A></DT>
+<DT><a href="PerimeterRelatedFeatureTopology.htm">&lt;Perimeter Related Feature Topology&gt;</a>, <A href="sheet11.pdf"><B>11</B></A>
+</DT>
+<DT><a href="PerimeterRelatedFeatures.htm">&lt;Perimeter Related Features&gt;</a>, <A href="sheet08.pdf"><B>8</B></A>
+</DT>
+<DT><a href="PerimeterRelatedGeometry.htm">&lt;Perimeter Related Geometry&gt;</a>, <A href="sheet04.pdf"><B>4</B></A>
+</DT>
+<DT><a href="PerimeterRelatedGeometryTopology.htm">&lt;Perimeter Related Geometry Topology&gt;</a>, <A href="sheet11.pdf"><B>11</B></A>
+</DT>
+<DT><a href="Point.htm">&lt;Point&gt;</a>, <A href="sheet05.pdf"><B>5</B></A>
+, <A href="sheet13.pdf">13</A></DT>
+<DT><a href="PointFeature.htm">&lt;Point Feature&gt;</a>, <A href="sheet08.pdf"><B>8</B></A>
+, <A href="sheet12.pdf">12</A></DT>
+<DT><a href="Polygon.htm">&lt;Polygon&gt;</a>, <A href="sheet05.pdf"><B>5</B></A>
+, <A href="sheet13.pdf">13</A></DT>
+<DT><a href="PolygonControlLink.htm">&lt;Polygon Control Link&gt;</a>, <A href="sheet17.pdf"><B>17</B></A>
+, <A href="sheet05.pdf">5</A></DT>
+<DT><a href="Polyhedron.htm">&lt;Polyhedron&gt;</a>, <A href="sheet05.pdf"><B>5</B></A>
+, <A href="sheet13.pdf">13</A></DT>
+<DT><a href="PositionalLight.htm">&lt;Positional Light&gt;</a>, <A href="sheet21.pdf"><B>21</B></A>
+</DT>
+<DT><a href="PredefinedFunction.htm">&lt;Predefined Function&gt;</a>, <A href="sheet16.pdf"><B>16</B></A>
+</DT>
+<DT><a href="PresentationDomain.htm">&lt;Presentation Domain&gt;</a>, <A href="sheet14.pdf"><B>14</B></A>
+, <A href="sheet04.pdf">4</A>, <A href="sheet05.pdf">5</A>, <A href="sheet08.pdf">8</A>, <A href="sheet19.pdf">19</A>, <A href="sheet21.pdf">21</A>, <A href="sheet22.pdf">22</A></DT>
+<DT><a href="PrimitiveColour.htm">&lt;Primitive Colour&gt;</a>, <A href="sheet14.pdf"><B>14</B></A>
+</DT>
+<DT><a href="PrimitiveFeature.htm">&lt;Primitive Feature&gt;</a>, <A href="sheet08.pdf"><B>8</B></A>
+, <A href="sheet23.pdf">23</A></DT>
+<DT><a href="PrimitiveGeometry.htm">&lt;Primitive Geometry&gt;</a>, <A href="sheet05.pdf"><B>5</B></A>
+, <A href="sheet03.pdf">3</A>, <A href="sheet04.pdf">4</A>, <A href="sheet18.pdf">18</A>, <A href="sheet23.pdf">23</A></DT>
+<DT><a href="PrimitiveSummaryItem.htm">&lt;Primitive Summary Item&gt;</a>, <A href="sheet20.pdf"><B>20</B></A>
+, <A href="sheet01.pdf">1</A>, <A href="sheet02.pdf">2</A></DT>
+<DT><a href="ProcessStep.htm">&lt;Process Step&gt;</a>, <A href="sheet20.pdf"><B>20</B></A>
+</DT>
+<DT><a href="Property.htm">&lt;Property&gt;</a>, <A href="sheet06.pdf"><B>6</B></A>
+, <A href="sheet23.pdf">23</A></DT>
+<DT><a href="PropertyCharacteristic.htm">&lt;Property Characteristic&gt;</a>, <A href="sheet06.pdf"><B>6</B></A>
+</DT>
+<DT><a href="PropertyDescription.htm">&lt;Property Description&gt;</a>, <A href="sheet06.pdf"><B>6</B></A>
+, <A href="sheet04.pdf">4</A>, <A href="sheet08.pdf">8</A>, <A href="sheet20.pdf">20</A></DT>
+<DT><a href="PropertyGrid.htm">&lt;Property Grid&gt;</a>, <A href="sheet06.pdf"><B>6</B></A>
+, <A href="sheet08.pdf">8</A></DT>
+<DT><a href="PropertyGridHookPoint.htm">&lt;Property Grid Hook Point&gt;</a>, <A href="sheet06.pdf"><B>6</B></A>
+, <A href="sheet03.pdf">3</A>, <A href="sheet07.pdf">7</A>, <A href="sheet13.pdf">13</A></DT>
+<DT><a href="PropertySet.htm">&lt;Property Set&gt;</a>, <A href="sheet19.pdf"><B>19</B></A>
+, <A href="sheet06.pdf">6</A></DT>
+<DT><a href="PropertySetIndex.htm">&lt;Property Set Index&gt;</a>, <A href="sheet19.pdf"><B>19</B></A>
+, <A href="sheet03.pdf">3</A>, <A href="sheet08.pdf">8</A></DT>
+<DT><a href="PropertySetIndexControlLink.htm">&lt;Property Set Index Control Link&gt;</a>, <A href="sheet17.pdf"><B>17</B></A>
+, <A href="sheet19.pdf">19</A></DT>
+<DT><a href="PropertySetTable.htm">&lt;Property Set Table&gt;</a>, <A href="sheet19.pdf"><B>19</B></A>
+</DT>
+<DT><a href="PropertySetTableGroup.htm">&lt;Property Set Table Group&gt;</a>, <A href="sheet19.pdf"><B>19</B></A>
+, <A href="sheet10.pdf">10</A></DT>
+<DT><a href="PropertySetTableLibrary.htm">&lt;Property Set Table Library&gt;</a>, <A href="sheet10.pdf"><B>10</B></A>
+, <A href="sheet01.pdf">1</A>, <A href="sheet19.pdf">19</A></DT>
+<DT><a href="PropertyTable.htm">&lt;Property Table&gt;</a>, <A href="sheet06.pdf"><B>6</B></A>
+, <A href="sheet03.pdf">3</A>, <A href="sheet08.pdf">8</A>, <A href="sheet18.pdf">18</A>, <A href="sheet19.pdf">19</A></DT>
+<DT><a href="PropertyTableReference.htm">&lt;Property Table Reference&gt;</a>, <A href="sheet06.pdf"><B>6</B></A>
+, <A href="sheet03.pdf">3</A>, <A href="sheet08.pdf">8</A>, <A href="sheet16.pdf">16</A>, <A href="sheet18.pdf">18</A>, <A href="sheet19.pdf">19</A>, <A href="sheet22.pdf">22</A></DT>
+<DT><a href="PropertyTableReferenceControlLink.htm">&lt;Property Table Reference Control Link&gt;</a>, <A href="sheet17.pdf"><B>17</B></A>
+, <A href="sheet18.pdf">18</A></DT>
+<DT><a href="PropertyValue.htm">&lt;Property Value&gt;</a>, <A href="sheet06.pdf"><B>6</B></A>
+, <A href="sheet02.pdf">2</A>, <A href="sheet03.pdf">3</A>, <A href="sheet08.pdf">8</A>, <A href="sheet09.pdf">9</A>, <A href="sheet12.pdf">12</A>, <A href="sheet18.pdf">18</A>, <A href="sheet19.pdf">19</A></DT>
+<DT><a href="ProximityData.htm">&lt;Proximity Data&gt;</a>, <A href="sheet09.pdf"><B>9</B></A>
+</DT>
+<DT><a href="PSAugmented3DLocation.htm">&lt;PS Augmented 3D Location&gt;</a>, <A href="sheet15.pdf"><B>15</B></A>
+</DT>
+<DT><a href="PSSurfaceLocation.htm">&lt;PS Surface Location&gt;</a>, <A href="sheet15.pdf"><B>15</B></A>
+</DT>
+<DT><a href="PseudoCodeFunction.htm">&lt;Pseudo Code Function&gt;</a>, <A href="sheet16.pdf"><B>16</B></A>
+</DT>
+<DT><a href="PyramidDirectionalLight.htm">&lt;Pyramid Directional Light&gt;</a>, <A href="sheet21.pdf"><B>21</B></A>
+</DT>
+<DT><A name="Q" href="QuadrantData.htm">&lt;Quadrant Data&gt;</A>, <A href="sheet04.pdf"><B>4</B></A>
+, <A href="sheet08.pdf">8</A></DT>
+<DT><a href="QuadrantRelatedFeatures.htm">&lt;Quadrant Related Features&gt;</a>, <A href="sheet08.pdf"><B>8</B></A>
+</DT>
+<DT><a href="QuadrantRelatedGeometry.htm">&lt;Quadrant Related Geometry&gt;</a>, <A href="sheet04.pdf"><B>4</B></A>
+</DT>
+<DT><A name="R" href="ReferenceOrigin.htm">&lt;Reference Origin&gt;</A>, <A href="sheet01.pdf"><B>1</B></A>
+</DT>
+<DT><a href="ReferenceSurface.htm">&lt;Reference Surface&gt;</a>, <A href="sheet09.pdf"><B>9</B></A>
+, <A href="sheet03.pdf">3</A>, <A href="sheet08.pdf">8</A></DT>
+<DT><a href="ReferenceVector.htm">&lt;Reference Vector&gt;</a>, <A href="sheet07.pdf"><B>7</B></A>
+, <A href="sheet04.pdf">4</A>, <A href="sheet05.pdf">5</A>, <A href="sheet09.pdf">9</A>, <A href="sheet18.pdf">18</A>, <A href="sheet21.pdf">21</A></DT>
+<DT><a href="ReferenceVectorControlLink.htm">&lt;Reference Vector Control Link&gt;</a>, <A href="sheet17.pdf"><B>17</B></A>
+, <A href="sheet05.pdf">5</A>, <A href="sheet07.pdf">7</A></DT>
+<DT><a href="RegularAxis.htm">&lt;Regular Axis&gt;</a>, <A href="sheet06.pdf"><B>6</B></A>
+</DT>
+<DT><a href="RelativeTime.htm">&lt;Relative Time&gt;</a>, <A href="sheet20.pdf"><B>20</B></A>
+</DT>
+<DT><a href="RelativeTimeInterval.htm">&lt;Relative Time Interval&gt;</a>, <A href="sheet20.pdf"><B>20</B></A>
+</DT>
+<DT><a href="RenderingPriorityLevel.htm">&lt;Rendering Priority Level&gt;</a>, <A href="sheet03.pdf"><B>3</B></A>
+, <A href="sheet04.pdf">4</A>, <A href="sheet05.pdf">5</A>, <A href="sheet07.pdf">7</A>, <A href="sheet08.pdf">8</A>, <A href="sheet19.pdf">19</A></DT>
+<DT><a href="RenderingProperties.htm">&lt;Rendering Properties&gt;</a>, <A href="sheet21.pdf"><B>21</B></A>
+, <A href="sheet04.pdf">4</A>, <A href="sheet05.pdf">5</A>, <A href="sheet19.pdf">19</A></DT>
+<DT><a href="ResponsibleParty.htm">&lt;Responsible Party&gt;</a>, <A href="sheet20.pdf"><B>20</B></A>
+</DT>
+<DT><a href="RGBColour.htm">&lt;RGB Colour&gt;</a>, <A href="sheet14.pdf"><B>14</B></A>
+</DT>
+<DT><a href="RGBColourControlLink.htm">&lt;RGB Colour Control Link&gt;</a>, <A href="sheet17.pdf"><B>17</B></A>
+, <A href="sheet14.pdf">14</A></DT>
+<DT><a href="RoleData.htm">&lt;Role Data&gt;</a>, <A href="sheet20.pdf"><B>20</B></A>
+</DT>
+<DT><a href="RotatingLightBehaviour.htm">&lt;Rotating Light Behaviour&gt;</a>, <A href="sheet21.pdf"><B>21</B></A>
+</DT>
+<DT><a href="Rotation.htm">&lt;Rotation&gt;</a>, <A href="sheet07.pdf"><B>7</B></A>
+</DT>
+<DT><a href="RotationControlLink.htm">&lt;Rotation Control Link&gt;</a>, <A href="sheet17.pdf"><B>17</B></A>
+, <A href="sheet07.pdf">7</A></DT>
+<DT><A name="S" href="Scale.htm">&lt;Scale&gt;</A>, <A href="sheet07.pdf"><B>7</B></A>
+</DT>
+<DT><a href="ScaleControlLink.htm">&lt;Scale Control Link&gt;</a>, <A href="sheet17.pdf"><B>17</B></A>
+, <A href="sheet07.pdf">7</A></DT>
+<DT><a href="Season.htm">&lt;Season&gt;</a>, <A href="sheet20.pdf"><B>20</B></A>
+</DT>
+<DT><a href="SEC3DLocation.htm">&lt;SEC 3D Location&gt;</a>, <A href="sheet15.pdf"><B>15</B></A>
+</DT>
+<DT><a href="SecurityConstraints.htm">&lt;Security Constraints&gt;</a>, <A href="sheet20.pdf"><B>20</B></A>
+</DT>
+<DT><a href="SEDRISAbstractBase.htm">&lt;SEDRIS Abstract Base&gt;</a>, <A href="sheet23.pdf"><B>23</B></A>
+, <A href="sheet09.pdf">9</A></DT>
+<DT><a href="SeparatingPlane.htm">&lt;Separating Plane&gt;</a>, <A href="sheet04.pdf"><B>4</B></A>
+</DT>
+<DT><a href="SeparatingPlaneData.htm">&lt;Separating Plane Data&gt;</a>, <A href="sheet04.pdf"><B>4</B></A>
+</DT>
+<DT><a href="SeparatingPlaneRelatedGeometry.htm">&lt;Separating Plane Related Geometry&gt;</a>, <A href="sheet04.pdf"><B>4</B></A>
+</DT>
+<DT><a href="SeparatingPlaneRelations.htm">&lt;Separating Plane Relations&gt;</a>, <A href="sheet04.pdf"><B>4</B></A>
+</DT>
+<DT><a href="SEQ3DLocation.htm">&lt;SEQ 3D Location&gt;</a>, <A href="sheet15.pdf"><B>15</B></A>
+</DT>
+<DT><a href="SMD3DLocation.htm">&lt;SMD 3D Location&gt;</a>, <A href="sheet15.pdf"><B>15</B></A>
+</DT>
+<DT><a href="SME3DLocation.htm">&lt;SME 3D Location&gt;</a>, <A href="sheet15.pdf"><B>15</B></A>
+</DT>
+<DT><a href="Sound.htm">&lt;Sound&gt;</a>, <A href="sheet22.pdf"><B>22</B></A>
+, <A href="sheet10.pdf">10</A></DT>
+<DT><a href="SoundInstance.htm">&lt;Sound Instance&gt;</a>, <A href="sheet22.pdf"><B>22</B></A>
+, <A href="sheet03.pdf">3</A>, <A href="sheet08.pdf">8</A>, <A href="sheet09.pdf">9</A></DT>
+<DT><a href="SoundInstanceControlLink.htm">&lt;Sound Instance Control Link&gt;</a>, <A href="sheet17.pdf"><B>17</B></A>
+, <A href="sheet22.pdf">22</A></DT>
+<DT><a href="SoundLibrary.htm">&lt;Sound Library&gt;</a>, <A href="sheet10.pdf"><B>10</B></A>
+, <A href="sheet01.pdf">1</A>, <A href="sheet22.pdf">22</A></DT>
+<DT><a href="SoundVolume.htm">&lt;Sound Volume&gt;</a>, <A href="sheet09.pdf"><B>9</B></A>
+, <A href="sheet22.pdf">22</A></DT>
+<DT><a href="Source.htm">&lt;Source&gt;</a>, <A href="sheet20.pdf"><B>20</B></A>
+</DT>
+<DT><a href="SpatialAssociationData.htm">&lt;Spatial Association Data&gt;</a>, <A href="sheet09.pdf"><B>9</B></A>
+</DT>
+<DT><a href="SpatialExtent.htm">&lt;Spatial Extent&gt;</a>, <A href="sheet20.pdf"><B>20</B></A>
+, <A href="sheet01.pdf">1</A>, <A href="sheet02.pdf">2</A>, <A href="sheet04.pdf">4</A>, <A href="sheet06.pdf">6</A>, <A href="sheet08.pdf">8</A>, <A href="sheet22.pdf">22</A></DT>
+<DT><a href="SpatialIndexData.htm">&lt;Spatial Index Data&gt;</a>, <A href="sheet04.pdf"><B>4</B></A>
+, <A href="sheet08.pdf">8</A>, <A href="sheet11.pdf">11</A></DT>
+<DT><a href="SpatialIndexRelatedFeatureTopology.htm">&lt;Spatial Index Related Feature Topology&gt;</a>, <A href="sheet11.pdf"><B>11</B></A>
+</DT>
+<DT><a href="SpatialIndexRelatedFeatures.htm">&lt;Spatial Index Related Features&gt;</a>, <A href="sheet08.pdf"><B>8</B></A>
+</DT>
+<DT><a href="SpatialIndexRelatedGeometry.htm">&lt;Spatial Index Related Geometry&gt;</a>, <A href="sheet04.pdf"><B>4</B></A>
+</DT>
+<DT><a href="SpatialIndexRelatedGeometryTopology.htm">&lt;Spatial Index Related Geometry Topology&gt;</a>, <A href="sheet11.pdf"><B>11</B></A>
+</DT>
+<DT><a href="SpatialResolutionLODData.htm">&lt;Spatial Resolution LOD Data&gt;</a>, <A href="sheet09.pdf"><B>9</B></A>
+</DT>
+<DT><a href="SpecularColour.htm">&lt;Specular Colour&gt;</a>, <A href="sheet14.pdf"><B>14</B></A>
+, <A href="sheet21.pdf">21</A></DT>
+<DT><a href="SphericalVolumeExtent.htm">&lt;Spherical Volume Extent&gt;</a>, <A href="sheet09.pdf"><B>9</B></A>
+</DT>
+<DT><a href="SpotLight.htm">&lt;Spot Light&gt;</a>, <A href="sheet21.pdf"><B>21</B></A>
+</DT>
+<DT><a href="SRFSummary.htm">&lt;SRF Summary&gt;</a>, <A href="sheet20.pdf"><B>20</B></A>
+</DT>
+<DT><a href="StampBehaviour.htm">&lt;Stamp Behaviour&gt;</a>, <A href="sheet07.pdf"><B>7</B></A>
+, <A href="sheet03.pdf">3</A>, <A href="sheet04.pdf">4</A></DT>
+<DT><a href="StateControlLink.htm">&lt;State Control Link&gt;</a>, <A href="sheet17.pdf"><B>17</B></A>
+, <A href="sheet04.pdf">4</A>, <A href="sheet08.pdf">8</A></DT>
+<DT><a href="StateData.htm">&lt;State Data&gt;</a>, <A href="sheet04.pdf"><B>4</B></A>
+, <A href="sheet08.pdf">8</A></DT>
+<DT><a href="StateRelatedFeatures.htm">&lt;State Related Features&gt;</a>, <A href="sheet08.pdf"><B>8</B></A>
+</DT>
+<DT><a href="StateRelatedGeometry.htm">&lt;State Related Geometry&gt;</a>, <A href="sheet04.pdf"><B>4</B></A>
+</DT>
+<DT><a href="StrobingLightBehaviour.htm">&lt;Strobing Light Behaviour&gt;</a>, <A href="sheet21.pdf"><B>21</B></A>
+</DT>
+<DT><a href="SurfaceGeometry.htm">&lt;Surface Geometry&gt;</a>, <A href="sheet05.pdf"><B>5</B></A>
+, <A href="sheet23.pdf">23</A></DT>
+<DT><a href="Symbol.htm">&lt;Symbol&gt;</a>, <A href="sheet10.pdf"><B>10</B></A>
+</DT>
+<DT><a href="SymbolLibrary.htm">&lt;Symbol Library&gt;</a>, <A href="sheet10.pdf"><B>10</B></A>
+, <A href="sheet01.pdf">1</A></DT>
+<DT><A name="T" href="TablePropertyDescription.htm">&lt;Table Property Description&gt;</A>, <A href="sheet06.pdf"><B>6</B></A>
+</DT>
+<DT><a href="TackPoint.htm">&lt;Tack Point&gt;</a>, <A href="sheet05.pdf"><B>5</B></A>
+</DT>
+<DT><a href="Text.htm">&lt;Text&gt;</a>, <A href="sheet10.pdf"><B>10</B></A>
+</DT>
+<DT><a href="TextureCoordinate.htm">&lt;Texture Coordinate&gt;</a>, <A href="sheet18.pdf"><B>18</B></A>
+, <A href="sheet05.pdf">5</A></DT>
+<DT><a href="TextureCoordinateControlLink.htm">&lt;Texture Coordinate Control Link&gt;</a>, <A href="sheet17.pdf"><B>17</B></A>
+, <A href="sheet18.pdf">18</A></DT>
+<DT><a href="TimeConstraintsData.htm">&lt;Time Constraints Data&gt;</a>, <A href="sheet20.pdf"><B>20</B></A>
+, <A href="sheet02.pdf">2</A>, <A href="sheet03.pdf">3</A>, <A href="sheet04.pdf">4</A>, <A href="sheet06.pdf">6</A>, <A href="sheet08.pdf">8</A>, <A href="sheet19.pdf">19</A>, <A href="sheet22.pdf">22</A></DT>
+<DT><a href="TimeInterval.htm">&lt;Time Interval&gt;</a>, <A href="sheet20.pdf"><B>20</B></A>
+, <A href="sheet22.pdf">22</A>, <A href="sheet23.pdf">23</A></DT>
+<DT><a href="TimeOfDay.htm">&lt;Time Of Day&gt;</a>, <A href="sheet20.pdf"><B>20</B></A>
+</DT>
+<DT><a href="TimePoint.htm">&lt;Time Point&gt;</a>, <A href="sheet20.pdf"><B>20</B></A>
+, <A href="sheet23.pdf">23</A></DT>
+<DT><a href="TimeRelatedFeatures.htm">&lt;Time Related Features&gt;</a>, <A href="sheet08.pdf"><B>8</B></A>
+</DT>
+<DT><a href="TimeRelatedGeometry.htm">&lt;Time Related Geometry&gt;</a>, <A href="sheet04.pdf"><B>4</B></A>
+</DT>
+<DT><a href="TMAugmented3DLocation.htm">&lt;TM Augmented 3D Location&gt;</a>, <A href="sheet15.pdf"><B>15</B></A>
+</DT>
+<DT><a href="TMSurfaceLocation.htm">&lt;TM Surface Location&gt;</a>, <A href="sheet15.pdf"><B>15</B></A>
+</DT>
+<DT><a href="Transformation.htm">&lt;Transformation&gt;</a>, <A href="sheet07.pdf"><B>7</B></A>
+, <A href="sheet03.pdf">3</A>, <A href="sheet23.pdf">23</A></DT>
+<DT><a href="Translation.htm">&lt;Translation&gt;</a>, <A href="sheet07.pdf"><B>7</B></A>
+</DT>
+<DT><a href="TranslationControlLink.htm">&lt;Translation Control Link&gt;</a>, <A href="sheet17.pdf"><B>17</B></A>
+, <A href="sheet07.pdf">7</A></DT>
+<DT><a href="Translucency.htm">&lt;Translucency&gt;</a>, <A href="sheet14.pdf"><B>14</B></A>
+</DT>
+<DT><a href="TranslucencyControlLink.htm">&lt;Translucency Control Link&gt;</a>, <A href="sheet17.pdf"><B>17</B></A>
+, <A href="sheet14.pdf">14</A></DT>
+<DT><a href="TransmittalRoot.htm">&lt;Transmittal Root&gt;</a>, <A href="sheet01.pdf"><B>1</B></A>
+</DT>
+<DT><a href="TransmittalSummary.htm">&lt;Transmittal Summary&gt;</a>, <A href="sheet20.pdf"><B>20</B></A>
+, <A href="sheet01.pdf">1</A></DT>
+<DT><a href="TwinklingLightBehaviour.htm">&lt;Twinkling Light Behaviour&gt;</a>, <A href="sheet21.pdf"><B>21</B></A>
+</DT>
+<DT><A name="U" href="UnionOfFeatureTopology.htm">&lt;Union Of Feature Topology&gt;</A>, <A href="sheet11.pdf"><B>11</B></A>
+</DT>
+<DT><a href="UnionOfFeatures.htm">&lt;Union Of Features&gt;</a>, <A href="sheet08.pdf"><B>8</B></A>
+</DT>
+<DT><a href="UnionOfGeometry.htm">&lt;Union Of Geometry&gt;</a>, <A href="sheet04.pdf"><B>4</B></A>
+, <A href="sheet23.pdf">23</A></DT>
+<DT><a href="UnionOfGeometryHierarchy.htm">&lt;Union Of Geometry Hierarchy&gt;</a>, <A href="sheet04.pdf"><B>4</B></A>
+</DT>
+<DT><a href="UnionOfGeometryTopology.htm">&lt;Union Of Geometry Topology&gt;</a>, <A href="sheet11.pdf"><B>11</B></A>
+</DT>
+<DT><a href="UnionOfPrimitiveGeometry.htm">&lt;Union Of Primitive Geometry&gt;</a>, <A href="sheet04.pdf"><B>4</B></A>
+, <A href="sheet05.pdf">5</A></DT>
+<DT><A name="V" href="Variable.htm">&lt;Variable&gt;</A>, <A href="sheet16.pdf"><B>16</B></A>
+</DT>
+<DT><a href="Vertex.htm">&lt;Vertex&gt;</a>, <A href="sheet18.pdf"><B>18</B></A>
+, <A href="sheet05.pdf">5</A>, <A href="sheet13.pdf">13</A></DT>
+<DT><a href="VolumeExtent.htm">&lt;Volume Extent&gt;</a>, <A href="sheet09.pdf"><B>9</B></A>
+, <A href="sheet05.pdf">5</A>, <A href="sheet21.pdf">21</A>, <A href="sheet23.pdf">23</A></DT>
+<DT><a href="VolumeGeometry.htm">&lt;Volume Geometry&gt;</a>, <A href="sheet05.pdf"><B>5</B></A>
+, <A href="sheet23.pdf">23</A></DT>
+<DT><a href="VolumeLightBehaviour.htm">&lt;Volume Light Behaviour&gt;</a>, <A href="sheet21.pdf"><B>21</B></A>
+</DT>
+<DT><a href="VolumeLODData.htm">&lt;Volume LOD Data&gt;</a>, <A href="sheet09.pdf"><B>9</B></A>
+</DT>
+<DT><a href="VolumeObject.htm">&lt;Volume Object&gt;</a>, <A href="sheet05.pdf"><B>5</B></A>
+, <A href="sheet13.pdf">13</A></DT>
+<DT><a href="VolumetricFeature.htm">&lt;Volumetric Feature&gt;</a>, <A href="sheet08.pdf"><B>8</B></A>
+, <A href="sheet12.pdf">12</A></DT>
+<DT><A name="W" href="World3x3.htm">&lt;World 3x3&gt;</A>, <A href="sheet07.pdf"><B>7</B></A>
+</DT>
+<DT><a href="WorldTransformation.htm">&lt;World Transformation&gt;</a>, <A href="sheet07.pdf"><B>7</B></A>
+</DT>
+</DL>
+<STRONG>Up:</STRONG><A href="../index.htm">Index</A>
+<BR><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

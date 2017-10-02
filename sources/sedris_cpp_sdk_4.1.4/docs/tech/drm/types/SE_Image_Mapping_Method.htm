@@ -1,0 +1,223 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE_Image_Mapping_Method</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX C - Types
+</font>
+<br>
+<font color="#ffffff">
+SE_Image_Mapping_Method
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<PRE>
+/*
+ * REGISTERABLE ENUM: SE_Image_Mapping_Method
+ *
+ *   This data type specifies how to combine an &lt;Image Mapping Function&gt;
+ *   instance's texture map with any &lt;Colour&gt; instances on the textured
+ *   object.
+ *
+ *   There are 4 methods: Replace, Decal, Modulate, and Blend.
+ *
+ *   For most image signatures, only the Replace method is valid. The other 3
+ *   image mapping methods are only defined for &lt;Image&gt; instances that have
+ *   one of the following image signatures:
+ *         SE_IMAGSIG_ALPHA
+ *         SE_IMAGSIG_LUMINANCE
+ *         SE_IMAGSIG_LUMINANCE_ALPHA
+ *         SE_IMAGSIG_123COLOUR
+ *         SE_IMAGSIG_123COLOUR_ALPHA
+ *
+ *   When applying &lt;Image&gt; instances to an object, there are up to 4 sets of
+ *   values to consider:
+ *   - the current &lt;Colour&gt; and alpha (a.k.a. &lt;Translucency&gt;) of the object
+ *
+ *   - the &lt;Colour&gt; and alpha defined by the &lt;Image&gt;
+ *
+ *   - the image blend colour (if any) of the object; specified by one of its
+ *     &lt;Colour&gt; components, if present
+ *
+ *   - the final &lt;Colour&gt; and alpha of the object
+ *
+ *   Based on what elements are defined in the image, here are the
+ *   recommendations of the other 3 image mapping methods on how to
+ *   combine the &lt;Image&gt;'s colour and alpha with the object's pre-existing
+ *   values to produce the final displayed values. These recommendations
+ *   are based on the number of colour and alpha elements defined in the
+ *   applied &lt;Image&gt;:
+ *
+ *    Type 1 - Only one Colour component (either a Luminance value or
+ *             an Alpha value) is defined in each texel of the &lt;Image&gt;, the
+ *             image_signature of which is either SE_IMAGSIG_LUMINANCE
+ *             or SE_IMAGSIG_ALPHA.
+ *
+ *    Type 2 - Two Colour components are defined (Luminance and Alpha) in each
+ *             texel the &lt;Image&gt;, the image_signature of which is
+ *             SE_IMAGSIG_LUMINANCE_ALPHA.
+ *
+ *    Type 3 - A full colour triplet (but no Alpha) is defined in each texel of
+ *             the &lt;Image&gt;, the image_signature of which is
+ *             SE_IMAGSIG_123COLOUR.
+ *
+ *    Type 4 - A full colour triplet and alpha are defined in each texel of the
+ *             &lt;Image&gt;, the image_signature of which is
+ *             SE_IMAGSIG_123COLOUR_ALPHA.
+ *
+ *   Please note that in the following equations, it is *assumed* that
+ *   (a) values are normalized for all components, and
+ *   (b) if an object does not have an explicitly defined alpha, the alpha for
+ *       that object is 1.
+ *
+ *   Also, in the following equations, the calculation for Displayed Colour is
+ *   actually done once for each of the components of colour model, using the
+ *   respective colour components.
+ */
+</PRE><span class="Code">
+typedef <a href="SE_Short_Integer.htm">SE_Short_Integer</a> SE_Image_Mapping_Method;
+</span>
+<table>
+<tr><th>Enumerant</th> <th>Definition</th> <th>Value</th></tr>
+<tr><td class="CFunction"><a name="SE_IMAGMAPMETH_REPLACE">SE_IMAGMAPMETH_REPLACE</a></td>
+<td class="CFunction"><PRE>
+ For this image mapping method, no calculations are needed; the colour
+ and alpha (a.k.a. translucency) of the &lt;Image&gt; completely replace the
+ original colour and alpha of the object (if any).
+</PRE></td>
+<td class="CFunction">1</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_IMAGMAPMETH_DECAL">SE_IMAGMAPMETH_DECAL</a></td>
+<td class="CFunction"><PRE>
+ For this method, the &lt;Image&gt; is essentially rendered on top of anything
+ already there, like a decal (hence the name).
+
+      For Type 1 and Type 2, the results are not defined.
+
+      For Type 3 - Displayed Colour = Image Colour
+
+                   Displayed Alpha = Original Object Alpha
+
+      For Type 4 - Displayed Colour =
+                   (1 - Image Alpha) * Original Object Colour +
+                   (Image Alpha  * Image Colour)
+
+                   Displayed Alpha = Original Object Alpha
+</PRE></td>
+<td class="CFunction">2</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_IMAGMAPMETH_MODULATE">SE_IMAGMAPMETH_MODULATE</a></td>
+<td class="CFunction"><PRE>
+ For this method, the &lt;Image&gt;'s luminance (or colour) and alpha are
+ linearly combined with those of the original object.
+
+      For Type 1 Luminance - Displayed Colour = Image Luminance *
+                                               Original Object Colour
+
+                             Displayed Alpha = Original Object Alpha
+
+      For Type 1 Alpha - Displayed Colour = Original Object Colour
+
+                         Displayed Alpha = Original Object Alpha *
+                                           Image Alpha
+
+      For Type 2 - Displayed Colour = Image Luminance *
+                                      Original Object Colour
+
+                   Displayed Alpha = Image Alpha * Original Object Alpha
+
+      For Type 3 - Displayed Colour = Image Colour *
+                                      Original Object Colour
+
+                   Displayed Alpha = Original Object Alpha
+
+      For Type 4 - Displayed Colour = Image Colour *
+                                      Original Object Colour
+
+                   Displayed Alpha = Image Alpha * Original Object Alpha
+</PRE></td>
+<td class="CFunction">3</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_IMAGMAPMETH_BLEND">SE_IMAGMAPMETH_BLEND</a></td>
+<td class="CFunction"><PRE>
+ For this method, the image blend colour of the object determines how
+ the &lt;Image&gt; is combined with the object's primary colour.
+
+      For Type 1 Luminance - Displayed Colour =
+                              (1 - Image Luminance) *
+                                 Original Object Colour +
+                              (Image Luminance  * Blend Colour)
+
+                             Displayed Alpha = Original Object Alpha
+
+      For Type 1 Alpha - Displayed Colour = Original Object Colour
+
+                         Displayed Alpha = Original Object Alpha *
+                                           Image Alpha
+
+      For Type 2 - Displayed Colour =
+                      (1 - Image Luminance) * Original Object Colour +
+                      (Image Luminance  * Blend Colour)
+
+                   Displayed Alpha = Original Object Alpha * Image Alpha
+
+      For Type 3 - Displayed Colour =
+                      (1 - Image Colour) * Original Object Colour +
+                      (Blend Colour * Image Colour)
+
+                   Displayed Alpha = Original Object Alpha
+
+      For Type 4 -  Displayed Colour =
+                       (1 - Image Colour) * Original Object Colour +
+                       (Blend Colour * Image Colour)
+
+                    Displayed Alpha = Original Object Alpha * Image Alpha
+</PRE></td>
+<td class="CFunction">4</td>
+</TR>
+</table>
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SE_Image_Component_Type.htm">SE_Image_Component_Type</a>.
+<strong>Next:</strong> <a href="SE_Image_MIP_Extents.htm">SE_Image_MIP_Extents</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

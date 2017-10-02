@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Control Link Constraints</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX B - Constraints
+</font>
+<br>
+<font color="#ffffff">
+Control Link Constraints
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS C++ SDK Release 4.1.4 - July 1, 2011 -->
+
+<h3>Definition</h3>
+<P>
+ For any <A href="../classes/ControlLink.htm">&lt;Control Link&gt;</A> instance with one or more
+ index fields containing non-zero values, there shall be a
+ corresponding <A href="../classes/Expression.htm">&lt;Expression&gt;</A> component that is
+ referenced by each non-zero index field value.
+</P><P>
+ For any <A href="../classes/ControlLink.htm">&lt;Control Link&gt;</A> instance containing an upper
+ and lower bound index field both of whose values are non-zero,
+ the value produced by the <A href="../classes/Expression.htm">&lt;Expression&gt;</A> component
+ for the lower bound shall be less than or equal to the
+ value produced by the <A href="../classes/Expression.htm">&lt;Expression&gt;</A> component
+ for the upper bound.
+</P>
+
+<h3>Rationale</h3>
+<P>
+ Each index field value of a <A href="../classes/ControlLink.htm">&lt;Control Link&gt;</A> instance
+ that specifies an <A href="../classes/Expression.htm">&lt;Expression&gt;</A> component shall specify
+ a valid value. If both an upper and a lower bound are specified,
+ they shall be consistent with one another.
+</P>
+<h3>Example</h3>
+<p>
+No example supplied.
+</p>
+<h3>FAQs</h3>
+<p>
+No FAQs supplied.
+</p>
+
+<hr>
+<strong>Prev:</strong> <A href="ContinuousLODConstraints.htm">Continuous LOD Constraints</A>.
+<strong>Next:</strong> <A href="CylindricalStructure.htm">Cylindrical Structure</A>.
+<strong>Up:</strong><A href="index.htm">Index</A>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE AllocDataTableData</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX A - Transmittal Access Level 0 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+SE AllocDataTableData
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../types/SE_Return_Code.htm">SE_Return_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SE_AllocDataTableData</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../types/SE_Object.htm">SE_Object</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"> </td><td class="CFunction"><a name="data_table"></a>data_table,</td><td class="CFunction"><sup><A href="#Notes_data_table">1</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">const&nbsp;</td><td class="CFunction"><a href="../types/SE_Data_Table_Sub_Extent.htm">SE_Data_Table_Sub_Extent</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction">*</td><td class="CFunction"><a name="extents_ptr"></a>extents_ptr,</td><td class="CFunction"><sup><A href="#Notes_extents_ptr">2</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../../drm/types/SE_Integer_Positive.htm">SE_Integer_Positive</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"> </td><td class="CFunction"><a name="element_count"></a>element_count,</td><td class="CFunction"><sup><A href="#Notes_element_count">3</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">const&nbsp;</td><td class="CFunction"><a href="../../drm/types/SE_Integer_Positive.htm">SE_Integer_Positive</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"> </td><td class="CFunction"><a name="element_indices"></a>element_indices[],</td><td class="CFunction"><sup><A href="#Notes_element_indices">4</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../types/SE_Store.htm">SE_Store</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"> </td><td class="CFunction"><a name="store_in"></a>store_in,</td><td class="CFunction"><sup><A href="#Notes_store_in">5</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../../drm/types/SE_Data_Table_Data.htm">SE_Data_Table_Data</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction">*</td><td class="CFunction"><a name="data_table_data_ptr"></a>data_table_data_ptr</td><td class="CFunction"><sup><A href="#Notes_data_table_data_ptr">6</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+  This function is used to allocate the memory associated with the
+  cell data of a <A href="../../drm/classes/DataTable.htm">&lt;Data Table&gt;</A> instance. It
+  is provided as a convenience function for users who are inserting
+  data into the <A href="../../drm/classes/DataTable.htm">&lt;Data Table&gt;</A> instance. The
+  memory allocated is managed by the <A href="../types/SE_Store.htm">SE_Store</A>
+  passed into this function.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A>
+</td><td class="Status">
+ and the requested memory is allocated
+</td></tr>
+<tr><td class="Status">
+<A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A>
+</td><td class="Status">
+ and the status code is set appropriately if the call failed.
+</td></tr>
+</table>
+
+<h3>Status Codes</h3>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+   <A href="../types/SE_Return_Code.htm#SE_RETCOD_SUCCESS">SE_RETCOD_SUCCESS</A>
+   is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+ <A href="../types/SE_Status_Code.htm#SE_STATCODE_SUCCESS">SE_STATCODE_SUCCESS</A>
+</td><td class="Status">
+ set upon successful completion.
+</td></tr>
+</table>
+<P><B><A href="../types/SE_Status_Code.htm">SE_Status_Code</A>(s) when
+ <A href="../types/SE_Return_Code.htm#SE_RETCOD_FAILURE">SE_RETCOD_FAILURE</A> is returned:</B>
+</P>
+<table class="Status">
+<tr><td class="Status">
+ <A href="../types/SE_Status_Code.htm#SE_STATCODE_C_STORE_INVALID">SE_STATCODE_C_STORE_INVALID</A>
+</td><td class="Status">
+  set if <A href="#store_in">store_in</A> is not a handle to
+ a valid <A href="../types/SE_Store.htm">SE_Store</A>.
+</td></tr>
+<tr><td class="Status">
+ <A href="../types/SE_Status_Code.htm#SE_STATCODE_INACTIONABLE_FAILURE">SE_STATCODE_INACTIONABLE_FAILURE</A>
+</td><td class="Status">
+ set if the call fails for any other reason.
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#data_table" name="Notes_data_table">1</a></sup>
+ the &lt;Data Table&gt; object whose cell data are being allocated
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#extents_ptr" name="Notes_extents_ptr">2</a></sup>
+ indicates the cells that the user wants allocated
+    (which 'region' of the &lt;Data Table&gt; to insert).
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#element_count" name="Notes_element_count">3</a></sup>
+ the number of elements per cell to allocate
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#element_indices" name="Notes_element_indices">4</a></sup>
+ an array of indices into the ordered list of
+   &lt;Table Property Description&gt; components of data_table.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#store_in" name="Notes_store_in">5</a></sup>
+ the store that is used to manage the allocated memory.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#data_table_data_ptr" name="Notes_data_table_data_ptr">6</a></sup>
+ pointer to a pointer to a block of memory allocated
+    by this function to hold the &lt;Data Table&gt;. Freeing this block
+    of memory is the caller's (i.e., ultimately the user's)
+    responsibility.
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SE_AddComponentRelationship.htm">SE_AddComponentRelationship</a>.
+<strong>Next:</strong> <a href="SE_CloneObjectHandle.htm">SE_CloneObjectHandle</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE GetSizeOfImageData</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>SEDRIS Reference Manual</big></big>
+<br>
+<font color="#FFFFFF">
+APPENDIX B - Transmittal Access Level 1 API
+</font>
+<br>
+<!-- API spec. 4.1 -->
+<font color="#ffffff">
+Functions
+</font>
+<br>
+<font color="#ffffff">
+SE GetSizeOfImageData
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<table class="CFunctionPrototype">
+<tr><td class="CFunction" colspan = "4">extern <a href="../../taccess0/types/SE_Status_Code.htm">SE_Status_Code</a></td></tr>
+<tr><td class="CFunction" colspan = "4">SE_GetSizeOfImageData</td></tr>
+<tr><td class="CFunction">(</td>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../../taccess0/types/SE_Object.htm">SE_Object</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="image"></a>image,</td><td class="CFunction"><sup><A href="#Notes_image">1</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">const&nbsp;</td><td class="CFunction"><a href="../../taccess0/types/SE_Image_Texel_Location_3D.htm">SE_Image_Texel_Location_3D</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="start_texel"></a>start_texel,</td><td class="CFunction"><sup><A href="#Notes_start_texel">2</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">const&nbsp;</td><td class="CFunction"><a href="../../taccess0/types/SE_Image_Texel_Location_3D.htm">SE_Image_Texel_Location_3D</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="stop_texel"></a>stop_texel,</td><td class="CFunction"><sup><A href="#Notes_stop_texel">3</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../../drm/types/SE_Short_Integer_Unsigned.htm">SE_Short_Integer_Unsigned</a>&nbsp;</td> <td class="CFunction"> </td><td class="CFunction"><a name="mip_level"></a>mip_level,</td><td class="CFunction"><sup><A href="#Notes_mip_level">4</A></sup></td></tr>
+<tr class="CFunctionIndent1"><td class="CFunction">     </td><td class="CFunction"><a href="../../drm/types/SE_Integer_Unsigned.htm">SE_Integer_Unsigned</a>&nbsp;</td> <td class="CFunction">*</td><td class="CFunction"><a name="byte_count_out_ptr"></a>byte_count_out_ptr</td><td class="CFunction"><sup><A href="#Notes_byte_count_out_ptr">5</A></sup></td></tr>
+
+<tr><td class="CFunction">);</td></tr>
+</table>
+<h3>Definition</h3>
+<p>
+ Computes the number of bytes needed in order to store a sub-image
+ of the given texel extents.
+</P><P>
+ This function can be used to determine how much space to allocate for
+ a call to the level 0 API function
+ <A href="../../taccess0/functions/SE_GetImageData.htm">SE_GetImageData()</A>.
+</P><P>
+ An <A href="../../drm/classes/Image.htm">&lt;Image&gt;</A> is a set of 2 or 3 dimensional
+ collections of texel values.
+ The number of MIP levels for the &lt;Image&gt; defines the number of 2 or
+ 3 dimensional collections in the image.  The definition of the &lt;Image&gt;
+ will define the number of texels in each MIP level and the number of
+ bits (not just bytes, but bits) for each texel.
+
+</p>
+<br>
+<h3>Returns</h3>
+<table class="Status">
+<tr><td class="Status">
+<A href="../../taccess0/types/SE_Status_Code.htm#SE_STATCODE_SUCCESS">SE_STATCODE_SUCCESS</A>
+</td><td class="Status">
+ and <A href="#byte_count_out_ptr">*byte_count_out_ptr</A> is set
+ to the appropriate value, if valid parameters were passed in.
+</td></tr>
+<tr><td class="Status">
+<A href="../../taccess0/types/SE_Status_Code.htm#SE_STATCODE_UNRESOLVED_OUTPUT_OBJECT">SE_STATCODE_UNRESOLVED_OUTPUT_OBJECT</A>
+</td><td class="Status">
+ and <A href="#byte_count_out_ptr">*byte_count_out_ptr</A>
+ is set to zero (0), if <A href="#image">image</A> is unresolved.
+</td></tr>
+<tr><td class="Status">
+<A href="../../taccess0/types/SE_Status_Code.htm#SE_STATCODE_INACTIONABLE_FAILURE">SE_STATCODE_INACTIONABLE_FAILURE</A>
+</td><td class="Status">
+ and <A href="#byte_count_out_ptr">*byte_count_out_ptr</A>
+ is set to zero (0), if
+<OL>
+<LI> <A href="../../drm/classes/Image.htm#level_count">level_count</A>
+ or <A href="../../drm/classes/Image.htm#mip_extents_array">mip_extents_array</A>
+ are NULL in <A href="#image">image</A>,
+</LI>
+<LI> <A href="#image">image's</A> fields
+ are otherwise invalid or cannot be retrieved,
+</LI>
+<LI><A href="#mip_level">mip_level</A> is out of range for
+ <A href="#image">image</A>,
+</LI>
+<LI> any start or stop texels were invalid for
+ <A href="#image">image</A>, or
+</LI>
+<LI> the call fails for any other reason.
+</LI>
+</OL>
+</td></tr>
+</table>
+
+<hr><h2>Parameters Notes</h2>
+
+<p class="DataItemNote">
+<sup><a href="#image" name="Notes_image">1</a></sup>
+ the &lt;Image&gt; instance
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#start_texel" name="Notes_start_texel">2</a></sup>
+ the starting texel index of the &lt;Image&gt; instance
+    data to be retrieved; must be less than or equal to stop_texel,
+    and must be valid for the specified MIP level of image.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#stop_texel" name="Notes_stop_texel">3</a></sup>
+ the stopping texel index of the &lt;Image&gt; instance
+    data to be retrieved; must be greater than or equal to start_texel,
+    and must be valid for the specified MIP level of image.
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#mip_level" name="Notes_mip_level">4</a></sup>
+ the MIP level of the &lt;Image&gt; from which the data size will be
+    returned.  Each &lt;Image&gt; has at least one MIP level.  Many &lt;Image&gt;s have
+    multiple MIP levels.  Data can only be retrieved from one mip level
+    at a time (only one MIP level per SE_GetSizeOfImageData() call).
+</p>
+
+<p class="DataItemNote">
+<sup><a href="#byte_count_out_ptr" name="Notes_byte_count_out_ptr">5</a></sup>
+ a pointer to the variable in the user's memory
+    space where the number of bytes needed to store the specified
+    sub-image will be stored.
+</p>
+
+<p>
+<hr>
+<p>
+<strong>Prev:</strong> <a href="SE_GetRearrangedImageData.htm">SE_GetRearrangedImageData</a>.
+<strong>Next:</strong> <a href="SE_ImageNameFromImageMappingFunction.htm">SE_ImageNameFromImageMappingFunction</a>.
+<strong>Up:</strong><a href="index.htm">Index</a>.
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

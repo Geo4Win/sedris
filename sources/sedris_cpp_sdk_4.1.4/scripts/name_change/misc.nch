@@ -1,0 +1,141 @@
+#############################################################################################
+#
+# New file for miscellaneous string changes, mainly fields.
+# Currently this file contains all SRM_SRF_Parameters and Location fields
+# and a few misc. at the beginning.
+#
+##############################################################################################
+#
+SE_Fields                             SE_DRM_Class_Fields
+SE_NUM_DRM_CLASSES                    SE_DRM_CLASS_UBOUND
+
+Access.access_constraints             Legal_Constraints.access_constraints
+Access.use_constraints                Legal_Constraints.use_constraints
+Access.other_constraints              Legal_Constraints.other_constraints
+Access.security.classification        Security_Constraints.classification
+Access.security.user_note             Security_Constraints.user_note
+Access.security.classification_system Security_Constraints.classification_system
+Access.security.handling_description  Security_Constraints.handling_description
+Control_Link.expr_index               Control_Link.expression_index
+Control_Link.lower_expr_index         Control_Link.lower_expression_index
+Control_Link.upper_expr_index         Control_Link.upper_expression_index
+contact_information.voice_phone   contact_information.phone.voice
+contact_information.fax_phone     contact_information.phone.facsimile
+contact_information.tdd_tty_phone contact_information.phone.tdd_tty
+#
+######################################################
+# SRM_SRF_Info => SE_SRF_Context_Info Fields Section:  #
+######################################################
+#
+srf_info.vos_code        srf_context_info.dss_code
+#srf_info.srf_params_info srf_context_info.srf_parameters_info
+srf_info.srf_params_info.srf_params_info srf_context_info.srf_parameters_info.value
+
+# SRM_SRF_Set_Info => SRM_SRFS_Info
+srf_set.orm_params.orm_code srf_set.orm_code
+srf_set.hsr_params.orm_code rt_code
+srf_set.set_code            srf_set.srfs_code_info.srfs_code
+srf_set.member_code         srf_set.srfs_code_info.value
+
+# SRF_Template_Parameters => SRM_SRFT_Parameters
+# The SRM_ORM_Code remained within the srf_template,
+# but the SRM_RT_Code moved up one more level in the structure
+parameters.cc_srf_params.orm_code    orm_code
+parameters.cd_srf_params.orm_code    orm_code
+parameters.pd_srf_params.orm_code    orm_code
+parameters.cm_srf_params.orm_code    orm_code
+parameters.ei_srf_params.orm_code    orm_code
+parameters.sec_srf_params.orm_code   orm_code
+parameters.seq_srf_params.orm_code   orm_code
+parameters.sms_srf_params.orm_code   orm_code
+parameters.sm_srf_params.orm_code    orm_code
+parameters.haec_srf_params.orm_code  orm_code
+parameters.heec_srf_params.orm_code  orm_code
+parameters.heeq_srf_params.orm_code  orm_code
+parameters.om_srf_params.orm_code    orm_code
+parameters.az_srf_params.orm_code    orm_code
+parameters.polar_srf_params.orm_code orm_code
+srf_template.parameters.cc_srf_params.hsr_code    rt_code
+srf_template.parameters.cd_srf_params.hsr_code    rt_code
+srf_template.parameters.pd_srf_params.hsr_code    rt_code
+srf_template.parameters.cm_srf_params.hsr_code    rt_code
+srf_template.parameters.ei_srf_params.hsr_code    rt_code
+srf_template.parameters.sec_srf_params.hsr_code   rt_code
+srf_template.parameters.seq_srf_params.hsr_code   rt_code
+srf_template.parameters.sms_srf_params.hsr_code   rt_code
+srf_template.parameters.sm_srf_params.hsr_code    rt_code
+srf_template.parameters.haec_srf_params.hsr_code  rt_code
+srf_template.parameters.heec_srf_params.hsr_code  rt_code
+srf_template.parameters.heeq_srf_params.hsr_code  rt_code
+srf_template.parameters.om_srf_params.hsr_code    rt_code
+srf_template.parameters.az_srf_params.hsr_code    rt_code
+srf_template.parameters.polar_srf_params.hsr_code rt_code
+lsr_3d_srf_params.lsr_3d_params lsr_3d_srf_parameters
+lsr_2d_srf_params.lsr_2d_params lsr_3d_srf_parameters
+ltse_srf_params.ltse_params     ltse_srf_parameters
+ltsas_srf_params.ltsas_params   ltsas_srf_parameters
+ltsc_srf_params.ltsc_params     ltsc_srf_parameters
+m_srf_params.m_params           m_srf_parameters
+om_srf_params.om_params         oms_srf_parameters
+tm_srf_params.m_params          tm_srf_parameters
+lcc_srf_params.lcc_params       lcc_srf_parameters
+ps_srf_params.ps_params         ps_srf_parameters
+ec_srf_params.ec_params         ec_srf_parameters
+lce_srf_params.lce_params       lce_srf_parameters
+parameters.lsr_3d_srf_params.orm_params.orm_code orm_code
+parameters.lsr_2d_srf_params.orm_params.orm_code orm_code
+parameters.ltse_srf_params.orm_params.orm_code   orm_code
+parameters.ltsas_srf_params.orm_params.orm_code  orm_code
+parameters.ltsc_srf_params.orm_params.orm_code   orm_code
+parameters.m_srf_params.orm_params.orm_code   orm_code
+parameters.om_srf_params.orm_params.orm_code  orm_code
+parameters.tm_srf_params.orm_params.orm_code  orm_code
+parameters.lcc_srf_params.orm_params.orm_code orm_code
+parameters.ps_srf_params.orm_params.orm_code  orm_code
+parameters.ec_srf_params.orm_params.orm_code  orm_code
+parameters.lce_srf_params.orm_params.orm_code orm_code
+srf_template.parameters.lsr_3d_srf_params.orm_params.hsr_code rt_code
+srf_template.parameters.lsr_2d_srf_params.orm_params.hsr_code rt_code
+srf_template.parameters.ltse_srf_params.orm_params.hsr_code   rt_code
+srf_template.parameters.ltsas_srf_params.orm_params.hsr_code  rt_code
+srf_template.parameters.ltsc_srf_params.orm_params.hsr_code   rt_code
+srf_template.parameters.m_srf_params.orm_params.hsr_code   rt_code
+srf_template.parameters.om_srf_params.orm_params.hsr_code  rt_code
+srf_template.parameters.tm_srf_params.orm_params.hsr_code  rt_code
+srf_template.parameters.lcc_srf_params.orm_params.hsr_code rt_code
+srf_template.parameters.ps_srf_params.orm_params.hsr_code  rt_code
+srf_template.parameters.ec_srf_params.orm_params.hsr_code  rt_code
+srf_template.parameters.lce_srf_params.orm_params.hsr_code rt_code
+
+# macros
+SE_ASSOCIATION                 SE_ASSOCIATE_MATCH(SE_CLS_DRM_NULL)
+SE_ASSOCIATION_DRM_CLASS_MATCH SE_ASSOCIATE_MATCH
+
+SE_CloneAltHierarchyParameters         SE_CloneAlternateHierarchyParameters
+SE_CloneRelativeToAbsTimeIntervalEntry SE_CloneRelativeToAbsoluteTimeIntervalEntry
+SE_CloneRelativeToAbsTimePointEntry    SE_CloneRelativeToAbsoluteTimeEntry
+SE_CloneObject                         SE_CloneObjectHandle
+SE_CloneAttributeValue                EDCS_CloneAttributeValue
+SE_CompareAttributeValues             EDCS_CompareAttributeValues
+SE_ComparePropertyTypes               SE_ComparePropertyCodes
+SE_ConvertCoordToFields               SE_ConvertCoordinateToFields
+SE_ConvertFieldsToCoord               SE_ConvertFieldsToCoordinate
+SE_CreateSRFFromSRFInfo               SE_CreateObjectReferenceFromSRFContextInfo
+SE_FreeAltHierarchyParameters         SE_FreeAlternateHierarchyParameters
+SE_FreeAttributeValue                 EDCS_FreeAttributeValue
+SE_FreeRelativeToAbsTimeIntervalEntry SE_FreeRelativeToAbsoluteTimeIntervalEntry
+SE_FreeRelativeToAbsTimePointEntry    SE_FreeRelativeToAbsoluteTimeEntry
+SE_GetSRFInfo                         SE_GetSRFContextInfo
+SE_GetSRFTCodeFromSRFInfo             SE_GetSRFTCodeFromSRFContextInfo
+SE_GetTransmittalFile                 SE_GetTransmittalLocation
+SE_OpenTransmittalByFile              SE_OpenTransmittalByLocation
+SE_PrintFields                        SE_PrintDRMClassFields
+SE_SetSRFInfo                         SE_SetSRFContextInfo
+SE_SRFInfoEqual                       SE_SRFContextInfoEqual
+SE_UseDefaultSRFInfo                  SE_UseDefaultSRFContextInfo
+SE_ValidFields                        SE_ValidDRMClassFields
+SE_AttributeValueToLongFloat          EDCS_AttributeValueToLongFloat
+EDCS_PrintScaleDictionaryEntry        EDCS_PrintUnitScaleDictionaryEntry
+EDCS_PrintScaleCode                   EDCS_PrintUnitScaleCode
+EDCS_PrintUnitScaleLabel              EDCS_PrintUnitScaleLabel
+EDCS_ValidScaleCode                   EDCS_ValidUnitScaleCode

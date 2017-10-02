@@ -1,0 +1,389 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE_Variable_Code</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX C - Types
+</font>
+<br>
+<font color="#ffffff">
+SE_Variable_Code
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<PRE>
+/*
+ * REGISTERABLE ENUM: SE_Variable_Code
+ *
+ *   This data type specifies the meaning of some quantity being
+ *   used to drive one of the controlling &lt;Expression&gt; components of a
+ *   &lt;Control Link&gt; instance.
+ *
+ *   Most often, such &lt;Control Link&gt; instances are driven by &lt;Variable&gt;
+ *   instances, but they can also be driven by &lt;Predefined Function&gt;
+ *   instances that are driven by a &lt;Property Table Reference&gt;.
+ *
+ *   Consequently, some of these codes may appear within the context
+ *   of &lt;Property Table&gt; instances as well as &lt;Variable&gt; instances.
+ */
+</PRE><span class="Code">
+typedef <a href="SE_Short_Integer.htm">SE_Short_Integer</a> SE_Variable_Code;
+</span>
+<table>
+<tr><th>Enumerant</th> <th>Definition</th> <th>Value</th></tr>
+<tr><td class="CFunction"><a name="SE_VARCOD_ACTIVE_STATE_VALUE">SE_VARCOD_ACTIVE_STATE_VALUE</a></td>
+<td class="CFunction"><PRE>
+ Specifies, for the aggregating &lt;State Control Link&gt; instance, the
+ active_state_value field of the target &lt;State Related Features&gt;
+ and &lt;State Related Geometry&gt; instances.
+
+ Abstract Value Type Binding: either REAL or ENUMERATION or BOOLEAN
+</PRE></td>
+<td class="CFunction">1</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_VARCOD_CLR_COORDINATE_1">SE_VARCOD_CLR_COORDINATE_1</a></td>
+<td class="CFunction"><PRE>
+ Specifies, for the aggregating &lt;Control Link&gt; instance, the
+ first colour coordinate of the target &lt;Colour Data&gt; instance(s).
+
+ For example, in the context of a &lt;RGB Colour Control Link&gt; instance,
+ the target &lt;Colour Data&gt; instance is an &lt;RGB Colour&gt; instance, the
+ first colour coordinate of which is its red field.
+
+ Abstract Value Type Binding: REAL
+</PRE></td>
+<td class="CFunction">2</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_VARCOD_CLR_COORDINATE_2">SE_VARCOD_CLR_COORDINATE_2</a></td>
+<td class="CFunction"><PRE>
+ Specifies, for the aggregating &lt;Control Link&gt; instance, the
+ second colour coordinate of the target &lt;Colour Data&gt; instance(s).
+
+ For example, in the context of a &lt;RGB Colour Control Link&gt; instance,
+ the target &lt;Colour Data&gt; instance is an &lt;RGB Colour&gt; instance, the
+ first colour coordinate of which is its green field.
+
+ Abstract Value Type Binding: REAL
+</PRE></td>
+<td class="CFunction">3</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_VARCOD_CLR_COORDINATE_3">SE_VARCOD_CLR_COORDINATE_3</a></td>
+<td class="CFunction"><PRE>
+ Specifies, for the aggregating &lt;Control Link&gt; instance, the
+ second colour coordinate of the target &lt;Colour Data&gt; instance(s).
+
+ For example, in the context of a &lt;RGB Colour Control Link&gt; instance,
+ the target &lt;Colour Data&gt; instance is an &lt;RGB Colour&gt; instance, the
+ first colour coordinate of which is its blue field.
+
+ Abstract Value Type Binding: REAL
+</PRE></td>
+<td class="CFunction">4</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_VARCOD_CLR_INDEX">SE_VARCOD_CLR_INDEX</a></td>
+<td class="CFunction"><PRE>
+ Specifies, for the aggregating &lt;Colour Index Control Link&gt; instance,
+ the index field of the target &lt;Colour Index&gt; instance(s).
+
+ Abstract Value Type Binding: COUNT
+</PRE></td>
+<td class="CFunction">5</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_VARCOD_CLR_INTENSITY_LEVEL">SE_VARCOD_CLR_INTENSITY_LEVEL</a></td>
+<td class="CFunction"><PRE>
+ Specifies, for the aggregating &lt;Colour Index Control Link&gt; instance,
+ the intensity_level field of the target &lt;Colour Index&gt;
+ instance(s).
+
+ Abstract Value Type Binding: REAL
+</PRE></td>
+<td class="CFunction">6</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_VARCOD_GEOMETRY_TEXTURE">SE_VARCOD_GEOMETRY_TEXTURE</a></td>
+<td class="CFunction"><PRE>
+ Used in specifying the texture of the object described by the
+ &lt;Expression&gt; instance of which the given &lt;Variable&gt; instance
+ is a part.
+
+ For example, this &lt;Variable&gt; instance can be plugged into the
+ controlling &lt;Expression&gt; component of a &lt;Texture Coordinate Control Link&gt;
+ instance to allow a runtime texture to be switched to change the visual
+ markings on a &lt;Geometry Model Instance&gt; instance representing a vehicle.
+
+ Abstract Value Type Binding: BOOLEAN
+</PRE></td>
+<td class="CFunction">7</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_VARCOD_HEAT_PRODUCTION">SE_VARCOD_HEAT_PRODUCTION</a></td>
+<td class="CFunction"><PRE>
+ Specifies the heat production status of the object described
+ by the &lt;Expression&gt; instance of which the given &lt;Variable&gt;
+ instance is a part.
+
+ For example, this &lt;Variable&gt; instance can be plugged into the
+ controlling &lt;Expression&gt; component of a
+ &lt;Property Table Reference Control Link&gt; instance to
+ allow a runtime &quot;material code&quot; to be switched from the default
+ IR value to a &quot;heat producing&quot; IR value.
+
+ Abstract Value Type Binding: BOOLEAN
+</PRE></td>
+<td class="CFunction">8</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_VARCOD_LIGHT_SOURCE_ACTIVE">SE_VARCOD_LIGHT_SOURCE_ACTIVE</a></td>
+<td class="CFunction"><PRE>
+ Specifies, for the aggregating &lt;Light Source Control Link&gt;
+ instance, the active field of the target &lt;Light Source&gt;
+ instance(s).
+
+ Abstract Value Type Binding: BOOLEAN
+</PRE></td>
+<td class="CFunction">9</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_VARCOD_LGT_RENDER_PROP_ACTIVE">SE_VARCOD_LGT_RENDER_PROP_ACTIVE</a></td>
+<td class="CFunction"><PRE>
+ Specifies, for the aggregating &lt;Light Rendering Properties Control Link&gt;
+ instance, the active field of the target &lt;Light Rendering Properties&gt;
+ instance(s).
+
+ Abstract Value Type Binding: BOOLEAN
+</PRE></td>
+<td class="CFunction">10</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_VARCOD_LGT_RENDER_PROP_CANDELA_VALUE">SE_VARCOD_LGT_RENDER_PROP_CANDELA_VALUE</a></td>
+<td class="CFunction"><PRE>
+ Specifies, for the aggregating &lt;Light Rendering Properties Control Link&gt;
+ instance, the candela_value field of the target &lt;Light Rendering Properties&gt;
+ instance(s).
+
+ Abstract Value Type Binding: REAL
+</PRE></td>
+<td class="CFunction">11</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_VARCOD_LSR_3D_LOCATION_U">SE_VARCOD_LSR_3D_LOCATION_U</a></td>
+<td class="CFunction"><PRE>
+ Specifies, for the aggregating &lt;LSR 3D Location Control Link&gt; instance,
+ the coordinate.u field of the target &lt;LSR 3D Location&gt; instance(s).
+
+ Abstract Value Type Binding: REAL
+</PRE></td>
+<td class="CFunction">12</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_VARCOD_LSR_3D_LOCATION_V">SE_VARCOD_LSR_3D_LOCATION_V</a></td>
+<td class="CFunction"><PRE>
+ Specifies, for the aggregating &lt;LSR 3D Location Control Link&gt; instance,
+ the coordinate.v field of the target &lt;LSR 3D Location&gt; instance(s).
+
+ Abstract Value Type Binding: REAL
+</PRE></td>
+<td class="CFunction">13</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_VARCOD_LSR_3D_LOCATION_W">SE_VARCOD_LSR_3D_LOCATION_W</a></td>
+<td class="CFunction"><PRE>
+ Specifies, for the aggregating &lt;LSR 3D Location Control Link&gt; instance,
+ the coordinate.w field of the target &lt;LSR 3D Location&gt; instance(s).
+
+ Abstract Value Type Binding: REAL
+</PRE></td>
+<td class="CFunction">14</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_VARCOD_POLY_FLAGS_COLLIDIBLE">SE_VARCOD_POLY_FLAGS_COLLIDIBLE</a></td>
+<td class="CFunction"><PRE>
+ Specifies, for the aggregating &lt;Polygon Control Link&gt; instance, the
+ COLLIDIBLE flag of the target &lt;Polygon&gt; instance(s).
+
+ Abstract Value Type Binding: BOOLEAN
+</PRE></td>
+<td class="CFunction">15</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_VARCOD_POLY_FLAGS_HAT_TEST">SE_VARCOD_POLY_FLAGS_HAT_TEST</a></td>
+<td class="CFunction"><PRE>
+ Specifies, for the aggregating &lt;Polygon Control Link&gt; instance, the
+ HAT_TEST flag of the target &lt;Polygon&gt; instance(s).
+
+ Abstract Value Type Binding: BOOLEAN
+</PRE></td>
+<td class="CFunction">16</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_VARCOD_POLY_FLAGS_INVISIBLE">SE_VARCOD_POLY_FLAGS_INVISIBLE</a></td>
+<td class="CFunction"><PRE>
+ Specifies, for the aggregating &lt;Polygon Control Link&gt;, the
+ INVISIBLE flag of the target &lt;Polygon&gt; instance(s).
+
+ Abstract Value Type Binding: BOOLEAN
+</PRE></td>
+<td class="CFunction">17</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_VARCOD_POLY_FLAGS_LASER_RNG_FIND">SE_VARCOD_POLY_FLAGS_LASER_RNG_FIND</a></td>
+<td class="CFunction"><PRE>
+ Specifies, for the aggregating &lt;Polygon Control Link&gt; instance,
+ the LASER_RANGE_FINDING flag of the target &lt;Polygon&gt; instance(s).
+
+ Abstract Value Type Binding: BOOLEAN
+</PRE></td>
+<td class="CFunction">18</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_VARCOD_PROPERTY_SET_INDEX">SE_VARCOD_PROPERTY_SET_INDEX</a></td>
+<td class="CFunction"><PRE>
+ Specifies, for the aggregating &lt;Property Set Index Control Link&gt;
+ instance, the index field of the target &lt;Property Set Index&gt; instance(s).
+
+ Abstract Value Type Binding: COUNT
+</PRE></td>
+<td class="CFunction">19</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_VARCOD_PROP_TABLE_REF_ON_AXIS">SE_VARCOD_PROP_TABLE_REF_ON_AXIS</a></td>
+<td class="CFunction"><PRE>
+ Specifies, for the aggregating &lt;Property Table Reference Control Link&gt;
+ instance, the index_on_axis field of the target
+ &lt;Property Table Reference&gt; instance(s).
+
+ Abstract Value Type Binding: COUNT
+</PRE></td>
+<td class="CFunction">20</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_VARCOD_REF_VEC_V0">SE_VARCOD_REF_VEC_V0</a></td>
+<td class="CFunction"><PRE>
+ Specifies, for the aggregating &lt;Reference Vector Control Link&gt; instance,
+ the first vector component of the vector field of the target
+ &lt;Reference Vector&gt; instance(s).
+
+ Abstract Value Type Binding: REAL
+</PRE></td>
+<td class="CFunction">21</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_VARCOD_REF_VEC_V1">SE_VARCOD_REF_VEC_V1</a></td>
+<td class="CFunction"><PRE>
+ Specifies, for the aggregating &lt;Reference Vector Control Link&gt; instance,
+ the second vector component of the vector field of the target
+ &lt;Reference Vector&gt; instance(s).
+
+ Abstract Value Type Binding: REAL
+</PRE></td>
+<td class="CFunction">22</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_VARCOD_REF_VEC_V2">SE_VARCOD_REF_VEC_V2</a></td>
+<td class="CFunction"><PRE>
+ Specifies, for the aggregating &lt;Reference Vector Control Link&gt; instance,
+ the third vector component of the vector field of the target
+ &lt;Reference Vector&gt; instance(s).
+
+ Abstract Value Type Binding: REAL
+</PRE></td>
+<td class="CFunction">23</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_VARCOD_ROTATION_ANGLE">SE_VARCOD_ROTATION_ANGLE</a></td>
+<td class="CFunction"><PRE>
+ Specifies, for the aggregating &lt;Rotation Control Link&gt; instance,
+ the angle field of the target &lt;Rotation&gt; instance(s).
+
+ Abstract Value Type Binding: REAL
+
+ $$$ note: rotation limits - need codes?
+</PRE></td>
+<td class="CFunction">24</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_VARCOD_SCALE_AMOUNT">SE_VARCOD_SCALE_AMOUNT</a></td>
+<td class="CFunction"><PRE>
+ Specifies, for the aggregating &lt;Scale Control Link&gt; instance,
+ the scale_factor field of the target &lt;Scale&gt; instance(s).
+
+ Abstract Value Type Binding: REAL
+
+ $$$ note: scale limits - need codes?
+</PRE></td>
+<td class="CFunction">25</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_VARCOD_SOUND_INSTANCE_ACTIVE">SE_VARCOD_SOUND_INSTANCE_ACTIVE</a></td>
+<td class="CFunction"><PRE>
+ Specifies, for the aggregating &lt;Sound Instance Control Link&gt; instance,
+ the active field of the target &lt;Sound Instance&gt; instance(s).
+
+ Abstract Value Type Binding: BOOLEAN
+</PRE></td>
+<td class="CFunction">26</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_VARCOD_TEXTURE_COORD_S">SE_VARCOD_TEXTURE_COORD_S</a></td>
+<td class="CFunction"><PRE>
+ Specifies, for the aggregating &lt;Texture Coordinate Control Link&gt; instance,
+ the s field of the target &lt;Texture Coordinate&gt; instance(s).
+
+ Abstract Value Type Binding: REAL
+</PRE></td>
+<td class="CFunction">27</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_VARCOD_TEXTURE_COORD_T">SE_VARCOD_TEXTURE_COORD_T</a></td>
+<td class="CFunction"><PRE>
+ Specifies, for the aggregating &lt;Texture Coordinate Control Link&gt; instance,
+ the t field of the target &lt;Texture Coordinate&gt; instance(s).
+
+ Abstract Value Type Binding: REAL
+</PRE></td>
+<td class="CFunction">28</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_VARCOD_TRANSLATION_AMOUNT">SE_VARCOD_TRANSLATION_AMOUNT</a></td>
+<td class="CFunction"><PRE>
+ Specifies, for the aggregating &lt;Translation Control Link&gt; instance,
+ the translation_amount field of the target &lt;Translation&gt; instance(s).
+
+ Abstract Value Type Binding: REAL
+
+ $$$ note: translation limits - need codes?
+</PRE></td>
+<td class="CFunction">29</td>
+</TR>
+<tr><td class="CFunction"><a name="SE_VARCOD_TRANSLUCENCY_VALUE">SE_VARCOD_TRANSLUCENCY_VALUE</a></td>
+<td class="CFunction"><PRE>
+ Specifies, for the aggregating &lt;Translucency Control Link&gt; instance,
+ the translucency_value field of the target &lt;Translucency&gt; instance(s).
+
+ Abstract Value Type Binding: REAL
+</PRE></td>
+<td class="CFunction">30</td>
+</TR>
+</table>
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SE_URN.htm">SE_URN</a>.
+<strong>Next:</strong> <a href="SE_YIQ_Data.htm">SE_YIQ_Data</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

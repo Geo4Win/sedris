@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SE_Contact_Information</title>
+<link rel="stylesheet" href="../../../styles/SDK_SEDRIS.css" type="text/css">
+</head>
+<body>
+
+<a name="Top"></a>
+
+<div class="CenterDiv">
+<table border="2" class="doc_set_header">
+<tr><th>
+<big><big>The SEDRIS Data Representation Model</big></big>
+<br>
+<!-- DRM spec. 4.1 -->
+<font color="#ffffff">
+APPENDIX C - Types
+</font>
+<br>
+<font color="#ffffff">
+SE_Contact_Information
+</font>
+</th></tr>
+</table></div>
+
+<!-- SEDRIS SDK Release 4.1.4 - July 1, 2011 -->
+
+<PRE>
+/*
+ * STRUCT: SE_Contact_Information
+ *
+ *  This data type encapsulates the complete set of
+ *  contact metadata used by &lt;Responsible Party&gt;.
+ */
+</PRE>
+<span class="Code">typedef struct 
+<br>
+{</span>
+<br>
+<table class="CFunctionPrototype">
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Telephone_Information.htm">SE_Telephone_Information</a></td>
+        <td class="CFunction"><a name="phone"></a>phone;</td><td class="CFunction"><sup><A href="#Notes_phone">1</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_Address.htm">SE_Address</a></td>
+        <td class="CFunction"><a name="address"></a>address;</td><td class="CFunction"><sup><A href="#Notes_address">2</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_CI_OnlineResource.htm">SE_CI_OnlineResource</a></td>
+        <td class="CFunction"><a
+        name="online_resource"></a>online_resource;</td><td class="CFunction"><sup><A href="#Notes_online_resource">3</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_String.htm">SE_String</a></td>
+        <td class="CFunction"><a
+        name="hours_of_service"></a>hours_of_service;</td><td class="CFunction"><sup><A href="#Notes_hours_of_service">4</A></sup></td></tr>
+<tr><td class="CFunction">   </td> <td class="CFunction"><a href="SE_String.htm">SE_String</a></td>
+        <td class="CFunction"><a
+        name="contact_instructions"></a>contact_instructions;</td><td class="CFunction"><sup><A href="#Notes_contact_instructions">5</A></sup></td></tr>
+</table>
+<span class="Code">
+} SE_Contact_Information;</span>
+<br>
+
+<br>
+<HR>
+<H2>Field Notes</H2>
+<h4><a href="#phone" name="Notes_phone">phone</a></h4>
+<P>
+ This specifies the telephone number(s) by which individuals
+ can speak to the organization or individual.
+</P>
+<h4><a href="#address" name="Notes_address">address</a></h4>
+<P>
+ This specifies the physical and email address at which
+ the organization or individual may be contacted.
+</P>
+<h4><a href="#online_resource" name="Notes_online_resource">online_resource</a></h4>
+<P>
+ This specifies on-line information that can be used to
+ contact the specified individual or organization.
+</P>
+<h4><a href="#hours_of_service" name="Notes_hours_of_service">hours_of_service</a></h4>
+<P>
+ This specifies the time period (including time zone)
+ when individuals can contact the specified organization
+ or individual.
+</P>
+<h4><a href="#contact_instructions" name="Notes_contact_instructions">contact_instructions</a></h4>
+<P>
+ This specifies any supplemental instructions on how or
+ when to contact the specified individual or organization.
+</P>
+
+<br>
+<hr>
+<br>
+<strong>Prev:</strong> <a href="SE_Colour_Model.htm">SE_Colour_Model</a>.
+<strong>Next:</strong> <a href="SE_Count_Interval_Value.htm">SE_Count_Interval_Value</a>.
+<br>
+<hr>
+<br>
+<font color="#FF0000">Return to:</font>
+<strong><a href="#Top">Top of this Page</a>,
+<a href="index.htm">Type Index</a></strong>
+<br><br>
+<table border="2" class="doc_set_header">
+<tr><td>
+<table border="0" class="doc_set_header">
+<tr>
+<td align="left" class="doc_set_footer">
+Last updated: July 1, 2011
+</td>
+<td align="right" class="doc_set_footer">
+Copyright &copy; 2011 <a href="http://www.sedris.org">SEDRIS</a>&#153;
+
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>
