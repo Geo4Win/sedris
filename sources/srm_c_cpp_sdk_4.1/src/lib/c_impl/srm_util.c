@@ -1211,12 +1211,15 @@ SRM_EnumNameToORMCode
 )
 {
     SRM_Status_Code status = SRM_STATCOD_SUCCESS;
+	int found = 1;
 
     if (!enum_name_in_ptr || !result_out_ptr)
     {
         status = SRM_STATCOD_INACTIONABLE;
+		return status;
     }
-    else if (strncmp(enum_name_in_ptr,
+    //else 
+	if (strncmp(enum_name_in_ptr,
              "SRM_ORMCOD_", 11) != 0)
     {
         status = SRM_STATCOD_INACTIONABLE;
@@ -1995,8 +1998,14 @@ SRM_EnumNameToORMCode
              "SRM_ORMCOD_MIRANDA_1988") == 0)
     {
         *result_out_ptr = SRM_ORMCOD_MIRANDA_1988;
-    }
-    else if (strcmp(enum_name_in_ptr,
+	}
+	else {
+		found = 0;
+}
+	if (found) { return status; }
+
+    //else 
+	if (strcmp(enum_name_in_ptr,
              "SRM_ORMCOD_MM5_1997") == 0)
     {
         *result_out_ptr = SRM_ORMCOD_MM5_1997;
@@ -3403,12 +3412,15 @@ SRM_EnumNameToRTCode
 )
 {
     SRM_Status_Code status = SRM_STATCOD_SUCCESS;
+	int found = 1;
 
     if (!enum_name_in_ptr || !result_out_ptr)
     {
         status = SRM_STATCOD_INACTIONABLE;
+		return status;
     }
-    else if (strncmp(enum_name_in_ptr,
+    //else 
+	if (strncmp(enum_name_in_ptr,
              "SRM_RTCOD_", 10) != 0)
     {
         status = SRM_STATCOD_INACTIONABLE;
@@ -3987,8 +3999,14 @@ SRM_EnumNameToRTCode
              "SRM_RTCOD_GEOMAGNETIC_1980_DGRF") == 0)
     {
         *result_out_ptr = SRM_RTCOD_GEOMAGNETIC_1980_DGRF;
-    }
-    else if (strcmp(enum_name_in_ptr,
+	}
+	else {
+		found = 0;
+}
+	if (found) { return status; }
+
+    //else 
+	if (strcmp(enum_name_in_ptr,
              "SRM_RTCOD_GEOMAGNETIC_1985_DGRF") == 0)
     {
         *result_out_ptr = SRM_RTCOD_GEOMAGNETIC_1985_DGRF;
